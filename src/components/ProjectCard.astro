@@ -1,0 +1,81 @@
+---
+import { formatDate } from '@/lib/utils';
+import { localizePath, defaultLang, useTranslations } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+const { project } = Astro.props;
+const { title, description, status, tags, github, demo, date, featured } = project.data;
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+
+const statusConfig: Record<string, { key: 'status.active' | 'status.completed' | 'status.archived'; dot: string }> = {
+  active:    { key: 'status.active',    dot: 'bg-green-400' },
+  completed: { key: 'status.completed', dot: 'bg-blue-400' },
+  archived:  { key: 'status.archived',  dot: 'bg-stone-400' },
+};
+const s = statusConfig[status];
+---
+<article class="card-accent group relative flex flex-col">
+  <div class="flex items-start justify-between gap-3 mb-3">
+    <!-- Title -->
+    <h2 class="font-semibold text-base leading-snug transition-colors duration-150"
+        style="color: rgb(var(--text));">
+      <a href={localizePath(`/projects/${project.slug}`, lang)} class="after:absolute after:inset-0"
+         style="color: inherit; text-decoration: none;">
+        {title}
+      </a>
+    </h2>
+
+    <!-- Status badge -->
+    <span class="shrink-0 inline-flex items-center gap-1.5 text-xs font-medium px-2 py-0.5 rounded-full"
+          style="background: rgb(var(--surface-2)); color: rgb(var(--text-2)); border: 1px solid rgb(var(--border)); position: relative; z-index: 1;">
+      <span class={`w-1.5 h-1.5 rounded-full ${s.dot}`}></span>
+      {t(s.key)}
+    </span>
+  </div>
+
+  <p class="text-sm leading-relaxed line-clamp-3 mb-4 flex-1"
+     style="color: rgb(var(--text-2));">
+    {description}
+  </p>
+
+  <!-- Tags -->
+  <div class="flex flex-wrap gap-1.5 mb-4">
+    {tags.map(tag => <span class="tag">{tag}</span>)}
+  </div>
+
+  <!-- Footer row -->
+  <div class="flex items-center gap-4 text-xs mt-auto"
+       style="color: rgb(var(--muted)); position: relative; z-index: 1;">
+    {github && (
+      <a href={github} target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1.5 transition-colors hover:text-[rgb(var(--text))]">
+        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        GitHub
+      </a>
+    )}
+    {demo && (
+      <a href={demo} target="_blank" rel="noopener"
+         class="inline-flex items-center gap-1.5 transition-colors hover:text-[rgb(var(--text))]">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+        </svg>
+        Demo
+      </a>
+    )}
+    <span class="ml-auto tabular font-mono text-[10px]">
+      {formatDate(date, { year: 'numeric', month: 'short' })}
+    </span>
+  </div>
+</article>
+
+<style>
+  article { position: relative; }
+  article:hover h2 { color: var(--accent-text); }
+</style>

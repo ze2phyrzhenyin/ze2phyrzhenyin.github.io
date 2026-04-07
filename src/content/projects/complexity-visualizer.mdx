@@ -1,0 +1,30 @@
+---
+title: "Complexity Atlas"
+description: "An interactive visualization of complexity class relationships — P, NP, PSPACE, BPP, and more — with explanations of oracle separations and known inclusions."
+date: 2024-08-15
+status: completed
+featured: true
+tags: [complexity-theory, visualization, javascript, d3]
+github: https://github.com/yourhandle/complexity-atlas
+demo: https://complexity-atlas.vercel.app
+cover: /images/projects/complexity-atlas.png
+---
+
+## Background
+
+The complexity zoo has hundreds of classes and a tangled web of relationships between them. Most resources present this as a static diagram. I wanted something interactive and pedagogically useful.
+
+## Features
+
+- Force-directed graph of complexity classes and their relationships
+- Click a class to see: definition, canonical complete problems, known inclusions
+- Toggle between "known", "conjectured", and "oracle-relative" relationships
+- Responsive — works on mobile
+
+## Technical Details
+
+Built with D3.js and Svelte. The data is a hand-curated JSON graph based on the Complexity Zoo database. The oracle-separation layer was the most interesting part to implement: it required treating relationship types as a separate edge attribute and blending visual encodings.
+
+## Lessons
+
+This project taught me that the hardest part of visualization is *curation*. Deciding what to include and exclude, how to handle uncertainty, and how to present relationships that are only known relative to oracles — these are editorial decisions as much as technical ones.

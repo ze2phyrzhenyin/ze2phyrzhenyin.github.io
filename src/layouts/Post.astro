@@ -1,0 +1,144 @@
+---
+import Base from './Base.astro';
+import { formatDate, readingTime, categoryBadge } from '@/lib/utils';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'> | CollectionEntry<'essays'>;
+  collection: 'blog' | 'essays';
+}
+const { post, collection } = Astro.props;
+const { title, description, date, tags } = post.data;
+const category = 'category' in post.data ? post.data.category : undefined;
+const hasMath   = 'math' in post.data ? post.data.math : false;
+const rt        = readingTime(post.body ?? '');
+const { headings } = await post.render();
+const filteredH = headings.filter(h => h.depth <= 3);
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t    = useTranslations(lang);
+
+const backLabel = collection === 'blog' ? t('post.back.blog') : t('post.back.essays');
+const backHref  = localizePath(`/${collection}`, lang);
+---
+<Base title={title} description={description} article>
+  <div class="container-wide py-12 lg:py-20">
+    <div class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-14 lg:items-start">
+      <!-- Main -->
+      <article>
+        <div class="mb-8 animate-fade-in">
+          <a href={backHref} class="inline-flex items-center gap-1.5 text-sm transition-colors"
+             style="color: rgb(var(--muted));">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+            {backLabel}
+          </a>
+        </div>
+
+        <header class="mb-10 animate-fade-up">
+          <div class="flex flex-wrap items-center gap-2.5 mb-5 text-sm">
+            {category && (
+              <a href={localizePath(`/blog?cat=${category}`, lang)} class={categoryBadge(category)}
+                 style="position:relative;z-index:1;">{category}</a>
+            )}
+            <time datetime={date.toISOString()} class="font-mono text-xs tabular"
+                  style="color: rgb(var(--muted));">{formatDate(date)}</time>
+            <span style="color: rgb(var(--border-2));">·</span>
+            <span class="text-xs" style="color: rgb(var(--muted));">{rt}</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-5"
+              style="color:rgb(var(--text));font-family:'Inter',sans-serif;letter-spacing:-0.025em;">
+            {title}
+          </h1>
+          <p class="text-lg leading-relaxed mb-5"
+             style="color:rgb(var(--text-2));font-family:Lora,serif;">{description}</p>
+          {tags.length > 0 && (
+            <div class="flex flex-wrap gap-1.5">
+              {tags.map(tag => <span class="tag">#{tag}</span>)}
+            </div>
+          )}
+        </header>
+
+        <div class="mb-10 h-px"
+             style="background:linear-gradient(90deg,var(--accent) 0%,transparent 40%);"></div>
+
+        <div class="prose prose-zinc dark:prose-invert max-w-none animate-fade-up delay-100
+                    prose-headings:scroll-mt-24 prose-img:rounded-2xl prose-img:shadow-md">
+          <slot />
+        </div>
+
+        <div class="mt-16 pt-8 flex items-center justify-between gap-4"
+             style="border-top:1px solid rgb(var(--border));">
+          <a href={backHref} class="inline-flex items-center gap-1.5 text-sm transition-colors"
+             style="color:rgb(var(--muted));">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+            {backLabel}
+          </a>
+          <button id="copy-btn" class="inline-flex items-center gap-1.5 text-xs transition-colors"
+                  style="color:rgb(var(--muted));">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            <span id="copy-label">{t('post.copy')}</span>
+          </button>
+        </div>
+      </article>
+
+      <!-- TOC -->
+      {filteredH.length > 2 && (
+        <aside class="hidden lg:block">
+          <div class="sticky top-24 space-y-1">
+            <p class="section-label mb-3">{t('post.toc')}</p>
+            <nav>
+              {filteredH.map(h => (
+                <a href={`#${h.slug}`} data-heading={h.slug}
+                   class:list={['toc-link', h.depth === 3 && 'pl-6 text-[11px]']}>
+                  {h.text}
+                </a>
+              ))}
+            </nav>
+            {hasMath && (
+              <div class="mt-6 pt-5" style="border-top:1px solid rgb(var(--border));">
+                <p class="section-label mb-2">{t('post.math')}</p>
+                <p class="text-xs leading-relaxed" style="color:rgb(var(--muted));">
+                  Inline: <code class="font-mono text-[10px]">$...$</code><br/>
+                  Display: <code class="font-mono text-[10px]">$$...$$</code>
+                </p>
+              </div>
+            )}
+          </div>
+        </aside>
+      )}
+    </div>
+  </div>
+
+  <script define:vars={{ copyText: t('post.copy'), copiedText: t('post.copied') }}>
+    // TOC highlight
+    const links = document.querySelectorAll('[data-heading]');
+    const observer = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          links.forEach(l => l.classList.remove('active'));
+          document.querySelector(`[data-heading="${e.target.id}"]`)?.classList.add('active');
+          break;
+        }
+      }
+    }, { rootMargin: '-15% 0% -75% 0%' });
+    links.forEach(l => {
+      const el = document.getElementById(l.dataset.heading);
+      if (el) observer.observe(el);
+    });
+    // Copy link
+    document.getElementById('copy-btn')?.addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const label = document.getElementById('copy-label');
+        if (label) { label.textContent = copiedText; setTimeout(() => { label.textContent = copyText; }, 1500); }
+      });
+    });
+  </script>
+</Base>

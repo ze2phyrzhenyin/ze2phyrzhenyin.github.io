@@ -1,0 +1,87 @@
+---
+title: "The Curry–Howard Correspondence: Proofs as Programs"
+description: "An introduction to the deep isomorphism between type systems and intuitionistic logic — where every proof is a program and every proposition is a type."
+date: 2025-03-10
+category: logic
+tags: [type-theory, lambda-calculus, proof-theory, intuitionistic-logic]
+math: true
+toc: true
+---
+
+The Curry–Howard correspondence is one of the most beautiful results in theoretical computer science: it establishes a deep isomorphism between **proof systems** and **type systems**.
+
+## The Core Idea
+
+The fundamental slogan is:
+
+$$
+\text{propositions} \;\cong\; \text{types}, \qquad \text{proofs} \;\cong\; \text{programs}
+$$
+
+More precisely, under the Curry–Howard correspondence:
+
+| Logic | Type Theory |
+|-------|-------------|
+| Proposition $A$ | Type $A$ |
+| Proof of $A$ | Term $t : A$ |
+| $A \Rightarrow B$ | $A \to B$ (function type) |
+| $A \wedge B$ | $A \times B$ (product type) |
+| $A \vee B$ | $A + B$ (sum type) |
+| $\bot$ (false) | `Void` (empty type) |
+
+## Intuitionistic Logic and $\lambda$-Calculus
+
+The correspondence was first observed between:
+- **Intuitionistic propositional logic** (Heyting's formalization)
+- **Simply typed $\lambda$-calculus** (Church's type theory)
+
+A proof of $A \Rightarrow B$ in natural deduction corresponds to a $\lambda$-term of type $A \to B$:
+
+$$
+\frac{\Gamma, x : A \vdash t : B}{\Gamma \vdash \lambda x.\, t : A \to B} \quad (\text{$\Rightarrow$-intro})
+$$
+
+The modus ponens rule $\frac{A \Rightarrow B \quad A}{B}$ corresponds to function application:
+
+$$
+\frac{\Gamma \vdash f : A \to B \quad \Gamma \vdash a : A}{\Gamma \vdash f\,a : B} \quad (\text{App})
+$$
+
+## Normalization = Proof Simplification
+
+A remarkable consequence: **cut-elimination** in proof theory corresponds to **$\beta$-reduction** in the $\lambda$-calculus.
+
+$$
+(\lambda x.\, t)\, a \;\xrightarrow{\beta}\; t[a/x]
+$$
+
+This means that simplifying a proof (removing detours via the cut rule) is the same as evaluating a program. **Termination of evaluation = consistency of logic**.
+
+## Extensions
+
+The correspondence extends far beyond the simply typed case:
+
+- **System F** ↔ Second-order propositional logic
+- **Dependent types** ↔ First-order predicate logic (Martin-Löf type theory)
+- **Linear types** ↔ Linear logic (Girard)
+- **Modal types** ↔ Modal logic (S4, etc.)
+
+This is the foundation for proof assistants like **Coq**, **Agda**, and **Lean 4**.
+
+## A Concrete Example
+
+Here is the identity proof/program:
+
+```agda
+-- The proposition "A implies A"
+id : (A : Set) → A → A
+id A x = x
+```
+
+This term inhabits the type $\forall A.\, A \to A$, which corresponds to the tautology $\forall P.\, P \Rightarrow P$.
+
+## Further Reading
+
+- Howard, W.A. (1980). "The formulae-as-types notion of construction"
+- Wadler, P. (2015). "Propositions as Types" — *Communications of the ACM*
+- Martin-Löf, P. (1984). *Intuitionistic Type Theory*

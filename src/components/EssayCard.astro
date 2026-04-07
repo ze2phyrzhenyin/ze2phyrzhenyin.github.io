@@ -1,0 +1,65 @@
+---
+import { formatDate, readingTime } from '@/lib/utils';
+import { localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  essay: CollectionEntry<'essays'>;
+}
+const { essay } = Astro.props;
+const { title, description, date, tags } = essay.data;
+const rt = readingTime(essay.body ?? '');
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+---
+<article class="group relative flex items-start gap-5 py-5"
+         style="border-bottom: 1px solid rgb(var(--border));">
+  <!-- Date column -->
+  <div class="shrink-0 w-20 pt-0.5 text-right hidden sm:block">
+    <time class="font-mono text-xs tabular" style="color: rgb(var(--muted));">
+      {formatDate(date, { month: 'short', day: 'numeric' })}
+    </time>
+    <p class="font-mono text-[10px] mt-0.5" style="color: rgb(var(--border-2));">
+      {date.getFullYear()}
+    </p>
+  </div>
+
+  <!-- Connector dot -->
+  <div class="shrink-0 hidden sm:flex flex-col items-center pt-1.5">
+    <div class="w-2 h-2 rounded-full transition-all duration-200 group-hover:scale-125"
+         style="background: rgb(var(--border-2)); outline: 3px solid rgb(var(--bg));"
+         onmouseover="this.style.background='var(--accent)'"
+         onmouseout="this.style.background='rgb(var(--border-2))'">
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0">
+    <div class="sm:hidden text-xs font-mono mb-1 tabular" style="color: rgb(var(--muted));">
+      {formatDate(date, { month: 'short', day: 'numeric', year: 'numeric' })}
+    </div>
+
+    <h2 class="font-semibold text-base leading-snug mb-1.5 transition-colors duration-150"
+        style="color: rgb(var(--text));">
+      <a href={localizePath(`/essays/${essay.slug}`, lang)} class="after:absolute after:inset-0"
+         style="color: inherit; text-decoration: none;">
+        {title}
+      </a>
+    </h2>
+
+    <p class="text-sm leading-relaxed line-clamp-2 mb-3"
+       style="color: rgb(var(--text-2));">
+      {description}
+    </p>
+
+    <div class="flex items-center gap-3">
+      {tags.map(t => <span class="badge-essay">{t}</span>)}
+      <span class="text-xs ml-auto" style="color: rgb(var(--muted));">{rt}</span>
+    </div>
+  </div>
+</article>
+
+<style>
+  article { position: relative; }
+  article:hover h2 { color: var(--accent-text); }
+</style>

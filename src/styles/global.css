@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..400&family=Lora:ital,wght@0,400..600;1,400..500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'katex/dist/katex.min.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    /* Surfaces */
+    --bg:        248 248 247;   /* warm off-white */
+    --surface:   255 255 255;
+    --surface-2: 245 245 244;   /* stone-100 */
+    --border:    231 229 228;   /* stone-200 */
+    --border-2:  214 211 209;   /* stone-300 */
+    --muted:     120 113 108;   /* stone-500 */
+    --text:       28  25  23;   /* stone-900 */
+    --text-2:     87  83  78;   /* stone-600 */
+
+    /* Accent — deep indigo */
+    --accent-h: 243;
+    --accent-s: 75%;
+    --accent-l: 46%;
+    --accent:   hsl(var(--accent-h) var(--accent-s) var(--accent-l));
+    --accent-dim: hsl(var(--accent-h) var(--accent-s) 94%);
+    --accent-text: hsl(var(--accent-h) var(--accent-s) 35%);
+
+    /* Glow */
+    --glow: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.15);
+  }
+
+  .dark {
+    --bg:        10   9   8;    /* near-black warm */
+    --surface:   20  18  17;
+    --surface-2: 28  26  24;
+    --border:    40  38  36;
+    --border-2:  60  56  52;
+    --muted:    163 156 149;    /* stone-400 */
+    --text:     240 238 235;
+    --text-2:   180 173 166;
+
+    --accent-l: 60%;
+    --accent-dim: hsl(var(--accent-h) var(--accent-s) 18%);
+    --accent-text: hsl(var(--accent-h) var(--accent-s) 72%);
+    --glow: hsl(var(--accent-h) var(--accent-s) 60% / 0.12);
+  }
+
+  html { @apply scroll-smooth; }
+
+  body {
+    background-color: rgb(var(--bg));
+    color: rgb(var(--text));
+    @apply font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  /* Selection */
+  ::selection {
+    background: hsl(var(--accent-h) var(--accent-s) var(--accent-l) / 0.18);
+    color: rgb(var(--text));
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--border-2));
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--muted));
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ─── Keyframes ─────────────────────────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ─── Utilities ─────────────────────────────────────────────────────────── */
+@layer utilities {
+  .animate-fade-up     { animation: fade-up 0.5s ease both; }
+  .animate-fade-in     { animation: fade-in 0.4s ease both; }
+  .animate-pulse-slow  { animation: pulse-slow 2.5s ease-in-out infinite; }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-150 { animation-delay: 150ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, rgb(var(--text)) 0%, rgb(var(--muted)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-accent {
+    background: linear-gradient(135deg,
+      hsl(var(--accent-h) var(--accent-s) 45%) 0%,
+      hsl(calc(var(--accent-h) + 20) var(--accent-s) 55%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Dot grid hero background */
+  .dot-grid {
+    background-image: radial-gradient(rgb(var(--border-2)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Noise overlay texture */
+  .noise::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
+
+/* ─── Components ────────────────────────────────────────────────────────── */
+@layer components {
+  /* Containers */
+  .container-narrow { @apply max-w-2xl mx-auto px-5 sm:px-6; }
+  .container-mid    { @apply max-w-3xl mx-auto px-5 sm:px-6; }
+  .container-wide   { @apply max-w-6xl mx-auto px-5 sm:px-8; }
+
+  /* ── Tag pills ── */
+  .tag {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium
+           transition-colors duration-150 select-none;
+    background: rgb(var(--surface-2));
+    color: rgb(var(--text-2));
+    border: 1px solid rgb(var(--border));
+  }
+  .tag:hover {
+    background: rgb(var(--border));
+    color: rgb(var(--text));
+  }
+
+  /* Category badges */
+  .badge-logic {
+    @apply tag;
+    background: hsl(270 60% 95%); color: hsl(270 60% 35%);
+    border-color: hsl(270 60% 88%);
+  }
+  .dark .badge-logic {
+    background: hsl(270 50% 18%); color: hsl(270 60% 72%);
+    border-color: hsl(270 50% 28%);
+  }
+  .badge-math {
+    @apply tag;
+    background: hsl(220 70% 95%); color: hsl(220 70% 35%);
+    border-color: hsl(220 70% 88%);
+  }
+  .dark .badge-math {
+    background: hsl(220 60% 18%); color: hsl(220 70% 72%);
+    border-color: hsl(220 60% 28%);
+  }
+  .badge-ai {
+    @apply tag;
+    background: hsl(150 50% 94%); color: hsl(150 60% 28%);
+    border-color: hsl(150 50% 85%);
+  }
+  .dark .badge-ai {
+    background: hsl(150 45% 14%); color: hsl(150 55% 60%);
+    border-color: hsl(150 45% 24%);
+  }
+  .badge-cs {
+    @apply tag;
+    background: hsl(38 80% 93%); color: hsl(38 70% 28%);
+    border-color: hsl(38 80% 84%);
+  }
+  .dark .badge-cs {
+    background: hsl(38 60% 14%); color: hsl(38 70% 65%);
+    border-color: hsl(38 60% 24%);
+  }
+  .badge-essay {
+    @apply tag;
+    background: hsl(350 70% 95%); color: hsl(350 65% 35%);
+    border-color: hsl(350 70% 87%);
+  }
+  .dark .badge-essay {
+    background: hsl(350 50% 16%); color: hsl(350 60% 68%);
+    border-color: hsl(350 50% 26%);
+  }
+
+  /* ── Card ── */
+  .card {
+    background: rgb(var(--surface));
+    border: 1px solid rgb(var(--border));
+    @apply rounded-2xl p-6 transition-all duration-200;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.04), 0 1px 2px rgb(0 0 0 / 0.03);
+  }
+  .card:hover {
+    border-color: rgb(var(--border-2));
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.07), 0 1px 4px rgb(0 0 0 / 0.04);
+    transform: translateY(-1px);
+  }
+  .dark .card {
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.3);
+  }
+  .dark .card:hover {
+    box-shadow: 0 6px 24px rgb(0 0 0 / 0.4);
+  }
+
+  /* Card with accent top-border */
+  .card-accent {
+    @apply card;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-accent::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+      hsl(var(--accent-h) var(--accent-s) var(--accent-l)),
+      hsl(calc(var(--accent-h) + 30) var(--accent-s) calc(var(--accent-l) + 8%)));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .card-accent:hover::before { opacity: 1; }
+
+  /* ── Section heading ── */
+  .section-title {
+    @apply text-lg font-semibold tracking-tight;
+    color: rgb(var(--text));
+  }
+
+  /* ── Section label (small caps above heading) ── */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest;
+    color: rgb(var(--muted));
+    letter-spacing: 0.12em;
+  }
+
+  /* ── Button ── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
+           transition-all duration-150;
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.2), inset 0 1px 0 rgb(255 255 255 / 0.15);
+  }
+  .btn-primary:hover {
+    filter: brightness(1.08);
+    box-shadow: 0 3px 10px var(--glow), 0 1px 3px rgb(0 0 0 / 0.2);
+    transform: translateY(-0.5px);
+  }
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium
+           transition-all duration-150;
+    background: rgb(var(--surface));
+    color: rgb(var(--text));
+    border: 1px solid rgb(var(--border));
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.04);
+  }
+  .btn-secondary:hover {
+    background: rgb(var(--surface-2));
+    border-color: rgb(var(--border-2));
+    transform: translateY(-0.5px);
+  }
+
+  /* ── TOC link ── */
+  .toc-link {
+    @apply block py-1 text-xs transition-all duration-150
+           border-l-2 border-transparent pl-3;
+    color: rgb(var(--muted));
+    line-height: 1.5;
+  }
+  .toc-link:hover { color: rgb(var(--text)); }
+  .toc-link.active {
+    border-color: var(--accent);
+    color: var(--accent-text);
+    @apply font-medium;
+  }
+
+  /* ── KaTeX display ── */
+  .math-display { @apply overflow-x-auto py-3; }
+  .katex-display { overflow-x: auto; overflow-y: hidden; }
+
+  /* ── Prose customizations ── */
+  .prose {
+    --tw-prose-body: rgb(var(--text-2));
+    --tw-prose-headings: rgb(var(--text));
+    --tw-prose-links: var(--accent-text);
+    --tw-prose-bold: rgb(var(--text));
+    --tw-prose-counters: rgb(var(--muted));
+    --tw-prose-bullets: rgb(var(--border-2));
+    --tw-prose-hr: rgb(var(--border));
+    --tw-prose-quotes: rgb(var(--text));
+    --tw-prose-quote-borders: var(--accent);
+    --tw-prose-captions: rgb(var(--muted));
+    --tw-prose-code: rgb(var(--text));
+    --tw-prose-pre-code: #e2e8f0;
+    --tw-prose-pre-bg: #0f172a;
+    --tw-prose-th-borders: rgb(var(--border));
+    --tw-prose-td-borders: rgb(var(--border));
+  }
+
+  .prose pre {
+    @apply !rounded-xl !p-5 overflow-x-auto;
+    background: #0f172a !important;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+  }
+  .prose pre code {
+    @apply !bg-transparent !p-0 font-mono text-[0.82rem] leading-relaxed;
+    border: none;
+  }
+  .prose code {
+    @apply font-mono text-[0.85em] px-1.5 py-0.5 rounded-md;
+    background: rgb(var(--surface-2));
+    border: 1px solid rgb(var(--border));
+    color: rgb(var(--text));
+  }
+  .prose code::before, .prose code::after { content: '' !important; }
+
+  .prose blockquote {
+    @apply italic;
+    border-left-color: var(--accent) !important;
+    background: var(--accent-dim);
+    @apply rounded-r-xl py-0.5;
+  }
+  .dark .prose blockquote { background: hsl(var(--accent-h) var(--accent-s) 13%); }
+
+  .prose h2 { @apply mt-10 mb-4; }
+  .prose h3 { @apply mt-7 mb-3; }
+
+  .prose a {
+    @apply no-underline font-medium;
+    color: var(--accent-text);
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.15s;
+  }
+  .prose a:hover { text-decoration: underline; text-decoration-thickness: 1.5px; }
+
+  .prose table {
+    @apply text-sm;
+    border-collapse: collapse;
+  }
+  .prose thead th {
+    background: rgb(var(--surface-2));
+    @apply font-semibold;
+  }
+
+  /* ── Shiki code blocks (dark theme always) ── */
+  .astro-code {
+    @apply !rounded-xl !p-5 overflow-x-auto text-sm;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.2);
+  }
+}

@@ -1,0 +1,56 @@
+---
+import Base from '@/layouts/Base.astro';
+import BlogCard from '@/components/BlogCard.astro';
+import { getAllPosts } from '@/lib/utils';
+import { BLOG_CATEGORIES } from '@/lib/config';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t    = useTranslations(lang);
+
+const allPosts = await getAllPosts();
+const catParam = Astro.url.searchParams.get('cat') ?? 'all';
+const posts    = catParam === 'all' ? allPosts : allPosts.filter(p => p.data.category === catParam);
+
+const catLabelKeys: Record<string, string> = {
+  logic: 'cat.logic', math: 'cat.math', ai: 'cat.ai', cs: 'cat.cs',
+};
+---
+<Base title={t('blog.title')} description={t('blog.desc')}>
+  <div class="container-mid py-16">
+    <header class="mb-10 animate-fade-up">
+      <h1 class="text-4xl font-bold tracking-tight mb-2"
+          style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('blog.title')}</h1>
+      <p class="text-sm" style="color:rgb(var(--text-2));">{t('blog.desc')}</p>
+    </header>
+
+    <div class="flex flex-wrap gap-2 mb-10 animate-fade-up delay-100">
+      {[
+        { id: 'all', label: `${t('blog.all')} (${allPosts.length})` },
+        ...BLOG_CATEGORIES.map(c => ({
+          id: c.id,
+          label: `${t(catLabelKeys[c.id] as any)} (${allPosts.filter(p => p.data.category === c.id).length})`
+        }))
+      ].map(({ id, label }) => (
+        <a href={id === 'all' ? localizePath('/blog', lang) : `${localizePath('/blog', lang)}?cat=${id}`}
+           class="px-3 py-1.5 rounded-xl text-xs font-medium transition-all duration-150"
+           style={catParam === id
+             ? 'background:var(--accent);color:white;box-shadow:0 1px 4px var(--glow);'
+             : 'background:rgb(var(--surface));color:rgb(var(--text-2));border:1px solid rgb(var(--border));'}>
+          {label}
+        </a>
+      ))}
+    </div>
+
+    {posts.length === 0 ? (
+      <div class="text-center py-20">
+        <p class="font-mono text-sm" style="color:rgb(var(--muted));">{t('blog.empty')}</p>
+      </div>
+    ) : (
+      <div class="grid sm:grid-cols-2 gap-3 animate-fade-up delay-200">
+        {posts.map(post => <BlogCard post={post} />)}
+      </div>
+    )}
+  </div>
+</Base>

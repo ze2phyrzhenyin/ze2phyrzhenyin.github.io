@@ -1,0 +1,45 @@
+---
+import { languages, defaultLang } from '@/i18n/ui';
+import { getLocalizedPath } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const current = (Astro.currentLocale ?? defaultLang) as Lang;
+const pathname = Astro.url.pathname;
+
+const labels: Record<Lang, string> = { en: 'EN', zh: '中', fr: 'FR' };
+---
+<div class="flex items-center rounded-lg overflow-hidden"
+     style="border: 1px solid rgb(var(--border)); background: rgb(var(--surface-2));">
+  {(Object.keys(languages) as Lang[]).map((lang) => (
+    <a href={getLocalizedPath(pathname, lang)}
+       aria-label={languages[lang]}
+       aria-current={lang === current ? 'true' : undefined}
+       class:list={['lang-btn', lang === current && 'lang-btn-active']}>
+      {labels[lang]}
+    </a>
+  ))}
+</div>
+
+<style>
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    font-family: var(--font-mono, monospace);
+    color: rgb(var(--muted));
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    letter-spacing: 0.05em;
+  }
+  .lang-btn:hover {
+    color: rgb(var(--text));
+    background: rgb(var(--border));
+  }
+  .lang-btn-active {
+    color: var(--accent-text) !important;
+    background: var(--accent-dim) !important;
+  }
+</style>

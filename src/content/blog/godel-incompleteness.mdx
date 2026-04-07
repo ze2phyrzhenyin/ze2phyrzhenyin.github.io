@@ -1,0 +1,60 @@
+---
+title: "Gödel's Incompleteness Theorems: What They Really Say"
+description: "A precise walkthrough of the two incompleteness theorems — dispelling common misconceptions and presenting the actual mathematical content."
+date: 2025-01-20
+category: logic
+tags: [godel, formal-systems, foundations, number-theory]
+math: true
+toc: true
+---
+
+Few theorems are more frequently misquoted than Gödel's incompleteness theorems. Let me state them carefully.
+
+## Setup: Formal Systems
+
+Let $T$ be a **consistent** formal system that:
+1. Is **recursively axiomatizable** (there's an algorithm that lists the axioms), and
+2. Is strong enough to prove basic facts about arithmetic — formally, $T$ interprets **Robinson arithmetic** $Q$.
+
+## First Incompleteness Theorem
+
+**Theorem (Gödel 1931).** *If $T$ is consistent, then $T$ is incomplete: there exists a sentence $\phi$ in the language of $T$ such that $T \nvdash \phi$ and $T \nvdash \neg\phi$.*
+
+The proof constructs a sentence $G_T$ that essentially says:
+
+$$
+G_T \;\equiv\; \text{"$G_T$ is not provable in $T$"}
+$$
+
+This is made precise via **Gödel numbering** — encoding syntax as arithmetic. If $T \vdash G_T$, then $G_T$ is false, contradicting consistency. So $T \nvdash G_T$, which means $G_T$ is *true* (in the standard model $\mathbb{N}$), hence $T \nvdash \neg G_T$.
+
+## Second Incompleteness Theorem
+
+**Theorem.** *If $T$ is consistent and satisfies the Hilbert-Bernays-Löb derivability conditions, then $T \nvdash \mathrm{Con}(T)$.*
+
+Here $\mathrm{Con}(T)$ is the arithmetic sentence asserting $T$'s consistency. A system cannot prove its own consistency (unless it is inconsistent!).
+
+## What They Do NOT Say
+
+A partial list of things the theorems do *not* imply:
+
+- They do **not** say mathematics is "broken" or that truth is unknowable.
+- They do **not** apply to all formal systems — only those strong enough to encode arithmetic.
+- They do **not** mean that every true statement is unprovable.
+- They do **not** undermine Hilbert's program entirely — only the specific goal of *finitary* consistency proofs.
+
+## Löb's Theorem
+
+A strengthening: for any sentence $\phi$,
+
+$$
+T \vdash (\Box_T \phi \Rightarrow \phi) \implies T \vdash \phi
+$$
+
+where $\Box_T \phi$ means "$T$ proves $\phi$". This subsumes the second incompleteness theorem (take $\phi = \bot$).
+
+## Further Reading
+
+- Gödel, K. (1931). "Über formal unentscheidbare Sätze..."  
+- Boolos, G., Burgess, J., Jeffrey, R. (2007). *Computability and Logic*, 5th ed.  
+- Smith, P. (2013). *An Introduction to Gödel's Theorems*, 2nd ed.

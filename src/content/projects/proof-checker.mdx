@@ -1,0 +1,47 @@
+---
+title: "MiniProof"
+description: "A minimalist proof checker for intuitionistic propositional logic, implemented in Haskell. Verifies natural deduction proofs and normalizes them via the Curry–Howard correspondence."
+date: 2024-11-01
+status: active
+featured: true
+tags: [haskell, type-theory, proof-theory, functional-programming]
+github: https://github.com/yourhandle/miniproof
+cover: /images/projects/miniproof.png
+---
+
+## Motivation
+
+I wanted to understand the Curry–Howard correspondence not just theoretically, but by *building* something. MiniProof is a small proof assistant that makes the isomorphism between proofs and programs concrete.
+
+## What It Does
+
+- Parses natural deduction proofs written in a simple ASCII syntax
+- Type-checks proofs against intuitionistic propositional logic
+- Normalizes proofs via $\beta$-reduction (cut-elimination)
+- Outputs a $\lambda$-term corresponding to the proof
+
+## Example
+
+```
+-- Prove: (A → B) → (B → C) → A → C
+proof composition :
+  assume h1 : A → B
+  assume h2 : B → C
+  assume ha : A
+  apply h2
+  apply h1
+  exact ha
+```
+
+MiniProof verifies this and outputs the $\lambda$-term `λh1 h2 a. h2 (h1 a)`.
+
+## Implementation
+
+Written in Haskell using only the standard library. The core is ~400 lines:
+- Bidirectional type checking
+- WHNF normalization
+- Pretty-printing with Unicode proof trees
+
+## What I Learned
+
+Implementing this made the substitution lemma feel *real* in a way that reading it never quite did. The bug that took the longest to fix was about variable capture in substitution — which is exactly the bug everyone warns you about.

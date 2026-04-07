@@ -1,0 +1,56 @@
+---
+import Base from '@/layouts/Base.astro';
+import ProjectCard from '@/components/ProjectCard.astro';
+import { getAllProjects } from '@/lib/utils';
+import { useTranslations, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t    = useTranslations(lang);
+
+const projects  = await getAllProjects();
+const active    = projects.filter(p => p.data.status === 'active');
+const completed = projects.filter(p => p.data.status === 'completed');
+const archived  = projects.filter(p => p.data.status === 'archived');
+---
+<Base title={t('projects.title')} description={t('projects.desc')}>
+  <div class="container-mid py-16">
+    <header class="mb-10 animate-fade-up">
+      <h1 class="text-4xl font-bold tracking-tight mb-2"
+          style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('projects.title')}</h1>
+      <p class="text-sm" style="color:rgb(var(--text-2));">{t('projects.desc')}</p>
+    </header>
+    <div class="space-y-12 animate-fade-up delay-100">
+      {active.length > 0 && (
+        <section>
+          <div class="flex items-center gap-3 mb-5">
+            <p class="section-label">{t('status.active')}</p>
+            <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3">{active.map(p => <ProjectCard project={p} />)}</div>
+        </section>
+      )}
+      {completed.length > 0 && (
+        <section>
+          <div class="flex items-center gap-3 mb-5">
+            <p class="section-label">{t('status.completed')}</p>
+            <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3">{completed.map(p => <ProjectCard project={p} />)}</div>
+        </section>
+      )}
+      {archived.length > 0 && (
+        <section>
+          <div class="flex items-center gap-3 mb-5">
+            <p class="section-label">{t('status.archived')}</p>
+            <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+            <span class="w-2 h-2 rounded-full" style="background:rgb(var(--muted));"></span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-3">{archived.map(p => <ProjectCard project={p} />)}</div>
+        </section>
+      )}
+    </div>
+  </div>
+</Base>

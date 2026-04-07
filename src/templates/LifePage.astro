@@ -1,0 +1,67 @@
+---
+import Base from '@/layouts/Base.astro';
+import { useTranslations, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t    = useTranslations(lang);
+
+const photos: { src: string; alt: string; category: string }[] = [];
+---
+<Base title={t('life.title')} description={t('life.desc')}>
+  <div class="container-wide py-16">
+    <header class="container-mid mb-10 px-0 animate-fade-up">
+      <h1 class="text-4xl font-bold tracking-tight mb-2"
+          style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('life.title')}</h1>
+      <p class="text-sm" style="color:rgb(var(--text-2));">{t('life.desc')}</p>
+    </header>
+    {photos.length === 0 ? (
+      <div class="container-mid px-0 animate-fade-up delay-100">
+        <div class="rounded-2xl p-20 text-center relative overflow-hidden"
+             style="border:2px dashed rgb(var(--border));">
+          <div class="absolute inset-0 dot-grid opacity-40 pointer-events-none rounded-2xl"></div>
+          <div class="relative">
+            <p class="text-3xl mb-4 select-none">📷</p>
+            <p class="text-sm mb-1" style="color:rgb(var(--text-2));">{t('life.empty')}</p>
+            <p class="font-mono text-xs" style="color:rgb(var(--muted));">
+              <code class="px-1.5 py-0.5 rounded" style="background:rgb(var(--surface-2));">public/images/life/</code>
+            </p>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="columns-2 sm:columns-3 lg:columns-4 gap-3 px-5 sm:px-8 animate-fade-up delay-100">
+        {photos.map(photo => (
+          <figure class="break-inside-avoid mb-3 cursor-zoom-in group overflow-hidden rounded-2xl"
+                  style="border:1px solid rgb(var(--border));" data-src={photo.src} data-alt={photo.alt}>
+            <div class="overflow-hidden rounded-2xl">
+              <img src={photo.src} alt={photo.alt} loading="lazy"
+                   class="w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+            </div>
+          </figure>
+        ))}
+      </div>
+    )}
+  </div>
+  <div id="lightbox" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6"
+       style="background:rgb(0 0 0/.9);backdrop-filter:blur(8px);">
+    <button id="lb-close" class="absolute top-5 right-5 w-9 h-9 rounded-xl flex items-center justify-center"
+            style="background:rgb(255 255 255/.1);color:white;">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <img id="lb-img" src="" alt="" class="max-w-full max-h-[90vh] rounded-2xl object-contain shadow-2xl"/>
+  </div>
+  <script>
+    const lb = document.getElementById('lightbox')!;
+    const img = document.getElementById('lb-img') as HTMLImageElement;
+    document.querySelectorAll<HTMLElement>('[data-src]').forEach(el => {
+      el.addEventListener('click', () => { img.src=el.dataset.src!; lb.classList.remove('hidden'); document.body.style.overflow='hidden'; });
+    });
+    function close(){ lb.classList.add('hidden'); document.body.style.overflow=''; }
+    document.getElementById('lb-close')!.addEventListener('click', close);
+    lb.addEventListener('click', e => { if(e.target===lb) close(); });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') close(); });
+  </script>
+</Base>

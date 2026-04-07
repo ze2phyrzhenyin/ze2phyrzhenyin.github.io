@@ -1,0 +1,64 @@
+---
+title: "VC Dimension and the Fundamental Theorem of Statistical Learning"
+description: "What makes a hypothesis class learnable? The VC dimension gives a clean combinatorial answer, and the fundamental theorem ties it all together."
+date: 2025-02-15
+category: ai
+tags: [learning-theory, vc-dimension, pac-learning, generalization]
+math: true
+toc: true
+---
+
+PAC learning asks: when can a learning algorithm generalize from finite samples? The answer is entirely characterized by a combinatorial quantity — the **VC dimension**.
+
+## PAC Learning
+
+A hypothesis class $\mathcal{H} \subseteq \{0,1\}^X$ is **PAC learnable** if there exists an algorithm $A$ such that: for all distributions $\mathcal{D}$ over $X \times \{0,1\}$ and all $\varepsilon, \delta > 0$, given $m \geq m(\varepsilon, \delta)$ i.i.d. samples,
+
+$$
+\Pr_{S \sim \mathcal{D}^m}\bigl[L_\mathcal{D}(A(S)) \leq \varepsilon\bigr] \geq 1 - \delta
+$$
+
+The question is: which $\mathcal{H}$ are PAC learnable, and how large must $m$ be?
+
+## Shattering and VC Dimension
+
+A set $C = \{x_1, \ldots, x_k\} \subset X$ is **shattered** by $\mathcal{H}$ if for every labeling $y \in \{0,1\}^C$, there exists $h \in \mathcal{H}$ with $h \upharpoonright C = y$:
+
+$$
+|\{h\upharpoonright C : h \in \mathcal{H}\}| = 2^k
+$$
+
+The **VC dimension** is:
+$$
+\mathrm{VCdim}(\mathcal{H}) = \sup\{|C| : C \text{ is shattered by } \mathcal{H}\}
+$$
+
+## The Fundamental Theorem
+
+**Theorem.** *Let $\mathcal{H}$ be a hypothesis class over domain $X$. The following are equivalent:*
+1. $\mathcal{H}$ is PAC learnable.
+2. $\mathcal{H}$ has **finite VC dimension**.
+
+Moreover, the sample complexity satisfies:
+
+$$
+m(\varepsilon, \delta) = \Theta\!\left(\frac{d + \log(1/\delta)}{\varepsilon^2}\right)
+$$
+
+where $d = \mathrm{VCdim}(\mathcal{H})$.
+
+## The Sauer–Shelah Lemma
+
+The key combinatorial engine is:
+
+**Lemma.** If $\mathrm{VCdim}(\mathcal{H}) \leq d$, then for all $m$:
+
+$$
+|\mathcal{H}\upharpoonright_m| \leq \sum_{i=0}^{d} \binom{m}{i} \leq \left(\frac{em}{d}\right)^d
+$$
+
+This polynomial (rather than exponential) growth is exactly what enables uniform convergence.
+
+## Example: Halfspaces in $\mathbb{R}^n$
+
+The class of linear classifiers $\mathcal{H} = \{\mathrm{sgn}(w \cdot x + b) : w \in \mathbb{R}^n, b \in \mathbb{R}\}$ has $\mathrm{VCdim} = n + 1$. So PAC learning halfspaces in $\mathbb{R}^n$ requires $O((n + \log(1/\delta))/\varepsilon^2)$ samples — independent of the size of the domain.

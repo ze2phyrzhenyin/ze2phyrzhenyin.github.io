@@ -1,0 +1,157 @@
+---
+import Base from '@/layouts/Base.astro';
+import { SITE } from '@/lib/config';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t    = useTranslations(lang);
+---
+<Base title={t('about.title')} description={`${t('about.title')} — ${SITE.name}`}>
+  <div class="container-mid py-16">
+    <div class="flex items-start justify-between gap-4 mb-10 animate-fade-up">
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight mb-1"
+            style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('about.title')}</h1>
+        <p class="font-mono text-xs" style="color:rgb(var(--muted));">{SITE.tagline}</p>
+      </div>
+      <a href="/cv.pdf" download class="btn-secondary shrink-0">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        CV / PDF
+      </a>
+    </div>
+
+    <!-- Bio prose -->
+    <div class="prose dark:prose-invert max-w-none mb-14 animate-fade-up delay-100">
+      <p>{t('about.bio')}</p>
+      <blockquote>{t('about.quote')}</blockquote>
+      <p>
+        {t('about.outside').split('essays').map((part, i) =>
+          i === 0 ? <>{part}<a href={localizePath('/essays', lang)}>essays</a></> : part
+        )}
+      </p>
+    </div>
+
+    <div class="space-y-12 animate-fade-up delay-200">
+      <!-- Education -->
+      <section id="education">
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.education')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="grid sm:grid-cols-[1fr_auto] gap-1">
+          <div>
+            <p class="font-semibold" style="color:rgb(var(--text));">{SITE.institution}</p>
+            <p class="text-sm" style="color:rgb(var(--text-2));">Master's Preparatory Program · {SITE.department}</p>
+            <ul class="mt-2 text-sm space-y-0.5 list-disc list-inside" style="color:rgb(var(--text-2));">
+              <li>Focus: mathematical logic, type theory, computational complexity</li>
+              <li>GPA: X.XX / 4.00</li>
+            </ul>
+          </div>
+          <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">2024 – present</span>
+        </div>
+      </section>
+
+      <!-- Research interests -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.interests')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <ul class="space-y-3 text-sm" style="color:rgb(var(--text-2));">
+          {[
+            { title: 'Proof theory & type theory', detail: 'Curry–Howard correspondence, dependent types, proof assistants (Coq, Lean 4, Agda), normalization by evaluation' },
+            { title: 'Mathematical logic', detail: 'Model theory, set theory, computability theory, descriptive complexity' },
+            { title: 'Computational complexity', detail: 'Circuit complexity, oracle separations, interactive proofs, randomized algorithms' },
+            { title: 'Foundations of ML', detail: 'PAC learning theory, VC dimension, statistical learning theory, information-theoretic bounds' },
+          ].map(({ title, detail }) => (
+            <li class="flex gap-2">
+              <span class="shrink-0 w-1.5 h-1.5 rounded-full mt-1.5" style="background:var(--accent);"></span>
+              <span><span class="font-medium" style="color:rgb(var(--text));">{title}</span> — {detail}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Research experience -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.experience')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="grid sm:grid-cols-[1fr_auto] gap-1">
+          <div>
+            <p class="font-semibold" style="color:rgb(var(--text));">Research Assistant</p>
+            <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{SITE.institution} · Supervisor: Prof. X</p>
+            <p class="text-sm" style="color:rgb(var(--text-2));">
+              Investigating the expressibility of higher-order recursion schemes via game semantics and modal mu-calculus.
+            </p>
+          </div>
+          <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">2024 – present</span>
+        </div>
+      </section>
+
+      <!-- Publications pointer -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.publications')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <p class="text-sm" style="color:rgb(var(--text-2));">
+          <a href={localizePath('/publications', lang)} style="color:var(--accent-text);text-decoration:underline;">
+            {t('about.pubs.see')}
+          </a>
+        </p>
+      </section>
+
+      <!-- Skills -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.skills')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-6">
+          {[
+            { key: 'about.prog', items: ['Haskell', 'Python', 'OCaml', 'TypeScript', 'LaTeX', 'Coq', 'Lean 4'] },
+            { key: 'about.math', items: ['Real Analysis', 'Abstract Algebra', 'Topology', 'Mathematical Logic', 'Probability'] },
+            { key: 'about.tools', items: ['Git', 'Linux / NixOS', 'Emacs', 'VS Code', 'Jupyter', 'Docker'] },
+            { key: 'about.lang', items: ['Chinese (native)', 'English (fluent)', 'Japanese (reading)'] },
+          ].map(({ key, items }) => (
+            <div>
+              <p class="text-xs font-semibold mb-2.5" style="color:rgb(var(--text));">{t(key as any)}</p>
+              <div class="flex flex-wrap gap-1.5">{items.map(item => <span class="tag">{item}</span>)}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Awards -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.awards')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="grid sm:grid-cols-[1fr_auto] gap-2">
+          <span class="text-sm" style="color:rgb(var(--text-2));">Award Name — Institution</span>
+          <span class="font-mono text-xs tabular" style="color:rgb(var(--muted));">2024</span>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.contact')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="text-sm space-y-1" style="color:rgb(var(--text-2));">
+          <p>Email: <a href={`mailto:${SITE.email}`} style="color:var(--accent-text);">{SITE.email}</a></p>
+          {SITE.github && (
+            <p>GitHub: <a href={SITE.github} target="_blank" rel="noopener" style="color:var(--accent-text);">{SITE.github.replace('https://', '')}</a></p>
+          )}
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>

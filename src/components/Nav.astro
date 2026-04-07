@@ -1,0 +1,148 @@
+---
+import { SITE, NAV } from '@/lib/config';
+import LangSwitcher from '@/components/LangSwitcher.astro';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const pathname = Astro.url.pathname;
+
+// Map config href keys to translation keys
+const navKeys: Record<string, string> = {
+  '/about': 'nav.about', '/blog': 'nav.blog', '/essays': 'nav.essays',
+  '/publications': 'nav.publications', '/projects': 'nav.projects',
+  '/life': 'nav.life', '/contact': 'nav.contact',
+};
+---
+<header id="site-header"
+  class="sticky top-0 z-50 transition-all duration-300"
+  style="background: rgb(var(--bg) / 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+  <div id="reading-progress"
+       class="absolute bottom-0 left-0 h-px w-0 transition-none"
+       style="background: var(--accent);" />
+
+  <nav class="container-wide flex items-center justify-between h-14">
+    <!-- Logo -->
+    <a href={localizePath('/', lang)} class="flex items-center gap-2.5 group shrink-0">
+      <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold font-mono text-sm select-none transition-transform group-hover:scale-105"
+           style="background: linear-gradient(135deg, hsl(var(--accent-h) var(--accent-s) var(--accent-l)), hsl(calc(var(--accent-h)+20) var(--accent-s) calc(var(--accent-l)+10%)));">
+        λ
+      </div>
+      <span class="font-semibold text-sm tracking-tight transition-colors hidden sm:block"
+            style="color: rgb(var(--text));">
+        {SITE.name}
+      </span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-0.5">
+      {NAV.map(({ href }) => {
+        const localHref = localizePath(href, lang);
+        const active = pathname === localHref || (localHref !== localizePath('/', lang) && pathname.startsWith(localHref));
+        const label = t(navKeys[href] as any);
+        return (
+          <li>
+            <a href={localHref} class:list={['nav-link', active && 'nav-link-active']}>
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-2">
+      <LangSwitcher />
+
+      <button id="theme-toggle" aria-label="Toggle theme" class="nav-icon-btn">
+        <svg class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <svg class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+
+      <button id="mobile-menu-btn" aria-label="Menu" class="md:hidden nav-icon-btn">
+        <svg class="w-4 h-4" id="icon-menu" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg class="w-4 h-4 hidden" id="icon-close" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="header-border" class="absolute bottom-0 left-0 right-0 h-px opacity-0 transition-opacity duration-200"
+       style="background: rgb(var(--border));" />
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden" style="border-top: 1px solid rgb(var(--border));">
+    <ul class="container-wide py-2 space-y-0.5 pb-3">
+      {NAV.map(({ href }) => {
+        const localHref = localizePath(href, lang);
+        const active = pathname === localHref || (localHref !== localizePath('/', lang) && pathname.startsWith(localHref));
+        const label = t(navKeys[href] as any);
+        return (
+          <li>
+            <a href={localHref}
+               class:list={['block px-3 py-2 rounded-xl text-sm font-medium transition-colors', active ? 'font-semibold' : '']}
+               style={active ? 'background: var(--accent-dim); color: var(--accent-text);' : 'color: rgb(var(--text-2));'}>
+              {label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    display: inline-flex; align-items: center;
+    padding: 0.375rem 0.625rem; border-radius: 0.625rem;
+    font-size: 0.8125rem; font-weight: 500;
+    color: rgb(var(--text-2)); transition: color .15s, background .15s; text-decoration: none;
+  }
+  .nav-link:hover { color: rgb(var(--text)); background: rgb(var(--surface-2)); }
+  .nav-link-active { color: var(--accent-text) !important; background: var(--accent-dim) !important; font-weight: 600; }
+  .nav-icon-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; border-radius: 0.625rem;
+    color: rgb(var(--muted)); transition: color .15s, background .15s;
+  }
+  .nav-icon-btn:hover { color: rgb(var(--text)); background: rgb(var(--surface-2)); }
+</style>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const border = document.getElementById('header-border')!;
+  const progress = document.getElementById('reading-progress')!;
+  const isArticle = !!document.querySelector('.prose');
+
+  window.addEventListener('scroll', () => {
+    border.style.opacity = window.scrollY > 20 ? '1' : '0';
+    if (isArticle) {
+      const el = document.documentElement;
+      progress.style.width = `${(el.scrollTop / (el.scrollHeight - el.clientHeight)) * 100}%`;
+    }
+  }, { passive: true });
+
+  const menuBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const iconMenu = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden');
+    iconMenu.classList.toggle('hidden', !open);
+    iconClose.classList.toggle('hidden', open);
+  });
+
+  document.getElementById('theme-toggle')!.addEventListener('click', () => {
+    const dark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  });
+</script>

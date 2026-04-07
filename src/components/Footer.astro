@@ -1,0 +1,98 @@
+---
+import { SITE, NAV } from '@/lib/config';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const navKeys: Record<string, string> = {
+  '/about': 'nav.about', '/blog': 'nav.blog', '/essays': 'nav.essays',
+  '/publications': 'nav.publications', '/projects': 'nav.projects',
+  '/life': 'nav.life', '/contact': 'nav.contact',
+};
+---
+<footer style="border-top: 1px solid rgb(var(--border));">
+  <div class="container-wide py-10">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
+      <!-- Brand -->
+      <div class="col-span-2 sm:col-span-1">
+        <a href={localizePath('/', lang)} class="flex items-center gap-2 mb-3 w-fit">
+          <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold font-mono text-sm"
+               style="background: linear-gradient(135deg, hsl(var(--accent-h) var(--accent-s) var(--accent-l)), hsl(calc(var(--accent-h)+20) var(--accent-s) calc(var(--accent-l)+10%)));">
+            λ
+          </div>
+          <span class="font-semibold text-sm" style="color: rgb(var(--text));">{SITE.name}</span>
+        </a>
+        <p class="text-xs leading-relaxed" style="color: rgb(var(--muted));">{SITE.tagline}</p>
+      </div>
+
+      <div>
+        <p class="section-label mb-3">{t('footer.pages')}</p>
+        <ul class="space-y-2">
+          {NAV.slice(0, 4).map(({ href }) => (
+            <li>
+              <a href={localizePath(href, lang)} class="text-xs transition-colors footer-link">
+                {t(navKeys[href] as any)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="section-label mb-3">{t('footer.more')}</p>
+        <ul class="space-y-2">
+          {NAV.slice(4).map(({ href }) => (
+            <li>
+              <a href={localizePath(href, lang)} class="text-xs transition-colors footer-link">
+                {t(navKeys[href] as any)}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="section-label mb-3">{t('footer.contact')}</p>
+        <ul class="space-y-2">
+          {SITE.email && (
+            <li>
+              <a href={`mailto:${SITE.email}`} class="text-xs inline-flex items-center gap-1.5 footer-link">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Email
+              </a>
+            </li>
+          )}
+          {SITE.github && (
+            <li>
+              <a href={SITE.github} target="_blank" rel="noopener" class="text-xs inline-flex items-center gap-1.5 footer-link">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                GitHub
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6"
+         style="border-top: 1px solid rgb(var(--border));">
+      <p class="text-xs" style="color: rgb(var(--muted));">
+        © {year} {SITE.name} · {t('footer.built')}
+        <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
+      </p>
+      <p class="font-mono text-[10px]" style="color: rgb(var(--border-2));">∀x. P(x) → Q(x)</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-link { color: rgb(var(--muted)); }
+  .footer-link:hover { color: rgb(var(--text)); }
+</style>
