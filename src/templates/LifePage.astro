@@ -6,7 +6,13 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 
-const photos: { src: string; alt: string; category: string }[] = [];
+const photos: { src: string; alt: string; category: string }[] = [
+  {
+    src: '/images/life/IMG_6912.webp',
+    alt: 'Life photo IMG_6912',
+    category: 'life',
+  },
+];
 ---
 <Base title={t('life.title')} description={t('life.desc')}>
   <div class="container-wide py-16">
