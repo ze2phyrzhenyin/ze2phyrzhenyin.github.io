@@ -1,5 +1,5 @@
 ---
-import { SITE } from '@/lib/config';
+import { SITE, getSiteName } from '@/lib/config';
 import Nav from '@/components/Nav.astro';
 import Footer from '@/components/Footer.astro';
 import { defaultLang } from '@/i18n/utils';
@@ -12,7 +12,8 @@ interface Props {
 const { title, description = SITE.description, ogImage, article = false } = Astro.props;
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
-const pageTitle   = title ? `${title} — ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
+const siteName = getSiteName(lang);
+const pageTitle   = title ? `${title} — ${siteName}` : `${siteName} · ${SITE.tagline}`;
 const canonicalURL = new URL(Astro.url.pathname, SITE.url);
 const ogImg       = ogImage ?? `${SITE.url}/og-default.png`;
 ---

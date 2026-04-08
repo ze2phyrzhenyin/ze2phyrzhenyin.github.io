@@ -1,11 +1,12 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { SITE } from '@/lib/config';
+import { SITE, getSiteName } from '@/lib/config';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
+const siteName = getSiteName(lang);
 
 const audiences: {
   num: string;
@@ -40,7 +41,7 @@ const audiences: {
           <div class="w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-offset-2"
                style="ring-color:rgb(var(--border-2));ring-offset-color:rgb(var(--bg));">
             <div class="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
-              <img src={SITE.avatar} alt={SITE.name} class="w-full h-full object-cover"
+              <img src={SITE.avatar} alt={siteName} class="w-full h-full object-cover"
                    onerror="this.parentElement.innerHTML='<span style=color:white;font-size:1.5rem;font-weight:700;font-family:monospace>λ</span>'"/>
             </div>
           </div>
@@ -49,7 +50,7 @@ const audiences: {
         </div>
         <div>
           <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-1"
-              style="color:rgb(var(--text));">{SITE.name}</h1>
+              style="color:rgb(var(--text));">{siteName}</h1>
           <p class="font-mono text-xs mb-4" style="color:rgb(var(--muted));">{SITE.tagline}</p>
           <p class="text-sm leading-relaxed max-w-lg mb-6" style="color:rgb(var(--text-2));">
             {t('home.bio.1')}

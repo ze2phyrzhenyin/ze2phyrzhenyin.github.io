@@ -1,6 +1,6 @@
 ---
 title: "On the Expressibility of Higher-Order Recursion Schemes"
-authors: ["Your Name", "Supervisor Name"]
+authors: ["Zhaoyang SUI", "Supervisor Name"]
 venue: "arXiv preprint"
 year: 2025
 type: preprint

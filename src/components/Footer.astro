@@ -1,11 +1,12 @@
 ---
-import { SITE, NAV } from '@/lib/config';
+import { SITE, NAV, getSiteName } from '@/lib/config';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+const siteName = getSiteName(lang);
 
 const navKeys: Record<string, string> = {
   '/about': 'nav.about', '/blog': 'nav.blog', '/essays': 'nav.essays',
@@ -23,7 +24,7 @@ const navKeys: Record<string, string> = {
                style="background: linear-gradient(135deg, hsl(var(--accent-h) var(--accent-s) var(--accent-l)), hsl(calc(var(--accent-h)+20) var(--accent-s) calc(var(--accent-l)+10%)));">
             λ
           </div>
-          <span class="font-semibold text-sm" style="color: rgb(var(--text));">{SITE.name}</span>
+          <span class="font-semibold text-sm" style="color: rgb(var(--text));">{siteName}</span>
         </a>
         <p class="text-xs leading-relaxed" style="color: rgb(var(--muted));">{SITE.tagline}</p>
       </div>
@@ -84,7 +85,7 @@ const navKeys: Record<string, string> = {
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6"
          style="border-top: 1px solid rgb(var(--border));">
       <p class="text-xs" style="color: rgb(var(--muted));">
-        © {year} {SITE.name} · {t('footer.built')}
+        © {year} {siteName} · {t('footer.built')}
         <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
       </p>
       <p class="font-mono text-[10px]" style="color: rgb(var(--border-2));">∀x. P(x) → Q(x)</p>

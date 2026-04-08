@@ -1,13 +1,14 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { SITE } from '@/lib/config';
+import { SITE, getSiteName } from '@/lib/config';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
+const siteName = getSiteName(lang);
 ---
-<Base title={t('about.title')} description={`${t('about.title')} — ${SITE.name}`}>
+<Base title={t('about.title')} description={`${t('about.title')} — ${siteName}`}>
   <div class="container-mid py-16">
     <div class="flex items-start justify-between gap-4 mb-10 animate-fade-up">
       <div>

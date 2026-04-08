@@ -1,5 +1,5 @@
 ---
-import { SITE, NAV } from '@/lib/config';
+import { SITE, NAV, getSiteName } from '@/lib/config';
 import LangSwitcher from '@/components/LangSwitcher.astro';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
@@ -7,6 +7,7 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const pathname = Astro.url.pathname;
+const siteName = getSiteName(lang);
 
 // Map config href keys to translation keys
 const navKeys: Record<string, string> = {
@@ -31,7 +32,7 @@ const navKeys: Record<string, string> = {
       </div>
       <span class="font-semibold text-sm tracking-tight transition-colors hidden sm:block"
             style="color: rgb(var(--text));">
-        {SITE.name}
+        {siteName}
       </span>
     </a>
 

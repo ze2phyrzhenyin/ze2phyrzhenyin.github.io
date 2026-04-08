@@ -1,9 +1,10 @@
 export const SITE = {
-  name: 'Your Name',
+  name: 'Zhaoyang SUI',
+  nameZh: '隋朝阳',
   tagline: 'Master\'s Student · Theoretical Computer Science',
   description: 'Personal site — research, writing, and projects at the intersection of logic, mathematics, and computation.',
   url: 'https://yourname.dev',
-  author: 'Your Name',
+  author: 'Zhaoyang SUI',
   email: 'you@example.com',
   github: 'https://github.com/yourhandle',
   twitter: 'https://twitter.com/yourhandle',
@@ -13,6 +14,10 @@ export const SITE = {
   department: 'Department of Computer Science',
   avatar: '/images/avatar/avatar.jpg',
 } as const;
+
+export function getSiteName(lang?: string) {
+  return lang === 'zh' ? SITE.nameZh : SITE.name;
+}
 
 export const NAV = [
   { label: 'About',        href: '/about' },
