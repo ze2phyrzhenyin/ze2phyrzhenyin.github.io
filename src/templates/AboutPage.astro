@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import { getSiteName } from '@/lib/config';
-import { useTranslations, defaultLang } from '@/i18n/utils';
+import { useTranslations, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
@@ -15,9 +15,17 @@ type TimelineEntry = {
   points?: string[];
 };
 
-type Interest = {
+type TechnicalSkill = {
+  name: string;
+  icon?: string;
+  mark?: string;
+  note?: string;
+};
+
+type TechnicalSkillGroup = {
   title: string;
-  detail: string;
+  summary: string;
+  items: TechnicalSkill[];
 };
 
 type SkillGroup = {
@@ -32,7 +40,7 @@ type BioPart = {
 
 type AboutContent = {
   education: TimelineEntry[];
-  interests: Interest[];
+  techSkills: TechnicalSkillGroup[];
   experience: TimelineEntry[];
   skills: SkillGroup[];
 };
@@ -130,10 +138,63 @@ const aboutContent: Record<Lang, AboutContent> = {
         points: ['Average: 76.13 / 100.'],
       },
     ],
-    interests: [
-      { title: 'Programming Languages', detail: 'C/C++, Python, Java, R, SQL, TypeScript.' },
-      { title: 'AI / Data', detail: 'Deep learning, LLM fine-tuning, RAG, YOLOv8, image processing, data analysis.' },
-      { title: 'Tools', detail: 'React, Node.js, Nginx, Linux, Git, VS Code.' },
+    techSkills: [
+      {
+        title: 'Programming Languages',
+        summary: 'Comfortable with C, C++, Python, Java, and SQL; familiar with TypeScript, Go, C#, and R for code reading, debugging, and basic engineering implementation.',
+        items: [
+          { name: 'C', icon: '/icons/skills/c.svg', note: 'comfortable' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'comfortable' },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: 'comfortable' },
+          { name: 'Java', icon: '/icons/skills/java.svg', note: 'comfortable' },
+          { name: 'SQL', mark: 'SQL', note: 'comfortable' },
+          { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: 'familiar' },
+          { name: 'Go', icon: '/icons/skills/go.svg', note: 'familiar' },
+          { name: 'C#', icon: '/icons/skills/csharp.svg', note: 'familiar' },
+          { name: 'R', icon: '/icons/skills/r.svg', note: 'familiar' },
+        ],
+      },
+      {
+        title: 'AI & Algorithms',
+        summary: 'Foundations in deep learning; familiar with LLM fine-tuning, RAG, YOLOv8 object detection, AI-assisted development, prototyping, and technical troubleshooting.',
+        items: [
+          { name: 'Deep Learning', icon: '/icons/skills/tensorflow.svg' },
+          { name: 'LLM Fine-tuning', mark: 'LLM' },
+          { name: 'RAG', mark: 'RAG' },
+          { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
+          { name: 'AI-assisted Development', mark: 'AI' },
+          { name: 'Prototyping', mark: 'P' },
+          { name: 'Troubleshooting', mark: 'DBG' },
+        ],
+      },
+      {
+        title: 'Data Technologies',
+        summary: 'Familiar with Hadoop and Spark, with foundations in data cleaning, statistical analysis, and basic modeling.',
+        items: [
+          { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
+          { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
+          { name: 'Data Cleaning', mark: 'ETL' },
+          { name: 'Data Analysis', mark: 'DA' },
+          { name: 'Statistical Analysis', mark: 'Σ' },
+          { name: 'Basic Modeling', mark: 'ML' },
+        ],
+      },
+      {
+        title: 'Frontend, Backend & Engineering Tools',
+        summary: 'Familiar with React, Node.js, Nginx, Docker, Three.js, Linux, Git, VS Code, LaTeX, and OpenXML-based Office document processing.',
+        items: [
+          { name: 'React', icon: '/icons/skills/react.svg' },
+          { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
+          { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg' },
+          { name: 'Git', icon: '/icons/skills/git.svg' },
+          { name: 'VS Code', icon: '/icons/skills/vscode.svg' },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
+          { name: 'OpenXML', mark: 'XML' },
+        ],
+      },
     ],
     experience: [
       {
@@ -189,10 +250,63 @@ const aboutContent: Record<Lang, AboutContent> = {
         points: ['平均分：76.13 / 100。'],
       },
     ],
-    interests: [
-      { title: '编程语言', detail: 'C/C++、Python、Java、R、SQL、TypeScript。' },
-      { title: 'AI / 数据', detail: '深度学习、大语言模型微调、RAG、YOLOv8、图像处理、数据分析。' },
-      { title: '工具', detail: 'React、Node.js、Nginx、Linux、Git、VS Code。' },
+    techSkills: [
+      {
+        title: '编程语言',
+        summary: '熟悉 C、C++、Python、Java、SQL；了解 TypeScript、Go、C#、R，具备良好的代码阅读、调试和基础工程实现能力。',
+        items: [
+          { name: 'C', icon: '/icons/skills/c.svg', note: '熟悉' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: '熟悉' },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: '熟悉' },
+          { name: 'Java', icon: '/icons/skills/java.svg', note: '熟悉' },
+          { name: 'SQL', mark: 'SQL', note: '熟悉' },
+          { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: '了解' },
+          { name: 'Go', icon: '/icons/skills/go.svg', note: '了解' },
+          { name: 'C#', icon: '/icons/skills/csharp.svg', note: '了解' },
+          { name: 'R', icon: '/icons/skills/r.svg', note: '了解' },
+        ],
+      },
+      {
+        title: '人工智能与算法',
+        summary: '掌握深度学习基础，了解大语言模型微调、RAG 检索增强生成、YOLOv8 目标检测等技术方向；具备使用 AI 工具辅助开发、原型验证和问题排查的经验。',
+        items: [
+          { name: '深度学习', icon: '/icons/skills/tensorflow.svg' },
+          { name: '大模型微调', mark: 'LLM' },
+          { name: 'RAG', mark: 'RAG' },
+          { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
+          { name: 'AI 辅助开发', mark: 'AI' },
+          { name: '原型验证', mark: 'P' },
+          { name: '问题排查', mark: 'DBG' },
+        ],
+      },
+      {
+        title: '数据技术',
+        summary: '了解 Hadoop、Spark 等大数据处理框架，掌握数据分析基础，能够进行数据清洗、统计分析和基础建模。',
+        items: [
+          { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
+          { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
+          { name: '数据清洗', mark: 'ETL' },
+          { name: '数据分析', mark: 'DA' },
+          { name: '统计分析', mark: 'Σ' },
+          { name: '基础建模', mark: 'ML' },
+        ],
+      },
+      {
+        title: '前后端与工程工具',
+        summary: '了解 React、Node.js、Nginx、Docker、Three.js 等开发与部署工具；熟悉 Linux 常用命令、Git 版本控制、VS Code 开发环境；了解 OpenXML 文档处理技术和 LaTeX 排版工作流。',
+        items: [
+          { name: 'React', icon: '/icons/skills/react.svg' },
+          { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
+          { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg' },
+          { name: 'Git', icon: '/icons/skills/git.svg' },
+          { name: 'VS Code', icon: '/icons/skills/vscode.svg' },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
+          { name: 'OpenXML', mark: 'XML' },
+        ],
+      },
     ],
     experience: [
       {
@@ -248,10 +362,63 @@ const aboutContent: Record<Lang, AboutContent> = {
         points: ['Moyenne : 76,13 / 100.'],
       },
     ],
-    interests: [
-      { title: 'Langages de programmation', detail: 'C/C++, Python, Java, R, SQL, TypeScript.' },
-      { title: 'IA / Données', detail: 'Deep learning, fine-tuning de grands modèles de langage, RAG, YOLOv8, traitement d\'image, analyse de données.' },
-      { title: 'Outils', detail: 'React, Node.js, Nginx, Linux, Git, VS Code.' },
+    techSkills: [
+      {
+        title: 'Langages de programmation',
+        summary: "À l'aise avec C, C++, Python, Java et SQL ; familiarisé avec TypeScript, Go, C# et R pour la lecture de code, le débogage et l'implémentation technique de base.",
+        items: [
+          { name: 'C', icon: '/icons/skills/c.svg', note: 'à l’aise' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'à l’aise' },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: 'à l’aise' },
+          { name: 'Java', icon: '/icons/skills/java.svg', note: 'à l’aise' },
+          { name: 'SQL', mark: 'SQL', note: 'à l’aise' },
+          { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: 'notions' },
+          { name: 'Go', icon: '/icons/skills/go.svg', note: 'notions' },
+          { name: 'C#', icon: '/icons/skills/csharp.svg', note: 'notions' },
+          { name: 'R', icon: '/icons/skills/r.svg', note: 'notions' },
+        ],
+      },
+      {
+        title: 'IA et algorithmes',
+        summary: "Bases en deep learning ; connaissances en fine-tuning de grands modèles de langage, RAG, détection d'objets YOLOv8, développement assisté par IA, prototypage et diagnostic technique.",
+        items: [
+          { name: 'Deep learning', icon: '/icons/skills/tensorflow.svg' },
+          { name: 'Fine-tuning LLM', mark: 'LLM' },
+          { name: 'RAG', mark: 'RAG' },
+          { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
+          { name: 'Développement assisté par IA', mark: 'AI' },
+          { name: 'Prototypage', mark: 'P' },
+          { name: 'Diagnostic technique', mark: 'DBG' },
+        ],
+      },
+      {
+        title: 'Technologies de données',
+        summary: 'Connaissances de Hadoop et Spark, avec bases en nettoyage de données, analyse statistique et modélisation simple.',
+        items: [
+          { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
+          { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
+          { name: 'Nettoyage de données', mark: 'ETL' },
+          { name: 'Analyse de données', mark: 'DA' },
+          { name: 'Analyse statistique', mark: 'Σ' },
+          { name: 'Modélisation de base', mark: 'ML' },
+        ],
+      },
+      {
+        title: "Frontend, backend et outils d'ingénierie",
+        summary: "Connaissances de React, Node.js, Nginx, Docker et Three.js ; utilisation de Linux, Git, VS Code, LaTeX et du traitement de documents Office avec OpenXML.",
+        items: [
+          { name: 'React', icon: '/icons/skills/react.svg' },
+          { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
+          { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg' },
+          { name: 'Git', icon: '/icons/skills/git.svg' },
+          { name: 'VS Code', icon: '/icons/skills/vscode.svg' },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
+          { name: 'OpenXML', mark: 'XML' },
+        ],
+      },
     ],
     experience: [
       {
@@ -338,20 +505,39 @@ const quote = t('about.quote');
         </div>
       </section>
 
-      <!-- Research interests -->
+      <!-- Technical skills -->
       <section>
         <div class="flex items-center gap-4 mb-6">
           <h2 class="section-title shrink-0">{t('about.interests')}</h2>
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
-        <ul class="space-y-3 text-sm" style="color:rgb(var(--text-2));">
-          {profile.interests.map(({ title, detail }) => (
-            <li class="flex gap-2">
-              <span class="shrink-0 w-1.5 h-1.5 rounded-full mt-1.5" style="background:var(--accent);"></span>
-              <span><span class="font-medium" style="color:rgb(var(--text));">{title}</span> — {detail}</span>
-            </li>
+        <div class="space-y-8">
+          {profile.techSkills.map((group) => (
+            <div class="tech-skill-group">
+              <div class="mb-3">
+                <h3 class="text-sm font-semibold" style="color:rgb(var(--text));">{group.title}</h3>
+                <p class="mt-1 text-sm leading-relaxed" style="color:rgb(var(--text-2));">{group.summary}</p>
+              </div>
+              <div class="tech-skill-grid">
+                {group.items.map((skill) => (
+                  <div class="tech-skill-card">
+                    <span class="tech-skill-icon" aria-hidden="true">
+                      {skill.icon ? (
+                        <img src={withBase(skill.icon)} alt="" loading="lazy" decoding="async" />
+                      ) : (
+                        <span>{skill.mark}</span>
+                      )}
+                    </span>
+                    <span class="min-w-0">
+                      <span class="tech-skill-name">{skill.name}</span>
+                      {skill.note && <span class="tech-skill-note">{skill.note}</span>}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       <!-- Research experience -->
@@ -397,3 +583,75 @@ const quote = t('about.quote');
     </div>
   </div>
 </Base>
+
+<style>
+  .tech-skill-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .tech-skill-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .tech-skill-card {
+    display: flex;
+    align-items: center;
+    min-height: 3.25rem;
+    gap: 0.65rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: 0.5rem;
+    background: color-mix(in srgb, rgb(var(--surface)) 82%, rgb(var(--surface-2)));
+    transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+  }
+
+  .tech-skill-card:hover {
+    border-color: rgb(var(--border-2));
+    background: rgb(var(--surface));
+    transform: translateY(-1px);
+  }
+
+  .tech-skill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: 0.45rem;
+    background: #fff;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tech-skill-icon img {
+    width: 1.25rem;
+    height: 1.25rem;
+    object-fit: contain;
+  }
+
+  .tech-skill-name {
+    display: block;
+    overflow-wrap: anywhere;
+    color: rgb(var(--text));
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  .tech-skill-note {
+    display: block;
+    margin-top: 0.15rem;
+    color: rgb(var(--muted));
+    font-size: 0.68rem;
+    line-height: 1.1;
+  }
+</style>
