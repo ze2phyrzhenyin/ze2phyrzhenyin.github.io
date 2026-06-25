@@ -555,7 +555,7 @@ const quote = t('about.quote');
         <div class="space-y-8">
           {profile.techSkills.map((group) => (
             <div class={`tech-skill-group${group.highlight ? ' tech-skill-group-lit' : ''}`}>
-              <div class="mb-3">
+              <div class="tech-skill-heading">
                 <h3 class="text-sm font-semibold" style="color:rgb(var(--text));">{group.title}</h3>
               </div>
               <div class="tech-skill-grid">
@@ -603,7 +603,7 @@ const quote = t('about.quote');
   .tech-skill-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.5rem;
+    gap: 0.55rem;
   }
 
   @media (min-width: 640px) {
@@ -612,27 +612,50 @@ const quote = t('about.quote');
     }
   }
 
+  .tech-skill-group {
+    position: relative;
+  }
+
+  .tech-skill-heading {
+    margin-bottom: 0.75rem;
+  }
+
   .tech-skill-card {
+    position: relative;
+    isolation: isolate;
     display: flex;
     align-items: center;
     min-height: 3.25rem;
     gap: 0.65rem;
-    padding: 0.55rem 0.65rem;
+    overflow: hidden;
+    padding: 0.56rem 0.68rem;
     border: 1px solid rgb(var(--border));
-    border-radius: 0.5rem;
-    background: color-mix(in srgb, rgb(var(--surface)) 82%, rgb(var(--surface-2)));
-    transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+    border-radius: 0.58rem;
+    background:
+      linear-gradient(180deg,
+        color-mix(in srgb, rgb(var(--surface)) 92%, rgb(var(--surface-2))),
+        color-mix(in srgb, rgb(var(--surface)) 78%, rgb(var(--surface-2))));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04);
+    transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
   }
 
   .tech-skill-group-lit {
-    padding: 0.75rem;
-    border: 1px solid color-mix(in srgb, var(--accent) 46%, rgb(var(--border)));
-    border-radius: 0.75rem;
+    padding: 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 28%, rgb(var(--border)));
+    border-radius: 0.9rem;
     background:
-      linear-gradient(135deg,
-        color-mix(in srgb, var(--accent-dim) 45%, transparent),
-        color-mix(in srgb, rgb(var(--surface)) 88%, transparent));
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
+      linear-gradient(90deg, color-mix(in srgb, var(--accent) 34%, transparent) 0 3px, transparent 3px),
+      radial-gradient(circle at 0% 0%,
+        color-mix(in srgb, var(--accent) 12%, transparent),
+        transparent 42%),
+      color-mix(in srgb, rgb(var(--surface)) 82%, rgb(var(--surface-2)));
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.04),
+      0 0 0 1px color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  .tech-skill-group-lit .tech-skill-heading h3 {
+    color: var(--accent-text) !important;
   }
 
   .tech-skill-card:hover {
@@ -642,19 +665,35 @@ const quote = t('about.quote');
   }
 
   .tech-skill-card-lit {
-    border-color: color-mix(in srgb, var(--accent) 52%, rgb(var(--border)));
+    border-color: color-mix(in srgb, var(--accent) 34%, rgb(var(--border)));
     background:
-      linear-gradient(135deg,
-        color-mix(in srgb, var(--accent-dim) 58%, rgb(var(--surface))),
-        rgb(var(--surface)));
+      linear-gradient(90deg, color-mix(in srgb, var(--accent) 70%, transparent) 0 3px, transparent 3px),
+      linear-gradient(180deg,
+        color-mix(in srgb, var(--accent-dim) 42%, rgb(var(--surface))),
+        color-mix(in srgb, rgb(var(--surface)) 88%, rgb(var(--surface-2))));
     box-shadow:
-      inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent),
-      0 0 0 3px color-mix(in srgb, var(--accent) 6%, transparent);
+      inset 0 1px 0 rgb(255 255 255 / 0.05),
+      0 0 0 1px color-mix(in srgb, var(--accent) 5%, transparent);
+  }
+
+  .tech-skill-card-lit::after {
+    content: '';
+    position: absolute;
+    top: 0.62rem;
+    right: 0.62rem;
+    width: 0.34rem;
+    height: 0.34rem;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 12%, transparent);
+    opacity: 0.88;
   }
 
   .tech-skill-card-lit:hover {
-    border-color: color-mix(in srgb, var(--accent) 70%, rgb(var(--border-2)));
-    background: color-mix(in srgb, var(--accent-dim) 48%, rgb(var(--surface)));
+    border-color: color-mix(in srgb, var(--accent) 46%, rgb(var(--border-2)));
+    background:
+      linear-gradient(90deg, color-mix(in srgb, var(--accent) 82%, transparent) 0 3px, transparent 3px),
+      color-mix(in srgb, var(--accent-dim) 28%, rgb(var(--surface)));
   }
 
   .tech-skill-icon {
@@ -681,13 +720,13 @@ const quote = t('about.quote');
   }
 
   .tech-skill-card-lit .tech-skill-icon {
-    border-color: color-mix(in srgb, var(--accent) 38%, rgb(var(--border)));
-    background: color-mix(in srgb, var(--accent-dim) 72%, #fff);
-    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+    border-color: color-mix(in srgb, var(--accent) 26%, rgb(var(--border)));
+    background: color-mix(in srgb, var(--accent-dim) 46%, #fff);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 9%, transparent);
   }
 
   .tech-skill-card-lit .tech-skill-name {
-    color: var(--accent-text);
+    color: rgb(var(--text));
   }
 
   .tech-skill-name {
