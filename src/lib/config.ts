@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Zhaoyang SUI',
   nameZh: '隋朝阳',
-  tagline: 'Master 1 in Computer-Assisted Business Management (MIAGE) · Université Toulouse 1 Capitole',
+  tagline: 'Master 1 in Computer-Assisted Business Management (MIAGE) · Toulouse Capitole University',
   description: 'Personal site — software engineering, applied AI, research, writing, and projects.',
   url: 'https://ze2phyrzhenyin.github.io',
   author: 'Zhaoyang SUI',
@@ -17,7 +17,7 @@ export const SITE = {
   twitter: '',
   googleScholar: '',
   orcid: '',
-  institution: 'Université Toulouse 1 Capitole',
+  institution: 'Toulouse Capitole University',
   department: 'MIAGE',
   avatar: '/images/avatar/avatar.jpg',
 } as const;
