@@ -38,11 +38,60 @@ type SkillGroup = {
   items: string[];
 };
 
+type BioPart = {
+  text: string;
+  href?: string;
+};
+
 type AboutContent = {
   education: TimelineEntry[];
   interests: Interest[];
   experience: TimelineEntry[];
   skills: SkillGroup[];
+};
+
+const universityLinks = {
+  toulouse: 'https://www.ut-capitole.fr/home',
+  shnu: 'https://www.shnu.edu.cn/',
+};
+
+const aboutIntro: Record<Lang, BioPart[][]> = {
+  en: [
+    [
+      { text: 'I am currently a Master 1 student in Computer-Assisted Business Management (MIAGE) at ' },
+      { text: 'Toulouse Capitole University', href: universityLinks.toulouse },
+      { text: ". I completed my bachelor's degree in Computer Science at " },
+      { text: 'Shanghai Normal University', href: universityLinks.shnu },
+      { text: '. My previous work leaned toward software engineering, web development, and LLM applications. I came to Europe because I want to work in an area related to theoretical computer science.' },
+    ],
+    [
+      { text: 'Over the past year, I have been self-studying foundations related to game theory, logic, and learning theory.' },
+    ],
+  ],
+  zh: [
+    [
+      { text: '我目前是' },
+      { text: '图卢兹第一大学', href: universityLinks.toulouse },
+      { text: '企业管理信息应用（MIAGE）硕士一年级学生。本科毕业于' },
+      { text: '上海师范大学', href: universityLinks.shnu },
+      { text: '计算机科学专业。我从前的方向偏向于软件工程、Web 开发、大模型应用。我因为想从事理论计算机相关行业，所以来到欧洲。' },
+    ],
+    [
+      { text: '在最近的一年时间里，我自学了博弈论、逻辑、学习理论等相关基础。' },
+    ],
+  ],
+  fr: [
+    [
+      { text: "Je suis actuellement étudiant en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (MIAGE) à l'" },
+      { text: 'Université Toulouse Capitole', href: universityLinks.toulouse },
+      { text: ". J'ai obtenu une licence en informatique à l'" },
+      { text: 'Université normale de Shanghai', href: universityLinks.shnu },
+      { text: ". Mes orientations précédentes étaient plutôt le génie logiciel, le développement web et les applications de grands modèles de langage. Je suis venu en Europe parce que je souhaite travailler dans un domaine lié à l'informatique théorique." },
+    ],
+    [
+      { text: "Au cours de la dernière année, j'ai étudié en autonomie les bases liées à la théorie des jeux, à la logique et à la théorie de l'apprentissage." },
+    ],
+  ],
 };
 
 const aboutContent: Record<Lang, AboutContent> = {
@@ -232,6 +281,7 @@ const aboutContent: Record<Lang, AboutContent> = {
 };
 
 const profile = aboutContent[lang] ?? aboutContent.en;
+const intro = aboutIntro[lang] ?? aboutIntro.en;
 ---
 <Base title={t('about.title')} description={`${t('about.title')} — ${siteName}`}>
   <div class="container-mid py-16">
@@ -242,9 +292,14 @@ const profile = aboutContent[lang] ?? aboutContent.en;
 
     <!-- Bio prose -->
     <div class="prose dark:prose-invert max-w-none mb-14 animate-fade-up delay-100">
-      <p>{t('about.bio')}</p>
+      {intro.map((paragraph) => (
+        <p>
+          {paragraph.map((part) => part.href ? (
+            <a href={part.href} target="_blank" rel="noopener">{part.text}</a>
+          ) : part.text)}
+        </p>
+      ))}
       <blockquote>{t('about.quote')}</blockquote>
-      <p>{t('about.outside')}</p>
     </div>
 
     <div class="space-y-12 animate-fade-up delay-200">
