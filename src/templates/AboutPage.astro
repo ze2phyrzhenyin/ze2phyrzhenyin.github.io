@@ -50,12 +50,15 @@ type AboutContent = {
 const universityLinks = {
   toulouse: 'https://www.ut-capitole.fr/home',
   shnu: 'https://www.shnu.edu.cn/',
+  miage: 'https://www.ut-capitole.fr/accueil/formations/formations-parentes/master-mention-miage',
 };
 
 const aboutIntro: Record<Lang, BioPart[][]> = {
   en: [
     [
-      { text: 'I am currently a Master 1 student in Computer-Assisted Business Management (MIAGE) at ' },
+      { text: 'I am currently a Master 1 student in Computer-Assisted Business Management (' },
+      { text: 'MIAGE', href: universityLinks.miage },
+      { text: ') at ' },
       { text: 'Toulouse Capitole University', href: universityLinks.toulouse },
       { text: ". I completed my bachelor's degree in Computer Science at " },
       { text: 'Shanghai Normal University', href: universityLinks.shnu },
@@ -78,7 +81,9 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
     [
       { text: '我目前是' },
       { text: '图卢兹第一大学', href: universityLinks.toulouse },
-      { text: '企业管理信息应用（MIAGE）硕士一年级学生。本科毕业于' },
+      { text: '企业管理信息应用（' },
+      { text: 'MIAGE', href: universityLinks.miage },
+      { text: '）硕士一年级学生。本科毕业于' },
       { text: '上海师范大学', href: universityLinks.shnu },
       { text: '计算机科学专业。我从前的方向偏向于软件工程与大模型应用。我因为想从事理论计算机相关行业，所以来到欧洲。' },
     ],
@@ -97,7 +102,9 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
   ],
   fr: [
     [
-      { text: "Je suis actuellement étudiant en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (MIAGE) à l'" },
+      { text: 'Je suis actuellement étudiant en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (' },
+      { text: 'MIAGE', href: universityLinks.miage },
+      { text: ") à l'" },
       { text: 'Université Toulouse Capitole', href: universityLinks.toulouse },
       { text: ". J'ai obtenu une licence en informatique à l'" },
       { text: 'Université normale de Shanghai', href: universityLinks.shnu },
@@ -521,17 +528,17 @@ const quote = t('about.quote');
         </div>
         <div class="space-y-6">
           {profile.education.map((entry) => (
-            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
-              <div>
+            <div class="timeline-entry">
+              <div class="timeline-main">
                 <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
                 <p class="text-sm" style="color:rgb(var(--text-2));">{entry.meta}</p>
-                {entry.points && (
-                  <ul class="mt-2 text-sm space-y-0.5 list-disc list-inside" style="color:rgb(var(--text-2));">
-                    {entry.points.map((point) => <li>{point}</li>)}
-                  </ul>
-                )}
               </div>
               <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
+              {entry.points && (
+                <ul class="timeline-points mt-2 text-sm space-y-0.5 list-disc list-outside pl-5" style="color:rgb(var(--text-2));">
+                  {entry.points.map((point) => <li>{point}</li>)}
+                </ul>
+              )}
             </div>
           ))}
         </div>
@@ -545,17 +552,17 @@ const quote = t('about.quote');
         </div>
         <div class="space-y-6">
           {profile.experience.map((entry) => (
-            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
-              <div>
+            <div class="timeline-entry">
+              <div class="timeline-main">
                 <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
                 <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{entry.meta}</p>
-                {entry.points && (
-                  <ul class="text-sm space-y-1 list-disc list-inside" style="color:rgb(var(--text-2));">
-                    {entry.points.map((point) => <li>{point}</li>)}
-                  </ul>
-                )}
               </div>
               <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
+              {entry.points && (
+                <ul class="timeline-points text-sm space-y-1 list-disc list-outside pl-5" style="color:rgb(var(--text-2));">
+                  {entry.points.map((point) => <li>{point}</li>)}
+                </ul>
+              )}
             </div>
           ))}
         </div>
@@ -615,6 +622,26 @@ const quote = t('about.quote');
 </Base>
 
 <style>
+  .timeline-entry {
+    display: grid;
+    gap: 0.25rem 1.5rem;
+  }
+
+  .timeline-main {
+    min-width: 0;
+  }
+
+  .timeline-points {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+
+  @media (min-width: 640px) {
+    .timeline-entry {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+
   .tech-skill-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

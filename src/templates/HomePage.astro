@@ -10,6 +10,16 @@ const siteName = getSiteName(lang);
 const avatarSrc = withBase(SITE.avatar);
 const brandMarkSrc = withBase('/brand-mark.svg');
 
+type LinkedText = {
+  text: string;
+  href?: string;
+};
+
+const homeLinks = {
+  toulouse: 'https://www.ut-capitole.fr/home',
+  miage: 'https://www.ut-capitole.fr/accueil/formations/formations-parentes/master-mention-miage',
+};
+
 const audiences: {
   num: string;
   q: Parameters<typeof t>[0];
@@ -22,11 +32,76 @@ const audiences: {
   { num: '05', q: 'home.aud.5.q', desc: 'home.aud.5.desc' },
 ];
 
-const heroBioKeys: Parameters<typeof t>[0][] = [
-  'home.bio.1',
-  'home.bio.2',
-  'home.bio.3',
-];
+const homeStatusParts: Record<Lang, LinkedText[]> = {
+  en: [
+    { text: 'Master 1 in Computer-Assisted Business Management (' },
+    { text: 'MIAGE', href: homeLinks.miage },
+    { text: ') · ' },
+    { text: 'Toulouse Capitole University', href: homeLinks.toulouse },
+  ],
+  zh: [
+    { text: '图卢兹第一大学 · 企业管理信息应用（' },
+    { text: 'MIAGE', href: homeLinks.miage },
+    { text: '）硕士一年级' },
+  ],
+  fr: [
+    { text: 'Master 1 Méthodes informatiques appliquées à la gestion des entreprises (' },
+    { text: 'MIAGE', href: homeLinks.miage },
+    { text: ') · ' },
+    { text: 'Université Toulouse Capitole', href: homeLinks.toulouse },
+  ],
+};
+
+const homeIntro: Record<Lang, LinkedText[][]> = {
+  en: [
+    [
+      { text: 'I am currently a Master 1 student in Computer-Assisted Business Management (' },
+      { text: 'MIAGE', href: homeLinks.miage },
+      { text: ') at ' },
+      { text: 'Toulouse Capitole University', href: homeLinks.toulouse },
+      { text: '. I came to Europe because I want to work in an area related to theoretical computer science.' },
+    ],
+    [
+      { text: 'Over the past year, I have been self-studying foundations related to game theory, logic, and learning theory.' },
+    ],
+    [
+      { text: 'I am still looking for the direction that fits me best; over the past month, I have found myself especially interested in proof-related topics.' },
+    ],
+  ],
+  zh: [
+    [
+      { text: '我目前是' },
+      { text: '图卢兹第一大学', href: homeLinks.toulouse },
+      { text: '企业管理信息应用（' },
+      { text: 'MIAGE', href: homeLinks.miage },
+      { text: '）硕士一年级学生。我来到欧洲，是因为我希望未来从事理论计算机科学相关领域的工作。' },
+    ],
+    [
+      { text: '在过去一年里，我自学了博弈论、逻辑和学习理论相关基础。' },
+    ],
+    [
+      { text: '我仍在寻找最适合自己的方向；过去一个月里，我发现自己尤其对证明相关主题感兴趣。' },
+    ],
+  ],
+  fr: [
+    [
+      { text: 'Je suis actuellement étudiant en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (' },
+      { text: 'MIAGE', href: homeLinks.miage },
+      { text: ") à l'" },
+      { text: 'Université Toulouse Capitole', href: homeLinks.toulouse },
+      { text: ". Je suis venu en Europe parce que je souhaite travailler dans un domaine lié à l'informatique théorique." },
+    ],
+    [
+      { text: "Au cours de l'année écoulée, j'ai étudié en autonomie des bases liées à la théorie des jeux, à la logique et à la théorie de l'apprentissage." },
+    ],
+    [
+      { text: 'Je cherche encore la direction qui me correspond le mieux ; au cours du dernier mois, je me suis découvert un intérêt particulier pour les sujets liés aux preuves.' },
+    ],
+  ],
+};
+
+const statusParts = homeStatusParts[lang] ?? homeStatusParts.en;
+const intro = homeIntro[lang] ?? homeIntro.en;
 ---
 <Base>
   <!-- ── Hero ── -->
@@ -40,7 +115,11 @@ const heroBioKeys: Parameters<typeof t>[0][] = [
       <div class="animate-fade-up inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
            style="background:rgb(var(--surface));border:1px solid rgb(var(--border));color:rgb(var(--text-2));">
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-slow"></span>
-        {t('home.status')}
+        <span>
+          {statusParts.map((part) => part.href ? (
+            <a href={part.href} target="_blank" rel="noopener" class="home-inline-link home-status-link">{part.text}</a>
+          ) : part.text)}
+        </span>
       </div>
       <div class="flex flex-col sm:flex-row items-start gap-7 animate-fade-up delay-100">
         <div class="shrink-0 relative">
@@ -56,7 +135,13 @@ const heroBioKeys: Parameters<typeof t>[0][] = [
           <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4"
               style="color:rgb(var(--text));">{siteName}</h1>
           <div class="max-w-xl mb-6 space-y-3 text-sm leading-relaxed" style="color:rgb(var(--text-2));">
-            {heroBioKeys.map((key) => <p>{t(key)}</p>)}
+            {intro.map((paragraph) => (
+              <p>
+                {paragraph.map((part) => part.href ? (
+                  <a href={part.href} target="_blank" rel="noopener" class="home-inline-link">{part.text}</a>
+                ) : part.text)}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -98,6 +183,25 @@ const heroBioKeys: Parameters<typeof t>[0][] = [
 </Base>
 
 <style>
+  .home-inline-link {
+    color: rgb(var(--text));
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--border-2));
+    text-underline-offset: 0.18em;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+  }
+
+  .home-inline-link:hover {
+    color: var(--accent-text);
+    text-decoration-color: var(--accent-text);
+  }
+
+  .home-status-link {
+    color: inherit;
+    font-weight: 600;
+  }
+
   /* ── List ── */
   .aud-list {
     border-top: 1px solid rgb(var(--border));
