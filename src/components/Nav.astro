@@ -124,6 +124,12 @@ const navKeys: Record<string, string> = {
     color: rgb(var(--muted)); transition: color .15s, background .15s;
   }
   .nav-icon-btn:hover { color: rgb(var(--text)); background: rgb(var(--surface-2)); }
+
+  @media (min-width: 768px) {
+    #mobile-menu-btn {
+      display: none;
+    }
+  }
 </style>
 
 <script>

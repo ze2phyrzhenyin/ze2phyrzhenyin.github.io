@@ -9,20 +9,27 @@ const year = new Date().getFullYear();
 const siteName = getSiteName(lang);
 
 ---
-<footer style="border-top: 1px solid rgb(var(--border));">
-  <div class="container-wide py-10">
-    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6"
-         style="border-top: 1px solid rgb(var(--border));">
-      <p class="text-xs" style="color: rgb(var(--muted));">
-        © {year} {siteName} · {t('footer.built')}
-        <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
-      </p>
-      <p class="font-mono text-[10px]" style="color: rgb(var(--border-2));">∀x. P(x) → Q(x)</p>
-    </div>
+<footer class="site-footer">
+  <div class="container-wide">
+    <p>
+      © {year} {siteName} · {t('footer.built')}
+      <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
+    </p>
   </div>
 </footer>
 
 <style>
+  .site-footer {
+    border-top: 1px solid rgb(var(--border));
+    padding: 1.25rem 0;
+  }
+
+  .site-footer p {
+    color: rgb(var(--muted));
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
   .footer-link { color: rgb(var(--muted)); }
   .footer-link:hover { color: rgb(var(--text)); }
 </style>

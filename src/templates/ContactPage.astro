@@ -7,6 +7,7 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const pageDescription = t('contact.desc');
+const contactNote = t('contact.note');
 const displayEmail = formatEmailForDisplay(SITE.email);
 const contactLabels = {
   wechat: lang === 'zh' ? '微信' : 'WeChat',
@@ -31,7 +32,7 @@ const socialItems = [
         <h1 class="text-4xl sm:text-5xl font-bold tracking-tight mb-4"
             style="color:rgb(var(--text));letter-spacing:0;">{t('contact.title')}</h1>
         {pageDescription && <p class="text-base leading-relaxed max-w-md" style="color:rgb(var(--text-2));">{pageDescription}</p>}
-        <p class="mt-8 text-sm leading-relaxed max-w-md" style="color:rgb(var(--muted));">{t('contact.note')}</p>
+        {contactNote && <p class="mt-8 text-sm leading-relaxed max-w-md" style="color:rgb(var(--muted));">{contactNote}</p>}
       </header>
 
       <div class="space-y-8 animate-fade-up delay-100">
