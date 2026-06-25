@@ -546,7 +546,6 @@ const quote = t('about.quote');
             <div class="tech-skill-group">
               <div class="mb-3">
                 <h3 class="text-sm font-semibold" style="color:rgb(var(--text));">{group.title}</h3>
-                <p class="mt-1 text-sm leading-relaxed" style="color:rgb(var(--text-2));">{group.summary}</p>
               </div>
               <div class="tech-skill-grid">
                 {group.items.map((skill) => (
@@ -560,7 +559,6 @@ const quote = t('about.quote');
                     </span>
                     <span class="min-w-0">
                       <span class="tech-skill-name">{skill.name}</span>
-                      {skill.note && <span class="tech-skill-note">{skill.note}</span>}
                     </span>
                   </div>
                 ))}
@@ -677,11 +675,4 @@ const quote = t('about.quote');
     line-height: 1.15;
   }
 
-  .tech-skill-note {
-    display: block;
-    margin-top: 0.15rem;
-    color: rgb(var(--muted));
-    font-size: 0.68rem;
-    line-height: 1.1;
-  }
 </style>
