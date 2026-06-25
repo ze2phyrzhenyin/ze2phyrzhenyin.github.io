@@ -1,5 +1,5 @@
 ---
-import { getSiteName } from '@/lib/config';
+import { SITE, getSiteName, formatEmailForDisplay } from '@/lib/config';
 import { useTranslations, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
@@ -7,6 +7,7 @@ const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
 const siteName = getSiteName(lang);
+const displayEmail = formatEmailForDisplay(SITE.email);
 
 ---
 <footer class="site-footer">
@@ -15,6 +16,7 @@ const siteName = getSiteName(lang);
       © {year} {siteName} · {t('footer.built')}
       <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
     </p>
+    <p class="footer-email">Email: {displayEmail}</p>
   </div>
 </footer>
 
@@ -29,6 +31,10 @@ const siteName = getSiteName(lang);
     font-size: 0.75rem;
     line-height: 1.5;
     text-align: center;
+  }
+
+  .footer-email {
+    margin-top: 0.25rem;
   }
 
   .footer-link { color: rgb(var(--muted)); }

@@ -1,25 +1,12 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { SITE, getSiteName, formatEmailForDisplay } from '@/lib/config';
-import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import { getSiteName } from '@/lib/config';
+import { useTranslations, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const siteName = getSiteName(lang);
-const displayEmail = formatEmailForDisplay(SITE.email);
-const contactLabels = {
-  wechat: lang === 'zh' ? '微信' : 'WeChat',
-  linkedin: lang === 'zh' ? '领英' : 'LinkedIn',
-};
-const contactItems = [
-  { label: 'Email', value: displayEmail },
-  { label: contactLabels.wechat, value: SITE.contact.wechat },
-  { label: contactLabels.linkedin, value: 'zhaoyang-sui-6260a539b', href: SITE.contact.linkedin },
-  { label: 'GitHub', value: '@ze2phyrzhenyin', href: SITE.contact.github },
-  { label: 'Codeforces', value: 'ze2phyr_zhenyin', href: SITE.contact.codeforces },
-  { label: 'Instagram', value: '@ze2phyr', href: SITE.contact.instagram },
-].filter((item) => item.value);
 
 type TimelineEntry = {
   title: string;
@@ -144,10 +131,9 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
     ],
     interests: [
-      { title: 'Software engineering', detail: 'C/C++, Python, Java, SQL, system design, testing, and maintainable implementation.' },
-      { title: 'Web development and deployment', detail: 'React, Node.js, Nginx, Linux deployment, and full-stack project delivery.' },
-      { title: 'Applied AI', detail: 'Deep learning, LLM fine-tuning, RAG, YOLOv8, and image-processing algorithms.' },
-      { title: 'Research implementation', detail: 'Building reproducible tooling for cultural computing, NLP, and image-recognition studies.' },
+      { title: 'Programming Languages', detail: 'C/C++, Python, Java, R, SQL, TypeScript.' },
+      { title: 'AI / Data', detail: 'Deep learning, LLM fine-tuning, RAG, YOLOv8, image processing, data analysis.' },
+      { title: 'Tools', detail: 'React, Node.js, Nginx, Linux, Git, VS Code.' },
     ],
     experience: [
       {
@@ -161,26 +147,16 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
       {
         title: 'Software Test Engineer',
-        meta: 'Shanghai Lankuaikei Technology Development Co., Ltd. · Shanghai',
+        meta: 'Languiqi Agricultural Technology (Shanghai) Co., Ltd. · Shanghai',
         date: 'Jul 2022 - Sep 2022',
         points: ['Tested large-screen and mobile software, and wrote test documentation.'],
       },
-      {
-        title: 'Research Implementation',
-        meta: 'Cultural computing, LLM fine-tuning, and X-ray image recognition',
-        date: '2023 - 2025',
-        points: [
-          'Implemented ChatGLM3 fine-tuning and P-Tuning v2 workflows on 46 Chinese novels for literary concept classification.',
-          'Implemented YOLOv8 and classic image-processing algorithms, including region growing, for timber-structure damage recognition.',
-          'Paper details are listed on the Publications page.',
-        ],
-      },
     ],
     skills: [
-      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
-      { key: 'about.math', items: ['Deep learning', 'LLM fine-tuning', 'RAG', 'YOLOv8', 'Image processing', 'Data analysis'] },
-      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
       { key: 'about.lang', items: ['Chinese (native)', 'English (B1+)', 'French (B1+)'] },
+      { key: 'about.org', items: ['Academic project coordination', 'Student organizations', 'Volunteer work', 'Event operations'] },
+      { key: 'about.ops', items: ['Product design', 'User operations', 'Growth operations', 'Market awareness'] },
+      { key: 'about.media', items: ['Video editing', 'Social-media workflows', 'Public-service coordination', 'French theatre performance'] },
     ],
   },
   zh: {
@@ -205,10 +181,9 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
     ],
     interests: [
-      { title: '软件工程', detail: 'C/C++、Python、Java、SQL、系统设计、测试与可维护实现。' },
-      { title: 'Web 开发与部署', detail: 'React、Node.js、Nginx、Linux 部署和全栈项目交付。' },
-      { title: '应用 AI', detail: '深度学习、大语言模型微调、RAG、YOLOv8 与图像处理算法。' },
-      { title: '科研技术实现', detail: '为文化计算、自然语言处理和图像识别研究构建可复现实验工具。' },
+      { title: '编程语言', detail: 'C/C++、Python、Java、R、SQL、TypeScript。' },
+      { title: 'AI / 数据', detail: '深度学习、大语言模型微调、RAG、YOLOv8、图像处理、数据分析。' },
+      { title: '工具', detail: 'React、Node.js、Nginx、Linux、Git、VS Code。' },
     ],
     experience: [
       {
@@ -222,26 +197,16 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
       {
         title: '软件测试工程师',
-        meta: '上海蓝快科技发展有限公司 · 上海',
+        meta: '兰桂琪农业科技（上海）有限公司 · 上海',
         date: '2022 年 7 月 - 2022 年 9 月',
         points: ['测试大屏和移动端软件，并撰写测试文档。'],
       },
-      {
-        title: '科研技术实现',
-        meta: '文化计算、大语言模型微调与 X 光图像识别',
-        date: '2023 年 - 2025 年',
-        points: [
-          '实现 ChatGLM3 微调与 P-Tuning v2 流程，基于 46 部中文小说训练模型以分类复杂文学概念。',
-          '实现 YOLOv8 和区域生长等基础图像处理算法，用于木结构连接损伤识别。',
-          '论文详情单独放在 Publications 页面。',
-        ],
-      },
     ],
     skills: [
-      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
-      { key: 'about.math', items: ['深度学习', '大语言模型微调', 'RAG', 'YOLOv8', '图像处理', '数据分析'] },
-      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
       { key: 'about.lang', items: ['中文（母语）', '英语（B1+）', '法语（B1+）'] },
+      { key: 'about.org', items: ['学术项目管理', '学生组织', '志愿服务', '会场与活动运营'] },
+      { key: 'about.ops', items: ['产品设计', '用户运营', '增长运营', '市场敏感度'] },
+      { key: 'about.media', items: ['视频剪辑', '社交媒体流程', '线上公共事务协作', '法语话剧演出'] },
     ],
   },
   fr: {
@@ -266,10 +231,9 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
     ],
     interests: [
-      { title: 'Génie logiciel', detail: 'C/C++, Python, Java, SQL, conception de systèmes, tests et implémentation maintenable.' },
-      { title: 'Développement web et déploiement', detail: 'React, Node.js, Nginx, déploiement Linux et livraison de projets full-stack.' },
-      { title: 'IA appliquée', detail: 'Deep learning, fine-tuning de grands modèles de langage, RAG, YOLOv8 et algorithmes de traitement d\'image.' },
-      { title: 'Implémentation pour la recherche', detail: 'Construction d\'outils reproductibles pour le cultural computing, le NLP et la reconnaissance d\'images.' },
+      { title: 'Langages de programmation', detail: 'C/C++, Python, Java, R, SQL, TypeScript.' },
+      { title: 'IA / Données', detail: 'Deep learning, fine-tuning de grands modèles de langage, RAG, YOLOv8, traitement d\'image, analyse de données.' },
+      { title: 'Outils', detail: 'React, Node.js, Nginx, Linux, Git, VS Code.' },
     ],
     experience: [
       {
@@ -283,26 +247,16 @@ const aboutContent: Record<Lang, AboutContent> = {
       },
       {
         title: 'Ingénieur de test',
-        meta: 'Shanghai Lankuaikei Technology Development Co., Ltd. · Shanghai',
+        meta: 'Languiqi Agricultural Technology (Shanghai) Co., Ltd. · Shanghai',
         date: 'Juil. 2022 - Sept. 2022',
         points: ['Tests de logiciels pour grands écrans et mobile, avec rédaction de documentation de test.'],
       },
-      {
-        title: 'Implémentation technique pour la recherche',
-        meta: 'Cultural computing, fine-tuning de LLM et reconnaissance sur images X-ray',
-        date: '2023 - 2025',
-        points: [
-          'Implémentation de workflows de fine-tuning ChatGLM3 et P-Tuning v2 sur 46 romans chinois pour classifier des concepts littéraires complexes.',
-          "Implémentation de YOLOv8 et d'algorithmes fondamentaux de traitement d'image, dont la croissance de région, pour la reconnaissance de dommages dans les structures en bois.",
-          'Les détails des articles sont listés dans la page Publications.',
-        ],
-      },
     ],
     skills: [
-      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
-      { key: 'about.math', items: ['Deep learning', 'Fine-tuning LLM', 'RAG', 'YOLOv8', 'Traitement d\'image', 'Analyse de données'] },
-      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
       { key: 'about.lang', items: ['Chinois (langue maternelle)', 'Anglais (B1+)', 'Français (B1+)'] },
+      { key: 'about.org', items: ['Coordination de projets académiques', 'Organisations étudiantes', 'Bénévolat', 'Gestion d\'événements'] },
+      { key: 'about.ops', items: ['Conception de produit', 'Opérations utilisateurs', 'Opérations de croissance', 'Sensibilité au marché'] },
+      { key: 'about.media', items: ['Montage vidéo', 'Flux de travail réseaux sociaux', 'Coordination de services publics en ligne', 'Théâtre en français'] },
     ],
   },
 };
@@ -397,19 +351,6 @@ const quote = t('about.quote');
         </div>
       </section>
 
-      <!-- Publications pointer -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="section-title shrink-0">{t('about.publications')}</h2>
-          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-        </div>
-        <p class="text-sm" style="color:rgb(var(--text-2));">
-          <a href={localizePath('/publications', lang)} style="color:var(--accent-text);text-decoration:underline;">
-            {t('about.pubs.see')}
-          </a>
-        </p>
-      </section>
-
       <!-- Skills -->
       <section>
         <div class="flex items-center gap-4 mb-6">
@@ -426,24 +367,6 @@ const quote = t('about.quote');
         </div>
       </section>
 
-      <!-- Contact -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="section-title shrink-0">{t('about.contact')}</h2>
-          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-        </div>
-        <div class="text-sm space-y-1" style="color:rgb(var(--text-2));">
-          {contactItems.map((item) => (
-            <p>
-              {item.label}: {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener" style="color:var(--accent-text);">{item.value}</a>
-              ) : (
-                <span style="color:var(--accent-text);">{item.value}</span>
-              )}
-            </p>
-          ))}
-        </div>
-      </section>
     </div>
   </div>
 </Base>
