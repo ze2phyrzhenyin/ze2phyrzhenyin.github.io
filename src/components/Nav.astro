@@ -1,13 +1,15 @@
 ---
 import { SITE, NAV, getSiteName } from '@/lib/config';
 import LangSwitcher from '@/components/LangSwitcher.astro';
-import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import { useTranslations, localizePath, defaultLang, stripBase, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
-const pathname = Astro.url.pathname;
+const pathname = withBase(stripBase(Astro.url.pathname));
 const siteName = getSiteName(lang);
+const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
+const rssHref = withBase('/rss.xml');
 
 // Map config href keys to translation keys
 const navKeys: Record<string, string> = {
@@ -18,7 +20,7 @@ const navKeys: Record<string, string> = {
 ---
 <header id="site-header"
   class="sticky top-0 z-50 transition-all duration-300"
-  style="background: rgb(var(--bg) / 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
+  style={`background: rgb(var(--bg) / 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); --brand-mark-url: ${brandMarkUrl};`}>
   <div id="reading-progress"
        class="absolute bottom-0 left-0 h-px w-0 transition-none"
        style="background: var(--accent);" />
@@ -53,7 +55,7 @@ const navKeys: Record<string, string> = {
 
     <!-- Right controls -->
     <div class="flex items-center gap-2">
-      <a href="/rss.xml" aria-label="RSS" title="RSS" class="nav-icon-btn">
+      <a href={rssHref} aria-label="RSS" title="RSS" class="nav-icon-btn">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 19h.01"/>
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a14 14 0 0114 14"/>
@@ -144,8 +146,8 @@ const navKeys: Record<string, string> = {
     width: 1.08rem;
     height: 1.08rem;
     background: #ffffff;
-    -webkit-mask: url('/brand-mark.svg') center / contain no-repeat;
-    mask: url('/brand-mark.svg') center / contain no-repeat;
+    -webkit-mask: var(--brand-mark-url) center / contain no-repeat;
+    mask: var(--brand-mark-url) center / contain no-repeat;
   }
   .group:hover .nav-logo-mark { transform: scale(1.05); }
   .nav-icon-btn {

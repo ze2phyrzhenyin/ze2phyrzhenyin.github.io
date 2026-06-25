@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import { formatDate, getAllProjects } from '@/lib/utils';
 import { getProjectText } from '@/lib/project-i18n';
-import { localizePath, useTranslations, defaultLang } from '@/i18n/utils';
+import { localizePath, useTranslations, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
@@ -87,7 +87,7 @@ const statusColor: Record<string, string> = {
                     </div>
                     {project.data.cover && (
                       <a href={href} class="project-shot" aria-label={text.title}>
-                        <img src={project.data.cover} alt={`${text.title} screenshot`} loading="lazy" />
+                        <img src={withBase(project.data.cover)} alt={`${text.title} screenshot`} loading="lazy" />
                       </a>
                     )}
                   </article>

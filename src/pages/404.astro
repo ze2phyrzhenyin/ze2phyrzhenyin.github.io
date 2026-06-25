@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { useTranslations, defaultLang } from '@/i18n/utils';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
@@ -14,7 +14,7 @@ const t    = useTranslations(lang);
          style="font-size:clamp(5rem,20vw,9rem);color:rgb(var(--border));letter-spacing:-0.05em;">404</p>
       <h1 class="text-2xl font-bold mb-2" style="color:rgb(var(--text));">{t('404.title')}</h1>
       <p class="font-mono text-sm mb-8" style="color:rgb(var(--muted));">{t('404.msg')}</p>
-      <a href="/" class="btn-primary">{t('404.back')}</a>
+      <a href={localizePath('/', lang)} class="btn-primary">{t('404.back')}</a>
     </div>
   </div>
 </Base>

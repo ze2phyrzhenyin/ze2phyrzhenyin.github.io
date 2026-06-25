@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import { formatDate } from '@/lib/utils';
 import { getProjectText } from '@/lib/project-i18n';
-import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import { useTranslations, localizePath, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
 
@@ -59,7 +59,7 @@ const statusColor: Record<string, string> = {
 
     {cover && (
       <figure class="project-hero animate-fade-up delay-100">
-        <img src={cover} alt={`${text.title} screenshot`} />
+        <img src={withBase(cover)} alt={`${text.title} screenshot`} />
       </figure>
     )}
 

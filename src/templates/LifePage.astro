@@ -1,6 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { useTranslations, defaultLang } from '@/i18n/utils';
+import { useTranslations, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
@@ -73,15 +73,18 @@ const photos: { src: string; alt: string; category: string }[] = [
       </div>
     ) : (
       <div class="columns-2 sm:columns-3 lg:columns-4 gap-3 px-5 sm:px-8 animate-fade-up delay-100">
-        {photos.map(photo => (
+        {photos.map(photo => {
+          const src = withBase(photo.src);
+          return (
           <figure class="break-inside-avoid mb-3 cursor-zoom-in group overflow-hidden rounded-2xl"
-                  style="border:1px solid rgb(var(--border));" data-src={photo.src} data-alt={photo.alt}>
+                  style="border:1px solid rgb(var(--border));" data-src={src} data-alt={photo.alt}>
             <div class="overflow-hidden rounded-2xl">
-              <img src={photo.src} alt={photo.alt} loading="lazy"
+              <img src={src} alt={photo.alt} loading="lazy"
                    class="w-full object-cover transition-transform duration-500 group-hover:scale-105"/>
             </div>
           </figure>
-        ))}
+          );
+        })}
       </div>
     )}
   </div>

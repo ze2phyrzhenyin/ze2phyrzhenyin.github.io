@@ -5,8 +5,12 @@ import tailwind from '@astrojs/tailwind';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+const site = process.env.ASTRO_SITE ?? 'https://ze2phyrzhenyin.github.io';
+const base = process.env.ASTRO_BASE_PATH ?? '/';
+
 export default defineConfig({
-  site: 'https://ze2phyrzhenyin.github.io',
+  site,
+  base,
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh', 'fr'],
