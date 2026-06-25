@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Zhaoyang SUI',
   nameZh: '隋朝阳',
-  tagline: 'Incoming M1 MIAGE · Université Toulouse 1 Capitole',
+  tagline: 'Incoming Master 1 in Computer-Assisted Business Management (MIAGE) · Université Toulouse 1 Capitole',
   description: 'Personal site — software engineering, applied AI, research, writing, and projects.',
   url: 'https://ze2phyrzhenyin.github.io',
   author: 'Zhaoyang SUI',

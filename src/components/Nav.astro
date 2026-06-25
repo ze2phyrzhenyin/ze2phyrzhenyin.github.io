@@ -26,8 +26,7 @@ const navKeys: Record<string, string> = {
   <nav class="container-wide flex items-center justify-between h-14">
     <!-- Logo -->
     <a href={localizePath('/', lang)} class="flex items-center gap-2.5 group shrink-0">
-      <div class="w-7 h-7 rounded-lg flex items-center justify-center text-white font-bold font-mono text-sm select-none transition-transform group-hover:scale-105"
-           style="background: linear-gradient(135deg, hsl(var(--accent-h) var(--accent-s) var(--accent-l)), hsl(calc(var(--accent-h)+20) var(--accent-s) calc(var(--accent-l)+10%)));">
+      <div class="nav-logo-mark">
         λ
       </div>
       <span class="font-semibold text-sm tracking-tight transition-colors hidden sm:block"
@@ -118,6 +117,26 @@ const navKeys: Record<string, string> = {
   }
   .nav-link:hover { color: rgb(var(--text)); background: rgb(var(--surface-2)); }
   .nav-link-active { color: var(--accent-text) !important; background: var(--accent-dim) !important; font-weight: 600; }
+  .nav-logo-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 0.5rem;
+    color: white;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--accent-h) var(--accent-s) var(--accent-l)),
+      hsl(calc(var(--accent-h) + 20) var(--accent-s) calc(var(--accent-l) + 10%))
+    );
+    font-family: var(--font-mono, ui-monospace, monospace);
+    font-size: 0.875rem;
+    font-weight: 700;
+    user-select: none;
+    transition: transform 0.15s ease;
+  }
+  .group:hover .nav-logo-mark { transform: scale(1.05); }
   .nav-icon-btn {
     display: flex; align-items: center; justify-content: center;
     width: 2rem; height: 2rem; border-radius: 0.625rem;

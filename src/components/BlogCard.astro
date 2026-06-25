@@ -1,5 +1,5 @@
 ---
-import { formatDate, readingTime, categoryBadge } from '@/lib/utils';
+import { formatDate, readingTime } from '@/lib/utils';
 import { localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -9,17 +9,13 @@ interface Props {
   featured?: boolean;
 }
 const { post, featured = false } = Astro.props;
-const { title, description, date, category, tags } = post.data;
+const { title, description, date } = post.data;
 const rt = readingTime(post.body ?? '');
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 ---
 <article class={`card-accent group relative flex flex-col ${featured ? 'sm:col-span-2' : ''}`}>
-  <!-- Category + meta row -->
+  <!-- Meta row -->
   <div class="flex items-center gap-2 mb-3">
-    <a href={localizePath(`/blog?cat=${category}`, lang)} class={categoryBadge(category)}
-       onclick="event.stopPropagation()" style="position:relative;z-index:1;">
-      {category}
-    </a>
     <span class="text-xs tabular" style="color: rgb(var(--muted));">
       {formatDate(date, { month: 'short', day: 'numeric', year: 'numeric' })}
     </span>
@@ -41,15 +37,6 @@ const lang = (Astro.currentLocale ?? defaultLang) as Lang;
      style="color: rgb(var(--text-2));">
     {description}
   </p>
-
-  <!-- Tags -->
-  {tags.length > 0 && (
-    <div class="flex flex-wrap gap-1 mt-auto">
-      {tags.slice(0, 4).map(tag => (
-        <span class="font-mono text-[10px]" style="color: rgb(var(--muted));">#{tag}</span>
-      ))}
-    </div>
-  )}
 </article>
 
 <style>
