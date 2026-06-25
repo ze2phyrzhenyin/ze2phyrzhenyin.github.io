@@ -15,22 +15,16 @@ type LinkedText = {
   href?: string;
 };
 
-const homeLinks = {
-  toulouse: 'https://www.ut-capitole.fr/home',
-  miage: 'https://www.ut-capitole.fr/accueil/formations/formations-parentes/master-mention-miage',
+type AudienceCopy = {
+  q: string;
+  paragraphs: string[];
+  list?: string[];
 };
 
-const audiences: {
-  num: string;
-  q: Parameters<typeof t>[0];
-  desc: Parameters<typeof t>[0];
-}[] = [
-  { num: '01', q: 'home.aud.1.q', desc: 'home.aud.1.desc' },
-  { num: '02', q: 'home.aud.2.q', desc: 'home.aud.2.desc' },
-  { num: '03', q: 'home.aud.3.q', desc: 'home.aud.3.desc' },
-  { num: '04', q: 'home.aud.4.q', desc: 'home.aud.4.desc' },
-  { num: '05', q: 'home.aud.5.q', desc: 'home.aud.5.desc' },
-];
+const homeLinks = {
+  toulouse: 'https://www.ut-capitole.fr/home',
+  miage: 'https://www.ut-capitole.fr/accueil/formations/offre-de-formation/nos-diplomes/masters/master-mention-miage-1ere-annee-formation-initiale',
+};
 
 const homeStatusParts: Record<Lang, LinkedText[]> = {
   en: [
@@ -91,8 +85,93 @@ const homeIntro: Record<Lang, LinkedText[][]> = {
   ],
 };
 
+const audienceContent: Record<Lang, AudienceCopy[]> = {
+  en: [
+    {
+      q: 'If you are a professor or supervisor who wants to know more about me',
+      paragraphs: [
+        'I have very strong abilities in information gathering, organizing materials, and self-directed learning. I have an engineering background that was previously more application-oriented, and in recent years I have also strengthened my theoretical foundations. I am very willing to engage with research in any TCS-related area, and I would especially appreciate a small task or test from you to evaluate both my engineering and theoretical foundations.',
+      ],
+    },
+    {
+      q: 'If you are a researcher interested in collaboration',
+      paragraphs: [
+        'I have a strong interest in any project with positive social value, and I am good at project management and adapting to changing situations. I can contribute experience in building projects across multiple technology stacks and using a variety of AI models. If you are looking for collaborators for either of the following types of projects, feel free to contact me:',
+      ],
+      list: [
+        'projects related to TCS;',
+        'projects that combine digitalization or AI with concrete work in other fields and can significantly improve current workflows.',
+      ],
+    },
+    {
+      q: 'If you would like to talk with me',
+      paragraphs: ['I welcome any topic.'],
+    },
+    {
+      q: 'If you are looking for my help',
+      paragraphs: ['I am willing to offer whatever help I can, to anyone who needs it.'],
+    },
+  ],
+  zh: [
+    {
+      q: '若您是希望了解我的老师或导师',
+      paragraphs: [
+        '我有着极强的信息搜集、整理资料与自学能力。我有从前偏向于应用的工程背景，也在近年来提升了自己的理论基础。我很愿意接触任何与 TCS 相关领域的研究，并非常期待您能给我一个小任务或测试，来检验我的工程与理论基础。',
+      ],
+    },
+    {
+      q: '若您是有意与我合作的研究者',
+      paragraphs: [
+        '我对任何对社会有积极意义的项目有着浓厚的兴趣，也擅长管理项目与随机应变。我可以提供多种技术栈的项目搭建经验，以及多种 AI 模型的调用经验。如果您在寻找以下两类项目的合作者，欢迎与我联系：',
+      ],
+      list: [
+        '与 TCS 相关的项目；',
+        '将数字化 / AI 与其他领域的具体业务结合，并能够显著提升当前工作效率的项目。',
+      ],
+    },
+    {
+      q: '若您是希望与我交流的人',
+      paragraphs: ['我欢迎任何话题！'],
+    },
+    {
+      q: '若您是希望寻求我帮助的人',
+      paragraphs: ['我可以为任何人提供任何我能提供的帮助。'],
+    },
+  ],
+  fr: [
+    {
+      q: 'Si vous êtes enseignant·e ou directeur·rice et souhaitez mieux me connaître',
+      paragraphs: [
+        "J'ai de très bonnes capacités de recherche d'information, d'organisation de ressources et d'apprentissage autonome. Mon parcours d'ingénierie était auparavant plutôt orienté vers les applications, et j'ai aussi renforcé mes bases théoriques ces dernières années. Je suis très ouvert à tout sujet de recherche lié à la TCS, et j'aimerais beaucoup recevoir de votre part une petite tâche ou un test permettant d'évaluer à la fois mes bases techniques et théoriques.",
+      ],
+    },
+    {
+      q: 'Si vous êtes chercheur·se et souhaitez collaborer',
+      paragraphs: [
+        "Je m'intéresse vivement à tout projet ayant une valeur sociale positive, et je sais gérer des projets tout en m'adaptant rapidement aux situations imprévues. Je peux apporter une expérience de construction de projets avec plusieurs piles techniques, ainsi que d'utilisation de différents modèles d'IA. Si vous cherchez un collaborateur pour l'un des deux types de projets suivants, n'hésitez pas à me contacter :",
+      ],
+      list: [
+        'des projets liés à la TCS ;',
+        "des projets qui combinent numérisation ou IA avec un métier concret d'un autre domaine, et qui peuvent améliorer fortement les méthodes de travail actuelles.",
+      ],
+    },
+    {
+      q: 'Si vous souhaitez échanger avec moi',
+      paragraphs: ["Tous les sujets sont les bienvenus."],
+    },
+    {
+      q: "Si vous cherchez de l'aide",
+      paragraphs: ["Je suis prêt à offrir toute l'aide que je peux apporter, à toute personne qui en a besoin."],
+    },
+  ],
+};
+
 const statusParts = homeStatusParts[lang] ?? homeStatusParts.en;
 const intro = homeIntro[lang] ?? homeIntro.en;
+const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index) => ({
+  ...item,
+  num: String(index + 1).padStart(2, '0'),
+}));
 ---
 <Base>
   <!-- ── Hero ── -->
@@ -150,11 +229,11 @@ const intro = homeIntro[lang] ?? homeIntro.en;
 
     <!-- Accordion list -->
     <div class="aud-list" role="list">
-      {audiences.map(({ num, q, desc }) => (
+      {audiences.map(({ num, q, paragraphs, list }) => (
         <details class="aud-item" role="listitem">
           <summary class="aud-summary" tabindex="0">
             <span class="aud-num">{num}</span>
-            <span class="aud-question">{t(q)}</span>
+            <span class="aud-question">{q}</span>
             <span class="aud-icon" aria-hidden="true">
               <svg class="icon-plus w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14M5 12h14"/>
@@ -165,7 +244,14 @@ const intro = homeIntro[lang] ?? homeIntro.en;
             </span>
           </summary>
           <div class="aud-body">
-            <p class="aud-desc">{t(desc)}</p>
+            <div class="aud-copy">
+              {paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+              {list && (
+                <ol class="aud-detail-list" type="a">
+                  {list.map((item) => <li>{item}</li>)}
+                </ol>
+              )}
+            </div>
           </div>
         </details>
       ))}
@@ -272,12 +358,25 @@ const intro = homeIntro[lang] ?? homeIntro.en;
   }
 
   /* ── Description text ── */
-  .aud-desc {
+  .aud-copy {
     font-size: 0.875rem;
     line-height: 1.75;
     color: rgb(var(--text-2));
-    max-width: 52ch;
-    margin-bottom: 1rem;
+    max-width: 68ch;
+  }
+
+  .aud-copy > * + * {
+    margin-top: 0.55rem;
+  }
+
+  .aud-detail-list {
+    list-style-type: lower-alpha;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+  }
+
+  .aud-detail-list li + li {
+    margin-top: 0.25rem;
   }
 
   /* ── CTA link ── */
