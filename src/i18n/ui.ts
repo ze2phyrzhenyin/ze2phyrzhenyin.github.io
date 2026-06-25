@@ -9,7 +9,7 @@ export const ui = {
     'nav.publications': 'Publications', 'nav.projects': 'Projects',
     'nav.life': 'Life', 'nav.contact': 'Contact',
     // ── Home ──
-    'home.status': 'Master 1 in Computer-Assisted Business Management (MIAGE) · UT Capitole',
+    'home.status': 'Master 1 in Computer-Assisted Business Management (MIAGE) · Université Toulouse 1 Capitole',
     'home.bio.1': 'I work across software engineering, web development, and applied AI —',
     'home.bio.logic': 'C/C++', 'home.bio.tt': 'Python',
     'home.bio.2': 'with experience in Linux deployment, deep learning, LLM fine-tuning, and RAG. I also publish applied research in cultural computing and image-based recognition.',
@@ -167,7 +167,7 @@ export const ui = {
     'nav.about': 'À propos', 'nav.blog': 'Blog', 'nav.essays': 'Essais',
     'nav.publications': 'Publications', 'nav.projects': 'Projets',
     'nav.life': 'Vie', 'nav.contact': 'Contact',
-    'home.status': 'Master 1 Méthodes informatiques appliquées à la gestion des entreprises (MIAGE) · UT Capitole',
+    'home.status': 'Master 1 Méthodes informatiques appliquées à la gestion des entreprises (MIAGE) · Université Toulouse 1 Capitole',
     'home.bio.1': "Je travaille entre génie logiciel, développement web et IA appliquée —",
     'home.bio.logic': 'C/C++', 'home.bio.tt': 'Python',
     'home.bio.2': "avec de l'expérience en déploiement Linux, deep learning, fine-tuning de grands modèles de langage et RAG. Je publie aussi des travaux de recherche appliquée en cultural computing et reconnaissance d'images.",
