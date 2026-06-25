@@ -68,9 +68,6 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: 'Over the past year, I have been self-studying foundations related to game theory, logic, and learning theory.' },
     ],
     [
-      { text: 'I am still looking for the direction that fits me best; over the past month, I have found myself especially interested in proof-related topics.' },
-    ],
-    [
       { text: 'In earlier years, I was active in volunteer work, student organizations, academic project coordination, internet marketing, and user operations. These experiences gave me solid coordination skills and a practical sense for markets and users.' },
     ],
     [
@@ -92,9 +89,6 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: '在最近的一年时间里，我自学了博弈论、逻辑、学习理论等相关基础。' },
     ],
     [
-      { text: '我正在寻找适合自己的方向，最近一个月我发现自己对于证明相关的方向兴趣浓厚。' },
-    ],
-    [
       { text: '在从前的日子里，我曾热衷于志愿服务、学生组织、学术项目管理、互联网市场营销与用户运营，因此积累了较好的组织协调能力、项目管理能力和市场敏感度。' },
     ],
     [
@@ -114,9 +108,6 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
     ],
     [
       { text: "Au cours de la dernière année, j'ai étudié en autonomie les bases liées à la théorie des jeux, à la logique et à la théorie de l'apprentissage." },
-    ],
-    [
-      { text: "Je cherche encore la direction qui me correspond le mieux ; depuis un mois, je constate un intérêt marqué pour les sujets liés aux preuves." },
     ],
     [
       { text: "Dans les années précédentes, je me suis beaucoup investi dans le bénévolat, les organisations étudiantes, la coordination de projets académiques, le marketing numérique et les opérations utilisateurs. Ces expériences m'ont donné de bonnes capacités de coordination, de gestion de projet et une sensibilité concrète aux marchés et aux usages." },
@@ -318,6 +309,7 @@ const aboutContent: Record<Lang, AboutContent> = {
 
 const profile = aboutContent[lang] ?? aboutContent.en;
 const intro = aboutIntro[lang] ?? aboutIntro.en;
+const quote = t('about.quote');
 ---
 <Base title={t('about.title')} description={`${t('about.title')} — ${siteName}`}>
   <div class="container-mid py-16">
@@ -328,12 +320,15 @@ const intro = aboutIntro[lang] ?? aboutIntro.en;
 
     <!-- Bio prose -->
     <div class="prose dark:prose-invert max-w-none mb-14 animate-fade-up delay-100">
-      {intro.map((paragraph) => (
-        <p>
-          {paragraph.map((part) => part.href ? (
-            <a href={part.href} target="_blank" rel="noopener">{part.text}</a>
-          ) : part.text)}
-        </p>
+      {intro.map((paragraph, index) => (
+        <>
+          <p>
+            {paragraph.map((part) => part.href ? (
+              <a href={part.href} target="_blank" rel="noopener">{part.text}</a>
+            ) : part.text)}
+          </p>
+          {index === 1 && quote && <blockquote>{quote}</blockquote>}
+        </>
       ))}
     </div>
 
