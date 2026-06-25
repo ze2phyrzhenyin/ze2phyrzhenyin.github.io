@@ -7,6 +7,218 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const siteName = getSiteName(lang);
+
+type TimelineEntry = {
+  title: string;
+  meta: string;
+  date: string;
+  points?: string[];
+};
+
+type Interest = {
+  title: string;
+  detail: string;
+};
+
+type SkillGroup = {
+  key: 'about.prog' | 'about.math' | 'about.tools' | 'about.lang';
+  items: string[];
+};
+
+type AboutContent = {
+  education: TimelineEntry[];
+  interests: Interest[];
+  experience: TimelineEntry[];
+  skills: SkillGroup[];
+};
+
+const aboutContent: Record<Lang, AboutContent> = {
+  en: {
+    education: [
+      {
+        title: 'M1 MIAGE',
+        meta: 'Université Toulouse 1 Capitole · Toulouse, France',
+        date: 'From Sep 2026',
+        points: ['Management of information systems, software engineering, databases, and business-oriented IT.'],
+      },
+      {
+        title: "Master's Preparatory Year for MIAGE",
+        meta: 'Université Toulouse 1 Capitole · Toulouse, France',
+        date: 'Sep 2025 - 2026',
+        points: ['Preparatory year for entry into the MIAGE master track.'],
+      },
+      {
+        title: 'BSc in Computer Science',
+        meta: 'Shanghai Normal University · Shanghai, China',
+        date: 'Oct 2020 - Jun 2024',
+        points: ['Average: 76.13 / 100.'],
+      },
+    ],
+    interests: [
+      { title: 'Software engineering', detail: 'C/C++, Python, Java, SQL, system design, testing, and maintainable implementation.' },
+      { title: 'Web development and deployment', detail: 'React, Node.js, Nginx, Linux deployment, and full-stack project delivery.' },
+      { title: 'Applied AI', detail: 'Deep learning, LLM fine-tuning, RAG, YOLOv8, and image-processing algorithms.' },
+      { title: 'Research implementation', detail: 'Building reproducible tooling for cultural computing, NLP, and image-recognition studies.' },
+    ],
+    experience: [
+      {
+        title: 'C++ Development Engineer',
+        meta: 'Shanghai Zhunshi Intelligent Information Technology Co., Ltd. · Shanghai',
+        date: 'May 2023 - Dec 2023',
+        points: [
+          'Developed algorithms for .xml and .xsd file-format conversion using recursion and Visual Studio conversion features.',
+          'Independently developed the company website with React, Node.js, Nginx, and related tooling.',
+        ],
+      },
+      {
+        title: 'Software Test Engineer',
+        meta: 'Shanghai Lankuaikei Technology Development Co., Ltd. · Shanghai',
+        date: 'Jul 2022 - Sep 2022',
+        points: ['Tested large-screen and mobile software, and wrote test documentation.'],
+      },
+      {
+        title: 'Research Implementation',
+        meta: 'Cultural computing, LLM fine-tuning, and X-ray image recognition',
+        date: '2023 - 2025',
+        points: [
+          'Implemented ChatGLM3 fine-tuning and P-Tuning v2 workflows on 46 Chinese novels for literary concept classification.',
+          'Implemented YOLOv8 and classic image-processing algorithms, including region growing, for timber-structure damage recognition.',
+          'Paper details are listed on the Publications page.',
+        ],
+      },
+    ],
+    skills: [
+      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
+      { key: 'about.math', items: ['Deep learning', 'LLM fine-tuning', 'RAG', 'YOLOv8', 'Image processing', 'Data analysis'] },
+      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
+      { key: 'about.lang', items: ['Chinese (native)', 'English (B1+)', 'French (B1+)'] },
+    ],
+  },
+  zh: {
+    education: [
+      {
+        title: 'MIAGE M1',
+        meta: '图卢兹第一大学 · 法国图卢兹',
+        date: '2026 年 9 月起',
+        points: ['信息系统管理、软件工程、数据库与面向业务的信息技术。'],
+      },
+      {
+        title: 'MIAGE 硕士预科',
+        meta: '图卢兹第一大学 · 法国图卢兹',
+        date: '2025 年 9 月 - 2026 年',
+        points: ['为进入 MIAGE 硕士阶段进行课程与语言准备。'],
+      },
+      {
+        title: '计算机科学本科',
+        meta: '上海师范大学 · 中国上海',
+        date: '2020 年 10 月 - 2024 年 6 月',
+        points: ['平均分：76.13 / 100。'],
+      },
+    ],
+    interests: [
+      { title: '软件工程', detail: 'C/C++、Python、Java、SQL、系统设计、测试与可维护实现。' },
+      { title: 'Web 开发与部署', detail: 'React、Node.js、Nginx、Linux 部署和全栈项目交付。' },
+      { title: '应用 AI', detail: '深度学习、大语言模型微调、RAG、YOLOv8 与图像处理算法。' },
+      { title: '科研技术实现', detail: '为文化计算、自然语言处理和图像识别研究构建可复现实验工具。' },
+    ],
+    experience: [
+      {
+        title: 'C++ 开发工程师',
+        meta: '上海准时智能信息技术有限公司 · 上海',
+        date: '2023 年 5 月 - 2023 年 12 月',
+        points: [
+          '开发 .xml 与 .xsd 文件格式转换算法，使用递归并结合 Visual Studio 内置转换能力。',
+          '独立开发公司网站，使用 React、Node.js、Nginx 等技术。',
+        ],
+      },
+      {
+        title: '软件测试工程师',
+        meta: '上海蓝快科技发展有限公司 · 上海',
+        date: '2022 年 7 月 - 2022 年 9 月',
+        points: ['测试大屏和移动端软件，并撰写测试文档。'],
+      },
+      {
+        title: '科研技术实现',
+        meta: '文化计算、大语言模型微调与 X 光图像识别',
+        date: '2023 年 - 2025 年',
+        points: [
+          '实现 ChatGLM3 微调与 P-Tuning v2 流程，基于 46 部中文小说训练模型以分类复杂文学概念。',
+          '实现 YOLOv8 和区域生长等基础图像处理算法，用于木结构连接损伤识别。',
+          '论文详情单独放在 Publications 页面。',
+        ],
+      },
+    ],
+    skills: [
+      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
+      { key: 'about.math', items: ['深度学习', '大语言模型微调', 'RAG', 'YOLOv8', '图像处理', '数据分析'] },
+      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
+      { key: 'about.lang', items: ['中文（母语）', '英语（B1+）', '法语（B1+）'] },
+    ],
+  },
+  fr: {
+    education: [
+      {
+        title: 'M1 MIAGE',
+        meta: 'Université Toulouse 1 Capitole · Toulouse, France',
+        date: 'À partir de sept. 2026',
+        points: ["Management des systèmes d'information, génie logiciel, bases de données et informatique orientée métier."],
+      },
+      {
+        title: 'Année préparatoire au master MIAGE',
+        meta: 'Université Toulouse 1 Capitole · Toulouse, France',
+        date: 'Sept. 2025 - 2026',
+        points: ["Année préparatoire pour entrer dans le parcours de master MIAGE."],
+      },
+      {
+        title: 'Licence en informatique',
+        meta: 'Université normale de Shanghai · Shanghai, Chine',
+        date: 'Oct. 2020 - Juin 2024',
+        points: ['Moyenne : 76,13 / 100.'],
+      },
+    ],
+    interests: [
+      { title: 'Génie logiciel', detail: 'C/C++, Python, Java, SQL, conception de systèmes, tests et implémentation maintenable.' },
+      { title: 'Développement web et déploiement', detail: 'React, Node.js, Nginx, déploiement Linux et livraison de projets full-stack.' },
+      { title: 'IA appliquée', detail: 'Deep learning, fine-tuning de grands modèles de langage, RAG, YOLOv8 et algorithmes de traitement d\'image.' },
+      { title: 'Implémentation pour la recherche', detail: 'Construction d\'outils reproductibles pour le cultural computing, le NLP et la reconnaissance d\'images.' },
+    ],
+    experience: [
+      {
+        title: 'Ingénieur de développement C++',
+        meta: 'Shanghai Zhunshi Intelligent Information Technology Co., Ltd. · Shanghai',
+        date: 'Mai 2023 - Déc. 2023',
+        points: [
+          "Développement d'algorithmes de conversion de formats .xml et .xsd avec récursivité et fonctionnalités de conversion intégrées de Visual Studio.",
+          "Développement indépendant du site web de l'entreprise avec React, Node.js, Nginx et outils associés.",
+        ],
+      },
+      {
+        title: 'Ingénieur de test',
+        meta: 'Shanghai Lankuaikei Technology Development Co., Ltd. · Shanghai',
+        date: 'Juil. 2022 - Sept. 2022',
+        points: ['Tests de logiciels pour grands écrans et mobile, avec rédaction de documentation de test.'],
+      },
+      {
+        title: 'Implémentation technique pour la recherche',
+        meta: 'Cultural computing, fine-tuning de LLM et reconnaissance sur images X-ray',
+        date: '2023 - 2025',
+        points: [
+          'Implémentation de workflows de fine-tuning ChatGLM3 et P-Tuning v2 sur 46 romans chinois pour classifier des concepts littéraires complexes.',
+          "Implémentation de YOLOv8 et d'algorithmes fondamentaux de traitement d'image, dont la croissance de région, pour la reconnaissance de dommages dans les structures en bois.",
+          'Les détails des articles sont listés dans la page Publications.',
+        ],
+      },
+    ],
+    skills: [
+      { key: 'about.prog', items: ['C/C++', 'Python', 'Java', 'R', 'SQL', 'TypeScript'] },
+      { key: 'about.math', items: ['Deep learning', 'Fine-tuning LLM', 'RAG', 'YOLOv8', 'Traitement d\'image', 'Analyse de données'] },
+      { key: 'about.tools', items: ['React', 'Node.js', 'Nginx', 'Linux', 'Git', 'VS Code'] },
+      { key: 'about.lang', items: ['Chinois (langue maternelle)', 'Anglais (B1+)', 'Français (B1+)'] },
+    ],
+  },
+};
+
+const profile = aboutContent[lang] ?? aboutContent.en;
 ---
 <Base title={t('about.title')} description={`${t('about.title')} — ${siteName}`}>
   <div class="container-mid py-16">
@@ -16,11 +228,12 @@ const siteName = getSiteName(lang);
             style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('about.title')}</h1>
         <p class="font-mono text-xs" style="color:rgb(var(--muted));">{SITE.tagline}</p>
       </div>
-      <a href="/cv.pdf" download class="btn-secondary shrink-0">
+      <a href={localizePath('/publications', lang)} class="btn-secondary shrink-0">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-8H7v8M7 3v5h8"/>
         </svg>
-        CV / PDF
+        {t('about.publications')}
       </a>
     </div>
 
@@ -28,11 +241,7 @@ const siteName = getSiteName(lang);
     <div class="prose dark:prose-invert max-w-none mb-14 animate-fade-up delay-100">
       <p>{t('about.bio')}</p>
       <blockquote>{t('about.quote')}</blockquote>
-      <p>
-        {t('about.outside').split('essays').map((part, i) =>
-          i === 0 ? <>{part}<a href={localizePath('/essays', lang)}>essays</a></> : part
-        )}
-      </p>
+      <p>{t('about.outside')}</p>
     </div>
 
     <div class="space-y-12 animate-fade-up delay-200">
@@ -42,16 +251,21 @@ const siteName = getSiteName(lang);
           <h2 class="section-title shrink-0">{t('about.education')}</h2>
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
-        <div class="grid sm:grid-cols-[1fr_auto] gap-1">
-          <div>
-            <p class="font-semibold" style="color:rgb(var(--text));">{SITE.institution}</p>
-            <p class="text-sm" style="color:rgb(var(--text-2));">Master's Preparatory Program · {SITE.department}</p>
-            <ul class="mt-2 text-sm space-y-0.5 list-disc list-inside" style="color:rgb(var(--text-2));">
-              <li>Focus: mathematical logic, type theory, computational complexity</li>
-              <li>GPA: X.XX / 4.00</li>
-            </ul>
-          </div>
-          <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">2024 – present</span>
+        <div class="space-y-6">
+          {profile.education.map((entry) => (
+            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
+              <div>
+                <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
+                <p class="text-sm" style="color:rgb(var(--text-2));">{entry.meta}</p>
+                {entry.points && (
+                  <ul class="mt-2 text-sm space-y-0.5 list-disc list-inside" style="color:rgb(var(--text-2));">
+                    {entry.points.map((point) => <li>{point}</li>)}
+                  </ul>
+                )}
+              </div>
+              <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -62,12 +276,7 @@ const siteName = getSiteName(lang);
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
         <ul class="space-y-3 text-sm" style="color:rgb(var(--text-2));">
-          {[
-            { title: 'Proof theory & type theory', detail: 'Curry–Howard correspondence, dependent types, proof assistants (Coq, Lean 4, Agda), normalization by evaluation' },
-            { title: 'Mathematical logic', detail: 'Model theory, set theory, computability theory, descriptive complexity' },
-            { title: 'Computational complexity', detail: 'Circuit complexity, oracle separations, interactive proofs, randomized algorithms' },
-            { title: 'Foundations of ML', detail: 'PAC learning theory, VC dimension, statistical learning theory, information-theoretic bounds' },
-          ].map(({ title, detail }) => (
+          {profile.interests.map(({ title, detail }) => (
             <li class="flex gap-2">
               <span class="shrink-0 w-1.5 h-1.5 rounded-full mt-1.5" style="background:var(--accent);"></span>
               <span><span class="font-medium" style="color:rgb(var(--text));">{title}</span> — {detail}</span>
@@ -82,15 +291,21 @@ const siteName = getSiteName(lang);
           <h2 class="section-title shrink-0">{t('about.experience')}</h2>
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
-        <div class="grid sm:grid-cols-[1fr_auto] gap-1">
-          <div>
-            <p class="font-semibold" style="color:rgb(var(--text));">Research Assistant</p>
-            <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{SITE.institution} · Supervisor: Prof. X</p>
-            <p class="text-sm" style="color:rgb(var(--text-2));">
-              Investigating the expressibility of higher-order recursion schemes via game semantics and modal mu-calculus.
-            </p>
-          </div>
-          <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">2024 – present</span>
+        <div class="space-y-6">
+          {profile.experience.map((entry) => (
+            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
+              <div>
+                <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
+                <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{entry.meta}</p>
+                {entry.points && (
+                  <ul class="text-sm space-y-1 list-disc list-inside" style="color:rgb(var(--text-2));">
+                    {entry.points.map((point) => <li>{point}</li>)}
+                  </ul>
+                )}
+              </div>
+              <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -114,29 +329,12 @@ const siteName = getSiteName(lang);
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
         <div class="grid sm:grid-cols-2 gap-6">
-          {[
-            { key: 'about.prog', items: ['Haskell', 'Python', 'OCaml', 'TypeScript', 'LaTeX', 'Coq', 'Lean 4'] },
-            { key: 'about.math', items: ['Real Analysis', 'Abstract Algebra', 'Topology', 'Mathematical Logic', 'Probability'] },
-            { key: 'about.tools', items: ['Git', 'Linux / NixOS', 'Emacs', 'VS Code', 'Jupyter', 'Docker'] },
-            { key: 'about.lang', items: ['Chinese (native)', 'English (fluent)', 'Japanese (reading)'] },
-          ].map(({ key, items }) => (
+          {profile.skills.map(({ key, items }) => (
             <div>
               <p class="text-xs font-semibold mb-2.5" style="color:rgb(var(--text));">{t(key as any)}</p>
               <div class="flex flex-wrap gap-1.5">{items.map(item => <span class="tag">{item}</span>)}</div>
             </div>
           ))}
-        </div>
-      </section>
-
-      <!-- Awards -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="section-title shrink-0">{t('about.awards')}</h2>
-          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-        </div>
-        <div class="grid sm:grid-cols-[1fr_auto] gap-2">
-          <span class="text-sm" style="color:rgb(var(--text-2));">Award Name — Institution</span>
-          <span class="font-mono text-xs tabular" style="color:rgb(var(--muted));">2024</span>
         </div>
       </section>
 
