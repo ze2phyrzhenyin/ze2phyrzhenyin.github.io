@@ -47,7 +47,6 @@ export const ui = {
     'about.experience': 'Experience',
     'about.skills': 'Skills', 'about.awards': 'Awards & Honors',
     'about.prog': 'Programming Languages', 'about.math': 'AI / Data', 'about.tools': 'Tools', 'about.lang': 'Languages',
-    'about.org': 'Project & Organization', 'about.ops': 'Product & Operations', 'about.media': 'Content & Communication',
     // ── Blog ──
     'blog.title': 'Blog',
     'blog.desc': '',
@@ -130,7 +129,6 @@ export const ui = {
     'about.experience': '经历',
     'about.skills': '技能', 'about.awards': '荣誉奖项',
     'about.prog': '编程语言', 'about.math': 'AI / 数据', 'about.tools': '工具', 'about.lang': '语言能力',
-    'about.org': '项目与组织', 'about.ops': '产品与运营', 'about.media': '内容与表达',
     'blog.title': '博客',
     'blog.desc': '',
     'blog.all': '全部', 'blog.empty': '⊥ — 暂无文章。',
@@ -203,7 +201,6 @@ export const ui = {
     'about.experience': 'Expérience',
     'about.skills': 'Compétences', 'about.awards': 'Distinctions',
     'about.prog': 'Langages de programmation', 'about.math': 'IA / Données', 'about.tools': 'Outils', 'about.lang': 'Langues',
-    'about.org': 'Projet et organisation', 'about.ops': 'Produit et opérations', 'about.media': 'Contenu et communication',
     'blog.title': 'Blog',
     'blog.desc': '',
     'blog.all': 'Tout', 'blog.empty': '⊥ — Aucun article pour le moment.',
