@@ -162,9 +162,6 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'LLM Fine-tuning', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
-          { name: 'AI-assisted Development', mark: 'AI' },
-          { name: 'Prototyping', mark: 'P' },
-          { name: 'Troubleshooting', mark: 'DBG' },
         ],
       },
       {
@@ -183,10 +180,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         items: [
           { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
           { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
-          { name: 'Data Cleaning', mark: 'ETL' },
           { name: 'Data Analysis', mark: 'DA' },
-          { name: 'Statistical Analysis', mark: 'Σ' },
-          { name: 'Basic Modeling', mark: 'ML' },
         ],
       },
       {
@@ -284,9 +278,6 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: '大模型微调', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
-          { name: 'AI 辅助开发', mark: 'AI' },
-          { name: '原型验证', mark: 'P' },
-          { name: '问题排查', mark: 'DBG' },
         ],
       },
       {
@@ -305,10 +296,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         items: [
           { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
           { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
-          { name: '数据清洗', mark: 'ETL' },
           { name: '数据分析', mark: 'DA' },
-          { name: '统计分析', mark: 'Σ' },
-          { name: '基础建模', mark: 'ML' },
         ],
       },
       {
@@ -406,9 +394,6 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'Fine-tuning LLM', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
-          { name: 'Développement assisté par IA', mark: 'AI' },
-          { name: 'Prototypage', mark: 'P' },
-          { name: 'Diagnostic technique', mark: 'DBG' },
         ],
       },
       {
@@ -427,10 +412,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         items: [
           { name: 'Hadoop', icon: '/icons/skills/apachehadoop.svg' },
           { name: 'Spark', icon: '/icons/skills/apachespark.svg' },
-          { name: 'Nettoyage de données', mark: 'ETL' },
           { name: 'Analyse de données', mark: 'DA' },
-          { name: 'Analyse statistique', mark: 'Σ' },
-          { name: 'Modélisation de base', mark: 'ML' },
         ],
       },
       {
@@ -535,6 +517,30 @@ const quote = t('about.quote');
         </div>
       </section>
 
+      <!-- Research experience -->
+      <section>
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="section-title shrink-0">{t('about.experience')}</h2>
+          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+        </div>
+        <div class="space-y-6">
+          {profile.experience.map((entry) => (
+            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
+              <div>
+                <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
+                <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{entry.meta}</p>
+                {entry.points && (
+                  <ul class="text-sm space-y-1 list-disc list-inside" style="color:rgb(var(--text-2));">
+                    {entry.points.map((point) => <li>{point}</li>)}
+                  </ul>
+                )}
+              </div>
+              <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <!-- Technical skills -->
       <section>
         <div class="flex items-center gap-4 mb-6">
@@ -563,30 +569,6 @@ const quote = t('about.quote');
                   </div>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- Research experience -->
-      <section>
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="section-title shrink-0">{t('about.experience')}</h2>
-          <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-        </div>
-        <div class="space-y-6">
-          {profile.experience.map((entry) => (
-            <div class="grid sm:grid-cols-[1fr_auto] gap-1">
-              <div>
-                <p class="font-semibold" style="color:rgb(var(--text));">{entry.title}</p>
-                <p class="text-sm mb-1.5" style="color:rgb(var(--text-2));">{entry.meta}</p>
-                {entry.points && (
-                  <ul class="text-sm space-y-1 list-disc list-inside" style="color:rgb(var(--text-2));">
-                    {entry.points.map((point) => <li>{point}</li>)}
-                  </ul>
-                )}
-              </div>
-              <span class="font-mono text-xs tabular self-start" style="color:rgb(var(--muted));">{entry.date}</span>
             </div>
           ))}
         </div>
