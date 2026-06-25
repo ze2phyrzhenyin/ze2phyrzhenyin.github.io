@@ -36,7 +36,7 @@ export const ui = {
     'home.aud.4.desc': "I can help with programming, web development, Linux deployment, and AI tooling. If you need a second opinion on a project, feel free to reach out.",
     'home.aud.4.cta': 'How I can help →',
     'home.aud.5.q': 'If you are simply curious about me',
-    'home.aud.5.desc': "Start with the about page for my background, publications for papers, projects for technical work, or life for photos and notes outside the terminal.",
+    'home.aud.5.desc': "Start with the about page for my background, publications for papers, projects for technical work, or life for photos and notes.",
     'home.aud.5.cta': 'Where to begin →',
     // ── About ──
     'about.title': 'About',
@@ -50,7 +50,7 @@ export const ui = {
     'about.prog': 'Programming', 'about.math': 'AI / Data', 'about.tools': 'Tools', 'about.lang': 'Languages',
     // ── Blog ──
     'blog.title': 'Blog',
-    'blog.desc': 'Notes on logic, mathematics, AI theory, and theoretical computer science.',
+    'blog.desc': '',
     'blog.all': 'All', 'blog.empty': '⊥ — No posts yet.',
     // ── Categories ──
     'cat.logic': 'Logic', 'cat.math': 'Mathematics', 'cat.ai': 'AI/ML', 'cat.cs': 'CS Theory',
@@ -60,10 +60,10 @@ export const ui = {
     'cat.cs.desc': 'Complexity, algorithms, computability, type theory',
     // ── Essays ──
     'essays.title': 'Essays',
-    'essays.desc': 'Less formal than the blog. Reflections on mathematics, research, books, and thinking.',
+    'essays.desc': '',
     'essays.empty': '⊥ — No essays yet.',
     // ── Projects ──
-    'projects.title': 'Projects', 'projects.desc': 'Implementations, tools, and research experiments.',
+    'projects.title': 'Projects', 'projects.desc': '',
     'projects.empty': 'No projects yet.',
     'status.active': 'Active', 'status.completed': 'Completed', 'status.archived': 'Archived',
     // ── Publications ──
@@ -77,7 +77,7 @@ export const ui = {
     'contact.desc': 'Email is the best way to contact me about professional matters. I will reply within a few days.',
     'contact.note': '',
     // ── Life ──
-    'life.title': 'Life', 'life.desc': 'Snapshots from outside the terminal — travel, books, and everyday moments.',
+    'life.title': 'Life', 'life.desc': '',
     'life.empty': 'Photos coming soon.',
     // ── Post ──
     'post.back.blog': 'Blog', 'post.back.essays': 'Essays',
@@ -120,7 +120,7 @@ export const ui = {
     'home.aud.4.desc': '我可以在编程、Web 开发、Linux 部署和 AI 工具链方面提供帮助。如果你需要项目上的第二意见，欢迎联系我。',
     'home.aud.4.cta': '我能帮什么 →',
     'home.aud.5.q': '若您只是对我感到好奇',
-    'home.aud.5.desc': '可以从 About 了解我的背景，从 Publications 看论文，从 Projects 看技术作品，或从 Life 看终端之外的照片和记录。',
+    'home.aud.5.desc': '可以从 About 了解我的背景，从 Publications 看论文，从 Projects 看技术作品，或从 Life 看照片和记录。',
     'home.aud.5.cta': '从哪里开始 →',
     'about.title': '关于',
     'about.bio': '我目前在图卢兹学习计算机科学。本科毕业于上海师范大学计算机科学专业，随后在图卢兹第一大学完成 MIAGE 硕士预科，并将于 2026 年 9 月进入图卢兹第一大学企业管理信息应用（MIAGE）硕士一年级。我的经历连接软件工程、Web 开发、应用 AI 和面向研究的技术实现。',
@@ -193,7 +193,7 @@ export const ui = {
     'home.aud.4.desc': "Je peux aider en programmation, développement web, déploiement Linux et outillage IA. Si vous souhaitez un second regard sur un projet, n'hésitez pas à me contacter.",
     'home.aud.4.cta': 'Comment je peux aider →',
     'home.aud.5.q': 'Si vous êtes simplement curieux·se',
-    'home.aud.5.desc': "Commencez par la page À propos pour mon parcours, Publications pour les articles, Projets pour le travail technique, ou Vie pour les photos et notes hors du terminal.",
+    'home.aud.5.desc': "Commencez par la page À propos pour mon parcours, Publications pour les articles, Projets pour le travail technique, ou Vie pour les photos et notes.",
     'home.aud.5.cta': 'Par où commencer →',
     'about.title': 'À propos',
     'about.bio': "Je suis étudiant en informatique à Toulouse. Après une licence en informatique à l'Université normale de Shanghai et une année préparatoire au master à l'Université Toulouse 1 Capitole, j'entrerai en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (MIAGE) à UT Capitole en septembre 2026. Mon parcours relie génie logiciel, développement web, IA appliquée et implémentation orientée recherche.",
@@ -205,7 +205,7 @@ export const ui = {
     'about.skills': 'Compétences', 'about.awards': 'Distinctions', 'about.contact': 'Contact',
     'about.prog': 'Langages', 'about.math': 'IA / Données', 'about.tools': 'Outils', 'about.lang': 'Langues',
     'blog.title': 'Blog',
-    'blog.desc': "Notes sur la logique, les mathématiques, la théorie de l'IA et l'informatique théorique.",
+    'blog.desc': '',
     'blog.all': 'Tout', 'blog.empty': '⊥ — Aucun article pour le moment.',
     'cat.logic': 'Logique', 'cat.math': 'Mathématiques', 'cat.ai': 'IA/ML', 'cat.cs': 'Théorie info.',
     'cat.logic.desc': 'Logique mathématique, théorie de la preuve, théorie des modèles',
@@ -213,9 +213,9 @@ export const ui = {
     'cat.ai.desc': "Apprentissage automatique, réseaux de neurones, théorie de l'apprentissage",
     'cat.cs.desc': 'Complexité, algorithmes, calculabilité, théorie des types',
     'essays.title': 'Essais',
-    'essays.desc': 'Moins formel que le blog. Réflexions sur les mathématiques, la recherche, les livres et la pensée.',
+    'essays.desc': '',
     'essays.empty': "⊥ — Aucun essai pour l'instant.",
-    'projects.title': 'Projets', 'projects.desc': 'Implémentations, outils et expériences de recherche.',
+    'projects.title': 'Projets', 'projects.desc': '',
     'projects.empty': 'Aucun projet pour le moment.',
     'status.active': 'Actif', 'status.completed': 'Terminé', 'status.archived': 'Archivé',
     'pubs.title': 'Publications', 'pubs.desc': '',
@@ -226,7 +226,7 @@ export const ui = {
     'contact.title': 'Contact',
     'contact.desc': "L'e-mail est le meilleur moyen de me contacter pour les questions professionnelles. Je répondrai sous quelques jours.",
     'contact.note': '',
-    'life.title': 'Vie', 'life.desc': 'Instantanés hors du terminal — voyages, livres et moments du quotidien.',
+    'life.title': 'Vie', 'life.desc': '',
     'life.empty': 'Photos à venir.',
     'post.back.blog': 'Blog', 'post.back.essays': 'Essais',
     'post.copy': 'Copier le lien', 'post.copied': 'Copié !',
