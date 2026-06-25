@@ -15,6 +15,7 @@ const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const siteName = getSiteName(lang);
 const pageTitle   = title ? `${title} — ${siteName}` : `${siteName} · ${SITE.tagline}`;
 const canonicalURL = new URL(Astro.url.pathname, SITE.url);
+const rssURL = new URL('/rss.xml', SITE.url);
 const ogImg       = ogImage ?? `${SITE.url}/og-default.png`;
 ---
 <!doctype html>
@@ -25,6 +26,7 @@ const ogImg       = ogImage ?? `${SITE.url}/og-default.png`;
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL} />
+  <link rel="alternate" type="application/rss+xml" title={`${siteName} RSS`} href={rssURL} />
   <meta property="og:type" content={article ? 'article' : 'website'} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={pageTitle} />

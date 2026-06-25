@@ -3,10 +3,17 @@ export const SITE = {
   nameZh: '隋朝阳',
   tagline: 'Incoming M1 MIAGE · Université Toulouse 1 Capitole',
   description: 'Personal site — software engineering, applied AI, research, writing, and projects.',
-  url: 'https://yourname.dev',
+  url: 'https://ze2phyrzhenyin.github.io',
   author: 'Zhaoyang SUI',
   email: 'zhaoyang.sui@ut-capitole.fr',
   github: '',
+  contact: {
+    wechat: 'cebasmonde',
+    linkedin: 'https://www.linkedin.com/in/zhaoyang-sui-6260a539b/',
+    github: 'https://github.com/ze2phyrzhenyin',
+    codeforces: 'https://codeforces.com/profile/ze2phyr_zhenyin',
+    instagram: 'https://www.instagram.com/ze2phyr/',
+  },
   twitter: '',
   googleScholar: '',
   orcid: '',
@@ -17,6 +24,11 @@ export const SITE = {
 
 export function getSiteName(lang?: string) {
   return lang === 'zh' ? SITE.nameZh : SITE.name;
+}
+
+export function formatEmailForDisplay(email: string) {
+  const [local, domain] = email.split('@');
+  return `${local.replaceAll('.', ' dot ')} at ${domain.replaceAll('.', ' dot ')}`;
 }
 
 export const NAV = [

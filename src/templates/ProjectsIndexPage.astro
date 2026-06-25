@@ -12,13 +12,14 @@ const projects  = await getAllProjects();
 const active    = projects.filter(p => p.data.status === 'active');
 const completed = projects.filter(p => p.data.status === 'completed');
 const archived  = projects.filter(p => p.data.status === 'archived');
+const pageDescription = t('projects.desc');
 ---
-<Base title={t('projects.title')} description={t('projects.desc')}>
+<Base title={t('projects.title')} description={pageDescription || undefined}>
   <div class="container-mid py-16">
     <header class="mb-10 animate-fade-up">
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('projects.title')}</h1>
-      <p class="text-sm" style="color:rgb(var(--text-2));">{t('projects.desc')}</p>
+      {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
     </header>
     {projects.length === 0 ? (
       <div class="text-center py-20">

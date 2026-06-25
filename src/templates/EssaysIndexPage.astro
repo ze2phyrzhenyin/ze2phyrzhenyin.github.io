@@ -8,13 +8,14 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const essays = await getAllEssays();
+const pageDescription = t('essays.desc');
 ---
-<Base title={t('essays.title')} description={t('essays.desc')}>
+<Base title={t('essays.title')} description={pageDescription || undefined}>
   <div class="container-mid py-16">
     <header class="mb-10 animate-fade-up">
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('essays.title')}</h1>
-      <p class="text-sm max-w-md" style="color:rgb(var(--text-2));">{t('essays.desc')}</p>
+      {pageDescription && <p class="text-sm max-w-md" style="color:rgb(var(--text-2));">{pageDescription}</p>}
     </header>
     {essays.length === 0 ? (
       <div class="text-center py-20">

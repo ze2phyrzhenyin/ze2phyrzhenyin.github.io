@@ -5,6 +5,7 @@ import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
+const pageDescription = t('life.desc');
 
 const photos: { src: string; alt: string; category: string }[] = [
   {
@@ -49,12 +50,12 @@ const photos: { src: string; alt: string; category: string }[] = [
   },
 ];
 ---
-<Base title={t('life.title')} description={t('life.desc')}>
+<Base title={t('life.title')} description={pageDescription || undefined}>
   <div class="container-wide py-16">
     <header class="container-mid mb-10 px-0 animate-fade-up">
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('life.title')}</h1>
-      <p class="text-sm" style="color:rgb(var(--text-2));">{t('life.desc')}</p>
+      {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
     </header>
     {photos.length === 0 ? (
       <div class="container-mid px-0 animate-fade-up delay-100">

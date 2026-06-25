@@ -1,12 +1,25 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { SITE, getSiteName } from '@/lib/config';
+import { SITE, getSiteName, formatEmailForDisplay } from '@/lib/config';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const siteName = getSiteName(lang);
+const displayEmail = formatEmailForDisplay(SITE.email);
+const contactLabels = {
+  wechat: lang === 'zh' ? '微信' : 'WeChat',
+  linkedin: lang === 'zh' ? '领英' : 'LinkedIn',
+};
+const contactItems = [
+  { label: 'Email', value: displayEmail },
+  { label: contactLabels.wechat, value: SITE.contact.wechat },
+  { label: contactLabels.linkedin, value: 'zhaoyang-sui-6260a539b', href: SITE.contact.linkedin },
+  { label: 'GitHub', value: '@ze2phyrzhenyin', href: SITE.contact.github },
+  { label: 'Codeforces', value: 'ze2phyr_zhenyin', href: SITE.contact.codeforces },
+  { label: 'Instagram', value: '@ze2phyr', href: SITE.contact.instagram },
+].filter((item) => item.value);
 
 type TimelineEntry = {
   title: string;
@@ -345,10 +358,15 @@ const profile = aboutContent[lang] ?? aboutContent.en;
           <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
         </div>
         <div class="text-sm space-y-1" style="color:rgb(var(--text-2));">
-          <p>Email: <a href={`mailto:${SITE.email}`} style="color:var(--accent-text);">{SITE.email}</a></p>
-          {SITE.github && (
-            <p>GitHub: <a href={SITE.github} target="_blank" rel="noopener" style="color:var(--accent-text);">{SITE.github.replace('https://', '')}</a></p>
-          )}
+          {contactItems.map((item) => (
+            <p>
+              {item.label}: {item.href ? (
+                <a href={item.href} target="_blank" rel="noopener" style="color:var(--accent-text);">{item.value}</a>
+              ) : (
+                <span style="color:var(--accent-text);">{item.value}</span>
+              )}
+            </p>
+          ))}
         </div>
       </section>
     </div>
