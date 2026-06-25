@@ -143,14 +143,14 @@ const aboutContent: Record<Lang, AboutContent> = {
     techSkills: [
       {
         title: 'TCS Foundations',
-        summary: 'Foundational topics related to theoretical computer science, including propositional logic, non-monotonic logic, differential privacy, automata, and multi-armed bandits.',
+        summary: 'Foundational topics related to theoretical computer science, including propositional logic, non-monotonic logic, differential privacy, automata, and the multi-armed bandit problem.',
         highlight: true,
         items: [
           { name: 'Propositional Logic', mark: '⊢', note: 'foundations' },
           { name: 'Non-monotonic Logic', mark: 'NML', note: 'foundations' },
           { name: 'Differential Privacy', mark: 'ε-DP', note: 'foundations' },
           { name: 'Automata Theory', mark: 'DFA', note: 'foundations' },
-          { name: 'Multi-armed Bandits', mark: 'MAB', note: 'foundations' },
+          { name: 'Multi-armed Bandit Problem', mark: 'MAB', note: 'foundations' },
         ],
       },
       {
@@ -172,8 +172,12 @@ const aboutContent: Record<Lang, AboutContent> = {
         title: 'AI & Algorithms',
         summary: 'Foundations in deep learning; familiar with LLM fine-tuning, RAG, YOLOv8 object detection, AI-assisted development, prototyping, and technical troubleshooting.',
         items: [
-          { name: 'Deep Learning Foundations', icon: '/icons/skills/tensorflow.svg' },
-          { name: 'LLM Fine-tuning', mark: 'LLM', highlight: true },
+          { name: 'Machine Learning Foundations', mark: 'ML', highlight: true },
+          { name: 'Deep Learning Foundations', icon: '/icons/skills/tensorflow.svg', highlight: true },
+          { name: 'Reinforcement Learning Foundations', mark: 'RL', highlight: true },
+          { name: 'Online Learning Foundations', mark: 'OL', highlight: true },
+          { name: 'vibe coding', mark: 'VC', highlight: true },
+          { name: 'LLM Fine-tuning', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -199,7 +203,7 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
           { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
           { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
-          { name: 'XML / XMD', mark: 'XMD', highlight: true },
+          { name: 'XML / XSD', mark: 'XSD' },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
@@ -261,14 +265,14 @@ const aboutContent: Record<Lang, AboutContent> = {
     techSkills: [
       {
         title: 'TCS 相关',
-        summary: '理论计算机科学相关基础，包括命题逻辑、非单调逻辑、差分隐私、自动机与多臂老虎机。',
+        summary: '理论计算机科学相关基础，包括命题逻辑、非单调逻辑、差分隐私、自动机与多臂老虎机问题。',
         highlight: true,
         items: [
           { name: '命题逻辑基础', mark: '⊢' },
           { name: '非单调逻辑基础', mark: 'NML' },
           { name: '差分隐私基础', mark: 'ε-DP' },
           { name: '自动机基础', mark: 'DFA' },
-          { name: '多臂老虎机', mark: 'MAB' },
+          { name: '多臂老虎机问题', mark: 'MAB' },
         ],
       },
       {
@@ -290,8 +294,12 @@ const aboutContent: Record<Lang, AboutContent> = {
         title: '人工智能与算法',
         summary: '掌握深度学习基础，了解大语言模型微调、RAG 检索增强生成、YOLOv8 目标检测等技术方向；具备使用 AI 工具辅助开发、原型验证和问题排查的经验。',
         items: [
-          { name: '深度学习基础', icon: '/icons/skills/tensorflow.svg' },
-          { name: '大模型微调', mark: 'LLM', highlight: true },
+          { name: '机器学习基础', mark: 'ML', highlight: true },
+          { name: '深度学习基础', icon: '/icons/skills/tensorflow.svg', highlight: true },
+          { name: '强化学习基础', mark: 'RL', highlight: true },
+          { name: '在线学习基础', mark: 'OL', highlight: true },
+          { name: 'vibe coding', mark: 'VC', highlight: true },
+          { name: '大模型微调', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -317,7 +325,7 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
           { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
           { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
-          { name: 'XML / XMD', mark: 'XMD', highlight: true },
+          { name: 'XML / XSD', mark: 'XSD' },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
@@ -379,14 +387,14 @@ const aboutContent: Record<Lang, AboutContent> = {
     techSkills: [
       {
         title: "Bases liées à l'informatique théorique",
-        summary: "Notions fondamentales liées à l'informatique théorique : logique propositionnelle, logique non monotone, confidentialité différentielle, automates et bandits multi-bras.",
+        summary: "Notions fondamentales liées à l'informatique théorique : logique propositionnelle, logique non monotone, confidentialité différentielle, automates et problème du bandit à plusieurs bras.",
         highlight: true,
         items: [
           { name: 'Logique propositionnelle', mark: '⊢', note: 'bases' },
           { name: 'Logique non monotone', mark: 'NML', note: 'bases' },
           { name: 'Confidentialité différentielle', mark: 'ε-DP', note: 'bases' },
           { name: 'Automates', mark: 'DFA', note: 'bases' },
-          { name: 'Bandits multi-bras', mark: 'MAB', note: 'bases' },
+          { name: 'Problème du bandit à plusieurs bras', mark: 'MAB', note: 'bases' },
         ],
       },
       {
@@ -408,8 +416,12 @@ const aboutContent: Record<Lang, AboutContent> = {
         title: 'IA et algorithmes',
         summary: "Bases en deep learning ; connaissances en fine-tuning de grands modèles de langage, RAG, détection d'objets YOLOv8, développement assisté par IA, prototypage et diagnostic technique.",
         items: [
-          { name: 'Bases du deep learning', icon: '/icons/skills/tensorflow.svg' },
-          { name: 'Fine-tuning LLM', mark: 'LLM', highlight: true },
+          { name: 'Bases du machine learning', mark: 'ML', highlight: true },
+          { name: 'Bases du deep learning', icon: '/icons/skills/tensorflow.svg', highlight: true },
+          { name: "Bases de l'apprentissage par renforcement", mark: 'RL', highlight: true },
+          { name: "Bases de l'apprentissage en ligne", mark: 'OL', highlight: true },
+          { name: 'vibe coding', mark: 'VC', highlight: true },
+          { name: 'Fine-tuning LLM', mark: 'LLM' },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -435,7 +447,7 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
           { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
           { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
-          { name: 'XML / XMD', mark: 'XMD', highlight: true },
+          { name: 'XML / XSD', mark: 'XSD' },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
