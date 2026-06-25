@@ -27,6 +27,16 @@ const essaysCollection = defineCollection({
   }),
 });
 
+const localizedProjectContent = z.object({
+  title: z.string(),
+  description: z.string(),
+  sections: z.array(z.object({
+    heading: z.string().optional(),
+    paragraphs: z.array(z.string()).default([]),
+    items: z.array(z.string()).default([]),
+  })).default([]),
+});
+
 const projectsCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -40,6 +50,11 @@ const projectsCollection = defineCollection({
     demo: z.string().url().optional(),
     paper: z.string().url().optional(),
     cover: z.string().optional(),
+    i18n: z.object({
+      en: localizedProjectContent,
+      zh: localizedProjectContent,
+      fr: localizedProjectContent,
+    }),
   }),
 });
 

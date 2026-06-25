@@ -8,7 +8,7 @@ interface Props {
   project: CollectionEntry<'projects'>;
 }
 const { project } = Astro.props;
-const { title, description, status, tags, github, demo, date, featured } = project.data;
+const { title, description, status, github, demo, date } = project.data;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 
@@ -42,11 +42,6 @@ const s = statusConfig[status];
      style="color: rgb(var(--text-2));">
     {description}
   </p>
-
-  <!-- Tags -->
-  <div class="flex flex-wrap gap-1.5 mb-4">
-    {tags.map(tag => <span class="tag">{tag}</span>)}
-  </div>
 
   <!-- Footer row -->
   <div class="flex items-center gap-4 text-xs mt-auto"

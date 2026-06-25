@@ -1,0 +1,153 @@
+---
+import Base from '@/layouts/Base.astro';
+import { formatDate } from '@/lib/utils';
+import { getProjectText } from '@/lib/project-i18n';
+import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
+import type { Lang } from '@/i18n/ui';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const text = getProjectText(project, lang);
+const { status, github, demo, paper, date, cover } = project.data;
+
+const statusColor: Record<string, string> = {
+  active: 'background:hsl(150 50% 94%);color:hsl(150 60% 28%);border-color:hsl(150 50% 85%);',
+  completed: 'background:hsl(220 70% 95%);color:hsl(220 70% 35%);border-color:hsl(220 70% 88%);',
+  archived: 'background:hsl(35 18% 92%);color:hsl(35 18% 32%);border-color:hsl(35 18% 84%);',
+};
+---
+<Base title={text.title} description={text.description}>
+  <div class="container-mid py-16">
+    <div class="mb-8 animate-fade-in">
+      <a href={localizePath('/projects', lang)} class="inline-flex items-center gap-1.5 text-sm transition-colors"
+         style="color:rgb(var(--muted));">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        {t('projects.title')}
+      </a>
+    </div>
+
+    <header class="mb-10 animate-fade-up">
+      <div class="flex flex-wrap items-center gap-2.5 mb-4">
+        <span class="text-xs font-medium px-2 py-0.5 rounded-md"
+              style={`${statusColor[status]}border:1px solid;`}>
+          {t(`status.${status}` as any)}
+        </span>
+        <time datetime={date.toISOString()} class="font-mono text-xs tabular" style="color:rgb(var(--muted));">
+          {formatDate(date, { year: 'numeric', month: 'long' })}
+        </time>
+      </div>
+
+      <h1 class="text-4xl font-bold tracking-tight mb-4"
+          style="color:rgb(var(--text));letter-spacing:-0.025em;">{text.title}</h1>
+      <p class="text-lg leading-relaxed max-w-3xl mb-6"
+         style="color:rgb(var(--text-2));font-family:Lora,serif;">{text.description}</p>
+
+      <div class="flex flex-wrap gap-4">
+        {demo && <a href={demo} target="_blank" rel="noopener" class="project-link">{t('projects.demo')} ↗</a>}
+        {github && <a href={github} target="_blank" rel="noopener" class="project-link muted">{t('projects.source')} ↗</a>}
+        {paper && <a href={paper} target="_blank" rel="noopener" class="project-link muted">{t('projects.paper')} ↗</a>}
+      </div>
+    </header>
+
+    {cover && (
+      <figure class="project-hero animate-fade-up delay-100">
+        <img src={cover} alt={`${text.title} screenshot`} />
+      </figure>
+    )}
+
+    <div class="project-prose animate-fade-up delay-200">
+      {text.sections.map(section => (
+        <section class="project-section">
+          {section.heading && <h2>{section.heading}</h2>}
+          {section.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+          {section.items.length > 0 && (
+            <ul>
+              {section.items.map(item => <li>{item}</li>)}
+            </ul>
+          )}
+        </section>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .project-link {
+    color: var(--accent-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .project-link.muted {
+    color: rgb(var(--muted));
+  }
+
+  .project-link:hover {
+    color: rgb(var(--text));
+  }
+
+  .project-hero {
+    overflow: hidden;
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    background: rgb(var(--surface-2));
+    margin: 0 0 2.75rem;
+  }
+
+  .project-hero img {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .project-prose {
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .project-section {
+    border-left: 2px solid rgb(var(--border));
+    padding-left: 1.25rem;
+  }
+
+  .project-section h2 {
+    color: rgb(var(--text));
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+
+  .project-section p {
+    color: rgb(var(--text-2));
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 0 0 0.85rem;
+  }
+
+  .project-section p:last-child {
+    margin-bottom: 0;
+  }
+
+  .project-section ul {
+    color: rgb(var(--text-2));
+    font-size: 0.95rem;
+    line-height: 1.75;
+    list-style: disc;
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .project-section li + li {
+    margin-top: 0.25rem;
+  }
+</style>

@@ -1,18 +1,27 @@
 ---
 import Base from '@/layouts/Base.astro';
-import ProjectCard from '@/components/ProjectCard.astro';
-import { getAllProjects } from '@/lib/utils';
-import { useTranslations, defaultLang } from '@/i18n/utils';
+import { formatDate, getAllProjects } from '@/lib/utils';
+import { getProjectText } from '@/lib/project-i18n';
+import { localizePath, useTranslations, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 
 const projects  = await getAllProjects();
-const active    = projects.filter(p => p.data.status === 'active');
-const completed = projects.filter(p => p.data.status === 'completed');
-const archived  = projects.filter(p => p.data.status === 'archived');
+const byYear = projects.reduce((acc, project) => {
+  const year = project.data.date.getFullYear();
+  (acc[year] ??= []).push(project);
+  return acc;
+}, {} as Record<number, typeof projects>);
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 const pageDescription = t('projects.desc');
+
+const statusColor: Record<string, string> = {
+  active: 'background:hsl(150 50% 94%);color:hsl(150 60% 28%);border-color:hsl(150 50% 85%);',
+  completed: 'background:hsl(220 70% 95%);color:hsl(220 70% 35%);border-color:hsl(220 70% 88%);',
+  archived: 'background:hsl(35 18% 92%);color:hsl(35 18% 32%);border-color:hsl(35 18% 84%);',
+};
 ---
 <Base title={t('projects.title')} description={pageDescription || undefined}>
   <div class="container-mid py-16">
@@ -26,38 +35,140 @@ const pageDescription = t('projects.desc');
         <p class="font-mono text-sm" style="color:rgb(var(--muted));">{t('projects.empty')}</p>
       </div>
     ) : (
-      <div class="space-y-12 animate-fade-up delay-100">
-        {active.length > 0 && (
+      <div class="space-y-14 animate-fade-up delay-100">
+        {years.map(year => (
           <section>
-            <div class="flex items-center gap-3 mb-5">
-              <p class="section-label">{t('status.active')}</p>
+            <div class="flex items-center gap-4 mb-7">
+              <span class="font-mono text-2xl font-bold tabular" style="color:rgb(var(--text));">{year}</span>
               <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-              <span class="w-2 h-2 rounded-full bg-green-400"></span>
             </div>
-            <div class="grid sm:grid-cols-2 gap-3">{active.map(p => <ProjectCard project={p} />)}</div>
-          </section>
-        )}
-        {completed.length > 0 && (
-          <section>
-            <div class="flex items-center gap-3 mb-5">
-              <p class="section-label">{t('status.completed')}</p>
-              <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-              <span class="w-2 h-2 rounded-full bg-blue-400"></span>
+            <div class="space-y-8">
+              {byYear[year].map(project => {
+                const text = getProjectText(project, lang);
+                const href = localizePath(`/projects/${project.slug}`, lang);
+                return (
+                  <article class="project-item group pl-5">
+                    <div class="project-copy">
+                      <div class="flex flex-wrap items-center gap-2 mb-2.5">
+                        <span class="text-xs font-medium px-2 py-0.5 rounded-md"
+                              style={`${statusColor[project.data.status]}border:1px solid;`}>
+                          {t(`status.${project.data.status}` as any)}
+                        </span>
+                        <time datetime={project.data.date.toISOString()} class="font-mono text-xs tabular"
+                              style="color:rgb(var(--muted));">
+                          {formatDate(project.data.date, { year: 'numeric', month: 'short' })}
+                        </time>
+                      </div>
+                      <h2 class="project-title font-semibold text-xl leading-tight mb-2 transition-colors duration-150"
+                          style="color:rgb(var(--text));">
+                        <a href={href}>{text.title}</a>
+                      </h2>
+                      <p class="text-sm leading-relaxed max-w-2xl mb-3" style="color:rgb(var(--text-2));">
+                        {text.description}
+                      </p>
+                      <div class="flex flex-wrap gap-4">
+                        <a href={href} class="project-link">{t('projects.details')} →</a>
+                        {project.data.demo && (
+                          <a href={project.data.demo} target="_blank" rel="noopener" class="project-link">
+                            {t('projects.demo')} ↗
+                          </a>
+                        )}
+                        {project.data.github && (
+                          <a href={project.data.github} target="_blank" rel="noopener" class="project-link muted">
+                            {t('projects.source')} ↗
+                          </a>
+                        )}
+                        {project.data.paper && (
+                          <a href={project.data.paper} target="_blank" rel="noopener" class="project-link muted">
+                            {t('projects.paper')} ↗
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    {project.data.cover && (
+                      <a href={href} class="project-shot" aria-label={text.title}>
+                        <img src={project.data.cover} alt={`${text.title} screenshot`} loading="lazy" />
+                      </a>
+                    )}
+                  </article>
+                );
+              })}
             </div>
-            <div class="grid sm:grid-cols-2 gap-3">{completed.map(p => <ProjectCard project={p} />)}</div>
           </section>
-        )}
-        {archived.length > 0 && (
-          <section>
-            <div class="flex items-center gap-3 mb-5">
-              <p class="section-label">{t('status.archived')}</p>
-              <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
-              <span class="w-2 h-2 rounded-full" style="background:rgb(var(--muted));"></span>
-            </div>
-            <div class="grid sm:grid-cols-2 gap-3">{archived.map(p => <ProjectCard project={p} />)}</div>
-          </section>
-        )}
+        ))}
       </div>
     )}
   </div>
 </Base>
+
+<style>
+  .project-item {
+    border-left: 2px solid rgb(var(--border));
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 34%);
+    gap: 1.5rem;
+    align-items: start;
+    transition: border-color .15s;
+  }
+
+  .project-item:hover {
+    border-left-color: var(--accent);
+  }
+
+  .project-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-item:hover .project-title {
+    color: var(--accent-text);
+  }
+
+  .project-link {
+    color: var(--accent-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .project-link.muted {
+    color: rgb(var(--muted));
+  }
+
+  .project-link:hover {
+    color: rgb(var(--text));
+  }
+
+  .project-shot {
+    display: block;
+    overflow: hidden;
+    border: 1px solid rgb(var(--border));
+    border-radius: 8px;
+    background: rgb(var(--surface-2));
+  }
+
+  .project-shot img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top center;
+    opacity: .88;
+    transition: opacity .15s, transform .2s;
+  }
+
+  .project-item:hover .project-shot img {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+
+  @media (max-width: 720px) {
+    .project-item {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .project-shot {
+      order: -1;
+    }
+  }
+</style>
