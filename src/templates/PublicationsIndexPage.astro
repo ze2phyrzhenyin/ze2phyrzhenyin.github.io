@@ -7,10 +7,12 @@ import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
+const pageDescription = t('pubs.desc');
 
 const pubs = await getAllPublications();
 const byYear = pubs.reduce((acc, p) => { (acc[p.data.year] ??= []).push(p); return acc; }, {} as Record<number, typeof pubs>);
 const years  = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+const isSiteAuthor = (author: string) => author.toLocaleLowerCase() === SITE.author.toLocaleLowerCase();
 
 const typeKey: Record<string, string> = {
   journal: 'pubs.journal', conference: 'pubs.conference',
@@ -23,13 +25,13 @@ const typeColor: Record<string, string> = {
   thesis: 'background:hsl(270 60% 95%);color:hsl(270 60% 35%);border-color:hsl(270 60% 88%);',
 };
 ---
-<Base title={t('pubs.title')} description={t('pubs.desc')}>
+<Base title={t('pubs.title')} description={pageDescription || t('pubs.title')}>
   <div class="container-mid py-16">
     <header class="flex items-start justify-between gap-4 mb-10 animate-fade-up">
       <div>
         <h1 class="text-4xl font-bold tracking-tight mb-2"
             style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('pubs.title')}</h1>
-        <p class="text-sm" style="color:rgb(var(--text-2));">{t('pubs.desc')}</p>
+        {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
       </div>
       {SITE.googleScholar && (
         <a href={SITE.googleScholar} target="_blank" rel="noopener" class="btn-secondary shrink-0">
@@ -69,7 +71,7 @@ const typeColor: Record<string, string> = {
                       style="color:rgb(var(--text));">{pub.data.title}</h3>
                   <p class="text-sm mb-0.5" style="color:rgb(var(--text-2));">
                     {pub.data.authors.map((a, i) => (
-                      <span class:list={[a === SITE.author && 'font-semibold underline decoration-dotted']}>
+                      <span class:list={[isSiteAuthor(a) && 'font-semibold underline decoration-dotted']}>
                         {i > 0 && ', '}{a}
                       </span>
                     ))}
