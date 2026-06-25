@@ -20,12 +20,14 @@ type TechnicalSkill = {
   icon?: string;
   mark?: string;
   note?: string;
+  highlight?: boolean;
 };
 
 type TechnicalSkillGroup = {
   title: string;
   summary: string;
   items: TechnicalSkill[];
+  highlight?: boolean;
 };
 
 type SkillGroup = {
@@ -142,6 +144,7 @@ const aboutContent: Record<Lang, AboutContent> = {
       {
         title: 'TCS Foundations',
         summary: 'Foundational topics related to theoretical computer science, including propositional logic, non-monotonic logic, differential privacy, and automata.',
+        highlight: true,
         items: [
           { name: 'Propositional Logic', mark: '⊢', note: 'foundations' },
           { name: 'Non-monotonic Logic', mark: 'NML', note: 'foundations' },
@@ -154,8 +157,8 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: 'Comfortable with C, C++, Python, Java, and SQL; familiar with TypeScript, Go, C#, and R for code reading, debugging, and basic engineering implementation.',
         items: [
           { name: 'C', icon: '/icons/skills/c.svg', note: 'comfortable' },
-          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'comfortable' },
-          { name: 'Python', icon: '/icons/skills/python.svg', note: 'comfortable' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'comfortable', highlight: true },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: 'comfortable', highlight: true },
           { name: 'Java', icon: '/icons/skills/java.svg', note: 'comfortable' },
           { name: 'SQL', mark: 'SQL', note: 'comfortable' },
           { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: 'familiar' },
@@ -169,7 +172,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: 'Foundations in deep learning; familiar with LLM fine-tuning, RAG, YOLOv8 object detection, AI-assisted development, prototyping, and technical troubleshooting.',
         items: [
           { name: 'Deep Learning Foundations', icon: '/icons/skills/tensorflow.svg' },
-          { name: 'LLM Fine-tuning', mark: 'LLM' },
+          { name: 'LLM Fine-tuning', mark: 'LLM', highlight: true },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -190,12 +193,12 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'React', icon: '/icons/skills/react.svg' },
           { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
           { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
-          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg', highlight: true },
           { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
-          { name: 'Linux', icon: '/icons/skills/linux.svg' },
-          { name: 'Git', icon: '/icons/skills/git.svg' },
-          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
-          { name: 'XML / XMD', mark: 'XMD' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
+          { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
+          { name: 'XML / XMD', mark: 'XMD', highlight: true },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
@@ -258,6 +261,7 @@ const aboutContent: Record<Lang, AboutContent> = {
       {
         title: 'TCS 相关',
         summary: '理论计算机科学相关基础，包括命题逻辑、非单调逻辑、差分隐私与自动机。',
+        highlight: true,
         items: [
           { name: '命题逻辑基础', mark: '⊢' },
           { name: '非单调逻辑基础', mark: 'NML' },
@@ -270,8 +274,8 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: '熟悉 C、C++、Python、Java、SQL；了解 TypeScript、Go、C#、R，具备良好的代码阅读、调试和基础工程实现能力。',
         items: [
           { name: 'C', icon: '/icons/skills/c.svg', note: '熟悉' },
-          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: '熟悉' },
-          { name: 'Python', icon: '/icons/skills/python.svg', note: '熟悉' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: '熟悉', highlight: true },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: '熟悉', highlight: true },
           { name: 'Java', icon: '/icons/skills/java.svg', note: '熟悉' },
           { name: 'SQL', mark: 'SQL', note: '熟悉' },
           { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: '了解' },
@@ -285,7 +289,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: '掌握深度学习基础，了解大语言模型微调、RAG 检索增强生成、YOLOv8 目标检测等技术方向；具备使用 AI 工具辅助开发、原型验证和问题排查的经验。',
         items: [
           { name: '深度学习基础', icon: '/icons/skills/tensorflow.svg' },
-          { name: '大模型微调', mark: 'LLM' },
+          { name: '大模型微调', mark: 'LLM', highlight: true },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -306,12 +310,12 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'React', icon: '/icons/skills/react.svg' },
           { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
           { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
-          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg', highlight: true },
           { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
-          { name: 'Linux', icon: '/icons/skills/linux.svg' },
-          { name: 'Git', icon: '/icons/skills/git.svg' },
-          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
-          { name: 'XML / XMD', mark: 'XMD' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
+          { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
+          { name: 'XML / XMD', mark: 'XMD', highlight: true },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
@@ -374,6 +378,7 @@ const aboutContent: Record<Lang, AboutContent> = {
       {
         title: "Bases liées à l'informatique théorique",
         summary: "Notions fondamentales liées à l'informatique théorique : logique propositionnelle, logique non monotone, confidentialité différentielle et automates.",
+        highlight: true,
         items: [
           { name: 'Logique propositionnelle', mark: '⊢', note: 'bases' },
           { name: 'Logique non monotone', mark: 'NML', note: 'bases' },
@@ -386,8 +391,8 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: "À l'aise avec C, C++, Python, Java et SQL ; familiarisé avec TypeScript, Go, C# et R pour la lecture de code, le débogage et l'implémentation technique de base.",
         items: [
           { name: 'C', icon: '/icons/skills/c.svg', note: 'à l’aise' },
-          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'à l’aise' },
-          { name: 'Python', icon: '/icons/skills/python.svg', note: 'à l’aise' },
+          { name: 'C++', icon: '/icons/skills/cplusplus.svg', note: 'à l’aise', highlight: true },
+          { name: 'Python', icon: '/icons/skills/python.svg', note: 'à l’aise', highlight: true },
           { name: 'Java', icon: '/icons/skills/java.svg', note: 'à l’aise' },
           { name: 'SQL', mark: 'SQL', note: 'à l’aise' },
           { name: 'TypeScript', icon: '/icons/skills/typescript.svg', note: 'notions' },
@@ -401,7 +406,7 @@ const aboutContent: Record<Lang, AboutContent> = {
         summary: "Bases en deep learning ; connaissances en fine-tuning de grands modèles de langage, RAG, détection d'objets YOLOv8, développement assisté par IA, prototypage et diagnostic technique.",
         items: [
           { name: 'Bases du deep learning', icon: '/icons/skills/tensorflow.svg' },
-          { name: 'Fine-tuning LLM', mark: 'LLM' },
+          { name: 'Fine-tuning LLM', mark: 'LLM', highlight: true },
           { name: 'RAG', mark: 'RAG' },
           { name: 'YOLOv8', icon: '/icons/skills/ultralytics.svg' },
         ],
@@ -422,12 +427,12 @@ const aboutContent: Record<Lang, AboutContent> = {
           { name: 'React', icon: '/icons/skills/react.svg' },
           { name: 'Node.js', icon: '/icons/skills/nodedotjs.svg' },
           { name: 'Nginx', icon: '/icons/skills/nginx.svg' },
-          { name: 'Docker', icon: '/icons/skills/docker.svg' },
+          { name: 'Docker', icon: '/icons/skills/docker.svg', highlight: true },
           { name: 'Three.js', icon: '/icons/skills/threedotjs.svg' },
-          { name: 'Linux', icon: '/icons/skills/linux.svg' },
-          { name: 'Git', icon: '/icons/skills/git.svg' },
-          { name: 'LaTeX', icon: '/icons/skills/latex.svg' },
-          { name: 'XML / XMD', mark: 'XMD' },
+          { name: 'Linux', icon: '/icons/skills/linux.svg', highlight: true },
+          { name: 'Git', icon: '/icons/skills/git.svg', highlight: true },
+          { name: 'LaTeX', icon: '/icons/skills/latex.svg', highlight: true },
+          { name: 'XML / XMD', mark: 'XMD', highlight: true },
           { name: 'OpenXML', mark: 'XML' },
         ],
       },
@@ -549,13 +554,13 @@ const quote = t('about.quote');
         </div>
         <div class="space-y-8">
           {profile.techSkills.map((group) => (
-            <div class="tech-skill-group">
+            <div class={`tech-skill-group${group.highlight ? ' tech-skill-group-lit' : ''}`}>
               <div class="mb-3">
                 <h3 class="text-sm font-semibold" style="color:rgb(var(--text));">{group.title}</h3>
               </div>
               <div class="tech-skill-grid">
                 {group.items.map((skill) => (
-                  <div class="tech-skill-card">
+                  <div class={`tech-skill-card${skill.highlight ? ' tech-skill-card-lit' : ''}`}>
                     <span class="tech-skill-icon" aria-hidden="true">
                       {skill.icon ? (
                         <img src={withBase(skill.icon)} alt="" loading="lazy" decoding="async" />
@@ -619,10 +624,37 @@ const quote = t('about.quote');
     transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
   }
 
+  .tech-skill-group-lit {
+    padding: 0.75rem;
+    border: 1px solid color-mix(in srgb, var(--accent) 46%, rgb(var(--border)));
+    border-radius: 0.75rem;
+    background:
+      linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-dim) 45%, transparent),
+        color-mix(in srgb, rgb(var(--surface)) 88%, transparent));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+
   .tech-skill-card:hover {
     border-color: rgb(var(--border-2));
     background: rgb(var(--surface));
     transform: translateY(-1px);
+  }
+
+  .tech-skill-card-lit {
+    border-color: color-mix(in srgb, var(--accent) 52%, rgb(var(--border)));
+    background:
+      linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-dim) 58%, rgb(var(--surface))),
+        rgb(var(--surface)));
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent),
+      0 0 0 3px color-mix(in srgb, var(--accent) 6%, transparent);
+  }
+
+  .tech-skill-card-lit:hover {
+    border-color: color-mix(in srgb, var(--accent) 70%, rgb(var(--border-2)));
+    background: color-mix(in srgb, var(--accent-dim) 48%, rgb(var(--surface)));
   }
 
   .tech-skill-icon {
@@ -646,6 +678,16 @@ const quote = t('about.quote');
     width: 1.25rem;
     height: 1.25rem;
     object-fit: contain;
+  }
+
+  .tech-skill-card-lit .tech-skill-icon {
+    border-color: color-mix(in srgb, var(--accent) 38%, rgb(var(--border)));
+    background: color-mix(in srgb, var(--accent-dim) 72%, #fff);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+
+  .tech-skill-card-lit .tech-skill-name {
+    color: var(--accent-text);
   }
 
   .tech-skill-name {
