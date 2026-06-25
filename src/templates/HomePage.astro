@@ -12,14 +12,12 @@ const audiences: {
   num: string;
   q: Parameters<typeof t>[0];
   desc: Parameters<typeof t>[0];
-  cta: Parameters<typeof t>[0];
-  slug: string;
 }[] = [
-  { num: '01', q: 'home.aud.1.q', desc: 'home.aud.1.desc', cta: 'home.aud.1.cta', slug: 'for-faculty' },
-  { num: '02', q: 'home.aud.2.q', desc: 'home.aud.2.desc', cta: 'home.aud.2.cta', slug: 'for-collaborators' },
-  { num: '03', q: 'home.aud.3.q', desc: 'home.aud.3.desc', cta: 'home.aud.3.cta', slug: 'for-peers' },
-  { num: '04', q: 'home.aud.4.q', desc: 'home.aud.4.desc', cta: 'home.aud.4.cta', slug: 'for-help' },
-  { num: '05', q: 'home.aud.5.q', desc: 'home.aud.5.desc', cta: 'home.aud.5.cta', slug: 'for-curious' },
+  { num: '01', q: 'home.aud.1.q', desc: 'home.aud.1.desc' },
+  { num: '02', q: 'home.aud.2.q', desc: 'home.aud.2.desc' },
+  { num: '03', q: 'home.aud.3.q', desc: 'home.aud.3.desc' },
+  { num: '04', q: 'home.aud.4.q', desc: 'home.aud.4.desc' },
+  { num: '05', q: 'home.aud.5.q', desc: 'home.aud.5.desc' },
 ];
 ---
 <Base>
@@ -87,7 +85,7 @@ const audiences: {
 
     <!-- Accordion list -->
     <div class="aud-list" role="list">
-      {audiences.map(({ num, q, desc, cta, slug }) => (
+      {audiences.map(({ num, q, desc }) => (
         <details class="aud-item" role="listitem">
           <summary class="aud-summary" tabindex="0">
             <span class="aud-num">{num}</span>
@@ -103,9 +101,6 @@ const audiences: {
           </summary>
           <div class="aud-body">
             <p class="aud-desc">{t(desc)}</p>
-            <a href={localizePath(`/essays/${slug}`, lang)} class="aud-cta">
-              {t(cta)}
-            </a>
           </div>
         </details>
       ))}

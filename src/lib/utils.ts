@@ -1,5 +1,25 @@
 import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { existsSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+
+const contentRoot = join(process.cwd(), 'src', 'content');
+
+function hasMarkdownContent(dir: string): boolean {
+  if (!existsSync(dir)) return false;
+
+  return readdirSync(dir, { withFileTypes: true }).some((entry) => {
+    if (entry.name.startsWith('.') || entry.name.startsWith('_')) return false;
+
+    const entryPath = join(dir, entry.name);
+    if (entry.isDirectory()) return hasMarkdownContent(entryPath);
+
+    return entry.isFile() && /\.(md|mdx)$/.test(entry.name);
+  });
+}
+
+function hasCollectionContent(collection: 'blog' | 'essays' | 'projects'): boolean {
+  return hasMarkdownContent(join(contentRoot, collection));
+}
 
 /** Sort posts by date descending */
 export function sortByDate<T extends { data: { date: Date } }>(items: T[]): T[] {
@@ -35,18 +55,21 @@ export function groupBy<T>(items: T[], key: (item: T) => string): Record<string,
 
 /** Get all published blog posts sorted by date */
 export async function getAllPosts() {
+  if (!hasCollectionContent('blog')) return [];
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return sortByDate(posts);
 }
 
 /** Get all published essays sorted by date */
 export async function getAllEssays() {
+  if (!hasCollectionContent('essays')) return [];
   const essays = await getCollection('essays', ({ data }) => !data.draft);
   return sortByDate(essays);
 }
 
 /** Get all projects sorted by date */
 export async function getAllProjects() {
+  if (!hasCollectionContent('projects')) return [];
   const projects = await getCollection('projects');
   return projects.sort((a, b) => {
     if (a.data.featured && !b.data.featured) return -1;

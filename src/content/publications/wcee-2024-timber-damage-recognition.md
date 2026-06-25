@@ -1,7 +1,7 @@
 ---
 title: "Intelligent Damage Recognition of Timber Structure Connections Based on X-ray Digital Radiography Method"
 authors: ["J. Luo", "Z. Yang", "K. Ren", "Y. Cheng", "Zhaoyang Sui", "X. Wang", "H. Dong"]
-venue: "WCEE 2024"
+venue: "18th World Conference on Earthquake Engineering"
 year: 2024
 type: conference
 abstract: >-

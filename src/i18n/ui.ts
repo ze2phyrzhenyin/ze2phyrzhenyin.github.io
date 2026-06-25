@@ -64,6 +64,7 @@ export const ui = {
     'essays.empty': '⊥ — No essays yet.',
     // ── Projects ──
     'projects.title': 'Projects', 'projects.desc': 'Implementations, tools, and research experiments.',
+    'projects.empty': 'No projects yet.',
     'status.active': 'Active', 'status.completed': 'Completed', 'status.archived': 'Archived',
     // ── Publications ──
     'pubs.title': 'Publications', 'pubs.desc': '',
@@ -142,6 +143,7 @@ export const ui = {
     'essays.desc': '比博客更随意。关于数学、研究、书籍和思考的感想。',
     'essays.empty': '⊥ — 暂无随笔。',
     'projects.title': '项目', 'projects.desc': '实现、工具与研究实验。',
+    'projects.empty': '暂无项目。',
     'status.active': '进行中', 'status.completed': '已完成', 'status.archived': '已归档',
     'pubs.title': '发表', 'pubs.desc': '',
     'pubs.empty': '暂无发表论文。',
@@ -214,6 +216,7 @@ export const ui = {
     'essays.desc': 'Moins formel que le blog. Réflexions sur les mathématiques, la recherche, les livres et la pensée.',
     'essays.empty': "⊥ — Aucun essai pour l'instant.",
     'projects.title': 'Projets', 'projects.desc': 'Implémentations, outils et expériences de recherche.',
+    'projects.empty': 'Aucun projet pour le moment.',
     'status.active': 'Actif', 'status.completed': 'Terminé', 'status.archived': 'Archivé',
     'pubs.title': 'Publications', 'pubs.desc': '',
     'pubs.empty': 'Aucune publication.',

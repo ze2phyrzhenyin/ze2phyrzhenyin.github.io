@@ -1,11 +1,10 @@
 ---
 import Base from '@/layouts/Base.astro';
-import { getCollection } from 'astro:content';
-import { formatDate } from '@/lib/utils';
+import { formatDate, getAllProjects } from '@/lib/utils';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 export async function getStaticPaths() {
-  const projects = await getCollection('projects');
+  const projects = await getAllProjects();
   return projects.map(project => ({ params: { slug: project.slug }, props: { project } }));
 }
 const { project } = Astro.props;

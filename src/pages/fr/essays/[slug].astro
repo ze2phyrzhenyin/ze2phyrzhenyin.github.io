@@ -1,8 +1,8 @@
 ---
 import Post from '@/layouts/Post.astro';
-import { getCollection } from 'astro:content';
+import { getAllEssays } from '@/lib/utils';
 export async function getStaticPaths() {
-  const essays = await getCollection('essays', ({ data }) => !data.draft);
+  const essays = await getAllEssays();
   return essays.map(essay => ({ params: { slug: essay.slug }, props: { essay } }));
 }
 const { essay } = Astro.props;
