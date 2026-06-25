@@ -11,32 +11,110 @@ const displayEmail = formatEmailForDisplay(SITE.email);
 
 ---
 <footer class="site-footer">
-  <div class="container-wide">
-    <p>
-      © {year} {siteName} · {t('footer.built')}
-      <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
+  <div class="container-wide footer-inner">
+    <div class="footer-identity" aria-label={siteName}>
+      <span class="footer-mark" aria-hidden="true">λ</span>
+      <span>{siteName}</span>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-label">Email</span>
+      <span class="footer-email">{displayEmail}</span>
+    </div>
+    <p class="footer-meta">
+      <span>© {year}</span>
+      <span class="footer-separator" aria-hidden="true">·</span>
+      <span>
+        {t('footer.built')}
+        <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
+      </span>
     </p>
-    <p class="footer-email">Email: {displayEmail}</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
     border-top: 1px solid rgb(var(--border));
-    padding: 1.25rem 0;
+    padding: 1rem 0;
   }
 
-  .site-footer p {
+  .footer-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .footer-identity,
+  .footer-contact,
+  .footer-meta {
     color: rgb(var(--muted));
     font-size: 0.75rem;
     line-height: 1.5;
-    text-align: center;
+  }
+
+  .footer-identity {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .footer-mark {
+    color: rgb(var(--text));
+    font-weight: 700;
+  }
+
+  .footer-contact {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    justify-self: center;
+    min-width: 0;
+  }
+
+  .footer-label {
+    color: rgb(var(--text-2));
+    font-weight: 600;
   }
 
   .footer-email {
-    margin-top: 0.25rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    white-space: nowrap;
+  }
+
+  .footer-meta {
+    display: inline-flex;
+    align-items: center;
+    justify-self: end;
+    gap: 0.35rem;
+    margin: 0;
+    text-align: right;
   }
 
   .footer-link { color: rgb(var(--muted)); }
   .footer-link:hover { color: rgb(var(--text)); }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 0.45rem;
+    }
+
+    .footer-meta {
+      justify-self: center;
+      text-align: center;
+    }
+
+    .footer-contact {
+      max-width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-email {
+      white-space: normal;
+      text-align: center;
+    }
+  }
 </style>
