@@ -83,6 +83,7 @@ export const ui = {
     // ── Footer ──
     'footer.pages': 'Pages', 'footer.more': 'More', 'footer.contact': 'Contact',
     'footer.built': 'Built with',
+    'footer.updated': 'Updated',
     // ── 404 ──
     '404.title': 'Page not found', '404.msg': '⊥ — This proposition has no proof.', '404.back': '← Return home',
   },
@@ -154,6 +155,7 @@ export const ui = {
     'post.toc': '本文目录', 'post.math': '数学符号',
     'footer.pages': '页面', 'footer.more': '更多', 'footer.contact': '联系',
     'footer.built': '构建于',
+    'footer.updated': '更新时间',
     '404.title': '页面不存在', '404.msg': '⊥ — 该命题无法被证明。', '404.back': '← 返回首页',
   },
 
@@ -224,6 +226,7 @@ export const ui = {
     'post.toc': 'Sur cette page', 'post.math': 'Notation',
     'footer.pages': 'Pages', 'footer.more': 'Plus', 'footer.contact': 'Contact',
     'footer.built': 'Construit avec',
+    'footer.updated': 'Mis à jour',
     '404.title': 'Page introuvable', '404.msg': "⊥ — Cette proposition n'a pas de preuve.", '404.back': '← Retour à l\'accueil',
   },
 } as const;

@@ -5,30 +5,50 @@ import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
-const year = new Date().getFullYear();
+const updatedAt = new Date();
+const year = updatedAt.getFullYear();
 const siteName = getSiteName(lang);
 const displayEmail = formatEmailForDisplay(SITE.email);
 const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
+const dateLocales: Record<Lang, string> = {
+  en: 'en-US',
+  zh: 'zh-CN',
+  fr: 'fr-FR',
+};
+const updatedAtLabel = new Intl.DateTimeFormat(dateLocales[lang], {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(updatedAt);
+const updatedAtIso = updatedAt.toISOString();
 
 ---
 <footer class="site-footer" style={`--brand-mark-url: ${brandMarkUrl};`}>
   <div class="container-wide footer-inner">
-    <div class="footer-identity" aria-label={siteName}>
-      <span class="footer-mark" aria-hidden="true"></span>
-      <span>{siteName}</span>
+    <div class="footer-primary">
+      <div class="footer-identity" aria-label={siteName}>
+        <span class="footer-mark" aria-hidden="true"></span>
+        <span>{siteName}</span>
+      </div>
+      <div class="footer-contact">
+        <span class="footer-label">Email</span>
+        <span class="footer-email">{displayEmail}</span>
+      </div>
     </div>
-    <div class="footer-contact">
-      <span class="footer-label">Email</span>
-      <span class="footer-email">{displayEmail}</span>
+    <div class="footer-secondary">
+      <p class="footer-updated">
+        <span class="footer-label">{t('footer.updated')}</span>
+        <time datetime={updatedAtIso}>{updatedAtLabel}</time>
+      </p>
+      <p class="footer-meta">
+        <span>© {year}</span>
+        <span class="footer-separator" aria-hidden="true">·</span>
+        <span>
+          {t('footer.built')}
+          <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
+        </span>
+      </p>
     </div>
-    <p class="footer-meta">
-      <span>© {year}</span>
-      <span class="footer-separator" aria-hidden="true">·</span>
-      <span>
-        {t('footer.built')}
-        <a href="https://astro.build" target="_blank" rel="noopener" class="footer-link">Astro</a>
-      </span>
-    </p>
   </div>
 </footer>
 
@@ -39,14 +59,34 @@ const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
   }
 
   .footer-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: space-between;
+    gap: 0.75rem 2rem;
+  }
+
+  .footer-primary,
+  .footer-secondary {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .footer-primary {
+    gap: clamp(1rem, 4vw, 2rem);
+    flex-wrap: wrap;
+  }
+
+  .footer-secondary {
+    justify-content: flex-end;
+    gap: 0.75rem 1rem;
+    flex-wrap: wrap;
+    margin-left: auto;
   }
 
   .footer-identity,
   .footer-contact,
+  .footer-updated,
   .footer-meta {
     color: rgb(var(--muted));
     font-size: 0.75rem;
@@ -74,7 +114,6 @@ const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
     display: inline-flex;
     align-items: baseline;
     gap: 0.5rem;
-    justify-self: center;
     min-width: 0;
   }
 
@@ -88,13 +127,13 @@ const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
     white-space: nowrap;
   }
 
+  .footer-updated,
   .footer-meta {
     display: inline-flex;
-    align-items: center;
-    justify-self: end;
+    align-items: baseline;
     gap: 0.35rem;
     margin: 0;
-    text-align: right;
+    white-space: nowrap;
   }
 
   .footer-link { color: rgb(var(--muted)); }
@@ -102,13 +141,14 @@ const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
 
   @media (max-width: 720px) {
     .footer-inner {
-      grid-template-columns: 1fr;
-      justify-items: center;
+      flex-direction: column;
       gap: 0.45rem;
     }
 
-    .footer-meta {
-      justify-self: center;
+    .footer-primary,
+    .footer-secondary {
+      justify-content: center;
+      margin-left: 0;
       text-align: center;
     }
 
@@ -121,6 +161,11 @@ const brandMarkUrl = `url(${withBase('/brand-mark.svg')})`;
     .footer-email {
       white-space: normal;
       text-align: center;
+    }
+
+    .footer-updated,
+    .footer-meta {
+      justify-content: center;
     }
   }
 </style>
