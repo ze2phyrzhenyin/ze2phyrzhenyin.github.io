@@ -75,8 +75,8 @@ export const ui = {
     'contact.desc': 'Email is the best way to contact me about professional matters. I will reply within a few days.',
     'contact.note': '',
     // ── Life ──
-    'life.title': 'Life', 'life.desc': 'Over the past year, I have often spent time with football, badminton, hiking, easy runs, board games, and theatre. I also really enjoy discussing deeper topics with friends about economics, sociology, philosophy, and human development. In Toulouse, what draws me in most is TÉFÉCÉ.',
-    'life.intro.before': 'Over the past year, I have often spent time with football, badminton, hiking, easy runs, board games, and theatre... I also really enjoy discussing deeper topics with friends about economics, sociology, philosophy, and human development. In Toulouse, what draws me in most is ',
+    'life.title': 'Life', 'life.desc': 'Over the past year, I have often spent time with football, badminton, hiking, easy runs, board games, and theatre. I also greatly enjoy discussing deep topics related to human development with my friends, such as economics, sociology, and philosophy. In Toulouse, what draws me in most is TÉFÉCÉ.',
+    'life.intro.before': 'Over the past year, I have often spent time with football, badminton, hiking, easy runs, board games, and theatre... I also greatly enjoy discussing deep topics related to human development with my friends, such as economics, sociology, and philosophy. In Toulouse, what draws me in most is ',
     'life.intro.after': ' 💜💜💜. Feel free to invite me to watch a live match together!',
     'life.empty': 'Photos coming soon.',
     // ── Post ──
@@ -226,8 +226,8 @@ export const ui = {
     'contact.title': 'Contact',
     'contact.desc': "L'e-mail est le meilleur moyen de me contacter pour les questions professionnelles. Je répondrai sous quelques jours.",
     'contact.note': '',
-    'life.title': 'Vie', 'life.desc': "Au cours de la dernière année, j'ai souvent pratiqué ou fréquenté le football, le badminton, la randonnée, le footing, les jeux de société et le théâtre. J'aime aussi beaucoup discuter avec mes ami·es de sujets de fond liés à l'économie, à la sociologie, à la philosophie et au développement humain. À Toulouse, ce qui m'attire le plus, c'est TÉFÉCÉ.",
-    'life.intro.before': "Au cours de la dernière année, j'ai souvent pratiqué ou fréquenté le football, le badminton, la randonnée, le footing, les jeux de société et le théâtre... J'aime aussi beaucoup discuter avec mes ami·es de sujets de fond liés à l'économie, à la sociologie, à la philosophie et au développement humain. À Toulouse, ce qui m'attire le plus, c'est ",
+    'life.title': 'Vie', 'life.desc': "Au cours de la dernière année, j'ai souvent pratiqué ou fréquenté le football, le badminton, la randonnée, le footing, les jeux de société et le théâtre. J’aime aussi beaucoup discuter avec mes amis de sujets profonds liés au développement de l’humanité, comme l’économie, la sociologie et la philosophie. À Toulouse, ce qui m'attire le plus, c'est TÉFÉCÉ.",
+    'life.intro.before': "Au cours de la dernière année, j'ai souvent pratiqué ou fréquenté le football, le badminton, la randonnée, le footing, les jeux de société et le théâtre... J’aime aussi beaucoup discuter avec mes amis de sujets profonds liés au développement de l’humanité, comme l’économie, la sociologie et la philosophie. À Toulouse, ce qui m'attire le plus, c'est ",
     'life.intro.after': " 💜💜💜. N'hésitez pas à me proposer d'aller voir un match au stade ensemble !",
     'life.empty': 'Photos à venir.',
     'post.back.blog': 'Blog', 'post.back.essays': 'Essais',
