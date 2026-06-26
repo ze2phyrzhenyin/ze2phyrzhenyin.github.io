@@ -9,8 +9,8 @@ export const ui = {
     'nav.publications': 'Publications', 'nav.projects': 'Projects',
     'nav.life': 'Life', 'nav.contact': 'Contact',
     // ── Home ──
-    'home.status': 'Master 1 in Computer-Assisted Business Management (MIAGE) · Toulouse Capitole University',
-    'home.bio.1': 'I am currently a Master 1 student in Computer-Assisted Business Management (MIAGE) at Toulouse Capitole University. I came to Europe because I want to work in an area related to theoretical computer science.',
+    'home.status': "First-year Master's in Computer-Assisted Business Management (MIAGE) · Toulouse Capitole University",
+    'home.bio.1': "I am currently a first-year master's student in Computer-Assisted Business Management (MIAGE) at Toulouse Capitole University. I came to Europe because I want to work in an area related to theoretical computer science.",
     'home.bio.logic': 'C/C++', 'home.bio.tt': 'Python',
     'home.bio.2': 'Over the past year, I have been self-studying foundations related to game theory, logic, and learning theory. I am still looking for the direction that fits me best; over the past month, I have found myself especially interested in proof-related topics.',
     'home.bio.3': '',
