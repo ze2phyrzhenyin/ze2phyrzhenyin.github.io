@@ -7,13 +7,13 @@ import type { Lang } from '@/i18n/ui';
 import '../styles/global.css';
 
 interface Props {
-  title?: string; description?: string; ogImage?: string; article?: boolean;
+  title?: string; pageTitle?: string; description?: string; ogImage?: string; article?: boolean;
 }
-const { title, description = SITE.description, ogImage, article = false } = Astro.props;
+const { title, pageTitle: explicitPageTitle, description = SITE.description, ogImage, article = false } = Astro.props;
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const siteName = getSiteName(lang);
-const pageTitle   = title ? `${title} — ${siteName}` : `${siteName} · ${SITE.tagline}`;
+const pageTitle = explicitPageTitle ?? (title ? `${title} — ${siteName}` : `${siteName} · ${SITE.tagline}`);
 const canonicalURL = new URL(stripBase(Astro.url.pathname), SITE.url);
 const rssURL = new URL('/rss.xml', SITE.url);
 const ogImg       = ogImage ?? `${SITE.url}/og-default.png`;
