@@ -3,7 +3,7 @@ export const SITE = {
   nameZh: '隋朝阳',
   tagline: "First-year Master's in Computer-Assisted Business Management (MIAGE) · Toulouse Capitole University",
   description: 'Personal site — software engineering, applied AI, research, writing, and projects.',
-  url: 'https://ze2phyrzhenyin.github.io',
+  url: 'https://zhaoyang.fr',
   author: 'Zhaoyang SUI',
   email: 'zhaoyang.sui@ut-capitole.fr',
   github: '',

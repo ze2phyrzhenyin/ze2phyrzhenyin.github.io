@@ -17,7 +17,9 @@ const pageTitle = explicitPageTitle ?? (title ? `${title} — ${siteName}` : `${
 const canonicalURL = new URL(stripBase(Astro.url.pathname), SITE.url);
 const rssURL = new URL('/rss.xml', SITE.url);
 const ogImg       = ogImage ?? `${SITE.url}/og-default.png`;
-const faviconHref = withBase('/favicon.svg');
+const favicon48Href = withBase('/favicon-48.png');
+const favicon192Href = withBase('/favicon-192.png');
+const faviconSvgHref = withBase('/favicon.svg');
 ---
 <!doctype html>
 <html lang={lang} class="scroll-smooth">
@@ -36,7 +38,9 @@ const faviconHref = withBase('/favicon.svg');
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={pageTitle} />
   <meta name="twitter:description" content={description} />
-  <link rel="icon" type="image/svg+xml" href={faviconHref} />
+  <link rel="icon" type="image/png" sizes="48x48" href={favicon48Href} />
+  <link rel="icon" type="image/png" sizes="192x192" href={favicon192Href} />
+  <link rel="icon" type="image/svg+xml" href={faviconSvgHref} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <script is:inline>
