@@ -6,8 +6,17 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const pageDescription = t('life.desc');
+const lifeIntro = {
+  before: t('life.intro.before'),
+  after: t('life.intro.after'),
+};
 
 const photos: { src: string; alt: string; category: string }[] = [
+  {
+    src: '/images/life/img-5380.webp',
+    alt: 'Wearing Toulouse FC purple at the stadium',
+    category: 'life',
+  },
   {
     src: '/images/life/d6361f1a58a784a9adb9f64376cf5f18.webp',
     alt: 'Life photo d6361f1a58a784a9adb9f64376cf5f18',
@@ -55,7 +64,14 @@ const photos: { src: string; alt: string; category: string }[] = [
     <header class="container-mid mb-10 px-0 animate-fade-up">
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('life.title')}</h1>
-      {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
+      <p class="life-intro">
+        <span>{lifeIntro.before}</span>
+        <span class="tfc-word">
+          <span class="violet-mark" aria-hidden="true">✿</span>
+          <span>TÉFÉCÉ</span>
+        </span>
+        <span>{lifeIntro.after}</span>
+      </p>
     </header>
     {photos.length === 0 ? (
       <div class="container-mid px-0 animate-fade-up delay-100">
@@ -109,4 +125,29 @@ const photos: { src: string; alt: string; category: string }[] = [
     lb.addEventListener('click', e => { if(e.target===lb) close(); });
     document.addEventListener('keydown', e => { if(e.key==='Escape') close(); });
   </script>
+  <style>
+    .life-intro {
+      max-width: 46rem;
+      margin-top: 0.75rem;
+      color: rgb(var(--text-2));
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .tfc-word {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.22rem;
+      margin: 0 0.08rem;
+      color: rgb(var(--text));
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .violet-mark {
+      color: #7c3aed;
+      font-size: 0.95em;
+      line-height: 1;
+    }
+  </style>
 </Base>
