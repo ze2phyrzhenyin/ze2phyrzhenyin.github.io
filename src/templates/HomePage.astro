@@ -7,7 +7,7 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const homeDisplayName = 'Zhaoyang SUI 隋朝阳';
-const homePageTitle = `${homeDisplayName} · ${SITE.tagline}`;
+const homePageTitle = homeDisplayName;
 const avatarSrc = withBase(SITE.avatar);
 const brandMarkSrc = withBase('/brand-mark.svg');
 
