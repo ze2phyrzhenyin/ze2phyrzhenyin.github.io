@@ -10,6 +10,7 @@ const lifeIntro = {
   before: t('life.intro.before'),
   after: t('life.intro.after'),
 };
+const tfcUrl = 'https://www.toulousefc.com/';
 
 const photos: { src: string; alt: string; category: string }[] = [
   {
@@ -66,10 +67,7 @@ const photos: { src: string; alt: string; category: string }[] = [
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('life.title')}</h1>
       <p class="life-intro">
         <span>{lifeIntro.before}</span>
-        <span class="tfc-word">
-          <span class="violet-mark" aria-hidden="true">✿</span>
-          <span>TÉFÉCÉ</span>
-        </span>
+        <a href={tfcUrl} target="_blank" rel="noopener" class="tfc-word">TÉFÉCÉ</a>
         <span>{lifeIntro.after}</span>
       </p>
     </header>
@@ -135,19 +133,17 @@ const photos: { src: string; alt: string; category: string }[] = [
     }
 
     .tfc-word {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 0.22rem;
       margin: 0 0.08rem;
-      color: rgb(var(--text));
+      color: #7c3aed;
       font-weight: 700;
+      text-decoration: none;
+      text-underline-offset: 0.2em;
       white-space: nowrap;
     }
 
-    .violet-mark {
-      color: #7c3aed;
-      font-size: 0.95em;
-      line-height: 1;
+    .tfc-word:hover {
+      color: #6d28d9;
+      text-decoration: underline;
     }
   </style>
 </Base>
