@@ -23,6 +23,7 @@ const t    = useTranslations(lang);
 const backLabel = collection === 'blog' ? t('post.back.blog') : t('post.back.essays');
 const backHref  = localizePath(`/${collection}`, lang);
 const showTags = collection !== 'essays' && tags.length > 0;
+const categoryLabel = category ? t(`cat.${category}` as any) : undefined;
 const contentDates = getContentDates(post, collection);
 const dateTimeLocale: Record<Lang, string> = {
   en: 'en-US',
@@ -49,7 +50,7 @@ const dateTimeLocale: Record<Lang, string> = {
           <div class="flex flex-wrap items-center gap-2.5 mb-5 text-sm">
             {category && (
               <a href={localizePath(`/blog?cat=${category}`, lang)} class={categoryBadge(category)}
-                 style="position:relative;z-index:1;">{category}</a>
+                 style="position:relative;z-index:1;">{categoryLabel}</a>
             )}
             {collection === 'essays' ? (
               <>
