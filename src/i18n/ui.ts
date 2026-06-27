@@ -81,6 +81,8 @@ export const ui = {
     'life.empty': 'Photos coming soon.',
     // ── Post ──
     'post.back.blog': 'Blog', 'post.back.essays': 'Essays',
+    'post.uploaded': 'Uploaded',
+    'post.updated': 'Last updated',
     'post.copy': 'Copy link', 'post.copied': 'Copied!',
     'post.toc': 'On this page', 'post.math': 'Math',
     // ── Footer ──
@@ -157,6 +159,8 @@ export const ui = {
     'life.intro.after': ' 💜💜💜，欢迎找我一起去现场看球！',
     'life.empty': '照片即将上传。',
     'post.back.blog': '博客', 'post.back.essays': '随笔',
+    'post.uploaded': '上传时间',
+    'post.updated': '最后更新时间',
     'post.copy': '复制链接', 'post.copied': '已复制！',
     'post.toc': '本文目录', 'post.math': '数学符号',
     'footer.pages': '页面', 'footer.more': '更多', 'footer.contact': '联系',
@@ -231,6 +235,8 @@ export const ui = {
     'life.intro.after': " 💜💜💜. N’hésitez pas à me proposer d’aller voir un match au stade ensemble !",
     'life.empty': 'Photos à venir.',
     'post.back.blog': 'Blog', 'post.back.essays': 'Essais',
+    'post.uploaded': 'Mis en ligne',
+    'post.updated': 'Dernière mise à jour',
     'post.copy': 'Copier le lien', 'post.copied': 'Copié !',
     'post.toc': 'Sur cette page', 'post.math': 'Notation',
     'footer.pages': 'Pages', 'footer.more': 'Plus', 'footer.contact': 'Contact',

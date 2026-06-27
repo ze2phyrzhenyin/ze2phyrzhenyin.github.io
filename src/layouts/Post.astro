@@ -1,6 +1,7 @@
 ---
 import Base from './Base.astro';
-import { formatDate, readingTime, categoryBadge } from '@/lib/utils';
+import { getContentDates } from '@/lib/content-dates';
+import { formatDate, formatDateTime, readingTime, categoryBadge } from '@/lib/utils';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -23,6 +24,12 @@ const t    = useTranslations(lang);
 const backLabel = collection === 'blog' ? t('post.back.blog') : t('post.back.essays');
 const backHref  = localizePath(`/${collection}`, lang);
 const showTags = collection !== 'essays' && tags.length > 0;
+const contentDates = getContentDates(post, collection);
+const dateTimeLocale: Record<Lang, string> = {
+  en: 'en-US',
+  zh: 'zh-CN',
+  fr: 'fr-FR',
+};
 ---
 <Base title={title} description={description} article>
   <div class="container-wide py-12 lg:py-20">
@@ -45,8 +52,28 @@ const showTags = collection !== 'essays' && tags.length > 0;
               <a href={localizePath(`/blog?cat=${category}`, lang)} class={categoryBadge(category)}
                  style="position:relative;z-index:1;">{category}</a>
             )}
-            <time datetime={date.toISOString()} class="font-mono text-xs tabular"
-                  style="color: rgb(var(--muted));">{formatDate(date)}</time>
+            {collection === 'essays' ? (
+              <>
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="text-xs" style="color: rgb(var(--muted));">{t('post.uploaded')}</span>
+                  <time datetime={contentDates.uploadedAt.toISOString()} class="font-mono text-xs tabular"
+                        style="color: rgb(var(--muted));">
+                    {formatDateTime(contentDates.uploadedAt, dateTimeLocale[lang])}
+                  </time>
+                </span>
+                <span style="color: rgb(var(--border-2));">·</span>
+                <span class="inline-flex items-center gap-1.5">
+                  <span class="text-xs" style="color: rgb(var(--muted));">{t('post.updated')}</span>
+                  <time datetime={contentDates.updatedAt.toISOString()} class="font-mono text-xs tabular"
+                        style="color: rgb(var(--muted));">
+                    {formatDateTime(contentDates.updatedAt, dateTimeLocale[lang])}
+                  </time>
+                </span>
+              </>
+            ) : (
+              <time datetime={date.toISOString()} class="font-mono text-xs tabular"
+                    style="color: rgb(var(--muted));">{formatDate(date)}</time>
+            )}
             <span style="color: rgb(var(--border-2));">·</span>
             <span class="text-xs" style="color: rgb(var(--muted));">{rt}</span>
           </div>
@@ -54,8 +81,10 @@ const showTags = collection !== 'essays' && tags.length > 0;
               style="color:rgb(var(--text));font-family:'Inter',sans-serif;letter-spacing:-0.025em;">
             {title}
           </h1>
-          <p class="text-lg leading-relaxed mb-5"
-             style="color:rgb(var(--text-2));font-family:Lora,serif;">{description}</p>
+          {description && (
+            <p class="text-lg leading-relaxed mb-5"
+               style="color:rgb(var(--text-2));font-family:Lora,serif;">{description}</p>
+          )}
           {showTags && (
             <div class="flex flex-wrap gap-1.5">
               {tags.map(tag => <span class="tag">#{tag}</span>)}

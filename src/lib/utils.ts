@@ -36,6 +36,20 @@ export function formatDate(date: Date, opts?: Intl.DateTimeFormatOptions): strin
   });
 }
 
+/** Format date and time in the site's primary timezone */
+export function formatDateTime(date: Date, locale = 'en-US', opts?: Intl.DateTimeFormatOptions): string {
+  return new Intl.DateTimeFormat(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: 'Europe/Paris',
+    ...opts,
+  }).format(date);
+}
+
 /** Estimate reading time */
 export function readingTime(body: string): string {
   const wpm = 200;

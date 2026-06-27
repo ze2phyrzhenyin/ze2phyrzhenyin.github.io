@@ -1,15 +1,13 @@
 ---
 title: "My Summer Schools in 2026 Overview (Work in Progress)"
-description: "A work-in-progress overview of five summer schools related to theoretical computer science that I am attending in 2026."
+description: ""
 date: 2026-06-27
 draft: false
 ---
 
-*Last updated: June 27, 2026, 11:54*
-
 To explore my academic direction and talk to PhD students working in more theoretical areas of computer science, I decided to spend the summer attending five summer schools related to this field.
 
-I will try my best to review and organize the lectures, and I hope to write about my takeaways soon on my blog.
+I will try my best to review and organize the lectures, and I will write about my takeaways soon on my blog.
 
 ## α. [Summer School on Strings & Privacy](https://cpm2026.compute.dtu.dk/p/summer_school)
 
