@@ -43,7 +43,7 @@ export const ui = {
     'about.prog': 'Programming Languages', 'about.math': 'AI / Data', 'about.tools': 'Tools', 'about.lang': 'Languages', 'about.sports': 'Sports',
     // ── Blog ──
     'blog.title': 'Blog',
-    'blog.desc': '',
+    'blog.desc': 'I will mainly post content related to my field here.',
     'blog.all': 'All', 'blog.empty': '⊥ — No posts yet.',
     // ── Categories ──
     'cat.logic': 'Logic', 'cat.math': 'Mathematics', 'cat.ai': 'AI/ML', 'cat.cs': 'CS Theory',
@@ -53,7 +53,7 @@ export const ui = {
     'cat.cs.desc': 'Complexity, algorithms, computability, type theory',
     // ── Essays ──
     'essays.title': 'Essays',
-    'essays.desc': '',
+    'essays.desc': 'I will mainly post updates about activities I have taken part in, as well as what I have seen and thought about.',
     'essays.empty': '⊥ — No essays yet.',
     // ── Projects ──
     'projects.title': 'Projects',
@@ -126,7 +126,7 @@ export const ui = {
     'about.skills': '技能', 'about.awards': '荣誉奖项',
     'about.prog': '编程语言', 'about.math': 'AI / 数据', 'about.tools': '工具', 'about.lang': '语言能力', 'about.sports': '体育',
     'blog.title': '博客',
-    'blog.desc': '',
+    'blog.desc': '这里会主要更新专业相关的内容',
     'blog.all': '全部', 'blog.empty': '⊥ — 暂无文章。',
     'cat.logic': '逻辑学', 'cat.math': '数学', 'cat.ai': 'AI / 机器学习', 'cat.cs': '计算机理论',
     'cat.logic.desc': '数理逻辑、证明论、模型论',
@@ -134,7 +134,7 @@ export const ui = {
     'cat.ai.desc': '机器学习、神经网络、学习理论',
     'cat.cs.desc': '复杂度、算法、可计算性、类型论',
     'essays.title': '随笔',
-    'essays.desc': '',
+    'essays.desc': '这里会主要更新参加过的活动与所见所想',
     'essays.empty': '⊥ — 暂无随笔。',
     'projects.title': '项目',
     'projects.desc': '我会不定期更新或完善项目，若有合作意向，欢迎与我联系，一起讨论需求和做出有意思的项目！',
@@ -200,7 +200,7 @@ export const ui = {
     'about.skills': 'Compétences', 'about.awards': 'Distinctions',
     'about.prog': 'Langages de programmation', 'about.math': 'IA / Données', 'about.tools': 'Outils', 'about.lang': 'Langues', 'about.sports': 'Sports',
     'blog.title': 'Blog',
-    'blog.desc': '',
+    'blog.desc': 'J’y publierai principalement du contenu lié à mon domaine.',
     'blog.all': 'Tout', 'blog.empty': '⊥ — Aucun article pour le moment.',
     'cat.logic': 'Logique', 'cat.math': 'Mathématiques', 'cat.ai': 'IA/ML', 'cat.cs': 'Théorie info.',
     'cat.logic.desc': 'Logique mathématique, théorie de la preuve, théorie des modèles',
@@ -208,7 +208,7 @@ export const ui = {
     'cat.ai.desc': "Apprentissage automatique, réseaux de neurones, théorie de l'apprentissage",
     'cat.cs.desc': 'Complexité, algorithmes, calculabilité, théorie des types',
     'essays.title': 'Essais',
-    'essays.desc': '',
+    'essays.desc': 'J’y publierai principalement des contenus sur les activités auxquelles j’ai participé, ainsi que sur ce que j’ai vu et pensé.',
     'essays.empty': "⊥ — Aucun essai pour l'instant.",
     'projects.title': 'Projets',
     'projects.desc': "Je mets à jour et améliore ces projets de temps en temps. Si vous souhaitez collaborer, n'hésitez pas à me contacter pour discuter des besoins et réaliser ensemble des projets intéressants.",
