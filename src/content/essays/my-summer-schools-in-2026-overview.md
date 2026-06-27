@@ -7,7 +7,7 @@ draft: false
 
 To explore my academic direction and talk to PhD students working in more theoretical areas of computer science, I decided to spend the summer attending five summer schools related to this field.
 
-I will try my best to review and organize the lectures, and I will write about my takeaways soon on my blog.
+I will do my best to review and organize the lectures, and I will write about my takeaways soon on my blog.
 
 ## α. [Summer School on Strings & Privacy](https://cpm2026.compute.dtu.dk/p/summer_school)
 
