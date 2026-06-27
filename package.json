@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "essay:sync": "node scripts/sync-summer-schools-essay.mjs",
+    "essay:publish": "node scripts/publish-summer-schools-essay.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
