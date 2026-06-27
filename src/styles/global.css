@@ -298,6 +298,13 @@
     color: var(--accent-text);
     @apply font-medium;
   }
+  .toc-panel {
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+    padding-bottom: 1rem;
+  }
 
   /* ── KaTeX display ── */
   .math-display { @apply overflow-x-auto py-3; }

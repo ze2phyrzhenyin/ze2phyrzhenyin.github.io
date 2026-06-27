@@ -121,8 +121,8 @@ const dateTimeLocale: Record<Lang, string> = {
 
       <!-- TOC -->
       {filteredH.length > 2 && (
-        <aside class="hidden lg:block">
-          <div class="sticky top-24 space-y-1">
+        <aside class="hidden lg:block lg:sticky lg:top-24 lg:self-start">
+          <div class="toc-panel space-y-1">
             <p class="section-label mb-3">{t('post.toc')}</p>
             <nav>
               {filteredH.map(h => (
@@ -149,20 +149,48 @@ const dateTimeLocale: Record<Lang, string> = {
 
   <script define:vars={{ copyText: t('post.copy'), copiedText: t('post.copied') }}>
     // TOC highlight
-    const links = document.querySelectorAll('[data-heading]');
-    const observer = new IntersectionObserver(entries => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          links.forEach(l => l.classList.remove('active'));
-          document.querySelector(`[data-heading="${e.target.id}"]`)?.classList.add('active');
-          break;
-        }
+    const links = Array.from(document.querySelectorAll('[data-heading]'));
+    const headings = links
+      .map(link => document.getElementById(link.dataset.heading))
+      .filter(Boolean);
+
+    function setActiveHeading(id) {
+      links.forEach(link => {
+        const isActive = link.dataset.heading === id;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.scrollIntoView({ block: 'nearest' });
+      });
+    }
+
+    function updateActiveHeading() {
+      if (headings.length === 0) return;
+
+      const marker = window.scrollY + 128;
+      let active = headings[0].id;
+
+      for (const heading of headings) {
+        if (heading.offsetTop <= marker) active = heading.id;
+        else break;
       }
-    }, { rootMargin: '-15% 0% -75% 0%' });
-    links.forEach(l => {
-      const el = document.getElementById(l.dataset.heading);
-      if (el) observer.observe(el);
-    });
+
+      const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 8;
+      setActiveHeading(nearBottom ? headings[headings.length - 1].id : active);
+    }
+
+    let tocTicking = false;
+    function requestTocUpdate() {
+      if (tocTicking) return;
+      tocTicking = true;
+      requestAnimationFrame(() => {
+        updateActiveHeading();
+        tocTicking = false;
+      });
+    }
+
+    updateActiveHeading();
+    window.addEventListener('scroll', requestTocUpdate, { passive: true });
+    window.addEventListener('resize', requestTocUpdate);
+
     // Copy link
     document.getElementById('copy-btn')?.addEventListener('click', () => {
       navigator.clipboard.writeText(window.location.href).then(() => {
