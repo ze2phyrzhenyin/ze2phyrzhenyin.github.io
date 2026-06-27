@@ -4,8 +4,13 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const sourcePath = process.env.SUMMER_SCHOOLS_SOURCE_MD
-  ?? '/Users/zephyrsui/Developer/md-writing/title-body-example.md';
+const sourceCandidates = process.env.SUMMER_SCHOOLS_SOURCE_MD
+  ? [process.env.SUMMER_SCHOOLS_SOURCE_MD]
+  : [
+      '/Users/zephyrsui/Developer/md-writing/personal-site/essays/my-summer-schools-in-2026-overview.md',
+      '/Users/zephyrsui/Developer/md-writing/title-body-example.md',
+    ];
+const sourcePath = sourceCandidates.find((candidate) => existsSync(candidate)) ?? sourceCandidates[0];
 const targetPath = resolve(repoRoot, 'src/content/essays/my-summer-schools-in-2026-overview.md');
 
 const defaultFrontmatter = `---
@@ -21,7 +26,15 @@ const imageMap = new Map([
     'https://ze2phyrzhenyin.github.io/images/essays/my-summer-schools-2026/strings-privacy.webp',
   ],
   [
+    '../assets/essays/my-summer-schools-2026/strings-privacy.jpg',
+    'https://ze2phyrzhenyin.github.io/images/essays/my-summer-schools-2026/strings-privacy.webp',
+  ],
+  [
     'assets/7396.png',
+    'https://ze2phyrzhenyin.github.io/images/essays/my-summer-schools-2026/learning-theory.webp',
+  ],
+  [
+    '../assets/essays/my-summer-schools-2026/learning-theory.png',
     'https://ze2phyrzhenyin.github.io/images/essays/my-summer-schools-2026/learning-theory.webp',
   ],
 ]);
