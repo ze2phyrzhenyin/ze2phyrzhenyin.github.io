@@ -28,7 +28,7 @@ const dateTimeLocale: Record<Lang, string> = {
   fr: 'fr-FR',
 };
 ---
-<Base title={title} description={description} article>
+<Base title={title} description={description || undefined} article>
   <div class="container-wide py-12 lg:py-20">
     <div class="lg:grid lg:grid-cols-[1fr_240px] lg:gap-14 lg:items-start">
       <!-- Main -->

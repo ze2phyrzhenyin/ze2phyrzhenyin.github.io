@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Differential Privacy (Work in Progress)"
-description: "A work-in-progress introduction to differential privacy based on Teresa Anna Steiner's lecture at the CPM 2026 Summer School."
+description: ""
 date: 2026-06-28
 category: cs
 draft: false

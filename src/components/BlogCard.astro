@@ -12,6 +12,14 @@ const { title, description, date } = post.data;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const href = localizePath(`/blog/${post.slug}`, lang);
+
+const localizedTitles: Partial<Record<string, Partial<Record<Lang, string>>>> = {
+  'differential-privacy-cpm-2026-intro': {
+    zh: '差分隐私导论（持续更新）',
+    fr: 'Introduction à la confidentialité différentielle (en cours)',
+  },
+};
+const displayTitle = localizedTitles[post.slug]?.[lang] ?? title;
 ---
 <article class="blog-item group pl-5">
   <div class="flex flex-wrap items-center gap-2 mb-2.5">
@@ -22,12 +30,14 @@ const href = localizePath(`/blog/${post.slug}`, lang);
 
   <h2 class="blog-title font-semibold text-base leading-snug mb-1.5 transition-colors duration-150"
       style="color:rgb(var(--text));">
-    <a href={href}>{title}</a>
+    <a href={href}>{displayTitle}</a>
   </h2>
 
-  <p class="text-sm leading-relaxed max-w-2xl mb-3" style="color:rgb(var(--text-2));">
-    {description}
-  </p>
+  {description && (
+    <p class="text-sm leading-relaxed max-w-2xl mb-3" style="color:rgb(var(--text-2));">
+      {description}
+    </p>
+  )}
 
   <div class="flex flex-wrap gap-4">
     <a href={href} class="blog-link">{t('blog.read')} →</a>
