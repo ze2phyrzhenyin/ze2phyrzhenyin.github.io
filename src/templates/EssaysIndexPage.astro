@@ -9,6 +9,12 @@ const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 const essays = await getAllEssays();
 const pageDescription = t('essays.desc');
+const byYear = essays.reduce((acc, essay) => {
+  const year = essay.data.date.getFullYear();
+  (acc[year] ??= []).push(essay);
+  return acc;
+}, {} as Record<number, typeof essays>);
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 ---
 <Base title={t('essays.title')} description={pageDescription || undefined}>
   <div class="container-mid py-16">
@@ -22,9 +28,18 @@ const pageDescription = t('essays.desc');
         <p class="font-mono text-sm" style="color:rgb(var(--muted));">{t('essays.empty')}</p>
       </div>
     ) : (
-      <div class="animate-fade-up delay-100">
-        {essays.map(essay => <EssayCard essay={essay} />)}
-        <div class="h-px" style="background:rgb(var(--border));"></div>
+      <div class="space-y-14 animate-fade-up delay-100">
+        {years.map(year => (
+          <section>
+            <div class="flex items-center gap-4 mb-7">
+              <span class="font-mono text-2xl font-bold tabular" style="color:rgb(var(--text));">{year}</span>
+              <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+            </div>
+            <div class="space-y-6">
+              {byYear[year].map(essay => <EssayCard essay={essay} />)}
+            </div>
+          </section>
+        ))}
       </div>
     )}
   </div>

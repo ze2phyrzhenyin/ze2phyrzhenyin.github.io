@@ -55,6 +55,7 @@ export const ui = {
     'essays.title': 'Essays',
     'essays.desc': 'I will mainly post updates about activities I have taken part in, as well as what I have seen and thought about.',
     'essays.empty': '⊥ — No essays yet.',
+    'essays.read': 'Read',
     // ── Projects ──
     'projects.title': 'Projects',
     'projects.desc': "I update and refine these projects from time to time. If you are interested in collaborating, feel free to contact me so we can discuss needs and build something interesting together.",
@@ -138,6 +139,7 @@ export const ui = {
     'essays.title': '随笔',
     'essays.desc': '这里会主要更新参加过的活动与所见所想',
     'essays.empty': '⊥ — 暂无随笔。',
+    'essays.read': '阅读全文',
     'projects.title': '项目',
     'projects.desc': '我会不定期更新或完善项目，若有合作意向，欢迎与我联系，一起讨论需求和做出有意思的项目！',
     'projects.empty': '暂无项目。',
@@ -214,6 +216,7 @@ export const ui = {
     'essays.title': 'Essais',
     'essays.desc': 'J’y publierai principalement des contenus sur les activités auxquelles j’ai participé, ainsi que sur ce que j’ai vu et pensé.',
     'essays.empty': "⊥ — Aucun essai pour l'instant.",
+    'essays.read': 'Lire',
     'projects.title': 'Projets',
     'projects.desc': "Je mets à jour et améliore ces projets de temps en temps. Si vous souhaitez collaborer, n'hésitez pas à me contacter pour discuter des besoins et réaliser ensemble des projets intéressants.",
     'projects.empty': 'Aucun projet pour le moment.',
