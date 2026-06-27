@@ -18,7 +18,7 @@ It was my first time speaking English with so many people, and everyone was very
 
 Although the event lasted only two days, I learned a lot from the experience, including how to approach a new field, how to work with definitions in proofs, and many other things.
 
-The topic was differential privacy on strings. The level of the first day was just right for me. I learned about the concept of differential privacy and how it can be applied to strings. It was also the first time I truly felt the charm of mathematical proofs. I really enjoyed the process. However, on the second day, I clearly began to struggle to keep up.
+The topic was differential privacy on strings. The level of the first day was just right for me. I learned about the concept of differential privacy and how it can be applied to strings. It was also the first time I truly felt the charm of mathematical proofs. I really enjoyed the process. However, on the second day, I clearly began to struggle to keep up. Overall, it was very nice!
 
 Thanks so much for everyone in this summer school!
 
@@ -29,7 +29,7 @@ Thanks so much for everyone in this summer school!
 - Date: June 22-25, 2026
 - Location: Københavns Universitet
 
-This was a truly fantastic summer school for me. It was the first edition of the summer school, and I learned about many different topics in learning theory. I also met many PhD students there and had the chance to talk with them.
+This was a truly fantastic summer school for me. It was the first edition of the LTSS, and I learned about many different topics in learning theory. I also met many PhD students there and had the chance to talk with them.
 
 Thanks to Thomas, Michał, and Aurélien, I spent a wonderful evening with them watching World Cup matches.
 
