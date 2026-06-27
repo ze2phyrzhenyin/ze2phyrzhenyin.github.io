@@ -1,7 +1,7 @@
 ---
 import Base from './Base.astro';
 import { getContentDates } from '@/lib/content-dates';
-import { formatDate, formatDateTime, categoryBadge } from '@/lib/utils';
+import { formatDateTime } from '@/lib/utils';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -11,8 +11,7 @@ interface Props {
   collection: 'blog' | 'essays';
 }
 const { post, collection } = Astro.props;
-const { title, description, date, tags } = post.data;
-const category = 'category' in post.data ? post.data.category : undefined;
+const { title, description } = post.data;
 const hasMath   = 'math' in post.data ? post.data.math : false;
 const { headings } = await post.render();
 const filteredH = headings.filter(h => h.depth <= 3);
@@ -22,8 +21,6 @@ const t    = useTranslations(lang);
 
 const backLabel = collection === 'blog' ? t('post.back.blog') : t('post.back.essays');
 const backHref  = localizePath(`/${collection}`, lang);
-const showTags = collection !== 'essays' && tags.length > 0;
-const categoryLabel = category ? t(`cat.${category}` as any) : undefined;
 const contentDates = getContentDates(post, collection);
 const dateTimeLocale: Record<Lang, string> = {
   en: 'en-US',
@@ -48,32 +45,21 @@ const dateTimeLocale: Record<Lang, string> = {
 
         <header class="mb-10 animate-fade-up">
           <div class="flex flex-wrap items-center gap-2.5 mb-5 text-sm">
-            {category && (
-              <a href={localizePath(`/blog?cat=${category}`, lang)} class={categoryBadge(category)}
-                 style="position:relative;z-index:1;">{categoryLabel}</a>
-            )}
-            {collection === 'essays' ? (
-              <>
-                <span class="inline-flex items-center gap-1.5">
-                  <span class="text-xs" style="color: rgb(var(--muted));">{t('post.uploaded')}</span>
-                  <time datetime={contentDates.uploadedAt.toISOString()} class="font-mono text-xs tabular"
-                        style="color: rgb(var(--muted));">
-                    {formatDateTime(contentDates.uploadedAt, dateTimeLocale[lang])}
-                  </time>
-                </span>
-                <span style="color: rgb(var(--border-2));">·</span>
-                <span class="inline-flex items-center gap-1.5">
-                  <span class="text-xs" style="color: rgb(var(--muted));">{t('post.updated')}</span>
-                  <time datetime={contentDates.updatedAt.toISOString()} class="font-mono text-xs tabular"
-                        style="color: rgb(var(--muted));">
-                    {formatDateTime(contentDates.updatedAt, dateTimeLocale[lang])}
-                  </time>
-                </span>
-              </>
-            ) : (
-              <time datetime={date.toISOString()} class="font-mono text-xs tabular"
-                    style="color: rgb(var(--muted));">{formatDate(date)}</time>
-            )}
+            <span class="inline-flex items-center gap-1.5">
+              <span class="text-xs" style="color: rgb(var(--muted));">{t('post.uploaded')}</span>
+              <time datetime={contentDates.uploadedAt.toISOString()} class="font-mono text-xs tabular"
+                    style="color: rgb(var(--muted));">
+                {formatDateTime(contentDates.uploadedAt, dateTimeLocale[lang])}
+              </time>
+            </span>
+            <span style="color: rgb(var(--border-2));">·</span>
+            <span class="inline-flex items-center gap-1.5">
+              <span class="text-xs" style="color: rgb(var(--muted));">{t('post.updated')}</span>
+              <time datetime={contentDates.updatedAt.toISOString()} class="font-mono text-xs tabular"
+                    style="color: rgb(var(--muted));">
+                {formatDateTime(contentDates.updatedAt, dateTimeLocale[lang])}
+              </time>
+            </span>
           </div>
           <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-5"
               style="color:rgb(var(--text));font-family:'Inter',sans-serif;letter-spacing:-0.025em;">
@@ -82,11 +68,6 @@ const dateTimeLocale: Record<Lang, string> = {
           {description && (
             <p class="text-lg leading-relaxed mb-5"
                style="color:rgb(var(--text-2));font-family:Lora,serif;">{description}</p>
-          )}
-          {showTags && (
-            <div class="flex flex-wrap gap-1.5">
-              {tags.map(tag => <span class="tag">#{tag}</span>)}
-            </div>
           )}
         </header>
 

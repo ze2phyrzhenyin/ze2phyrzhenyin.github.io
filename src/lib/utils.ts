@@ -89,15 +89,3 @@ export async function getAllPublications() {
   const pubs = await getCollection('publications');
   return pubs.sort((a, b) => b.data.year - a.data.year);
 }
-
-/** Badge class by category */
-export function categoryBadge(cat: string): string {
-  const map: Record<string, string> = {
-    logic: 'badge-logic',
-    math: 'badge-math',
-    ai: 'badge-ai',
-    cs: 'badge-cs',
-    essay: 'badge-essay',
-  };
-  return map[cat] ?? 'tag';
-}

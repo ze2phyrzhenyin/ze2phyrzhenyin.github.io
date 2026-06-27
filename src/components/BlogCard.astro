@@ -1,43 +1,65 @@
 ---
 import { formatDate } from '@/lib/utils';
-import { localizePath, defaultLang } from '@/i18n/utils';
+import { localizePath, defaultLang, useTranslations } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   post: CollectionEntry<'blog'>;
-  featured?: boolean;
 }
-const { post, featured = false } = Astro.props;
+const { post } = Astro.props;
 const { title, description, date } = post.data;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const t = useTranslations(lang);
+const href = localizePath(`/blog/${post.slug}`, lang);
 ---
-<article class={`card-accent group relative flex flex-col ${featured ? 'sm:col-span-2' : ''}`}>
-  <!-- Meta row -->
-  <div class="flex items-center gap-2 mb-3">
-    <span class="text-xs tabular" style="color: rgb(var(--muted));">
-      {formatDate(date, { month: 'short', day: 'numeric', year: 'numeric' })}
-    </span>
+<article class="blog-item group pl-5">
+  <div class="flex flex-wrap items-center gap-2 mb-2.5">
+    <time datetime={date.toISOString()} class="font-mono text-xs tabular" style="color:rgb(var(--muted));">
+      {formatDate(date, { month: 'short', day: 'numeric' })}
+    </time>
   </div>
 
-  <!-- Title -->
-  <h2 class="font-semibold text-base leading-snug mb-2 transition-colors duration-150"
-      style="color: rgb(var(--text));">
-    <a href={localizePath(`/blog/${post.slug}`, lang)} class="after:absolute after:inset-0"
-       style="color: inherit; text-decoration: none;">
-      {title}
-    </a>
+  <h2 class="blog-title font-semibold text-base leading-snug mb-1.5 transition-colors duration-150"
+      style="color:rgb(var(--text));">
+    <a href={href}>{title}</a>
   </h2>
 
-  <!-- Description -->
-  <p class="text-sm leading-relaxed line-clamp-2 mb-4 flex-1"
-     style="color: rgb(var(--text-2));">
+  <p class="text-sm leading-relaxed max-w-2xl mb-3" style="color:rgb(var(--text-2));">
     {description}
   </p>
+
+  <div class="flex flex-wrap gap-4">
+    <a href={href} class="blog-link">{t('blog.read')} →</a>
+  </div>
 </article>
 
 <style>
-  article { position: relative; }
-  /* Hover title color via CSS var */
-  article:hover h2 { color: var(--accent-text); }
+  .blog-item {
+    border-left: 2px solid rgb(var(--border));
+    transition: border-color .15s;
+  }
+
+  .blog-item:hover {
+    border-left-color: var(--accent);
+  }
+
+  .blog-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .blog-item:hover .blog-title {
+    color: var(--accent-text);
+  }
+
+  .blog-link {
+    color: var(--accent-text);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .blog-link:hover {
+    color: rgb(var(--text));
+  }
 </style>

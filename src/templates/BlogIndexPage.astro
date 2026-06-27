@@ -10,6 +10,12 @@ const t    = useTranslations(lang);
 
 const posts = await getAllPosts();
 const pageDescription = t('blog.desc');
+const byYear = posts.reduce((acc, post) => {
+  const year = post.data.date.getFullYear();
+  (acc[year] ??= []).push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 ---
 <Base title={t('blog.title')} description={pageDescription || undefined}>
   <div class="container-mid py-16">
@@ -24,8 +30,18 @@ const pageDescription = t('blog.desc');
         <p class="font-mono text-sm" style="color:rgb(var(--muted));">{t('blog.empty')}</p>
       </div>
     ) : (
-      <div class="grid sm:grid-cols-2 gap-3 animate-fade-up delay-200">
-        {posts.map(post => <BlogCard post={post} />)}
+      <div class="space-y-14 animate-fade-up delay-100">
+        {years.map(year => (
+          <section>
+            <div class="flex items-center gap-4 mb-7">
+              <span class="font-mono text-2xl font-bold tabular" style="color:rgb(var(--text));">{year}</span>
+              <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+            </div>
+            <div class="space-y-6">
+              {byYear[year].map(post => <BlogCard post={post} />)}
+            </div>
+          </section>
+        ))}
       </div>
     )}
   </div>

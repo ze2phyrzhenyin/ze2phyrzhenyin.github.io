@@ -45,6 +45,7 @@ export const ui = {
     'blog.title': 'Blog',
     'blog.desc': 'I will mainly post content related to my field here.',
     'blog.all': 'All', 'blog.empty': '⊥ — No posts yet.',
+    'blog.read': 'Read',
     // ── Categories ──
     'cat.logic': 'Logic', 'cat.math': 'Mathematics', 'cat.ai': 'AI/ML', 'cat.cs': 'CS Theory',
     'cat.logic.desc': 'Mathematical logic, proof theory, model theory',
@@ -131,6 +132,7 @@ export const ui = {
     'blog.title': '博客',
     'blog.desc': '这里会主要更新专业相关的内容',
     'blog.all': '全部', 'blog.empty': '⊥ — 暂无文章。',
+    'blog.read': '阅读全文',
     'cat.logic': '逻辑学', 'cat.math': '数学', 'cat.ai': 'AI / 机器学习', 'cat.cs': '计算机理论',
     'cat.logic.desc': '数理逻辑、证明论、模型论',
     'cat.math.desc': '分析、代数、拓扑、组合',
@@ -208,6 +210,7 @@ export const ui = {
     'blog.title': 'Blog',
     'blog.desc': 'J’y publierai principalement du contenu lié à mon domaine.',
     'blog.all': 'Tout', 'blog.empty': '⊥ — Aucun article pour le moment.',
+    'blog.read': 'Lire',
     'cat.logic': 'Logique', 'cat.math': 'Mathématiques', 'cat.ai': 'IA/ML', 'cat.cs': 'Théorie info.',
     'cat.logic.desc': 'Logique mathématique, théorie de la preuve, théorie des modèles',
     'cat.math.desc': 'Analyse, algèbre, topologie, combinatoire',
