@@ -15,7 +15,7 @@ const pageDescription = t('essays.desc');
     <header class="mb-10 animate-fade-up">
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('essays.title')}</h1>
-      {pageDescription && <p class="text-sm max-w-md" style="color:rgb(var(--text-2));">{pageDescription}</p>}
+      {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
     </header>
     {essays.length === 0 ? (
       <div class="text-center py-20">
