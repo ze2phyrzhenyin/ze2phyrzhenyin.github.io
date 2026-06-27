@@ -50,14 +50,6 @@ export function formatDateTime(date: Date, locale = 'en-US', opts?: Intl.DateTim
   }).format(date);
 }
 
-/** Estimate reading time */
-export function readingTime(body: string): string {
-  const wpm = 200;
-  const words = body.trim().split(/\s+/).length;
-  const minutes = Math.ceil(words / wpm);
-  return `${minutes} min read`;
-}
-
 /** Group items by a key */
 export function groupBy<T>(items: T[], key: (item: T) => string): Record<string, T[]> {
   return items.reduce((acc, item) => {

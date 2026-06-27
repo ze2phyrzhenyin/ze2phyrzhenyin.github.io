@@ -1,5 +1,5 @@
 ---
-import { formatDate, readingTime } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 import { localizePath, defaultLang, useTranslations } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -9,7 +9,6 @@ interface Props {
 }
 const { essay } = Astro.props;
 const { title, description, date } = essay.data;
-const rt = readingTime(essay.body ?? '');
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const href = localizePath(`/essays/${essay.slug}`, lang);
@@ -27,8 +26,6 @@ const displayTitle = localizedTitles[essay.slug]?.[lang] ?? title;
     <time datetime={date.toISOString()} class="font-mono text-xs tabular" style="color:rgb(var(--muted));">
       {formatDate(date, { month: 'short', day: 'numeric' })}
     </time>
-    <span class="text-xs" style="color:rgb(var(--border-2));">·</span>
-    <span class="text-xs" style="color:rgb(var(--muted));">{rt}</span>
   </div>
 
   <h2 class="essay-title font-semibold text-base leading-snug mb-1.5 transition-colors duration-150"

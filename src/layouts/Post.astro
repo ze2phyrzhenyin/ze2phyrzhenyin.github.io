@@ -1,7 +1,7 @@
 ---
 import Base from './Base.astro';
 import { getContentDates } from '@/lib/content-dates';
-import { formatDate, formatDateTime, readingTime, categoryBadge } from '@/lib/utils';
+import { formatDate, formatDateTime, categoryBadge } from '@/lib/utils';
 import { useTranslations, localizePath, defaultLang } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -14,7 +14,6 @@ const { post, collection } = Astro.props;
 const { title, description, date, tags } = post.data;
 const category = 'category' in post.data ? post.data.category : undefined;
 const hasMath   = 'math' in post.data ? post.data.math : false;
-const rt        = readingTime(post.body ?? '');
 const { headings } = await post.render();
 const filteredH = headings.filter(h => h.depth <= 3);
 
@@ -74,8 +73,6 @@ const dateTimeLocale: Record<Lang, string> = {
               <time datetime={date.toISOString()} class="font-mono text-xs tabular"
                     style="color: rgb(var(--muted));">{formatDate(date)}</time>
             )}
-            <span style="color: rgb(var(--border-2));">·</span>
-            <span class="text-xs" style="color: rgb(var(--muted));">{rt}</span>
           </div>
           <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-5"
               style="color:rgb(var(--text));font-family:'Inter',sans-serif;letter-spacing:-0.025em;">
