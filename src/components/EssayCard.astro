@@ -8,7 +8,7 @@ interface Props {
   essay: CollectionEntry<'essays'>;
 }
 const { essay } = Astro.props;
-const { title, description, date, tags } = essay.data;
+const { title, description, date } = essay.data;
 const rt = readingTime(essay.body ?? '');
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 
@@ -61,7 +61,6 @@ const displayTitle = localizedTitles[essay.slug]?.[lang] ?? title;
     </p>
 
     <div class="flex items-center gap-3">
-      {tags.map(t => <span class="badge-essay">{t}</span>)}
       <span class="text-xs ml-auto" style="color: rgb(var(--muted));">{rt}</span>
     </div>
   </div>

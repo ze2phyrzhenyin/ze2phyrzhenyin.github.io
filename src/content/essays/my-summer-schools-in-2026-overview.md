@@ -3,10 +3,6 @@ title: "My Summer Schools in 2026 Overview (Work in Progress)"
 description: "A work-in-progress overview of five summer schools related to theoretical computer science that I am attending in 2026."
 date: 2026-06-27
 draft: false
-tags:
-  - summer school
-  - theoretical computer science
-  - learning theory
 ---
 
 *Last updated: June 27, 2026, 11:54*

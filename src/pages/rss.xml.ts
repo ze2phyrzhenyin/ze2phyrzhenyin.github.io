@@ -23,7 +23,6 @@ export async function GET(context: { site?: URL }) {
       description: essay.data.description,
       pubDate: essay.data.date,
       link: `/essays/${essay.slug}/`,
-      categories: essay.data.tags,
     })),
     ...projects.map((project) => ({
       title: project.data.title,

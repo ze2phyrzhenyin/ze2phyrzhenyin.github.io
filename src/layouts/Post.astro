@@ -22,6 +22,7 @@ const t    = useTranslations(lang);
 
 const backLabel = collection === 'blog' ? t('post.back.blog') : t('post.back.essays');
 const backHref  = localizePath(`/${collection}`, lang);
+const showTags = collection !== 'essays' && tags.length > 0;
 ---
 <Base title={title} description={description} article>
   <div class="container-wide py-12 lg:py-20">
@@ -55,7 +56,7 @@ const backHref  = localizePath(`/${collection}`, lang);
           </h1>
           <p class="text-lg leading-relaxed mb-5"
              style="color:rgb(var(--text-2));font-family:Lora,serif;">{description}</p>
-          {tags.length > 0 && (
+          {showTags && (
             <div class="flex flex-wrap gap-1.5">
               {tags.map(tag => <span class="tag">#{tag}</span>)}
             </div>
