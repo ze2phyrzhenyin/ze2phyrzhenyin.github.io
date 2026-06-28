@@ -7,6 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "site:sync": "node scripts/sync-personal-site-content.mjs",
+    "site:publish": "node scripts/publish-personal-site-content.mjs",
+    "site:watch": "node scripts/watch-personal-site-content.mjs",
     "essay:sync": "node scripts/sync-summer-schools-essay.mjs",
     "essay:publish": "node scripts/publish-summer-schools-essay.mjs"
   },
