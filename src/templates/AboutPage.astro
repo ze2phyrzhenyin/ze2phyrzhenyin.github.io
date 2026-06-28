@@ -40,6 +40,15 @@ type BioPart = {
   href?: string;
 };
 
+type CvDownload = {
+  href: string;
+  filename: string;
+  label: string;
+  fileLabel: string;
+  updated: string;
+  ariaLabel: string;
+};
+
 type AboutContent = {
   education: TimelineEntry[];
   techSkills: TechnicalSkillGroup[];
@@ -123,6 +132,33 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: "Au-delà des stages, projets et articles présentés sur ce site, j'ai exploré et pratiqué la conception assistée par IA pour l'éclairage scénique, les plateformes de gestion de tickets et de flux de travail, les applications multiplateformes APP / uni-app / Web, la génération automatique de partitions, le crawling de commentaires sur les réseaux sociaux, la reconnaissance d'écriture manuscrite, le RAG, ainsi que plus de vingt catégories de prototypes logiciels développés par Vibe Coding." },
     ],
   ],
+};
+
+const cvDownloads: Record<Lang, CvDownload> = {
+  en: {
+    href: '/files/cv/zhaoyang-sui-cv-en.pdf',
+    filename: 'zhaoyang-sui-cv-en.pdf',
+    label: 'Download CV',
+    fileLabel: 'English PDF',
+    updated: 'Last updated: 3 January 2026',
+    ariaLabel: 'Download CV',
+  },
+  zh: {
+    href: '/files/cv/zhaoyang-sui-cv-en.pdf',
+    filename: 'zhaoyang-sui-cv-en.pdf',
+    label: '下载英文简历',
+    fileLabel: '英文 PDF',
+    updated: '最后更新：2026 年 1 月 3 日',
+    ariaLabel: '下载英文简历',
+  },
+  fr: {
+    href: '/files/cv/zhaoyang-sui-cv-fr.pdf',
+    filename: 'zhaoyang-sui-cv-fr.pdf',
+    label: 'Télécharger le CV',
+    fileLabel: 'PDF en français',
+    updated: 'Dernière mise à jour : 3 janvier 2026',
+    ariaLabel: 'Télécharger le CV',
+  },
 };
 
 const aboutContent: Record<Lang, AboutContent> = {
@@ -496,6 +532,7 @@ const aboutContent: Record<Lang, AboutContent> = {
 
 const profile = aboutContent[lang] ?? aboutContent.en;
 const intro = aboutIntro[lang] ?? aboutIntro.en;
+const cvDownload = cvDownloads[lang] ?? cvDownloads.en;
 ---
 <Base title={t('about.title')} description={`${t('about.title')} — ${siteName}`}>
   <div class="container-mid py-16">
@@ -522,6 +559,22 @@ const intro = aboutIntro[lang] ?? aboutIntro.en;
         )
       ))}
     </div>
+
+    <section class="cv-download-panel mb-14 animate-fade-up delay-150" aria-label={cvDownload.ariaLabel}>
+      <a href={withBase(cvDownload.href)} download={cvDownload.filename} class="btn-secondary cv-download-button">
+        <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v11" stroke-linecap="round"></path>
+          <path d="m7 10 5 5 5-5" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M5 20h14" stroke-linecap="round"></path>
+        </svg>
+        <span>{cvDownload.label}</span>
+      </a>
+      <p class="cv-download-meta">
+        <span>{cvDownload.fileLabel}</span>
+        <span aria-hidden="true">·</span>
+        <span>{cvDownload.updated}</span>
+      </p>
+    </section>
 
     <div class="space-y-12 animate-fade-up delay-200">
       <!-- Education -->
@@ -626,6 +679,44 @@ const intro = aboutIntro[lang] ?? aboutIntro.en;
 </Base>
 
 <style>
+  .cv-download-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgb(var(--border));
+    border-bottom: 1px solid rgb(var(--border));
+  }
+
+  .cv-download-button {
+    border-radius: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .cv-download-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.45rem;
+    margin: 0;
+    color: rgb(var(--muted));
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 639px) {
+    .cv-download-panel {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .cv-download-meta {
+      justify-content: flex-start;
+    }
+  }
+
   .timeline-entry {
     display: grid;
     gap: 0.25rem 1.5rem;
