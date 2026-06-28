@@ -27,24 +27,10 @@ const homeLinks = {
   miage: 'https://www.ut-capitole.fr/accueil/formations/offre-de-formation/nos-diplomes/masters/master-mention-miage-1ere-annee-formation-initiale',
 };
 
-const homeStatusParts: Record<Lang, LinkedText[]> = {
-  en: [
-    { text: "First-year Master's in Business Informatics (" },
-    { text: 'MIAGE', href: homeLinks.miage },
-    { text: ') · ' },
-    { text: 'Toulouse Capitole University', href: homeLinks.toulouse },
-  ],
-  zh: [
-    { text: '图卢兹第一大学 · 企业管理信息应用（' },
-    { text: 'MIAGE', href: homeLinks.miage },
-    { text: '）硕士一年级' },
-  ],
-  fr: [
-    { text: 'Master 1 Méthodes informatiques appliquées à la gestion des entreprises (' },
-    { text: 'MIAGE', href: homeLinks.miage },
-    { text: ') · ' },
-    { text: 'Université Toulouse Capitole', href: homeLinks.toulouse },
-  ],
+const homeStatusText: Record<Lang, string> = {
+  en: 'M1 MIAGE',
+  zh: 'M1 MIAGE',
+  fr: 'M1 MIAGE',
 };
 
 const homeIntro: Record<Lang, LinkedText[][]> = {
@@ -169,7 +155,7 @@ const audienceContent: Record<Lang, AudienceCopy[]> = {
   ],
 };
 
-const statusParts = homeStatusParts[lang] ?? homeStatusParts.en;
+const statusText = homeStatusText[lang] ?? homeStatusText.en;
 const intro = homeIntro[lang] ?? homeIntro.en;
 const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index) => ({
   ...item,
@@ -188,11 +174,7 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
       <div class="animate-fade-up inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
            style="background:rgb(var(--surface));border:1px solid rgb(var(--border));color:rgb(var(--text-2));">
         <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-slow"></span>
-        <span>
-          {statusParts.map((part) => part.href ? (
-            <a href={part.href} target="_blank" rel="noopener" class="home-inline-link home-status-link">{part.text}</a>
-          ) : part.text)}
-        </span>
+        <span>{statusText}</span>
       </div>
       <div class="flex flex-col sm:flex-row items-start gap-7 animate-fade-up delay-100">
         <div class="shrink-0 relative">
@@ -275,11 +257,6 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
   .home-inline-link:hover {
     color: var(--accent-text);
     text-decoration-color: var(--accent-text);
-  }
-
-  .home-status-link {
-    color: inherit;
-    font-weight: 600;
   }
 
   /* ── List ── */
