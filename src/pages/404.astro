@@ -6,7 +6,7 @@ import type { Lang } from '@/i18n/ui';
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t    = useTranslations(lang);
 ---
-<Base title={t('404.title')}>
+<Base title={t('404.title')} noindex>
   <div class="container-narrow py-32 text-center relative">
     <div class="absolute inset-0 dot-grid opacity-40 dark:opacity-20 pointer-events-none"></div>
     <div class="relative">
