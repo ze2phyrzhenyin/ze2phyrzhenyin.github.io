@@ -10,6 +10,7 @@ const base = process.env.ASTRO_BASE_PATH ?? '/';
 export default defineConfig({
   site,
   base,
+  trailingSlash: 'always',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh', 'fr'],

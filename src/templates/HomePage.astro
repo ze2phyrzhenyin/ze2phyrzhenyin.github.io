@@ -27,12 +27,6 @@ const homeLinks = {
   miage: 'https://www.ut-capitole.fr/accueil/formations/offre-de-formation/nos-diplomes/masters/master-mention-miage-1ere-annee-formation-initiale',
 };
 
-const homeStatusText: Record<Lang, string> = {
-  en: 'Rest · Toulouse',
-  zh: '休整 · 图卢兹',
-  fr: 'Repos · Toulouse',
-};
-
 const homeIntro: Record<Lang, LinkedText[][]> = {
   en: [
     [
@@ -155,7 +149,7 @@ const audienceContent: Record<Lang, AudienceCopy[]> = {
   ],
 };
 
-const statusText = homeStatusText[lang] ?? homeStatusText.en;
+const statusText = t('home.status');
 const intro = homeIntro[lang] ?? homeIntro.en;
 const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index) => ({
   ...item,

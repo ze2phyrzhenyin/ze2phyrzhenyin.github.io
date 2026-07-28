@@ -17,6 +17,15 @@ function splitPathSuffix(href: string): [string, string] {
   return [match?.[1] || '/', match?.[2] || ''];
 }
 
+function ensurePageTrailingSlash(pathname: string): string {
+  if (!pathname || pathname === '/') return '/';
+
+  const isFile = /\/[^/]+\.[a-z0-9]+$/i.test(pathname);
+  if (pathname.endsWith('/') || isFile) return pathname;
+
+  return `${pathname}/`;
+}
+
 export function stripBase(pathname: string): string {
   if (!basePath) return pathname || '/';
   if (pathname === basePath) return '/';
@@ -53,7 +62,7 @@ export function getLocalizedPath(pathname: string, targetLang: Lang): string {
   const clean = hasPrefix ? parts.slice(1) : parts;
   const base = clean.length ? '/' + clean.join('/') : '/';
   const localized = targetLang === defaultLang ? base : base === '/' ? `/${targetLang}` : `/${targetLang}${base}`;
-  return withBase(`${localized}${suffix}`);
+  return withBase(`${ensurePageTrailingSlash(localized)}${suffix}`);
 }
 
 /** Prefix a nav href for a non-default locale */
@@ -62,5 +71,5 @@ export function localizePath(href: string, lang: Lang): string {
   const [pathOnly, suffix] = splitPathSuffix(href);
   const normalized = stripBase(pathOnly);
   const localized = lang === defaultLang ? normalized : normalized === '/' ? `/${lang}` : `/${lang}${normalized}`;
-  return withBase(`${localized}${suffix}`);
+  return withBase(`${ensurePageTrailingSlash(localized)}${suffix}`);
 }
