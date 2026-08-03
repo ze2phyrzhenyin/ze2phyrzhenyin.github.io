@@ -1,6 +1,6 @@
 ---
 title: "Cloud Village Echoes"
-description: "A local-first music archive for searching a NetEase Cloud Music library and its comment history without altering the underlying collection."
+description: "A bilingual research workspace for finding public NetEase Cloud Music comments across song versions while preserving source content."
 date: 2026-08-03
 status: active
 tags: ["React", "FastAPI", "SQLite", "Tauri", "i18n"]
@@ -9,34 +9,34 @@ demo: "http://120.24.108.234/wangyiyun/"
 i18n:
   en:
     title: "Cloud Village Echoes"
-    description: "A local-first music archive for searching a NetEase Cloud Music library and its comment history without altering the underlying collection."
+    description: "A bilingual research workspace for finding public NetEase Cloud Music comments across song versions while preserving source content."
     sections:
-      - heading: "One searchable archive"
+      - heading: "Version-aware comment research"
         paragraphs:
-          - "The workspace brings songs, artists, albums and preserved comment threads into a fast, keyboard-friendly interface. Search, filters and exports are designed for large personal collections while the original records remain unchanged."
-      - heading: "Bilingual by design"
+          - "Search by title, artist, song ID or NetEase link, compare candidate versions, then choose exactly which recordings to load. Filters, deduplication and conservative caching support repeatable review without rewriting the public source material."
+      - heading: "Professional bilingual delivery"
         paragraphs:
-          - "English and Chinese can be switched instantly without losing the current query, filters or selected item. Interface copy, validation, accessibility labels and runtime messages share the same locale boundary."
+          - "English and Chinese switch instantly without losing the current query or selected versions. Interface copy, validation, accessibility labels, runtime errors and human-readable exports follow the active locale, while song titles, artist names and comments remain in their original language."
   zh:
     title: "云村回声"
-    description: "一款本地优先的网易云音乐资料库，用于检索个人曲库与历史评论，同时保持底层收藏数据不变。"
+    description: "一个面向研究的双语工作台，用于跨歌曲版本查找网易云音乐公开评论，并完整保留源内容。"
     sections:
-      - heading: "统一检索的个人档案"
+      - heading: "按版本核验公开评论"
         paragraphs:
-          - "工作台把歌曲、歌手、专辑和已保存的评论串整合到快速、便于键盘操作的界面中；搜索、筛选与导出适合较大的个人资料库，并且不会改写原始记录。"
-      - heading: "完整双语体验"
+          - "可以按歌名、歌手、歌曲 ID 或网易云链接检索，比较候选版本后再明确选择需要加载的录音；筛选、去重和保守缓存支持可重复的审阅流程，且不会改写公开源内容。"
+      - heading: "专业双语交付"
         paragraphs:
-          - "英文与中文可一键切换，当前搜索、筛选和选中条目均会保留；界面文案、校验、无障碍标签与运行时提示遵循同一语言边界。"
+          - "英文与中文可即时切换，当前搜索和已选版本保持不变；界面文案、校验、无障碍标签、运行时错误及面向用户的导出均遵循当前语言，而歌名、歌手和评论继续保留原文。"
   fr:
     title: "Échos du Village Cloud"
-    description: "Une archive musicale locale pour rechercher une bibliothèque NetEase Cloud Music et l’historique de ses commentaires sans modifier la collection source."
+    description: "Un espace de recherche bilingue pour retrouver les commentaires publics de NetEase Cloud Music selon les versions d’un titre, tout en préservant le contenu source."
     sections:
-      - heading: "Une archive unifiée et interrogeable"
+      - heading: "Une recherche attentive aux versions"
         paragraphs:
-          - "L’espace réunit morceaux, artistes, albums et fils de commentaires conservés dans une interface rapide et adaptée au clavier. La recherche, les filtres et les exports conviennent aux grandes collections personnelles tout en préservant les données d’origine."
-      - heading: "Une expérience bilingue cohérente"
+          - "La recherche accepte un titre, un artiste, un identifiant ou un lien NetEase. Les versions candidates sont comparées puis sélectionnées explicitement avant le chargement ; filtres, dédoublonnage et cache prudent rendent la consultation reproductible sans réécrire les contenus publics."
+      - heading: "Une livraison bilingue professionnelle"
         paragraphs:
-          - "Le passage de l’anglais au chinois est immédiat et conserve la recherche, les filtres et l’élément sélectionné. Les libellés, validations, textes d’accessibilité et messages d’exécution suivent la même langue."
+          - "Le passage de l’anglais au chinois conserve la recherche et les versions sélectionnées. Interface, validations, libellés d’accessibilité, erreurs et exports lisibles suivent la langue active, tandis que titres, artistes et commentaires restent dans leur langue d’origine."
 ---
 
 <!-- -->
