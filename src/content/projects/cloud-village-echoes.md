@@ -4,6 +4,7 @@ description: "A local-first music archive for searching a NetEase Cloud Music li
 date: 2026-08-03
 status: active
 tags: ["React", "FastAPI", "SQLite", "Tauri", "i18n"]
+cover: "/images/projects/cloud-village-echoes.webp"
 demo: "http://120.24.108.234/wangyiyun/"
 i18n:
   en:

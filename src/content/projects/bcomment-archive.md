@@ -4,6 +4,7 @@ description: "A private workspace for collecting, searching and exporting Bilibi
 date: 2026-08-03
 status: active
 tags: ["React", "FastAPI", "Bilibili", "Archiving", "i18n"]
+cover: "/images/projects/bcomment-archive.webp"
 demo: "http://120.24.108.234/bcomment/"
 github: "https://github.com/ze2phyrzhenyin/bili-comment-archive"
 i18n:
