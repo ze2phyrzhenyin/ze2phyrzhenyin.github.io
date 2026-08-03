@@ -6,7 +6,7 @@ status: active
 tags: ["Geospatial", "Disaster response", "GeoJSON", "Canvas", "i18n"]
 demo: "http://120.24.108.234/mapcol/"
 github: "https://github.com/ze2phyrzhenyin/villagemap"
-cover: "/images/projects/maysak-relief-map.png"
+cover: "/images/projects/maysak-relief-map.webp"
 i18n:
   en:
     title: "Maysak Relief Map"
