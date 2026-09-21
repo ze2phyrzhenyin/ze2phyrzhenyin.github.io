@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2026 年 8 月 9 日 Medvědín—易北河源头—Kotelní jámy 一日徒步执行攻略：单程缆车上山、沿夏季雪道徒步下山，以及时间、停车、天气与应急方案。" />
+  <meta name="theme-color" content="#243f36" />
+  <meta property="og:title" content="Medvědín 一日徒步｜今天直接照着走" />
+  <meta property="og:description" content="从布拉格出发，经 Medvědín、易北河源头与 Kotelní jámy，最后沿夏季雪道徒步下山的 18.1 公里路线。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zhaoyang.fr/medvedin/" />
+  <meta property="og:image" content="https://www.krkonose.eu/sites/default/files/headers/krkonose-pramen-labe-3.jpg" />
+  <title>Medvědín 一日徒步｜今天直接照着走</title>
+  <link rel="canonical" href="https://zhaoyang.fr/medvedin/" />
+  <style>
+    :root {
+      --canvas: #eeece5;
+      --paper: #fffef9;
+      --ink: #20231f;
+      --muted: #687069;
+      --rule: #d7d3c8;
+      --rule-soft: #e9e6de;
+      --accent: #2b5042;
+      --accent-dark: #203d33;
+      --accent-soft: #e7eee9;
+      --sun: #c47a28;
+      --sun-soft: #f5eadb;
+      --danger: #934436;
+      --danger-soft: #f6e8e3;
+      --max: 1120px;
+      --content: 980px;
+      --bar-height: 58px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 112px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button, input { font: inherit; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    img { display: block; max-width: 100%; }
+
+    .site-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--bar-height);
+      background: rgba(238, 236, 229, 0.95);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(14px);
+    }
+    .site-bar-inner {
+      width: min(calc(100% - 36px), var(--max));
+      min-height: var(--bar-height);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      flex: 0 0 auto;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 680;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand:hover { text-decoration: none; }
+    .top-nav {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .top-nav::-webkit-scrollbar { display: none; }
+    .top-nav a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: var(--bar-height);
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: transparent;
+    }
+    .top-nav a:hover,
+    .top-nav a[aria-current="true"] { color: var(--ink); text-decoration: none; }
+    .top-nav a[aria-current="true"]::after { background: var(--accent); }
+
+    .page-shell {
+      width: min(calc(100% - 36px), var(--content));
+      margin: 30px auto 72px;
+    }
+    .route-context {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .route-context a { color: var(--muted); }
+    .route-context a:hover { color: var(--ink); }
+    .page {
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+    }
+    .page > section { padding: 44px 52px; border-top: 1px solid var(--rule); }
+    .page > section:first-of-type { border-top: 0; }
+    .page h1,
+    .page h2,
+    .page h3 { margin: 0; color: var(--ink); font-weight: 660; }
+    .page h1 { max-width: 790px; font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.045em; }
+    .page h2 { margin-bottom: 18px; font-size: 23px; line-height: 1.35; letter-spacing: -0.02em; }
+    .page h3 { font-size: 18px; line-height: 1.45; }
+    .page p { margin: 9px 0 0; }
+
+    .hero { position: relative; padding: 0 !important; }
+    .hero-image {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      background: #849289;
+    }
+    .hero-image img { width: 100%; height: 100%; min-height: 390px; object-fit: cover; }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(21, 36, 31, 0.03) 25%, rgba(18, 31, 27, 0.72) 100%);
+      pointer-events: none;
+    }
+    .photo-credit {
+      position: absolute;
+      z-index: 2;
+      right: 16px;
+      bottom: 12px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 11px;
+    }
+    .photo-credit:hover { color: #fff; }
+    .hero-copy { padding: 40px 52px 44px; }
+    .eyebrow { margin: 0 0 12px !important; color: var(--muted); font-size: 14px; letter-spacing: 0.035em; }
+    .hero-intro { max-width: 760px; margin-top: 17px !important; color: #454b46; font-size: 17px; }
+    .status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border: 1px solid #cedbd2;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .status-dot { width: 7px; height: 7px; background: #3f785d; border-radius: 50%; box-shadow: 0 0 0 3px rgba(63, 120, 93, .12); }
+
+    .key-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .key-item { padding: 20px 18px; border-left: 1px solid var(--rule-soft); }
+    .key-item:first-child { padding-left: 0; border-left: 0; }
+    .key-label { display: block; color: var(--muted); font-size: 12px; }
+    .key-value { display: block; margin-top: 2px; font-size: 19px; font-weight: 680; line-height: 1.35; letter-spacing: -0.015em; }
+    .route-strip { margin-top: 21px; color: #3f4540; font-size: 14px; }
+    .route-strip strong { margin-right: 6px; }
+
+    .alert {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      margin-top: 27px;
+      padding: 20px 22px;
+      background: var(--danger-soft);
+      border-left: 4px solid var(--danger);
+    }
+    .alert-time { color: var(--danger); font-size: 27px; font-weight: 720; letter-spacing: -0.03em; }
+    .alert p { margin: 2px 0 0; color: #5b403a; font-size: 14px; }
+
+    .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 15px;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .button:hover { color: #fff; background: var(--accent-dark); text-decoration: none; }
+    .button.secondary { color: var(--accent-dark); background: transparent; border-color: #aebbb4; }
+    .button.secondary:hover { background: var(--accent-soft); }
+
+    .timeline { margin-top: 2px; }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 24px;
+      padding: 17px 0;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .timeline-row:first-child { padding-top: 0; border-top: 0; }
+    .time { color: var(--accent); font-size: 15px; font-weight: 680; }
+    .timeline-row p { color: #414642; }
+    .timeline-row.is-critical .time { color: var(--danger); }
+
+    .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px; }
+    .columns > div + div { padding-left: 42px; border-left: 1px solid var(--rule-soft); }
+    .plain-list { margin: 12px 0 0; padding-left: 19px; }
+    .plain-list li + li { margin-top: 7px; }
+    .note {
+      margin-top: 18px;
+      padding: 13px 15px;
+      color: #424844;
+      background: #f4f4ef;
+      border-left: 3px solid #a5b4ad;
+      font-size: 14px;
+    }
+    .note strong { color: var(--ink); }
+    .info-table { width: 100%; margin-top: 16px; border-collapse: collapse; }
+    .info-table th,
+    .info-table td { padding: 11px 9px; border-top: 1px solid var(--rule-soft); text-align: left; vertical-align: top; }
+    .info-table tr:first-child th,
+    .info-table tr:first-child td { border-top-color: var(--rule); }
+    .info-table th { width: 120px; padding-left: 0; color: var(--muted); font-weight: 520; }
+    .info-table td { padding-right: 0; }
+    .road { margin-top: 18px; padding: 16px 0 0; border-top: 1px solid var(--rule-soft); font-size: 14px; }
+
+    .segments { border-top: 1px solid var(--rule-soft); }
+    details.segment { border-bottom: 1px solid var(--rule-soft); }
+    details.segment summary {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 21px 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    details.segment summary::-webkit-details-marker { display: none; }
+    .segment-no {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .segment-title strong { display: block; font-size: 17px; line-height: 1.45; }
+    .segment-title span { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
+    .segment-toggle { color: var(--muted); font-size: 20px; transition: transform .16s ease; }
+    details[open] .segment-toggle { transform: rotate(45deg); }
+    .segment-body { padding: 0 0 23px 62px; color: #3e4440; }
+    .segment-body p:first-child { margin-top: 0; }
+    .segment-body ul { margin: 10px 0 0; padding-left: 18px; }
+    .segment-body li + li { margin-top: 5px; }
+    .trail-red,
+    .trail-yellow,
+    .trail-green { white-space: nowrap; font-weight: 680; }
+    .trail-red { color: #a03b31; }
+    .trail-yellow { color: #997219; }
+    .trail-green { color: #2d6f4b; }
+
+    .weather-now {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 34px;
+      align-items: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .weather-temp { font-size: 52px; font-weight: 660; line-height: 1; letter-spacing: -0.05em; }
+    .weather-temp span { color: var(--sun); }
+    .weather-now p { color: #484e49; }
+    .hourly {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(86px, 1fr);
+      gap: 0;
+      margin-top: 24px;
+      overflow-x: auto;
+      border-top: 1px solid var(--rule-soft);
+      border-bottom: 1px solid var(--rule-soft);
+      scrollbar-width: thin;
+    }
+    .hour { padding: 14px 12px; border-left: 1px solid var(--rule-soft); }
+    .hour:first-child { border-left: 0; }
+    .hour time { display: block; color: var(--muted); font-size: 12px; }
+    .hour strong { display: block; margin-top: 3px; font-size: 17px; }
+    .hour span { display: block; margin-top: 2px; color: #626963; font-size: 12px; line-height: 1.45; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 32px;
+      margin-top: 4px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      cursor: pointer;
+    }
+    .check-item input { width: 17px; height: 17px; margin: 5px 0 0; accent-color: var(--accent); }
+    .check-item span { flex: 1; }
+    .check-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+    .check-reset {
+      margin-top: 15px;
+      padding: 0;
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .check-reset:hover { color: var(--ink); text-decoration: underline; }
+
+    .decision-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .decision {
+      padding: 19px 20px;
+      background: #f5f4ef;
+      border: 1px solid var(--rule-soft);
+    }
+    .decision.urgent { background: var(--danger-soft); border-color: #e7cfc7; }
+    .decision h3 { font-size: 16px; }
+    .decision p { color: #4c524d; font-size: 14px; }
+
+    .sources { display: grid; gap: 10px; margin-top: 2px; }
+    .source-link {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 0;
+      color: inherit;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .source-link:hover { text-decoration: none; }
+    .source-no { color: var(--muted); font-size: 12px; }
+    .source-link strong { display: block; font-size: 14px; }
+    .source-link span:not(.source-no) { color: var(--muted); font-size: 12px; }
+    .source-arrow { color: var(--muted) !important; font-size: 18px !important; transition: transform .15s ease; }
+    .source-link:hover .source-arrow { color: var(--ink) !important; transform: translateX(3px); }
+    .footer {
+      padding: 22px 52px 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .key-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .key-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule-soft); }
+      .key-item:nth-child(4) { border-top: 1px solid var(--rule-soft); }
+    }
+
+    @media (max-width: 700px) {
+      :root { --bar-height: 54px; }
+      html { scroll-padding-top: 70px; }
+      .site-bar-inner { width: 100%; padding-left: 16px; gap: 18px; }
+      .brand { display: none; }
+      .top-nav { width: 100%; gap: 22px; padding-right: 16px; }
+      .top-nav a { min-height: var(--bar-height); }
+      .page-shell { width: 100%; margin: 0; }
+      .route-context { margin: 0; padding: 12px 18px; }
+      .page { border-right: 0; border-left: 0; }
+      .hero-image,
+      .hero-image img { min-height: 300px; }
+      .hero-copy,
+      .page > section { padding: 31px 20px; }
+      .footer { padding: 21px 20px 28px; }
+      .columns,
+      .decision-list { grid-template-columns: 1fr; gap: 28px; }
+      .columns > div + div { padding-top: 28px; padding-left: 0; border-top: 1px solid var(--rule-soft); border-left: 0; }
+      .timeline-row { grid-template-columns: 105px minmax(0, 1fr); gap: 15px; }
+      .alert { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 17px 16px; }
+      .alert-time { font-size: 23px; }
+      .weather-now { grid-template-columns: 112px minmax(0, 1fr); gap: 20px; }
+      .weather-temp { font-size: 43px; }
+      .checklist { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-image,
+      .hero-image img { min-height: 235px; }
+      .page h1 { font-size: 36px; }
+      .page h2 { font-size: 22px; }
+      .hero-intro { font-size: 16px; }
+      .key-value { font-size: 17px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 4px; }
+      details.segment summary { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 10px; }
+      .segment-body { padding-left: 50px; }
+      .weather-now { grid-template-columns: 1fr; gap: 12px; }
+      .alert { grid-template-columns: 1fr; gap: 2px; }
+      .action-row .button { flex: 1 1 100%; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .site-bar,
+      .route-context,
+      .action-row,
+      .check-reset { display: none !important; }
+      .page-shell { width: 100%; margin: 0; }
+      .page { border: 0; }
+      .hero-image { min-height: 220px; }
+      .hero-image img { min-height: 220px; }
+      details.segment:not([open]) > *:not(summary) { display: block; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-bar">
+    <div class="site-bar-inner">
+      <a class="brand" href="#overview">Medvědín 徒步</a>
+      <nav class="top-nav" aria-label="页面导航">
+        <a href="#overview" aria-current="true">今天怎么走</a>
+        <a href="#schedule">时间</a>
+        <a href="#transport">交通</a>
+        <a href="#route">逐段路线</a>
+        <a href="#weather">天气装备</a>
+        <a href="#fallback">迟到处理</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <div class="route-context">
+      <a href="/randonnee/">← 返回徒步路线合集</a>
+      <span>Krkonoše · 捷克</span>
+    </div>
+
+    <article class="page">
+      <section class="hero" id="overview">
+        <div class="hero-image">
+          <img src="https://www.krkonose.eu/sites/default/files/headers/krkonose-pramen-labe-3.jpg" alt="易北河源头 Pramen Labe 的石砌水池、徽章墙和山地景观" referrerpolicy="no-referrer" />
+          <a class="photo-credit" href="https://www.krkonose.eu/pramen-labe" target="_blank" rel="noopener noreferrer">图片来源：Krkonoše 官方旅游网站</a>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow">2026 年 8 月 9 日 · 周日 · 08:25 信息快照</p>
+          <h1>Medvědín 一日徒步<br />今天直接照着走</h1>
+          <p class="hero-intro">从布拉格自驾到 Medvědín，乘单程缆车上山，经过 Pančavský vodopád、易北河源头与 Kotelní jámy，最后沿夏季雪道徒步返回 P3。</p>
+          <div class="status-line"><span class="status-dot" aria-hidden="true"></span>今日条件适合执行 · 缆车正常 · 路线未列入当前封闭清单</div>
+        </div>
+      </section>
+
+      <section aria-labelledby="brief-title">
+        <h2 id="brief-title">出门前只记住这四件事</h2>
+        <div class="key-grid" aria-label="关键行程数据">
+          <div class="key-item"><span class="key-label">最晚出发</span><span class="key-value">08:45</span></div>
+          <div class="key-item"><span class="key-label">最晚上山缆车</span><span class="key-value">12:00</span></div>
+          <div class="key-item"><span class="key-label">徒步总长</span><span class="key-value">18.1 km</span></div>
+          <div class="key-item"><span class="key-label">实际耗时</span><span class="key-value">6h45–7h15</span></div>
+        </div>
+        <p class="route-strip"><strong>路线速记：</strong>Medvědín → Vrbatova bouda → Pančavský vodopád → Labská bouda → Pramen Labe → U Čtyř pánů → U Růženčiny zahrádky → Harrachovy kameny → Nad Kotelní jámou → Vrbatova bouda → Medvědín → Horní Mísečky → Vodovodní 夏季雪道 → P3</p>
+        <div class="alert" role="note">
+          <div class="alert-time">12:00</div>
+          <div><strong>这是完整环线的上山截止线。</strong><p>12:30 没有班次；若错过 12:00，不要等到 13:00 再走完整环线，直接改走短线。</p></div>
+        </div>
+        <div class="action-row">
+          <a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Parkovi%C5%A1t%C4%9B+P3+Medv%C4%9Bd%C3%ADn+%C5%A0pindler%C5%AFv+Ml%C3%BDn" target="_blank" rel="noopener noreferrer">导航到 P3 Medvědín</a>
+          <a class="button secondary" href="https://www.skiareal.cz/resort/skiareal-live" target="_blank" rel="noopener noreferrer">查看缆车实时状态</a>
+          <a class="button secondary" href="https://www.spindleruv-mlyn.com/cz/vylety/z-medvedina-k-prameni-labe-a-zpet-pres-kotelni-jamy-57/" target="_blank" rel="noopener noreferrer">打开官方路线</a>
+          <a class="button secondary" href="https://www.spindleruv-mlyn.com/cz/vylety/vylet-horni-misecky-13/" target="_blank" rel="noopener noreferrer">打开夏季下山路线</a>
+        </div>
+      </section>
+
+      <section id="schedule" aria-labelledby="schedule-title">
+        <h2 id="schedule-title">今天的时间安排</h2>
+        <div class="timeline">
+          <div class="timeline-row"><div class="time">08:35–08:45</div><div><h3>从布拉格出发</h3><p>全程按 2 小时 10 分至 2 小时 25 分预留，不要只按无交通时的理论车程计算。</p></div></div>
+          <div class="timeline-row"><div class="time">10:45–11:05</div><div><h3>抵达 P3 Medvědín</h3><p>停车、换鞋、拿水和食物、上厕所，再购买行人单程上山缆车票。</p></div></div>
+          <div class="timeline-row is-critical"><div class="time">11:00 / 11:30</div><div><h3>乘缆车上山</h3><p>11:00 最理想，11:30 正常可接受；12:00 是最后选择。</p></div></div>
+          <div class="timeline-row"><div class="time">11:20–11:50</div><div><h3>从 Medvědín 上站开走</h3><p>先认准 <span class="trail-red">红线</span>与地名 <strong>Vrbatova bouda</strong>进入高山环线；夏季雪道是完成环线后才走的最后一段。</p></div></div>
+          <div class="timeline-row"><div class="time">约 13:30</div><div><h3>Labská bouda 午餐</h3><p>停 20–30 分钟。若 14:00 后才到，只上厕所、补水，10 分钟后继续。</p></div></div>
+          <div class="timeline-row"><div class="time">14:20–14:40</div><div><h3>Pramen Labe</h3><p>在象征性易北河源头停留 10–15 分钟；最迟 15:00 离开。</p></div></div>
+          <div class="timeline-row"><div class="time">15:40–16:00</div><div><h3>Harrachovy kameny</h3><p>从山脊上观看 Kotelní jámy，不要离开标记步道下到冰斗谷底。</p></div></div>
+          <div class="timeline-row"><div class="time">16:15–16:35</div><div><h3>第二次经过 Vrbatova bouda</h3><p>只做 5 分钟短休，随后沿红线回 Medvědín。</p></div></div>
+          <div class="timeline-row is-critical"><div class="time">17:00–17:20</div><div><h3>从上站开始徒步下山</h3><p>不乘下山缆车。先沿宽路前往 Horní Mísečky，再沿蓝色 Vodovodní 夏季雪道下到缆车下站。</p></div></div>
+          <div class="timeline-row"><div class="time">18:30–18:50</div><div><h3>回到 P3，开车返回布拉格</h3><p>下山段约 5.2 公里、1 小时 30 分；预计 20:45–21:20 抵达布拉格，视实时路况调整。</p></div></div>
+        </div>
+      </section>
+
+      <section id="transport" aria-labelledby="transport-title">
+        <h2 id="transport-title">自驾、停车与单程缆车</h2>
+        <div class="columns">
+          <div>
+            <h3>从布拉格开车</h3>
+            <p class="road"><strong>推荐顺序：</strong>布拉格 → D10 → Mladá Boleslav → Jičín → Nová Paka → Vrchlabí → II/295 → Špindlerův Mlýn → P3 Medvědín</p>
+            <ol class="plain-list">
+              <li>进入 D10，沿 Mladá Boleslav / Turnov 方向。</li>
+              <li>转向 Jičín，沿 I/16 经 Nová Paka 到 Vrchlabí。</li>
+              <li>在 Vrchlabí 转入 II/295，沿 Labe 河谷向北。</li>
+              <li>进镇后跟随 Medvědín、Lanovka、Aquapark、P3 标志。</li>
+            </ol>
+            <div class="note">实时导航若推荐 D11 经 Poděbrady、Jičín 且明显更快，可以直接服从实时交通。</div>
+          </div>
+          <div>
+            <h3>到达后的顺序</h3>
+            <table class="info-table" aria-label="停车和缆车信息">
+              <tbody>
+                <tr><th>停车场</th><td>P3 Medvědín，缆车下站旁，24 小时开放</td></tr>
+                <tr><th>空位快照</th><td>08:25 查询时约 250 个；以到达时为准</td></tr>
+                <tr><th>停车预算</th><td>准备 300 CZK；以现场显示为准</td></tr>
+                <tr><th>购票用语</th><td><em>jednosměrná jízdenka pro pěší, jen nahoru</em>（行人单程票，只上山）</td></tr>
+                <tr><th>购票方式</th><td>GOPASS、自动售票机或现场售票处</td></tr>
+                <tr><th>运行时间</th><td>09:00–18:00，整点与半点发车；12:30 停班</td></tr>
+                <tr><th>下山方式</th><td>步行经 Horní Mísečky，再沿 Vodovodní 夏季雪道返回 P3</td></tr>
+              </tbody>
+            </table>
+            <div class="note"><strong>不要停错：</strong>不要只导航到 Špindlerův Mlýn 镇中心，也不要前往当前关闭的 P1 Bedřichov。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="route" aria-labelledby="route-title">
+        <h2 id="route-title">逐段路线：优先认地名，其次看颜色</h2>
+        <p>高山环线官方移动时间约 4 小时 12 分，累计升降各约 393 米；从 Medvědín 上站到 P3 的夏季下山线另计 5.2 公里、约 1 小时 30 分、下降约 491 米。全程徒步约 18.1 公里。以下分段默认留出了找路、拍照和短休时间。点击每一段展开细节。</p>
+        <div class="segments">
+          <details class="segment" open>
+            <summary><span class="segment-no">01</span><span class="segment-title"><strong>Medvědín 上站 → Vrbatova bouda</strong><span>50–60 分钟 · 红线</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>出缆车后找 <strong>Vrbatova bouda / Zlaté návrší</strong>，进入<span class="trail-red">红色徒步路线</span>。第一次到 Vrbatova bouda 只停 5–10 分钟，不安排正餐。</p></div>
+          </details>
+          <details class="segment" open>
+            <summary><span class="segment-no">02</span><span class="segment-title"><strong>Vrbatova bouda → Labská bouda</strong><span>60–75 分钟 · 红线</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>认准 <strong>Labská bouda / Pančavský vodopád / Ambrožova vyhlídka</strong>。经过纪念区域、观景台与瀑布上方；不要走下往 Horní Mísečky 的公路，也不要找去瀑布底部的捷径。</p></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">03</span><span class="segment-title"><strong>Labská bouda 午餐</strong><span>20–30 分钟 · 主要补给点</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>上厕所、买饮料或简单热食、补水。不要完全依赖餐厅：周日排队会侵占后半段时间。</p><ul><li>13:30 前到：可休 30 分钟</li><li>13:30–14:00 到：最多 20 分钟</li><li>14:00 后到：控制在 10 分钟</li></ul></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">04</span><span class="segment-title"><strong>Labská bouda → Pramen Labe</strong><span>25–30 分钟</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>跟随 <strong>Pramen Labe</strong>，不要走向 Sněžné jámy、Martinova bouda 或 Labský důl。游客看到的是象征性源头；真正自然源头在保护湿地内，不可离开步道寻找。</p></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">05</span><span class="segment-title"><strong>Pramen Labe → U Čtyř pánů</strong><span>15–25 分钟 · 黄色标记</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>从源头沿<span class="trail-yellow">黄色标记</span>前往 <strong>U Čtyř pánů</strong>。不要继续朝 Česká budka、波兰边境或 Sněžné jámy。这里是当天最容易走错的路口之一。</p></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">06</span><span class="segment-title"><strong>U Čtyř pánů → U Růženčiny zahrádky</strong><span>15–25 分钟</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>先找 <strong>U Růženčiny zahrádky</strong>，到达后再认 <strong>Harrachovy kameny / Vrbatova bouda / Nad Kotelní jámou</strong>，进入<span class="trail-green">绿色路线</span>。不要下往 Harrachov。</p></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">07</span><span class="segment-title"><strong>Harrachovy kameny 与 Kotelní jámy</strong><span>35–50 分钟 · 绿线</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>依次经过 Harrachovy kameny、冰斗上方观景区域、Nad Kotelní jámou，再回 Vrbatova bouda。<strong>Kotelní jámy 是从上方观看，不是走进谷底。</strong>不要为了拍照离开标记步道。</p></div>
+          </details>
+          <details class="segment">
+            <summary><span class="segment-no">08</span><span class="segment-title"><strong>Vrbatova bouda → Medvědín</strong><span>45–60 分钟 · 转回红线</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>第二次到 Vrbatova bouda 最多休息 5 分钟。找 <strong>Medvědín</strong> 或缆车图标，转回<span class="trail-red">红色标记</span>返回上站。到达后不乘缆车，准备进入最后的徒步下山段。</p></div>
+          </details>
+          <details class="segment" open>
+            <summary><span class="segment-no">09</span><span class="segment-title"><strong>Medvědín 上站 → Horní Mísečky → P3</strong><span>约 1 小时 30 分 · 5.2 公里 · 夏季雪道</span></span><span class="segment-toggle" aria-hidden="true">＋</span></summary>
+            <div class="segment-body"><p>从上站先沿宽路走到 <strong>Horní Mísečky</strong>，再沿蓝色 <strong>Vodovodní sjezdovka</strong>（Vodovodní 雪道）持续下行，终点就是 Medvědín 缆车下站与 P3。这里的“蓝色”是雪道名称与级别提示，不要把它当成蓝色徒步标记；不要抄近路直切陡坡，遇到自行车或滑板车时靠边避让并服从现场分流标志。全段下降约 491 米，留意碎石、湿草和最后一处较陡坡。</p></div>
+          </details>
+        </div>
+      </section>
+
+      <section id="weather" aria-labelledby="weather-title">
+        <h2 id="weather-title">今天的天气与穿着</h2>
+        <div class="weather-now">
+          <div class="weather-temp"><span>☀</span> 9°C</div>
+          <div><h3>早晨晴，午后温暖</h3><p>Medvědín 08:25 约 9°C；中午 18°C 左右，下午低海拔可到 23–24°C。路线大部分处在海拔约 1,300–1,400 米的开阔高地，日晒时热，起风后会迅速变凉。</p></div>
+        </div>
+        <div class="hourly" aria-label="逐小时天气">
+          <div class="hour"><time>09:00</time><strong>11°C</strong><span>大致晴朗</span></div>
+          <div class="hour"><time>11:00</time><strong>15°C</strong><span>大致晴朗</span></div>
+          <div class="hour"><time>13:00</time><strong>20°C</strong><span>云间晴</span></div>
+          <div class="hour"><time>15:00</time><strong>23°C</strong><span>局部晴</span></div>
+          <div class="hour"><time>17:00</time><strong>23°C</strong><span>晴朗</span></div>
+          <div class="hour"><time>19:00</time><strong>21°C</strong><span>晴朗</span></div>
+          <div class="hour"><time>21:00</time><strong>18°C</strong><span>天空晴朗</span></div>
+          <div class="hour"><time>23:00</time><strong>16°C</strong><span>大致晴朗</span></div>
+        </div>
+        <div class="columns" style="margin-top: 30px;">
+          <div><h3>建议穿</h3><ul class="plain-list"><li>速干短袖或薄长袖</li><li>轻薄防风外套放包里</li><li>长裤或徒步运动裤</li><li>有纹路、防滑的运动鞋或徒步鞋</li><li>帽子与墨镜</li></ul></div>
+          <div><h3>注意</h3><p>不建议穿鞋底很平或磨损严重的板鞋。即使天气干燥，石路、木板、雪道碎石和湿草仍可能打滑；约 491 米连续下降也更吃膝盖，可带登山杖。晴天也要把防风外套带上山。</p></div>
+        </div>
+      </section>
+
+      <section id="packing" aria-labelledby="packing-title">
+        <h2 id="packing-title">每个人的出发清单</h2>
+        <p>可直接点选；勾选状态只保存在当前浏览器内。</p>
+        <div class="checklist" id="packing-list">
+          <label class="check-item"><input type="checkbox" data-item="water" /><span>1.5 升水；怕热或喝水多则 2 升</span></label>
+          <label class="check-item"><input type="checkbox" data-item="lunch" /><span>一份可直接吃的午餐</span></label>
+          <label class="check-item"><input type="checkbox" data-item="snack" /><span>一份高能量零食</span></label>
+          <label class="check-item"><input type="checkbox" data-item="sunscreen" /><span>防晒霜</span></label>
+          <label class="check-item"><input type="checkbox" data-item="hat" /><span>帽子和墨镜</span></label>
+          <label class="check-item"><input type="checkbox" data-item="jacket" /><span>轻薄防风外套</span></label>
+          <label class="check-item"><input type="checkbox" data-item="phone" /><span>满电手机与离线地图</span></label>
+          <label class="check-item"><input type="checkbox" data-item="powerbank" /><span>充电宝与充电线</span></label>
+          <label class="check-item"><input type="checkbox" data-item="tissue" /><span>纸巾</span></label>
+          <label class="check-item"><input type="checkbox" data-item="payment" /><span>少量现金和银行卡</span></label>
+          <label class="check-item"><input type="checkbox" data-item="id" /><span>身份证件或居留证件</span></label>
+          <label class="check-item"><input type="checkbox" data-item="ticket" /><span>停车票放在固定位置</span></label>
+        </div>
+        <button class="check-reset" type="button" id="check-reset">清空勾选</button>
+        <div class="note">出发前在 Mapy.com 打开官方路线并下载 Krkonoše 一带的离线地图；山上不要只依赖手机信号。</div>
+      </section>
+
+      <section id="fallback" aria-labelledby="fallback-title">
+        <h2 id="fallback-title">迟到或出现问题时，直接这样改</h2>
+        <div class="decision-list">
+          <div class="decision urgent"><h3>没赶上 12:00 缆车</h3><p>不要等 13:00 再走完整环线。改走 <strong>Medvědín → Vrbatova bouda → Pančavský vodopád 附近 → 原路返回</strong>。</p></div>
+          <div class="decision"><h3>15:00 后才到 Pramen Labe</h3><p>缩短拍照，立刻去 U Čtyř pánů；若明显落后，从那里直接前往 Vrbatova bouda，跳过 Harrachovy kameny 与 Kotelní jámy。</p></div>
+          <div class="decision"><h3>听到雷声、乌云加速或大风</h3><p>停止在裸露山脊逗留，沿标记步道去最近的 Labská bouda 或 Vrbatova bouda；远离孤立树木、山脊最高点与裸露岩石。</p></div>
+          <div class="decision"><h3>鞋不合适或有人明显疲劳</h3><p>最晚在 Labská bouda 决定是否继续完整环线。回到 Medvědín 上站后若已膝痛、体力不足，或雪道因降雨变得湿滑，就改乘缆车下山，不要勉强完成额外 491 米下降。</p></div>
+        </div>
+      </section>
+
+      <section id="sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">出发前最后核对</h2>
+        <div class="sources">
+          <a class="source-link" href="https://www.skiareal.cz/resort/skiareal-live" target="_blank" rel="noopener noreferrer"><span class="source-no">01</span><span><strong>Medvědín 缆车实时运行</strong>Skiareál Špindlerův Mlýn</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://www.spindleruv-mlyn.com/cz/vylety/z-medvedina-k-prameni-labe-a-zpet-pres-kotelni-jamy-57/" target="_blank" rel="noopener noreferrer"><span class="source-no">02</span><span><strong>官方徒步路线</strong>12.9 km · 4 小时 12 分 · 393 m 升降</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://www.spindleruv-mlyn.com/cz/vylety/vylet-horni-misecky-13/" target="_blank" rel="noopener noreferrer"><span class="source-no">03</span><span><strong>官方夏季下山路线</strong>经 Horní Mísečky 与 Vodovodní 雪道 · 5.2 km · 1 小时 30 分</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://www.skiareal.cz/informace/o-nas/jak-se-k-nam-dostanete" target="_blank" rel="noopener noreferrer"><span class="source-no">04</span><span><strong>到达 Špindlerův Mlýn</strong>官方交通说明</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://www.spindleruv-mlyn.com/cz/doprava/" target="_blank" rel="noopener noreferrer"><span class="source-no">05</span><span><strong>停车场实时信息</strong>P3 空位、开放状态与现场价格</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://intranet.chmi.cz/predpovedi/predpovedi-pocasi/ceska-republika/hory/krkonose" target="_blank" rel="noopener noreferrer"><span class="source-no">06</span><span><strong>Krkonoše 山区天气</strong>捷克水文气象研究所</span><span class="source-arrow">→</span></a>
+          <a class="source-link" href="https://www.krnap.cz/navstevnici/info-na-cesty/omezeni-na-cestach/" target="_blank" rel="noopener noreferrer"><span class="source-no">07</span><span><strong>KRNAP 当前道路限制</strong>出发当天再次核对路线有无新增限制</span><span class="source-arrow">→</span></a>
+        </div>
+        <div class="note">本页是 2026 年 8 月 9 日 08:25 的执行快照。空位、天气、风力与缆车状态都可能继续变化；出发前和抵达停车场后各核对一次。</div>
+      </section>
+
+      <footer class="footer">安静保护区内请始终留在规定步道上。页面整理：Zhaoyang SUI · 2026-08-09</footer>
+    </article>
+  </main>
+
+  <script>
+    const navLinks = Array.from(document.querySelectorAll('.top-nav a'));
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach((link) => {
+          const active = link.getAttribute('href') === `#${visible.target.id}`;
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      }, { rootMargin: '-20% 0px -68% 0px', threshold: [0, 0.2, 0.6] });
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    const storageKey = 'medvedin-packing-v1';
+    const checks = Array.from(document.querySelectorAll('#packing-list input[type="checkbox"]'));
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      checks.forEach((checkbox) => { checkbox.checked = saved.includes(checkbox.dataset.item); });
+    } catch (_) { /* Storage can be unavailable in private browsing. */ }
+
+    const saveChecks = () => {
+      try {
+        const selected = checks.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.dataset.item);
+        localStorage.setItem(storageKey, JSON.stringify(selected));
+      } catch (_) { /* The checklist still works for this page view. */ }
+    };
+    checks.forEach((checkbox) => checkbox.addEventListener('change', saveChecks));
+    document.querySelector('#check-reset')?.addEventListener('click', () => {
+      checks.forEach((checkbox) => { checkbox.checked = false; });
+      saveChecks();
+    });
+  </script>
+</body>
+</html>

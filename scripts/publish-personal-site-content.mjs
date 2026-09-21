@@ -5,7 +5,6 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const deployDir = '/Users/zephyrsui/Developer/aliyun-root-login';
 const commitMessage = process.env.SITEWEB_COMMIT_MESSAGE ?? 'Refresh personal site writing';
 const contentPaths = ['src/content/blog', 'src/content/essays'];
 
@@ -44,9 +43,9 @@ run('git', ['commit', '-m', commitMessage]);
 run('git', ['push', 'origin', 'main']);
 
 if (process.env.SKIP_DEPLOY === '1') {
-  console.log('\nSKIP_DEPLOY=1, not deploying to Aliyun.');
+  console.log('\nSKIP_DEPLOY=1, not deploying to the production sites.');
 } else {
-  run('./deploy-siteweb.sh', [], deployDir);
+  run('npm', ['run', 'deploy:production']);
 }
 
 console.log('\nDone.');

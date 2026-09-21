@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eeece6">
+  <meta name="description" content="A practical guide to building logic research agents: recommended order, component catalogue, shared infrastructure, and a first modal-logic prototype.">
+  <meta property="og:title" content="Logic Research Agents: A Roadmap">
+  <meta property="og:description" content="What to build first, what each component should do, and how to keep semantics, countermodels, formal verification, and human judgement in one research loop.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://zhaoyang.fr/logic-agents/">
+  <meta property="og:image" content="https://zhaoyang.fr/logic-agents/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>A practical roadmap for logic research agents</title>
+  <link rel="canonical" href="https://zhaoyang.fr/logic-agents/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20260823c">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "A practical roadmap for logic research agents",
+      "description": "A guide to the recommended build order, components, infrastructure, and first prototype for verifiable logic research agents.",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-08-23",
+      "author": {
+        "@type": "Person",
+        "name": "Zhaoyang SUI",
+        "url": "https://zhaoyang.fr/"
+      },
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://zhaoyang.fr/logic-agents/"
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the guide</a>
+
+  <header class="site-bar" id="top">
+    <div class="site-bar-inner">
+      <a class="brand" href="#top"><span aria-hidden="true">⊢</span> Logic research agent guide</a>
+      <nav class="top-nav" aria-label="Guide sections">
+        <a href="#recommendation">Recommendation</a>
+        <a href="#build-order">Build order</a>
+        <a href="#catalogue">Components</a>
+        <a href="#prototype">Prototype</a>
+        <a href="#references">References</a>
+      </nav>
+      <a class="home-link" href="/">zhaoyang.fr</a>
+    </div>
+  </header>
+
+  <main class="document" id="main">
+    <header class="intro">
+      <p class="breadcrumb">Research guide / Logic and formal methods / August 2026</p>
+      <h1>A practical roadmap for logic research agents</h1>
+      <p class="standfirst">What to build first, what each component should do, and how to keep semantics, countermodels, formal verification, and human judgement in one research loop.</p>
+
+      <div class="recommendation-note">
+        <strong>Short answer.</strong> Start with semantic auditing and countermodel search. Add theorem-level retrieval and tool orchestration once those are reliable. Leave open-ended proof generation and conjecture discovery until the validation layer is mature.
+      </div>
+
+      <dl class="intro-meta">
+        <div><dt>Scope</dt><dd>Logic research workflows</dd></div>
+        <div><dt>Components</dt><dd>12 specialist agents</dd></div>
+        <div><dt>Build plan</dt><dd>3 stages</dd></div>
+        <div><dt>Status</dt><dd>Opinionated research roadmap</dd></div>
+      </dl>
+    </header>
+
+    <nav class="section-tabs" aria-label="Contents">
+      <a href="#recommendation">1. Recommendation</a>
+      <a href="#why-now">2. Why now</a>
+      <a href="#build-order">3. Build order</a>
+      <a href="#catalogue">4. Components</a>
+      <a href="#infrastructure">5. Infrastructure</a>
+      <a href="#prototype">6. Prototype</a>
+    </nav>
+
+    <section class="content-section" id="recommendation" aria-labelledby="recommendation-title">
+      <div class="section-title">
+        <span>1</span>
+        <div>
+          <h2 id="recommendation-title">Recommendation</h2>
+          <p>Use one research loop, but keep generation, checking, and explanation separate.</p>
+        </div>
+      </div>
+
+      <div class="summary-table" role="table" aria-label="Recommended sequence">
+        <div class="summary-row" role="row">
+          <div role="cell"><strong>Start here</strong><span>Stage 1</span></div>
+          <div role="cell"><h3>Semantics and countermodels</h3><p>Make the logic, frame conditions, domains, consequence relation, and fixed definitions explicit. Try to break the conjecture before trying to prove it.</p></div>
+        </div>
+        <div class="summary-row" role="row">
+          <div role="cell"><strong>Add next</strong><span>Stage 2</span></div>
+          <div role="cell"><h3>Retrieval and tool orchestration</h3><p>Connect theorem-level search, proof planning, model finders, provers, proof assistants, and a reproducible run ledger.</p></div>
+        </div>
+        <div class="summary-row" role="row">
+          <div role="cell"><strong>Delay</strong><span>Stage 3</span></div>
+          <div role="cell"><h3>Open-ended proof and system discovery</h3><p>Attempt new metatheorems, conjectures, axioms, or logical systems only after the system can audit statements and verify results independently.</p></div>
+        </div>
+      </div>
+
+      <h3 class="subheading">The complete research loop</h3>
+      <ol class="research-loop">
+        <li><span>1</span><strong>Specify the question</strong><small>Language, semantics, consequence, boundaries</small></li>
+        <li><span>2</span><strong>Retrieve prior work</strong><small>Theorems, definitions, counterexamples</small></li>
+        <li><span>3</span><strong>Attack the conjecture</strong><small>Models and assumption stress tests</small></li>
+        <li><span>4</span><strong>Plan the proof</strong><small>Subgoals and dependencies</small></li>
+        <li><span>5</span><strong>Use the right tools</strong><small>Provers, solvers, model checkers</small></li>
+        <li><span>6</span><strong>Verify independently</strong><small>Kernel, certificate, or separate checker</small></li>
+        <li><span>7</span><strong>Digest the result</strong><small>Key lemmas, structure, explanation</small></li>
+        <li><span>8</span><strong>Record provenance</strong><small>Sources, versions, failures, cost</small></li>
+      </ol>
+
+      <p class="plain-note">A run is complete only when it states the logic in use, the exact result, why it holds, where it fails, and how it relates to known work.</p>
+    </section>
+
+    <section class="content-section" id="why-now" aria-labelledby="why-now-title">
+      <div class="section-title">
+        <span>2</span>
+        <div>
+          <h2 id="why-now-title">Why this is worth building now</h2>
+          <p>The opportunity comes from the workflow around the model, not from one-shot proof generation.</p>
+        </div>
+      </div>
+
+      <div class="prose-columns">
+        <div>
+          <h3>Research-level mathematical work is becoming testable</h3>
+          <p>Recent systems combine informal planning, theorem retrieval, formalisation, compiler feedback, and repeated attempts. Results vary by benchmark and review status, but the useful engineering pattern is now visible.</p>
+        </div>
+        <div>
+          <h3>Logic has unusually precise feedback</h3>
+          <p>SAT and SMT solvers, finite-model finders, proof assistants, and model checkers can reject many errors cheaply. This makes logic a good setting for agent workflows whose claims must be checked.</p>
+        </div>
+        <div>
+          <h3>Semantic errors remain the main product risk</h3>
+          <p>The same formula may behave differently under another frame class, domain policy, or consequence relation. A correct formal proof is not enough if the formal statement does not match the researcher's intended claim.</p>
+        </div>
+      </div>
+
+      <div class="caution-box">
+        <strong>Design implication</strong>
+        <p>The system should treat the semantic configuration as a contract. Changing that contract is a visible research decision, not an automatic repair.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="build-order" aria-labelledby="build-order-title">
+      <div class="section-title">
+        <span>3</span>
+        <div>
+          <h2 id="build-order-title">Build order</h2>
+          <p>Each stage has a clear purpose and an exit condition.</p>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="guide-table build-table">
+          <thead>
+            <tr>
+              <th scope="col">Stage</th>
+              <th scope="col">What to build</th>
+              <th scope="col">Main components</th>
+              <th scope="col">Exit condition</th>
+              <th scope="col">Likely research output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="recommended-row">
+              <td><strong>1</strong><br><span class="table-status">Build now</span></td>
+              <td><strong>Semantic audit and countermodels</strong><br>Explicit specifications, finite Kripke search, assumption testing, reproducible records</td>
+              <td>SpecGuard<br>Counterexample Lab<br>Proof PR Guard</td>
+              <td>Distinguishes invalidity, semantic mismatch, encoding error, and tool timeout</td>
+              <td>Compliance benchmark, countermodel dataset, conjecture-repair methods</td>
+            </tr>
+            <tr>
+              <td><strong>2</strong><br><span class="table-status">Add next</span></td>
+              <td><strong>Knowledge and orchestration</strong><br>Theorem graph, proof DAG, tool adapters, checked translations</td>
+              <td>LogicAtlas<br>LogicOS<br>ProofDAG<br>PolyLogic Bridge</td>
+              <td>Every retrieval resolves to a theorem, version, and assumptions; every tool conversion is traceable</td>
+              <td>Theorem graph, common tool protocol, cross-logic test suite</td>
+            </tr>
+            <tr>
+              <td><strong>3</strong><br><span class="table-status">Open later</span></td>
+              <td><strong>Proof and theory exploration</strong><br>Metatheory, conjectures, new definitions, proof digestion, library maintenance</td>
+              <td>MetaProver<br>LogicFoundry<br>ProofDigest<br>LogicLib Maintainer</td>
+              <td>New results have certificates, attribution, failure boundaries, readable explanations, and human approval</td>
+              <td>Reusable metatheory, proof-pattern library, controlled exploration studies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="subheading">The three best first products</h3>
+      <ol class="ranked-list">
+        <li>
+          <span class="rank">1</span>
+          <div><h3>Modal and epistemic semantic workbench</h3><p>Combine semantic auditing, finite countermodel search, and checked translations. This is the strongest research direction because it has a clear identity within logic and produces useful evaluation data.</p></div>
+        </li>
+        <li>
+          <span class="rank">2</span>
+          <div><h3>Proof PR Guard</h3><p>Compare paper statements, informal arguments, formal code, and citations. This is the fastest component to place in a real research team's workflow.</p></div>
+        </li>
+        <li>
+          <span class="rank">3</span>
+          <div><h3>LogicAtlas</h3><p>Build theorem-level links between systems, definitions, frame conditions, metatheorems, counterexamples, formal libraries, and original sources.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="content-section" id="catalogue" aria-labelledby="catalogue-title">
+      <div class="section-title">
+        <span>4</span>
+        <div>
+          <h2 id="catalogue-title">Component catalogue</h2>
+          <p>Twelve specialist roles. Scores are product judgements, not literature rankings.</p>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="guide-table catalogue-table">
+          <thead>
+            <tr>
+              <th scope="col">Component</th>
+              <th scope="col">Job</th>
+              <th scope="col">Typical output</th>
+              <th scope="col">Need</th>
+              <th scope="col">Feasibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="group-row"><th colspan="5" scope="rowgroup">Specification and intake</th></tr>
+            <tr><td><strong>SpecGuard</strong><small>Semantic auditor</small></td><td>Compare prose, formulae, and prover statements; check domains, consequence, frames, designation, types, and base logic.</td><td>Semantic diff, back-translation, risk report</td><td>10</td><td>8</td></tr>
+            <tr><td><strong>Counterexample Lab</strong><small>Model and assumption testing</small></td><td>Enumerate finite structures and Kripke frames, call model finders, weaken assumptions, and seek minimal countermodels.</td><td>Countermodel, failure world, sensitivity matrix</td><td>10</td><td>9</td></tr>
+            <tr><td><strong>Spec-to-Model</strong><small>Requirements formalisation</small></td><td>Translate system requirements into temporal, epistemic, deontic, or program specifications and run model checking.</td><td>Executable specification, conflict analysis, witness trace</td><td>9</td><td>8</td></tr>
+
+            <tr class="group-row"><th colspan="5" scope="rowgroup">Planning, solving, and translation</th></tr>
+            <tr><td><strong>LogicOS</strong><small>Tool orchestration</small></td><td>Choose tools for subgoals, manage sound conversions, recover certificates, and classify failures.</td><td>Tool plan, conversion log, certificate</td><td>9.5</td><td>6</td></tr>
+            <tr><td><strong>ProofDAG</strong><small>Proof architecture</small></td><td>Turn a human strategy into dependent subgoals and route work to retrieval, model, proving, and review components.</td><td>Proof blueprint, task DAG, decision points</td><td>9</td><td>8</td></tr>
+            <tr><td><strong>MetaProver</strong><small>Logic metatheory</small></td><td>Support soundness, completeness, cut elimination, finite-model properties, interpolation, correspondence, and complexity.</td><td>Metaproof plan, formal certificate, failure witness</td><td>8.5</td><td>6</td></tr>
+            <tr><td><strong>PolyLogic Bridge</strong><small>Translations and embeddings</small></td><td>Check preservation, reflection, frame restrictions, complexity changes, and imported principles across logics.</td><td>Translation, preservation proof, scope conditions</td><td>8.5</td><td>6</td></tr>
+            <tr><td><strong>LogicFoundry</strong><small>Controlled exploration</small></td><td>Propose axioms, rules, definitions, or semantic conditions and test novelty, non-triviality, consistency, and equivalence.</td><td>Candidate system, representative models, exploration log</td><td>7.5</td><td>5</td></tr>
+
+            <tr class="group-row"><th colspan="5" scope="rowgroup">Review, knowledge, and maintenance</th></tr>
+            <tr><td><strong>LogicAtlas</strong><small>Theorem knowledge graph</small></td><td>Connect systems, axioms, semantics, metaproperties, counterexamples, dependencies, formal libraries, and sources.</td><td>Theorem-level retrieval, strength relations, attribution</td><td>9.5</td><td>7</td></tr>
+            <tr><td><strong>Proof PR Guard</strong><small>Independent proof review</small></td><td>Check circularity, undeclared lemmas, hidden axioms, definition drift, citation mismatch, and formal fidelity.</td><td>Review report, proof-mutation tests, blocking issues</td><td>9</td><td>8</td></tr>
+            <tr><td><strong>ProofDigest</strong><small>Proof explanation</small></td><td>Compress machine proofs, identify decisive lemmas and shared structure, and separate ideas from routine technique.</td><td>Concept map, proof patterns, layered explanation</td><td>8.5</td><td>8</td></tr>
+            <tr><td><strong>LogicLib Maintainer</strong><small>Formal library work</small></td><td>Resolve duplicate definitions, build basic APIs, trim dependencies, manage namespaces and migrations, and bridge libraries.</td><td>Library refactor, compatibility layer, provenance record</td><td>8</td><td>9</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section" id="infrastructure" aria-labelledby="infrastructure-title">
+      <div class="section-title">
+        <span>5</span>
+        <div>
+          <h2 id="infrastructure-title">Shared infrastructure</h2>
+          <p>These requirements apply no matter which component is built first.</p>
+        </div>
+      </div>
+
+      <div class="requirements-list">
+        <article><span>1</span><div><h3>ProofLedger</h3><p>Record sources, theorem numbers, paper versions, model and tool versions, prompts, human edits, failed paths, computational budget, and final certificates.</p></div></article>
+        <article><span>2</span><div><h3>Explicit semantic configuration</h3><p>“S4” or “classical first-order logic” is not enough. Frames, domains, consequence, equality, designation, and metalogic must be machine-readable.</p></div></article>
+        <article><span>3</span><div><h3>Independent verification</h3><p>The generator cannot be the only reviewer. Use a symbolic tool, proof kernel, or genuinely separate verification path for every critical claim.</p></div></article>
+        <article><span>4</span><div><h3>Failure memory</h3><p>Keep failed subgoals, countermodels, timeouts, broken formalisations, and abandoned routes. Failure records are useful research assets.</p></div></article>
+        <article><span>5</span><div><h3>Human decision points</h3><p>Changes to definitions, research goals, base logic, main proof strategy, and publication value remain decisions for the researcher.</p></div></article>
+      </div>
+    </section>
+
+    <section class="content-section" id="prototype" aria-labelledby="prototype-title">
+      <div class="section-title">
+        <span>6</span>
+        <div>
+          <h2 id="prototype-title">Suggested first prototype</h2>
+          <p>A finite-model workbench for propositional modal and epistemic logic.</p>
+        </div>
+      </div>
+
+      <div class="prototype-grid">
+        <div class="specification-box">
+          <div class="box-heading">
+            <h3>Input contract</h3>
+            <button class="copy-button" id="copy-spec" type="button">Copy</button>
+          </div>
+          <pre id="spec-template"><code>Logic: S4
+Consequence: local
+Frames: reflexive, transitive
+Domains: constant
+Equality: rigid identity
+Premises: …
+Conjecture: …
+Locked: definitions, base logic</code></pre>
+          <p class="copy-status" id="copy-status" aria-live="polite"></p>
+        </div>
+
+        <div class="output-list">
+          <h3>Required output</h3>
+          <ol>
+            <li>Valid, invalid, or currently unresolved</li>
+            <li>A minimal countermodel or machine-checked proof</li>
+            <li>An assumption-sensitivity matrix</li>
+            <li>A comparison across nearby logics such as K, T, S4, and S5</li>
+            <li>A plain-language explanation</li>
+            <li>The closest known theorem with a precise source</li>
+            <li>A complete, reproducible run record</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="guide-table scope-table">
+          <thead>
+            <tr><th scope="col">Version 0.1</th><th scope="col">Extend next</th><th scope="col">Evaluation</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><ul><li>K, D, T, B, S4, S5</li><li>Propositional modal logic</li><li>Finite Kripke frames</li><li>Local and global consequence</li><li>Minimal countermodels</li></ul></td>
+              <td><ul><li>First-order modal logic</li><li>Constant, varying, cumulative domains</li><li>Multi-agent epistemic logic</li><li>Dynamic epistemic logic</li><li>Hybrid logic and model checking</li></ul></td>
+              <td><ul><li>Semantic-compliance rate</li><li>Countermodel correctness and minimality</li><li>Certificate acceptance rate</li><li>Attribution and reproducibility coverage</li><li>Accurate human restatement</li></ul></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section" id="not-first" aria-labelledby="not-first-title">
+      <div class="section-title">
+        <span>7</span>
+        <div>
+          <h2 id="not-first-title">What not to build first</h2>
+          <p>These can make useful demonstrations, but they do not address the central reliability problem.</p>
+        </div>
+      </div>
+
+      <ul class="not-first-list">
+        <li>A PDF assistant that only chats about logic papers</li>
+        <li>A tactic autocomplete that only sees the current Lean state</li>
+        <li>A conjecture generator without literature and countermodel filters</li>
+        <li>A formaliser that never checks fidelity to the original statement</li>
+        <li>An autonomous research agent without certificates, sources, or failure records</li>
+        <li>A system that writes a full paper and declares its own novelty</li>
+      </ul>
+
+      <p class="final-order"><strong>Recommended order:</strong> semantic audit and countermodels → theorem graph and tool orchestration → proof generation and open exploration.</p>
+    </section>
+
+    <section class="content-section references-section" id="references" aria-labelledby="references-title">
+      <div class="section-title">
+        <span>8</span>
+        <div>
+          <h2 id="references-title">References and further reading</h2>
+          <p>This guide is a research and product judgement, not a consensus ranking. Preprint claims remain subject to further review.</p>
+        </div>
+      </div>
+
+      <ol class="reference-list">
+        <li><span>Institutional report</span><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" target="_blank" rel="noreferrer">Gemini Deep Think at IMO 2025</a><small>Google DeepMind</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/abs/2604.03789" target="_blank" rel="noreferrer">Automated Conjecture Resolution with Formal Verification</a><small>Rethlas–Archon</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/abs/2601.03298" target="_blank" rel="noreferrer">130k Lines of Formal Topology in Two Weeks</a><small>Autoformalisation</small></li>
+        <li><span>Institutional report</span><a href="https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/" target="_blank" rel="noreferrer">Accelerating scientific breakthroughs with an AI co-scientist</a><small>Google Research</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/html/2602.06533v2" target="_blank" rel="noreferrer">LogicSkills: A Structured Benchmark for Formal Reasoning</a><small>Semantic compliance and countermodels</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/html/2603.26524v1" target="_blank" rel="noreferrer">Mathematical methods and human thought in the age of AI</a><small>Translation, verification, and human control</small></li>
+        <li><span>Roadmap</span><a href="https://arxiv.org/html/2607.07779v1" target="_blank" rel="noreferrer">From Solvers to Research</a><small>Formal mathematics at the research frontier</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/pdf/2606.27041" target="_blank" rel="noreferrer">Formalizing a Many-Sorted Hybrid Polyadic Modal Logic in Lean</a><small>Reusable modal metatheory</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/html/2605.27246v1" target="_blank" rel="noreferrer">Many Logics, One Methodology</a><small>Logical pluralism in formalised reasoning</small></li>
+        <li><span>Interview</span><a href="https://nebius.science/stories/kevin-buzzard" target="_blank" rel="noreferrer">Kevin Buzzard on LLMs and formalisation</a><small>Nebius Science</small></li>
+        <li><span>Preprint</span><a href="https://arxiv.org/html/2603.03684v2" target="_blank" rel="noreferrer">Mathematicians in the Age of AI</a><small>Human agency and auditable mathematics</small></li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <p><strong>Logic Research Agents: A Roadmap</strong></p>
+      <p>Prepared in August 2026 · <a href="/">zhaoyang.fr</a></p>
+    </div>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="app.js?v=20260823c" defer></script>
+</body>
+</html>

@@ -1,0 +1,1418 @@
+{
+  "ui": {
+    "site": {
+      "title": "Emplois sportifs au Canada francophone",
+      "description": "Stages, clubs et autres emplois sportifs au Canada francophone, avec sources officielles.",
+      "regions": "Québec · Ottawa · Nouveau-Brunswick",
+      "snapshot": "Données au {{date}}",
+      "availability": "Consultez l’annonce de l’employeur pour vérifier les disponibilités.",
+      "footer": "Emplois sportifs au Canada francophone · {{date}}",
+      "pageTitle": "{{section}} · Emplois sportifs au Canada francophone"
+    },
+    "nav": {
+      "guides": "Guides",
+      "skip": "Aller au contenu",
+      "label": "Rubriques du répertoire",
+      "language": "Langue",
+      "internships": "Stages",
+      "clubs": "Clubs",
+      "jobs": "Emplois",
+      "resources": "Sources"
+    },
+    "download": {
+      "label": "Données JSON",
+      "source": "Données de recherche originales en chinois, avec les intitulés officiels"
+    },
+    "load": {
+      "title": "Chargement des données impossible",
+      "body": "Actualisez la page ou téléchargez les données complètes.",
+      "reload": "Réessayer",
+      "noscript": "Activez JavaScript pour parcourir et filtrer le répertoire."
+    },
+    "status": {
+      "expired": "Expiré",
+      "listed": "Publié à cette date",
+      "limited": "Détails à vérifier",
+      "program": "Accès au programme",
+      "inactive": "Activités arrêtées"
+    },
+    "category": {
+      "label": "Catégories : {{section}}",
+      "specific": "Offres",
+      "program": "Programmes",
+      "expired": "Expirés",
+      "all": "Tout",
+      "active": "Clubs actifs",
+      "employer": "Employeurs communs",
+      "inactive": "Archives",
+      "job": "Réguliers / saisonniers",
+      "volunteer": "Bénévolat"
+    },
+    "filter": {
+      "search": "Rechercher",
+      "label": "Filtres",
+      "reset": "Réinitialiser",
+      "clear": "Effacer les filtres",
+      "searchLabel": "Rechercher dans {{section}}",
+      "clubsPlaceholder": "Nom, ville, ligue",
+      "jobsPlaceholder": "Poste, club, domaine",
+      "sourcesPlaceholder": "Organisme, source",
+      "geo": "Région",
+      "sport": "Sport",
+      "tier": "Niveau",
+      "pay": "Rémunération",
+      "allGeo": "Toutes les régions",
+      "allSport": "Tous les sports",
+      "allTier": "Tous les niveaux",
+      "allPay": "Toutes rémunérations"
+    },
+    "heading": {
+      "internships": "Offres et programmes de stage",
+      "internshipsNote": "Les programmes sont séparés des offres de stage.",
+      "clubs": "Répertoire des clubs",
+      "clubsNote": "Les niveaux professionnel, semi-professionnel et junior sont distingués.",
+      "jobs": "Autres emplois",
+      "jobsNote": "Emplois réguliers, saisonniers et bénévolat."
+    },
+    "results": {
+      "club_one": "{{count}} organisme",
+      "club_other": "{{count}} organismes",
+      "source_one": "{{count}} source",
+      "source_other": "{{count}} sources",
+      "opportunity_one": "{{count}} entrée",
+      "opportunity_other": "{{count}} entrées",
+      "clubMeta": "Noms, ligues et liens officiels",
+      "emptyTitle": "Aucun résultat",
+      "emptyBody": "Essayez un autre mot-clé ou effacez les filtres."
+    },
+    "note": {
+      "clubs": "L’absence d’offre ne signifie pas qu’un club ne prend pas de stagiaires. Les liens des équipes juniors peuvent mener au répertoire de la ligue.",
+      "jobs": "Une rémunération non précisée ne signifie pas un poste non rémunéré. Consultez la dernière annonce de l’employeur."
+    },
+    "action": {
+      "details": "Détails",
+      "profile": "Fiche",
+      "detailsLabel": "Voir les détails : {{title}}",
+      "profileLabel": "Voir la fiche : {{name}}",
+      "latest": "Offres actuelles",
+      "posting": "Annonce officielle",
+      "careers": "Recrutement",
+      "website": "Site officiel",
+      "closure": "Avis de cessation",
+      "league": "Site de la ligue",
+      "leagueDirectory": "Répertoire de la ligue",
+      "group": "Site du groupe",
+      "company": "Page de l’entreprise",
+      "originalEvidence": "Source originale"
+    },
+    "sources": {
+      "heading": "Sources officielles et recrutement",
+      "date": "Sources vérifiées le {{date}}",
+      "coverage": "Périmètre et notes sur les données",
+      "records": "Références",
+      "searchNote": "Recherchez par organisme ou domaine.",
+      "statusNote": "L’accès à la page ne confirme pas un recrutement en cours",
+      "full": "Texte accessible",
+      "index": "Index vérifié",
+      "limited": "Accès restreint"
+    },
+    "detail": {
+      "close": "Fermer",
+      "unknown": "Non précisé",
+      "expiredNote": "Cette annonce a expiré. Consultez le lien de recrutement ci-dessous pour les offres actuelles.",
+      "responsibilities": "Missions",
+      "requirements": "Profil recherché",
+      "application": "Candidature",
+      "oldApplication": "Candidature dans l’annonce originale",
+      "email": "Courriel :",
+      "unknowns": "Points à confirmer",
+      "evidence": "Sources · {{date}}",
+      "apply": "Candidature officielle",
+      "latest": "Offres actuelles",
+      "original": "Annonce originale",
+      "club": "Fiche du club",
+      "employer": "Employeur commun",
+      "socials": "Site et réseaux sociaux",
+      "related": "Offres et programmes recensés · {{count}}",
+      "noRelated": "Aucune offre précise recensée. Consultez la page officielle de recrutement.",
+      "defaultEvidence": "Les informations et liens publics proviennent des sources ci-dessous."
+    },
+    "field": {
+      "department": "Domaine",
+      "workMode": "Modalités de travail",
+      "period": "Début / période",
+      "duration": "Durée / horaires",
+      "pay": "Rémunération",
+      "contract": "Contrat / type",
+      "deadline": "Date limite",
+      "posted": "Date de publication",
+      "city": "Ville",
+      "region": "Région",
+      "league": "Ligue",
+      "venue": "Site",
+      "email": "Courriel public",
+      "phone": "Téléphone"
+    }
+  },
+  "content": {
+    "taxonomies": {
+      "geography": {
+        "quebec": "Québec",
+        "ottawa": "Région bilingue d’Ottawa",
+        "new-brunswick": "Nouveau-Brunswick"
+      },
+      "sport": {
+        "soccer": "Soccer",
+        "ice-hockey": "Hockey sur glace",
+        "basketball": "Basketball",
+        "baseball": "Baseball",
+        "football": "Football canadien",
+        "ultimate": "Ultimate",
+        "lacrosse": "Crosse",
+        "multi": "Multisport / groupe"
+      },
+      "tier": {
+        "pro": "Professionnel",
+        "minor-pro": "Ligue professionnelle mineure",
+        "semi-pro": "Semi-pro / développement",
+        "junior": "Ligue junior",
+        "group": "Employeur commun"
+      },
+      "type": {
+        "internship": "Offre de stage",
+        "program": "Programme de stage",
+        "job": "Emploi régulier / saisonnier",
+        "volunteer": "Bénévolat"
+      },
+      "status": {
+        "listed": "Publié à la date du relevé",
+        "detail-limited": "Répertorié · détails à vérifier",
+        "expired": "Expiré",
+        "program": "Programme / inscription",
+        "historical": "Archives"
+      },
+      "pay": {
+        "paid": "Rémunération publiée",
+        "unpaid": "Non rémunéré",
+        "not-disclosed": "Rémunération non précisée"
+      }
+    },
+    "clubs": {
+      "alliance": {
+        "city": "Montréal · Verdun",
+        "league": "CEBL / LECB",
+        "venue": "Auditorium de Verdun",
+        "description": "Club montréalais de la LECB. Les sources comprennent des stages à l’automne 2026 et le détail d’un stage en création de contenu.",
+        "notes": "Les versions française et anglaise d’un même poste sont regroupées et comptées une seule fois.",
+        "alias": ""
+      },
+      "roses": {
+        "city": "Montréal / Laval",
+        "league": "NSL / SLN · Féminin",
+        "venue": "Stade Boréale ; certaines activités au Stade Saputo",
+        "description": "Club de soccer professionnel féminin. La page Carrières distingue les stages du bénévolat ; le stage en physiothérapie exige une formation pertinente.",
+        "notes": "",
+        "alias": ""
+      },
+      "cfmontreal": {
+        "city": "Montréal",
+        "league": "MLS",
+        "venue": "Stade Saputo",
+        "description": "Club montréalais de la MLS. Les offres comprennent le marketing, le CRM et l’exploitation du stade. L’ancienne banque de candidatures de stage a expiré dans le système de candidature.",
+        "notes": "Un lien de stage sur le site ne signifie pas que les candidatures sont ouvertes. Vérifiez le système de candidature.",
+        "alias": ""
+      },
+      "canadiens": {
+        "city": "Montréal",
+        "league": "NHL / LNH",
+        "venue": "Centre Bell",
+        "description": "Club montréalais de la LNH. Consultez les canaux de recrutement communs du Groupe CH.",
+        "notes": "Le Groupe CH couvre aussi les spectacles et les salles. Tous ses postes ne sont pas des postes au sein de l’équipe.",
+        "alias": ""
+      },
+      "rocket": {
+        "city": "Laval",
+        "league": "AHL / LAH",
+        "venue": "Place Bell",
+        "description": "Club de hockey professionnel de la LAH à Laval. Le recrutement passe notamment par la plateforme commune du Groupe CH.",
+        "notes": "Le Rocket et les Canadiens sont deux équipes distinctes utilisant les canaux du groupe. Un stage du groupe est compté une seule fois.",
+        "alias": ""
+      },
+      "lions": {
+        "city": "Trois-Rivières",
+        "league": "ECHL",
+        "venue": "Colisée Vidéotron",
+        "description": "Club professionnel de l’ECHL à Trois-Rivières. Son site présente la saison 2026–2027 et une page Carrière distincte.",
+        "notes": "Certaines offres sont présentées en images et n’ont pas été vérifiées individuellement. Un courriel public ne prouve pas l’existence d’un stage à pourvoir.",
+        "alias": ""
+      },
+      "alouettes": {
+        "city": "Montréal",
+        "league": "CFL / LCF",
+        "venue": "Stade Percival-Molson",
+        "description": "Club montréalais de football canadien professionnel. Consultez ses pages officielles, la LCF et sa page de recrutement employeur.",
+        "notes": "L’accès direct au site était restreint. Les stages sans année dans les extraits de recherche n’ont pas été retenus comme offres actuelles. Le courriel public n’est pas une adresse de recrutement de stagiaires confirmée.",
+        "alias": ""
+      },
+      "victoire": {
+        "city": "Montréal / Laval",
+        "league": "PWHL / LPHF · Féminin",
+        "venue": "",
+        "description": "Équipe de hockey professionnel féminin avec une page de recrutement TeamWork Online dédiée.",
+        "notes": "Aucun poste n’apparaissait sur la page de l’équipe lors de la vérification. Les alertes officielles restent disponibles.",
+        "alias": ""
+      },
+      "supra": {
+        "city": "Laval",
+        "league": "CPL / PLC",
+        "venue": "Stade Boréale",
+        "description": "Club de soccer professionnel québécois participant à la Première Ligue canadienne en 2026. Il est distinct du CF Montréal et des Roses.",
+        "notes": "Aucune page de recrutement distincte ni offre de stage n’a été vérifiée. Le site et LinkedIn servent de points de recherche. Les camps de joueurs ne sont pas des stages professionnels.",
+        "alias": ""
+      },
+      "capitales": {
+        "city": "Québec",
+        "league": "Frontier League",
+        "venue": "Stade Canac",
+        "description": "Club de baseball professionnel à Québec. La page de recrutement présente des postes en design, comptabilité, billetterie et contenu, sans les désigner comme stages.",
+        "notes": "La page comporte plusieurs offres. La rémunération, les dates et le statut de stage non publiés restent inconnus.",
+        "alias": ""
+      },
+      "aigles": {
+        "city": "Trois-Rivières",
+        "league": "Frontier League",
+        "venue": "",
+        "description": "Organisation de baseball professionnel à Trois-Rivières. Le site invite explicitement à envoyer des candidatures spontanées au courriel des ressources humaines.",
+        "notes": "Cette fiche concerne l’équipe professionnelle, et non les équipes juniors de la même marque. Précisez le service visé et vos besoins de stage scolaire dans le courriel.",
+        "alias": ""
+      },
+      "toundra": {
+        "city": "Montréal",
+        "league": "Basketball Super League · BSL",
+        "venue": "Centre Pierre-Charbonneau",
+        "description": "Club de basketball professionnel dont le calendrier officiel 2026 est vérifiable. Il est distinct de l’Alliance de la LECB.",
+        "notes": "Aucun stage actuel n’a été vérifié. Le statut professionnel du club ne garantit pas la rémunération des stages administratifs.",
+        "alias": ""
+      },
+      "royal": {
+        "city": "Montréal",
+        "league": "UFA",
+        "venue": "",
+        "description": "Équipe montréalaise de l’UFA, répertoriée séparément dans le sport de développement.",
+        "notes": "Le classement semi-pro / développement est prudent. Il ne suppose pas que les athlètes ou le personnel soient salariés à temps plein. Aucun stage précis n’a été vérifié.",
+        "alias": ""
+      },
+      "senators": {
+        "city": "Ottawa · Kanata",
+        "league": "NHL / LNH",
+        "venue": "Canadian Tire Centre",
+        "description": "Club de la LNH à Ottawa. Son site donne accès à un programme de stages avec crédits scolaires.",
+        "notes": "Option ontarienne dans le bassin d’emploi bilingue. Les langues de travail et l’admissibilité des étudiants internationaux doivent être vérifiées pour chaque poste.",
+        "alias": ""
+      },
+      "redblacks": {
+        "city": "Ottawa",
+        "league": "CFL / LCF",
+        "venue": "TD Place",
+        "description": "Club de football canadien professionnel d’Ottawa. OSEG propose des possibilités au sein des équipes et des installations.",
+        "notes": "Les stages OSEG sont des programmes du groupe, sans affectation garantie au ROUGE et NOIR. Un même programme n’est pas dupliqué en offre d’équipe.",
+        "alias": ""
+      },
+      "atletico": {
+        "city": "Ottawa",
+        "league": "CPL / PLC",
+        "venue": "",
+        "description": "Club de soccer professionnel à Ottawa. La page de recrutement accepte les CV et lettres de motivation.",
+        "notes": "Les candidatures spontanées ne prouvent pas qu’un stage est à pourvoir. Aucun poste précis ne figurait sur la page consultée.",
+        "alias": ""
+      },
+      "blackjacks": {
+        "city": "Ottawa",
+        "league": "CEBL / LECB",
+        "venue": "The Arena at TD Place",
+        "description": "Club d’Ottawa de la LECB. La page de recrutement comprend un formulaire de CV et du bénévolat les jours de match.",
+        "notes": "Le bénévolat les jours de match est classé comme bénévolat, et non comme stage scolaire.",
+        "alias": ""
+      },
+      "titans": {
+        "city": "Ottawa",
+        "league": "Frontier League",
+        "venue": "Ottawa Stadium · 300 Coventry Road",
+        "description": "Club de baseball professionnel à Ottawa avec des coordonnées publiques. Les anciens stages trouvés dans les résultats de recherche ne sont pas considérés comme des offres de 2026.",
+        "notes": "Le courriel est un contact général. Un stage de match de 2023 et un partenariat de données de 2022 ne prouvent pas une offre actuelle.",
+        "alias": ""
+      },
+      "rapid": {
+        "city": "Ottawa",
+        "league": "NSL / SLN · Féminin",
+        "venue": "TD Place",
+        "description": "Club de soccer professionnel féminin. La page Carrières accepte les candidatures spontanées et présente un emploi régulier en vente de groupes.",
+        "notes": "Le poste de vente n’est pas un stage. Les possibilités pour une session future peuvent être demandées séparément.",
+        "alias": ""
+      },
+      "charge": {
+        "city": "Ottawa",
+        "league": "PWHL / LPHF · Féminin",
+        "venue": "",
+        "description": "Équipe de hockey professionnel féminin d’Ottawa, avec sa propre page de recrutement.",
+        "notes": "La page de l’équipe n’affichait aucun résultat lors de la vérification. Les postes de la ligue dans d’autres villes ne sont pas attribués à cette équipe.",
+        "alias": ""
+      },
+      "blackbears": {
+        "city": "Ottawa",
+        "league": "NLL",
+        "venue": "",
+        "description": "La NLL a annoncé le 10 septembre 2026 la cessation des activités de l’équipe, qui ne participera pas à la saison 2026–2027.",
+        "notes": "Fiche conservée pour éviter les confusions liées aux anciennes listes. Exclue du total des clubs actifs et des destinations de candidature actuelles.",
+        "alias": ""
+      },
+      "thetford": {
+        "city": "Thetford Mines",
+        "league": "LNAH",
+        "venue": "Centre Mario-Gosselin",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "jonquiere": {
+        "city": "Jonquière · Saguenay",
+        "league": "LNAH",
+        "venue": "Palais des sports de Jonquière",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "sorel": {
+        "city": "Sorel-Tracy",
+        "league": "LNAH",
+        "venue": "Colisée Cardin",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "rdl": {
+        "city": "Rivière-du-Loup",
+        "league": "LNAH",
+        "venue": "Centre Premier Tech",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "coolfm": {
+        "city": "Saint-Georges",
+        "league": "LNAH",
+        "venue": "Centre sportif Lacroix-Dutil (nom dans le répertoire)",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "national": {
+        "city": "L’Ancienne-Lorette",
+        "league": "LNAH",
+        "venue": "Complexe sportif de l’Ancienne-Lorette",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "bataillon": {
+        "city": "Saint-Hyacinthe",
+        "league": "LNAH",
+        "venue": "Stade L.-P.-Gaucher",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer.",
+        "alias": ""
+      },
+      "manotick": {
+        "city": "Manotick · Ottawa",
+        "league": "LNAH",
+        "venue": "Mike O’Neil Arena",
+        "description": "Équipe du répertoire officiel LNAH 2026–2027. Répertoriée séparément comme piste dans les ligues mineures et le sport semi-professionnel.",
+        "notes": "Seuls l’identité de l’équipe, le lien officiel et le site indiqué ont été vérifiés. Les postes, la rémunération et les comptes sociaux restent à confirmer. Ce lien mène au répertoire de la ligue, et non à un site propre à l’équipe.",
+        "alias": ""
+      },
+      "armada": {
+        "city": "Blainville-Boisbriand",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "drakkar": {
+        "city": "Baie-Comeau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "sagueneens": {
+        "city": "Chicoutimi · Saguenay",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "voltigeurs": {
+        "city": "Drummondville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "olympiques": {
+        "city": "Gatineau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "remparts": {
+        "city": "Québec",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "oceanic": {
+        "city": "Rimouski",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "huskies": {
+        "city": "Rouyn-Noranda",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "cataractes": {
+        "city": "Shawinigan",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "phoenix": {
+        "city": "Sherbrooke",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "foreurs": {
+        "city": "Val-d’Or",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "tigres": {
+        "city": "Victoriaville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "wildcats": {
+        "city": "Moncton",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "seadogs": {
+        "city": "Saint John",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Équipe de hockey junior majeur de la LHJMQ. L’administration et les opérations événementielles sont des pistes de recherche de stages ; il ne s’agit pas d’une ligue professionnelle adulte.",
+        "notes": "L’identité et la ville ont été vérifiées dans les données officielles de 2026. Le lien mène à la ligue. Le site propre, les réseaux sociaux et le recrutement restent à vérifier ; aucune offre de stage n’est affirmée.",
+        "alias": ""
+      },
+      "67s": {
+        "city": "Ottawa",
+        "league": "OHL",
+        "venue": "The Arena at TD Place",
+        "description": "Équipe de hockey junior d’OSEG. Le programme de stages avec crédits du groupe permet d’explorer des fonctions liées aux équipes et aux installations.",
+        "notes": "Une option junior, distincte des ligues professionnelles adultes. Un stage OSEG ne garantit pas une affectation à cette équipe. Le lien vérifié mène actuellement au groupe.",
+        "alias": ""
+      },
+      "groupech": {
+        "city": "Montréal / Laval",
+        "league": "Employeur commun · Canadiens / Rocket",
+        "venue": "",
+        "description": "Groupe employeur commun aux Canadiens et au Rocket, couvrant aussi le Centre Bell, la Place Bell et les activités de divertissement.",
+        "notes": "Répertorié comme employeur distinct, sans augmenter le nombre de clubs. Aucun stage actuellement ouvert n’a été confirmé lors de cette vérification.",
+        "alias": ""
+      },
+      "oseg": {
+        "city": "Ottawa",
+        "league": "Employeur commun · REDBLACKS / 67’s / TD Place",
+        "venue": "TD Place / Lansdowne",
+        "description": "Le site officiel décrit plusieurs périodes d’accueil de stagiaires liées aux crédits d’études postsecondaires. Le programme du groupe est compté une seule fois.",
+        "notes": "Les programmes sont distincts des offres précises. Vérifiez la session, le service et les disponibilités dans ADP.",
+        "alias": ""
+      }
+    },
+    "opportunities": {
+      "alliance-content-intern": {
+        "department": "Contenu / réseaux sociaux / analyse de données",
+        "payText": "Explicitement non rémunéré",
+        "period": "Dès que possible ; fin non précisée",
+        "duration": "Environ 20 heures par semaine",
+        "workMode": "Sur place · Verdun et lieux de tournage à Montréal",
+        "contract": "Stage temporaire / à temps partiel",
+        "applyInstructions": "Indiquez le titre du poste dans l’objet du courriel. Aucun CV n’est demandé ; joignez une vidéo de présentation d’environ une minute et un lien LinkedIn, si disponible.",
+        "responsibilities": [
+          "Filmer des vidéos sur les activités et l’entrepreneuriat ; contribuer au calendrier de contenu et à la coordination du montage.",
+          "Suivre les vues, la rétention et l’engagement, puis proposer des améliorations."
+        ],
+        "requirements": [
+          "Intérêt pour le contenu numérique, le sport et l’entrepreneuriat ; une formation connexe est un atout.",
+          "Disponibilité aux heures de bureau ; une disponibilité hors de ces heures est un atout."
+        ],
+        "unknowns": [
+          "La date limite, la date de fin, la convention scolaire et l’admissibilité des candidatures internationales n’étaient pas publiées."
+        ],
+        "evidence": "Présent dans l’index officiel, avec un PDF complet accessible et sans date limite publiée. Confirmez les disponibilités avant de postuler.",
+        "displayTitle": "Stage en création de contenu · Bureau du copropriétaire"
+      },
+      "alliance-graphic": {
+        "department": "Design / communication visuelle",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Automne 2026",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Ouvrez la page de recrutement du club et sélectionnez le poste de l’automne 2026. Suivez les modalités du PDF le plus récent.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La rémunération, les heures hebdomadaires, les dates, les exigences détaillées et le courriel de candidature n’ont pas été vérifiés."
+        ],
+        "evidence": "Les index français et anglais répertorient ce stage. Le PDF détaillé renvoyait une erreur HTTP 403. Les conditions des anciens stages d’été ne peuvent pas être reprises.",
+        "displayTitle": "Stage en graphisme · Automne 2026"
+      },
+      "alliance-partnership": {
+        "department": "Commandites / partenariats",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Automne 2026",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Ouvrez la page de recrutement du club et sélectionnez le poste de l’automne 2026. Suivez les modalités du PDF le plus récent.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La rémunération, les heures hebdomadaires, les dates, les exigences détaillées et le courriel de candidature n’ont pas été vérifiés."
+        ],
+        "evidence": "Les index français et anglais répertorient ce stage. Le PDF détaillé renvoyait une erreur HTTP 403. Les conditions des anciens stages d’été ne peuvent pas être reprises.",
+        "displayTitle": "Stage en partenariats · Automne 2026"
+      },
+      "alliance-ticketing": {
+        "department": "Vente / billetterie",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Automne 2026",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Ouvrez la page de recrutement du club et sélectionnez le poste de l’automne 2026. Suivez les modalités du PDF le plus récent.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La rémunération, les heures hebdomadaires, les dates, les exigences détaillées et le courriel de candidature n’ont pas été vérifiés."
+        ],
+        "evidence": "Les index français et anglais répertorient ce stage. Le PDF détaillé renvoyait une erreur HTTP 403. Les conditions des anciens stages d’été ne peuvent pas être reprises.",
+        "displayTitle": "Stage en vente et billetterie · Automne 2026"
+      },
+      "roses-physio-intern": {
+        "department": "Santé sportive / soutien médical",
+        "payText": "Explicitement non rémunéré",
+        "period": "Entraînements en semaine, de 8 h à 14 h ; dates de début et de fin non publiées",
+        "duration": "3 à 5 jours par semaine",
+        "workMode": "Sur place · Montréal",
+        "contract": "Stage temporaire",
+        "applyInstructions": "Envoyez votre candidature au courriel officiel, en précisant vos études en physiothérapie ou thérapie du sport, vos disponibilités et votre formation pertinente. L’annonce n’impose pas d’objet de courriel.",
+        "responsibilities": [
+          "Soutenir les entraînements et les matchs, préparer le matériel et participer au taping sportif sous supervision professionnelle.",
+          "Contribuer à la prévention, à la récupération et aux dossiers de suivi des athlètes."
+        ],
+        "requirements": [
+          "Études en physiothérapie ou thérapie du sport et formation en taping sportif.",
+          "Une certification de premier répondant et une expérience en équipe ou en événement sportif sont des atouts."
+        ],
+        "unknowns": [
+          "Aucune date limite indiquée ; confirmez la convention scolaire, l’assurance et l’admissibilité des étudiants internationaux."
+        ],
+        "evidence": "Présent sur la page officielle ; le PDF de deux pages a été vérifié. Il s’agit d’un stage spécialisé en santé, et non ouvert à toutes les formations.",
+        "displayTitle": "Stage en physiothérapie / thérapie du sport"
+      },
+      "oseg-intern-program": {
+        "department": "Plusieurs services du groupe · à vérifier dans le système de candidature",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Depuis la page Carrières de TD Place, accédez à ADP et recherchez Intern, Internship ou Co-op. Vérifiez la session et le service.",
+        "responsibilities": [],
+        "requirements": [
+          "Le programme officiel s’adresse aux étudiants devant obtenir des crédits de stage postsecondaires."
+        ],
+        "unknowns": [
+          "Offres actuelles, services, durée, rémunération, langues et admissibilité des établissements hors du Canada."
+        ],
+        "evidence": "La description officielle indique plusieurs périodes de stage dans l’année. Les offres dynamiques ADP n’ont pas pu être lues intégralement. Compté uniquement comme accès à un programme.",
+        "displayTitle": "Programme de stages avec crédits · OSEG"
+      },
+      "senators-intern-program": {
+        "department": "Service à confirmer",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez le système officiel BambooHR pour les stages.",
+        "responsibilities": [],
+        "requirements": [
+          "Être aux études et avoir besoin de crédits de stage."
+        ],
+        "unknowns": [
+          "Postes actuels, rémunération et dates."
+        ],
+        "evidence": "Accès à un programme uniquement ; il ne s’agit pas d’une offre précise.",
+        "displayTitle": "Programme de stages avec crédits · Senators"
+      },
+      "cf-intern-expired": {
+        "department": "RH / administration / marketing / communications",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Ne postulez pas à l’annonce expirée. Consultez la page Carrières du CF Montréal pour les nouvelles offres.",
+        "responsibilities": [],
+        "requirements": [
+          "L’annonce originale s’adressait aux étudiants collégiaux et universitaires."
+        ],
+        "unknowns": [
+          "L’annonce demandait de préciser le besoin d’un stage rémunéré ou non ; ce n’était pas une promesse de rémunération."
+        ],
+        "evidence": "Le système de candidature indique explicitement « Désolé, ce poste a expiré », malgré le lien conservé dans l’index du site.",
+        "displayTitle": "Banque générale de stages · Expirée"
+      },
+      "cf-crm": {
+        "department": "CRM / numérique",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Postulez depuis l’annonce originale SmartRecruiters et consultez les exigences à jour.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "L’index officiel et les détails étaient accessibles, avec un accès à la candidature. Cela ne confirme pas que le poste reste à pourvoir.",
+        "displayTitle": "Spécialiste CRM Salesforce"
+      },
+      "cf-marketing": {
+        "department": "Marketing / production",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Postulez depuis l’annonce originale SmartRecruiters et consultez les exigences à jour.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "L’index officiel et les détails étaient accessibles, avec un accès à la candidature. Cela ne confirme pas que le poste reste à pourvoir.",
+        "displayTitle": "Chef de projets et production marketing · Temporaire"
+      },
+      "cf-coach": {
+        "department": "Encadrement / communauté",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Postulez depuis l’annonce originale SmartRecruiters et consultez les exigences à jour.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "L’index officiel et les détails étaient accessibles, avec un accès à la candidature. Cela ne confirme pas que le poste reste à pourvoir.",
+        "displayTitle": "Éducateur de soccer · Programme parascolaire"
+      },
+      "cf-maintenance": {
+        "department": "Stade / installations",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Postulez depuis l’annonce originale SmartRecruiters et consultez les exigences à jour.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "L’index officiel et les détails étaient accessibles, avec un accès à la candidature. Cela ne confirme pas que le poste reste à pourvoir.",
+        "displayTitle": "Technicien en maintenance et exploitation du stade"
+      },
+      "cf-security": {
+        "department": "Sécurité / événements",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Sélectionnez le poste correspondant dans l’index Carrières du CF Montréal, puis vérifiez son statut actuel dans le système de candidature.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Seule la présence dans l’index officiel a été vérifiée. Les pages individuelles du système de candidature n’ont pas été contrôlées lors de cette vérification.",
+        "displayTitle": "Agent de sécurité · Jours de match"
+      },
+      "cf-pitch": {
+        "department": "Exploitation des terrains",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Sélectionnez le poste correspondant dans l’index Carrières du CF Montréal, puis vérifiez son statut actuel dans le système de candidature.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Seule la présence dans l’index officiel a été vérifiée. Les pages individuelles du système de candidature n’ont pas été contrôlées lors de cette vérification.",
+        "displayTitle": "Coordonnateur des terrains sportifs"
+      },
+      "cf-medical": {
+        "department": "Médecine sportive",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Sélectionnez le poste correspondant dans l’index Carrières du CF Montréal, puis vérifiez son statut actuel dans le système de candidature.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Seule la présence dans l’index officiel a été vérifiée. Les pages individuelles du système de candidature n’ont pas été contrôlées lors de cette vérification.",
+        "displayTitle": "Responsable de la médecine sportive"
+      },
+      "cf-concessions": {
+        "department": "Restauration / jours de match",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Sélectionnez le poste correspondant dans l’index Carrières du CF Montréal, puis vérifiez son statut actuel dans le système de candidature.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Seule la présence dans l’index officiel a été vérifiée. Les pages individuelles du système de candidature n’ont pas été contrôlées lors de cette vérification.",
+        "displayTitle": "Superviseur des concessions · Jours de match"
+      },
+      "alliance-digital": {
+        "department": "Marketing numérique / publicité",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "À partir de l’automne 2026",
+        "duration": "Non précisé",
+        "workMode": "Verdun / hybride",
+        "contract": "Poste permanent / à temps plein",
+        "applyInstructions": "Ouvrez le poste en marketing numérique depuis la page officielle. La date limite du 15 septembre provient du compte LinkedIn officiel ; vérifiez-la avant de postuler.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "Consultez la description officielle complète pour la rémunération et les modalités de candidature."
+        ],
+        "evidence": "Poste présent sur le site officiel, avec une date limite dans une publication LinkedIn officielle. Le PDF détaillé renvoyait une erreur HTTP 403.",
+        "displayTitle": "Coordonnateur en performance et publicité numérique"
+      },
+      "rapid-groupsales": {
+        "department": "Vente / CRM / billetterie",
+        "payText": "Rémunération annuelle totale de 50 000 à 55 000 CAD (salaire de base et prime), avec avantages sociaux ; il ne s’agit pas d’une rémunération de stage",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "À Ottawa, avec matchs en soirée et le week-end",
+        "contract": "Nouveau poste permanent / à temps plein",
+        "applyInstructions": "Envoyez un CV et une lettre de motivation à jobs@rapidfc.ca, en indiquant le titre du poste dans l’objet.",
+        "responsibilities": [
+          "Développer la clientèle de groupes et les expériences de billetterie ; assurer les relations communautaires, le suivi commercial et la réalisation des événements."
+        ],
+        "requirements": [
+          "Au moins un an d’expérience pertinente en vente ou gestion de comptes ; études postsecondaires connexes ou expérience équivalente.",
+          "Expérience d’Excel, des outils CRM et de billetterie ; le bilinguisme français-anglais est un atout important."
+        ],
+        "unknowns": [],
+        "evidence": "La page officielle et le texte du poste étaient accessibles. Aucune date limite n’était publiée.",
+        "displayTitle": "Chargé de comptes · Vente de billets de groupe"
+      },
+      "caps-designer": {
+        "department": "Design",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez la section du poste et son lien de candidature original sur la page de recrutement des Capitales.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La page ne présente pas de date de publication ou de date limite commune claire. Les postes ne sont pas désignés comme stages."
+        ],
+        "evidence": "Le poste figurait encore sur le site officiel. Le statut des candidatures externes n’a pas été vérifié individuellement. Les sections en double ont été regroupées.",
+        "displayTitle": "Graphiste · Saisonnier"
+      },
+      "caps-accounting": {
+        "department": "Finances",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez la section du poste et son lien de candidature original sur la page de recrutement des Capitales.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La page ne présente pas de date de publication ou de date limite commune claire. Les postes ne sont pas désignés comme stages."
+        ],
+        "evidence": "Le poste figurait encore sur le site officiel. Le statut des candidatures externes n’a pas été vérifié individuellement. Les sections en double ont été regroupées.",
+        "displayTitle": "Commis comptable · Saisonnier"
+      },
+      "caps-ticketing": {
+        "department": "Billetterie / relations clients",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez la section du poste et son lien de candidature original sur la page de recrutement des Capitales.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La page ne présente pas de date de publication ou de date limite commune claire. Les postes ne sont pas désignés comme stages."
+        ],
+        "evidence": "Le poste figurait encore sur le site officiel. Le statut des candidatures externes n’a pas été vérifié individuellement. Les sections en double ont été regroupées.",
+        "displayTitle": "Coordonnateur en billetterie et stratégie"
+      },
+      "caps-social": {
+        "department": "Réseaux sociaux / contenu",
+        "payText": "Non précisée ; cela ne signifie pas un poste non rémunéré",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez la section du poste et son lien de candidature original sur la page de recrutement des Capitales.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "La page ne présente pas de date de publication ou de date limite commune claire. Les postes ne sont pas désignés comme stages."
+        ],
+        "evidence": "Le poste figurait encore sur le site officiel. Le statut des candidatures externes n’a pas été vérifié individuellement. Les sections en double ont été regroupées.",
+        "displayTitle": "Gestionnaire des réseaux sociaux et créateur de contenu"
+      },
+      "roses-volunteer": {
+        "department": "Bénévolat",
+        "payText": "Bénévolat ; ne permet pas de déduire la rémunération d’un stage",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Utilisez le formulaire de la rubrique Bénévolat du site. La reconnaissance scolaire doit être vérifiée séparément.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "La page officielle de recrutement comporte une rubrique distincte pour le bénévolat.",
+        "displayTitle": "Bénévolat · Matchs et événements du club"
+      },
+      "blackjacks-volunteer": {
+        "department": "Bénévolat / jours de match",
+        "payText": "Bénévolat ; non équivalent à un stage scolaire",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Consultez le lien de bénévolat et le formulaire de contact sur le site officiel.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "La page de recrutement consultée présente principalement cet accès au bénévolat.",
+        "displayTitle": "Bénévolat les jours de match"
+      },
+      "cf-volunteer": {
+        "department": "Bénévolat / collecte de fonds",
+        "payText": "Bénévolat",
+        "period": "Non précisé",
+        "duration": "Non précisé",
+        "workMode": "Non précisé",
+        "contract": "Non précisé",
+        "applyInstructions": "Accédez à l’annonce de bénévolat correspondante depuis l’index Carrières du club.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Présent dans l’index officiel. Il ne doit pas être présenté comme un emploi rémunéré ou un stage.",
+        "displayTitle": "Bénévole pour la collecte 50/50"
+      }
+    },
+    "sources": {
+      "cf-home": {
+        "title": "CF Montréal — Site officiel",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "cf-careers": {
+        "title": "CF Montréal — Carrières",
+        "publisher": "CF Montréal",
+        "notes": "L’index de recrutement et le système de candidature peuvent être désynchronisés ; le statut est consigné pour chaque offre."
+      },
+      "cf-intern": {
+        "title": "CF Montréal — Banque de stages (expirée)",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": "Le bas de la page indique explicitement « Désolé, ce poste a expiré »."
+      },
+      "cf-linkedin": {
+        "title": "CF Montréal — LinkedIn",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "alliance-home": {
+        "title": "Alliance de Montréal — Site officiel",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-careers": {
+        "title": "Alliance — Index de recrutement en français",
+        "publisher": "Alliance de Montréal",
+        "notes": "Quatre stages et un emploi à temps plein ; l’accès aux PDF des trois stages de l’automne 2026 était restreint."
+      },
+      "alliance-careers-en": {
+        "title": "Alliance — Index de recrutement en anglais",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-content": {
+        "title": "Alliance — PDF officiel du stage en création de contenu",
+        "publisher": "Alliance de Montréal",
+        "notes": "PDF de deux pages ; texte et images vérifiés. Aucune date limite publiée."
+      },
+      "alliance-linkedin": {
+        "title": "Alliance — Publications de recrutement LinkedIn officielles",
+        "publisher": "Alliance de Montréal",
+        "notes": "La publication du poste à temps plein en marketing numérique indique le 15 septembre 2026 comme date limite."
+      },
+      "roses-home": {
+        "title": "Roses de Montréal — Site officiel",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "roses-careers": {
+        "title": "Roses — Carrières",
+        "publisher": "Roses de Montréal",
+        "notes": "Distingue le bénévolat du stage en physiothérapie."
+      },
+      "roses-physio": {
+        "title": "Roses — PDF officiel du stage en physiothérapie / thérapie du sport",
+        "publisher": "Roses de Montréal",
+        "notes": "Images des deux pages vérifiées : non rémunéré, 3 à 5 jours par semaine, aucune date limite publiée."
+      },
+      "roses-linkedin": {
+        "title": "Roses — LinkedIn",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "canadiens-home": {
+        "title": "Canadiens de Montréal — Site officiel",
+        "publisher": "Canadiens de Montréal / NHL",
+        "notes": "Utilisé pour l’identité de base et les liens sociaux officiels, sans recopier le contenu du site."
+      },
+      "canadiens-linkedin": {
+        "title": "Canadiens — LinkedIn officiel",
+        "publisher": "Canadiens de Montréal",
+        "notes": ""
+      },
+      "gch-careers": {
+        "title": "Groupe CH — Système officiel de recrutement Dayforce",
+        "publisher": "Groupe CH / Dayforce",
+        "notes": "Accès vérifié ; les offres sont chargées par JavaScript. L’existence de ce lien ne suffit pas à confirmer un stage ouvert."
+      },
+      "gch-linkedin": {
+        "title": "Groupe CH — LinkedIn officiel",
+        "publisher": "Groupe CH",
+        "notes": ""
+      },
+      "rocket-home": {
+        "title": "Rocket de Laval — Site officiel",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "rocket-linkedin": {
+        "title": "Rocket — LinkedIn officiel",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "lions-home": {
+        "title": "Lions de Trois-Rivières — Site officiel",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": ""
+      },
+      "lions-careers": {
+        "title": "Lions — Carrière",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": "Les postes sont présentés notamment en images. Un courriel de contact a été trouvé sans être assimilé à une offre de stage précise."
+      },
+      "als-contact": {
+        "title": "Alouettes — Coordonnées",
+        "publisher": "Alouettes de Montréal",
+        "notes": "L’accès direct au site était restreint ; les coordonnées étaient vérifiables dans l’indexation officielle des résultats de recherche."
+      },
+      "als-linkedin": {
+        "title": "Alouettes — LinkedIn officiel",
+        "publisher": "Alouettes de Montréal",
+        "notes": ""
+      },
+      "cfl-jobs": {
+        "title": "LCF — Recrutement de la ligue",
+        "publisher": "Ligue canadienne de football",
+        "notes": ""
+      },
+      "als-isarta": {
+        "title": "Alouettes — Page de recrutement employeur",
+        "publisher": "Alouettes / Isarta",
+        "notes": "La plateforme n’affichait aucun poste lors de la vérification ; cela n’exclut pas le recrutement par d’autres canaux."
+      },
+      "victoire-home": {
+        "title": "Victoire de Montréal — Site officiel",
+        "publisher": "PWHL",
+        "notes": ""
+      },
+      "victoire-jobs": {
+        "title": "Victoire de Montréal — Recrutement de l’équipe",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Affichait explicitement « No job results for your search » lors de la vérification."
+      },
+      "charge-jobs": {
+        "title": "Charge d’Ottawa — Recrutement de l’équipe",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Affichait explicitement « No job results for your search » lors de la vérification."
+      },
+      "victoire-linkedin": {
+        "title": "Victoire — LinkedIn",
+        "publisher": "Victoire de Montréal",
+        "notes": ""
+      },
+      "pwhl-jobs": {
+        "title": "LPHF — Recrutement de la ligue et des équipes",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Les postes d’autres villes ne sont pas attribués à Montréal ou à Ottawa."
+      },
+      "supra-home": {
+        "title": "FC Supra du Québec — Site officiel du club en PLC",
+        "publisher": "FC Supra / CPL",
+        "notes": ""
+      },
+      "supra-linkedin": {
+        "title": "FC Supra — LinkedIn officiel",
+        "publisher": "FC Supra du Québec",
+        "notes": ""
+      },
+      "aigles-home": {
+        "title": "Aigles de Trois-Rivières — Site officiel",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": ""
+      },
+      "aigles-jobs": {
+        "title": "Aigles — Emploi / candidatures spontanées",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": "Invite explicitement aux candidatures spontanées à rh@lesaiglestr.com ; ce n’est pas une offre de stage publiée."
+      },
+      "capitales-jobs": {
+        "title": "Capitales de Québec — Page officielle de recrutement",
+        "publisher": "Capitales de Québec",
+        "notes": "Plusieurs postes figurent sur la même page, sans date de publication ou date limite commune précisée."
+      },
+      "toundra-home": {
+        "title": "Toundra de Montréal — Site officiel",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-schedule": {
+        "title": "Toundra — Calendrier 2026",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-instagram": {
+        "title": "Toundra — Instagram",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "royal-home": {
+        "title": "Montréal Royal — Site officiel de l’équipe UFA",
+        "publisher": "Montréal Royal / UFA",
+        "notes": ""
+      },
+      "senators-home": {
+        "title": "Sénateurs d’Ottawa — Site officiel",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "Utilisé uniquement pour l’identité de base et les liens de navigation officiels."
+      },
+      "senators-program": {
+        "title": "Senators — Programme officiel de stages",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "Le programme exige d’être aux études et de recevoir des crédits ; consultez le système de candidature pour les offres disponibles."
+      },
+      "senators-ats": {
+        "title": "Senators — Système de recrutement BambooHR",
+        "publisher": "Ottawa Senators / BambooHR",
+        "notes": "Lien direct depuis le site officiel. Les offres sont chargées par JavaScript ; aucun stage précis de 2026 n’a été confirmé."
+      },
+      "senators-linkedin": {
+        "title": "Ottawa Senators — LinkedIn",
+        "publisher": "Ottawa Senators",
+        "notes": ""
+      },
+      "oseg-careers": {
+        "title": "OSEG / TD Place — Recrutement et stages avec crédits",
+        "publisher": "OSEG / TD Place",
+        "notes": "Le site officiel décrit plusieurs périodes de stage par an, sans garantir une offre dans chaque domaine à la date de vérification."
+      },
+      "oseg-ats": {
+        "title": "OSEG — Système de candidature ADP",
+        "publisher": "OSEG / ADP",
+        "notes": "Lien obtenu depuis le bouton de candidature officiel de TD Place ; accès limité aux offres dynamiques."
+      },
+      "oseg-fulltime": {
+        "title": "OSEG — Emplois à temps plein et parcours du personnel",
+        "publisher": "OSEG / TD Place",
+        "notes": "Les récits de stages du personnel ne sont pas des annonces de postes actuels."
+      },
+      "atletico-home": {
+        "title": "Atlético Ottawa — Site officiel du club en PLC",
+        "publisher": "Atlético Ottawa / CPL",
+        "notes": ""
+      },
+      "atletico-careers": {
+        "title": "Atlético Ottawa — Careers",
+        "publisher": "Atlético Ottawa",
+        "notes": "Accepte les CV et lettres de motivation à careers@atleticoottawa.club ; aucun poste précis ne figurait dans la liste."
+      },
+      "blackjacks-home": {
+        "title": "BlackJacks d’Ottawa — Site officiel",
+        "publisher": "Ottawa BlackJacks",
+        "notes": ""
+      },
+      "blackjacks-careers": {
+        "title": "Ottawa BlackJacks — Careers",
+        "publisher": "Ottawa BlackJacks",
+        "notes": "La page contient des liens de bénévolat les jours de match et un formulaire de CV, et non des offres de stage."
+      },
+      "titans-home": {
+        "title": "Titans d’Ottawa — Site officiel",
+        "publisher": "Ottawa Titans",
+        "notes": ""
+      },
+      "rapid-home": {
+        "title": "Ottawa Rapid FC — Site officiel",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-careers": {
+        "title": "Ottawa Rapid FC — Careers",
+        "publisher": "Ottawa Rapid FC",
+        "notes": "Accepte les candidatures spontanées à jobs@rapidfc.ca et présente un poste régulier en vente de groupes."
+      },
+      "rapid-sales": {
+        "title": "Ottawa Rapid — Chargé de comptes, vente de groupes",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-linkedin": {
+        "title": "Ottawa Rapid — LinkedIn",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "blackbears-closed": {
+        "title": "NLL — Cessation des activités des Ottawa Black Bears, 10 septembre 2026",
+        "publisher": "National Lacrosse League",
+        "notes": "La nouvelle annonce prévaut sur la navigation d’équipes non actualisée ; exclu des destinations actuelles de candidature."
+      },
+      "lnah-teams": {
+        "title": "LNAH — Répertoire des équipes et sites 2026–2027",
+        "publisher": "LNAH",
+        "notes": "Répertorie huit équipes, dont Manotick, mais pas les Pétroliers de Laval."
+      },
+      "qmjhl-teams": {
+        "title": "LHJMQ — Répertoire des équipes en présaison 2026 (données officielles dynamiques)",
+        "publisher": "CHL / LHJMQ",
+        "notes": "Les données officielles comportent 18 équipes et villes. Ce répertoire retient 12 équipes du Québec et deux du Nouveau-Brunswick. Les équipes juniors ne sont pas comptées comme professionnelles."
+      },
+      "lspro": {
+        "title": "LS PRO QC — Site officiel de la ligue",
+        "publisher": "LS PRO QC",
+        "notes": "L’index officiel était visible, mais la page principale renvoyait HTTP 403. La vérification du recrutement et des réseaux sociaux par équipe reste incomplète ; aucune liste exhaustive n’est revendiquée."
+      },
+      "soccerquebec": {
+        "title": "Soccer Québec — Association provinciale",
+        "publisher": "Soccer Québec",
+        "notes": "La marque officielle de 2026 est LS PRO ; l’ancien nom Ligue1 Québec reste utile pour les recherches."
+      },
+      "alliance-graphic-pdf": {
+        "title": "Stagiaire, Graphisme – Automne 2026 — PDF lié depuis le site officiel",
+        "publisher": "Alliance de Montréal",
+        "notes": "Les détails renvoyaient HTTP 403. Seuls le titre et la session d’automne 2026 ont été confirmés dans l’index officiel."
+      },
+      "alliance-partnership-pdf": {
+        "title": "Stagiaire, Partenariats – Automne 2026 — PDF lié depuis le site officiel",
+        "publisher": "Alliance de Montréal",
+        "notes": "Les détails renvoyaient HTTP 403. Seuls le titre et la session d’automne 2026 ont été confirmés dans l’index officiel."
+      },
+      "alliance-ticketing-pdf": {
+        "title": "Stagiaire, Ventes et billeterie – Automne 2026 — PDF lié depuis le site officiel",
+        "publisher": "Alliance de Montréal",
+        "notes": "Les détails renvoyaient HTTP 403. Seuls le titre et la session d’automne 2026 ont été confirmés dans l’index officiel."
+      },
+      "cf-crm-source": {
+        "title": "Spécialiste CRM – Salesforce",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-marketing-source": {
+        "title": "Chef(e) de projets et production marketing – TEMPORAIRE",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-coach-source": {
+        "title": "Éducateurs(trices) de soccer – Programme Parascolaire",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-maintenance-source": {
+        "title": "Technicien(e), maintenance bâtiments et opérations – Stade Saputo",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      }
+    },
+    "coverage": [
+      {
+        "name": "Clubs professionnels au Québec",
+        "description": "LNH, LAH, ECHL, LPHF, MLS, PLC, SLN, LCF, LECB, BSL et Frontier League ; chaque club distinct est compté une seule fois."
+      },
+      {
+        "name": "Bassin d’emploi bilingue d’Ottawa",
+        "description": "Option ontarienne présentée séparément ; elle ne signifie ni Québec ni lieu de travail entièrement francophone. Les Black Bears ont cessé leurs activités et ne figurent qu’en archives."
+      },
+      {
+        "name": "LNAH",
+        "description": "Les huit équipes du répertoire officiel 2026–2027 sont incluses, séparément des principales ligues professionnelles adultes. Le recrutement et les réseaux sociaux restent à vérifier par équipe."
+      },
+      {
+        "name": "Ligues juniors",
+        "description": "Douze équipes québécoises et deux équipes du Nouveau-Brunswick de la LHJMQ, ainsi que les 67’s d’Ottawa. Pistes de stages en opérations, et non équipes professionnelles adultes."
+      },
+      {
+        "name": "Catégories non examinées équipe par équipe",
+        "description": "LS PRO / Ligue1 Québec, autres ligues provinciales semi-professionnelles, clubs universitaires, communautaires ou amateurs, esport et organismes des communautés francophones dispersées. Les liens officiels sont fournis sans prétendre couvrir toutes les équipes."
+      }
+    ],
+    "cautions": [
+      "Le relevé date du 13 septembre 2026. Il ne s’agit pas d’un flux de recrutement en temps réel ; une page accessible ne confirme pas des places disponibles.",
+      "Tous les clubs ne recrutent pas de stagiaires. L’absence d’annonce publique ne signifie pas qu’un club n’en accueille jamais.",
+      "Les stages précis, programmes avec crédits, emplois réguliers, bénévolat, contacts spontanés et annonces expirées sont distingués.",
+      "Une rémunération non précisée ne signifie pas un poste non rémunéré. L’absence de rémunération ne dispense pas automatiquement des exigences de permis, d’assurance ou de convention scolaire.",
+      "Les noms chinois servent à la recherche. Utilisez les noms officiels français ou anglais dans vos candidatures.",
+      "Un groupe et les versions multilingues d’un même poste sont comptés une seule fois. Tous les postes d’un groupe ne sont pas attribués à une équipe.",
+      "Les liens sociaux reposent sur le site officiel ou une page officielle d’entreprise. Les comptes non vérifiés ne sont pas devinés."
+    ],
+    "history": [
+      {
+        "name": "Ottawa Black Bears",
+        "text": "La ligue a annoncé la cessation des activités le 10 septembre 2026 ; l’ancienne navigation peut encore inclure l’équipe.",
+        "sourceId": "blackbears-closed"
+      },
+      {
+        "name": "Banque générale de stages du CF Montréal",
+        "text": "L’index du club conserve le lien, mais SmartRecruiters indique explicitement que le poste a expiré.",
+        "sourceId": "cf-intern"
+      },
+      {
+        "name": "Pétroliers de Laval",
+        "text": "Absents du répertoire consulté des huit équipes LNAH 2026–2027, donc non ajoutés comme équipe active. Ce répertoire ne suffit pas à expliquer un éventuel déménagement.",
+        "sourceId": "lnah-teams"
+      },
+      {
+        "name": "Titan d’Acadie-Bathurst",
+        "text": "Les données juniors officielles de 2026 consultées répertorient le Newfoundland Regiment plutôt qu’une équipe à Bathurst. L’ancienne liste de villes n’a pas servi à ajouter un club actif dans la région.",
+        "sourceId": "qmjhl-teams"
+      }
+    ],
+    "resources": [
+      {
+        "title": "Recrutement du Groupe CH",
+        "category": "Employeur commun",
+        "url": "https://jobs.dayforcehcm.com/fr-CA/groupech/CANDIDATEPORTAL",
+        "note": "Postes liés aux Canadiens, au Rocket et au divertissement sportif. Vérifiez le lieu et le secteur d’activité."
+      },
+      {
+        "title": "Stages et emplois OSEG / TD Place",
+        "category": "Employeur commun",
+        "url": "https://www.tdplace.ca/careers/",
+        "note": "Accès distincts aux stages avec crédits, aux emplois à temps plein ou partiel et au bénévolat."
+      },
+      {
+        "title": "Candidatures officielles des Senators",
+        "category": "Système officiel de candidature",
+        "url": "https://ottawasenators.bamboohr.com/careers",
+        "note": "BambooHR, vérifié depuis le site officiel, sans reprendre un ancien système de candidature."
+      },
+      {
+        "title": "Recrutement des équipes de la LPHF",
+        "category": "Recrutement de la ligue",
+        "url": "https://www.teamworkonline.com/hockey-jobs/pwhl-jobs/pwhl-league-office-jobs",
+        "note": "Filtrez pour Montréal ou Ottawa. Les autres villes sont hors de ce répertoire."
+      },
+      {
+        "title": "Emplois LCF / CFL",
+        "category": "Recrutement de la ligue",
+        "url": "https://www.lcf.ca/emplois/",
+        "note": "Distinguez les postes du bureau de la ligue de ceux des équipes."
+      },
+      {
+        "title": "Répertoire des équipes LNAH",
+        "category": "Ligues complémentaires",
+        "url": "https://www.lnah.com/fr/page/equipes.html",
+        "note": "Source de vérification des huit équipes et de leurs sites pour 2026–2027."
+      },
+      {
+        "title": "LHJMQ / QMJHL",
+        "category": "Ligue junior",
+        "url": "https://chl.ca/lhjmq/",
+        "note": "Pistes de stages en opérations d’équipes juniors ; pas une ligue professionnelle adulte."
+      },
+      {
+        "title": "LS PRO QC",
+        "category": "Soccer provincial",
+        "url": "https://www.lsproqc.com/",
+        "note": "Anciennement Ligue1 Québec. Équipes non examinées individuellement ; vérifiez les divisions féminines ou masculines, le niveau et la saison."
+      },
+      {
+        "title": "Soccer Québec",
+        "category": "Association / périmètre complémentaire",
+        "url": "https://www.soccerquebec.org/",
+        "note": "Vérifiez les clubs de soccer provinciaux, les appellations et les saisons."
+      }
+    ]
+  }
+}

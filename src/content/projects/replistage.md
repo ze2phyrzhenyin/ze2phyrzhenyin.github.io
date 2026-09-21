@@ -3,7 +3,7 @@ title: "RepliStage"
 description: "A theatre rehearsal prototype for structuring scripts into props, characters, actions, blocking, and dialogue turns, with playback and editing workflows."
 date: 2026-05-22
 status: active
-demo: "https://replistage.vercel.app/"
+demo: "https://zhauyoung.com/theatre/"
 cover: "/images/projects/replistage.png"
 i18n:
   en:

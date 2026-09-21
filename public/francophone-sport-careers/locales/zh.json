@@ -1,0 +1,1418 @@
+{
+  "ui": {
+    "site": {
+      "title": "加拿大法语区体育求职目录",
+      "description": "加拿大法语区体育行业资料目录：实习、俱乐部与其他岗位，附官方来源。",
+      "regions": "魁北克 · 渥太华 · 新不伦瑞克",
+      "snapshot": "资料快照：{{date}}",
+      "availability": "岗位是否仍开放，请查看雇主最新公告。",
+      "footer": "加拿大法语区体育求职资料 · {{date}}",
+      "pageTitle": "{{section}} · 加拿大法语区体育求职目录"
+    },
+    "nav": {
+      "guides": "攻略目录",
+      "skip": "跳到内容",
+      "label": "资料分类",
+      "language": "语言",
+      "internships": "实习",
+      "clubs": "俱乐部",
+      "jobs": "其他岗位",
+      "resources": "官方来源"
+    },
+    "download": {
+      "label": "下载资料 JSON",
+      "source": "原始中文资料，保留官方岗位原名"
+    },
+    "load": {
+      "title": "资料未加载",
+      "body": "请刷新重试，或下载完整资料。",
+      "reload": "重新加载",
+      "noscript": "请启用 JavaScript 浏览和筛选目录。"
+    },
+    "status": {
+      "expired": "已过期",
+      "listed": "快照时列出",
+      "limited": "详情待核实",
+      "program": "项目入口",
+      "inactive": "已停止运营"
+    },
+    "category": {
+      "label": "{{section}}分类",
+      "specific": "具体实习",
+      "program": "实习项目",
+      "expired": "已过期",
+      "all": "全部",
+      "active": "活跃俱乐部",
+      "employer": "共享雇主",
+      "inactive": "历史记录",
+      "job": "正式 / 季节性",
+      "volunteer": "志愿服务"
+    },
+    "filter": {
+      "search": "搜索",
+      "label": "筛选",
+      "reset": "重置",
+      "clear": "清除筛选",
+      "searchLabel": "搜索{{section}}",
+      "clubsPlaceholder": "名称、城市、联赛",
+      "jobsPlaceholder": "岗位、俱乐部、职能",
+      "sourcesPlaceholder": "机构、来源或域名",
+      "geo": "地区",
+      "sport": "运动",
+      "tier": "层级",
+      "pay": "报酬",
+      "allGeo": "全部地区",
+      "allSport": "全部运动",
+      "allTier": "全部层级",
+      "allPay": "全部报酬"
+    },
+    "heading": {
+      "internships": "实习岗位与项目",
+      "internshipsNote": "项目入口与具体岗位分开列出。",
+      "clubs": "俱乐部名录",
+      "clubsNote": "职业、半职业及青年联赛分层收录。",
+      "jobs": "其他岗位",
+      "jobsNote": "正式、季节性岗位及志愿服务。"
+    },
+    "results": {
+      "club_one": "显示 {{count}} 家机构",
+      "club_other": "显示 {{count}} 家机构",
+      "source_one": "显示 {{count}} 个来源",
+      "source_other": "显示 {{count}} 个来源",
+      "opportunity_one": "显示 {{count}} 条信息",
+      "opportunity_other": "显示 {{count}} 条信息",
+      "clubMeta": "名称、联赛与官方入口",
+      "emptyTitle": "没有匹配的结果",
+      "emptyBody": "试试其他关键词，或清除筛选条件。"
+    },
+    "note": {
+      "clubs": "未收录岗位不代表该机构不接受实习；青年球队的链接可能指向联盟目录。",
+      "jobs": "薪资未公开不等于无薪。招聘状态以雇主最新公告为准。"
+    },
+    "action": {
+      "details": "查看详情",
+      "profile": "查看资料",
+      "detailsLabel": "查看{{title}}详情",
+      "profileLabel": "查看{{name}}资料",
+      "latest": "最新招聘",
+      "posting": "官方公告",
+      "careers": "招聘入口",
+      "website": "官网",
+      "closure": "停运公告",
+      "league": "联盟入口",
+      "leagueDirectory": "联盟目录",
+      "group": "集团入口",
+      "company": "官方公司页",
+      "originalEvidence": "原始依据"
+    },
+    "sources": {
+      "heading": "官方来源与招聘入口",
+      "date": "来源核实日期：{{date}}",
+      "coverage": "覆盖范围与资料说明",
+      "records": "来源记录",
+      "searchNote": "可按机构或域名搜索。",
+      "statusNote": "页面访问状态，不代表当前招聘状态",
+      "full": "正文可读取",
+      "index": "索引已核实",
+      "limited": "详情读取受限"
+    },
+    "detail": {
+      "close": "关闭",
+      "unknown": "未公开",
+      "expiredNote": "此公告已过期。查看当前岗位请使用下方的最新招聘入口。",
+      "responsibilities": "职责",
+      "requirements": "要求",
+      "application": "申请信息",
+      "oldApplication": "原公告申请信息",
+      "email": "联系邮箱：",
+      "unknowns": "待确认信息",
+      "evidence": "来源记录 · {{date}}",
+      "apply": "官方申请入口",
+      "latest": "最新招聘入口",
+      "original": "原始公告",
+      "club": "俱乐部资料",
+      "employer": "共享雇主",
+      "socials": "官网与社交媒体",
+      "related": "收录的岗位与项目 · {{count}}",
+      "noRelated": "暂无收录的具体岗位，可查看官方招聘入口。",
+      "defaultEvidence": "机构资料与公开入口按以下来源整理。"
+    },
+    "field": {
+      "department": "职能",
+      "workMode": "工作安排",
+      "period": "开始 / 期间",
+      "duration": "时长 / 工时",
+      "pay": "报酬",
+      "contract": "合同 / 类型",
+      "deadline": "截止日期",
+      "posted": "发布日期",
+      "city": "城市",
+      "region": "地区",
+      "league": "联赛",
+      "venue": "场馆",
+      "email": "公共邮箱",
+      "phone": "电话"
+    }
+  },
+  "content": {
+    "taxonomies": {
+      "geography": {
+        "quebec": "魁北克",
+        "ottawa": "渥太华双语圈",
+        "new-brunswick": "新不伦瑞克拓展"
+      },
+      "sport": {
+        "soccer": "足球",
+        "ice-hockey": "冰球",
+        "basketball": "篮球",
+        "baseball": "棒球",
+        "football": "加拿大式橄榄球",
+        "ultimate": "极限飞盘",
+        "lacrosse": "长曲棍球",
+        "multi": "综合体育 / 集团"
+      },
+      "tier": {
+        "pro": "职业俱乐部",
+        "minor-pro": "职业小联盟",
+        "semi-pro": "半职业 / 发展型",
+        "junior": "青年联赛拓展",
+        "group": "共享雇主"
+      },
+      "type": {
+        "internship": "具体实习",
+        "program": "实习项目入口",
+        "job": "正式 / 季节性岗位",
+        "volunteer": "志愿服务"
+      },
+      "status": {
+        "listed": "官方仍列出",
+        "detail-limited": "索引列出 · 详情待核",
+        "expired": "明确过期",
+        "program": "项目 / 报名入口",
+        "historical": "历史记录"
+      },
+      "pay": {
+        "paid": "已公开报酬",
+        "unpaid": "明确无薪",
+        "not-disclosed": "薪资未公开"
+      }
+    },
+    "clubs": {
+      "alliance": {
+        "city": "Montréal · Verdun",
+        "league": "CEBL / LECB",
+        "venue": "Auditorium de Verdun",
+        "description": "蒙特利尔的加拿大精英篮球联赛俱乐部。已发现2026秋季实习招聘索引及内容创作实习详情。",
+        "notes": "同一岗位法语/英语页面合并，不重复计算。",
+        "alias": "蒙特利尔联盟"
+      },
+      "roses": {
+        "city": "Montréal / Laval",
+        "league": "NSL / SLN · 女子",
+        "venue": "Stade Boréale；部分活动在Stade Saputo",
+        "description": "女子职业足球俱乐部。官方招聘页区分实习与志愿者；理疗实习对专业背景有明确要求。",
+        "notes": "",
+        "alias": "蒙特利尔玫瑰"
+      },
+      "cfmontreal": {
+        "city": "Montréal",
+        "league": "MLS",
+        "venue": "Stade Saputo",
+        "description": "蒙特利尔MLS俱乐部。招聘索引包含市场、CRM、场馆运营等岗位；原通用实习申请池已在ATS中过期。",
+        "notes": "官网仍列出实习链接不代表申请仍开放；以申请系统状态为准。",
+        "alias": "蒙特利尔足球俱乐部"
+      },
+      "canadiens": {
+        "city": "Montréal",
+        "league": "NHL / LNH",
+        "venue": "Centre Bell",
+        "description": "蒙特利尔NHL俱乐部；重点查看Groupe CH的统一招聘渠道。",
+        "notes": "Groupe CH也涉及演出和场馆业务，不能把集团所有岗位都当成球队岗位。",
+        "alias": "蒙特利尔加拿大人"
+      },
+      "rocket": {
+        "city": "Laval",
+        "league": "AHL / LAH",
+        "venue": "Place Bell",
+        "description": "拉瓦尔AHL职业冰球队，招聘可通过Groupe CH统一平台查询。",
+        "notes": "与Canadiens共享集团渠道，但属于不同球队；同一集团实习不重复统计。",
+        "alias": "拉瓦尔火箭"
+      },
+      "lions": {
+        "city": "Trois-Rivières",
+        "league": "ECHL",
+        "venue": "Colisée Vidéotron",
+        "description": "三河市ECHL职业俱乐部；官网可见2026–27赛季信息及独立招聘页。",
+        "notes": "招聘页部分信息为图片，本次未能逐岗位核验。公开联系邮箱不被包装为正在招聘的实习。",
+        "alias": "三河市雄狮"
+      },
+      "alouettes": {
+        "city": "Montréal",
+        "league": "CFL / LCF",
+        "venue": "Stade Percival-Molson",
+        "description": "蒙特利尔加拿大式橄榄球职业俱乐部。可通过官方页面、LCF和雇主招聘主页跟进。",
+        "notes": "官网直接读取受限；未把搜索片段中的未定年实习列为有效岗位。公共邮箱不是经确认的实习招聘邮箱。",
+        "alias": "蒙特利尔云雀"
+      },
+      "victoire": {
+        "city": "Montréal / Laval",
+        "league": "PWHL / LPHF · 女子",
+        "venue": "",
+        "description": "女子职业冰球队；拥有独立的TeamWork Online招聘入口。",
+        "notes": "核实时该球队页面没有岗位结果；仍可订阅官方职位提醒。",
+        "alias": "蒙特利尔胜利"
+      },
+      "supra": {
+        "city": "Laval",
+        "league": "CPL / PLC",
+        "venue": "Stade Boréale",
+        "description": "2026赛季参加加拿大超级联赛的魁北克职业足球俱乐部。与CF Montréal和Roses为不同组织。",
+        "notes": "未核实独立招聘页或实习公告；官网及官方LinkedIn仅作为研究联系入口。球员训练营不是求职实习。",
+        "alias": "魁北克Supra足球俱乐部"
+      },
+      "capitales": {
+        "city": "Québec",
+        "league": "Frontier League",
+        "venue": "Stade Canac",
+        "description": "魁北克市职业棒球队。招聘页列有设计、会计、票务与内容岗位；未明确标为实习。",
+        "notes": "页面有多个职位块，未公布的薪资、期限与实习属性均保持未知。",
+        "alias": "魁北克首府棒球队"
+      },
+      "aigles": {
+        "city": "Trois-Rivières",
+        "league": "Frontier League",
+        "venue": "",
+        "description": "三河市职业棒球组织。官网明确接受向人力资源邮箱发送主动申请。",
+        "notes": "本条指职业球队，而非同品牌青年球队；邮件应写明目标部门与学校实习需求。",
+        "alias": "三河市雄鹰棒球队"
+      },
+      "toundra": {
+        "city": "Montréal",
+        "league": "Basketball Super League · BSL",
+        "venue": "Centre Pierre-Charbonneau",
+        "description": "职业篮球俱乐部；官方2026赛程可核实。与CEBL的Alliance不是同一支队伍。",
+        "notes": "未核实当前实习公告；不能因俱乐部职业化就推定办公室实习有薪。",
+        "alias": "蒙特利尔苔原"
+      },
+      "royal": {
+        "city": "Montréal",
+        "league": "UFA",
+        "venue": "",
+        "description": "UFA蒙特利尔球队，作为发展型职业体育生态的拓展目标单列。",
+        "notes": "本库采用保守的“半职业/发展型”分类，不承诺运动员或运营人员为全职受薪。未核实具体实习。",
+        "alias": "蒙特利尔皇家飞盘队"
+      },
+      "senators": {
+        "city": "Ottawa · Kanata",
+        "league": "NHL / LNH",
+        "venue": "Canadian Tire Centre",
+        "description": "渥太华NHL俱乐部。官方提供学分实习项目入口。",
+        "notes": "安大略省的双语求职圈拓展；岗位工作语言与境外学生资格需逐项确认。",
+        "alias": "渥太华参议员"
+      },
+      "redblacks": {
+        "city": "Ottawa",
+        "league": "CFL / LCF",
+        "venue": "TD Place",
+        "description": "渥太华加拿大式橄榄球职业俱乐部；通过OSEG平台关注球队及场馆职能。",
+        "notes": "OSEG实习为集团项目，不能保证分配到REDBLACKS；不重复创建同一项目岗位。",
+        "alias": "渥太华红黑"
+      },
+      "atletico": {
+        "city": "Ottawa",
+        "league": "CPL / PLC",
+        "venue": "",
+        "description": "渥太华职业足球俱乐部。官方招聘页公开接收简历与求职信。",
+        "notes": "主动申请不代表实习空缺；目前读取到的页面未列具体职位。",
+        "alias": "渥太华竞技"
+      },
+      "blackjacks": {
+        "city": "Ottawa",
+        "league": "CEBL / LECB",
+        "venue": "The Arena at TD Place",
+        "description": "加拿大精英篮球联赛的渥太华俱乐部。招聘页有简历提交表及比赛日志愿者入口。",
+        "notes": "Game day volunteers归入志愿者，绝不等同于学校实习。",
+        "alias": "渥太华黑杰克"
+      },
+      "titans": {
+        "city": "Ottawa",
+        "league": "Frontier League",
+        "venue": "Ottawa Stadium · 300 Coventry Road",
+        "description": "渥太华职业棒球队。官网提供公共联系渠道；现有搜索结果中的旧实习不被当作2026名额。",
+        "notes": "该邮箱为公共联系邮箱。2023比赛日实习和2022联盟数据合作公告均不能证明现有空缺。",
+        "alias": "渥太华泰坦棒球队"
+      },
+      "rapid": {
+        "city": "Ottawa",
+        "league": "NSL / SLN · 女子",
+        "venue": "TD Place",
+        "description": "女子职业足球俱乐部。招聘页接受主动申请，并列出集团销售客户经理正式职位。",
+        "notes": "正式销售职位不是实习；可单独询问未来学期安排。",
+        "alias": "渥太华激流女子足球俱乐部"
+      },
+      "charge": {
+        "city": "Ottawa",
+        "league": "PWHL / LPHF · 女子",
+        "venue": "",
+        "description": "渥太华女子职业冰球队，具有球队专属招聘页。",
+        "notes": "核实时该球队专属招聘页没有结果。联盟其他城市的岗位不计入本队。",
+        "alias": "渥太华冲锋女子冰球队"
+      },
+      "blackbears": {
+        "city": "Ottawa",
+        "league": "NLL",
+        "venue": "",
+        "description": "NLL于2026年9月10日宣布球队停止运营，不参加2026–27赛季。",
+        "notes": "保留以防旧名单误导；不纳入活跃俱乐部总数，不建议按当前球队进行投递。",
+        "alias": "渥太华黑熊（已停止运营）"
+      },
+      "thetford": {
+        "city": "Thetford Mines",
+        "league": "LNAH",
+        "venue": "Centre Mario-Gosselin",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "泰特福德Assurancia"
+      },
+      "jonquiere": {
+        "city": "Jonquière · Saguenay",
+        "league": "LNAH",
+        "venue": "Palais des sports de Jonquière",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "容基耶尔侯爵"
+      },
+      "sorel": {
+        "city": "Sorel-Tracy",
+        "league": "LNAH",
+        "venue": "Colisée Cardin",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "索雷尔-特雷西雀鹰"
+      },
+      "rdl": {
+        "city": "Rivière-du-Loup",
+        "league": "LNAH",
+        "venue": "Centre Premier Tech",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "里维耶尔-迪卢3L"
+      },
+      "coolfm": {
+        "city": "Saint-Georges",
+        "league": "LNAH",
+        "venue": "Centre sportif Lacroix-Dutil（目录名称）",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "圣乔治Cool FM"
+      },
+      "national": {
+        "city": "L’Ancienne-Lorette",
+        "league": "LNAH",
+        "venue": "Complexe sportif de l’Ancienne-Lorette",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "魁北克National"
+      },
+      "bataillon": {
+        "city": "Saint-Hyacinthe",
+        "league": "LNAH",
+        "venue": "Stade L.-P.-Gaucher",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。",
+        "alias": "圣亚森特营队"
+      },
+      "manotick": {
+        "city": "Manotick · Ottawa",
+        "league": "LNAH",
+        "venue": "Mike O’Neil Arena",
+        "description": "LNAH官方2026–27球队目录成员。作为独立小联盟/半职业体育运营拓展目标单列。",
+        "notes": "只核实球队身份、官方入口与目录场馆；招聘岗位、薪资和独立社媒尚未逐项确认。目前使用联盟目录入口，不冒充独立球队官网。",
+        "alias": "马诺蒂克水手"
+      },
+      "armada": {
+        "city": "Blainville-Boisbriand",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "布兰维尔-布瓦布里昂舰队"
+      },
+      "drakkar": {
+        "city": "Baie-Comeau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "贝科莫龙船"
+      },
+      "sagueneens": {
+        "city": "Chicoutimi · Saguenay",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "希库蒂米萨格奈人"
+      },
+      "voltigeurs": {
+        "city": "Drummondville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "德拉蒙德维尔伏击兵"
+      },
+      "olympiques": {
+        "city": "Gatineau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "加蒂诺奥林匹克"
+      },
+      "remparts": {
+        "city": "Québec",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "魁北克城墙"
+      },
+      "oceanic": {
+        "city": "Rimouski",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "里穆斯基海洋"
+      },
+      "huskies": {
+        "city": "Rouyn-Noranda",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "鲁安-诺兰达哈士奇"
+      },
+      "cataractes": {
+        "city": "Shawinigan",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "沙威尼根瀑布"
+      },
+      "phoenix": {
+        "city": "Sherbrooke",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "舍布鲁克凤凰"
+      },
+      "foreurs": {
+        "city": "Val-d’Or",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "瓦勒多尔钻探者"
+      },
+      "tigres": {
+        "city": "Victoriaville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "维多利亚维尔猛虎"
+      },
+      "wildcats": {
+        "city": "Moncton",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "蒙克顿野猫"
+      },
+      "seadogs": {
+        "city": "Saint John",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "LHJMQ青年顶级冰球队。工作人员与赛事运营可作为实习拓展方向，但球队竞技层级不是成人职业联赛。",
+        "notes": "球队身份与城市由2026官方数据核实；本条官网按钮指向联盟入口。独立官网、社媒及招聘尚待补核，未宣称存在实习。",
+        "alias": "圣约翰海狗"
+      },
+      "67s": {
+        "city": "Ottawa",
+        "league": "OHL",
+        "venue": "The Arena at TD Place",
+        "description": "OSEG旗下青年冰球队。通过集团学分实习项目探索球队与场馆职能。",
+        "notes": "青年球队拓展，不属于成人职业联赛；OSEG实习不保证分配至本队。官网按钮暂为已核实的集团入口。",
+        "alias": "渥太华67人"
+      },
+      "groupech": {
+        "city": "Montréal / Laval",
+        "league": "共享雇主 · Canadiens / Rocket",
+        "venue": "",
+        "description": "Canadiens与Rocket的共同雇主生态；也覆盖Centre Bell、Place Bell与娱乐业务。",
+        "notes": "单独列为雇主，不增加俱乐部总数；本轮未确认正在开放的实习岗位。",
+        "alias": "Groupe CH 体育娱乐集团"
+      },
+      "oseg": {
+        "city": "Ottawa",
+        "league": "共享雇主 · REDBLACKS / 67’s / TD Place",
+        "venue": "TD Place / Lansdowne",
+        "description": "官方明确提供与高等教育学分相关的多批次实习机会；按集团项目收录一次。",
+        "notes": "实习项目与具体岗位分开；需要在ADP确认学期、部门和空缺。",
+        "alias": "渥太华体育娱乐集团"
+      }
+    },
+    "opportunities": {
+      "alliance-content-intern": {
+        "department": "内容 / 社交媒体 / 数据分析",
+        "payText": "明确无薪",
+        "period": "尽快开始；未注明结束时间",
+        "duration": "约20小时 / 周",
+        "workMode": "现场 · Verdun及蒙特利尔拍摄地",
+        "contract": "临时 / 兼职实习",
+        "applyInstructions": "邮件主题写岗位名称。不要求CV；附约1分钟自我介绍视频，以及LinkedIn链接（如有）。",
+        "responsibilities": [
+          "拍摄经营与创业相关视频，协助内容日历与剪辑协作。",
+          "跟踪浏览量、留存和互动数据，提出内容改进建议。"
+        ],
+        "requirements": [
+          "对数字内容、体育及创业有兴趣；相关学习背景为加分项。",
+          "可按办公时段工作，非办公时段可用为加分项。"
+        ],
+        "unknowns": [
+          "截止日期、结束日期、学校协议及境外申请资格未公布。"
+        ],
+        "evidence": "官方招聘索引仍列出，完整PDF可读取；没有公开截止日期。投递前确认是否仍有名额。",
+        "displayTitle": "内容创作实习 · 共同所有者办公室"
+      },
+      "alliance-graphic": {
+        "department": "设计 / 视觉",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "2026年秋季",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "先打开俱乐部官方招聘页，点击对应2026秋季岗位；以最新PDF中的申请方式为准。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "薪资、每周工时、起止日期、具体要求与申请邮箱本轮均未核实。"
+        ],
+        "evidence": "法语/英语官网索引列出该实习；详情PDF读取返回403。不能套用旧夏季岗位条款。",
+        "displayTitle": "平面设计实习 · 2026秋季"
+      },
+      "alliance-partnership": {
+        "department": "赞助 / 商业合作",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "2026年秋季",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "先打开俱乐部官方招聘页，点击对应2026秋季岗位；以最新PDF中的申请方式为准。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "薪资、每周工时、起止日期、具体要求与申请邮箱本轮均未核实。"
+        ],
+        "evidence": "法语/英语官网索引列出该实习；详情PDF读取返回403。不能套用旧夏季岗位条款。",
+        "displayTitle": "商业合作实习 · 2026秋季"
+      },
+      "alliance-ticketing": {
+        "department": "销售 / 票务",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "2026年秋季",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "先打开俱乐部官方招聘页，点击对应2026秋季岗位；以最新PDF中的申请方式为准。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "薪资、每周工时、起止日期、具体要求与申请邮箱本轮均未核实。"
+        ],
+        "evidence": "法语/英语官网索引列出该实习；详情PDF读取返回403。不能套用旧夏季岗位条款。",
+        "displayTitle": "销售与票务实习 · 2026秋季"
+      },
+      "roses-physio-intern": {
+        "department": "运动健康 / 医疗支持",
+        "payText": "明确无薪",
+        "period": "工作日训练时段8:00–14:00；具体起止日期未公布",
+        "duration": "每周3–5天",
+        "workMode": "现场 · Montréal",
+        "contract": "临时实习",
+        "applyInstructions": "向官方邮箱提交申请，写明理疗/运动治疗专业、可参与的日期及相关培训；原文未指定固定邮件主题。",
+        "responsibilities": [
+          "在专业人员监督下参与训练/比赛支持、器材准备和运动贴扎。",
+          "协助预防与恢复工作、运动员跟踪资料整理。"
+        ],
+        "requirements": [
+          "理疗或运动治疗在读；已接受运动贴扎培训。",
+          "First Responder证书与运动队/赛事经历为加分项。"
+        ],
+        "unknowns": [
+          "无截止日期；学校协议、保险与境外学生资格需确认。"
+        ],
+        "evidence": "官方招聘页列出，2页PDF已核对。属于专业健康方向，并非面向任意专业。",
+        "displayTitle": "理疗 / 运动治疗实习"
+      },
+      "oseg-intern-program": {
+        "department": "集团多部门 · 按ATS确认",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "从TD Place招聘页进入ADP，搜索Intern / Internship / Co-op；核对学期和具体部门。",
+        "responsibilities": [],
+        "requirements": [
+          "官网面向需要完成高等教育实习学分的学生。"
+        ],
+        "unknowns": [
+          "当前名额、部门、期限、报酬、语言与境外学校资格。"
+        ],
+        "evidence": "官方描述全年有多次实习接收安排；ADP动态职位列表未完整读取。仅计作项目入口。",
+        "displayTitle": "OSEG 学分实习项目入口"
+      },
+      "senators-intern-program": {
+        "department": "具体部门待核实",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "进入官方BambooHR查询实习。",
+        "responsibilities": [],
+        "requirements": [
+          "在读、需实习学分。"
+        ],
+        "unknowns": [
+          "当前岗位、报酬和日期。"
+        ],
+        "evidence": "项目入口；并非空缺。",
+        "displayTitle": "Senators 学分实习项目入口"
+      },
+      "cf-intern-expired": {
+        "department": "人力 / 行政 / 市场 / 传播",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "不要通过已过期帖子投递；返回CF Montréal招聘页寻找新公告。",
+        "responsibilities": [],
+        "requirements": [
+          "原公告面向学院/大学学生。"
+        ],
+        "unknowns": [
+          "原文让申请者说明有薪或无薪需求，并非承诺有薪。"
+        ],
+        "evidence": "ATS底部明确显示「Désolé, ce poste a expiré」，即使官网索引仍保留链接。",
+        "displayTitle": "通用实习申请池 · 已过期"
+      },
+      "cf-crm": {
+        "department": "CRM / 数字化",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "通过SmartRecruiters原始岗位申请；查看最新任职要求。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官网索引和ATS详情可访问，申请页显示兴趣申请入口。未保证岗位尚未招满。",
+        "displayTitle": "Salesforce CRM 专员"
+      },
+      "cf-marketing": {
+        "department": "市场 / 制作",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "通过SmartRecruiters原始岗位申请；查看最新任职要求。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官网索引和ATS详情可访问，申请页显示兴趣申请入口。未保证岗位尚未招满。",
+        "displayTitle": "市场项目与制作经理 · 临时"
+      },
+      "cf-coach": {
+        "department": "教学 / 社区",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "通过SmartRecruiters原始岗位申请；查看最新任职要求。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官网索引和ATS详情可访问，申请页显示兴趣申请入口。未保证岗位尚未招满。",
+        "displayTitle": "课外足球项目教练"
+      },
+      "cf-maintenance": {
+        "department": "场馆 / 设施",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "通过SmartRecruiters原始岗位申请；查看最新任职要求。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官网索引和ATS详情可访问，申请页显示兴趣申请入口。未保证岗位尚未招满。",
+        "displayTitle": "体育场设施维护与运营技术员"
+      },
+      "cf-security": {
+        "department": "安全 / 赛事",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "在CF Montréal招聘索引点击同名岗位，核实当前ATS状态后申请。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "仅核实官网索引列出；本轮未逐一核对申请系统。",
+        "displayTitle": "比赛日安保人员"
+      },
+      "cf-pitch": {
+        "department": "场地运营",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "在CF Montréal招聘索引点击同名岗位，核实当前ATS状态后申请。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "仅核实官网索引列出；本轮未逐一核对申请系统。",
+        "displayTitle": "运动场地协调员"
+      },
+      "cf-medical": {
+        "department": "运动医学",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "在CF Montréal招聘索引点击同名岗位，核实当前ATS状态后申请。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "仅核实官网索引列出；本轮未逐一核对申请系统。",
+        "displayTitle": "运动医学负责人"
+      },
+      "cf-concessions": {
+        "department": "餐饮 / 比赛日",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "在CF Montréal招聘索引点击同名岗位，核实当前ATS状态后申请。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "仅核实官网索引列出；本轮未逐一核对申请系统。",
+        "displayTitle": "比赛日餐饮售卖督导"
+      },
+      "alliance-digital": {
+        "department": "数字营销 / 广告",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "2026年秋季开始",
+        "duration": "未公开",
+        "workMode": "Verdun / 混合办公",
+        "contract": "全职 / 长期职位",
+        "applyInstructions": "由官方招聘页进入数字营销岗位。9月15日截止信息来自球队官方LinkedIn；投递前再核对。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "具体薪资与申请方式请以官方完整JD为准。"
+        ],
+        "evidence": "官网列出职位；官方LinkedIn动态列有截止日期。详情PDF本轮返回403。",
+        "displayTitle": "数字营销绩效与广告协调员"
+      },
+      "rapid-groupsales": {
+        "department": "销售 / CRM / 票务",
+        "payText": "总报酬CAD 50,000–55,000 / 年（基本薪酬＋奖金），另有福利；不是实习薪资",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "需在Ottawa，含晚间/周末赛事",
+        "contract": "全职 / 新增长期职位",
+        "applyInstructions": "CV＋求职信发送到jobs@rapidfc.ca；主题注明岗位名称。",
+        "responsibilities": [
+          "拓展团体客户与票务体验业务；维护社区关系、跟进销售与赛事交付。"
+        ],
+        "requirements": [
+          "至少1年相关销售/客户管理经验；相关高等教育或同等经验。",
+          "Excel、CRM和票务工具经验；法英双语能力为突出优势。"
+        ],
+        "unknowns": [],
+        "evidence": "官方招聘页与职位正文均可访问；无公开截止日期。",
+        "displayTitle": "团体票务销售客户经理"
+      },
+      "caps-designer": {
+        "department": "设计",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "查看Capitales官方招聘页面对应职位块与原始申请链接。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "该页没有清晰统一的发布日期、截止日期；未标为实习。"
+        ],
+        "evidence": "官网仍列出该职位；外部申请状态未逐项核实。职位块合并去重。",
+        "displayTitle": "平面设计师 · 季节性"
+      },
+      "caps-accounting": {
+        "department": "财务",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "查看Capitales官方招聘页面对应职位块与原始申请链接。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "该页没有清晰统一的发布日期、截止日期；未标为实习。"
+        ],
+        "evidence": "官网仍列出该职位；外部申请状态未逐项核实。职位块合并去重。",
+        "displayTitle": "会计文员 · 季节性"
+      },
+      "caps-ticketing": {
+        "department": "票务 / 客户运营",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "查看Capitales官方招聘页面对应职位块与原始申请链接。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "该页没有清晰统一的发布日期、截止日期；未标为实习。"
+        ],
+        "evidence": "官网仍列出该职位；外部申请状态未逐项核实。职位块合并去重。",
+        "displayTitle": "票务与策略协调员"
+      },
+      "caps-social": {
+        "department": "社媒 / 内容",
+        "payText": "未公开；不要据此认定为无薪",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "查看Capitales官方招聘页面对应职位块与原始申请链接。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "该页没有清晰统一的发布日期、截止日期；未标为实习。"
+        ],
+        "evidence": "官网仍列出该职位；外部申请状态未逐项核实。职位块合并去重。",
+        "displayTitle": "社交媒体经理与内容创作者"
+      },
+      "roses-volunteer": {
+        "department": "志愿服务",
+        "payText": "志愿者，不作为实习薪资判断",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "从官网志愿者板块进入表单；学校是否认可需另行确认。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官方招聘页设独立志愿者板块。",
+        "displayTitle": "比赛与俱乐部活动志愿者入口"
+      },
+      "blackjacks-volunteer": {
+        "department": "志愿服务 / 比赛日",
+        "payText": "志愿服务；不等同学校实习",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "官网查看志愿者链接与联系表单。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "当前Careers页面主要可见此志愿者入口。",
+        "displayTitle": "比赛日志愿者入口"
+      },
+      "cf-volunteer": {
+        "department": "志愿服务 / 筹款",
+        "payText": "志愿者",
+        "period": "未公开",
+        "duration": "未公开",
+        "workMode": "未公开",
+        "contract": "未公开",
+        "applyInstructions": "由俱乐部招聘索引进入对应志愿者公告。",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "官网索引列出，不能误标为带薪岗位或实习。",
+        "displayTitle": "50/50筹款志愿者"
+      }
+    },
+    "sources": {
+      "cf-home": {
+        "title": "CF Montréal — 官方网站",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "cf-careers": {
+        "title": "CF Montréal — Carrières",
+        "publisher": "CF Montréal",
+        "notes": "招聘索引与申请系统可能不同步；逐条记录状态。"
+      },
+      "cf-intern": {
+        "title": "CF Montréal — 实习申请池（已过期）",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": "页面底部明确显示「Désolé, ce poste a expiré」。"
+      },
+      "cf-linkedin": {
+        "title": "CF Montréal — LinkedIn",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "alliance-home": {
+        "title": "Alliance de Montréal — 官网",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-careers": {
+        "title": "Alliance — 法语招聘索引",
+        "publisher": "Alliance de Montréal",
+        "notes": "4项实习及1项全职职位；2026秋季三项实习PDF读取受限。"
+      },
+      "alliance-careers-en": {
+        "title": "Alliance — 英语招聘索引",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-content": {
+        "title": "Alliance — 内容创作实习官方PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "两页PDF；已核对正文与页面图像。没有公布截止日期。"
+      },
+      "alliance-linkedin": {
+        "title": "Alliance — 官方LinkedIn招聘动态",
+        "publisher": "Alliance de Montréal",
+        "notes": "数字营销全职岗位帖子列明2026-09-15截止。"
+      },
+      "roses-home": {
+        "title": "Roses de Montréal — 官方网站",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "roses-careers": {
+        "title": "Roses — Carrières",
+        "publisher": "Roses de Montréal",
+        "notes": "区分志愿者入口与理疗实习。"
+      },
+      "roses-physio": {
+        "title": "Roses — 理疗/运动治疗实习官方PDF",
+        "publisher": "Roses de Montréal",
+        "notes": "已核对两页图像；无薪，每周3–5天，未公布截止日期。"
+      },
+      "roses-linkedin": {
+        "title": "Roses — LinkedIn",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "canadiens-home": {
+        "title": "Canadiens de Montréal — 官方网站",
+        "publisher": "Canadiens de Montréal / NHL",
+        "notes": "用于基础身份与官方社媒链接，不复制网站内容。"
+      },
+      "canadiens-linkedin": {
+        "title": "Canadiens — 官方LinkedIn",
+        "publisher": "Canadiens de Montréal",
+        "notes": ""
+      },
+      "gch-careers": {
+        "title": "Groupe CH — 官方Dayforce招聘系统",
+        "publisher": "Groupe CH / Dayforce",
+        "notes": "入口可核实；职位列表由JavaScript加载，未据此推断当前实习空缺。"
+      },
+      "gch-linkedin": {
+        "title": "Groupe CH — 官方LinkedIn",
+        "publisher": "Groupe CH",
+        "notes": ""
+      },
+      "rocket-home": {
+        "title": "Rocket de Laval — 官方网站",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "rocket-linkedin": {
+        "title": "Rocket — 官方LinkedIn",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "lions-home": {
+        "title": "Lions de Trois-Rivières — 官网",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": ""
+      },
+      "lions-careers": {
+        "title": "Lions — Carrière",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": "岗位以图片等形式呈现；读取到联系邮箱，但不将其推定为特定实习岗位。"
+      },
+      "als-contact": {
+        "title": "Alouettes — 联系方式",
+        "publisher": "Alouettes de Montréal",
+        "notes": "官网直接抓取受限；联系信息可由官方搜索索引核对。"
+      },
+      "als-linkedin": {
+        "title": "Alouettes — 官方LinkedIn",
+        "publisher": "Alouettes de Montréal",
+        "notes": ""
+      },
+      "cfl-jobs": {
+        "title": "LCF — 联盟招聘入口",
+        "publisher": "Ligue canadienne de football",
+        "notes": ""
+      },
+      "als-isarta": {
+        "title": "Alouettes — 雇主招聘主页",
+        "publisher": "Alouettes / Isarta",
+        "notes": "核实时此平台显示没有职位；不等于所有渠道都没有招聘。"
+      },
+      "victoire-home": {
+        "title": "Montréal Victoire — 官网",
+        "publisher": "PWHL",
+        "notes": ""
+      },
+      "victoire-jobs": {
+        "title": "Montréal Victoire — 专属招聘页",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "核实时明确显示 No job results for your search。"
+      },
+      "charge-jobs": {
+        "title": "Ottawa Charge — 专属招聘页",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "核实时明确显示 No job results for your search。"
+      },
+      "victoire-linkedin": {
+        "title": "Victoire — LinkedIn",
+        "publisher": "Victoire de Montréal",
+        "notes": ""
+      },
+      "pwhl-jobs": {
+        "title": "PWHL — 联盟与全部球队招聘",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "其他城市的岗位不归入蒙特利尔或渥太华。"
+      },
+      "supra-home": {
+        "title": "FC Supra du Québec — CPL官方球队网站",
+        "publisher": "FC Supra / CPL",
+        "notes": ""
+      },
+      "supra-linkedin": {
+        "title": "FC Supra — 官方LinkedIn",
+        "publisher": "FC Supra du Québec",
+        "notes": ""
+      },
+      "aigles-home": {
+        "title": "Aigles de Trois-Rivières — 官网",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": ""
+      },
+      "aigles-jobs": {
+        "title": "Aigles — Emploi / 自荐入口",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": "公开邀请向rh@lesaiglestr.com主动投递；不是已发布实习。"
+      },
+      "capitales-jobs": {
+        "title": "Capitales de Québec — 官方招聘页",
+        "publisher": "Capitales de Québec",
+        "notes": "页面并列多项职位；未注明统一发布日期/截止日期。"
+      },
+      "toundra-home": {
+        "title": "Toundra de Montréal — 官方网站",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-schedule": {
+        "title": "Toundra — 2026赛程",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-instagram": {
+        "title": "Toundra — Instagram",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "royal-home": {
+        "title": "Montréal Royal — UFA官方球队网站",
+        "publisher": "Montréal Royal / UFA",
+        "notes": ""
+      },
+      "senators-home": {
+        "title": "Ottawa Senators — 官网",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "只使用基础身份与官方导航链接。"
+      },
+      "senators-program": {
+        "title": "Senators — 官方实习计划入口",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "实习项目要求在读、学分安排；名额必须另查申请系统。"
+      },
+      "senators-ats": {
+        "title": "Senators — BambooHR招聘系统",
+        "publisher": "Ottawa Senators / BambooHR",
+        "notes": "官网直接链接；职位由JavaScript加载，未确认具体2026实习。"
+      },
+      "senators-linkedin": {
+        "title": "Ottawa Senators — LinkedIn",
+        "publisher": "Ottawa Senators",
+        "notes": ""
+      },
+      "oseg-careers": {
+        "title": "OSEG / TD Place — 招聘与学分实习项目",
+        "publisher": "OSEG / TD Place",
+        "notes": "官方明确一年内多批次实习；并不保证核实时每一方向有岗位。"
+      },
+      "oseg-ats": {
+        "title": "OSEG — ADP申请系统",
+        "publisher": "OSEG / ADP",
+        "notes": "通过TD Place官网申请按钮获得；动态列表读取受限。"
+      },
+      "oseg-fulltime": {
+        "title": "OSEG — 全职招聘与员工经历",
+        "publisher": "OSEG / TD Place",
+        "notes": "员工实习经历不是当前职位公告。"
+      },
+      "atletico-home": {
+        "title": "Atlético Ottawa — CPL官方球队网站",
+        "publisher": "Atlético Ottawa / CPL",
+        "notes": ""
+      },
+      "atletico-careers": {
+        "title": "Atlético Ottawa — Careers",
+        "publisher": "Atlético Ottawa",
+        "notes": "公开careers@atleticoottawa.club接收简历与求职信；列表未显示具体岗位。"
+      },
+      "blackjacks-home": {
+        "title": "Ottawa BlackJacks — 官网",
+        "publisher": "Ottawa BlackJacks",
+        "notes": ""
+      },
+      "blackjacks-careers": {
+        "title": "Ottawa BlackJacks — Careers",
+        "publisher": "Ottawa BlackJacks",
+        "notes": "当前页面为比赛日志愿者链接及简历表单，不标成实习。"
+      },
+      "titans-home": {
+        "title": "Ottawa Titans — 官网",
+        "publisher": "Ottawa Titans",
+        "notes": ""
+      },
+      "rapid-home": {
+        "title": "Ottawa Rapid FC — 官网",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-careers": {
+        "title": "Ottawa Rapid FC — Careers",
+        "publisher": "Ottawa Rapid FC",
+        "notes": "jobs@rapidfc.ca接收主动申请；页面列有集团销售正式岗位。"
+      },
+      "rapid-sales": {
+        "title": "Ottawa Rapid — 集团销售客户经理",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-linkedin": {
+        "title": "Ottawa Rapid — LinkedIn",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "blackbears-closed": {
+        "title": "NLL — 2026-09-10宣布Ottawa Black Bears停止运营",
+        "publisher": "National Lacrosse League",
+        "notes": "正文新公告优先于尚未更新的球队导航；排除当前求职目标。"
+      },
+      "lnah-teams": {
+        "title": "LNAH — 2026–27球队与场馆目录",
+        "publisher": "LNAH",
+        "notes": "目录列8队，包括Manotick；并未列Pétroliers de Laval。"
+      },
+      "qmjhl-teams": {
+        "title": "LHJMQ — 2026季前球队目录（官方动态数据）",
+        "publisher": "CHL / LHJMQ",
+        "notes": "官方页面附带18队名字与城市；本库纳入魁北克12队、新不伦瑞克2队。青年联赛不归入职业球队计数。"
+      },
+      "lspro": {
+        "title": "LS PRO QC — 官方联赛入口",
+        "publisher": "LS PRO QC",
+        "notes": "官方索引可见，正文403；省级足球拓展未逐队完成招聘和社媒核实，不伪造完整名单。"
+      },
+      "soccerquebec": {
+        "title": "Soccer Québec — 省级协会",
+        "publisher": "Soccer Québec",
+        "notes": "2026年官方新品牌为LS PRO；旧称Ligue1 Québec仍常用于检索。"
+      },
+      "alliance-graphic-pdf": {
+        "title": "Stagiaire, Graphisme – Automne 2026 — 官网所链接PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "获取详情返回403；仅由官网索引确认岗位标题和2026秋季。"
+      },
+      "alliance-partnership-pdf": {
+        "title": "Stagiaire, Partenariats – Automne 2026 — 官网所链接PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "获取详情返回403；仅由官网索引确认岗位标题和2026秋季。"
+      },
+      "alliance-ticketing-pdf": {
+        "title": "Stagiaire, Ventes et billeterie – Automne 2026 — 官网所链接PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "获取详情返回403；仅由官网索引确认岗位标题和2026秋季。"
+      },
+      "cf-crm-source": {
+        "title": "Spécialiste CRM – Salesforce",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-marketing-source": {
+        "title": "Chef(e) de projets et production marketing – TEMPORAIRE",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-coach-source": {
+        "title": "Éducateurs(trices) de soccer – Programme Parascolaire",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-maintenance-source": {
+        "title": "Technicien(e), maintenance bâtiments et opérations – Stade Saputo",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      }
+    },
+    "coverage": [
+      {
+        "name": "魁北克职业核心",
+        "description": "NHL、AHL、ECHL、PWHL、MLS、CPL、NSL、CFL、CEBL、BSL、Frontier League；按独立俱乐部去重。"
+      },
+      {
+        "name": "渥太华双语就业圈",
+        "description": "作为安大略省求职拓展单列，并不等同于“魁北克”或“全员法语办公”。Black Bears已停止运营，只保留历史记录。"
+      },
+      {
+        "name": "LNAH",
+        "description": "官方2026–27目录8队全部纳入；与成人主流职业联赛分层。招聘和社媒有待逐队补核。"
+      },
+      {
+        "name": "青年联赛",
+        "description": "LHJMQ魁北克12队、新不伦瑞克2队，以及Ottawa 67’s；为了拓展运营实习而收录，不当作职业运动员球队。"
+      },
+      {
+        "name": "尚未逐队展开",
+        "description": "LS PRO / Ligue1 Québec、其他省级半职业联赛、校园、社区与业余俱乐部、电竞，以及法语人口散居区组织。保留官方联赛入口，不宣称覆盖这些类别的全部球队。"
+      }
+    ],
+    "cautions": [
+      "数据核实快照为2026-09-13，不是自动实时招聘系统。页面可访问不保证名额未满。",
+      "不存在“所有俱乐部都在招实习”的结论；未发现公开公告不等于该俱乐部完全不接收实习。",
+      "具体实习、学分实习项目入口、普通岗位、志愿服务、主动联系和已过期公告严格分开。",
+      "未知薪资不等于无薪；无薪岗位也不能自动推定免除许可、保险或学校协议要求。",
+      "中文名主要为检索辅助译名；申请时使用法语/英语官方名称。",
+      "同一集团和同一岗位多语言版本只计一次；集团岗位不能全部归到某一球队。",
+      "社媒有“官网直接链接”与“官方公司页”两种证据；缺少已核实账号时明确标为待核实，不猜测账号。"
+    ],
+    "history": [
+      {
+        "name": "Ottawa Black Bears",
+        "text": "2026-09-10联盟宣布停止运营；旧导航仍可能保留球队名称。",
+        "sourceId": "blackbears-closed"
+      },
+      {
+        "name": "CF Montréal 通用实习申请池",
+        "text": "俱乐部索引仍有链接，但SmartRecruiters明确提示职位过期。",
+        "sourceId": "cf-intern"
+      },
+      {
+        "name": "Pétroliers de Laval",
+        "text": "未出现在本次读取的LNAH 2026–27八队目录；不作为现役球队加入。此目录证据本身不等于完整搬迁原因说明。",
+        "sourceId": "lnah-teams"
+      },
+      {
+        "name": "Acadie-Bathurst Titan",
+        "text": "本次2026官方青年联赛数据列出Newfoundland Regiment而非Bathurst球队；不按旧城市名单计入本区现役俱乐部。",
+        "sourceId": "qmjhl-teams"
+      }
+    ],
+    "resources": [
+      {
+        "title": "Groupe CH招聘系统",
+        "category": "共享雇主",
+        "url": "https://jobs.dayforcehcm.com/fr-CA/groupech/CANDIDATEPORTAL",
+        "note": "Canadiens / Rocket及体育娱乐职能。需要按地点与业务核对。"
+      },
+      {
+        "title": "OSEG / TD Place实习与招聘",
+        "category": "共享雇主",
+        "url": "https://www.tdplace.ca/careers/",
+        "note": "学分实习项目、全职、兼职与志愿者分流。"
+      },
+      {
+        "title": "Senators官方申请系统",
+        "category": "官方ATS",
+        "url": "https://ottawasenators.bamboohr.com/careers",
+        "note": "BambooHR；从官网链接核实，不沿用旧ATS。"
+      },
+      {
+        "title": "PWHL全部球队招聘",
+        "category": "联盟招聘",
+        "url": "https://www.teamworkonline.com/hockey-jobs/pwhl-jobs/pwhl-league-office-jobs",
+        "note": "筛选Montréal / Ottawa；其他城市岗位不计入本库。"
+      },
+      {
+        "title": "LCF / CFL职位入口",
+        "category": "联盟招聘",
+        "url": "https://www.lcf.ca/emplois/",
+        "note": "需区分联盟办公室与俱乐部职位。"
+      },
+      {
+        "title": "LNAH球队目录",
+        "category": "拓展联赛",
+        "url": "https://www.lnah.com/fr/page/equipes.html",
+        "note": "2026–27八队身份与场馆核实来源。"
+      },
+      {
+        "title": "LHJMQ / QMJHL",
+        "category": "青年联赛",
+        "url": "https://chl.ca/lhjmq/",
+        "note": "青年球队运营实习拓展；不是成人职业联赛。"
+      },
+      {
+        "title": "LS PRO QC",
+        "category": "省级足球拓展",
+        "url": "https://www.lsproqc.com/",
+        "note": "旧称Ligue1 Québec；本轮未逐队扩展，需核对男/女、级别与赛季。"
+      },
+      {
+        "title": "Soccer Québec",
+        "category": "协会 / 拓展",
+        "url": "https://www.soccerquebec.org/",
+        "note": "核对省级足球俱乐部、品牌与赛季。"
+      }
+    ]
+  }
+}

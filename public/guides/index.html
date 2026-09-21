@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="散落在个人主页之外的实用攻略与研究指南目录，收录旅行、城市活动、足球观赛与逻辑研究智能体路线图。" />
+  <meta name="theme-color" content="#ece9e1" />
+  <meta property="og:title" content="路书与指南｜散页目录" />
+  <meta property="og:description" content="徒步、自驾、城市活动、足球观赛与研究指南，一页直达。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zhaoyang.fr/guides/" />
+  <title>路书与指南｜散页目录</title>
+  <link rel="canonical" href="https://zhaoyang.fr/guides/" />
+  <style>
+    :root {
+      --canvas: #ece9e1;
+      --paper: #f8f6f0;
+      --ink: #22231f;
+      --muted: #6b6d65;
+      --line: #cbc8be;
+      --soft-line: #ddd9cf;
+      --accent: #335b4d;
+      --accent-soft: #dfe8e2;
+      --warm: #a65c35;
+      --max: 1060px;
+    }
+
+    * { box-sizing: border-box; }
+    html { background: var(--canvas); }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 84% 8%, rgba(166, 92, 53, .10), transparent 26rem),
+        linear-gradient(90deg, transparent calc(50% - .5px), rgba(34, 35, 31, .035) 50%, transparent calc(50% + .5px)),
+        var(--canvas);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    .shell {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 54px 0 72px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: end;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+    }
+    .kicker {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 720px;
+      margin: 0;
+      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
+      font-size: clamp(44px, 8vw, 82px);
+      font-weight: 500;
+      letter-spacing: -.055em;
+      line-height: .98;
+    }
+    .intro {
+      max-width: 600px;
+      margin: 22px 0 0;
+      color: #555850;
+      font-size: 17px;
+    }
+    .count {
+      display: grid;
+      width: 118px;
+      height: 118px;
+      place-items: center;
+      align-content: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(248, 246, 240, .52);
+    }
+    .count strong {
+      font-family: "Iowan Old Style", Georgia, serif;
+      font-size: 39px;
+      font-weight: 500;
+      line-height: 1;
+    }
+    .count span {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .08em;
+    }
+
+    .guide-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: guides;
+    }
+    .guide-list li {
+      counter-increment: guides;
+      border-bottom: 1px solid var(--line);
+    }
+    .guide-link {
+      display: grid;
+      grid-template-columns: 62px minmax(0, 1fr) minmax(160px, .38fr) 34px;
+      gap: 24px;
+      align-items: center;
+      min-height: 154px;
+      padding: 26px 0;
+      text-decoration: none;
+    }
+    .guide-link::before {
+      content: "0" counter(guides);
+      align-self: start;
+      padding-top: 5px;
+      color: var(--warm);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+    .guide-copy { min-width: 0; }
+    .guide-copy h2 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Songti SC", "STSong", serif;
+      font-size: clamp(25px, 3vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.025em;
+      line-height: 1.18;
+    }
+    .guide-copy p {
+      max-width: 620px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .guide-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      justify-content: flex-start;
+    }
+    .guide-meta span {
+      padding: 5px 9px;
+      color: #51544d;
+      border: 1px solid var(--soft-line);
+      border-radius: 999px;
+      background: rgba(248, 246, 240, .6);
+      font-size: 11px;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .arrow {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      color: var(--accent);
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 18px;
+      transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .guide-link:hover .guide-copy h2 { color: var(--accent); }
+    .guide-link:hover .arrow {
+      color: #fff;
+      border-color: var(--accent);
+      background: var(--accent);
+      transform: translate(2px, -2px);
+    }
+    .guide-link:focus-visible {
+      outline: 3px solid rgba(51, 91, 77, .35);
+      outline-offset: 8px;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 28px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer p { margin: 0; }
+
+    @media (max-width: 760px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); padding-top: 34px; }
+      .masthead { grid-template-columns: 1fr; }
+      .count { display: none; }
+      .guide-link {
+        grid-template-columns: 38px minmax(0, 1fr) 30px;
+        gap: 12px;
+        min-height: 0;
+        padding: 26px 0;
+      }
+      .guide-link::before { grid-row: 1 / span 2; }
+      .guide-meta {
+        grid-column: 2 / -1;
+        margin-top: -3px;
+      }
+      .arrow { width: 30px; height: 30px; }
+      footer { display: block; }
+      footer p + p { margin-top: 6px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .arrow { transition: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "路书与指南",
+      "numberOfItems": 8,
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"url":"https://zhaoyang.fr/man-city-ucl-away-guide-2026-27/","name":"曼城 × 巴萨 × 巴黎 2026/27 欧冠观赛手册"},
+        {"@type":"ListItem","position":2,"url":"https://zhaoyang.fr/medvedin/","name":"Medvědín 一日徒步"},
+        {"@type":"ListItem","position":3,"url":"https://zhaoyang.fr/randonnee/","name":"巨人山脉与波西米亚·萨克森瑞士一日路线"},
+        {"@type":"ListItem","position":4,"url":"https://zhaoyang.fr/musee-prague/","name":"布拉格场馆、建筑与书店攻略"},
+        {"@type":"ListItem","position":5,"url":"https://zhaoyang.fr/toulouse-events/","name":"图卢兹 2026 秋季活动日历"},
+        {"@type":"ListItem","position":6,"url":"https://zhaoyang.fr/toulouse-bars/","name":"图卢兹酒吧攻略"},
+        {"@type":"ListItem","position":7,"url":"https://zhaoyang.fr/logic-agents/","name":"逻辑研究智能体实践路线图"},
+        {"@type":"ListItem","position":8,"url":"https://zhaoyang.fr/francophone-sport-careers/","name":"加拿大法语区体育求职目录"}
+      ]
+    }
+  </script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <p class="kicker">Field notes · Independent pages</p>
+        <h1>路书与指南</h1>
+        <p class="intro">散落在个人主页之外的实用页面。旅行、城市日历、足球观赛和研究方法，都从这里直接打开。</p>
+      </div>
+      <div class="count" aria-label="共收录 8 份指南">
+        <strong>8</strong>
+        <span>份独立指南</span>
+      </div>
+    </header>
+
+    <ul class="guide-list" aria-label="攻略与指南列表">
+      <li>
+        <a class="guide-link" href="/man-city-ucl-away-guide-2026-27/">
+          <div class="guide-copy">
+            <h2>曼城 × 巴萨 × 巴黎 2026/27 欧冠观赛</h2>
+            <p>一个页面切换三队赛程与逐场攻略：主队普通票、开售节奏、选座、图卢兹交通、住宿、签证与预算。</p>
+          </div>
+          <div class="guide-meta"><span>欧洲</span><span>足球观赛</span><span>18 场独立比赛</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/medvedin/">
+          <div class="guide-copy">
+            <h2>Medvědín 一日徒步</h2>
+            <p>从布拉格出发，经易北河源头与 Kotelní jámy，下山回到 Špindlerův Mlýn 的当日执行路线。</p>
+          </div>
+          <div class="guide-meta"><span>捷克</span><span>徒步</span><span>18.1 km</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/randonnee/">
+          <div class="guide-copy">
+            <h2>巨人山脉与波西米亚·萨克森瑞士</h2>
+            <p>两条一日自驾路线的路线对比、时间安排、交通、步行距离、预算与地图。</p>
+          </div>
+          <div class="guide-meta"><span>捷克 / 德国</span><span>自驾</span><span>一日路线</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/musee-prague/">
+          <div class="guide-copy">
+            <h2>布拉格场馆、建筑与书店</h2>
+            <p>值得去的博物馆、历史建筑与独立书店，附地址、开放时间、预约方式与官网。</p>
+          </div>
+          <div class="guide-meta"><span>布拉格</span><span>城市探索</span><span>文化</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/toulouse-events/">
+          <div class="guide-copy">
+            <h2>图卢兹 2026 秋季活动日历</h2>
+            <p>9 月至 12 月的 375 条演出与比赛，含月历、精选、搜索筛选、官方购票、收藏和日历导出。</p>
+          </div>
+          <div class="guide-meta"><span>图卢兹</span><span>演出与比赛</span><span>375 条</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/toulouse-bars/">
+          <div class="guide-copy">
+            <h2>图卢兹酒吧攻略</h2>
+            <p>26 家酒吧的筛选清单，覆盖威士忌、Speakeasy、鸡尾酒、Jazz、现场演出与特色场所。</p>
+          </div>
+          <div class="guide-meta"><span>图卢兹</span><span>酒吧</span><span>26 家</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/logic-agents/">
+          <div class="guide-copy">
+            <h2>逻辑研究智能体实践路线图</h2>
+            <p>从首个模态逻辑原型到语义、反模型、形式化验证与人工判断协作的构建顺序。</p>
+          </div>
+          <div class="guide-meta"><span>English</span><span>研究方法</span><span>AI Agents</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+      <li>
+        <a class="guide-link" href="/francophone-sport-careers/">
+          <div class="guide-copy">
+            <h2>加拿大法语区体育求职目录</h2>
+            <p>实习、俱乐部与其他岗位，按地区、运动和报酬筛选，附官方招聘入口与来源。</p>
+          </div>
+          <div class="guide-meta"><span>加拿大</span><span>体育求职</span><span>43 家活跃俱乐部</span></div>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </li>
+    </ul>
+
+    <footer>
+      <p>这是独立散页目录，不属于个人主页导航。</p>
+      <p>最后整理：2026 年 9 月</p>
+    </footer>
+  </main>
+</body>
+</html>
