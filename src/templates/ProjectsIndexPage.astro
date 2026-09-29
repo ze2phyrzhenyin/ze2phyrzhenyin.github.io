@@ -78,6 +78,11 @@ const statusColor: Record<string, string> = {
                             {t('projects.site')} ↗
                           </a>
                         )}
+                        {project.data.download && (
+                          <a href={project.data.download} target="_blank" rel="noopener" class="project-link">
+                            {t('projects.download')} ↗
+                          </a>
+                        )}
                         {project.data.admin && (
                           <a href={project.data.admin} target="_blank" rel="noopener" class="project-link muted">
                             {t('projects.admin')} ↗
