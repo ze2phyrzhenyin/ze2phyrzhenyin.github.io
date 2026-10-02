@@ -73,6 +73,16 @@ const statusColor: Record<string, string> = {
                             {t('projects.demo')} ↗
                           </a>
                         )}
+                        {project.data.site && (
+                          <a href={project.data.site} target="_blank" rel="noopener" class="project-link">
+                            {t('projects.site')} ↗
+                          </a>
+                        )}
+                        {project.data.admin && (
+                          <a href={project.data.admin} target="_blank" rel="noopener" class="project-link muted">
+                            {t('projects.admin')} ↗
+                          </a>
+                        )}
                         {project.data.github && (
                           <a href={project.data.github} target="_blank" rel="noopener" class="project-link muted">
                             {t('projects.source')} ↗

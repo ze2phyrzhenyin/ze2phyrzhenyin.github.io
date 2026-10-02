@@ -3,7 +3,7 @@ title: "ThesisForma"
 description: "A Word thesis-formatting tool built mainly with the OpenXML library for reviewing existing papers or maintaining structured drafts."
 date: 2026-06-25
 status: active
-demo: "http://120.24.108.234/xmllunwen/"
+demo: "https://zhauyoung.com/thesisForma/"
 cover: "/images/projects/thesisforma.png"
 i18n:
   en:

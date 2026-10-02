@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html data-guide="logic-agents" lang="zh-CN">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#eeece6" name="theme-color"/>
+<meta content="逻辑研究智能体构建实用指南：推荐顺序、组件目录、共享基础设施与首个模态逻辑原型。" name="description"/>
+<meta content="逻辑研究智能体：路线图" property="og:title"/>
+<meta content="先构建什么、每个组件应做什么，以及如何在一个研究循环中整合语义、反模型、形式验证与人类判断。" property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://zhaoyang.fr/logic-agents/zh/" property="og:url"/>
+<meta content="https://zhaoyang.fr/logic-agents/og.svg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<title>逻辑研究智能体实用路线图</title>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../styles.css?v=20260823c" rel="stylesheet"/>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "逻辑研究智能体实用路线图",
+      "description": "面向可验证逻辑研究智能体的推荐构建顺序、组件、基础设施与首个原型指南。",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-08-23",
+      "author": {
+        "@type": "Person",
+        "name": "Zhaoyang SUI",
+        "url": "https://zhaoyang.fr/"
+      },
+      "inLanguage": "zh-Hans",
+      "mainEntityOfPage": "https://zhaoyang.fr/logic-agents/zh/"
+    }
+  </script>
+<link href="https://zhaoyang.fr/logic-agents/zh/" rel="canonical"/><link href="https://zhaoyang.fr/logic-agents/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><style>.header-meta{flex-wrap:wrap;min-width:0}.header-meta>*{min-width:0;overflow-wrap:anywhere}.home-link{flex-shrink:0}</style><style>.site-bar-inner{gap:12px}.site-bar-inner .brand{flex:1 1 auto;min-width:0;white-space:normal;line-height:1.4;padding-block:12px}.top-nav{flex-shrink:0}</style><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="攻略导航" class="guide-navigation"><a data-guide-home="" href="/guides/zh/">← 返回攻略总页</a><span class="guide-navigation-languages"><a href="/logic-agents/en/" hreflang="en" lang="en">EN</a><a aria-current="page" href="/logic-agents/zh/" hreflang="zh-Hans" lang="zh">中文</a><a href="/logic-agents/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<a class="skip-link" href="#main">跳转到正文</a>
+<header class="site-bar" id="top">
+<div class="site-bar-inner">
+<a class="brand" href="#top"><span aria-hidden="true">⊢</span> 逻辑研究智能体指南</a>
+<nav aria-label="章节导航" class="top-nav">
+<a href="#recommendation">建议</a>
+<a href="#build-order">构建顺序</a>
+<a href="#catalogue">组件</a>
+<a href="#prototype">原型</a>
+<a href="#references">参考文献</a>
+</nav>
+
+
+</div>
+</header>
+<main class="document" id="main">
+<header class="intro">
+<p class="breadcrumb">研究指南 / 逻辑与形式方法 / 2026 年 8 月</p>
+<h1>逻辑研究智能体实用路线图</h1>
+<p class="standfirst">先构建什么、每个组件应做什么，以及如何在一个研究循环中整合语义、反模型、形式验证与人类判断。</p>
+<div class="recommendation-note">
+<strong>简要回答。</strong>从语义审计和反模型搜索开始。待其可靠后，再添加定理级检索和工具编排。将开放式证明生成与猜想发现留到验证层成熟之后。
+      </div>
+<dl class="intro-meta">
+<div><dt>范围</dt><dd>逻辑研究工作流</dd></div>
+<div><dt>组件</dt><dd>12 个专业智能体</dd></div>
+<div><dt>构建计划</dt><dd>3 个阶段</dd></div>
+<div><dt>状态</dt><dd>带观点的研究路线图</dd></div>
+</dl>
+</header>
+<nav aria-label="目录" class="section-tabs">
+<a href="#recommendation">1. 建议</a>
+<a href="#why-now">2. 为何现在</a>
+<a href="#build-order">3. 构建顺序</a>
+<a href="#catalogue">4. 组件目录</a>
+<a href="#infrastructure">5. 基础设施</a>
+<a href="#prototype">6. 原型</a>
+</nav>
+<section aria-labelledby="recommendation-title" class="content-section" id="recommendation">
+<div class="section-title">
+<span>1</span>
+<div>
+<h2 id="recommendation-title">建议</h2>
+<p>使用一个研究循环，但将生成、检验和解释分开。</p>
+</div>
+</div>
+<div aria-label="推荐顺序" class="summary-table" role="table">
+<div class="summary-row" role="row">
+<div role="cell"><strong>从这里开始</strong><span>阶段 1</span></div>
+<div role="cell"><h3>语义与反模型</h3><p>将逻辑、框架条件、论域、推论关系和固定定义显式化。在尝试证明猜想之前，先尝试反驳它。</p></div>
+</div>
+<div class="summary-row" role="row">
+<div role="cell"><strong>接下来添加</strong><span>阶段 2</span></div>
+<div role="cell"><h3>检索与工具编排</h3><p>连接定理级搜索、证明规划、模型查找器、证明器、证明助手和可复现的运行记录。</p></div>
+</div>
+<div class="summary-row" role="row">
+<div role="cell"><strong>推迟</strong><span>阶段 3</span></div>
+<div role="cell"><h3>开放式证明与系统发现</h3><p>仅在系统能够独立审计陈述并验证结果之后，才尝试新的元定理、猜想、公理或逻辑系统。</p></div>
+</div>
+</div>
+<h3 class="subheading">完整研究循环</h3>
+<ol class="research-loop">
+<li><span>1</span><strong>明确问题</strong><small>语言、语义、推论、边界</small></li>
+<li><span>2</span><strong>检索已有工作</strong><small>定理、定义、反例</small></li>
+<li><span>3</span><strong>攻击猜想</strong><small>模型与假设压力测试</small></li>
+<li><span>4</span><strong>规划证明</strong><small>子目标与依赖关系</small></li>
+<li><span>5</span><strong>使用合适的工具</strong><small>证明器、求解器、模型检查器</small></li>
+<li><span>6</span><strong>独立验证</strong><small>内核、证书或独立检查器</small></li>
+<li><span>7</span><strong>消化结果</strong><small>关键引理、结构、解释</small></li>
+<li><span>8</span><strong>记录来源</strong><small>出处、版本、失败、成本</small></li>
+</ol>
+<p class="plain-note">只有当一次运行说明了所用逻辑、精确结果、为何成立、何处失败以及与已知工作的关系时，才算完成。</p>
+</section>
+<section aria-labelledby="why-now-title" class="content-section" id="why-now">
+<div class="section-title">
+<span>2</span>
+<div>
+<h2 id="why-now-title">为何值得现在构建</h2>
+<p>机会来自围绕模型的工作流，而非一次性证明生成。</p>
+</div>
+</div>
+<div class="prose-columns">
+<div>
+<h3>研究级数学工作正变得可测试</h3>
+<p>最近的系统结合了非形式规划、定理检索、形式化、编译器反馈和重复尝试。结果因基准测试和审稿状态而异，但有用的工程模式已经可见。</p>
+</div>
+<div>
+<h3>逻辑拥有异常精确的反馈</h3>
+<p>SAT 和 SMT 求解器、有限模型查找器、证明助手和模型检查器可以低成本地拒绝许多错误。这使逻辑成为必须检验声明的智能体工作流的理想场景。</p>
+</div>
+<div>
+<h3>语义错误仍是主要的产品风险</h3>
+<p>同一公式在不同的框架类、论域策略或推论关系下可能表现不同。如果形式陈述与研究者的意图不符，那么正确的形式证明也不够。</p>
+</div>
+</div>
+<div class="caution-box">
+<strong>设计启示</strong>
+<p>系统应将语义配置视为合约。更改该合约是一个可见的研究决策，而非自动修复。</p>
+</div>
+</section>
+<section aria-labelledby="build-order-title" class="content-section" id="build-order">
+<div class="section-title">
+<span>3</span>
+<div>
+<h2 id="build-order-title">构建顺序</h2>
+<p>每个阶段都有明确的目的和退出条件。</p>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table build-table">
+<thead>
+<tr>
+<th scope="col">阶段</th>
+<th scope="col">构建内容</th>
+<th scope="col">主要组件</th>
+<th scope="col">退出条件</th>
+<th scope="col">预期研究产出</th>
+</tr>
+</thead>
+<tbody>
+<tr class="recommended-row">
+<td><strong>1</strong><br/><span class="table-status">立即构建</span></td>
+<td><strong>语义审计与反模型</strong><br/>显式规约、有限 Kripke 搜索、假设测试、可复现记录</td>
+<td>SpecGuard<br/>Counterexample Lab<br/>Proof PR Guard</td>
+<td>能够区分无效性、语义不匹配、编码错误和工具超时</td>
+<td>合规基准、反模型数据集、猜想修复方法</td>
+</tr>
+<tr>
+<td><strong>2</strong><br/><span class="table-status">接下来添加</span></td>
+<td><strong>知识与编排</strong><br/>定理图、证明 DAG、工具适配器、受检翻译</td>
+<td>LogicAtlas<br/>LogicOS<br/>ProofDAG<br/>PolyLogic Bridge</td>
+<td>每次检索都解析为定理、版本和假设；每次工具转换都可追溯</td>
+<td>定理图、通用工具协议、跨逻辑测试套件</td>
+</tr>
+<tr>
+<td><strong>3</strong><br/><span class="table-status">稍后开放</span></td>
+<td><strong>证明与理论探索</strong><br/>元理论、猜想、新定义、证明消化、库维护</td>
+<td>MetaProver<br/>LogicFoundry<br/>ProofDigest<br/>LogicLib Maintainer</td>
+<td>新结果具有证书、归属、失败边界、可读解释和人类审批</td>
+<td>可复用的元理论、证明模式库、受控探索研究</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 class="subheading">三个最佳首发产品</h3>
+<ol class="ranked-list">
+<li>
+<span class="rank">1</span>
+<div><h3>模态与认知语义工作台</h3><p>结合语义审计、有限反模型搜索和受检翻译。这是最强的研究方向，因为它在逻辑领域内有清晰的定位，并且能产出有用的评测数据。</p></div>
+</li>
+<li>
+<span class="rank">2</span>
+<div><h3>Proof PR Guard</h3><p>比对论文陈述、非形式论证、形式代码和引用。这是最快能融入实际研究团队工作流的组件。</p></div>
+</li>
+<li>
+<span class="rank">3</span>
+<div><h3>LogicAtlas</h3><p>构建系统、定义、框架条件、元定理、反例、形式库和原始出处之间的定理级链接。</p></div>
+</li>
+</ol>
+</section>
+<section aria-labelledby="catalogue-title" class="content-section" id="catalogue">
+<div class="section-title">
+<span>4</span>
+<div>
+<h2 id="catalogue-title">组件目录</h2>
+<p>十二个专业角色。评分是产品判断，而非文献排名。</p>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table catalogue-table">
+<thead>
+<tr>
+<th scope="col">组件</th>
+<th scope="col">职责</th>
+<th scope="col">典型输出</th>
+<th scope="col">需求</th>
+<th scope="col">可行性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group-row"><th colspan="5" scope="rowgroup">规约与输入</th></tr>
+<tr><td><strong>SpecGuard</strong><small>语义审计器</small></td><td>比对自然语言、公式和证明器陈述；检查论域、推论、框架、指称、类型和基础逻辑。</td><td>语义差异、回译、风险报告</td><td>10</td><td>8</td></tr>
+<tr><td><strong>Counterexample Lab</strong><small>模型与假设测试</small></td><td>枚举有限结构和 Kripke 框架，调用模型查找器，弱化假设，寻找最小反模型。</td><td>反模型、失败世界、敏感度矩阵</td><td>10</td><td>9</td></tr>
+<tr><td><strong>Spec-to-Model</strong><small>需求形式化</small></td><td>将系统需求翻译为时态、认知、义务或程序规约并运行模型检验。</td><td>可执行规约、冲突分析、见证路径</td><td>9</td><td>8</td></tr>
+<tr class="group-row"><th colspan="5" scope="rowgroup">规划、求解与翻译</th></tr>
+<tr><td><strong>LogicOS</strong><small>工具编排</small></td><td>为子目标选择工具，管理可靠转换，恢复证书，分类失败。</td><td>工具计划、转换日志、证书</td><td>9.5</td><td>6</td></tr>
+<tr><td><strong>ProofDAG</strong><small>证明架构</small></td><td>将人类策略转化为有依赖的子目标，并将工作路由到检索、模型、证明和审查组件。</td><td>证明蓝图、任务 DAG、决策点</td><td>9</td><td>8</td></tr>
+<tr><td><strong>MetaProver</strong><small>逻辑元理论</small></td><td>支持可靠性、完备性、切割消去、有限模型性质、插值、对应和复杂度。</td><td>元证明计划、形式证书、失败见证</td><td>8.5</td><td>6</td></tr>
+<tr><td><strong>PolyLogic Bridge</strong><small>翻译与嵌入</small></td><td>检查跨逻辑的保持性、反映、框架限制、复杂度变化和引入的原则。</td><td>翻译、保持性证明、范围条件</td><td>8.5</td><td>6</td></tr>
+<tr><td><strong>LogicFoundry</strong><small>受控探索</small></td><td>提出公理、规则、定义或语义条件，并测试新颖性、非平凡性、一致性和等价性。</td><td>候选系统、代表性模型、探索日志</td><td>7.5</td><td>5</td></tr>
+<tr class="group-row"><th colspan="5" scope="rowgroup">审查、知识与维护</th></tr>
+<tr><td><strong>LogicAtlas</strong><small>定理知识图谱</small></td><td>连接系统、公理、语义、元性质、反例、依赖、形式库和出处。</td><td>定理级检索、强度关系、归属</td><td>9.5</td><td>7</td></tr>
+<tr><td><strong>Proof PR Guard</strong><small>独立证明审查</small></td><td>检查循环性、未声明引理、隐含公理、定义漂移、引用不匹配和形式忠实度。</td><td>审查报告、证明变异测试、阻塞问题</td><td>9</td><td>8</td></tr>
+<tr><td><strong>ProofDigest</strong><small>证明解释</small></td><td>压缩机器证明，识别关键引理和共享结构，将思想与常规技术分离。</td><td>概念图、证明模式、分层解释</td><td>8.5</td><td>8</td></tr>
+<tr><td><strong>LogicLib Maintainer</strong><small>形式库工作</small></td><td>解决重复定义，构建基础 API，精简依赖，管理命名空间和迁移，桥接库。</td><td>库重构、兼容层、来源记录</td><td>8</td><td>9</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="infrastructure-title" class="content-section" id="infrastructure">
+<div class="section-title">
+<span>5</span>
+<div>
+<h2 id="infrastructure-title">共享基础设施</h2>
+<p>无论先构建哪个组件，这些要求都适用。</p>
+</div>
+</div>
+<div class="requirements-list">
+<article><span>1</span><div><h3>ProofLedger</h3><p>记录来源、定理编号、论文版本、模型和工具版本、提示词、人工编辑、失败路径、计算预算和最终证书。</p></div></article>
+<article><span>2</span><div><h3>显式语义配置</h3><p>"S4" 或 "经典一阶逻辑" 是不够的。框架、论域、推论、等式、指称和元逻辑必须是机器可读的。</p></div></article>
+<article><span>3</span><div><h3>独立验证</h3><p>生成器不能是唯一的审查者。对每个关键声明使用符号工具、证明内核或真正独立的验证路径。</p></div></article>
+<article><span>4</span><div><h3>失败记忆</h3><p>保留失败的子目标、反模型、超时、损坏的形式化和放弃的路径。失败记录是有用的研究资产。</p></div></article>
+<article><span>5</span><div><h3>人类决策点</h3><p>定义、研究目标、基础逻辑、主要证明策略和发表价值的变更仍然是研究者的决策。</p></div></article>
+</div>
+</section>
+<section aria-labelledby="prototype-title" class="content-section" id="prototype">
+<div class="section-title">
+<span>6</span>
+<div>
+<h2 id="prototype-title">建议的首个原型</h2>
+<p>面向命题模态逻辑和认知逻辑的有限模型工作台。</p>
+</div>
+</div>
+<div class="prototype-grid">
+<div class="specification-box">
+<div class="box-heading">
+<h3>输入合约</h3>
+<button class="copy-button" id="copy-spec" type="button">复制</button>
+</div>
+<pre id="spec-template"><code>Logic: S4
+Consequence: local
+Frames: reflexive, transitive
+Domains: constant
+Equality: rigid identity
+Premises: …
+Conjecture: …
+Locked: definitions, base logic</code></pre>
+<p aria-live="polite" class="copy-status" id="copy-status"></p>
+</div>
+<div class="output-list">
+<h3>要求输出</h3>
+<ol>
+<li>有效、无效或当前未解决</li>
+<li>最小反模型或机器检验的证明</li>
+<li>假设敏感度矩阵</li>
+<li>在邻近逻辑（如 K、T、S4、S5）间的比较</li>
+<li>自然语言解释</li>
+<li>最接近的已知定理及精确出处</li>
+<li>完整的、可复现的运行记录</li>
+</ol>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table scope-table">
+<thead>
+<tr><th scope="col">版本 0.1</th><th scope="col">下一步扩展</th><th scope="col">评测</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><ul><li>K, D, T, B, S4, S5</li><li>命题模态逻辑</li><li>有限 Kripke 框架</li><li>局部和全局推论</li><li>最小反模型</li></ul></td>
+<td><ul><li>一阶模态逻辑</li><li>常量、变化、累积论域</li><li>多智能体认知逻辑</li><li>动态认知逻辑</li><li>混合逻辑与模型检验</li></ul></td>
+<td><ul><li>语义合规率</li><li>反模型正确性与最小性</li><li>证书接受率</li><li>归属与可复现性覆盖</li><li>人类准确复述</li></ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="not-first-title" class="content-section" id="not-first">
+<div class="section-title">
+<span>7</span>
+<div>
+<h2 id="not-first-title">不应首先构建的内容</h2>
+<p>这些可以做出有用的演示，但不能解决核心的可靠性问题。</p>
+</div>
+</div>
+<ul class="not-first-list">
+<li>一个只能聊逻辑论文的 PDF 助手</li>
+<li>一个只能看到当前 Lean 状态的策略自动补全</li>
+<li>一个没有文献和反模型过滤的猜想生成器</li>
+<li>一个从不检查对原始陈述忠实度的形式化器</li>
+<li>一个没有证书、出处或失败记录的自主研究智能体</li>
+<li>一个写完整篇论文并自行宣称新颖性的系统</li>
+</ul>
+<p class="final-order"><strong>推荐顺序：</strong>语义审计与反模型 → 定理图与工具编排 → 证明生成与开放探索。</p>
+</section>
+<section aria-labelledby="references-title" class="content-section references-section" id="references">
+<div class="section-title">
+<span>8</span>
+<div>
+<h2 id="references-title">参考文献与延伸阅读</h2>
+<p>本指南是研究和产品判断，而非共识排名。预印本声明仍有待进一步审查。</p>
+</div>
+</div>
+<ol class="reference-list">
+<li><span>机构报告</span><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" rel="noreferrer" target="_blank">Gemini Deep Think at IMO 2025</a><small>Google DeepMind</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/abs/2604.03789" rel="noreferrer" target="_blank">Automated Conjecture Resolution with Formal Verification</a><small>Rethlas--Archon</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/abs/2601.03298" rel="noreferrer" target="_blank">130k Lines of Formal Topology in Two Weeks</a><small>自动形式化</small></li>
+<li><span>机构报告</span><a href="https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/" rel="noreferrer" target="_blank">Accelerating scientific breakthroughs with an AI co-scientist</a><small>Google Research</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/html/2602.06533v2" rel="noreferrer" target="_blank">LogicSkills: A Structured Benchmark for Formal Reasoning</a><small>语义合规与反模型</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/html/2603.26524v1" rel="noreferrer" target="_blank">Mathematical methods and human thought in the age of AI</a><small>翻译、验证与人类控制</small></li>
+<li><span>路线图</span><a href="https://arxiv.org/html/2607.07779v1" rel="noreferrer" target="_blank">From Solvers to Research</a><small>研究前沿的形式数学</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/pdf/2606.27041" rel="noreferrer" target="_blank">Formalizing a Many-Sorted Hybrid Polyadic Modal Logic in Lean</a><small>可复用的模态元理论</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/html/2605.27246v1" rel="noreferrer" target="_blank">Many Logics, One Methodology</a><small>形式化推理中的逻辑多元主义</small></li>
+<li><span>访谈</span><a href="https://nebius.science/stories/kevin-buzzard" rel="noreferrer" target="_blank">Kevin Buzzard on LLMs and formalisation</a><small>Nebius Science</small></li>
+<li><span>预印本</span><a href="https://arxiv.org/html/2603.03684v2" rel="noreferrer" target="_blank">Mathematicians in the Age of AI</a><small>人类能动性与可审计数学</small></li>
+</ol>
+</section>
+</main>
+<footer class="footer">
+<div>
+<p><strong>逻辑研究智能体：路线图</strong></p>
+<p>编写于 2026 年 8 月 · <a href="/guides/zh/">zhaoyang.fr</a></p>
+</div>
+<a href="#top">回到顶部 ↑</a>
+</footer>
+<script defer="" src="../app.js?v=20260823c"></script>
+<a class="guide-return-footer" data-guide-home="" href="/guides/zh/">← 返回攻略总页</a></body>
+</html>
+

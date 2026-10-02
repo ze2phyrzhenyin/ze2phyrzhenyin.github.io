@@ -1,0 +1,952 @@
+{
+  "title": "欧洲宗教学暑校｜本科研究导航",
+  "verified_on": "2026-09-24",
+  "scope": "欧洲机构主办的宗教学、神学、相关犹太／伊斯兰研究及研究语言暑校；包含明确标记的线上课程、历史项目与待核实线索。不是全欧洲穷尽目录，也不保证录取。",
+  "eligibility_labels": {
+    "explicit": "明确接受本科",
+    "open": "学生／成人开放",
+    "pending": "本科或条款待确认"
+  },
+  "programmes": [
+    {
+      "id": "uva-esotericism",
+      "title": "西方秘教与宗教思想史",
+      "name": "Arcane Worlds: New Frontiers in the Study of Esotericism",
+      "host": "University of Amsterdam",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Amsterdam",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2027,
+      "dates": "2027.06.23—07.13（暂定）",
+      "fee": "学生 €1,850；可选住宿约 €900，均暂定",
+      "language": "英语",
+      "credit": "6 ECTS",
+      "summary": "以原始材料与研究文献考察炼金术、诺斯替主义、神秘学、New Age 及艺术中的秘教传统。是学术研究，不是占卜或修行教学。",
+      "admission": "明确接受高年级本科生；不限专业，但需要已对相关思想有一定阅读和思考。",
+      "learning": "原典与二手文献研读、跨学科讨论、相关馆藏访问。",
+      "caution": "日期、学费及住宿最迟于 2026.12.01 确认；暂定安排不等于已经开放申请。",
+      "sources": [
+        {
+          "label": "UvA 项目与 2027 暂定安排",
+          "url": "https://www.uva.nl/en/programmes/summer-courses/visions-of-the-occult/visions-of-the-occult.html",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "原典研读",
+        "馆藏访问"
+      ],
+      "mode": "线下",
+      "deadline": "提前批 2027.02.07；常规批 2027.03.21（暂定）",
+      "status": "2027 暂定",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "aarhus-buddhism",
+      "title": "全球化背景下的佛教研究",
+      "name": "Global Buddhism",
+      "host": "Aarhus University",
+      "countries": [
+        "丹麦"
+      ],
+      "city": "Aarhus",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2026,
+      "dates": "2026.07.27—08.14",
+      "fee": "2026 课程表：EU €803；non-EU €1,333；按个人身份核定",
+      "language": "英语",
+      "credit": "10 ECTS",
+      "summary": "从迁移、跨国网络与全球化研究当代佛教，涉及日常实践、宗教身份及社会变迁。",
+      "admission": "在读本科、已有本科学位，或通过合格入学考试者可申请。自费申请人需英语能力材料。",
+      "learning": "专题教学，并访问当地佛教寺院与中心。",
+      "caution": "学校已公布 2027 暑期学段，并预计 11 月发布初步课程表；不能据此认定本课程将在 2027 重开。食宿另核。",
+      "sources": [
+        {
+          "label": "AU 本课程与申请资格",
+          "url": "https://international.au.dk/education/admissions/summeruniversity/course/courses-2025-1/global-buddhism",
+          "coverage": "项目、资格与课程信息"
+        },
+        {
+          "label": "AU 2026 课程表及 2027 课程表预告",
+          "url": "https://international.au.dk/education/admissions/summeruniversity/course",
+          "coverage": "日期、学分、分身份学费；2027 总体安排"
+        }
+      ],
+      "methods": [
+        "实地访问"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "bern-conflicts",
+      "title": "宗教冲突及其应对策略",
+      "name": "Religious Conflicts and Coping Strategies",
+      "host": "University of Bern",
+      "countries": [
+        "瑞士"
+      ],
+      "city": "Bern",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2025,
+      "dates": "2025.08.25—08.29",
+      "fee": "2025：早鸟 CHF 150；常规 CHF 200；不含全程食宿",
+      "language": "英语；B2，无需正式语言证书",
+      "credit": "以主办方当届说明为准",
+      "summary": "讨论如何识别冲突中的宗教因素，并结合历史、社会、心理等维度分析案例。",
+      "admission": "18 岁以上的高年级本科生或硕士生；相关专业包括宗教学、历史、哲学、神学、法律、心理学等。",
+      "learning": "跨学科案例工作坊、研究者讲座、实地访问及学生展示。",
+      "caution": "最近核实的是 2025 届；费用与资格仅作为往届参考，未核实到下一届招生。",
+      "sources": [
+        {
+          "label": "Bern 资格、语言与费用",
+          "url": "https://www.religious-conflicts.unibe.ch/studies/international_summer_school_for_bachelor_and_master_students/general_information/index_eng.html",
+          "coverage": "项目、资格与课程信息"
+        },
+        {
+          "label": "Bern 项目与教学内容",
+          "url": "https://www.religious-conflicts.unibe.ch/studium/international_summer_school_for_bachelor_and_master_students/index_ger.html",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "研究方法",
+        "案例分析",
+        "学生展示"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "更早往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "utrecht-bible",
+      "title": "圣经诠释、灵性与领导",
+      "name": "Divine Leadership?! Politics, Spirituality and the Bible",
+      "host": "Utrecht Summer School · PThU / VU",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Utrecht",
+      "track": "神学与经文",
+      "eligibility": "explicit",
+      "year": 2026,
+      "dates": "2026.07.05—07.10",
+      "fee": "课程 €425；可选住宿 €275；餐饮交通另付",
+      "language": "以官网或协调员确认为准",
+      "credit": "2 ECTS",
+      "summary": "研究不同社群如何使用《圣经》建立、质疑或理解领导，以及经文与社会语境之间的关系。",
+      "admission": "虽然页面顶部标注 Master/PhD，正文明确接受宗教学、神学及相关专业的高年级本科生。需动机信与 CV。",
+      "learning": "语境化圣经诠释方法、提前阅读、案例讨论与最终展示。",
+      "caution": "是学术性神学与圣经研究，不是覆盖所有宗教的通识课。可询问有限奖学金。",
+      "sources": [
+        {
+          "label": "Utrecht 官方课程、资格与费用",
+          "url": "https://utrechtsummerschool.nl/courses/humanities/divine-leadership-politics-spirituality-and-the-bible",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "研究方法",
+        "案例分析",
+        "学生展示"
+      ],
+      "mode": "线下",
+      "deadline": "2026.06.30（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "cas-islam",
+      "title": "当代世界中的伊斯兰",
+      "name": "Islam in the Contemporary World — CAS Summer School",
+      "host": "Center for Advanced Studies, Sarajevo",
+      "countries": [
+        "波黑",
+        "黑山"
+      ],
+      "city": "Sarajevo / Podgorica",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2026,
+      "dates": "2026.08.07—08.14",
+      "fee": "主办方承担住宿、餐食及项目费用；巴尔干以外来回交通自付",
+      "language": "英语",
+      "credit": "未确认 ECTS",
+      "summary": "以当代伊斯兰思想和欧洲伊斯兰为核心的跨学科暑校，结合学者授课与参与者交流。",
+      "admission": "明确接受在欧洲的高年级本科生及硕士生；须有有效健康保险。",
+      "learning": "主题讲座、学术讨论与跨地区学习交流。",
+      "caution": "不要与另一个面向研究生的 IIIT Bosnian Summer School 混淆；巴尔干学生交通资助另有条件。",
+      "sources": [
+        {
+          "label": "CAS 2026 官方招生公告",
+          "url": "https://cns.ba/cas-summer-school-podgoricasarajevo-2026/",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "学术讨论"
+      ],
+      "mode": "线下",
+      "deadline": "2026.05.17（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "hohenems-jewish",
+      "title": "欧洲犹太研究暑期大学",
+      "name": "European Summer University for Jewish Studies",
+      "host": "Jüdisches Museum Hohenems · 欧洲大学联合",
+      "countries": [
+        "奥地利"
+      ],
+      "city": "Hohenems",
+      "track": "宗教学研究",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.07.12—07.17",
+      "fee": "学生 €280 含住宿早餐；不住宿 €150",
+      "language": "需确认；项目另有德语页面",
+      "credit": "未确认 ECTS",
+      "summary": "2026 主题为犹太旅行者，涵盖拉比旅行、宗教知识网络、朝圣、贸易及迁移史。",
+      "admission": "官网写明向所有专业学生开放；合作大学学生优先。未要求先获得本科学位。",
+      "learning": "围绕年度主题展开跨学科专题学习。",
+      "caution": "犹太研究也包括社会与文化史，不能全部等同于犹太教教义研究。2027 未公布。",
+      "sources": [
+        {
+          "label": "主办博物馆：内容、学生资格与费用",
+          "url": "https://www.jm-hohenems.at/en/program/summer-university",
+          "coverage": "项目、资格与课程信息"
+        },
+        {
+          "label": "合作方 LMU：报名入口",
+          "url": "https://www.jgk.geschichte.uni-muenchen.de/sommeruniversitaet/index.html",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "跨学科研讨"
+      ],
+      "mode": "线下",
+      "deadline": "2026.04.07—05.31（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "salzburg-crossculture",
+      "title": "跨文化宗教学：身体、实践与身份",
+      "name": "CROSSCULTURE Religious Studies Summer School",
+      "host": "Paris Lodron University of Salzburg",
+      "countries": [
+        "奥地利"
+      ],
+      "city": "Salzburg",
+      "track": "宗教学研究",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026.08.03—08.07",
+      "fee": "费用未核实；不能视为免费",
+      "language": "需确认各场授课语言",
+      "credit": "完成要求可获 3 ECTS",
+      "summary": "以身体为切入点讨论宗教仪式、实践与身份，汇集不同宗教传统的研究视角。",
+      "admission": "官网接受外校学生并允许学生交论文，但没有明确逐项写出本科资格；外校本科生应先询问。",
+      "learning": "全程出席、报告及约 10 页学术论文可用于申请学分。",
+      "caution": "课程中含身体／舞蹈体验环节。上轮把本科资格直接列为确定，证据不足，现调整为待确认。",
+      "sources": [
+        {
+          "label": "Salzburg 2026 官方课程及作业说明",
+          "url": "https://www.plus.ac.at/zentrum-theologie-interkulturell-und-studium-der-religionen-ztkr/religious-studies/crossculture-religious-studies-project/crossculture-religious-studies-sommer-schule-2026/?lang=en",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "学术论文",
+        "学生展示"
+      ],
+      "mode": "线下",
+      "deadline": "摘要：2026.07.15（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "oxford-world",
+      "title": "印度教、佛教与伊斯兰导论",
+      "name": "Three Great World Religions",
+      "host": "University of Oxford · OUSSA",
+      "countries": [
+        "英国"
+      ],
+      "city": "Oxford",
+      "track": "学术入门",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.08.01—08.08",
+      "fee": "旧版官网显示 £1,375 起；价格存在版本差异，需重核",
+      "language": "英语",
+      "credit": "本科 Level 4；10 CATS",
+      "summary": "系统阅读三种宗教的历史、经典、信仰实践及伦理。属于大学继续教育暑校。",
+      "admission": "18 岁以上开放课程；并非只面向牛津在校生，也不是牛津学位录取。",
+      "learning": "最多 10 人小组、两次一对一 tutorial；课前 1,500 词作业，课中论文或展示。",
+      "caution": "课程结构有明确写作反馈，但定位是本科入门。官网抓取的是较早版本，下一届日期和费用必须重新核对。",
+      "sources": [
+        {
+          "label": "Oxford 官方课程存档入口",
+          "url": "https://www.conted.ox.ac.uk/courses/three-great-world-religions",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "学术论文",
+        "一对一辅导",
+        "学生展示"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "official-archive",
+      "new": false
+    },
+    {
+      "id": "oxford-theology",
+      "title": "牛津神学暑校",
+      "name": "Oxford Theology Summer School",
+      "host": "University of Oxford · Christ Church",
+      "countries": [
+        "英国"
+      ],
+      "city": "Oxford",
+      "track": "神学与经文",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.08.02—08.15；可选一周或两周",
+      "fee": "每周非住宿 £1,350；住宿 £2,025；午餐不含",
+      "language": "英语；较高学术英语要求",
+      "credit": "结业证明；不预设可转 ECTS",
+      "summary": "2026 主题围绕圣方济各展开基督教神学讨论。大学神学学习者可与学者、教职及其他学员共同研讨。",
+      "admission": "18 岁以上；欢迎在大学阶段学习神学者，但非宗教学背景申请应说明准备情况。",
+      "learning": "课前阅读、专题讲座与导师带领的小组研讨。",
+      "caution": "具有明确基督教神学方向；学校说明不提供本项目奖助或折扣。不是一般比较宗教学。",
+      "sources": [
+        {
+          "label": "Oxford 2026 神学暑校",
+          "url": "https://lifelong-learning.ox.ac.uk/courses/theology-summer-school-o26i102dcr/",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "专题研讨",
+        "文献研读"
+      ],
+      "mode": "线下",
+      "deadline": "常规 2026.05.31；晚申请视名额至 06.15（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": false
+    },
+    {
+      "id": "utrecht-oldcatholic",
+      "title": "旧天主教：信仰、历史与实践",
+      "name": "Old Catholic Theology: Faith, History and Praxis",
+      "host": "Utrecht University · Old Catholic Seminary",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Utrecht",
+      "track": "神学与经文",
+      "eligibility": "explicit",
+      "year": 2026,
+      "dates": "2026.07.05—07.10",
+      "fee": "课程 €425；可选住宿 €275",
+      "language": "需以当届官方说明确认",
+      "credit": "2 ECTS",
+      "summary": "介绍旧天主教历史、礼仪、教会法、系统神学及普世教会交流。",
+      "admission": "正文明确写明优秀本科生也可申请；需要一定神学学习基础。",
+      "learning": "约 40 小时课前自学、专题教学、宗教艺术博物馆与历史地点访问。",
+      "caution": "含参加弥撒、礼仪及教会音乐的环节。与下一周可组合，但组合套餐不另算一所暑校。",
+      "sources": [
+        {
+          "label": "Utrecht 官方课程、BA 资格与费用",
+          "url": "https://utrechtsummerschool.nl/courses/humanities/old-catholic-theology-faith-history-and-praxis",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "文献研读",
+        "实地访问"
+      ],
+      "mode": "线下",
+      "deadline": "2026.06.14（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "oxford-hebrew",
+      "title": "圣经希伯来语强化暑校",
+      "name": "Oxford Biblical Hebrew Summer School",
+      "host": "Oxford Centre for Hebrew & Jewish Studies",
+      "countries": [
+        "英国"
+      ],
+      "city": "Oxford 主办 · 在线",
+      "track": "研究语言",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.08.24—08.28；09.01—09.04",
+      "fee": "£290；含录像，不含教材",
+      "language": "需确认讲解语言",
+      "credit": "27 小时语言教学；未确认 ECTS",
+      "summary": "为阅读希伯来圣经建立语言基础。与宗教学的关系在于原典阅读工具，而非独立研究项目。",
+      "admission": "开放给有或没有希伯来语经验的学生；未设置必须取得本科学位的要求。",
+      "learning": "9 个教学日，每天 3 小时，Zoom 授课。",
+      "caution": "2026 已结束。应确认初学者与已有基础者如何安排，不能把短期课程当作完整语言能力认证。",
+      "sources": [
+        {
+          "label": "OCHJS 官方 2026 通告",
+          "url": "https://www.ochjs.ac.uk/oxford-biblical-hebrew-summer-school-2026/",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "语言强化",
+        "原典工具"
+      ],
+      "mode": "线上",
+      "deadline": "2026.07.10（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "pau-languages",
+      "title": "古代语言学院：经文阅读工具",
+      "name": "Académie des langues anciennes",
+      "host": "Université de Pau et des Pays de l’Adour",
+      "countries": [
+        "法国"
+      ],
+      "city": "Pau",
+      "track": "研究语言",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.07.07—07.17",
+      "fee": "28 岁以下学生 €180 + 必交会费 €20；普通 €480 + €20；可选住宿 €325",
+      "language": "法语",
+      "credit": "5 ECTS；报名时申请",
+      "summary": "可学习圣经希伯来语、古希腊语、拉丁语、文学阿拉伯语等，为宗教史与经文研究补充语言能力。",
+      "admission": "明确向所有人开放；设初学者课程，无相应语言基础也可报名。",
+      "learning": "40 小时强化课；按语言设置初级、中级或高级班。",
+      "caution": "是语言工具暑校，不是宗教学专题暑校；学费、协会费与住宿费要分别计算。",
+      "sources": [
+        {
+          "label": "UPPA 官方 2026 项目、资格、费用与住宿",
+          "url": "https://formation.univ-pau.fr/fr/catalogue/summer-winter-schools/academie-des-langues-anciennes-pau.html",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "语言强化",
+        "原典工具"
+      ],
+      "mode": "线下",
+      "deadline": "2026.06.15（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "bangor-intro",
+      "title": "哲学、伦理与宗教学在线暑校",
+      "name": "Philosophy, Ethics and Religion Summer School",
+      "host": "Bangor University",
+      "countries": [
+        "英国"
+      ],
+      "city": "Bangor 主办 · 在线",
+      "track": "学术入门",
+      "eligibility": "open",
+      "year": 2026,
+      "dates": "2026.07.27—07.31",
+      "fee": "免费（需注册）",
+      "language": "英语为主；个别场次另注",
+      "credit": "未确认学分",
+      "summary": "10 场在线讲座，讨论宗教、意义、伦理及其他哲学问题。",
+      "admission": "主办大学明确向所有人开放，包括相关专业在读学生。",
+      "learning": "Zoom 直播与主题讨论；不必参加全部场次。",
+      "caution": "主要是开放式学术入门，不是独立研究或导师制项目；不提供录像。",
+      "sources": [
+        {
+          "label": "Bangor 官方 2026 暑校",
+          "url": "https://www.bangor.ac.uk/events/philosophy-ethics-and-religion-summer-school-2026",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "主题讲座"
+      ],
+      "mode": "线上",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "olomouc-jewish",
+      "title": "犹太研究：宗教分裂与危机",
+      "name": "Summer School of Jewish Studies — Frankism and the Turbulent 18th Century",
+      "host": "Palacký University Olomouc · CJS",
+      "countries": [
+        "捷克"
+      ],
+      "city": "Olomouc",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2022,
+      "dates": "2022.08.11—08.21",
+      "fee": "未核实",
+      "language": "需以主办方说明确认",
+      "credit": "未确认 ECTS",
+      "summary": "围绕法兰克主义与中东欧犹太社群的宗教危机展开专题学习。",
+      "admission": "官方往届公告明确面向犹太研究及相关领域的本科生与研究生。",
+      "learning": "专题性宗教史与犹太研究训练；具体写作考核未核实。",
+      "caution": "仅核实到 2022 届，不表示仍在持续举办。放入历史观察名单，而非当前招生清单。",
+      "sources": [
+        {
+          "label": "Palacký 官方往届招生",
+          "url": "https://judaistika.upol.cz/en/public-events/summer-school-of-jewish-studies/",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "宗教史专题"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "更早往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "groningen-cities",
+      "title": "城市中的宗教（历史项目）",
+      "name": "Religion in Cities",
+      "host": "University of Groningen",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Groningen",
+      "track": "宗教学研究",
+      "eligibility": "explicit",
+      "year": 2018,
+      "dates": "2018.08.20—08.24",
+      "fee": "2018：€250；官网 UG 学生优惠为该校学生 €75",
+      "language": "需核实",
+      "credit": "未确认 ECTS",
+      "summary": "城市宗教主题的旧暑校，可作为寻找主办团队与相关后续课程的线索。",
+      "admission": "官方 2018 公告列出 BA / MA / PhD。",
+      "learning": "具体教学与考核结构未在本轮完整核实。",
+      "caution": "已非常久远；不能把旧本科资格套用到 Groningen 目前其他暑校，也不能把 UG 优惠理解为所有本科生优惠。",
+      "sources": [
+        {
+          "label": "Groningen 官方 2018 课程记录",
+          "url": "https://www.rug.nl/rcs/news/events/2018/summer-school-religion-cities",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "更早往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "uco-art-bible",
+      "title": "艺术与圣经",
+      "name": "Summer School Art & Bible",
+      "host": "Université catholique de l’Ouest",
+      "countries": [
+        "法国"
+      ],
+      "city": "举办城市待完整公告确认",
+      "track": "神学与经文",
+      "eligibility": "pending",
+      "year": null,
+      "dates": "10 天；具体届次日期待核实",
+      "fee": "未核实",
+      "language": "未核实",
+      "credit": "未核实",
+      "summary": "通过艺术与历史视角学习《圣经》，官网摘要提及讲座、工作坊及现场访问。",
+      "admission": "官网搜索摘要包含相关专业本科生／研究生，但正文多次返回错误；须直接向 UCO 确认完整条件。",
+      "learning": "摘要显示经文、艺术与历史结合；考核和研究成果未核实。",
+      "caution": "本条只列为新线索。未把摘要补写成已核实的日期、价格、授课语言或招生状态。",
+      "sources": [
+        {
+          "label": "UCO 官方项目页面（本轮全文访问失败）",
+          "url": "https://international-uco.com/en/formations/theology/summer-school-art-bible",
+          "coverage": "仅核实官方搜索摘要；完整招生条件待复核"
+        }
+      ],
+      "methods": [
+        "艺术与经文"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "届次待核实",
+      "source_level": "partial",
+      "new": true
+    },
+    {
+      "id": "bergen-zor200",
+      "title": "琐罗亚斯德教研究暑校",
+      "name": "Summer School in Zoroastrian Studies · ZOR200",
+      "host": "University of Bergen",
+      "countries": [
+        "挪威"
+      ],
+      "city": "具体举办地待核实",
+      "track": "宗教学研究",
+      "eligibility": "pending",
+      "year": null,
+      "dates": "课程目录存在；对应暑校届次待确认",
+      "fee": "未核实；不能认定免费",
+      "language": "未核实",
+      "credit": "ZOR200 目录标注 10 ECTS",
+      "summary": "课程目录明确将 ZOR200 标为本科层级的琐罗亚斯德教研究暑校。",
+      "admission": "“本科课程”不自动表示海外外校本科生能直接申请；须核实访学生注册和先修条件。",
+      "learning": "当届教学大纲未完整取到，不据标题推断原典语言要求。",
+      "caution": "前次将 ZOR200 的 10 ECTS 与罗马某届活动的 5 ECTS 混用。现在拆开核实，不把两者视为同一个招生证明。",
+      "sources": [
+        {
+          "label": "UiB 官方本科课程目录 ZOR200",
+          "url": "https://www4.uib.no/en/studies/courses/zor200",
+          "coverage": "本科课程层级与 10 ECTS；不证明外校申请资格"
+        }
+      ],
+      "methods": [],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "届次待核实",
+      "source_level": "partial",
+      "new": false
+    },
+    {
+      "id": "maastricht-culture",
+      "title": "宗教与文化：重新思考边界",
+      "name": "Religion and Culture: Rethinking the Boundaries",
+      "host": "Maastricht Summer School（目录所列）",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "荷兰主办 · 在线",
+      "track": "宗教学研究",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026.08.10—08.14（目录）",
+      "fee": "目录列常规 €449；早鸟描述不一致，不采用",
+      "language": "英语（目录）",
+      "credit": "1 ECTS（目录）",
+      "summary": "讨论宗教的定义、文化与文明、世俗化，以及不同传统之间的概念差异。",
+      "admission": "目录注明任意专业本科生、无宗教学先修要求；本轮未取得可独立复核的大学完整招生页。",
+      "learning": "目录列讨论、小组活动、学生展示与最终作业。",
+      "caution": "修正前次呈现：2026 目录标注 ONLINE，不应当作必须前往 Maastricht 的线下课程。",
+      "sources": [
+        {
+          "label": "欧洲暑校目录：课程说明（非大学官网）",
+          "url": "https://www.summerschoolsineurope.eu/course/religion-and-culture-rethinking-the-boundaries/",
+          "coverage": "二级目录，资格／日期／费用需向学校复核"
+        }
+      ],
+      "methods": [
+        "学生展示",
+        "课程作业"
+      ],
+      "mode": "线上",
+      "deadline": "目录列 2026.07.10（已过）",
+      "status": "2026 往届",
+      "source_level": "secondary",
+      "new": false
+    },
+    {
+      "id": "radboud-islam",
+      "title": "重新审视伊斯兰与欧洲",
+      "name": "Revisiting Islam & Europe",
+      "host": "Radboud University（目录所列）",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Nijmegen",
+      "track": "宗教学研究",
+      "eligibility": "pending",
+      "year": 2025,
+      "dates": "2025.06.30—07.04（目录）",
+      "fee": "目录列 €888；2025 参考价",
+      "language": "英语（目录）",
+      "credit": "2 ECTS（目录）",
+      "summary": "将欧洲伊斯兰与种族、世俗主义、历史及宗教理论放在一起讨论。",
+      "admission": "目录列 Bachelor / Advanced Bachelor / Master；对应大学课程页未取得，不能确认下一届继续招生。",
+      "learning": "理论与历史分析；本轮未核实个人研究指导或论文要求。",
+      "caution": "大学当前总暑校页面不是这门旧课程重新开设的证明。",
+      "sources": [
+        {
+          "label": "欧洲暑校目录：2025 课程",
+          "url": "https://www.summerschoolsineurope.eu/course/revisiting-islam-europe/",
+          "coverage": "二级目录；旧课程信息"
+        },
+        {
+          "label": "Radboud 官方总暑校入口",
+          "url": "https://www.ru.nl/en/education/more-education-and-training/summer-courses",
+          "coverage": "仅用于寻找后续课程，不证明本课程继续开设"
+        }
+      ],
+      "methods": [],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "更早往届",
+      "source_level": "secondary",
+      "new": false
+    },
+    {
+      "id": "utrecht-ecumenical",
+      "title": "旧天主教与普世教会交流",
+      "name": "Ecumenical Catholicity: The Old Catholic Witness",
+      "host": "Utrecht University · Old Catholic Seminary",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Utrecht",
+      "track": "神学与经文",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026.07.12—07.17",
+      "fee": "课程 €425；可选住宿 €275",
+      "language": "需确认",
+      "credit": "2 ECTS",
+      "summary": "研究旧天主教的跨教会网络、历史发展、礼仪交流与神学问题。",
+      "admission": "页面层级是 Master；正文欢迎有神学训练的学生和其他学习者，但没有明确重复本科例外。",
+      "learning": "约 40 小时课前准备、每日约 4 小时课堂教学。",
+      "caution": "需要旧天主教知识基础，可先上前一周入门课；本科生仍应先向负责人确认，不能借前课资格直接推定。",
+      "sources": [
+        {
+          "label": "Utrecht 官方进阶课程",
+          "url": "https://utrechtsummerschool.nl/courses/humanities/ecumenical-catholicity-the-old-catholic-witness",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "文献研读",
+        "专题研讨"
+      ],
+      "mode": "线下",
+      "deadline": "2026.06.14（已过）",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    },
+    {
+      "id": "utrecht-anglican",
+      "title": "欧洲视角下的圣公会传统",
+      "name": "Anglicanism in European Perspective",
+      "host": "Utrecht Summer School 与合作神学机构（目录所列）",
+      "countries": [
+        "荷兰"
+      ],
+      "city": "Utrecht",
+      "track": "神学与经文",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026.07.19—07.24（目录）",
+      "fee": "目录列 €525；可选住宿 €275",
+      "language": "英语（目录）",
+      "credit": "2 ECTS（目录）",
+      "summary": "讨论圣公会在欧洲大陆的历史、跨国社群与教会实践。",
+      "admission": "目录称欢迎研究基督教传统的学生，也特别欢迎神职及教会学习者；本科具体条件待确认。",
+      "learning": "历史与神学专题学习，非一般比较宗教学。",
+      "caution": "对应大学直达课程链接未能核实；目前保留为二级目录线索，不视为确定本科项目。",
+      "sources": [
+        {
+          "label": "欧洲暑校目录：课程说明",
+          "url": "https://www.summerschoolsineurope.eu/course/anglicanism-in-european-perspective/",
+          "coverage": "二级目录；主办方与申请条件待复核"
+        }
+      ],
+      "methods": [],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "secondary",
+      "new": true
+    },
+    {
+      "id": "oxford-ancient",
+      "title": "古代宗教与感官",
+      "name": "Ancient Religion and the Senses",
+      "host": "University of Oxford · OUSSA",
+      "countries": [
+        "英国"
+      ],
+      "city": "Oxford",
+      "track": "宗教学研究",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026 项目线索；具体日期待完整复核",
+      "fee": "本轮未可靠重核，暂不列金额",
+      "language": "需确认",
+      "credit": "课程学分需重新核实",
+      "summary": "以古代宗教与感官经验为专题；前轮曾作为古代宗教、物质文化方向的候选项目。",
+      "admission": "本轮找到官方课程地址，但访问不稳定，未完整重核该课的年龄、资格与考核条款。",
+      "learning": "不能仅凭 OUSSA 其他课程的结构，自动给此课添加 tutorial、实地考察或作业要求。",
+      "caution": "保留而不删除旧线索，同时撤下本轮未核实的费用、学分及具体学习安排。",
+      "sources": [
+        {
+          "label": "Oxford 官方课程地址（访问不稳定）",
+          "url": "https://www.conted.ox.ac.uk/courses/ancient-religion-and-the-senses",
+          "coverage": "仅核实页面存在；详细条款待复核"
+        }
+      ],
+      "methods": [],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "partial",
+      "new": false
+    },
+    {
+      "id": "bristol-pali",
+      "title": "巴利语高级文本暑校",
+      "name": "Bristol Buddhist Studies Pāli Summer School",
+      "host": "University of Bristol · Buddhist Studies",
+      "countries": [
+        "英国"
+      ],
+      "city": "Bristol",
+      "track": "研究语言",
+      "eligibility": "pending",
+      "year": 2025,
+      "dates": "2025.06.02—06.06",
+      "fee": "未核实",
+      "language": "需确认；须具备相关语言阅读能力",
+      "credit": "未确认 ECTS",
+      "summary": "官方检索摘要列出面向巴利语与梵语学习者的高级暑校，是佛教原典研究的潜在线索。",
+      "admission": "摘要称面向 scholars and students，没有明确学位层级；不适合零基础，本科先修条件须询问。",
+      "learning": "高级语言／文本学习；具体阅读材料与考核未重核。",
+      "caution": "本轮仅取得官方摘要，全文访问失败。不要理解成面向所有本科生的佛教入门课。",
+      "sources": [
+        {
+          "label": "Bristol 官方活动页（本轮全文访问失败）",
+          "url": "https://buddhiststudies.blogs.bristol.ac.uk/?p=373&post_type=calendar_event",
+          "coverage": "官方搜索摘要；完整条件待复核"
+        }
+      ],
+      "methods": [
+        "原典工具"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "更早往届",
+      "source_level": "partial",
+      "new": true
+    },
+    {
+      "id": "cmcs-dialogue",
+      "title": "穆斯林—基督徒暑校",
+      "name": "Oxford Muslim-Christian Summer School",
+      "host": "Centre for Muslim-Christian Studies, Oxford",
+      "countries": [
+        "英国"
+      ],
+      "city": "Oxford",
+      "track": "跨宗教对话",
+      "eligibility": "pending",
+      "year": 2026,
+      "dates": "2026.08.12—08.19；12.04—12.06 回访周末",
+      "fee": "本轮未核实",
+      "language": "需确认",
+      "credit": "未确认 ECTS",
+      "summary": "通过讲座、工作坊和 tutorial 学习双方经典、共同历史与当代议题，并开展住宿式交流。",
+      "admission": "面向基督教／伊斯兰神学学生及早期信仰领袖；明确要求是实际参与相应信仰社群的成员，本科层级另确认。",
+      "learning": "经典讨论、讲座、工作坊与 tutorial。",
+      "caution": "有明确参与者信仰条件，不是向任何宗教学兴趣者开放；主办方是该研究中心，不能直接称作牛津大学暑校。",
+      "sources": [
+        {
+          "label": "CMCS 官方 2026 招生补充说明",
+          "url": "https://www.cmcsoxford.org.uk/cmcs-news/still-time-to-apply-for-the-2026-oxford-muslim-christian-summer-school",
+          "coverage": "项目、资格与课程信息"
+        }
+      ],
+      "methods": [
+        "经典讨论",
+        "跨宗教交流"
+      ],
+      "mode": "线下",
+      "deadline": "下一届未公布",
+      "status": "2026 往届",
+      "source_level": "official",
+      "new": true
+    }
+  ],
+  "excluded": [
+    {
+      "title": "SNS Pisa · Ancient Religions in a Digital World",
+      "reason": "2026 招生 PDF 明确仅招在读博士及博士后；虽与古代宗教、数字人文高度相关，但不是本科项目。",
+      "url": "https://www.sns.it/sites/default/files/2025-12/call_for_application_ardw_0.pdf",
+      "label": "官方招生 PDF，第 3 页"
+    },
+    {
+      "title": "Groningen · Religion, Equity and Environmental Justice",
+      "reason": "2026 要求至少已经开始硕士学习；本科在读不满足页面学历条件。",
+      "url": "https://www.rug.nl/education/summer-winter-schools/religion-equity-environmental-justice/?lang=en",
+      "label": "官方申请条件"
+    },
+    {
+      "title": "UCSIA · Religion, Culture and Society",
+      "reason": "2026 面向博士生和博士后等青年研究者；不能作为普通本科申请选项。",
+      "url": "https://www.ucsia.org/en/events/ucsiasummerschool26/",
+      "label": "官方 2026 暑校"
+    },
+    {
+      "title": "Cluj · Christian Martyrdom in Late Antiquity",
+      "reason": "2026 宗教学暑校明确面向硕士生与博士生。低费用不改变学历门槛。",
+      "url": "https://www.csplca.com/en/2026/06/03/religious-studies-summer-school-2026/",
+      "label": "主办方 2026 招生"
+    },
+    {
+      "title": "Leiden · Philology and Manuscripts from the Muslim World",
+      "reason": "2026 面向 MA、PhD 及研究人员；不能把大学网站上的本科导航栏当作本科资格。",
+      "url": "https://www.universiteitleiden.nl/en/humanities/institute-for-area-studies/arabic-studies/summer-school",
+      "label": "官方 2026 课程"
+    },
+    {
+      "title": "IIIT Bosnian Summer School · Islam in Europe",
+      "reason": "2026 面向研究生。与清单里明确接受高年级本科生的 CAS 项目不同，不能混用资格与资助条款。",
+      "url": "https://cns.ba/call-for-application-iiit-summer-school-2026/",
+      "label": "主办方 2026 招生"
+    },
+    {
+      "title": "Cambridge · Religion and Climate Futures",
+      "reason": "官网明确 2026 不举办；不能列成正在招生的 2026 本科暑校。下一届及本科资格需另核。",
+      "url": "https://www.interfaith.cam.ac.uk/summer-school-religion-and-climate-futures",
+      "label": "项目官方页面"
+    },
+    {
+      "title": "The Buddhist Society Summer School Retreat",
+      "reason": "2026 活动以佛法学习、禅修与实践为主；与本目录优先寻找的研究型宗教学训练不属同一类型。",
+      "url": "https://www.thebuddhistsociety.org/page/the-buddhist-society-summer-school-2026",
+      "label": "主办方活动说明"
+    }
+  ]
+}

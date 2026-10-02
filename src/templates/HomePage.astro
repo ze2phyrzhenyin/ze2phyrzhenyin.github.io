@@ -27,6 +27,12 @@ const homeLinks = {
   miage: 'https://www.ut-capitole.fr/accueil/formations/offre-de-formation/nos-diplomes/masters/master-mention-miage-1ere-annee-formation-initiale',
 };
 
+const companySiteLinks: Record<Lang, string> = {
+  en: 'https://rex31.com/site',
+  zh: 'https://rex31.com/site/zh/',
+  fr: 'https://rex31.com/site/fr/',
+};
+
 const homeIntro: Record<Lang, LinkedText[][]> = {
   en: [
     [
@@ -34,10 +40,15 @@ const homeIntro: Record<Lang, LinkedText[][]> = {
       { text: 'MIAGE', href: homeLinks.miage },
       { text: ') at ' },
       { text: 'Toulouse Capitole University', href: homeLinks.toulouse },
-      { text: '. The direction I have set for myself is theoretical computer science, and over the past year I have self-studied foundations related to game theory, logic, and learning theory. Over the past month, I have found myself especially interested in proof-related directions.' },
+      { text: '. Over the past year, I have explored several areas of theoretical computer science on my own, including game theory, learning theory, logic, and formal verification.' },
     ],
     [
-      { text: 'I am eager to exchange ideas with peers on any topic related to computer science.' },
+      { text: 'But a lot happened this summer, and I am now an entrepreneur. I mainly ' },
+      { text: 'build digital and AI solutions for companies', href: companySiteLinks.en },
+      { text: '. Alongside this work, I am also exploring agent framework development and human-computer interaction, which I see as promising directions for future products.' },
+    ],
+    [
+      { text: 'I am always eager to discuss anything related to computer science with others in the field.' },
     ],
   ],
   zh: [
@@ -46,7 +57,12 @@ const homeIntro: Record<Lang, LinkedText[][]> = {
       { text: '图卢兹第一大学', href: homeLinks.toulouse },
       { text: '企业管理信息应用（' },
       { text: 'MIAGE', href: homeLinks.miage },
-      { text: '）硕士一年级学生。目前为自己设定的方向是理论计算机科学，并在最近一年里自学了博弈论、逻辑、学习理论等相关基础。最近一个月，我发现自己对证明相关方向的兴趣尤其浓厚。' },
+      { text: '）硕士一年级学生。我在最近一年自学并接触了博弈论、学习理论、逻辑、形式化验证等理论计算机相关的领域。' },
+    ],
+    [
+      { text: '但这个夏天发生了很多，现在我是一个创业者，目前主要面向企业提供' },
+      { text: '数智化解决方案', href: companySiteLinks.zh },
+      { text: '。除此之外我也在努力探索agent框架开发与人机交互等领域，这是我认为未来的市场产品的方向。' },
     ],
     [
       { text: '渴望与同行交流所有与计算机科学相关的话题！' },
@@ -58,10 +74,15 @@ const homeIntro: Record<Lang, LinkedText[][]> = {
       { text: 'MIAGE', href: homeLinks.miage },
       { text: ") à l'" },
       { text: 'Université Toulouse Capitole', href: homeLinks.toulouse },
-      { text: ". La direction que je me suis fixée est l'informatique théorique, et au cours de l'année écoulée j'ai étudié en autonomie des bases liées à la théorie des jeux, à la logique et à la théorie de l'apprentissage. Au cours du dernier mois, je me suis découvert un intérêt particulier pour les directions liées aux preuves." },
+      { text: ". Depuis un an, j'explore en autodidacte plusieurs domaines de l'informatique théorique, notamment la théorie des jeux, la théorie de l'apprentissage, la logique et la vérification formelle." },
     ],
     [
-      { text: "Je souhaite échanger avec mes pairs sur tous les sujets liés à l'informatique." },
+      { text: 'Mais beaucoup de choses se sont passées cet été, et je suis désormais entrepreneur. Je conçois principalement des ' },
+      { text: "solutions numériques intégrant l'IA pour les entreprises", href: companySiteLinks.fr },
+      { text: ". En parallèle, j'explore aussi le développement de frameworks d'agents et l'interaction humain-machine, deux pistes qui me paraissent prometteuses pour de futurs produits." },
+    ],
+    [
+      { text: "J'ai toujours envie d'échanger avec d'autres personnes du domaine sur tout ce qui touche à l'informatique !" },
     ],
   ],
 };

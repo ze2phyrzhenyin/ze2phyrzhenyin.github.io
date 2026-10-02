@@ -1,0 +1,20 @@
+{
+  "name": "图卢兹酒吧攻略",
+  "short_name": "Toulouse Bars",
+  "description": "图卢兹威士忌酒廊、隐秘酒吧、鸡尾酒与现场音乐场所。",
+  "start_url": "/toulouse-bars/zh/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fafafa",
+  "icons": [
+    {
+      "src": "/toulouse-bars/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "zh-CN",
+  "scope": "/toulouse-bars/",
+  "id": "/toulouse-bars/"
+}

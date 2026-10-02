@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+
+<html data-guide="medvedin" lang="fr">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="9 août 2026 Medvědín — la source de l'Elbe — Kotelní jámy Guide de randonnée d'une journée : téléphérique aller simple jusqu'à la montagne, descente de la montagne le long de la piste de ski d'été, ainsi que l'heure, le stationnement, la météo et les plans d'urgence." name="description"/>
+<meta content="#243f36" name="theme-color"/>
+<meta content="Randonnée d'une journée à Medvědín ｜ Un itinéraire prêt à suivre" property="og:title"/>
+<meta content="Un itinéraire de 18,1 kilomètres partant de Prague, passant par Medvědín, la source de l'Elbe et Kotelní jámy, et enfin descendant la montagne le long des sentiers de neige d'été." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://zhaoyang.fr/medvedin/fr/" property="og:url"/>
+<meta content="https://www.krkonose.eu/sites/default/files/headers/krkonose-pramen-labe-3.jpg" property="og:image"/>
+<title>Randonnée d'une journée à Medvědín ｜ Un itinéraire prêt à suivre</title>
+<style>
+    :root {
+      --canvas: #eeece5;
+      --paper: #fffef9;
+      --ink: #20231f;
+      --muted: #687069;
+      --rule: #d7d3c8;
+      --rule-soft: #e9e6de;
+      --accent: #2b5042;
+      --accent-dark: #203d33;
+      --accent-soft: #e7eee9;
+      --sun: #c47a28;
+      --sun-soft: #f5eadb;
+      --danger: #934436;
+      --danger-soft: #f6e8e3;
+      --max: 1120px;
+      --content: 980px;
+      --bar-height: 58px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 112px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button, input { font: inherit; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    img { display: block; max-width: 100%; }
+
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(0,0,0,.06);
+      border-radius: 999px;
+      padding: 2px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .lang-switcher a,
+    .lang-switcher span {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 11px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+      line-height: 1.3;
+    }
+    .lang-switcher a:hover { color: var(--ink); text-decoration: none; }
+    .lang-switcher .active {
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    }
+
+    .site-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--bar-height);
+      background: rgba(238, 236, 229, 0.95);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(14px);
+    }
+    .site-bar-inner {
+      width: min(calc(100% - 36px), var(--max));
+      min-height: var(--bar-height);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      flex: 0 0 auto;
+      color: var(--ink);
+      font-size: 15px;
+      font-weight: 680;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand:hover { text-decoration: none; }
+    .top-nav {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .top-nav::-webkit-scrollbar { display: none; }
+    .top-nav a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: var(--bar-height);
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: transparent;
+    }
+    .top-nav a:hover,
+    .top-nav a[aria-current="true"] { color: var(--ink); text-decoration: none; }
+    .top-nav a[aria-current="true"]::after { background: var(--accent); }
+
+    .page-shell {
+      width: min(calc(100% - 36px), var(--content));
+      margin: 30px auto 72px;
+    }
+    .route-context {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .route-context a { color: var(--muted); }
+    .route-context a:hover { color: var(--ink); }
+    .page {
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+    }
+    .page > section { padding: 44px 52px; border-top: 1px solid var(--rule); }
+    .page > section:first-of-type { border-top: 0; }
+    .page h1,
+    .page h2,
+    .page h3 { margin: 0; color: var(--ink); font-weight: 660; }
+    .page h1 { max-width: 790px; font-size: clamp(34px, 5vw, 54px); line-height: 1.08; letter-spacing: -0.045em; }
+    .page h2 { margin-bottom: 18px; font-size: 23px; line-height: 1.35; letter-spacing: -0.02em; }
+    .page h3 { font-size: 18px; line-height: 1.45; }
+    .page p { margin: 9px 0 0; }
+
+    .hero { position: relative; padding: 0 !important; }
+    .hero-image {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      background: #849289;
+    }
+    .hero-image img { width: 100%; height: 100%; min-height: 390px; object-fit: cover; }
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(21, 36, 31, 0.03) 25%, rgba(18, 31, 27, 0.72) 100%);
+      pointer-events: none;
+    }
+    .photo-credit {
+      position: absolute;
+      z-index: 2;
+      right: 16px;
+      bottom: 12px;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 11px;
+    }
+    .photo-credit:hover { color: #fff; }
+    .hero-copy { padding: 40px 52px 44px; }
+    .eyebrow { margin: 0 0 12px !important; color: var(--muted); font-size: 14px; letter-spacing: 0.035em; }
+    .hero-intro { max-width: 760px; margin-top: 17px !important; color: #454b46; font-size: 17px; }
+    .status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      padding: 8px 12px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border: 1px solid #cedbd2;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .status-dot { width: 7px; height: 7px; background: #3f785d; border-radius: 50%; box-shadow: 0 0 0 3px rgba(63, 120, 93, .12); }
+
+    .key-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .key-item { padding: 20px 18px; border-left: 1px solid var(--rule-soft); }
+    .key-item:first-child { padding-left: 0; border-left: 0; }
+    .key-label { display: block; color: var(--muted); font-size: 12px; }
+    .key-value { display: block; margin-top: 2px; font-size: 19px; font-weight: 680; line-height: 1.35; letter-spacing: -0.015em; }
+    .route-strip { margin-top: 21px; color: #3f4540; font-size: 14px; }
+    .route-strip strong { margin-right: 6px; }
+
+    .alert {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      margin-top: 27px;
+      padding: 20px 22px;
+      background: var(--danger-soft);
+      border-left: 4px solid var(--danger);
+    }
+    .alert-time { color: var(--danger); font-size: 27px; font-weight: 720; letter-spacing: -0.03em; }
+    .alert p { margin: 2px 0 0; color: #5b403a; font-size: 14px; }
+
+    .action-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 15px;
+      color: #fff;
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 650;
+    }
+    .button:hover { color: #fff; background: var(--accent-dark); text-decoration: none; }
+    .button.secondary { color: var(--accent-dark); background: transparent; border-color: #aebbb4; }
+    .button.secondary:hover { background: var(--accent-soft); }
+
+    .timeline { margin-top: 2px; }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 24px;
+      padding: 17px 0;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .timeline-row:first-child { padding-top: 0; border-top: 0; }
+    .time { color: var(--accent); font-size: 15px; font-weight: 680; }
+    .timeline-row p { color: #414642; }
+    .timeline-row.is-critical .time { color: var(--danger); }
+
+    .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px; }
+    .columns > div + div { padding-left: 42px; border-left: 1px solid var(--rule-soft); }
+    .plain-list { margin: 12px 0 0; padding-left: 19px; }
+    .plain-list li + li { margin-top: 7px; }
+    .note {
+      margin-top: 18px;
+      padding: 13px 15px;
+      color: #424844;
+      background: #f4f4ef;
+      border-left: 3px solid #a5b4ad;
+      font-size: 14px;
+    }
+    .note strong { color: var(--ink); }
+    .info-table { width: 100%; margin-top: 16px; border-collapse: collapse; }
+    .info-table th,
+    .info-table td { padding: 11px 9px; border-top: 1px solid var(--rule-soft); text-align: left; vertical-align: top; }
+    .info-table tr:first-child th,
+    .info-table tr:first-child td { border-top-color: var(--rule); }
+    .info-table th { width: 120px; padding-left: 0; color: var(--muted); font-weight: 520; }
+    .info-table td { padding-right: 0; }
+    .road { margin-top: 18px; padding: 16px 0 0; border-top: 1px solid var(--rule-soft); font-size: 14px; }
+
+    .segments { border-top: 1px solid var(--rule-soft); }
+    details.segment { border-bottom: 1px solid var(--rule-soft); }
+    details.segment summary {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 21px 0;
+      cursor: pointer;
+      list-style: none;
+    }
+    details.segment summary::-webkit-details-marker { display: none; }
+    .segment-no {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .segment-title strong { display: block; font-size: 17px; line-height: 1.45; }
+    .segment-title span { display: block; margin-top: 2px; color: var(--muted); font-size: 13px; }
+    .segment-toggle { color: var(--muted); font-size: 20px; transition: transform .16s ease; }
+    details[open] .segment-toggle { transform: rotate(45deg); }
+    .segment-body { padding: 0 0 23px 62px; color: #3e4440; }
+    .segment-body p:first-child { margin-top: 0; }
+    .segment-body ul { margin: 10px 0 0; padding-left: 18px; }
+    .segment-body li + li { margin-top: 5px; }
+    .trail-red,
+    .trail-yellow,
+    .trail-green { white-space: nowrap; font-weight: 680; }
+    .trail-red { color: #a03b31; }
+    .trail-yellow { color: #997219; }
+    .trail-green { color: #2d6f4b; }
+
+    .weather-now {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 34px;
+      align-items: center;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .weather-temp { font-size: 52px; font-weight: 660; line-height: 1; letter-spacing: -0.05em; }
+    .weather-temp span { color: var(--sun); }
+    .weather-now p { color: #484e49; }
+    .hourly {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(86px, 1fr);
+      gap: 0;
+      margin-top: 24px;
+      overflow-x: auto;
+      border-top: 1px solid var(--rule-soft);
+      border-bottom: 1px solid var(--rule-soft);
+      scrollbar-width: thin;
+    }
+    .hour { padding: 14px 12px; border-left: 1px solid var(--rule-soft); }
+    .hour:first-child { border-left: 0; }
+    .hour time { display: block; color: var(--muted); font-size: 12px; }
+    .hour strong { display: block; margin-top: 3px; font-size: 17px; }
+    .hour span { display: block; margin-top: 2px; color: #626963; font-size: 12px; line-height: 1.45; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 32px;
+      margin-top: 4px;
+    }
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--rule-soft);
+      cursor: pointer;
+    }
+    .check-item input { width: 17px; height: 17px; margin: 5px 0 0; accent-color: var(--accent); }
+    .check-item span { flex: 1; }
+    .check-item:has(input:checked) span { color: var(--muted); text-decoration: line-through; }
+    .check-reset {
+      margin-top: 15px;
+      padding: 0;
+      color: var(--muted);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    .check-reset:hover { color: var(--ink); text-decoration: underline; }
+
+    .decision-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .decision {
+      padding: 19px 20px;
+      background: #f5f4ef;
+      border: 1px solid var(--rule-soft);
+    }
+    .decision.urgent { background: var(--danger-soft); border-color: #e7cfc7; }
+    .decision h3 { font-size: 16px; }
+    .decision p { color: #4c524d; font-size: 14px; }
+
+    .sources { display: grid; gap: 10px; margin-top: 2px; }
+    .source-link {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 0;
+      color: inherit;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .source-link:hover { text-decoration: none; }
+    .source-no { color: var(--muted); font-size: 12px; }
+    .source-link strong { display: block; font-size: 14px; }
+    .source-link span:not(.source-no) { color: var(--muted); font-size: 12px; }
+    .source-arrow { color: var(--muted) !important; font-size: 18px !important; transition: transform .15s ease; }
+    .source-link:hover .source-arrow { color: var(--ink) !important; transform: translateX(3px); }
+    .footer {
+      padding: 22px 52px 30px;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .key-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .key-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule-soft); }
+      .key-item:nth-child(4) { border-top: 1px solid var(--rule-soft); }
+    }
+
+    @media (max-width: 700px) {
+      :root { --bar-height: 54px; }
+      html { scroll-padding-top: 70px; }
+      .site-bar-inner { width: 100%; padding-left: 16px; gap: 18px; }
+      .brand { display: none; }
+      .top-nav { width: 100%; gap: 22px; padding-right: 16px; }
+      .top-nav a { min-height: var(--bar-height); }
+      .page-shell { width: 100%; margin: 0; }
+      .route-context { margin: 0; padding: 12px 18px; }
+      .page { border-right: 0; border-left: 0; }
+      .hero-image,
+      .hero-image img { min-height: 300px; }
+      .hero-copy,
+      .page > section { padding: 31px 20px; }
+      .footer { padding: 21px 20px 28px; }
+      .columns,
+      .decision-list { grid-template-columns: 1fr; gap: 28px; }
+      .columns > div + div { padding-top: 28px; padding-left: 0; border-top: 1px solid var(--rule-soft); border-left: 0; }
+      .timeline-row { grid-template-columns: 105px minmax(0, 1fr); gap: 15px; }
+      .alert { grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 17px 16px; }
+      .alert-time { font-size: 23px; }
+      .weather-now { grid-template-columns: 112px minmax(0, 1fr); gap: 20px; }
+      .weather-temp { font-size: 43px; }
+      .checklist { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-image,
+      .hero-image img { min-height: 235px; }
+      .page h1 { font-size: 36px; }
+      .page h2 { font-size: 22px; }
+      .hero-intro { font-size: 16px; }
+      .key-value { font-size: 17px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 4px; }
+      details.segment summary { grid-template-columns: 40px minmax(0, 1fr) auto; gap: 10px; }
+      .segment-body { padding-left: 50px; }
+      .weather-now { grid-template-columns: 1fr; gap: 12px; }
+      .alert { grid-template-columns: 1fr; gap: 2px; }
+      .action-row .button { flex: 1 1 100%; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .site-bar,
+      .route-context,
+      .action-row,
+      .check-reset { display: none !important; }
+      .page-shell { width: 100%; margin: 0; }
+      .page { border: 0; }
+      .hero-image { min-height: 220px; }
+      .hero-image img { min-height: 220px; }
+      details.segment:not([open]) > *:not(summary) { display: block; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+<link href="https://zhaoyang.fr/medvedin/fr/" rel="canonical"/><link href="https://zhaoyang.fr/medvedin/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/medvedin/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/medvedin/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/medvedin/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="Navigation des guides" class="guide-navigation"><a data-guide-home="" href="/guides/fr/">← Tous les guides</a><span class="guide-navigation-languages"><a href="/medvedin/en/" hreflang="en" lang="en">EN</a><a href="/medvedin/zh/" hreflang="zh-Hans" lang="zh">中文</a><a aria-current="page" href="/medvedin/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<header class="site-bar">
+<div class="site-bar-inner">
+<a class="brand" href="#overview">Randonnée à Medvedín</a>
+<nav aria-label="Navigation dans les pages" class="top-nav">
+<a aria-current="true" href="#overview">Itinéraire du jour</a>
+<a href="#schedule">Horaires</a>
+<a href="#transport">Transport</a>
+<a href="#route">Parcours étape par étape</a>
+<a href="#weather">Météo et équipement</a>
+<a href="#fallback">Si vous prenez du retard</a>
+</nav>
+</div>
+</header>
+<main class="page-shell">
+<div class="route-context">
+<a href="/guides/fr/">← Retour à la collection de guides</a>
+<span>Krkonose · République tchèque</span>
+</div>
+<article class="page">
+<section class="hero" id="overview">
+<div class="hero-image">
+<img alt="Bassin en pierre, mur d'armoiries et paysage de montagne à Pramen Labe, source de l'Elbe" referrerpolicy="no-referrer" src="https://www.krkonose.eu/sites/default/files/headers/krkonose-pramen-labe-3.jpg"/>
+<a class="photo-credit" href="https://www.krkonose.eu/pramen-labe" rel="noopener noreferrer" target="_blank">Source de l'image : site officiel du tourisme de Krkonoše</a>
+</div>
+<div class="hero-copy">
+<p class="eyebrow">9 août 2026 · dimanche · 08h25 Instantané d'information</p>
+<h1>Randonnée d'une journée à Medvědín<br/>Un itinéraire prêt à suivre</h1>
+<p class="hero-intro">Conduisez de Prague à Medvědín, prenez un téléphérique à sens unique pour gravir la montagne, passez Pančavský vodopád, la source de l'Elbe et Kotelní jámy, et enfin revenez au P3 le long de la piste de ski, accessible à pied en été.</p>
+<div class="status-line"><span aria-hidden="true" class="status-dot"></span>Conditions favorables à la date de vérification · Le téléphérique fonctionne · L'itinéraire n'est pas inclus dans la liste de fermeture actuelle</div>
+</div>
+</section>
+<section aria-labelledby="brief-title">
+<h2 id="brief-title">Quatre points à vérifier avant de partir</h2>
+<div aria-label="Données clés du voyage" class="key-grid">
+<div class="key-item"><span class="key-label">Dernier départ</span><span class="key-value">08:45</span></div>
+<div class="key-item"><span class="key-label">Le dernier téléphérique de montagne</span><span class="key-value">12:00</span></div>
+<div class="key-item"><span class="key-label">Durée totale de la randonnée</span><span class="key-value">18.1 km</span></div>
+<div class="key-item"><span class="key-label">Consommation de temps réelle</span><span class="key-value">6h45–7h15</span></div>
+</div>
+<p class="route-strip"><strong>Raccourci de l'itinéraire :</strong>Medvědín → Vrbatova bouda → Pančavský vodopád → Labská bouda → Pramen Labe → U Čtyř pánů → U Růženčiny zahrádky → Harrachovy kameny → Nad Kotelní jámou → Vrbatova bouda → Medvědín → Horní Mísečky → Vodovodní ski d'été pentes → P3</p>
+<div class="alert" role="note">
+<div class="alert-time">12:00</div>
+<div><strong>Il s'agit de la limite de montée pour la boucle complète.</strong><p>Il n'y a pas de départs à 12h30 ; si vous manquez 12h00, n’attendez pas 13h00 pour faire la boucle complète, empruntez plutôt le trajet court.</p></div>
+</div>
+<div class="action-row">
+<a class="button" href="https://www.google.com/maps/search/?api=1&amp;query=Parkovi%C5%A1t%C4%9B+P3+Medv%C4%9Bd%C3%ADn+%C5%A0pindler%C5%AFv+Ml%C3%BDn" rel="noopener noreferrer" target="_blank">Accédez à P3 Medvědín</a>
+<a class="button secondary" href="https://www.skiareal.cz/resort/skiareal-live" rel="noopener noreferrer" target="_blank">Vérifiez l'état en temps réel du téléphérique</a>
+<a class="button secondary" href="https://www.spindleruv-mlyn.com/cz/vylety/z-medvedina-k-prameni-labe-a-zpet-pres-kotelni-jamy-57/" rel="noopener noreferrer" target="_blank">Parcours officiel ouvert</a>
+<a class="button secondary" href="https://www.spindleruv-mlyn.com/cz/vylety/vylet-horni-misecky-13/" rel="noopener noreferrer" target="_blank">Parcours de descente ouvert en été</a>
+</div>
+</section>
+<section aria-labelledby="schedule-title" id="schedule">
+<h2 id="schedule-title">Programme du jour</h2>
+<div class="timeline">
+<div class="timeline-row"><div class="time">08:35–08:45</div><div><h3>De Prague</h3><p>Comptez 2 heures et 10 minutes à 2 heures et 25 minutes pour l'ensemble du trajet. Ne vous contentez pas de calculer sur la base du trajet théorique sans trafic.</p></div></div>
+<div class="timeline-row"><div class="time">10:45–11:05</div><div><h3>Arrivée au P3 Medvědín</h3><p>Garez la voiture, changez de chaussures, allez chercher de l'eau et de la nourriture, allez aux toilettes, puis achetez un billet de remontée piéton aller simple jusqu'à la montagne.</p></div></div>
+<div class="timeline-row is-critical"><div class="time">11:00 / 11:30</div><div><h3>Prenez le téléphérique pour gravir la montagne</h3><p>11h00 est idéal, 11h30 est normalement acceptable ; 12h00 est un dernier recours.</p></div></div>
+<div class="timeline-row"><div class="time">11:20–11:50</div><div><h3>Départ de la station supérieure de Medvědín</h3><p>Vérifiez d'abord <span class="trail-red">Ligne rouge</span>et noms de lieux <strong>Vrbatova bouda</strong>Entrée dans la boucle alpine ; la piste de ski d'été est la dernière section après avoir terminé la boucle.</p></div></div>
+<div class="timeline-row"><div class="time">Vers 13h30</div><div><h3>Déjeuner Labská bouda</h3><p>Laisser agir 20 à 30 minutes. Si vous arrivez après 14h00, allez simplement aux toilettes, remplissez d'eau et continuez après 10 minutes.</p></div></div>
+<div class="timeline-row"><div class="time">14:20–14:40</div><div><h3>Pramen Labe</h3><p>Restez 10 à 15 minutes à la source emblématique de l'Elbe ; départ à 15h00 au plus tard.</p></div></div>
+<div class="timeline-row"><div class="time">15:40–16:00</div><div><h3>Harrachovy kameny</h3><p>Pour voir Kotelní jámy depuis la crête, ne quittez pas le sentier balisé pour descendre jusqu'au fond du cirque.</p></div></div>
+<div class="timeline-row"><div class="time">16:15–16:35</div><div><h3>Deuxième passage à Vrbatova bouda</h3><p>Faites simplement une courte pause de 5 minutes, puis suivez la ligne rouge jusqu'à Medvědín.</p></div></div>
+<div class="timeline-row is-critical"><div class="time">17:00–17:20</div><div><h3>Commencez à descendre la montagne depuis la station supérieure</h3><p>Ne descendez pas la montagne en téléphérique. Prenez d'abord la large route en direction de Horní Mísečky, puis suivez la piste de ski d'été bleue de Vodovodní jusqu'à la station inférieure du téléphérique.</p></div></div>
+<div class="timeline-row"><div class="time">18:30–18:50</div><div><h3>Retournez au P3 et retournez à Prague</h3><p>La section de descente est d'environ 5,2 kilomètres et 1 heure et 30 minutes ; il devrait arriver à Prague entre 20h45 et 21h20, sous réserve des conditions de circulation en temps réel.</p></div></div>
+</div>
+</section>
+<section aria-labelledby="transport-title" id="transport">
+<h2 id="transport-title">Voiture, parking et montée en télécabine</h2>
+<div class="columns">
+<div>
+<h3>Conduire depuis Prague</h3>
+<p class="road"><strong>Ordre recommandé :</strong>Prague → D10 → Mladá Boleslav → Jičín → Nová Paka → Vrchlabí → II/295 → Špindlerův Mlýn → P3 Medvědín</p>
+<ol class="plain-list">
+<li>Entrez D10, direction Mladá Boleslav / Turnov.</li>
+<li>Tournez vers Jičín et suivez la I/16 via Nová Paka jusqu'à Vrchlabí.</li>
+<li>À Vrchlabí, tournez sur la II/295, en direction du nord le long de la vallée du Labe.</li>
+<li>Une fois en ville, suivez les panneaux indiquant Medvědín, Lanovka, Aquapark, P3.</li>
+</ol>
+<div class="note">La navigation en direct peut être directement suivie par le trafic en direct si elle recommande la D11 via Poděbrady, Jičín et est nettement plus rapide.</div>
+</div>
+<div>
+<h3>Les étapes à l’arrivée</h3>
+<table aria-label="Informations parking et téléphérique" class="info-table">
+<tbody>
+<tr><th>Stationnement</th><td>P3 Medvědín, à côté de la station inférieure du téléphérique, ouvert 24h/24</td></tr>
+<tr><th>Instantané vacant</th><td>Environ 250 personnes au moment de l'enquête à 8h25 ; sous réserve d'arrivée</td></tr>
+<tr><th>Budget stationnement</th><td>Préparez 300 CZK ; sous réserve d'affichage sur place</td></tr>
+<tr><th>Conditions d'achat de billets</th><td><em>jednosměrná jízdenka pro pěší, jen nahoru</em>(Aller simple piéton, montée uniquement)</td></tr>
+<tr><th>Comment acheter des billets</th><td>GOPASS, distributeur automatique de billets ou billetterie sur place</td></tr>
+<tr><th>Durée de fonctionnement</th><td>09h00-18h00, départ à l'heure et à la demi-heure ; arrêt à 12h30</td></tr>
+<tr><th>Façons de descendre la montagne</th><td>Traversez Horní Mísečky et revenez au P3 par la piste de ski d'été Vodovodní</td></tr>
+</tbody>
+</table>
+<div class="note"><strong>Ne vous arrêtez pas par erreur :</strong>Ne vous contentez pas de vous rendre au centre-ville de Špindlerův Mlýn ou de vous rendre au P1 Bedřichov, actuellement fermé.</div>
+</div>
+</div>
+</section>
+<section aria-labelledby="route-title" id="route">
+<h2 id="route-title">Itinéraire section par section : identifier d'abord les noms de lieux, puis regarder les couleurs</h2>
+<p>La durée officielle du trajet de la boucle alpine est d'environ 4 heures et 12 minutes, avec une montée et une descente totales d'environ 393 mètres chacune ; la ligne de descente d'été depuis la station supérieure de Medvědín jusqu'à P3 fait encore 5,2 kilomètres, soit environ 1 heure et 30 minutes, et une descente d'environ 491 mètres. L'ensemble de la randonnée fait environ 18,1 kilomètres. Les sections suivantes laissent par défaut du temps pour trouver son chemin, prendre des photos et faire une petite pause. Cliquez sur chaque paragraphe pour développer les détails.</p>
+<div class="segments">
+<details class="segment" open="">
+<summary><span class="segment-no">01</span><span class="segment-title"><strong>Medvědín sur place → Vrbatova bouda</strong><span>50 à 60 minutes · Ligne rouge</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Trouvez-le après être sorti du téléphérique <strong>Vrbatova bouda / Zlaté návrší</strong>, entrez<span class="trail-red">Itinéraire de randonnée rouge</span>. Le premier arrêt à Vrbatova bouda ne dure que 5 à 10 minutes et aucun repas n'est prévu.</p></div>
+</details>
+<details class="segment" open="">
+<summary><span class="segment-no">02</span><span class="segment-title"><strong>Vrbatova bouda → Labská bouda</strong><span>60 à 75 minutes · Ligne rouge</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Regardez bien <strong>Labská bouda / Pančavský vodopád / Ambrožova vyhlídka</strong>. Passez devant la zone commémorative, la plate-forme d'observation et le sommet de la cascade ; ne descendez pas la route vers Horní Mísečky et ne prenez pas le raccourci jusqu'au pied de la cascade.</p></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">03</span><span class="segment-title"><strong>Déjeuner Labská bouda</strong><span>20 à 30 minutes · Point d'approvisionnement principal</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Utilisez les toilettes, achetez des boissons ou de simples plats chauds et faites le plein d’eau. Ne comptez pas uniquement sur les restaurants : les files d’attente du dimanche peuvent ronger la seconde moitié de votre journée.</p><ul><li>Arrivée avant 13h30 : 30 minutes de repos disponibles</li><li>13h30-14h00 Arrivée : 20 minutes maximum</li><li>Arrivée après 14h00 : limité à 10 minutes</li></ul></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">04</span><span class="segment-title"><strong>Labská bouda → Pramen Labe</strong><span>25 à 30 minutes</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Suivre <strong>Pramen Labe</strong>, n'allez pas vers Sněžné jámy, Martinova bouda ou Labský důl. Ce que voient les touristes est une source symbolique ; la véritable source naturelle se trouve dans la zone humide protégée et ne peut être trouvée hors du sentier.</p></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">05</span><span class="segment-title"><strong>Pramen Labe → U Čtyř pánů</strong><span>15 à 25 minutes · Marque jaune</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>De la source au long<span class="trail-yellow">Marque jaune</span>Aller à <strong>U Čtyř pánů</strong>. Ne continuez pas vers Česká budka, la frontière polonaise ou Sněžné jámy. C’est l’une des intersections les plus faciles à manquer de la journée.</p></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">06</span><span class="segment-title"><strong>U Čtyř pánů → U Růženčiny zahrádky</strong><span>15 à 25 minutes</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Trouvez d'abord <strong>U Růženčiny zahrádky</strong>, vérifiez après l'arrivée <strong>Harrachovy kameny / Vrbatova bouda / Nad Kotelní jámou</strong>, entrez<span class="trail-green">Voie verte</span>. Ne descendez pas à Harrachov.</p></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">07</span><span class="segment-title"><strong>Harrachovy kameny et Kotelní jámy</strong><span>35 à 50 minutes · Ligne verte</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Passer par Harrachovy kameny, la zone d'observation au-dessus du cirque, Nad Kotelní jámou, puis revenir à Vrbatova bouda.<strong>Kotelní jámy regarde d'en haut et ne marche pas dans la vallée.</strong>Ne quittez pas le sentier balisé pour prendre des photos.</p></div>
+</details>
+<details class="segment">
+<summary><span class="segment-no">08</span><span class="segment-title"><strong>Vrbatova bouda → Medvědín</strong><span>45 à 60 minutes · Retour à la ligne rouge</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>La deuxième fois, Vrbatova bouda se repose pendant un maximum de 5 minutes. Trouver <strong>Medvědín</strong> ou icône du téléphérique, faites demi-tour<span class="trail-red">Marque rouge</span>Revenir à la station précédente. Une fois arrivé, ne prenez pas le téléphérique et préparez-vous à entrer dans la dernière partie de la randonnée qui descend la montagne.</p></div>
+</details>
+<details class="segment" open="">
+<summary><span class="segment-no">09</span><span class="segment-title"><strong>Medvědín à la station → Horní Mísečky → P3</strong><span>Environ 1 heure 30 minutes · 5,2 km · Pistes d'été</span></span><span aria-hidden="true" class="segment-toggle">＋</span></summary>
+<div class="segment-body"><p>Depuis la gare supérieure, longer la large route <strong>Horní Mísečky</strong>, puis le long du bleu <strong>Vodovodní sjezdovka</strong>(piste de ski Vodovodní) continue de descendre et se termine à la station inférieure du téléphérique de Medvědín et du P3. Le « bleu » ici rappelle le nom et le niveau de la piste de ski. Ne le considérez pas comme une marque bleue de randonnée ; ne prenez pas de raccourcis et ne descendez pas directement les pentes raides. Lorsque vous rencontrez des vélos ou des scooters, arrêtez-vous et respectez les panneaux de déviation sur place. La descente totale est d'environ 491 mètres, attention aux graviers, à l'herbe mouillée et à la pente finale plus raide.</p></div>
+</details>
+</div>
+</section>
+<section aria-labelledby="weather-title" id="weather">
+<h2 id="weather-title">Météo et vêtements du jour</h2>
+<div class="weather-now">
+<div class="weather-temp"><span>☀</span> 9°C</div>
+<div><h3>Ensoleillé le matin, chaud l'après-midi</h3><p>Medvědín 08:25 Environ 9°C ; midi vers 18°C, après-midi basse altitude jusqu'à 23–24°C. La majeure partie de l'itinéraire se déroule dans des hautes terres ouvertes à une altitude d'environ 1 300 à 1 400 mètres, qui sont chaudes au soleil et se refroidissent rapidement lorsque le vent souffle.</p></div>
+</div>
+<div aria-label="Météo horaire" class="hourly">
+<div class="hour"><time>09:00</time><strong>11°C</strong><span>Généralement clair</span></div>
+<div class="hour"><time>11:00</time><strong>15°C</strong><span>Généralement clair</span></div>
+<div class="hour"><time>13:00</time><strong>20°C</strong><span>Clair entre les nuages</span></div>
+<div class="hour"><time>15:00</time><strong>23°C</strong><span>Partiellement ensoleillé</span></div>
+<div class="hour"><time>17:00</time><strong>23°C</strong><span>Ensoleillé</span></div>
+<div class="hour"><time>19:00</time><strong>21°C</strong><span>Ensoleillé</span></div>
+<div class="hour"><time>21:00</time><strong>18°C</strong><span>Le ciel est clair</span></div>
+<div class="hour"><time>23:00</time><strong>16°C</strong><span>Généralement clair</span></div>
+</div>
+<div class="columns" style="margin-top: 30px;">
+<div><h3>Vêtements conseillés</h3><ul class="plain-list"><li>Manches courtes à séchage rapide ou manches longues fines</li><li>Mettez une veste coupe-vent légère dans votre sac</li><li>Pantalons longs ou pantalons de randonnée</li><li>Baskets ou chaussures de randonnée texturées et antidérapantes</li><li>Chapeau et lunettes de soleil</li></ul></div>
+<div><h3>Remarque</h3><p>Il n'est pas recommandé de porter des baskets à semelles plates ou très usées. Même si le temps est sec, les chemins en pierre, les planches de bois, le gravier de ski et l'herbe mouillée peuvent encore être glissants ; la descente continue d'environ 491 mètres est également pénible pour les genoux, vous pouvez donc apporter des bâtons de randonnée. Même par temps ensoleillé, emportez une veste coupe-vent en montagne.</p></div>
+</div>
+</section>
+<section aria-labelledby="packing-title" id="packing">
+<h2 id="packing-title">La liste à vérifier pour chaque personne</h2>
+<p>Vous pouvez cliquer directement ; le statut vérifié n'est enregistré que dans le navigateur actuel.</p>
+<div class="checklist" id="packing-list">
+<label class="check-item"><input data-item="water" type="checkbox"/><span>1,5 litre d'eau ; 2 litres si vous ne supportez pas la chaleur ou si vous buvez trop d'eau</span></label>
+<label class="check-item"><input data-item="lunch" type="checkbox"/><span>Un déjeuner prêt à manger</span></label>
+<label class="check-item"><input data-item="snack" type="checkbox"/><span>Une collation énergétique</span></label>
+<label class="check-item"><input data-item="sunscreen" type="checkbox"/><span>Crème solaire</span></label>
+<label class="check-item"><input data-item="hat" type="checkbox"/><span>Chapeau et lunettes de soleil</span></label>
+<label class="check-item"><input data-item="jacket" type="checkbox"/><span>Veste coupe-vent légère</span></label>
+<label class="check-item"><input data-item="phone" type="checkbox"/><span>Téléphone portable entièrement chargé et carte hors ligne</span></label>
+<label class="check-item"><input data-item="powerbank" type="checkbox"/><span>Batterie externe et câble de chargement</span></label>
+<label class="check-item"><input data-item="tissue" type="checkbox"/><span>Tissu</span></label>
+<label class="check-item"><input data-item="payment" type="checkbox"/><span>Une petite somme d'argent liquide et des cartes bancaires</span></label>
+<label class="check-item"><input data-item="id" type="checkbox"/><span>Pièce d'identité ou titre de séjour</span></label>
+<label class="check-item"><input data-item="ticket" type="checkbox"/><span>Les tickets de stationnement sont déposés à un endroit fixe</span></label>
+</div>
+<button class="check-reset" id="check-reset" type="button">Effacer le chèque</button>
+<div class="note">Avant de partir, ouvrez l'itinéraire officiel sur Mapy.com et téléchargez la carte hors ligne de la région de Krkonoše ; ne comptez pas uniquement sur le signal du téléphone portable en montagne.</div>
+</section>
+<section aria-labelledby="fallback-title" id="fallback">
+<h2 id="fallback-title">Adapter l’itinéraire en cas de retard ou de difficulté</h2>
+<div class="decision-list">
+<div class="decision urgent"><h3>Si vous manquez la montée de midi</h3><p>N'attendez pas 13h00 pour parcourir toute la boucle. Changez votre itinéraire <strong>Medvědín → Vrbatova bouda → près de Pančavský vodopád → retour en arrière</strong>。</p></div>
+<div class="decision"><h3>Arrivée à Pramen Labe après 15h00</h3><p>Raccourcissez la séance photo et rendez-vous immédiatement à U Čtyř pánů ; si vous êtes visiblement en retard, allez directement à Vrbatova bouda à partir de là, en évitant Harrachovy kameny et Kotelní jámy.</p></div>
+<div class="decision"><h3>Entendre du tonnerre, des nuages sombres qui s'accélèrent ou des vents forts</h3><p>Arrêtez de vous attarder sur les crêtes exposées et suivez les sentiers balisés jusqu'au bouda Labská ou Vrbatova le plus proche ; éloignez-vous des arbres isolés, des points les plus élevés des crêtes et des rochers exposés.</p></div>
+<div class="decision"><h3>Les chaussures ne conviennent pas ou quelqu'un est visiblement fatigué</h3><p>La décision de poursuivre la boucle complète sera prise au plus tard à Labská bouda. Si vous ressentez des douleurs au genou ou un manque de force physique après votre retour à Medvědín, ou si le chemin enneigé devient glissant à cause de la pluie, descendez en téléphérique au lieu de vous forcer à parcourir les 491 mètres de descente supplémentaires.</p></div>
+</div>
+</section>
+<section aria-labelledby="sources-title" id="sources">
+<h2 id="sources-title">Contrôle final avant le départ</h2>
+<div class="sources">
+<a class="source-link" href="https://www.skiareal.cz/resort/skiareal-live" rel="noopener noreferrer" target="_blank"><span class="source-no">01</span><span><strong>Le téléphérique de Medvědín fonctionne en temps réel</strong>Skiareál Špindlerův Mlýn</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://www.spindleruv-mlyn.com/cz/vylety/z-medvedina-k-prameni-labe-a-zpet-pres-kotelni-jamy-57/" rel="noopener noreferrer" target="_blank"><span class="source-no">02</span><span><strong>Itinéraire de randonnée officiel</strong>12,9 km · 4 heures 12 minutes · 393 m de dénivelé</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://www.spindleruv-mlyn.com/cz/vylety/vylet-horni-misecky-13/" rel="noopener noreferrer" target="_blank"><span class="source-no">03</span><span><strong>Parcours officiel de descente estivale</strong>Pistes Via Horní Mísečky et Vodovodní · 5,2 km · 1 heure 30 minutes</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://www.skiareal.cz/informace/o-nas/jak-se-k-nam-dostanete" rel="noopener noreferrer" target="_blank"><span class="source-no">04</span><span><strong>Arrivée à Špindlerův Mlýn</strong>Instructions officielles de transport</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://www.spindleruv-mlyn.com/cz/doprava/" rel="noopener noreferrer" target="_blank"><span class="source-no">05</span><span><strong>Informations en temps réel sur les parkings</strong>Postes P3 vacants, statut ouvert et prix sur place</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://intranet.chmi.cz/predpovedi/predpovedi-pocasi/ceska-republika/hory/krkonose" rel="noopener noreferrer" target="_blank"><span class="source-no">06</span><span><strong>Météo des montagnes de Krkonose</strong>Institut hydrométéorologique tchèque</span><span class="source-arrow">→</span></a>
+<a class="source-link" href="https://www.krnap.cz/navstevnici/info-na-cesty/omezeni-na-cestach/" rel="noopener noreferrer" target="_blank"><span class="source-no">07</span><span><strong>KRNAP Restrictions routières actuelles</strong>Vérifiez à nouveau l'itinéraire le jour du départ pour voir s'il y a de nouvelles restrictions.</span><span class="source-arrow">→</span></a>
+</div>
+<div class="note">Cette page est un instantané d'exécution à 08h25 le 9 août 2026. La disponibilité des sièges, la météo, le vent et l'état de la portance sont tous sujets à changement ; vérifiez avant le départ et une fois arrivé au parking.</div>
+</section>
+<footer class="footer">Veuillez toujours rester sur les sentiers désignés dans les zones calmes. Organisation des pages : Zhaoyang SUI · 2026-08-09</footer>
+</article>
+</main>
+<script>
+    const navLinks = Array.from(document.querySelectorAll('.top-nav a'));
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute('href')))
+      .filter(Boolean);
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        navLinks.forEach((link) => {
+          const active = link.getAttribute('href') === `#${visible.target.id}`;
+          if (active) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      }, { rootMargin: '-20% 0px -68% 0px', threshold: [0, 0.2, 0.6] });
+      sections.forEach((section) => observer.observe(section));
+    }
+
+    const storageKey = 'medvedin-packing-v1';
+    const checks = Array.from(document.querySelectorAll('#packing-list input[type="checkbox"]'));
+    try {
+      const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
+      checks.forEach((checkbox) => { checkbox.checked = saved.includes(checkbox.dataset.item); });
+    } catch (_) { /* Storage can be unavailable in private browsing. */ }
+
+    const saveChecks = () => {
+      try {
+        const selected = checks.filter((checkbox) => checkbox.checked).map((checkbox) => checkbox.dataset.item);
+        localStorage.setItem(storageKey, JSON.stringify(selected));
+      } catch (_) { /* The checklist still works for this page view. */ }
+    };
+    checks.forEach((checkbox) => checkbox.addEventListener('change', saveChecks));
+    document.querySelector('#check-reset')?.addEventListener('click', () => {
+      checks.forEach((checkbox) => { checkbox.checked = false; });
+      saveChecks();
+    });
+  </script>
+<a class="guide-return-footer" data-guide-home="" href="/guides/fr/">← Tous les guides</a></body>
+</html>
+

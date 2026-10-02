@@ -1,0 +1,332 @@
+[
+  {
+    "id": "barbazan",
+    "number": "01",
+    "name": "Barbazan",
+    "zh": "Boucle Village et Forêt",
+    "tag": "Lac/Village/Chemin forestier",
+    "carddesc": "En partant du bord du lac, nous combinons villages, sentiers forestiers et anciens parcs de sources chaudes en un après-midi.",
+    "distance": "5.7",
+    "unit": "km",
+    "gain": "131 m",
+    "drive": "1 heure 20 à 30 minutes",
+    "walk": "Environ 2 heures et 30 minutes",
+    "officialtime": "1 heure et 30 minutes",
+    "altitude": "Environnement au pied de la montagne · Environ 450 mètres du bord du lac",
+    "intro": "Au départ du lac de Barbazan, parcourir les sentiers et les bois à l'extérieur du village, passer devant l'ancien parc thermal, puis revenir au lac. En chemin, vous rencontrerez la chapelle inachevée et l'ancien pavillon Yinquan. Il ne s'agit pas d'une boucle de six kilomètres autour du lac, mais d'une boucle complète autour du village.",
+    "official": "Le tour de Barbazan (88)",
+    "src": 1,
+    "routeNote": "5,7 kilomètres est la boucle complète officielle ; les points de départ et d'arrivée sont les mêmes. Le dénivelé cumulé est de 131 mètres, ce qui ne représente pas l'altitude la plus élevée.",
+    "parking": "Lac de Barbazan, 31510 Barbazan",
+    "coordinates": "",
+    "destination": "Lac de Barbazan, 31510 Barbazan, France",
+    "parkingNote": "Le point de départ officiel est Barbazan – Lac. Suivez les panneaux au bord du lac pour trouver des places de stationnement légales et ne choisissez pas par erreur une autre zone portant le même nom que votre destination.",
+    "driving": "Estimation basée sur un départ de Toulouse, 1h20-30 minutes réservées. Utilisez l'adresse réelle pour naviguer à nouveau avant le départ. La prise en charge des personnes, les conditions de circulation urbaine et le stationnement peuvent augmenter le temps.",
+    "source": "https://rando.cc-pyreneeshautgaronnaises.fr/trek/324-Le-tour-de-Barbazan-(88)",
+    "gpx": "https://admin-ccphg.openig.org/api/fr/treks/324/le-tour-de-barbazan-88.gpx",
+    "look": [
+      [
+        "water",
+        "Arrêtez-vous un moment au bord du lac",
+        "Organisez un pique-nique avant le départ, puis retournez au lac pour vous reposer après la marche."
+      ],
+      [
+        "leaf",
+        "À travers les villages et les bois",
+        "Il ne s’agit pas de regarder le lac jusqu’au bout ; les sentiers alternent avec les routes du village."
+      ],
+      [
+        "book",
+        "Ancien parc des sources chaudes",
+        "Notez la chapelle inachevée et le pavillon de la fontaine restauré."
+      ]
+    ],
+    "steps": [
+      [
+        "Bord du lac → direction Cier-de-Rivière",
+        "Depuis le panneau Lac de Barbazan, monter vers la maison, puis prendre le chemin à droite en continuant vers Cier-de-Rivière. C'est un panneau routier, pas un guide vers un autre village."
+      ],
+      [
+        "Chemin Camp de Plan → Les Thermes",
+        "Reprendre la route et suivre les panneaux, retrouver le panneau Chemin Camp de Plan et suivre Barbazan – Les Thermes. Il y a ensuite des virages à droite, des virages à gauche et des routes en montée, qui sont soumises à la piste officielle."
+      ],
+      [
+        "Lapale → Vieux parc des sources chaudes",
+        "Après avoir atteint Lapale, suivre toujours Barbazan – Les Thermes ; à l'approche de la route, suivez les panneaux indiquant la zone des sources chaudes. Une fois arrivé au parc, vous pouvez vous arrêter brièvement pour voir l'église et le pavillon de la fontaine à eau."
+      ],
+      [
+        "Les Thermes → Retour au lac",
+        "Suivre le panneau Les Thermes jusqu'à Barbazan Lac. Enfin, reprenez la route et tournez à gauche en direction du lac pour terminer la boucle ; gardez vos enfants à proximité lorsque vous traversez et marchez le long de la route."
+      ]
+    ],
+    "picnic": "Il est recommandé de déjeuner d'abord au bord du lac, puis de parcourir la boucle légèrement et de retourner au lac pour reconstituer des collations. Apportez un petit tapis de pique-nique et ne basez pas vos plans sur l'hypothèse qu'il y aura des tables, des magasins ou des toilettes vides.",
+    "picnicNote": "L'ancien parc des sources chaudes est une visite à pied, pas un élément de réservation où vous pouvez directement vous imprégner des sources chaudes pendant l'itinéraire. L'ouverture des toilettes au bord du lac n'a pas été vérifiée.",
+    "longer": "Visez d’abord à parcourir 5,7 kilomètres. Lorsque vous avez encore assez d'énergie, vous pouvez faire des promenades supplémentaires dans le parc ou au bord du lac ; ne parcourez pas la distance le long de l'autoroute sans vérifier les \"deux ou trois kilomètres de boucles supplémentaires\" fixés.",
+    "shorter": "Si vos enfants ne sont pas énergiques après leur arrivée, ils peuvent simplement se promener et pique-niquer au bord du lac. Ils ne sont pas obligés de boucler la boucle n°88 ; une fois entrés dans la boucle, ils doivent organiser leur retour en fonction de leur emplacement réel.",
+    "cautions": [
+      "Il y a des passages à niveau, des liaisons routières, des chemins de terre et des montées, pas une voie verte plate entièrement fermée.",
+      "Il n'est pas prévu que des promeneurs ordinaires puissent parcourir tout le trajet ; après la pluie, faites attention à l'adhérence des chemins de terre et de gravier.",
+      "La baignade est interdite au lac Barbazan ; les adultes doivent toujours surveiller les enfants lorsqu'ils se reposent au bord du lac."
+    ],
+    "cautionSource": 4,
+    "events": [
+      [
+        0,
+        "Départ de Toulouse",
+        "Laissez d'abord l'enfant manger un peu et n'attendez pas l'arrivée à destination l'estomac vide."
+      ],
+      [
+        85,
+        "Arrivée au lac",
+        "Garez la voiture, trouvez une aire de repos légale et organisez le déjeuner."
+      ],
+      [
+        130,
+        "Démarrer la boucle du village",
+        "Marchez au rythme d'un enfant, avec de courts arrêts dans les églises et les parcs."
+      ],
+      [
+        280,
+        "Retour au lac",
+        "Collations, boissons et emballage de vos affaires."
+      ],
+      [
+        300,
+        "Revenir en arrière",
+        "Cette édition ne recouvre plus une autre attraction."
+      ],
+      [
+        385,
+        "Retour à Toulouse",
+        "Le trajet retour reste soumis au trafic réel."
+      ]
+    ],
+    "baseLabel": "Boucle de 5,7 km",
+    "baseTime": "La promenade dure environ 2 heures et 30 minutes, plus le temps d'un pique-nique",
+    "extraLabel": "",
+    "extraMinutes": 0,
+    "extraDistance": "",
+    "weatherNote": "Si la route est boueuse, s'il y a une fermeture ou un avertissement de chasse sur le chemin, la visite sera raccourcie ou reportée et les restrictions sur place ne seront pas contournées."
+  },
+  {
+    "id": "beille",
+    "number": "02",
+    "name": "Plateau de Beille",
+    "zh": "Circuit des Plateaux de la Cabane de Piparlan",
+    "tag": "Plateau / pâturage / refuge de montagne",
+    "carddesc": "Traverser les prairies du plateau et les pinèdes jusqu'au refuge Piparlan, puis revenir lentement au point de départ.",
+    "distance": "4.1",
+    "unit": "km",
+    "gain": "156 m",
+    "drive": "Environ 2 heures – 2 heures et 15 minutes",
+    "walk": "Environ 2 à 2,5 heures",
+    "officialtime": "1 heure et 30 minutes",
+    "altitude": "Environ 1 745 à 1 891 mètres",
+    "intro": "Sur un plateau de près de 1 800 mètres, parcourez une petite boucle le long de prairies, de larges routes et de sentiers forestiers. Le refuge Piparlan est un point de repère sur le chemin, pas l'objectif du sommet ; il y a une descente après la montée dans la seconde moitié. Ce guide s'applique uniquement aux conditions sans glace ni neige et avec une visibilité normale.",
+    "official": "Balade d’altitude à Beille – La cabane de Piparlan",
+    "src": 2,
+    "routeNote": "4,1 kilomètres et une dénivelée cumulée de 156 mètres sont des données officielles. Une courte distance ne signifie pas qu’il n’y a pas de hauts et de bas ; la météo à haute altitude doit être vérifiée séparément.",
+    "parking": "Plateau de Beille – Parking, 09310 Les Cabannes",
+    "coordinates": "42.72470, 1.69119",
+    "destination": "42.72470,1.69119",
+    "parkingNote": "La voiture termine au parking du Plateau et non au village des Cabannes. Officiellement, les parkings gratuits et les toilettes publiques sont répertoriés, et la disponibilité spécifique sera déterminée sur place le jour même.",
+    "driving": "Après Les Cabannes, prendre la D522 jusqu'au Plateau de Beille. Les 16 derniers kilomètres et environ 30 minutes sont la route qui monte la montagne, qui est incluse dans le plan de conduite total ; ne commencez pas à compter le temps passé sur la montagne jusqu'à ce que vous atteigniez le village.",
+    "source": "https://www.pyrenees-ariegeoises.com/a-voir-a-faire/balades-et-randonnees/balade-daltitude-a-beille-la-cabane-de-piparlan-les-cabannes-fr-4444832/",
+    "gpx": "https://static.apidae-tourisme.com/filestore/objets-touristiques/plans/107/96/19488875/balade_daltitude_beille-piparlan-2.gpx",
+    "look": [
+      [
+        "mountain",
+        "Plateau ouvert",
+        "Lorsque le temps est clair, vous pouvez regarder les montagnes environnantes et marcher dans les nuages et la brume."
+      ],
+      [
+        "leaf",
+        "Prairie et forêt de pins",
+        "Il y a des pâturages, des routes larges et des montées et des descentes dans la forêt."
+      ],
+      [
+        "pin",
+        "Gîte Piparlan",
+        "Un point cible clair sur le chemin, pas d'ouverture prédéfinie de la maison."
+      ]
+    ],
+    "steps": [
+      [
+        "Parking → Entrée du chemin en herbe",
+        "Après avoir dépassé la rambarde à côté de la maison en bois dans le quartier de la gare, remonter la large route à gauche, puis prendre le chemin d'herbe à gauche. Conservez la piste officielle de 4,1 kilomètres avant le départ pour éviter de prendre le long itinéraire par erreur."
+      ],
+      [
+        "Les 4 chemins → Piparlan",
+        "Au \"Four Junction\", prenez la route à droite qui mène au refuge Piparlan. Marchez lentement jusqu'à la cabane, buvez de l'eau, prenez des photos et économisez votre énergie pour le retour."
+      ],
+      [
+        "Contourner la cabane → Prendre à gauche dans la forêt",
+        "Dépasser le côté droit de la cabane, puis tourner évidemment à gauche et s'engager dans un chemin qui descend dans le bois. Les cabines sont uniquement des points de repère et ne garantissent pas les opérations, les toilettes ou les espaces d'abri accessibles."
+      ],
+      [
+        "Descente en forêt → Montée jusqu'au quartier de la gare",
+        "Ce dernier tronçon descend d'abord de manière significative, puis remonte pour revenir au parking de la gare. Ne considérez pas l'arrivée à la cabane comme une « montée terminée », surveillez vos enfants en cours de route."
+      ]
+    ],
+    "picnic": "Utilisez l'aire de repos ou de pique-nique balisée à proximité du parking pour déjeuner en premier et ressentir en premier le vent et la température. Apportez votre propre déjeuner; il n'y a aucune garantie si les installations commerciales seront ouvertes. Vous devez toujours emporter de l’eau, des collations et des vêtements chauds et imperméables avec vous après avoir pris la route.",
+    "picnicNote": "Les illustrations du plateau montrent uniquement des images environnementales, et non la météo sur place ou le terrain précis. Veuillez utiliser le GPX officiel, les panneaux de signalisation en direct et les cartes hors ligne pour vraiment connaître votre chemin.",
+    "longer": "Après avoir parcouru la boucle principale et être revenu au parking, vous pouvez choisir la boucle de la forêt de pins de la Balade des Pins, qui fait environ 1,8 kilomètres ; le total est d'environ 5,9 kilomètres, soit 45 à 60 minutes. N'augmentez que si la météo, la force physique et le temps le permettent.",
+    "shorter": "Tout d'abord, fixez-vous 4,1 kilomètres comme seul objectif de la journée et ne optez pas par défaut pour une marche supplémentaire. Si vous constatez des vents forts, une mauvaise visibilité ou des routes verglacées à votre arrivée, vous ne commencerez pas l'itinéraire en boucle des plateaux. Vous ne pouvez pas démarrer l'itinéraire de force simplement parce que vous avez déjà atteint la montagne.",
+    "cautions": [
+      "L'altitude est d'environ 1 745 à 1 891 mètres ; Quand on s'habille, on ne peut pas se contenter de se référer à ce qu'on ressent à Toulouse à midi.",
+      "Ne partez pas selon ce plan en cas de vent fort, de risque d'orage, de brouillard dense ou de glace ; revenez à temps si le temps change en cours de route.",
+      "La cabane ne peut pas être ouverte et ne peut pas être utilisée pour l'hydratation, les repas ou les pauses toilettes.",
+      "Gardez une distance avec le bétail dans le pâturage, ne poursuivez pas, ne nourrissez pas et n'entrez pas dans le troupeau pour prendre des photos."
+    ],
+    "cautionSource": 5,
+    "events": [
+      [
+        0,
+        "Départ de Toulouse",
+        "Le point final de la navigation est fixé au parking du plateau."
+      ],
+      [
+        135,
+        "Arrivée au plateau",
+        "Arrêtez-vous, évaluez le vent et les conditions de la route et pique-niquez."
+      ],
+      [
+        165,
+        "Début de la boucle Piparlan",
+        "Suivre le \"Quatre Jonction\" et direction la cabane."
+      ],
+      [
+        300,
+        "Retour à la zone de la gare",
+        "Confirmez d’abord la force physique de l’enfant, puis décidez s’il doit marcher davantage."
+      ],
+      [
+        315,
+        "Retour de la montagne",
+        "Réservez toute la descente de la montagne et ne vous précipitez pas."
+      ],
+      [
+        450,
+        "Retour à Toulouse",
+        "Les conditions de circulation et les courtes pauses peuvent prolonger le voyage de retour."
+      ]
+    ],
+    "baseLabel": "Boucle Piparlan de 4,1 km",
+    "baseTime": "La marche prend environ 2 à 2,5 heures, ce qui laisse du temps pour un pique-nique",
+    "extraLabel": "Ajouter la marche à la Balade des Pins · Environ 1,8 kilomètres",
+    "extraMinutes": 60,
+    "extraDistance": "Environ 5,9 kilomètres",
+    "weatherNote": "Il s'agit d'un arrangement de marche pendant la saison sans neige. Aucune date précise n'a été déterminée et cette page ne fournit pas de garanties en temps réel sur la météo des montagnes ni sur l'ouverture des routes."
+  },
+  {
+    "id": "loudenvielle",
+    "number": "03",
+    "name": "Génos–Loudenvielle",
+    "zh": "Promenade autour du lac et du village",
+    "tag": "Rivage/Vallée/Village",
+    "carddesc": "Promenez-vous le long du lac, pique-niquez sur l'herbe et visitez une petite partie du village pour garder votre emploi du temps détendu.",
+    "distance": "3.7",
+    "unit": "km de base",
+    "gain": "6 m",
+    "drive": "Environ 2 heures – 2 heures et 15 minutes",
+    "walk": "Prévoyez 2 à 2,5 heures",
+    "officialtime": "1 heure et 15 minutes",
+    "altitude": "La ligne officielle est d'environ 949 à 955 mètres",
+    "intro": "Suivre un itinéraire officiel accessible avec un point de départ clair : à partir du parking face à l'entrée du camping Pène Blanche, accéder au sentier en bord de lac. Le trajet de base est de 3,7 kilomètres, y compris la connexion du parking à la zone du lac ; plus une promenade dans le village, il est prévu pour faire environ 4,7 à 5,2 kilomètres.",
+    "official": "Le tour du lac de Génos–Loudenvielle · version PMR",
+    "src": 3,
+    "routeNote": "3,7 kilomètres, dénivelé cumulé de 6 mètres se réfère à l'itinéraire officiel de la base. Environ 4,7 à 5,2 kilomètres sont une combinaison personnalisée d'errances autour des villages, et non une boucle officielle fixe de cinq kilomètres.",
+    "parking": "Parking public face à l'entrée du camping Pène Blanche",
+    "coordinates": "42.796699, 0.406764",
+    "destination": "42.796699,0.406764",
+    "parkingNote": "Utilisez les coordonnées pour vérifier le point de départ officiel du road book, garez-vous dans une zone où le stationnement public est autorisé et ne conduisez pas directement jusqu'au camping. Les péages, places de stationnement et contrôles temporaires sont soumis à une réglementation sur place.",
+    "driving": "Vous pouvez suivre l'A64 → Sortie 16 Lannemezan → Arreau → Approche Vallée du Louron / Vallée de Loudenvielle. Utilisez la navigation réelle pour vérifier le temps passé dans la journée, et ne vous contentez pas de choisir l'itinéraire à travers la montagne en fonction de la distance la plus courte.",
+    "source": "https://www.vallee-du-louron.com/fr/le-louron-accessible-a-tous",
+    "gpx": "",
+    "pdf": "https://presse.tourisme-occitanie.com/uploads/sites/9/2022/04/Fiche-Rando-Tour-du-lac-Tourisme-et-Handicap.pdf",
+    "look": [
+      [
+        "water",
+        "Regarder les montagnes au bord du lac",
+        "En marchant et en observant la vallée, il n'est pas nécessaire de monter plus haut."
+      ],
+      [
+        "heart",
+        "Intercaler les ruptures avec",
+        "Marchez un moment, buvez de l'eau, regardez le lac, puis continuez, pas à un rythme adulte."
+      ],
+      [
+        "book",
+        "Flâner dans le village",
+        "Laissez 1 à 1,5 kilomètres au-delà de l'itinéraire de base pour une promenade facile."
+      ]
+    ],
+    "steps": [
+      [
+        "Aire de stationnement → À côté de Balnéa → Région des Lacs",
+        "Depuis le parking public face au camping, suivre le sentier piétonnier qui longe le terrain de rugby et passer par Balnéa, côté sud du lac. Balnéa n'est ici qu'un repère."
+      ],
+      [
+        "Branche sud → petit pont → extrémité nord",
+        "Suivez le road book officiel et suivez le sentier et le pont à droite, puis suivez le lac jusqu'à l'extrémité nord. Il n'est pas nécessaire d'acheter des billets de source chaude ou de remontées mécaniques pour effectuer cette promenade."
+      ],
+      [
+        "Traverser le pont à l'extrémité nord → changer de rive et revenir",
+        "Traverser le pont à l'extrémité nord et changer de côté en passant de l'autre côté la base nautique et les abords du Ludéo. Les articles professionnels ne sont pas inclus dans la randonnée de base et il n'est pas garanti qu'ils soient ouverts à l'arrivée."
+      ],
+      [
+        "Route de desserte originale → aire de stationnement → village",
+        "Après être revenu du côté sud, revenez le long de la route de connexion d'origine, qui fait essentiellement 3,7 kilomètres au total. Ensuite, vous pouvez choisir un aller-retour d'environ 1 à 1,5 kilomètres dans le village, et le trajet combiné est d'environ 4,7 à 5,2 kilomètres."
+      ]
+    ],
+    "picnic": "Il est recommandé de se rendre d'abord à pied jusqu'à la zone du lac avec votre déjeuner et de s'asseoir dans l'aire de pique-nique ou de repos balisée. Il y a une zone d'atterrissage pour parapente du côté sud de la zone du lac. Ne considérez pas automatiquement les prairies ouvertes comme un endroit où vous pouvez disposer un tapis de pique-nique.",
+    "picnicNote": "Le road book officiel indique les toilettes à proximité de Ludéo et les toilettes sèches sur l'autre rive. L'ouverture effective dépend du site ; ne comptez surtout pas sur des projets d’eau saisonniers.",
+    "longer": "En plus des « 3,7 kilomètres de la base + 1 à 1,5 kilomètres du village », ceux qui sont prêts à continuer à marcher le long du rivage familier sur 1 à 1,5 kilomètres puis à revenir, ajoutant 2 à 3 kilomètres au trajet total d'environ 6,7 à 8,2 kilomètres. Les enfants doivent être accompagnés d'un adulte qui reste sur place, et le lieu et l'heure du rendez-vous doivent être convenus à l'avance.",
+    "shorter": "Après être entré par le côté sud, il suffit de choisir une rive et de marcher un moment avant de faire demi-tour, sans s'engager au préalable dans un cercle complet. Marcher de l’autre côté puis revenir à la voiture nécessite toujours une distance de marche réelle.",
+    "cautions": [
+      "Le tracé est relativement plat, mais une partie de la chaussée n'est pas durcie. Il faut néanmoins faire attention au petit pont de liaison et au tronçon de liaison routière d'environ 50 mètres.",
+      "Un itinéraire sans obstacle ne signifie pas une route asphaltée ; lorsque vous poussez un chariot, vous devez toujours vérifier l'état de la chaussée et des ponts ce jour-là.",
+      "Pas d'accès aux aires d'atterrissage des parapentes, pas de dépendance aux divertissements aquatiques saisonniers ou aux ouvertures de restauration.",
+      "Les kilomètres supplémentaires sont enregistrés selon la méthode de marche réelle et les distances des itinéraires depuis les différents points de départ du stationnement ne sont pas mélangées."
+    ],
+    "cautionSource": 6,
+    "events": [
+      [
+        0,
+        "Départ de Toulouse",
+        "Approche alternative de la vallée par Lannemezan, Arreau."
+      ],
+      [
+        135,
+        "Arrivée et pique-nique",
+        "Garez-vous sur le parking public et marchez jusqu'à l'aire de repos balisée."
+      ],
+      [
+        175,
+        "Commencez à faire le tour du lac",
+        "Prenez soin des enfants au pont et au bord du lac et prenez le temps de vous arrêter en cours de route."
+      ],
+      [
+        285,
+        "Promenade villageoise et collations",
+        "Choisissez 1 à 1,5 kilomètres, qui seront inclus dans la distance totale de la combinaison."
+      ],
+      [
+        340,
+        "Début du voyage de retour",
+        "L'ajout d'un plan de marche nécessite d'ajouter du temps séparément."
+      ],
+      [
+        480,
+        "Retour à Toulouse",
+        "Organisé sur la base d'une indemnité de retour d'environ 2 heures et 20 minutes, et non d'une prévision en temps réel."
+      ]
+    ],
+    "baseLabel": "Lac de base + village · Environ 4,7 à 5,2 kilomètres",
+    "baseTime": "Compter environ 2 heures pour faire le tour du lac, plus pique-niquer et rester au village",
+    "extraLabel": "Aller-retour supplémentaire jusqu'au bord du lac · 2 à 3 kilomètres ajoutés",
+    "extraMinutes": 60,
+    "extraDistance": "Environ 6,7 à 8,2 kilomètres",
+    "weatherNote": "Le tour de base du lac peut être utilisé comme itinéraire tout au long de l'année, mais l'accès et l'ouverture des installations le jour même doivent encore être vérifiés ; les projets d'eau sur la photo ne sont pas garantis opérationnels."
+  }
+]

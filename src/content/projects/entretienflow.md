@@ -3,7 +3,7 @@ title: "EntretienFlow"
 description: "A privacy-first workspace for collecting candidate availability, coordinating interviewers, and sending calendar-ready updates."
 date: 2026-07-01
 status: active
-demo: "https://h5.cnniceshop.com/when2entretien/"
+demo: "https://zhauyoung.com/when2entretien/"
 github: "https://github.com/ze2phyrzhenyin/entretien2when"
 cover: "/images/projects/entretienflow.png"
 i18n:

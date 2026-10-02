@@ -14,7 +14,7 @@ const { project } = Astro.props;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const text = getProjectText(project, lang);
-const { status, github, demo, paper, date, cover } = project.data;
+const { status, github, demo, site, admin, paper, date, cover } = project.data;
 
 const statusColor: Record<string, string> = {
   active: 'background:hsl(150 50% 94%);color:hsl(150 60% 28%);border-color:hsl(150 50% 85%);',
@@ -52,6 +52,8 @@ const statusColor: Record<string, string> = {
 
       <div class="flex flex-wrap gap-4">
         {demo && <a href={demo} target="_blank" rel="noopener" class="project-link">{t('projects.demo')} ↗</a>}
+        {site && <a href={site} target="_blank" rel="noopener" class="project-link">{t('projects.site')} ↗</a>}
+        {admin && <a href={admin} target="_blank" rel="noopener" class="project-link muted">{t('projects.admin')} ↗</a>}
         {github && <a href={github} target="_blank" rel="noopener" class="project-link muted">{t('projects.source')} ↗</a>}
         {paper && <a href={paper} target="_blank" rel="noopener" class="project-link muted">{t('projects.paper')} ↗</a>}
       </div>

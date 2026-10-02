@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html data-guide="guides" lang="en">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Independent pages hosted on zhaoyang.fr — travel guides, city calendars, hiking routes, match-day handbooks, job directories &amp; research roadmaps." name="description"/>
+<meta content="#f8f8f7" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#0a0908" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<meta content="Field Notes — zhaoyang.fr" property="og:title"/>
+<meta content="All independent pages at a glance: travel, hiking, city life, football, careers &amp; research." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://zhaoyang.fr/guides/en/" property="og:url"/>
+<title>Field Notes — zhaoyang.fr</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root{--bg:#f8f8f7;--surface:#fff;--surface-alt:#f5f5f4;--border:#e7e5e4;--border-soft:#d6d3d1;--text:#1c1917;--text-2:#57534e;--text-m:#78716c;--accent:hsl(243,75%,46%);--accent-soft:hsl(243,60%,94%);--accent-t:hsl(243,60%,35%);--tag-bg:#f5f5f4;--tag-bdr:#e7e5e4;--tag-c:#57534e;--sh:0 1px 3px rgba(28,25,23,.06),0 1px 2px rgba(28,25,23,.04);--sh-h:0 4px 12px rgba(28,25,23,.08),0 2px 4px rgba(28,25,23,.04);--dot:rgba(28,25,23,.06)}
+    @media(prefers-color-scheme:dark){:root{--bg:#0a0908;--surface:#141211;--surface-alt:#1c1a18;--border:#292524;--border-soft:#44403c;--text:#f0eeed;--text-2:#b4ada6;--text-m:#78716c;--accent:hsl(243,70%,60%);--accent-soft:hsl(243,40%,16%);--accent-t:hsl(243,60%,72%);--tag-bg:#1c1a18;--tag-bdr:#292524;--tag-c:#b4ada6;--sh:0 1px 3px rgba(0,0,0,.3);--sh-h:0 4px 12px rgba(0,0,0,.4);--dot:rgba(240,238,235,.04)}}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{background:var(--bg);color:var(--text);scroll-behavior:smooth}
+    body{min-height:100vh;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;background-image:radial-gradient(var(--dot) 1px,transparent 1px);background-size:24px 24px}
+    a{color:inherit;text-decoration:none}
+    .shell{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+    .header{padding:3.5rem 0 2rem}
+    .header-top{display:flex;justify-content:flex-end;margin-bottom:1.5rem}
+    .lang-sw{display:flex;gap:2px;padding:2px;background:var(--surface-alt);border:1px solid var(--border);border-radius:8px}
+    .lang-sw a{padding:5px 12px;font-size:12px;font-weight:500;border-radius:6px;color:var(--text-m);transition:all .15s}
+    .lang-sw a:hover{color:var(--text)}
+    .lang-sw a.active{background:var(--surface);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+    .header h1{font-family:'Lora',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-bottom:.75rem}
+    .header .sub{max-width:560px;color:var(--text-2);font-size:15px;line-height:1.7}
+    .stats{display:flex;gap:1.5rem;padding:1rem 0 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:2.5rem;flex-wrap:wrap}
+    .stat{display:flex;align-items:baseline;gap:6px}
+    .stat strong{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--accent-t)}
+    .stat span{color:var(--text-m);font-size:13px}
+    .section{margin-bottom:3rem}
+    .stitle{display:flex;align-items:center;gap:10px;margin-bottom:1rem;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-m)}
+    .stitle::after{content:'';flex:1;height:1px;background:var(--border)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:1rem}
+    .card{display:flex;flex-direction:column;padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--sh);transition:box-shadow .22s,transform .22s,border-color .22s;position:relative;overflow:hidden}
+    .card:hover{box-shadow:var(--sh-h);transform:translateY(-2px);border-color:var(--border-soft)}
+    .card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .card-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:10px;margin-bottom:1rem;font-size:20px;background:var(--accent-soft)}
+    .card h2{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:.5rem}
+    .card:hover h2{color:var(--accent-t)}
+    .card p{flex:1;color:var(--text-2);font-size:13.5px;line-height:1.65;margin-bottom:1rem}
+    .card-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .card-tags span{padding:3px 10px;font-size:11px;font-weight:500;color:var(--tag-c);background:var(--tag-bg);border:1px solid var(--tag-bdr);border-radius:999px;white-space:nowrap}
+    .card-arrow{position:absolute;top:1.25rem;right:1.25rem;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;color:var(--text-m);background:var(--surface-alt);font-size:14px;transition:all .22s}
+    .card:hover .card-arrow{color:#fff;background:var(--accent);transform:translate(1px,-1px)}
+    .footer{padding:2rem 0 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--text-m);font-size:12px}
+    .card{animation:fadeUp .5s ease both}
+    .card:nth-child(1){animation-delay:0ms}.card:nth-child(2){animation-delay:50ms}.card:nth-child(3){animation-delay:100ms}.card:nth-child(4){animation-delay:150ms}.card:nth-child(5){animation-delay:200ms}.card:nth-child(6){animation-delay:250ms}.card:nth-child(7){animation-delay:300ms}.card:nth-child(8){animation-delay:350ms}.card:nth-child(9){animation-delay:400ms}.card:nth-child(10){animation-delay:450ms}.card:nth-child(11){animation-delay:500ms}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:640px){.header{padding-top:2rem}.grid{grid-template-columns:1fr}.stats{gap:1rem}}
+    @media(prefers-reduced-motion:reduce){.card{animation:none}}
+  </style>
+<link href="https://zhaoyang.fr/guides/en/" rel="canonical"/><link href="https://zhaoyang.fr/guides/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/guides/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/guides/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/guides/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="Guide navigation" class="guide-navigation"><a href="/">← Personal website</a><span class="guide-navigation-languages"><a aria-current="page" href="/guides/en/" hreflang="en" lang="en">EN</a><a href="/guides/zh/" hreflang="zh-Hans" lang="zh">中文</a><a href="/guides/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<main class="shell">
+<header class="header">
+<div class="header-top">
+</div>
+<h1>Field Notes</h1>
+<p class="sub">Independent pages hosted on zhaoyang.fr — travel guides, city calendars, hiking routes, match-day handbooks, job directories and research roadmaps.</p>
+</header>
+<div class="stats">
+<div class="stat"><strong>11</strong><span>pages</span></div>
+<div class="stat"><strong>5</strong><span>categories</span></div>
+</div>
+<section class="section">
+<div class="stitle">Travel &amp; Hiking</div>
+<div class="grid">
+<a class="card" href="/pyrenees-guide/en/">
+<div class="card-icon">🥾</div>
+<h2>Pyrenees Half-Day Hikes</h2>
+<p>Three half-day hiking routes from Toulouse: Barbazan, Plateau de Beille, Génos–Loudenvielle. Parking, picnic spots and timing included.</p>
+<div class="card-tags"><span>Pyrenees</span><span>Hiking</span><span>3 routes</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/medvedin/en/">
+<div class="card-icon">⛰️</div>
+<h2>Medvědín Day Hike</h2>
+<p>Day trip from Prague via the Elbe source and Kotelní jámy, descending to Špindlerův Mlýn. Ready-to-follow itinerary.</p>
+<div class="card-tags"><span>Czechia</span><span>Hiking</span><span>18.1 km</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/randonnee/en/">
+<div class="card-icon">🚗</div>
+<h2>Krkonoše &amp; Bohemian-Saxon Switzerland</h2>
+<p>Two one-day road trips compared: route, schedule, transport, walking distance, budget and maps.</p>
+<div class="card-tags"><span>Czechia / Germany</span><span>Road trip</span><span>Day trips</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/musee-prague/en/">
+<div class="card-icon">🏛️</div>
+<h2>Prague Museums, Buildings &amp; Bookshops</h2>
+<p>Noteworthy museums, historic buildings and independent bookshops with addresses, hours, booking info and official links.</p>
+<div class="card-tags"><span>Prague</span><span>Culture</span><span>City guide</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+</div>
+</section>
+<section class="section">
+<div class="stitle">City Life · Toulouse</div>
+<div class="grid">
+<a class="card" href="/toulouse-events/en/">
+<div class="card-icon">🎭</div>
+<h2>Toulouse Autumn Events 2026</h2>
+<p>375 shows and matches from September to December, with calendar view, search filters, ticket links, bookmarks and calendar export.</p>
+<div class="card-tags"><span>Toulouse</span><span>Events</span><span>375 entries</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/toulouse-bars/en/">
+<div class="card-icon">🍸</div>
+<h2>Toulouse Bar Guide</h2>
+<p>A curated list of 26 bars covering whisky lounges, speakeasies, cocktail bars, jazz venues, live music and specialty spots.</p>
+<div class="card-tags"><span>Toulouse</span><span>Bars</span><span>26 venues</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+</div>
+</section>
+<section class="section">
+<div class="stitle">Football</div>
+<div class="grid">
+<a class="card" href="/man-city-ucl-away-guide-2026-27/en/">
+<div class="card-icon">⚽</div>
+<h2>UCL Match-Day Handbook 2026/27</h2>
+<p>Man City × Barça × PSG: fixtures, ticket windows, seat picks, travel from Toulouse, accommodation, visas and budget.</p>
+<div class="card-tags"><span>Europe</span><span>Football</span><span>18 matches</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+</div>
+</section>
+<section class="section">
+<div class="stitle">Jobs &amp; Recruiting</div>
+<div class="grid">
+<a class="card" href="/francophone-sport-careers/en/">
+<div class="card-icon">🏒</div>
+<h2>Francophone Canada Sports Careers</h2>
+<p>Internships, clubs and openings filtered by region, sport and compensation, with official recruitment links.</p>
+<div class="card-tags"><span>Canada</span><span>Sports jobs</span><span>43 clubs</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/recruit/en/">
+<div class="card-icon">💼</div>
+<h2>Intern Recruitment</h2>
+<p>HongZe Digital Commerce (Shenzhen) is hiring international business and information assistant interns.</p>
+<div class="card-tags"><span>Shenzhen</span><span>Internship</span><span>Hiring</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+</div>
+</section>
+<section class="section">
+<div class="stitle">Research &amp; Academia</div>
+<div class="grid">
+<a class="card" href="/summer-schools-religion/en/">
+<div class="card-icon">📚</div>
+<h2>European Religious Studies Summer Schools</h2>
+<p>A trilingual directory (EN / FR / ZH) of European summer schools in religious studies for undergraduates.</p>
+<div class="card-tags"><span>Europe</span><span>Summer schools</span><span>Trilingual</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+<a class="card" href="/logic-agents/en/">
+<div class="card-icon">🧠</div>
+<h2>Logic Research Agents Roadmap</h2>
+<p>From a first modal-logic prototype to semantics, counter-models, formal verification and human-in-the-loop collaboration.</p>
+<div class="card-tags"><span>Research</span><span>AI Agents</span><span>Logic</span></div>
+<span aria-hidden="true" class="card-arrow">↗</span>
+</a>
+</div>
+</section>
+<footer class="footer">
+<p>zhaoyang.fr field notes</p>
+<p>Last updated: September 2026</p>
+</footer>
+</main>
+</body>
+</html>
+

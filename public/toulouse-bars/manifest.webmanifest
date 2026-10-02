@@ -1,0 +1,17 @@
+{
+  "name": "图卢兹值得去的酒吧攻略",
+  "short_name": "Toulouse Bars",
+  "description": "图卢兹 Whisky Lounge、Speakeasy、烈酒、鸡尾酒、Jazz 与特色酒吧精选。",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fafafa",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+
+<html data-guide="randonnee" lang="zh-CN">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Krkonoše 巨人山脉与波西米亚、萨克森瑞士两条一日自驾路线：路线对比、时间安排、交通、步行、预算和地图。" name="description"/>
+<title>一日自驾路线｜Krkonoše 与波西米亚·萨克森瑞士</title>
+<style>
+    :root {
+      --canvas: #efede7;
+      --paper: #fffefb;
+      --ink: #20231f;
+      --muted: #6a706b;
+      --rule: #d7d3ca;
+      --rule-soft: #e9e6df;
+      --accent: #2d4d42;
+      --accent-soft: #e8eee9;
+      --max: 1120px;
+      --content: 960px;
+      --bar-height: 58px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--canvas);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button, input, select, textarea { font: inherit; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    [hidden] { display: none !important; }
+
+    .site-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--bar-height);
+      background: rgba(239, 237, 231, 0.95);
+      border-bottom: 1px solid var(--rule);
+      backdrop-filter: blur(14px);
+    }
+    .site-bar-inner {
+      width: min(calc(100% - 36px), var(--max));
+      min-height: var(--bar-height);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      flex: 0 0 auto;
+      color: var(--ink);
+      border: 0;
+      font-size: 15px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+    .brand:hover { text-decoration: none; }
+    .route-switcher {
+      display: flex;
+      align-items: stretch;
+      gap: 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .route-switcher::-webkit-scrollbar { display: none; }
+    .route-switcher a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      min-height: var(--bar-height);
+      color: var(--muted);
+      border: 0;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .route-switcher a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: transparent;
+    }
+    .route-switcher a[aria-current="page"] { color: var(--ink); }
+    .route-switcher a[aria-current="page"]::after { background: var(--accent); }
+    .route-switcher a:hover { color: var(--ink); text-decoration: none; }
+
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 0 0 auto;
+    }
+    .lang-switcher a {
+      display: flex;
+      align-items: center;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--rule);
+      background: transparent;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .lang-switcher a:first-child { border-radius: 4px 0 0 4px; }
+    .lang-switcher a:last-child { border-radius: 0 4px 4px 0; }
+    .lang-switcher a + a { border-left: 0; }
+    .lang-switcher a:hover { color: var(--ink); text-decoration: none; }
+    .lang-switcher a.active {
+      color: var(--paper);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .lang-switcher a.active + a { border-left: 0; }
+
+    .home-page {
+      width: min(calc(100% - 36px), var(--max));
+      margin: 42px auto 72px;
+    }
+    .home-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      gap: 72px;
+      align-items: end;
+      padding: 82px 0 60px;
+    }
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+    }
+    .home-hero h1 {
+      max-width: 770px;
+      margin: 0;
+      font-size: clamp(43px, 6.4vw, 76px);
+      font-weight: 640;
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+    }
+    .home-hero .intro {
+      margin: 0 0 6px;
+      color: #454a46;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .route-index { border-top: 1px solid var(--rule); }
+    .route-index-row {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.35fr) 28px;
+      gap: 28px;
+      align-items: center;
+      padding: 24px 2px;
+      border-bottom: 1px solid var(--rule);
+      color: inherit;
+      text-decoration: none;
+    }
+    .route-index-row:hover { text-decoration: none; }
+    .route-index h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 620;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
+    }
+    .route-index-detail {
+      color: #4b504c;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .route-index-detail .places {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .route-arrow {
+      color: var(--muted);
+      font-size: 20px;
+      text-align: right;
+      transition: transform .15s ease;
+    }
+    .route-index-row:hover .route-arrow { transform: translateX(3px); color: var(--ink); }
+
+    .comparison { padding: 42px 0 12px; }
+    .section-heading {
+      margin-bottom: 18px;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-size: 23px;
+      font-weight: 620;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+    .compare-wrap { overflow-x: auto; border-top: 1px solid var(--rule); }
+    .compare-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: 15px 17px;
+      border-bottom: 1px solid var(--rule-soft);
+      text-align: left;
+      vertical-align: top;
+    }
+    .compare-table thead th {
+      padding-top: 18px;
+      padding-bottom: 18px;
+      color: var(--ink);
+      font-weight: 620;
+      border-bottom-color: var(--rule);
+    }
+    .compare-table th:first-child,
+    .compare-table td:first-child { width: 150px; padding-left: 0; color: var(--muted); font-weight: 500; }
+    .compare-table th:last-child,
+    .compare-table td:last-child { padding-right: 0; }
+    .comparison-note { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .home-footnote {
+      margin-top: 52px;
+      padding-top: 22px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .route-shell { width: min(calc(100% - 36px), var(--content)); margin: 30px auto 70px; }
+    .route-context {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .route-context a { color: var(--muted); }
+    .route-context a:hover { color: var(--ink); }
+    .section-nav {
+      position: sticky;
+      top: var(--bar-height);
+      z-index: 80;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 10px 20px;
+      overflow-x: auto;
+      background: rgba(255, 254, 251, 0.97);
+      border: 1px solid var(--rule);
+      border-bottom: 0;
+      scrollbar-width: none;
+      backdrop-filter: blur(12px);
+    }
+    .section-nav::-webkit-scrollbar { display: none; }
+    .section-nav a {
+      flex: 0 0 auto;
+      color: var(--muted);
+      border: 0;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .section-nav a:hover { color: var(--ink); text-decoration: none; }
+
+    .route-page { background: var(--paper); border: 1px solid var(--rule); }
+    .route-page > header,
+    .route-page > section { padding: 42px 52px; }
+    .route-page > section { border-top: 1px solid var(--rule); }
+    .route-page footer {
+      padding: 21px 52px 28px;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      font-size: 13px;
+    }
+    .route-page .date { margin-bottom: 10px; color: var(--muted); font-size: 14px; letter-spacing: 0.02em; }
+    .route-page h1,
+    .route-page h2,
+    .route-page h3 { margin: 0; color: var(--ink); font-weight: 640; }
+    .route-page h1 { max-width: 790px; font-size: clamp(27px, 3.5vw, 34px); line-height: 1.22; letter-spacing: -0.02em; }
+    .route-page h2 { margin-bottom: 17px; font-size: 22px; line-height: 1.35; letter-spacing: -0.01em; }
+    .route-page h3 { font-size: 18px; line-height: 1.45; }
+    .route-page p { margin: 9px 0 0; }
+
+    .overview-table,
+    .budget-table,
+    .info-table { width: 100%; margin-top: 28px; border-collapse: collapse; }
+    .overview-table th,
+    .overview-table td,
+    .budget-table th,
+    .budget-table td,
+    .info-table th,
+    .info-table td {
+      padding: 12px 10px;
+      border-top: 1px solid var(--rule-soft);
+      text-align: left;
+      vertical-align: top;
+    }
+    .overview-table tr:first-child th,
+    .overview-table tr:first-child td,
+    .budget-table thead tr:first-child th,
+    .info-table tr:first-child th,
+    .info-table tr:first-child td { border-top-color: var(--rule); }
+    .overview-table th,
+    .info-table th { width: 138px; padding-left: 0; color: var(--muted); font-weight: 500; }
+    .overview-table td,
+    .info-table td { padding-right: 0; }
+    .route { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 15px; }
+    .route strong { margin-right: 6px; }
+
+    .timeline { margin-top: 2px; }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 125px minmax(0, 1fr);
+      gap: 20px;
+      padding: 17px 0;
+      border-top: 1px solid var(--rule-soft);
+    }
+    .timeline-row:first-child { padding-top: 0; border-top: 0; }
+    .time { color: var(--accent); font-size: 15px; font-weight: 650; }
+    .timeline-row p { color: #414642; }
+
+    .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px; }
+    .columns > div + div { padding-left: 42px; border-left: 1px solid var(--rule-soft); }
+    .plain-list { margin: 12px 0 0; padding-left: 19px; }
+    .plain-list li + li { margin-top: 7px; }
+    .note {
+      margin-top: 18px;
+      padding: 13px 15px;
+      color: #424844;
+      background: #f5f5f0;
+      border-left: 3px solid #a5b4ad;
+      font-size: 14px;
+    }
+
+    .segments { border-top: 1px solid var(--rule-soft); }
+    .segment {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 30px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    .segment:first-child { padding-top: 20px; }
+    .segment-meta { margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .segment p { margin-top: 0; color: #3f4441; }
+
+    .budget-table { margin-top: 0; font-size: 15px; }
+    .budget-table th { color: var(--muted); font-weight: 550; }
+    .budget-table th:first-child,
+    .budget-table td:first-child { padding-left: 0; }
+    .budget-table th:last-child,
+    .budget-table td:last-child { padding-right: 0; }
+    .budget-total {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .budget-total span { display: block; color: var(--muted); font-size: 13px; }
+    .budget-total strong { display: block; margin-top: 4px; font-size: 22px; line-height: 1.35; }
+    .links { display: grid; gap: 9px; margin-top: 12px; }
+    .links a { width: fit-content; border-bottom: 1px solid rgba(45, 77, 66, 0.28); }
+    .links a:hover { text-decoration: none; border-bottom-color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .home-hero { grid-template-columns: 1fr; gap: 28px; padding-top: 64px; }
+      .home-hero .intro { max-width: 680px; }
+      .route-index-row { grid-template-columns: minmax(220px, .85fr) minmax(0, 1.15fr) 24px; gap: 22px; }
+    }
+
+    @media (max-width: 760px) {
+      :root { --bar-height: 54px; }
+      .site-bar-inner { width: 100%; padding-left: 16px; gap: 18px; }
+      .brand { display: none; }
+      .route-switcher { width: 100%; gap: 22px; padding-right: 16px; }
+      .route-switcher a { min-height: var(--bar-height); }
+      .home-page { width: min(calc(100% - 32px), var(--max)); }
+      .home-hero { padding: 52px 0 44px; }
+      .home-hero h1 { font-size: clamp(42px, 13vw, 61px); }
+      .route-index-row { grid-template-columns: minmax(0, 1fr) 24px; gap: 7px 14px; padding: 22px 0; }
+      .route-index h2 { grid-column: 1; font-size: 19px; }
+      .route-index-detail { grid-column: 1; }
+      .route-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+      .section-heading { grid-template-columns: 1fr; gap: 0; }
+
+      .route-shell { width: 100%; margin: 0; }
+      .route-context { padding: 12px 18px; margin: 0; background: var(--canvas); }
+      .section-nav { top: var(--bar-height); padding: 9px 16px; border-left: 0; border-right: 0; }
+      .route-page { border-left: 0; border-right: 0; }
+      .route-page > header,
+      .route-page > section { padding: 30px 20px; }
+      .route-page footer { padding: 19px 20px 26px; }
+      .timeline-row,
+      .segment { grid-template-columns: 1fr; gap: 7px; }
+      .columns { grid-template-columns: 1fr; gap: 28px; }
+      .columns > div + div { padding-left: 0; padding-top: 28px; border-left: 0; border-top: 1px solid var(--rule-soft); }
+      .overview-table th,
+      .info-table th { width: 105px; }
+      .budget-table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+
+    @media (max-width: 480px) {
+      .home-page { width: min(calc(100% - 28px), var(--max)); }
+      .home-hero h1 { font-size: 36px; }
+      .home-hero .intro { font-size: 16px; }
+      .route-index h2 { font-size: 18px; }
+      .comparison { padding-top: 46px; }
+      .section-heading h2 { font-size: 20px; }
+      .comparison-note { margin-left: 0; }
+      .route-page h1 { font-size: 27px; }
+      .route-page h2 { font-size: 23px; }
+      .budget-total { grid-template-columns: 1fr; gap: 14px; }
+      .overview-table th,
+      .overview-table td,
+      .info-table th,
+      .info-table td { display: block; width: 100%; padding-left: 0; padding-right: 0; }
+      .overview-table th,
+      .info-table th { padding-bottom: 2px; border-top: 1px solid var(--rule-soft); }
+      .overview-table td,
+      .info-table td { padding-top: 0; border-top: 0; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .site-bar,
+      .section-nav,
+      .route-context { display: none !important; }
+      .home-page,
+      .route-shell { width: 100%; margin: 0; }
+      .route-page { border: 0; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+<link href="https://zhaoyang.fr/randonnee/zh/" rel="canonical"/><link href="https://zhaoyang.fr/randonnee/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/randonnee/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/randonnee/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/randonnee/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="攻略导航" class="guide-navigation"><a data-guide-home="" href="/guides/zh/">← 返回攻略总页</a><span class="guide-navigation-languages"><a href="/randonnee/en/" hreflang="en" lang="en">EN</a><a aria-current="page" href="/randonnee/zh/" hreflang="zh-Hans" lang="zh">中文</a><a href="/randonnee/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<header class="site-bar">
+<div class="site-bar-inner">
+<a class="brand" data-route="home" href="#home">布拉格一日自驾</a>
+<nav aria-label="路线切换" class="route-switcher">
+<a aria-current="page" data-route="home" href="#home">路线</a>
+<a data-route="krkonose" href="#krkonose">巨人山脉</a>
+<a data-route="switzerland" href="#switzerland">波西米亚与萨克森瑞士</a>
+</nav>
+</div>
+</header>
+<main class="home-page" data-panel="home">
+<section aria-label="路线列表" class="route-index">
+<a class="route-index-row" data-route="krkonose" href="#krkonose">
+<h2>Krkonoše 巨人山脉</h2>
+<span aria-hidden="true" class="route-arrow">→</span>
+</a>
+<a class="route-index-row" data-route="switzerland" href="#switzerland">
+<h2>波西米亚与萨克森瑞士</h2>
+<span aria-hidden="true" class="route-arrow">→</span>
+</a>
+</section>
+<section class="comparison">
+<div class="section-heading"><h2>路线一览</h2></div>
+<div class="compare-wrap">
+<table aria-label="两条路线比较" class="compare-table">
+<thead>
+<tr><th>项目</th><th>Krkonoše 巨人山脉</th><th>波西米亚与萨克森瑞士</th></tr>
+</thead>
+<tbody>
+<tr><td>出发与返程</td><td>08:00–08:15 出发；约 20:00–20:30 回到布拉格</td><td>08:00 出发；约 20:00–20:30 回到布拉格</td></tr>
+<tr><td>驾驶</td><td>单程约 2 小时；往返约 270–280 km</td><td>全程约 300 km；实际驾驶约 4 小时 30 分至 5 小时</td></tr>
+<tr><td>步行</td><td>12.9 km；官方步行约 4 小时 12 分</td><td>分为三段步行，合计约 3 小时 35 分至 4 小时 05 分</td></tr>
+<tr><td>主要景观</td><td>高山草甸、山脊、Pančavský 瀑布、Labský důl 冰川谷、易北河源头、Kotelní jámy 冰斗</td><td>Pravčická brána 普拉夫契采门、Divoká soutěska 野峡谷、Bastei 巴斯泰桥</td></tr>
+<tr><td>交通</td><td>自驾至 P3 Medvědín，缆车往返，高山区环线徒步</td><td>自驾至 Hřensko、Mezní Louka 和巴斯泰；景区入口之间使用公交或接驳车</td></tr>
+<tr><td>跨境</td><td>全程在捷克境内</td><td>进入德国；需确认租车跨境许可、保险覆盖并携带证件原件</td></tr>
+<tr><td>预算</td><td>5–7 人一车，含基础租车：约 1,450–2,550 CZK / 人</td><td>5–7 人一车，含基础租车：约 1,500–2,550 CZK / 人；跨境附加费另计</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<div class="home-footnote">路线信息按两份原攻略整理。山区天气、缆车、公交、峡谷船班和临时封路均应在出发当天再次确认。<br/><a href="/guides/zh/">← 返回攻略索引</a></div>
+</main>
+<section class="route-shell" data-panel="krkonose" hidden="">
+<div class="route-context"><a data-route="home" href="#home">← 路线一览</a><span>Krkonoše</span></div>
+<nav aria-label="巨人山脉攻略导航" class="section-nav">
+<a href="#k-overview">概览</a>
+<a href="#k-schedule">时间安排</a>
+<a href="#k-transport">交通与停车</a>
+<a href="#k-segments">路线分段</a>
+<a href="#k-budget">预算</a>
+<a href="#k-packing">装备</a>
+<a href="#k-links">地图与链接</a>
+</nav>
+<div class="route-page">
+<header id="k-overview">
+<div class="date">2026 年 8 月 9 日 · 周日</div>
+<h1>Krkonoše 巨人山脉一日自驾徒步</h1>
+<table aria-label="行程概览" class="overview-table">
+<tbody>
+<tr>
+<th>出发</th>
+<td>08:00–08:15，从布拉格出发</td>
+</tr>
+<tr>
+<th>车程</th>
+<td>单程约 2 小时，约 135–140 km</td>
+</tr>
+<tr>
+<th>徒步</th>
+<td>12.9 km，官方步行时间约 4 小时 12 分</td>
+</tr>
+<tr>
+<th>景观</th>
+<td>高山草甸、山脊、Pančavský 瀑布、Labský důl 冰川谷、易北河源头、Kotelní jámy 冰斗</td>
+</tr>
+<tr>
+<th>返程</th>
+<td>约 20:00–20:30 回到布拉格；不在镇上停留可提前</td>
+</tr>
+</tbody>
+</table>
+<div class="route">
+<strong>路线：</strong>
+        布拉格 → Špindlerův Mlýn → P3 Medvědín → Medvědín 缆车上山 → Vrbatova bouda → Pančavský vodopád → Ambrožova vyhlídka → Labská bouda → Pramen Labe → U čtyř pánů → Harrachovy kameny → Kotelní jámy → Medvědín → 布拉格
+      </div>
+</header>
+<section id="k-schedule">
+<h2>一日时间安排</h2>
+<div class="timeline">
+<div class="timeline-row">
+<div class="time">08:00–08:15</div>
+<div>
+<h3>从布拉格出发</h3>
+<p>导航设置为 <a href="https://www.google.com/maps/search/?api=1&amp;query=Parkovi%C5%A1t%C4%9B+P3+Medv%C4%9Bd%C3%ADn+%C5%A0pindler%C5%AFv+Ml%C3%BDn" rel="noopener" target="_blank">Parkoviště P3 Medvědín</a>。经 D10、Mladá Boleslav、Jičín、Vrchlabí 前往 Špindlerův Mlýn。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">10:15–10:30</div>
+<div>
+<h3>P3 Medvědín 停车</h3>
+<p>停车后步行到缆车站，整理装备并确认当日运行信息。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">10:30 / 11:00</div>
+<div>
+<h3>Medvědín 缆车上山</h3>
+<p>缆车上站海拔约 1,235 m。下缆车后开始徒步。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">10:45–13:00</div>
+<div>
+<h3>Medvědín → Labská bouda</h3>
+<p>经 Vrbatova bouda、Pančavský vodopád 和 Ambrožova vyhlídka，到达 Labská bouda。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">13:00–13:40</div>
+<div>
+<h3>Labská bouda 午餐</h3>
+<p>餐厅、饮料和厕所均在这里。午餐时间控制在 30–40 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">13:40–16:30</div>
+<div>
+<h3>Labská bouda → Medvědín</h3>
+<p>经 Pramen Labe、U čtyř pánů、Harrachovy kameny 和 Kotelní jámy，返回 Medvědín 缆车上站。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">16:30–17:00</div>
+<div>
+<h3>缆车下山</h3>
+<p>建议在 17:00 前回到上站，避免把最后一班缆车作为计划内班次。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">17:00–18:00</div>
+<div>
+<h3>Špindlerův Mlýn</h3>
+<p>可在镇内吃饭或喝咖啡；也可直接返程。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">18:00–20:30</div>
+<div>
+<h3>返回布拉格</h3>
+<p>18:00 左右离开 Špindlerův Mlýn，预计 20:00–20:30 抵达布拉格。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="k-transport">
+<h2>交通、停车与缆车</h2>
+<div class="columns">
+<div>
+<h3>自驾</h3>
+<table aria-label="自驾信息" class="info-table">
+<tbody>
+<tr><th>导航终点</th><td>P3 Medvědín</td></tr>
+<tr><th>单程距离</th><td>约 135–140 km</td></tr>
+<tr><th>单程时间</th><td>约 1 小时 50 分至 2 小时 10 分</td></tr>
+<tr><th>往返里程</th><td>约 270–280 km</td></tr>
+<tr><th>高速票</th><td>取车时确认是否包含捷克 e-vignette</td></tr>
+<tr><th>租车车型</th><td>5–7 人建议预订 7 座 MPV 或厢式车，并确认后备箱空间</td></tr>
+</tbody>
+</table>
+<div class="note">确认租车合同中的每日里程。部分低价方案只包含 200 km，超过后另计费用。</div>
+</div>
+<div>
+<h3>停车与缆车</h3>
+<table aria-label="停车与缆车信息" class="info-table">
+<tbody>
+<tr><th>停车场</th><td>P3 Medvědín，位于缆车下站旁</td></tr>
+<tr><th>停车费</th><td>约 250 CZK / 天</td></tr>
+<tr><th>缆车运行</th><td>夏季通常为 09:00–18:00</td></tr>
+<tr><th>票价预算</th><td>约 450–600 CZK / 人，往返</td></tr>
+<tr><th>购票</th><td>GOPASS 或现场售票处</td></tr>
+<tr><th>上站海拔</th><td>约 1,235 m</td></tr>
+</tbody>
+</table>
+<div class="note">票价和运行时间可能调整，出发前查看当日页面。</div>
+</div>
+</div>
+</section>
+<section id="k-segments">
+<h2>路线分段</h2>
+<div class="segments">
+<article class="segment">
+<div>
+<h3>Medvědín 上站 → Vrbatova bouda</h3>
+<div class="segment-meta">约 45–55 分钟 · 高山草甸与山脊</div>
+</div>
+<p>从 Medvědín 缆车上站出发，沿标记步道前往 Vrbatova bouda。沿途以高山草甸、矮松和开阔山脊为主，海拔逐渐接近 1,400 m。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Vrbatova bouda → Pančavský vodopád → Ambrožova vyhlídka → Labská bouda</h3>
+<div class="segment-meta">约 50–65 分钟 · 瀑布与 Labský důl 冰川谷</div>
+</div>
+<p>Pančavský vodopád 为捷克最高瀑布，水流从高原边缘落入 Labský důl。Ambrožova vyhlídka 位于山谷上缘，可俯瞰谷底森林、两侧山坡和瀑布所在的高原边缘。随后继续前往 Labská bouda。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Labská bouda</h3>
+<div class="segment-meta">午餐约 30–40 分钟 · 餐厅、饮料、厕所</div>
+</div>
+<p>Labská bouda 位于海拔约 1,340 m 的高山区。这里可用午餐、补水和上厕所；每人可按 300–450 CZK 预留。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Labská bouda → Pramen Labe</h3>
+<div class="segment-meta">约 25–30 分钟 · 易北河象征性源头</div>
+</div>
+<p>Pramen Labe 是易北河的象征性源头地点，设有石井和城市徽章墙。真正的水文源头位于保护区域内。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Pramen Labe → U čtyř pánů → Harrachovy kameny → Kotelní jámy → Medvědín</h3>
+<div class="segment-meta">约 2.5–3 小时 · 高山高原、花岗岩与冰斗</div>
+</div>
+<p>从 Pramen Labe 经 U čtyř pánů 前往 Harrachovy kameny。山脊上的花岗岩露头可俯瞰周边高原；Kotelní jámy 是冰川侵蚀形成的大型冰斗。之后经 Vrbatova bouda 返回 Medvědín 缆车上站。</p>
+</article>
+</div>
+</section>
+<section id="k-budget">
+<h2>预算</h2>
+<table aria-label="预算表" class="budget-table">
+<thead>
+<tr>
+<th>项目</th>
+<th>预算</th>
+<th>计费方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7 座车租赁</td>
+<td>约 3,000–5,000 CZK</td>
+<td>每车</td>
+</tr>
+<tr>
+<td>油费</td>
+<td>约 800–1,100 CZK</td>
+<td>每车</td>
+</tr>
+<tr>
+<td>P3 停车</td>
+<td>约 250 CZK</td>
+<td>每车</td>
+</tr>
+<tr>
+<td>Medvědín 缆车往返</td>
+<td>约 450–600 CZK</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>午餐</td>
+<td>约 300–450 CZK</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>水、咖啡和零食</td>
+<td>约 100–200 CZK</td>
+<td>每人</td>
+</tr>
+</tbody>
+</table>
+<div class="budget-total">
+<div>
+<span>按一车 5–7 人估算</span>
+<strong>整车约 8,300–15,100 CZK</strong>
+</div>
+<div>
+<span>折合人均</span>
+<strong>约 1,450–2,550 CZK</strong>
+</div>
+</div>
+<div class="note">以上按 7 座车、5–7 人同行估算。押金不计入旅行成本；自动挡、全险、额外驾驶员和不限里程可能提高租车价格。</div>
+</section>
+<section id="k-packing">
+<h2>装备</h2>
+<div class="columns">
+<div>
+<h3>穿着</h3>
+<ul class="plain-list">
+<li>越野跑鞋、徒步鞋或抓地力较好的运动鞋</li>
+<li>透气速干衣</li>
+<li>薄外套或防风衣</li>
+<li>帽子和墨镜</li>
+</ul>
+<div class="note">普通平底板鞋抓地力较差，不建议用于这条路线。</div>
+</div>
+<div>
+<h3>随身物品</h3>
+<ul class="plain-list">
+<li>每人 1.5–2 L 水</li>
+<li>三明治、能量棒或水果</li>
+<li>防晒霜</li>
+<li>充电宝</li>
+<li>银行卡和少量现金</li>
+<li>纸巾、创可贴</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="k-links">
+<h2>地图与实用链接</h2>
+<div class="columns">
+<div>
+<h3>Google Maps</h3>
+<div class="links">
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Parkovi%C5%A1t%C4%9B+P3+Medv%C4%9Bd%C3%ADn+%C5%A0pindler%C5%AFv+Ml%C3%BDn" rel="noopener" target="_blank">P3 Medvědín 停车场</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Medv%C4%9Bd%C3%ADn+horn%C3%AD+stanice+lanovky" rel="noopener" target="_blank">Medvědín 缆车上站</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Vrbatova+bouda" rel="noopener" target="_blank">Vrbatova bouda</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Pan%C4%8Davsk%C3%BD+vodop%C3%A1d" rel="noopener" target="_blank">Pančavský vodopád</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Labsk%C3%A1+bouda" rel="noopener" target="_blank">Labská bouda</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Pramen+Labe" rel="noopener" target="_blank">Pramen Labe</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Harrachovy+kameny" rel="noopener" target="_blank">Harrachovy kameny</a>
+</div>
+</div>
+<div>
+<h3>官方信息</h3>
+<div class="links">
+<a href="https://www.spindleruv-mlyn.com/cz/vylety/z-medvedina-k-prameni-labe-a-zpet-pres-kotelni-jamy-57/" rel="noopener" target="_blank">官方 12.9 km 徒步路线</a>
+<a href="https://www.skiareal.cz/en/ski-resort/summer/news" rel="noopener" target="_blank">Medvědín 夏季缆车</a>
+<a href="https://www.krnap.cz/navstevnici/info-na-cesty/omezeni-na-cestach/" rel="noopener" target="_blank">KRNAP 步道限制与公告</a>
+<a href="https://www.labskabouda.cz/" rel="noopener" target="_blank">Labská bouda</a>
+<a href="https://edalnice.cz/en/index.html" rel="noopener" target="_blank">捷克高速票 eDalnice</a>
+<a href="https://www.taggart.cz/car-rental-skoda-kodiaq-style-7st-at" rel="noopener" target="_blank">7 座车一日租赁价格参考</a>
+</div>
+</div>
+</div>
+<div class="note">出发前检查山区天气、缆车运行状态和 KRNAP 临时步道公告。</div>
+</section>
+<footer>内容由 ChatGPT 整理生成。路线信息按 2026 年 8 月上旬公开资料整理；实际安排以出发当天的官方信息为准。</footer>
+</div>
+</section>
+<section class="route-shell" data-panel="switzerland" hidden="">
+<div class="route-context"><a data-route="home" href="#home">← 返回路线对比</a><span>路线 02 / Bohemian &amp; Saxon Switzerland</span></div>
+<nav aria-label="波西米亚与萨克森瑞士攻略导航" class="section-nav">
+<a href="#s-overview">概览</a>
+<a href="#s-schedule">时间安排</a>
+<a href="#s-transport">交通与停车</a>
+<a href="#s-segments">路线分段</a>
+<a href="#s-walking">步行统计</a>
+<a href="#s-budget">预算</a>
+<a href="#s-packing">装备与证件</a>
+<a href="#s-links">地图与链接</a>
+</nav>
+<div class="route-page">
+<header id="s-overview">
+<div class="date">2026 年 8 月 9 日 · 周日</div>
+<h1>波西米亚与萨克森瑞士一日自驾</h1>
+<table aria-label="行程概览" class="overview-table">
+<tbody>
+<tr>
+<th>出发</th>
+<td>08:00，从布拉格出发</td>
+</tr>
+<tr>
+<th>自驾</th>
+<td>全程约 300 km；实际驾驶约 4 小时 30 分至 5 小时</td>
+</tr>
+<tr>
+<th>步行</th>
+<td>计划约 3 小时 35 分至 4 小时 05 分；分为三段，中间均有公交、午餐或车程</td>
+</tr>
+<tr>
+<th>景点</th>
+<td>Pravčická brána 普拉夫契采门、Divoká soutěska 野峡谷、Bastei 巴斯泰桥</td>
+</tr>
+<tr>
+<th>返程</th>
+<td>18:00 左右离开巴斯泰，预计 20:00–20:30 回到布拉格</td>
+</tr>
+</tbody>
+</table>
+<div class="route">
+<strong>路线：</strong>
+        布拉格 → Hřensko · U Vodopádu → 普拉夫契采门 → Mezní Louka → 午餐 → Mezná → 野峡谷乘船 → Bastei Parkplatz → 巴斯泰桥 → 布拉格
+      </div>
+</header>
+<section id="s-schedule">
+<h2>一日时间安排</h2>
+<div class="timeline">
+<div class="timeline-row">
+<div class="time">08:00–09:50</div>
+<div>
+<h3>布拉格 → Hřensko · U Vodopádu</h3>
+<p>从布拉格出发，导航至 <a href="https://www.google.com/maps/search/?api=1&amp;query=50.8750267%2C14.2538756" rel="noopener" target="_blank">Parkoviště U Vodopádu</a>。这是前往普拉夫契采门较近的正规停车场。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">09:50–10:15</div>
+<div>
+<h3>U Vodopádu → Tři prameny</h3>
+<p>停车后到附近站点乘公交至 <strong>Hřensko, Pravčická brána</strong>，下车即是 Tři prameny 登山口。若不乘公交，从停车场步行到登山口约 15–20 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">10:15–12:05</div>
+<div>
+<h3>普拉夫契采门</h3>
+<p>从 Tři prameny 上山约 45 分钟，在石门、Falcon's Nest 和内部观景台停留约 30–35 分钟，再沿原路下山约 30 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">12:05–12:25</div>
+<div>
+<h3>Tři prameny → U Vodopádu</h3>
+<p>回到 Tři prameny 后乘公交返回停车场。若班次时间不合适，步行回 U Vodopádu 约 15–20 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">12:25–12:40</div>
+<div>
+<h3>U Vodopádu → Mezní Louka</h3>
+<p>取车后继续开到 <a href="https://www.google.com/maps/search/?api=1&amp;query=50.8725014%2C14.3162800" rel="noopener" target="_blank">Parkoviště Mezní Louka</a>，后面的午餐和野峡谷都从这里衔接。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">12:40–13:35</div>
+<div>
+<h3>Mezní Louka / Mezná 一带午餐</h3>
+<p>可在停车场周边、附近旅馆餐厅或 Mezná 村就近选择。当地以捷克菜、汤、三明治和简餐为主。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">13:46–13:51</div>
+<div>
+<h3>Mezní Louka → Mezná</h3>
+<p>乘 435 路约 5 分钟到 <strong>Hřensko, Mezná</strong>。若不乘公交，沿标记步道步行约 30 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">13:55–15:30</div>
+<div>
+<h3>野峡谷徒步与乘船</h3>
+<p>从 Mezná 下台阶约 20 分钟，到 Mezní můstek 后沿河走约 10 分钟到码头；乘船后按原路返回 Mezná。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">16:02–16:07</div>
+<div>
+<h3>Mezná → Mezní Louka</h3>
+<p>乘 435 路约 5 分钟回停车场。若不乘公交，沿标记步道步行约 30 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">16:10–17:00</div>
+<div>
+<h3>Mezní Louka → Bastei Parkplatz</h3>
+<p>经 Hřensko、Schmilka、Bad Schandau 前往德国，导航至 <a href="https://www.google.com/maps/search/?api=1&amp;query=50.9665139%2C14.0657333" rel="noopener" target="_blank">Bastei Parkplatz</a>。近端停车场满位时，入口会引导车辆改停 P+R，再乘接驳车进入；若不乘接驳车，从 P+R 步行约 3.5 km，单程约 50–60 分钟。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">17:05–17:55</div>
+<div>
+<h3>巴斯泰主观景台与石桥</h3>
+<p>从近端停车场步行进入主景区，依次看易北河谷主观景台和 Bastei Bridge，再原路返回。</p>
+</div>
+</div>
+<div class="timeline-row">
+<div class="time">18:00–20:30</div>
+<div>
+<h3>返回布拉格</h3>
+<p>从巴斯泰经德国与捷克公路返回布拉格。边境抽查或晚间车流较多时，抵达时间可能接近 20:30。</p>
+</div>
+</div>
+</div>
+</section>
+<section id="s-transport">
+<h2>交通与停车</h2>
+<div class="columns">
+<div>
+<h3>自驾与停车</h3>
+<table aria-label="自驾与停车信息" class="info-table">
+<tbody>
+<tr><th>普拉夫契采门</th><td>Parkoviště U Vodopádu，GPS 50.8750267, 14.2538756；8 月轿车 300 CZK / 天</td></tr>
+<tr><th>野峡谷</th><td>Parkoviště Mezní Louka，GPS 50.8725014, 14.3162800；轿车 200 CZK / 天</td></tr>
+<tr><th>巴斯泰</th><td>Bastei Parkplatz；轿车 4 小时内 €7</td></tr>
+<tr><th>巴斯泰满位</th><td>改停 Bastei P+R，再乘接驳车进入景区</td></tr>
+<tr><th>全程里程</th><td>约 300 km，视布拉格市内路线而定</td></tr>
+<tr><th>跨境</th><td>取车时确认车辆允许进入德国，保险和道路救援覆盖德国</td></tr>
+</tbody>
+</table>
+</div>
+<div>
+<h3>景区内短程</h3>
+<table aria-label="景区内短程交通" class="info-table">
+<tbody>
+<tr><th>U Vodopádu → Tři prameny</th><td>公交到 Hřensko, Pravčická brána；步行约 15–20 分钟</td></tr>
+<tr><th>Tři prameny → U Vodopádu</th><td>公交返回；步行约 15–20 分钟</td></tr>
+<tr><th>13:46</th><td>435 路：Mezní Louka → 13:51 Mezná；步行约 30 分钟</td></tr>
+<tr><th>16:02</th><td>435 路：Mezná → 16:07 Mezní Louka；步行约 30 分钟</td></tr>
+<tr><th>Bastei P+R</th><td>接驳车往返 €1.50 / 人；步行至巴斯泰约 3.5 km，单程约 50–60 分钟</td></tr>
+<tr><th>435 路购票</th><td>DÚKapka App 或按现场可用方式购票；出发前看实时班次</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="s-segments">
+<h2>路线分段</h2>
+<div class="segments">
+<article class="segment">
+<div>
+<h3>Tři prameny → Pravčická brána</h3>
+<div class="segment-meta">上山约 45 分钟 · 下山约 30 分钟</div>
+</div>
+<p>从公交站旁的 Tři prameny 路口沿红色标识进入森林，后半段持续上坡。普拉夫契采门跨度约 26.5 m，是欧洲大陆跨度最大的天然砂岩拱门；门旁的 Falcon's Nest 建于 19 世纪。收费区内有几处台阶观景台，不能走到石拱顶部。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Mezní Louka / Mezná 午餐</h3>
+<div class="segment-meta">约 45 分钟 · 停车场与村庄周边</div>
+</div>
+<p>适合在 Mezní Louka 停车场周边、附近旅馆餐厅或 Mezná 村用餐。通常可找到捷克菜、汤、三明治和简餐；周日客流较多时就近选择即可。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Mezná → Divoká soutěska</h3>
+<div class="segment-meta">实际步行约 60 分钟 · 船程另计</div>
+</div>
+<p>从 Mezná 沿台阶下到 Mezní můstek 约 20 分钟，再沿 Kamenice 河上游方向走约 10 分钟到下码头。峡谷最窄的一段只能乘船通过；船程结束后返回同一侧，沿原路回到 Mezná。路面阴凉湿滑，回程台阶连续上升。</p>
+</article>
+<article class="segment">
+<div>
+<h3>Bastei Parkplatz → 主观景台 → 石桥</h3>
+<div class="segment-meta">往返约 40–50 分钟 · 铺装路与台阶</div>
+</div>
+<p>从近端停车场沿 Basteistraße 尽头步行进入景区。先看易北河谷主观景台，再走到砂岩峰之间的巴斯泰桥；其他观景点以现场开放情况为准。</p>
+</article>
+</div>
+<div class="note">截至 2026 年 8 月 7 日，巴斯泰主观景台与巴斯泰桥开放；Ferdinand 和 Pavillion 观景台关闭，Bastei、Rathen、Hohnstein 与 Polenztal 之间部分森林区域封闭至 8 月 31 日。现场如有新增封路，以警戒线和官方告示为准。</div>
+</section>
+<section id="s-walking">
+<h2>步行时间</h2>
+<table aria-label="步行时间分解" class="budget-table">
+<thead>
+<tr>
+<th>路段</th>
+<th>预计步行</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普拉夫契采门往返</td>
+<td>约 1 小时 15 分</td>
+<td>Tři prameny 起算：上山约 45 分钟，下山约 30 分钟</td>
+</tr>
+<tr>
+<td>收费区观景台</td>
+<td>约 20–30 分钟</td>
+<td>石门、Falcon's Nest 与内部台阶</td>
+</tr>
+<tr>
+<td>野峡谷往返</td>
+<td>约 1 小时</td>
+<td>Mezná 至码头及原路返回；船程不计入步行</td>
+</tr>
+<tr>
+<td>巴斯泰主景区</td>
+<td>约 40–50 分钟</td>
+<td>近端停车场、主观景台与石桥往返</td>
+</tr>
+<tr>
+<td>停车场、车站与午餐区域</td>
+<td>约 20–30 分钟</td>
+<td>全天零散步行</td>
+</tr>
+</tbody>
+</table>
+<div class="budget-total">
+<div>
+<span>按上述交通安排</span>
+<strong>约 3 小时 35 分–4 小时 05 分</strong>
+</div>
+</div>
+</section>
+<section id="s-budget">
+<h2>预算</h2>
+<table aria-label="预算表" class="budget-table">
+<thead>
+<tr>
+<th>项目</th>
+<th>预算</th>
+<th>计费方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7 座车租赁</td>
+<td>约 3,000–5,000 CZK</td>
+<td>每车，基础日租</td>
+</tr>
+<tr>
+<td>燃油，约 300 km</td>
+<td>约 850–1,100 CZK</td>
+<td>每车</td>
+</tr>
+<tr>
+<td>U Vodopádu 停车</td>
+<td>300 CZK</td>
+<td>每车，8 月价格</td>
+</tr>
+<tr>
+<td>Mezní Louka 停车</td>
+<td>200 CZK</td>
+<td>每车</td>
+</tr>
+<tr>
+<td>巴斯泰停车</td>
+<td>€7</td>
+<td>每车，4 小时以内</td>
+</tr>
+<tr>
+<td>Bastei P+R 接驳车（如使用）</td>
+<td>往返 €1.50</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>景区短程公交</td>
+<td>约 80–120 CZK</td>
+<td>每人，估算</td>
+</tr>
+<tr>
+<td>普拉夫契采门</td>
+<td>成人 125 CZK</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>野峡谷船票</td>
+<td>成人 200 CZK</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>午餐（Mezní Louka / Mezná）</td>
+<td>约 350–550 CZK</td>
+<td>每人</td>
+</tr>
+<tr>
+<td>水、咖啡与零食</td>
+<td>约 100–200 CZK</td>
+<td>每人</td>
+</tr>
+</tbody>
+</table>
+<div class="budget-total">
+<div>
+<span>按一车 5–7 人估算</span>
+<strong>整车约 8,800–15,100 CZK</strong>
+</div>
+<div>
+<span>折合人均</span>
+<strong>约 1,500–2,550 CZK</strong>
+</div>
+</div>
+<div class="note">以上按 7 座车基础日租、5–7 人同行估算。全险、额外驾驶员和租车公司的德国跨境附加费另计；Bastei P+R 接驳车仅在使用备用停车场时产生。</div>
+</section>
+<section id="s-packing">
+<h2>装备、天气与证件</h2>
+<div class="columns">
+<div>
+<h3>天气与装备</h3>
+<ul class="plain-list">
+<li>目前预报：上午约 18–24°C，下午约 29–31°C，以晴到少云为主</li>
+<li>每人准备 1.5–2 L 水，另带少量咸味零食或水果</li>
+<li>抓地力正常的运动鞋、越野跑鞋或徒步鞋</li>
+<li>帽子、墨镜、防晒霜和薄外套</li>
+<li>充电宝、银行卡和少量 CZK / EUR 现金</li>
+</ul>
+<div class="note">当地近期干燥，森林火险较高。国家公园内不要吸烟、点火或使用明火炉具。</div>
+</div>
+<div>
+<h3>跨境与租车文件</h3>
+<ul class="plain-list">
+<li>护照原件</li>
+<li>所有同行者携带护照或其他有效旅行证件原件</li>
+<li>驾驶证原件</li>
+<li>租车合同、车辆登记文件和保险证明</li>
+<li>租车公司对进入德国的书面许可或合同条款</li>
+</ul>
+<div class="note">德国目前对捷克陆路边境实施临时检查。文件应随身携带，不只保存手机照片。</div>
+</div>
+</div>
+</section>
+<section id="s-links">
+<h2>地图与实用链接</h2>
+<div class="columns">
+<div>
+<h3>Google Maps</h3>
+<div class="links">
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Prague+Czechia" rel="noopener" target="_blank">布拉格</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=50.8750267%2C14.2538756" rel="noopener" target="_blank">Parkoviště U Vodopádu</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=H%C5%99ensko%2C+Prav%C4%8Dick%C3%A1+br%C3%A1na+bus+stop" rel="noopener" target="_blank">Tři prameny / Pravčická brána 公交站</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Prav%C4%8Dick%C3%A1+br%C3%A1na" rel="noopener" target="_blank">Pravčická brána</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=50.8725014%2C14.3162800" rel="noopener" target="_blank">Parkoviště Mezní Louka</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=H%C5%99ensko%2C+Mezn%C3%A1+bus+stop" rel="noopener" target="_blank">Hřensko, Mezná 公交站</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Divok%C3%A1+sout%C4%9Bska" rel="noopener" target="_blank">Divoká soutěska</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=restaurants+near+Mezn%C3%AD+Louka+H%C5%99ensko" rel="noopener" target="_blank">Mezní Louka / Mezná 午餐区域</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=50.9665139%2C14.0657333" rel="noopener" target="_blank">Bastei Parkplatz</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=P%2BR+Bastei+Rathewalde" rel="noopener" target="_blank">Bastei P+R 备用停车</a>
+</div>
+</div>
+<div>
+<h3>官方信息</h3>
+<div class="links">
+<a href="https://pbrana.cz/en/" rel="noopener" target="_blank">普拉夫契采门开放时间与门票</a>
+<a href="https://www.hrensko.cz/inpage/divoka-souteska/" rel="noopener" target="_blank">野峡谷开放时间与船票</a>
+<a href="https://www.en.hrensko.net/wp-content/uploads/2026/03/2026-03-11-en-parkovani-hrensko.pdf" rel="noopener" target="_blank">Hřensko 2026 停车价格</a>
+<a href="https://portal.cisjr.cz/Down.aspx?f=pdf%2FL001435_251214_640199.pdf" rel="noopener" target="_blank">435 路官方时刻表 PDF</a>
+<a href="https://nationalpark-saechsische-schweiz.de/en/warnings/eilmeldung-waldsperrung" rel="noopener" target="_blank">巴斯泰当前封路公告</a>
+<a href="https://www.saechsische-schweiz.de/en/saxonswitzerland/highlights/bastei" rel="noopener" target="_blank">巴斯泰景区信息</a>
+<a href="https://www.hohnstein.de/parkplatz-bastei/" rel="noopener" target="_blank">巴斯泰停车与接驳价格</a>
+<a href="https://edalnice.cz/en/index.html" rel="noopener" target="_blank">捷克高速电子票</a>
+</div>
+</div>
+</div>
+<div class="note">出发当天早上再次检查公交实时到站、野峡谷运行状态、巴斯泰停车与封路公告和天气。</div>
+</section>
+<footer>内容由 ChatGPT 整理生成。路线与班次按 2026 年 8 月 7 日公开信息整理；实际安排以出发当天的站牌、景区公告和现场封路为准。</footer>
+</div>
+</section>
+<script>
+    (() => {
+      const panels = [...document.querySelectorAll('[data-panel]')];
+      const routeLinks = [...document.querySelectorAll('[data-route]')];
+      const routeNames = new Set(['home', 'krkonose', 'switzerland']);
+
+      function routeFromHash(hash) {
+        const key = hash.replace(/^#/, '');
+        if (routeNames.has(key)) return key;
+        if (key.startsWith('k-')) return 'krkonose';
+        if (key.startsWith('s-')) return 'switzerland';
+        return 'home';
+      }
+
+      function showRoute(route, scrollTarget = true) {
+        panels.forEach(panel => { panel.hidden = panel.dataset.panel !== route; });
+        routeLinks.forEach(link => {
+          const active = link.dataset.route === route;
+          if (active) link.setAttribute('aria-current', 'page');
+          else link.removeAttribute('aria-current');
+        });
+        document.title = route === 'krkonose'
+          ? 'Krkonoše 巨人山脉一日自驾徒步'
+          : route === 'switzerland'
+            ? '波西米亚与萨克森瑞士一日自驾'
+            : '一日自驾路线';
+
+        if (scrollTarget) {
+          const targetId = location.hash.slice(1);
+          const target = targetId && document.getElementById(targetId);
+          requestAnimationFrame(() => {
+            if (target && !routeNames.has(targetId)) target.scrollIntoView({ block: 'start' });
+            else window.scrollTo({ top: 0, behavior: 'auto' });
+          });
+        }
+      }
+
+      routeLinks.forEach(link => {
+        link.addEventListener('click', event => {
+          const route = link.dataset.route;
+          if (!routeNames.has(route)) return;
+          event.preventDefault();
+          const nextHash = '#' + route;
+          if (location.hash === nextHash) showRoute(route);
+          else location.hash = nextHash;
+        });
+      });
+
+      window.addEventListener('hashchange', () => showRoute(routeFromHash(location.hash)));
+      showRoute(routeFromHash(location.hash));
+    })();
+  </script>
+<a class="guide-return-footer" data-guide-home="" href="/guides/zh/">← 返回攻略总页</a></body>
+</html>
+

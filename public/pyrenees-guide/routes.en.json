@@ -1,0 +1,332 @@
+[
+  {
+    "id": "barbazan",
+    "number": "01",
+    "name": "Barbazan",
+    "zh": "Village and Forest Loop",
+    "tag": "Lake/Village/Forest Road",
+    "carddesc": "Starting from the lakeside, we combine villages, forest paths and old hot spring parks into one afternoon.",
+    "distance": "5.7",
+    "unit": "km",
+    "gain": "131 m",
+    "drive": "1 hour 20–30 minutes",
+    "walk": "About 2 hours and 30 minutes",
+    "officialtime": "1 hour and 30 minutes",
+    "altitude": "Environment at the foot of the mountain · About 450 meters from the lakeside",
+    "intro": "Starting from the Barbazan Lake, walk into the paths and woods outside the village, pass the old hot spring park, and then return to the lake. Along the way, you will encounter the unfinished chapel and the old Yinquan Pavilion. This is not a six kilometer loop around the lake, but a complete loop around the village.",
+    "official": "Le tour de Barbazan (88)",
+    "src": 1,
+    "routeNote": "5.7 kilometers is the official complete loop; the starting and ending points are the same. The cumulative rise is 131 meters, which does not represent the highest altitude.",
+    "parking": "Lac de Barbazan, 31510 Barbazan",
+    "coordinates": "",
+    "destination": "Lac de Barbazan, 31510 Barbazan, France",
+    "parkingNote": "The official starting point is Barbazan – Lac. Follow the signs on the lakeside to find legal parking spaces, and don’t mistakenly choose another area with the same name as your destination.",
+    "driving": "Estimated based on departure from Toulouse, allow 1 hour and 20-30 minutes. Use the actual address to navigate again before departure. Picking up people, urban traffic conditions and parking may increase the time.",
+    "source": "https://rando.cc-pyreneeshautgaronnaises.fr/trek/324-Le-tour-de-Barbazan-(88)",
+    "gpx": "https://admin-ccphg.openig.org/api/fr/treks/324/le-tour-de-barbazan-88.gpx",
+    "look": [
+      [
+        "water",
+        "Stop by the lake for a while",
+        "Arrange a picnic before departure, and then return to the lake to rest after walking."
+      ],
+      [
+        "leaf",
+        "Through villages and woods",
+        "It is not about looking at the lake all the way; the trails alternate with the roads in the village."
+      ],
+      [
+        "book",
+        "Old Hot Spring Park",
+        "Note the unfinished chapel and the restored drinking fountain pavilion."
+      ]
+    ],
+    "steps": [
+      [
+        "Lakeside → Cier-de-Rivière direction",
+        "From the Lac de Barbazan sign, go up towards the house, then take the path to the right, continuing towards Cier-de-Rivière. It's a road sign, not a guide to another village."
+      ],
+      [
+        "Chemin Camp de Plan → Les Thermes",
+        "Go to the road and follow the signs, find the Chemin Camp de Plan sign and follow Barbazan – Les Thermes. There are subsequent right turns, left turns and uphill roads, which are subject to the official track."
+      ],
+      [
+        "Lapale → Old Hot Spring Park",
+        "After arriving at Lapale, still follow Barbazan – Les Thermes; when approaching the road, follow the signs to the hot spring area. After arriving at the park, you can stop briefly to see the church and drinking fountain pavilion."
+      ],
+      [
+        "Les Thermes → Back to the lake",
+        "Follow the signpost Les Thermes back to Barbazan Lac. Finally, pick up the road and turn left toward the lake to end the loop; keep your children close when crossing and walking along the road."
+      ]
+    ],
+    "picnic": "It is recommended to have lunch by the lake first, then walk the loop route lightly, and return to the lake to replenish snacks. Bring a small picnic mat and don't base your plans on the assumption that there will be empty tables, shops or toilets available.",
+    "picnicNote": "The old hot spring park is a walking tour spot, not a reservation item where you can directly soak in the hot springs during the itinerary. The opening of the lakeside toilets has not been verified.",
+    "longer": "First aim at completing 5.7 kilometers. When you still have enough energy, you can take additional walks in the park or by the lake; do not make up the distance along the highway without verifying the fixed \"two or three kilometers of additional loops.\"",
+    "shorter": "If your children are not energetic after arriving, they can just walk and have a picnic by the lake. They are not required to complete Loop 88; once they enter the loop, they must make arrangements to return based on their actual location.",
+    "cautions": [
+      "There are road crossings, road connections, dirt roads and uphill climbs, and it is not a fully enclosed flat greenway.",
+      "It is not arranged so that ordinary strollers can pass the entire journey; after raining, pay attention to the grip of the dirt and gravel roads.",
+      "Swimming is prohibited in Lake Barbazan; adults still need to supervise children while resting by the lake."
+    ],
+    "cautionSource": 4,
+    "events": [
+      [
+        0,
+        "Departure from Toulouse",
+        "Let the children eat a little first and not wait until the destination on an empty stomach."
+      ],
+      [
+        85,
+        "Arrive at the lake",
+        "Park the car, find a legal rest area, and arrange lunch."
+      ],
+      [
+        130,
+        "Start village loop",
+        "Walk at a child's pace, with short stops at churches and parks."
+      ],
+      [
+        280,
+        "Return to the lake",
+        "Snacks, drinks, and packing your belongings."
+      ],
+      [
+        300,
+        "Driving back",
+        "This version no longer stacks with another attraction."
+      ],
+      [
+        385,
+        "Back to Toulouse",
+        "The return journey is still subject to actual transportation."
+      ]
+    ],
+    "baseLabel": "5.7km loop",
+    "baseTime": "The walk takes about 2 hours and 30 minutes, plus time for a picnic",
+    "extraLabel": "",
+    "extraMinutes": 0,
+    "extraDistance": "",
+    "weatherNote": "If the road is muddy, there is a closure or hunting warning on the way, the tour will be shortened or rescheduled, and on-site restrictions will not be bypassed."
+  },
+  {
+    "id": "beille",
+    "number": "02",
+    "name": "Plateau de Beille",
+    "zh": "Cabane de Piparlan Plateau Circuit",
+    "tag": "Plateau/ranch/mountain hut",
+    "carddesc": "Walk through the plateau meadows and pine forests to the Piparlan hut, and then slowly return to the starting point.",
+    "distance": "4.1",
+    "unit": "km",
+    "gain": "156 m",
+    "drive": "About 2 hours – 2 hours and 15 minutes",
+    "walk": "About 2–2.5 hours",
+    "officialtime": "1 hour and 30 minutes",
+    "altitude": "About 1745–1891 meters",
+    "intro": "On a plateau of nearly 1,800 meters, take a small loop along meadows, wide roads and forest trails. The Piparlan hut is a landmark on the way, not the summit goal; there is a descent after the climb in the second half. This guide only applies to conditions with no ice or snow and normal visibility.",
+    "official": "Balade d’altitude à Beille – La cabane de Piparlan",
+    "src": 2,
+    "routeNote": "4.1 kilometers and a cumulative rise of 156 meters are official data. A short distance does not mean there are no ups and downs; the weather at high altitudes needs to be checked separately.",
+    "parking": "Plateau de Beille – Parking, 09310 Les Cabannes",
+    "coordinates": "42.72470, 1.69119",
+    "destination": "42.72470,1.69119",
+    "parkingNote": "The car ends at the Plateau car park, not the village of Les Cabannes. Officially, free parking and public toilets are listed, and the specific availability will be determined on-site on the day.",
+    "driving": "After Les Cabannes, take the D522 onto the Plateau de Beille. The last 16 kilometers and about 30 minutes are the road up the mountain, which is included in the total driving plan; don’t start counting the time up the mountain until you reach the village.",
+    "source": "https://www.pyrenees-ariegeoises.com/a-voir-a-faire/balades-et-randonnees/balade-daltitude-a-beille-la-cabane-de-piparlan-les-cabannes-fr-4444832/",
+    "gpx": "https://static.apidae-tourisme.com/filestore/objets-touristiques/plans/107/96/19488875/balade_daltitude_beille-piparlan-2.gpx",
+    "look": [
+      [
+        "mountain",
+        "Open plateau",
+        "When the weather is clear, look at the surrounding mountains and don’t walk hard in the clouds and mist."
+      ],
+      [
+        "leaf",
+        "Meadow and pine forest",
+        "There are pastures, wide roads and ups and downs in the forest."
+      ],
+      [
+        "pin",
+        "Piparlan Hut",
+        "A clear target point on the way, no opening inside the house."
+      ]
+    ],
+    "steps": [
+      [
+        "Parking Lot → Grass Path Entrance",
+        "After passing the railing next to the wooden house in the station area, go up the wide road to the left, and then take the grass path on the left. Save the official 4.1-kilometer track before departure to avoid taking the long route by mistake."
+      ],
+      [
+        "Les 4 chemins → Piparlan",
+        "At the \"Four Junction\" take the road to the right that leads to Piparlan Hut. Walk slowly to the hut, drink water, take photos, and save your energy for the return trip."
+      ],
+      [
+        "Go around the hut → Turn left into the forest",
+        "Pass the right side of the hut, then turn obviously left and enter a road descending into the woods. Cabins are landmarks only and do not guarantee operations, restrooms or accessible shelter spaces."
+      ],
+      [
+        "Downhill in the forest → Ascending to the station area",
+        "The latter section first descends significantly, and then goes up to return to the station parking lot. Don’t treat getting to the hut as “all uphill done”, check on your kids along the way."
+      ]
+    ],
+    "picnic": "Use the marked rest or picnic area near the parking lot to have lunch first and feel the wind and temperature first. Bring your own lunch; there is no guarantee whether commercial facilities will be open. You still need to carry water, snacks and warm and rain-proof clothing with you after you hit the road.",
+    "picnicNote": "The plateau illustrations only show environmental imagery, not the on-site weather or precise terrain. Please use official GPX, live road signs and offline maps to truly know your way.",
+    "longer": "After walking the main loop and returning to the parking area, you can choose the Balade des Pins pine forest loop, which is about 1.8 kilometers; the total is about 5.9 kilometers, leaving 45-60 minutes. Only increase if the weather, physical strength, and time are right.",
+    "shorter": "First, set 4.1 kilometers as the only goal for the day, and do not default to additional walking. If you find strong winds, poor visibility or icy roads upon arrival, you will not start the plateau loop route. You cannot forcefully start the route just because you have already reached the mountain.",
+    "cautions": [
+      "The altitude is about 1745-1891 meters; when dressing, you can’t just refer to how you feel in Toulouse at noon.",
+      "In case of strong winds, risk of thunderstorms, dense fog or ice, we will not depart according to this plan; if the weather changes along the way, we will return in time.",
+      "The hut may not be open and not relied upon for hydration, meals, or bathroom breaks.",
+      "Keep a distance from livestock in the pasture, do not chase, feed, or enter the herd to take photos."
+    ],
+    "cautionSource": 5,
+    "events": [
+      [
+        0,
+        "Departure from Toulouse",
+        "The navigation end point is set to the plateau parking lot."
+      ],
+      [
+        135,
+        "Arrive at the plateau",
+        "Stop, judge wind and road conditions, and have a picnic."
+      ],
+      [
+        165,
+        "Start of Piparlan Loop",
+        "Follow the \"Four Junction\" and direction to the hut."
+      ],
+      [
+        300,
+        "Return to station area",
+        "Confirm the child's physical strength first, and then decide whether to walk more."
+      ],
+      [
+        315,
+        "Return from the mountain",
+        "Reserve the entire journey down the mountain and don’t rush."
+      ],
+      [
+        450,
+        "Back to Toulouse",
+        "Traffic conditions and short breaks may prolong the return journey."
+      ]
+    ],
+    "baseLabel": "4.1 km Piparlan Circle",
+    "baseTime": "Walking takes about 2–2.5 hours, with extra time for a picnic",
+    "extraLabel": "Add walking to Balade des Pins · About 1.8 kilometers",
+    "extraMinutes": 60,
+    "extraDistance": "About 5.9 kilometers",
+    "weatherNote": "This is a walking arrangement for the snow-free season. No specific date has been determined, and this page does not provide real-time mountain weather or road opening guarantees."
+  },
+  {
+    "id": "loudenvielle",
+    "number": "03",
+    "name": "Génos–Loudenvielle",
+    "zh": "Walk around the lake and village",
+    "tag": "Lakeshore/Valley/Village",
+    "carddesc": "Take a walk along the lake, have a picnic on the grass, and visit a short section of the village to keep your itinerary a little loose.",
+    "distance": "3.7",
+    "unit": "km basic",
+    "gain": "6 m",
+    "drive": "About 2 hours – 2 hours and 15 minutes",
+    "walk": "Allow 2–2.5 hours",
+    "officialtime": "1 hour and 15 minutes",
+    "altitude": "The official route is about 949–955 meters",
+    "intro": "Follow an official accessible route with a clear start: starting from the parking area opposite the entrance to the Pène Blanche campsite, access the lakeside trail. The basic journey is 3.7 kilometers, including the connection from the parking area to the lake area; plus a walk in the village, it is arranged to be about 4.7–5.2 kilometers.",
+    "official": "Le tour du lac de Génos–Loudenvielle · version PMR",
+    "src": 3,
+    "routeNote": "3.7 kilometers, cumulative ascent of 6 meters refers to the official base route. About 4.7-5.2 kilometers is a custom combination of wandering around villages, not a fixed official five-kilometer loop.",
+    "parking": "Public parking area opposite the entrance to the Pène Blanche campsite",
+    "coordinates": "42.796699, 0.406764",
+    "destination": "42.796699,0.406764",
+    "parkingNote": "Use the coordinates to check the starting point of the official road book, park in an area where public parking is allowed, and do not drive directly into the campground. Tolls, parking spaces and temporary controls are subject to on-site regulations.",
+    "driving": "You can follow the A64 → Exit 16 Lannemezan → Arreau → Vallée du Louron / Loudenvielle valley approach. Use actual navigation to check the time spent on the day, not just choose the route over the mountain based on the shortest distance.",
+    "source": "https://www.vallee-du-louron.com/fr/le-louron-accessible-a-tous",
+    "gpx": "",
+    "pdf": "https://presse.tourisme-occitanie.com/uploads/sites/9/2022/04/Fiche-Rando-Tour-du-lac-Tourisme-et-Handicap.pdf",
+    "look": [
+      [
+        "water",
+        "View the mountains along the lake",
+        "There is no need to climb higher while walking in the valley."
+      ],
+      [
+        "heart",
+        "Intersperse breaks with",
+        "Walk for a while, drink water, look at the lake, and then continue, not at an adult pace."
+      ],
+      [
+        "book",
+        "Wandering around the village",
+        "Leave 1–1.5 kilometers beyond the basic route for an easy walk."
+      ]
+    ],
+    "steps": [
+      [
+        "Parking area → Next to Balnéa → Lake District",
+        "Starting from the public parking area opposite the campsite, follow the footpath beside the rugby pitch and pass by Balnéa to the south side of the lake. Balnéa is just a landmark here."
+      ],
+      [
+        "South branch → small bridge → north end",
+        "Follow the official road book and follow the trail and bridge on the right, and follow the lake to the north end. There is no need to buy hot spring or lift tickets to complete this walk."
+      ],
+      [
+        "Cross the bridge at the north end → change shore and return",
+        "Cross the bridge at the north end and change sides, passing the water sports base and the vicinity of Ludéo along the other side. The business items are not included in the basic hiking and are not guaranteed to be open upon arrival."
+      ],
+      [
+        "Original feeder road → parking area → village",
+        "After returning to the south side, return along the original connecting road, which is basically 3.7 kilometers in total. Then you can choose a round trip of about 1-1.5 kilometers in the village, and the combined trip is about 4.7-5.2 kilometers."
+      ]
+    ],
+    "picnic": "It is recommended to walk to the lake area with your lunch first and sit down in the marked picnic or rest area. There is a paraglider landing area on the south side of the lake area. Don’t automatically regard the open grassland as a place where you can lay out a picnic mat.",
+    "picnicNote": "The official road book indicates the toilets near Ludéo and the dry toilets on the other bank. The actual opening depends on the site; especially do not rely on seasonal water projects.",
+    "longer": "In addition to the “3.7 kilometers from the base + 1–1.5 kilometers from the village”, those who are willing to continue walking along the familiar shore for 1–1.5 kilometers and then return, adding another 2–3 kilometers, making the total journey approximately 6.7–8.2 kilometers. Children should be accompanied by an adult who stays behind, and the meeting place and time should be arranged in advance.",
+    "shorter": "After entering from the south side, just choose one bank and walk for a while before turning back, without first committing to a complete circle. Walking to the other side and then getting back to the car still requires actual walking distance.",
+    "cautions": [
+      "The route is relatively flat, but part of the road surface is not hardened. You still need to pay attention to the small bridge connection and the approximately 50-meter road connection section.",
+      "A barrier-free route does not mean an asphalt road; when pushing a cart, you still need to check the road surface and bridge conditions on that day.",
+      "No access to paragliding landing areas, no reliance on seasonal water entertainment or dining openings.",
+      "The extra kilometers are recorded according to the actual walking method, and the route distances from different parking starting points are not mixed."
+    ],
+    "cautionSource": 6,
+    "events": [
+      [
+        0,
+        "Departure from Toulouse",
+        "Optional valley approach via Lannemezan, Arreau."
+      ],
+      [
+        135,
+        "Arrival and picnic",
+        "Park in the public parking area and walk to the marked rest area."
+      ],
+      [
+        175,
+        "Start circling the lake",
+        "Take care of the children at the bridge and by the lake, and make time to stop along the way."
+      ],
+      [
+        285,
+        "Village walk and snacks",
+        "You can choose 1-1.5 kilometers, which will be included in the total distance of the combination."
+      ],
+      [
+        340,
+        "Start return journey",
+        "Additional walking plans require additional time."
+      ],
+      [
+        480,
+        "Back to Toulouse",
+        "Arranged based on return allowance of approximately 2 hours and 20 minutes, not real-time prediction."
+      ]
+    ],
+    "baseLabel": "Basic lake + village · About 4.7–5.2 kilometers",
+    "baseTime": "Allow about 2 hours to go around the lake, plus picnic and stay in the village",
+    "extraLabel": "Additional round trip to the lake shore · 2–3 kilometers added",
+    "extraMinutes": 60,
+    "extraDistance": "About 6.7–8.2 kilometers",
+    "weatherNote": "The basic lake tour can be used as a reference for the itinerary throughout the year, but the access and opening of facilities on the day still need to be checked; the water projects in the photo are not guaranteed to be operational."
+  }
+]

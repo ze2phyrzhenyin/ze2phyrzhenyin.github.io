@@ -6,7 +6,6 @@ import { fileURLToPath } from 'node:url';
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const essayPath = 'src/content/essays/my-summer-schools-in-2026-overview.md';
-const deployDir = '/Users/zephyrsui/Developer/aliyun-root-login';
 const commitMessage = process.env.ESSAY_COMMIT_MESSAGE ?? 'Refresh summer schools essay';
 
 function run(command, args, cwd = repoRoot) {
@@ -44,9 +43,9 @@ run('git', ['commit', '-m', commitMessage]);
 run('git', ['push', 'origin', 'main']);
 
 if (process.env.SKIP_DEPLOY === '1') {
-  console.log('\nSKIP_DEPLOY=1, not deploying to Aliyun.');
+  console.log('\nSKIP_DEPLOY=1, not deploying to the production sites.');
 } else {
-  run('./deploy-siteweb.sh', [], deployDir);
+  run('npm', ['run', 'deploy:production']);
 }
 
 console.log('\nDone.');

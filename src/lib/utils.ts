@@ -78,6 +78,8 @@ export async function getAllProjects() {
   if (!hasCollectionContent('projects')) return [];
   const projects = await getCollection('projects');
   return projects.sort((a, b) => {
+    if (a.data.pinnedBottom && !b.data.pinnedBottom) return 1;
+    if (!a.data.pinnedBottom && b.data.pinnedBottom) return -1;
     if (a.data.featured && !b.data.featured) return -1;
     if (!a.data.featured && b.data.featured) return 1;
     return b.data.date.valueOf() - a.data.date.valueOf();

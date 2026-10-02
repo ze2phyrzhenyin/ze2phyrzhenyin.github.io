@@ -1,0 +1,1418 @@
+{
+  "ui": {
+    "site": {
+      "title": "Sports careers in French-speaking Canada",
+      "description": "Internships, clubs and other sports jobs in French-speaking Canada, with official sources.",
+      "regions": "Quebec · Ottawa · New Brunswick",
+      "snapshot": "Snapshot: {{date}}",
+      "availability": "Check the employer’s latest posting for availability.",
+      "footer": "Sports careers in French-speaking Canada · {{date}}",
+      "pageTitle": "{{section}} · Sports careers in French-speaking Canada"
+    },
+    "nav": {
+      "guides": "Guides",
+      "skip": "Skip to content",
+      "label": "Directory sections",
+      "language": "Language",
+      "internships": "Internships",
+      "clubs": "Clubs",
+      "jobs": "Jobs",
+      "resources": "Sources"
+    },
+    "download": {
+      "label": "Data JSON",
+      "source": "Original Chinese research data, with official job titles"
+    },
+    "load": {
+      "title": "Data could not be loaded",
+      "body": "Refresh the page or download the full dataset.",
+      "reload": "Reload",
+      "noscript": "Enable JavaScript to browse and filter this directory."
+    },
+    "status": {
+      "expired": "Expired",
+      "listed": "Listed at snapshot",
+      "limited": "Details unverified",
+      "program": "Program entry",
+      "inactive": "No longer operating"
+    },
+    "category": {
+      "label": "{{section}} categories",
+      "specific": "Postings",
+      "program": "Programs",
+      "expired": "Expired",
+      "all": "All",
+      "active": "Active clubs",
+      "employer": "Shared employers",
+      "inactive": "Historical",
+      "job": "Regular / seasonal",
+      "volunteer": "Volunteering"
+    },
+    "filter": {
+      "search": "Search",
+      "label": "Filters",
+      "reset": "Reset",
+      "clear": "Clear filters",
+      "searchLabel": "Search {{section}}",
+      "clubsPlaceholder": "Name, city, league",
+      "jobsPlaceholder": "Role, club, field",
+      "sourcesPlaceholder": "Organisation, source",
+      "geo": "Region",
+      "sport": "Sport",
+      "tier": "Level",
+      "pay": "Pay",
+      "allGeo": "All regions",
+      "allSport": "All sports",
+      "allTier": "All levels",
+      "allPay": "Any pay status"
+    },
+    "heading": {
+      "internships": "Internships and programs",
+      "internshipsNote": "Programs and individual postings are listed separately.",
+      "clubs": "Club directory",
+      "clubsNote": "Professional, semi-professional and junior levels are distinguished.",
+      "jobs": "Other jobs",
+      "jobsNote": "Regular jobs, seasonal roles and volunteering."
+    },
+    "results": {
+      "club_one": "{{count}} organisation",
+      "club_other": "{{count}} organisations",
+      "source_one": "{{count}} source",
+      "source_other": "{{count}} sources",
+      "opportunity_one": "{{count}} entry",
+      "opportunity_other": "{{count}} entries",
+      "clubMeta": "Names, leagues and official links",
+      "emptyTitle": "No matching results",
+      "emptyBody": "Try another keyword or clear the filters."
+    },
+    "note": {
+      "clubs": "No listed role does not mean a club never accepts interns. Junior-team links may lead to the league directory.",
+      "jobs": "Undisclosed pay does not mean unpaid. Refer to the employer’s latest posting."
+    },
+    "action": {
+      "details": "Details",
+      "profile": "Profile",
+      "detailsLabel": "View details: {{title}}",
+      "profileLabel": "View profile: {{name}}",
+      "latest": "Current jobs",
+      "posting": "Official posting",
+      "careers": "Careers",
+      "website": "Website",
+      "closure": "Closure notice",
+      "league": "League website",
+      "leagueDirectory": "League directory",
+      "group": "Group website",
+      "company": "Company page",
+      "originalEvidence": "Original source"
+    },
+    "sources": {
+      "heading": "Official sources and careers pages",
+      "date": "Sources checked: {{date}}",
+      "coverage": "Coverage and data notes",
+      "records": "Source records",
+      "searchNote": "Search by organisation or domain.",
+      "statusNote": "Page access status, not current hiring status",
+      "full": "Full text accessible",
+      "index": "Index checked",
+      "limited": "Access restricted"
+    },
+    "detail": {
+      "close": "Close",
+      "unknown": "Not disclosed",
+      "expiredNote": "This posting has expired. Use the current careers link below for available roles.",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements",
+      "application": "Application details",
+      "oldApplication": "Original application details",
+      "email": "Email:",
+      "unknowns": "Details to confirm",
+      "evidence": "Sources · {{date}}",
+      "apply": "Official application",
+      "latest": "Current careers page",
+      "original": "Original posting",
+      "club": "Club profile",
+      "employer": "Shared employer",
+      "socials": "Website and social media",
+      "related": "Listed jobs and programs · {{count}}",
+      "noRelated": "No individual roles are listed. Check the official careers page.",
+      "defaultEvidence": "Organisation details and public links are based on the sources below."
+    },
+    "field": {
+      "department": "Field",
+      "workMode": "Work arrangement",
+      "period": "Start / period",
+      "duration": "Duration / hours",
+      "pay": "Compensation",
+      "contract": "Contract / type",
+      "deadline": "Deadline",
+      "posted": "Posted",
+      "city": "City",
+      "region": "Region",
+      "league": "League",
+      "venue": "Venue",
+      "email": "Public email",
+      "phone": "Phone"
+    }
+  },
+  "content": {
+    "taxonomies": {
+      "geography": {
+        "quebec": "Quebec",
+        "ottawa": "Bilingual Ottawa area",
+        "new-brunswick": "New Brunswick"
+      },
+      "sport": {
+        "soccer": "Soccer",
+        "ice-hockey": "Ice hockey",
+        "basketball": "Basketball",
+        "baseball": "Baseball",
+        "football": "Canadian football",
+        "ultimate": "Ultimate",
+        "lacrosse": "Lacrosse",
+        "multi": "Multi-sport / group"
+      },
+      "tier": {
+        "pro": "Professional",
+        "minor-pro": "Minor professional",
+        "semi-pro": "Semi-pro / development",
+        "junior": "Junior league",
+        "group": "Shared employer"
+      },
+      "type": {
+        "internship": "Internship posting",
+        "program": "Internship program",
+        "job": "Regular / seasonal job",
+        "volunteer": "Volunteering"
+      },
+      "status": {
+        "listed": "Listed at snapshot",
+        "detail-limited": "Indexed · details unverified",
+        "expired": "Expired",
+        "program": "Program / registration",
+        "historical": "Historical"
+      },
+      "pay": {
+        "paid": "Pay disclosed",
+        "unpaid": "Unpaid",
+        "not-disclosed": "Pay not disclosed"
+      }
+    },
+    "clubs": {
+      "alliance": {
+        "city": "Montréal · Verdun",
+        "league": "CEBL / LECB",
+        "venue": "Auditorium de Verdun",
+        "description": "Montreal’s CEBL basketball club. The sources include fall 2026 internship listings and details of a content creation internship.",
+        "notes": "French and English versions of the same role are combined and counted once.",
+        "alias": ""
+      },
+      "roses": {
+        "city": "Montréal / Laval",
+        "league": "NSL / SLN · Women",
+        "venue": "Stade Boréale; some activities at Stade Saputo",
+        "description": "Women’s professional soccer club. Its careers page separates internships from volunteering; the physiotherapy internship requires a relevant academic background.",
+        "notes": "",
+        "alias": ""
+      },
+      "cfmontreal": {
+        "city": "Montréal",
+        "league": "MLS",
+        "venue": "Stade Saputo",
+        "description": "Montreal’s MLS club. Listings include marketing, CRM and stadium operations. The former general internship pool has expired in the application system.",
+        "notes": "An internship link on the website does not mean applications are still open. Check the application system.",
+        "alias": ""
+      },
+      "canadiens": {
+        "city": "Montréal",
+        "league": "NHL / LNH",
+        "venue": "Centre Bell",
+        "description": "Montreal’s NHL club. Use Groupe CH’s shared recruitment channels.",
+        "notes": "Groupe CH also covers live entertainment and venues. Its jobs are not all team positions.",
+        "alias": ""
+      },
+      "rocket": {
+        "city": "Laval",
+        "league": "AHL / LAH",
+        "venue": "Place Bell",
+        "description": "AHL professional hockey club in Laval. Recruitment is available through Groupe CH’s shared platform.",
+        "notes": "The Rocket and Canadiens are separate teams using shared group channels. A group internship is counted only once.",
+        "alias": ""
+      },
+      "lions": {
+        "city": "Trois-Rivières",
+        "league": "ECHL",
+        "venue": "Colisée Vidéotron",
+        "description": "Professional ECHL club in Trois-Rivières. Its website includes the 2026–27 season and a dedicated careers page.",
+        "notes": "Some vacancies are displayed as images and were not individually verified. A public contact email is not evidence of an open internship.",
+        "alias": ""
+      },
+      "alouettes": {
+        "city": "Montréal",
+        "league": "CFL / LCF",
+        "venue": "Stade Percival-Molson",
+        "description": "Montreal’s professional Canadian football club. Follow its official pages, the CFL and its employer recruitment page.",
+        "notes": "Direct access to the website was restricted. Undated internships in search snippets were not treated as current openings. The public email is not a confirmed internship recruitment address.",
+        "alias": ""
+      },
+      "victoire": {
+        "city": "Montréal / Laval",
+        "league": "PWHL / LPHF · Women",
+        "venue": "",
+        "description": "Women’s professional hockey team with a dedicated TeamWork Online recruitment page.",
+        "notes": "No roles appeared on the team page at the time of review. Official job alerts remain available.",
+        "alias": ""
+      },
+      "supra": {
+        "city": "Laval",
+        "league": "CPL / PLC",
+        "venue": "Stade Boréale",
+        "description": "Quebec professional soccer club taking part in the 2026 Canadian Premier League season. It is separate from CF Montréal and Roses.",
+        "notes": "No separate careers page or internship posting was verified. The website and official LinkedIn page are research contacts only. Player training camps are not employment internships.",
+        "alias": ""
+      },
+      "capitales": {
+        "city": "Québec",
+        "league": "Frontier League",
+        "venue": "Stade Canac",
+        "description": "Professional baseball club in Quebec City. Its careers page lists design, accounting, ticketing and content roles without identifying them as internships.",
+        "notes": "The page contains several job sections. Unpublished pay, dates and internship status remain unknown.",
+        "alias": ""
+      },
+      "aigles": {
+        "city": "Trois-Rivières",
+        "league": "Frontier League",
+        "venue": "",
+        "description": "Professional baseball organisation in Trois-Rivières. Its website explicitly welcomes unsolicited applications to its HR email.",
+        "notes": "This entry refers to the professional team, not junior teams using the same brand. Specify the department and any academic internship needs in your email.",
+        "alias": ""
+      },
+      "toundra": {
+        "city": "Montréal",
+        "league": "Basketball Super League · BSL",
+        "venue": "Centre Pierre-Charbonneau",
+        "description": "Professional basketball club with a verifiable official 2026 schedule. It is separate from the CEBL’s Alliance.",
+        "notes": "No current internship was verified. Professional team status does not imply that office internships are paid.",
+        "alias": ""
+      },
+      "royal": {
+        "city": "Montréal",
+        "league": "UFA",
+        "venue": "",
+        "description": "Montreal’s UFA team, included separately as a development-level sports organisation.",
+        "notes": "The directory uses a cautious semi-pro / development classification. It does not imply full-time paid athletes or staff. No specific internship was verified.",
+        "alias": ""
+      },
+      "senators": {
+        "city": "Ottawa · Kanata",
+        "league": "NHL / LNH",
+        "venue": "Canadian Tire Centre",
+        "description": "Ottawa’s NHL club. Its website provides an academic-credit internship program entry.",
+        "notes": "Included as an Ontario option in the bilingual employment area. Working languages and international-student eligibility must be checked for each role.",
+        "alias": ""
+      },
+      "redblacks": {
+        "city": "Ottawa",
+        "league": "CFL / LCF",
+        "venue": "TD Place",
+        "description": "Ottawa’s professional Canadian football club. OSEG lists team and venue opportunities.",
+        "notes": "OSEG internships are group programs and do not guarantee assignment to the REDBLACKS. The same program is not duplicated as a team role.",
+        "alias": ""
+      },
+      "atletico": {
+        "city": "Ottawa",
+        "league": "CPL / PLC",
+        "venue": "",
+        "description": "Professional soccer club in Ottawa. Its careers page accepts résumés and cover letters.",
+        "notes": "Unsolicited applications do not establish an internship opening. No specific role was listed on the reviewed page.",
+        "alias": ""
+      },
+      "blackjacks": {
+        "city": "Ottawa",
+        "league": "CEBL / LECB",
+        "venue": "The Arena at TD Place",
+        "description": "Ottawa’s CEBL club. The careers page includes a résumé form and game-day volunteering.",
+        "notes": "Game-day volunteering is classified as volunteering, not as an academic internship.",
+        "alias": ""
+      },
+      "titans": {
+        "city": "Ottawa",
+        "league": "Frontier League",
+        "venue": "Ottawa Stadium · 300 Coventry Road",
+        "description": "Professional baseball club in Ottawa with public contact details. Older internships found in search results are not treated as 2026 openings.",
+        "notes": "The email is a general contact. A 2023 game-day internship and a 2022 league data partnership do not establish a current vacancy.",
+        "alias": ""
+      },
+      "rapid": {
+        "city": "Ottawa",
+        "league": "NSL / SLN · Women",
+        "venue": "TD Place",
+        "description": "Women’s professional soccer club. Its careers page accepts unsolicited applications and lists a regular group-sales account executive role.",
+        "notes": "The sales role is not an internship. Future academic terms can be discussed separately.",
+        "alias": ""
+      },
+      "charge": {
+        "city": "Ottawa",
+        "league": "PWHL / LPHF · Women",
+        "venue": "",
+        "description": "Ottawa’s women’s professional hockey team, with its own recruitment page.",
+        "notes": "The team’s recruitment page showed no results at the time of review. Other cities’ league jobs are not assigned to this team.",
+        "alias": ""
+      },
+      "blackbears": {
+        "city": "Ottawa",
+        "league": "NLL",
+        "venue": "",
+        "description": "The NLL announced on September 10, 2026 that the team had ceased operations and would not take part in the 2026–27 season.",
+        "notes": "Retained to prevent confusion from old lists. Excluded from active-club totals and current application targets.",
+        "alias": ""
+      },
+      "thetford": {
+        "city": "Thetford Mines",
+        "league": "LNAH",
+        "venue": "Centre Mario-Gosselin",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "jonquiere": {
+        "city": "Jonquière · Saguenay",
+        "league": "LNAH",
+        "venue": "Palais des sports de Jonquière",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "sorel": {
+        "city": "Sorel-Tracy",
+        "league": "LNAH",
+        "venue": "Colisée Cardin",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "rdl": {
+        "city": "Rivière-du-Loup",
+        "league": "LNAH",
+        "venue": "Centre Premier Tech",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "coolfm": {
+        "city": "Saint-Georges",
+        "league": "LNAH",
+        "venue": "Centre sportif Lacroix-Dutil (directory name)",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "national": {
+        "city": "L’Ancienne-Lorette",
+        "league": "LNAH",
+        "venue": "Complexe sportif de l’Ancienne-Lorette",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "bataillon": {
+        "city": "Saint-Hyacinthe",
+        "league": "LNAH",
+        "venue": "Stade L.-P.-Gaucher",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking.",
+        "alias": ""
+      },
+      "manotick": {
+        "city": "Manotick · Ottawa",
+        "league": "LNAH",
+        "venue": "Mike O’Neil Arena",
+        "description": "Listed in the official LNAH 2026–27 team directory. Included separately as a minor-league / semi-professional sports operations option.",
+        "notes": "Only team identity, official entry and listed venue were verified. Jobs, pay and individual social accounts still require checking. This link leads to the league directory, not a standalone team website.",
+        "alias": ""
+      },
+      "armada": {
+        "city": "Blainville-Boisbriand",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "drakkar": {
+        "city": "Baie-Comeau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "sagueneens": {
+        "city": "Chicoutimi · Saguenay",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "voltigeurs": {
+        "city": "Drummondville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "olympiques": {
+        "city": "Gatineau",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "remparts": {
+        "city": "Québec",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "oceanic": {
+        "city": "Rimouski",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "huskies": {
+        "city": "Rouyn-Noranda",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "cataractes": {
+        "city": "Shawinigan",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "phoenix": {
+        "city": "Sherbrooke",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "foreurs": {
+        "city": "Val-d’Or",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "tigres": {
+        "city": "Victoriaville",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "wildcats": {
+        "city": "Moncton",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "seadogs": {
+        "city": "Saint John",
+        "league": "LHJMQ / QMJHL",
+        "venue": "",
+        "description": "Major junior QMJHL hockey team. Staff and event operations may offer internship research leads; this is not an adult professional league.",
+        "notes": "Team identity and city were checked against official 2026 data. The website link leads to the league. The team’s own website, social accounts and recruitment need further verification; no internship opening is claimed.",
+        "alias": ""
+      },
+      "67s": {
+        "city": "Ottawa",
+        "league": "OHL",
+        "venue": "The Arena at TD Place",
+        "description": "OSEG’s junior hockey team. The group’s academic-credit program can provide access to team and venue functions.",
+        "notes": "A junior-team option, not an adult professional league. An OSEG internship does not guarantee assignment to this team. The verified website link currently leads to the group.",
+        "alias": ""
+      },
+      "groupech": {
+        "city": "Montréal / Laval",
+        "league": "Shared employer · Canadiens / Rocket",
+        "venue": "",
+        "description": "Shared employer group for the Canadiens and Rocket, also covering Centre Bell, Place Bell and entertainment operations.",
+        "notes": "Listed separately as an employer, without increasing the club count. No currently open internship was confirmed in this review.",
+        "alias": ""
+      },
+      "oseg": {
+        "city": "Ottawa",
+        "league": "Shared employer · REDBLACKS / 67’s / TD Place",
+        "venue": "TD Place / Lansdowne",
+        "description": "The official site describes multiple internship intakes linked to postsecondary academic credit. The group program is counted once.",
+        "notes": "Programs are separate from specific vacancies. Confirm the term, department and availability in ADP.",
+        "alias": ""
+      }
+    },
+    "opportunities": {
+      "alliance-content-intern": {
+        "department": "Content / social media / analytics",
+        "payText": "Explicitly unpaid",
+        "period": "As soon as possible; end date not stated",
+        "duration": "About 20 hours per week",
+        "workMode": "On site · Verdun and filming locations in Montreal",
+        "contract": "Temporary / part-time internship",
+        "applyInstructions": "Use the role title as the email subject. No résumé is required; attach an approximately one-minute introduction video and a LinkedIn link, if available.",
+        "responsibilities": [
+          "Film business and entrepreneurship videos; help with the content calendar and editing coordination.",
+          "Track views, retention and engagement, and suggest improvements."
+        ],
+        "requirements": [
+          "Interest in digital content, sports and entrepreneurship; a related academic background is an asset.",
+          "Availability during office hours; availability outside those hours is an asset."
+        ],
+        "unknowns": [
+          "Deadline, end date, academic agreement and international-applicant eligibility were not published."
+        ],
+        "evidence": "Listed in the official recruitment index, with an accessible full PDF and no published deadline. Confirm availability before applying.",
+        "displayTitle": "Content creation internship · Co-owner’s office"
+      },
+      "alliance-graphic": {
+        "department": "Design / visual communication",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Fall 2026",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Open the club’s careers page and select the relevant fall 2026 role. Follow the application instructions in the latest PDF.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "Pay, weekly hours, dates, detailed requirements and application email were not verified in this review."
+        ],
+        "evidence": "The French and English website indexes list this internship. The details PDF returned HTTP 403. Terms from older summer postings cannot be assumed to apply.",
+        "displayTitle": "Graphic design internship · Fall 2026"
+      },
+      "alliance-partnership": {
+        "department": "Sponsorship / partnerships",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Fall 2026",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Open the club’s careers page and select the relevant fall 2026 role. Follow the application instructions in the latest PDF.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "Pay, weekly hours, dates, detailed requirements and application email were not verified in this review."
+        ],
+        "evidence": "The French and English website indexes list this internship. The details PDF returned HTTP 403. Terms from older summer postings cannot be assumed to apply.",
+        "displayTitle": "Partnerships internship · Fall 2026"
+      },
+      "alliance-ticketing": {
+        "department": "Sales / ticketing",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Fall 2026",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Open the club’s careers page and select the relevant fall 2026 role. Follow the application instructions in the latest PDF.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "Pay, weekly hours, dates, detailed requirements and application email were not verified in this review."
+        ],
+        "evidence": "The French and English website indexes list this internship. The details PDF returned HTTP 403. Terms from older summer postings cannot be assumed to apply.",
+        "displayTitle": "Sales and ticketing internship · Fall 2026"
+      },
+      "roses-physio-intern": {
+        "department": "Sports health / medical support",
+        "payText": "Explicitly unpaid",
+        "period": "Weekday training, 08:00–14:00; start and end dates not published",
+        "duration": "3–5 days per week",
+        "workMode": "On site · Montreal",
+        "contract": "Temporary internship",
+        "applyInstructions": "Apply to the official email, stating your physiotherapy or athletic therapy studies, available dates and relevant training. The source does not require a fixed email subject.",
+        "responsibilities": [
+          "Support training and matches, prepare equipment and assist with athletic taping under professional supervision.",
+          "Assist with prevention, recovery and athlete tracking records."
+        ],
+        "requirements": [
+          "Enrolled in physiotherapy or athletic therapy, with athletic taping training.",
+          "First Responder certification and sports-team or event experience are assets."
+        ],
+        "unknowns": [
+          "No deadline given; confirm the academic agreement, insurance and international-student eligibility."
+        ],
+        "evidence": "Listed on the official careers page; the two-page PDF was checked. This is a specialised health internship, not a role open to every field of study.",
+        "displayTitle": "Physiotherapy / athletic therapy internship"
+      },
+      "oseg-intern-program": {
+        "department": "Multiple group departments · check the application system",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Follow TD Place’s careers page to ADP and search for Intern, Internship or Co-op. Check the term and department.",
+        "responsibilities": [],
+        "requirements": [
+          "The official program is intended for students completing postsecondary internship credits."
+        ],
+        "unknowns": [
+          "Current openings, departments, duration, pay, languages and eligibility of institutions outside Canada."
+        ],
+        "evidence": "The official description mentions several internship intakes throughout the year. The dynamic ADP listings were not fully accessible. Counted only as a program entry.",
+        "displayTitle": "OSEG academic-credit internship program"
+      },
+      "senators-intern-program": {
+        "department": "Department to be confirmed",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Check the official BambooHR system for internships.",
+        "responsibilities": [],
+        "requirements": [
+          "Currently enrolled and requiring internship credits."
+        ],
+        "unknowns": [
+          "Current roles, pay and dates."
+        ],
+        "evidence": "Program entry only; not a specific vacancy.",
+        "displayTitle": "Senators academic-credit internship program"
+      },
+      "cf-intern-expired": {
+        "department": "HR / administration / marketing / communications",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Do not apply through the expired post. Return to CF Montréal’s careers page for new postings.",
+        "responsibilities": [],
+        "requirements": [
+          "The original posting was for college and university students."
+        ],
+        "unknowns": [
+          "Applicants were asked to state whether they needed a paid or unpaid placement; this was not a promise of pay."
+        ],
+        "evidence": "The application system explicitly states “Désolé, ce poste a expiré”, although the website index still links to it.",
+        "displayTitle": "General internship pool · Expired"
+      },
+      "cf-crm": {
+        "department": "CRM / digital operations",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Apply through the original SmartRecruiters posting and review the latest requirements.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The official index and application details were accessible, with an application entry displayed. This does not confirm remaining vacancies.",
+        "displayTitle": "Salesforce CRM specialist"
+      },
+      "cf-marketing": {
+        "department": "Marketing / production",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Apply through the original SmartRecruiters posting and review the latest requirements.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The official index and application details were accessible, with an application entry displayed. This does not confirm remaining vacancies.",
+        "displayTitle": "Marketing project and production manager · Temporary"
+      },
+      "cf-coach": {
+        "department": "Coaching / community",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Apply through the original SmartRecruiters posting and review the latest requirements.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The official index and application details were accessible, with an application entry displayed. This does not confirm remaining vacancies.",
+        "displayTitle": "After-school soccer coach"
+      },
+      "cf-maintenance": {
+        "department": "Venue / facilities",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Apply through the original SmartRecruiters posting and review the latest requirements.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The official index and application details were accessible, with an application entry displayed. This does not confirm remaining vacancies.",
+        "displayTitle": "Stadium building maintenance and operations technician"
+      },
+      "cf-security": {
+        "department": "Security / events",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Select the matching role on CF Montréal’s careers index, then check its current application-system status before applying.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Only the official index listing was verified. Individual application-system pages were not checked in this review.",
+        "displayTitle": "Game-day security staff"
+      },
+      "cf-pitch": {
+        "department": "Field operations",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Select the matching role on CF Montréal’s careers index, then check its current application-system status before applying.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Only the official index listing was verified. Individual application-system pages were not checked in this review.",
+        "displayTitle": "Sports field coordinator"
+      },
+      "cf-medical": {
+        "department": "Sports medicine",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Select the matching role on CF Montréal’s careers index, then check its current application-system status before applying.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Only the official index listing was verified. Individual application-system pages were not checked in this review.",
+        "displayTitle": "Head of sports medicine"
+      },
+      "cf-concessions": {
+        "department": "Food services / game day",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Select the matching role on CF Montréal’s careers index, then check its current application-system status before applying.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Only the official index listing was verified. Individual application-system pages were not checked in this review.",
+        "displayTitle": "Game-day concessions supervisor"
+      },
+      "alliance-digital": {
+        "department": "Digital marketing / advertising",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Starting fall 2026",
+        "duration": "Not disclosed",
+        "workMode": "Verdun / hybrid",
+        "contract": "Full-time / permanent role",
+        "applyInstructions": "Open the digital marketing role from the official careers page. The September 15 deadline comes from the team’s official LinkedIn post; recheck before applying.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "Refer to the full official job description for pay and application instructions."
+        ],
+        "evidence": "Listed on the official website, with a deadline in an official LinkedIn post. The details PDF returned HTTP 403 during this review.",
+        "displayTitle": "Digital marketing performance and advertising coordinator"
+      },
+      "rapid-groupsales": {
+        "department": "Sales / CRM / ticketing",
+        "payText": "CAD 50,000–55,000 total annual compensation (base pay plus bonus), with benefits; this is not internship pay",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Based in Ottawa, including evening and weekend matches",
+        "contract": "Full-time / new permanent position",
+        "applyInstructions": "Email a résumé and cover letter to jobs@rapidfc.ca, with the role title in the subject line.",
+        "responsibilities": [
+          "Develop group clients and ticketing experiences; manage community relationships, sales follow-up and event delivery."
+        ],
+        "requirements": [
+          "At least one year of relevant sales or account-management experience; related postsecondary education or equivalent experience.",
+          "Experience with Excel, CRM and ticketing tools; French–English bilingualism is a strong asset."
+        ],
+        "unknowns": [],
+        "evidence": "The official careers page and full role text were accessible. No deadline was published.",
+        "displayTitle": "Group ticket sales account executive"
+      },
+      "caps-designer": {
+        "department": "Design",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Find the relevant role section and original application link on the Capitales careers page.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "The page has no clear shared posting date or deadline. The roles are not labelled as internships."
+        ],
+        "evidence": "The role was still listed on the official site. External application status was not checked individually. Duplicate role sections were consolidated.",
+        "displayTitle": "Graphic designer · Seasonal"
+      },
+      "caps-accounting": {
+        "department": "Finance",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Find the relevant role section and original application link on the Capitales careers page.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "The page has no clear shared posting date or deadline. The roles are not labelled as internships."
+        ],
+        "evidence": "The role was still listed on the official site. External application status was not checked individually. Duplicate role sections were consolidated.",
+        "displayTitle": "Accounting clerk · Seasonal"
+      },
+      "caps-ticketing": {
+        "department": "Ticketing / customer operations",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Find the relevant role section and original application link on the Capitales careers page.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "The page has no clear shared posting date or deadline. The roles are not labelled as internships."
+        ],
+        "evidence": "The role was still listed on the official site. External application status was not checked individually. Duplicate role sections were consolidated.",
+        "displayTitle": "Ticketing and strategy coordinator"
+      },
+      "caps-social": {
+        "department": "Social media / content",
+        "payText": "Not disclosed; this does not mean unpaid",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Find the relevant role section and original application link on the Capitales careers page.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [
+          "The page has no clear shared posting date or deadline. The roles are not labelled as internships."
+        ],
+        "evidence": "The role was still listed on the official site. External application status was not checked individually. Duplicate role sections were consolidated.",
+        "displayTitle": "Social media manager and content creator"
+      },
+      "roses-volunteer": {
+        "department": "Volunteering",
+        "payText": "Volunteering; not a basis for internship pay terms",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Use the form linked from the website’s volunteer section. Academic recognition must be checked separately.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The official careers page has a separate volunteering section.",
+        "displayTitle": "Match and club event volunteering"
+      },
+      "blackjacks-volunteer": {
+        "department": "Volunteering / game day",
+        "payText": "Volunteering; not equivalent to an academic internship",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Check the volunteer link and contact form on the official website.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "The current careers page mainly displays this volunteering entry.",
+        "displayTitle": "Game-day volunteering"
+      },
+      "cf-volunteer": {
+        "department": "Volunteering / fundraising",
+        "payText": "Volunteering",
+        "period": "Not disclosed",
+        "duration": "Not disclosed",
+        "workMode": "Not disclosed",
+        "contract": "Not disclosed",
+        "applyInstructions": "Follow the relevant volunteer posting from the club’s careers index.",
+        "responsibilities": [],
+        "requirements": [],
+        "unknowns": [],
+        "evidence": "Listed in the official index. It must not be presented as paid work or an internship.",
+        "displayTitle": "50/50 fundraising volunteer"
+      }
+    },
+    "sources": {
+      "cf-home": {
+        "title": "CF Montréal — Official website",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "cf-careers": {
+        "title": "CF Montréal — Carrières",
+        "publisher": "CF Montréal",
+        "notes": "The careers index and application system may be out of sync; status is recorded per entry."
+      },
+      "cf-intern": {
+        "title": "CF Montréal — Internship pool (expired)",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": "The bottom of the page explicitly states “Désolé, ce poste a expiré”."
+      },
+      "cf-linkedin": {
+        "title": "CF Montréal — LinkedIn",
+        "publisher": "CF Montréal",
+        "notes": ""
+      },
+      "alliance-home": {
+        "title": "Alliance de Montréal — Official website",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-careers": {
+        "title": "Alliance — French careers index",
+        "publisher": "Alliance de Montréal",
+        "notes": "Four internships and one full-time role; the three fall 2026 internship PDFs had restricted access."
+      },
+      "alliance-careers-en": {
+        "title": "Alliance — English careers index",
+        "publisher": "Alliance de Montréal",
+        "notes": ""
+      },
+      "alliance-content": {
+        "title": "Alliance — Official content creation internship PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "Two-page PDF; text and page images checked. No deadline published."
+      },
+      "alliance-linkedin": {
+        "title": "Alliance — Official LinkedIn job updates",
+        "publisher": "Alliance de Montréal",
+        "notes": "The full-time digital marketing post gives a September 15, 2026 deadline."
+      },
+      "roses-home": {
+        "title": "Roses de Montréal — Official website",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "roses-careers": {
+        "title": "Roses — Carrières",
+        "publisher": "Roses de Montréal",
+        "notes": "Separates volunteering from the physiotherapy internship."
+      },
+      "roses-physio": {
+        "title": "Roses — Official physiotherapy / athletic therapy internship PDF",
+        "publisher": "Roses de Montréal",
+        "notes": "Both page images checked: unpaid, 3–5 days per week, no published deadline."
+      },
+      "roses-linkedin": {
+        "title": "Roses — LinkedIn",
+        "publisher": "Roses de Montréal",
+        "notes": ""
+      },
+      "canadiens-home": {
+        "title": "Canadiens de Montréal — Official website",
+        "publisher": "Canadiens de Montréal / NHL",
+        "notes": "Used for basic identity and official social links, without copying website content."
+      },
+      "canadiens-linkedin": {
+        "title": "Canadiens — Official LinkedIn",
+        "publisher": "Canadiens de Montréal",
+        "notes": ""
+      },
+      "gch-careers": {
+        "title": "Groupe CH — Official Dayforce careers system",
+        "publisher": "Groupe CH / Dayforce",
+        "notes": "Entry verified; JavaScript loads the listings. No current internship opening was inferred from the entry alone."
+      },
+      "gch-linkedin": {
+        "title": "Groupe CH — Official LinkedIn",
+        "publisher": "Groupe CH",
+        "notes": ""
+      },
+      "rocket-home": {
+        "title": "Rocket de Laval — Official website",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "rocket-linkedin": {
+        "title": "Rocket — Official LinkedIn",
+        "publisher": "Rocket de Laval",
+        "notes": ""
+      },
+      "lions-home": {
+        "title": "Lions de Trois-Rivières — Official website",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": ""
+      },
+      "lions-careers": {
+        "title": "Lions — Carrière",
+        "publisher": "Lions de Trois-Rivières",
+        "notes": "Roles appear as images and other formats. A contact email was found but not treated as a specific internship opening."
+      },
+      "als-contact": {
+        "title": "Alouettes — Contact details",
+        "publisher": "Alouettes de Montréal",
+        "notes": "Direct website access was restricted; contact details could be checked in official search indexing."
+      },
+      "als-linkedin": {
+        "title": "Alouettes — Official LinkedIn",
+        "publisher": "Alouettes de Montréal",
+        "notes": ""
+      },
+      "cfl-jobs": {
+        "title": "CFL — League careers",
+        "publisher": "Ligue canadienne de football",
+        "notes": ""
+      },
+      "als-isarta": {
+        "title": "Alouettes — Employer careers page",
+        "publisher": "Alouettes / Isarta",
+        "notes": "The platform showed no jobs at the time of review; this does not rule out recruitment through other channels."
+      },
+      "victoire-home": {
+        "title": "Montréal Victoire — Official website",
+        "publisher": "PWHL",
+        "notes": ""
+      },
+      "victoire-jobs": {
+        "title": "Montréal Victoire — Team careers page",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Explicitly displayed “No job results for your search” at the time of review."
+      },
+      "charge-jobs": {
+        "title": "Ottawa Charge — Team careers page",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Explicitly displayed “No job results for your search” at the time of review."
+      },
+      "victoire-linkedin": {
+        "title": "Victoire — LinkedIn",
+        "publisher": "Victoire de Montréal",
+        "notes": ""
+      },
+      "pwhl-jobs": {
+        "title": "PWHL — League and team careers",
+        "publisher": "PWHL / TeamWork Online",
+        "notes": "Jobs in other cities are not assigned to Montreal or Ottawa."
+      },
+      "supra-home": {
+        "title": "FC Supra du Québec — Official CPL team website",
+        "publisher": "FC Supra / CPL",
+        "notes": ""
+      },
+      "supra-linkedin": {
+        "title": "FC Supra — Official LinkedIn",
+        "publisher": "FC Supra du Québec",
+        "notes": ""
+      },
+      "aigles-home": {
+        "title": "Aigles de Trois-Rivières — Official website",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": ""
+      },
+      "aigles-jobs": {
+        "title": "Aigles — Careers / unsolicited applications",
+        "publisher": "Aigles de Trois-Rivières",
+        "notes": "Explicitly invites unsolicited applications to rh@lesaiglestr.com; not a published internship."
+      },
+      "capitales-jobs": {
+        "title": "Capitales de Québec — Official careers page",
+        "publisher": "Capitales de Québec",
+        "notes": "Several roles share the page, with no common posting date or deadline specified."
+      },
+      "toundra-home": {
+        "title": "Toundra de Montréal — Official website",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-schedule": {
+        "title": "Toundra — 2026 schedule",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "toundra-instagram": {
+        "title": "Toundra — Instagram",
+        "publisher": "Toundra de Montréal",
+        "notes": ""
+      },
+      "royal-home": {
+        "title": "Montréal Royal — Official UFA team website",
+        "publisher": "Montréal Royal / UFA",
+        "notes": ""
+      },
+      "senators-home": {
+        "title": "Ottawa Senators — Official website",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "Used only for basic identity and official navigation links."
+      },
+      "senators-program": {
+        "title": "Senators — Official internship program",
+        "publisher": "Ottawa Senators / NHL",
+        "notes": "The internship program requires enrolment and academic credit; check the application system for actual openings."
+      },
+      "senators-ats": {
+        "title": "Senators — BambooHR careers system",
+        "publisher": "Ottawa Senators / BambooHR",
+        "notes": "Directly linked from the official site. Jobs load with JavaScript; no specific 2026 internship was confirmed."
+      },
+      "senators-linkedin": {
+        "title": "Ottawa Senators — LinkedIn",
+        "publisher": "Ottawa Senators",
+        "notes": ""
+      },
+      "oseg-careers": {
+        "title": "OSEG / TD Place — Careers and academic-credit internships",
+        "publisher": "OSEG / TD Place",
+        "notes": "The official site describes several internship intakes per year, without guaranteeing an opening in each field at review time."
+      },
+      "oseg-ats": {
+        "title": "OSEG — ADP application system",
+        "publisher": "OSEG / ADP",
+        "notes": "Obtained from the official TD Place application button; dynamic listings had restricted access."
+      },
+      "oseg-fulltime": {
+        "title": "OSEG — Full-time careers and staff stories",
+        "publisher": "OSEG / TD Place",
+        "notes": "Employee internship stories are not current vacancy announcements."
+      },
+      "atletico-home": {
+        "title": "Atlético Ottawa — Official CPL team website",
+        "publisher": "Atlético Ottawa / CPL",
+        "notes": ""
+      },
+      "atletico-careers": {
+        "title": "Atlético Ottawa — Careers",
+        "publisher": "Atlético Ottawa",
+        "notes": "Accepts résumés and cover letters at careers@atleticoottawa.club; no specific role appeared in the list."
+      },
+      "blackjacks-home": {
+        "title": "Ottawa BlackJacks — Official website",
+        "publisher": "Ottawa BlackJacks",
+        "notes": ""
+      },
+      "blackjacks-careers": {
+        "title": "Ottawa BlackJacks — Careers",
+        "publisher": "Ottawa BlackJacks",
+        "notes": "The page contains game-day volunteer links and a résumé form, not internship listings."
+      },
+      "titans-home": {
+        "title": "Ottawa Titans — Official website",
+        "publisher": "Ottawa Titans",
+        "notes": ""
+      },
+      "rapid-home": {
+        "title": "Ottawa Rapid FC — Official website",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-careers": {
+        "title": "Ottawa Rapid FC — Careers",
+        "publisher": "Ottawa Rapid FC",
+        "notes": "Accepts unsolicited applications at jobs@rapidfc.ca and lists a regular group-sales role."
+      },
+      "rapid-sales": {
+        "title": "Ottawa Rapid — Group sales account executive",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "rapid-linkedin": {
+        "title": "Ottawa Rapid — LinkedIn",
+        "publisher": "Ottawa Rapid FC",
+        "notes": ""
+      },
+      "blackbears-closed": {
+        "title": "NLL — Ottawa Black Bears cease operations, September 10, 2026",
+        "publisher": "National Lacrosse League",
+        "notes": "The new announcement takes precedence over outdated team navigation; excluded from current application targets."
+      },
+      "lnah-teams": {
+        "title": "LNAH — 2026–27 team and venue directory",
+        "publisher": "LNAH",
+        "notes": "Lists eight teams, including Manotick, but not Pétroliers de Laval."
+      },
+      "qmjhl-teams": {
+        "title": "QMJHL — 2026 preseason team directory (official dynamic data)",
+        "publisher": "CHL / LHJMQ",
+        "notes": "Official data includes 18 team names and cities. This directory includes 12 Quebec and two New Brunswick teams. Junior teams are not counted as professional teams."
+      },
+      "lspro": {
+        "title": "LS PRO QC — Official league website",
+        "publisher": "LS PRO QC",
+        "notes": "The official index was visible but the main page returned HTTP 403. Team-level recruitment and social checks remain incomplete; no exhaustive list is claimed."
+      },
+      "soccerquebec": {
+        "title": "Soccer Québec — Provincial association",
+        "publisher": "Soccer Québec",
+        "notes": "The official 2026 branding is LS PRO; the former name Ligue1 Québec remains useful in searches."
+      },
+      "alliance-graphic-pdf": {
+        "title": "Stagiaire, Graphisme – Automne 2026 — Officially linked PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "Details returned HTTP 403. Only the title and fall 2026 term were confirmed through the official index."
+      },
+      "alliance-partnership-pdf": {
+        "title": "Stagiaire, Partenariats – Automne 2026 — Officially linked PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "Details returned HTTP 403. Only the title and fall 2026 term were confirmed through the official index."
+      },
+      "alliance-ticketing-pdf": {
+        "title": "Stagiaire, Ventes et billeterie – Automne 2026 — Officially linked PDF",
+        "publisher": "Alliance de Montréal",
+        "notes": "Details returned HTTP 403. Only the title and fall 2026 term were confirmed through the official index."
+      },
+      "cf-crm-source": {
+        "title": "Spécialiste CRM – Salesforce",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-marketing-source": {
+        "title": "Chef(e) de projets et production marketing – TEMPORAIRE",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-coach-source": {
+        "title": "Éducateurs(trices) de soccer – Programme Parascolaire",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      },
+      "cf-maintenance-source": {
+        "title": "Technicien(e), maintenance bâtiments et opérations – Stade Saputo",
+        "publisher": "CF Montréal / SmartRecruiters",
+        "notes": ""
+      }
+    },
+    "coverage": [
+      {
+        "name": "Quebec professional clubs",
+        "description": "NHL, AHL, ECHL, PWHL, MLS, CPL, NSL, CFL, CEBL, BSL and Frontier League; each independent club counted once."
+      },
+      {
+        "name": "Bilingual Ottawa employment area",
+        "description": "Listed separately as an Ontario option; it does not mean Quebec or an entirely French-speaking workplace. The Black Bears have ceased operations and are retained only as a historical record."
+      },
+      {
+        "name": "LNAH",
+        "description": "All eight teams in the official 2026–27 directory are included, separately from mainstream adult professional leagues. Recruitment and social links need further team-level checks."
+      },
+      {
+        "name": "Junior leagues",
+        "description": "Twelve Quebec and two New Brunswick QMJHL teams, plus the Ottawa 67’s. Included as leads for operations internships, not as adult professional teams."
+      },
+      {
+        "name": "Not yet reviewed team by team",
+        "description": "LS PRO / Ligue1 Québec, other provincial semi-pro leagues, campus, community and amateur clubs, esports and organisations in dispersed francophone communities. Official league links are provided without claiming full coverage."
+      }
+    ],
+    "cautions": [
+      "The research snapshot is dated September 13, 2026. It is not a live recruitment feed, and an accessible page does not confirm vacancies.",
+      "Not all clubs are hiring interns. The absence of a public posting does not mean a club never accepts interns.",
+      "Specific internships, academic-credit programs, regular jobs, volunteering, unsolicited contacts and expired notices are distinguished.",
+      "Undisclosed pay does not mean unpaid. An unpaid role does not automatically waive permit, insurance or academic-agreement requirements.",
+      "Chinese aliases are search aids. Use official French or English names in applications.",
+      "A group and multilingual versions of the same role are counted once. Group roles are not all assigned to one team.",
+      "Social links are supported by direct official-site links or official company pages. Unverified accounts are not guessed."
+    ],
+    "history": [
+      {
+        "name": "Ottawa Black Bears",
+        "text": "The league announced the cessation of operations on September 10, 2026; old navigation may still include the team.",
+        "sourceId": "blackbears-closed"
+      },
+      {
+        "name": "CF Montréal general internship pool",
+        "text": "The club index still links to it, but SmartRecruiters explicitly marks the role as expired.",
+        "sourceId": "cf-intern"
+      },
+      {
+        "name": "Pétroliers de Laval",
+        "text": "Absent from the reviewed eight-team LNAH 2026–27 directory, so not added as active. This directory alone does not explain any relocation in full.",
+        "sourceId": "lnah-teams"
+      },
+      {
+        "name": "Acadie-Bathurst Titan",
+        "text": "The reviewed official 2026 junior data lists the Newfoundland Regiment instead of a Bathurst team. The old city list was not used to add an active regional club.",
+        "sourceId": "qmjhl-teams"
+      }
+    ],
+    "resources": [
+      {
+        "title": "Groupe CH careers",
+        "category": "Shared employer",
+        "url": "https://jobs.dayforcehcm.com/fr-CA/groupech/CANDIDATEPORTAL",
+        "note": "Canadiens, Rocket and sports entertainment roles. Check the location and business unit."
+      },
+      {
+        "title": "OSEG / TD Place internships and jobs",
+        "category": "Shared employer",
+        "url": "https://www.tdplace.ca/careers/",
+        "note": "Separate routes for academic-credit internships, full-time and part-time jobs, and volunteering."
+      },
+      {
+        "title": "Senators official application system",
+        "category": "Official application system",
+        "url": "https://ottawasenators.bamboohr.com/careers",
+        "note": "BambooHR, verified through the official website rather than an outdated application system."
+      },
+      {
+        "title": "PWHL team careers",
+        "category": "League recruitment",
+        "url": "https://www.teamworkonline.com/hockey-jobs/pwhl-jobs/pwhl-league-office-jobs",
+        "note": "Filter for Montreal or Ottawa. Other cities are outside this directory."
+      },
+      {
+        "title": "CFL / LCF careers",
+        "category": "League recruitment",
+        "url": "https://www.lcf.ca/emplois/",
+        "note": "Distinguish league-office jobs from team positions."
+      },
+      {
+        "title": "LNAH team directory",
+        "category": "Additional leagues",
+        "url": "https://www.lnah.com/fr/page/equipes.html",
+        "note": "Source for the identities and venues of the eight 2026–27 teams."
+      },
+      {
+        "title": "QMJHL / LHJMQ",
+        "category": "Junior league",
+        "url": "https://chl.ca/lhjmq/",
+        "note": "Junior-team operations internship leads; not an adult professional league."
+      },
+      {
+        "title": "LS PRO QC",
+        "category": "Provincial soccer",
+        "url": "https://www.lsproqc.com/",
+        "note": "Formerly Ligue1 Québec. Teams were not reviewed individually; verify women’s/men’s divisions, level and season."
+      },
+      {
+        "title": "Soccer Québec",
+        "category": "Association / additional coverage",
+        "url": "https://www.soccerquebec.org/",
+        "note": "Check provincial soccer clubs, branding and seasons."
+      }
+    ]
+  }
+}

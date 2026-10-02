@@ -3,7 +3,7 @@ title: "ResumeTeX"
 description: "A CV builder that turns structured self-editing and LaTeX generation into a PDF resume workflow."
 date: 2026-06-20
 status: active
-demo: "http://120.24.108.234/cv"
+demo: "https://zhauyoung.com/cv"
 github: "https://github.com/ze2phyrzhenyin/cv"
 cover: "/images/projects/resume-tex.png"
 i18n:

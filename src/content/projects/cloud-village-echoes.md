@@ -5,7 +5,7 @@ date: 2026-08-03
 status: active
 tags: ["React", "FastAPI", "SQLite", "Tauri", "i18n"]
 cover: "/images/projects/cloud-village-echoes.webp"
-demo: "http://120.24.108.234/wangyiyun/"
+demo: "https://zhauyoung.com/wangyiyun/"
 i18n:
   en:
     title: "Cloud Village Echoes"

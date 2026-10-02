@@ -4,7 +4,7 @@ description: "A bilingual study companion that makes a structured French tax-law
 date: 2026-08-03
 status: completed
 tags: ["Legal education", "Tax law", "Mind maps", "i18n"]
-demo: "http://120.24.108.234/droit/"
+demo: "https://zhauyoung.com/droit/"
 cover: "/images/projects/droit-fiscal-companion.png"
 i18n:
   en:

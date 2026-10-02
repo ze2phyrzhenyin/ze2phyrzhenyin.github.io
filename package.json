@@ -4,12 +4,13 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-sitemap.mjs",
+    "build": "node scripts/build-sport-locales.mjs && astro build && node scripts/filter-personal-site-output.mjs && node scripts/generate-sitemap.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "site:sync": "node scripts/sync-personal-site-content.mjs",
     "site:publish": "node scripts/publish-personal-site-content.mjs",
     "site:watch": "node scripts/watch-personal-site-content.mjs",
+    "deploy:production": "node scripts/deploy-production.mjs",
     "essay:sync": "node scripts/sync-summer-schools-essay.mjs",
     "essay:publish": "node scripts/publish-summer-schools-essay.mjs"
   },

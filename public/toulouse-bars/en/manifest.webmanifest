@@ -1,0 +1,20 @@
+{
+  "name": "Toulouse Bar Guide",
+  "short_name": "Toulouse Bars",
+  "description": "Whisky lounges, speakeasies, cocktail bars and live music in Toulouse.",
+  "start_url": "/toulouse-bars/en/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#fafafa",
+  "icons": [
+    {
+      "src": "/toulouse-bars/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "en",
+  "scope": "/toulouse-bars/",
+  "id": "/toulouse-bars/"
+}

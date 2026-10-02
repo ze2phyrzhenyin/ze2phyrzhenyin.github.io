@@ -5,7 +5,7 @@ date: 2026-08-03
 status: active
 tags: ["React", "Three.js", "Biology", "Geoscience", "i18n"]
 cover: "/images/projects/dbio-interactive-science-lab.webp"
-demo: "http://120.24.108.234/dbio/"
+demo: "https://zhauyoung.com/dbio/"
 github: "https://github.com/ze2phyrzhenyin/3dbioedu"
 i18n:
   en:

@@ -62,6 +62,12 @@ const universityLinks = {
   miage: 'https://www.ut-capitole.fr/accueil/formations/offre-de-formation/nos-diplomes/masters/master-mention-miage-1ere-annee-formation-initiale',
 };
 
+const companySiteLinks: Record<Lang, string> = {
+  en: 'https://rex31.com/site',
+  zh: 'https://rex31.com/site/zh/',
+  fr: 'https://rex31.com/site/fr/',
+};
+
 const aboutIntro: Record<Lang, BioPart[][]> = {
   en: [
     [
@@ -74,7 +80,12 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: '. My previous work leaned toward software engineering and LLM applications, and I came to Europe because I want to work in an area related to theoretical computer science.' },
     ],
     [
-      { text: 'Over the past year, I have been self-studying foundations related to game theory, logic, and learning theory, both so that I can communicate and collaborate with others on theoretical and mathematical topics and, more importantly, to improve myself. I am still looking for the direction that fits me best. Over the past month, I have found myself especially interested in proof-related topics.' },
+      { text: 'Over the past year, I have studied and explored game theory, logic, learning theory, formal verification, and related fields on my own. I have done so partly out of genuine interest and partly to improve myself, so that I can communicate and collaborate with others on theoretical and mathematical topics.' },
+    ],
+    [
+      { text: 'This summer, a few opportunities came my way and my plans changed, so I started a company. I will now put most of the time I have outside my studies into it. At present, I mainly provide ' },
+      { text: 'digital and AI solutions for businesses', href: companySiteLinks.en },
+      { text: '. I am also exploring agent framework development and human-computer interaction, which I believe are promising directions for future products.' },
     ],
     [
       { text: 'In earlier years, I was active in volunteer work, student organizations and project management, internet marketing, and user operations. These experiences gave me solid organizational coordination skills, project and personnel management abilities, and market sensitivity.' },
@@ -97,7 +108,12 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: '计算机科学专业。我从前的方向偏向于软件工程与大模型应用，因为想从事理论计算机相关行业，所以来到欧洲。' },
     ],
     [
-      { text: '在最近的一年时间里，我自学了博弈论、逻辑、学习理论等相关基础，不仅是为了能够有能力与他人在理论与数学方面沟通与合作，更是为了提升自己。目前我仍在寻找适合自己的方向。最近一个月，我发现自己对于证明相关的方向兴趣浓厚。' },
+      { text: '在最近的一年时间里，我自学并接触了博弈论、逻辑、学习理论、形式化验证等相关领域。一方面是我真的感兴趣，一方面也是为了提升自己，能够有能力与他人在理论与数学方面沟通与合作。' },
+    ],
+    [
+      { text: '这个夏天，因为一些机会与原因，我创业了，并要将课业外的大部分时间放在公司上面。目前主要面向企业提供' },
+      { text: '数智化解决方案', href: companySiteLinks.zh },
+      { text: '。除此之外我也在努力探索 agent 框架开发与人机交互等领域，这是我认为未来的市场产品的方向。' },
     ],
     [
       { text: '在从前的日子里，我曾热衷于志愿服务、学生组织与项目管理、互联网市场营销与用户运营，因此积累了较好的组织协调能力、项目与人事管理能力和市场敏感度。' },
@@ -120,7 +136,12 @@ const aboutIntro: Record<Lang, BioPart[][]> = {
       { text: ". Mes orientations précédentes étaient plutôt le génie logiciel et les applications de grands modèles de langage, et je suis venu en Europe parce que je souhaite travailler dans un domaine lié à l'informatique théorique." },
     ],
     [
-      { text: "Au cours de la dernière année, j'ai étudié en autonomie les bases liées à la théorie des jeux, à la logique et à la théorie de l'apprentissage, afin de pouvoir échanger et collaborer avec d'autres sur des sujets théoriques et mathématiques, et surtout pour progresser moi-même. Je cherche encore la direction qui me correspond le mieux. Au cours du dernier mois, je me suis découvert un intérêt particulier pour les sujets liés aux preuves." },
+      { text: "Depuis un an, j'explore en autodidacte la théorie des jeux, la logique, la théorie de l'apprentissage, la vérification formelle et d'autres domaines connexes. Je le fais à la fois par véritable intérêt et pour progresser, afin de pouvoir échanger et collaborer avec d'autres sur des sujets théoriques et mathématiques." },
+    ],
+    [
+      { text: "Cet été, plusieurs occasions se sont présentées et mes projets ont changé : j'ai donc créé mon entreprise. Je vais désormais y consacrer la majeure partie de mon temps en dehors de mes études. Pour le moment, je propose principalement aux entreprises des " },
+      { text: "solutions numériques intégrant l'IA", href: companySiteLinks.fr },
+      { text: ". En parallèle, j'explore aussi le développement de frameworks d'agents et l'interaction humain-machine, qui me semblent être des pistes prometteuses pour de futurs produits." },
     ],
     [
       { text: "Dans les années précédentes, je me suis beaucoup investi dans le bénévolat, les organisations étudiantes et la gestion de projets, le marketing numérique et les opérations utilisateurs. Ces expériences m'ont donné de bonnes capacités de coordination organisationnelle, de gestion de projets et de personnel, ainsi qu'une sensibilité au marché." },
@@ -544,7 +565,7 @@ const cvDownload = cvDownloads[lang] ?? cvDownloads.en;
     <!-- Bio prose -->
     <div class="prose dark:prose-invert max-w-none mb-14 animate-fade-up delay-100">
       {intro.map((paragraph, index) => (
-        index === 1 ? (
+        index === 2 ? (
           <blockquote>
             {paragraph.map((part) => part.href ? (
               <a href={part.href} target="_blank" rel="noopener">{part.text}</a>

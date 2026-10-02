@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html data-guide="musee-prague" lang="fr">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Un guide concis des lieux, des bâtiments historiques et des librairies de Prague, comprenant les adresses, les heures d'ouverture, les méthodes de réservation, les caractéristiques et les sites Web officiels." name="description"/>
+<title>Musées et lieux culturels de Prague (guide préparé avec ChatGPT)</title>
+<style>
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: #f2f2f2;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .document {
+      width: min(1280px, calc(100% - 40px));
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 42px 44px 64px;
+      background: #fff;
+      border-right: 1px solid #dedede;
+      border-left: 1px solid #dedede;
+    }
+
+    .lang-switcher {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0;
+      margin: 0 0 18px;
+    }
+
+    .lang-switcher a {
+      padding: 4px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #555;
+      border: 1px solid #ccc;
+      background: #fafafa;
+    }
+
+    .lang-switcher a:first-child {
+      border-radius: 16px 0 0 16px;
+    }
+
+    .lang-switcher a:last-child {
+      border-radius: 0 16px 16px 0;
+    }
+
+    .lang-switcher a + a {
+      border-left: 0;
+    }
+
+    .lang-switcher a:hover {
+      background: #eee;
+      color: #222;
+    }
+
+    .lang-switcher a.active {
+      background: #222;
+      color: #fff;
+      border-color: #222;
+    }
+
+    .page-nav {
+      display: flex;
+      gap: 28px;
+      margin: 0 0 36px;
+      padding: 0;
+      border-bottom: 1px solid #cfcfcf;
+    }
+
+    .page-nav a {
+      position: relative;
+      padding: 0 0 11px;
+      color: #666;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .page-nav a:hover { color: #111; }
+
+    .page-nav a.active {
+      color: #111;
+    }
+
+    .page-nav a.active::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: #111;
+    }
+
+    .page-section[hidden] { display: none !important; }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 28px;
+      line-height: 1.35;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    h2 {
+      margin: 32px 0 13px;
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .note {
+      max-width: 980px;
+      margin: 0 0 24px;
+      padding-left: 12px;
+      border-left: 3px solid #b5b5b5;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .table-box {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .main-table { min-width: 1160px; }
+
+    .col-place { width: 15%; }
+    .col-address { width: 15%; }
+    .col-hours { width: 14%; }
+    .col-booking { width: 17%; }
+    .col-features { width: 24%; }
+    .col-url { width: 15%; }
+
+    th,
+    td {
+      padding: 13px 12px;
+      border: 1px solid #d7d7d7;
+      text-align: left;
+      vertical-align: top;
+      background: #fff;
+    }
+
+    th {
+      background: #f3f3f3;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .map-link,
+    .official-link {
+      color: #245b8a;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .map-link:hover,
+    .official-link:hover {
+      color: #143d60;
+    }
+
+    .official-link {
+      font-size: 12px;
+      line-height: 1.55;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .route-table {
+      width: 100%;
+      max-width: 980px;
+      min-width: 760px;
+      font-size: 14px;
+    }
+
+    .route-table th:nth-child(1) { width: 18%; }
+    .route-table th:nth-child(2) { width: 64%; }
+    .route-table th:nth-child(3) { width: 18%; }
+
+    .type-label {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 1px 6px;
+      border: 1px solid #bcbcbc;
+      color: #555;
+      background: #f5f5f5;
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .page-footer {
+      margin-top: 22px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .document {
+        width: calc(100% - 24px);
+        padding: 30px 14px 40px;
+      }
+
+      .page-nav {
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-right: -14px;
+        margin-left: -14px;
+        padding: 0 14px 10px;
+        scrollbar-width: thin;
+      }
+
+      .page-nav a {
+        font-size: 13px;
+        padding-bottom: 8px;
+      }
+
+      h1 { font-size: 26px; }
+      .note { font-size: 13px; }
+      .main-table,
+      .route-table,
+      .main-table th,
+      .route-table th,
+      .main-table td,
+      .route-table td {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .document {
+        width: 100%;
+        padding: 24px 12px 34px;
+        border: 0;
+      }
+
+      .page-nav {
+        gap: 22px;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      h1 { font-size: 25px; }
+      .main-table { min-width: 1040px; }
+      .route-table { min-width: 700px; }
+    }
+
+    @media (max-width: 700px) {
+      .page-nav {
+        gap: 16px;
+        padding-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 24px;
+        line-height: 1.25;
+      }
+
+      h2 {
+        font-size: 17px;
+        margin-top: 24px;
+        margin-bottom: 10px;
+      }
+
+      .table-box {
+        margin-right: -12px;
+        margin-left: -12px;
+        width: calc(100% + 24px);
+      }
+
+      .main-table,
+      .route-table {
+        min-width: 0;
+      }
+
+      .main-table thead,
+      .route-table thead {
+        display: none;
+      }
+
+      .main-table tr,
+      .route-table tr {
+        display: block;
+        margin: 0 10px 16px;
+        border: 1px solid #d8d8d8;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .main-table td,
+      .route-table td {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        border: 0;
+        border-bottom: 1px solid #ececec;
+        padding: 10px 12px;
+      }
+
+      .main-table td:last-child,
+      .route-table td:last-child {
+        border-bottom: 0;
+      }
+
+      .main-table td::before,
+      .route-table td::before {
+        content: attr(data-label);
+        flex: 0 0 6.5em;
+        font-weight: 700;
+        color: #444;
+      }
+
+      .main-table td,
+      .route-table td,
+      .main-table td > * ,
+      .route-table td > * {
+        min-width: 0;
+        width: calc(100% - 6.5em - 10px);
+      }
+
+      .official-link,
+      .map-link {
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .document {
+        width: 100%;
+        padding: 0;
+        border: 0;
+      }
+      .page-nav { display: none; }
+      .lang-switcher { display: none; }
+      .page-section[hidden] { display: none !important; }
+      .table-box { overflow: visible; }
+      .main-table { min-width: 0; font-size: 10px; }
+      .route-table { min-width: 0; font-size: 10px; }
+      th, td { padding: 6px; }
+      .official-link { font-size: 8px; }
+    }
+
+</style>
+<link href="https://zhaoyang.fr/musee-prague/fr/" rel="canonical"/><link href="https://zhaoyang.fr/musee-prague/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/musee-prague/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/musee-prague/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/musee-prague/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><style>table{max-width:100%}.table-wrap,.table-shell{min-width:0;max-width:100%}td,th{overflow-wrap:anywhere}</style><style>@media(max-width:640px){.page-nav{margin-left:0;margin-right:0;width:100%;max-width:100%;box-sizing:border-box}}</style><style>@media(max-width:700px){
+.table-box{width:100%;margin:0;overflow:visible}
+.main-table,.route-table,.main-table tbody,.route-table tbody{display:block;width:100%;max-width:none}
+.main-table colgroup,.route-table colgroup{display:none}
+.main-table tr,.route-table tr{display:block;width:100%;margin:0 0 16px;box-sizing:border-box}
+.main-table td,.route-table td{display:block;width:100%;box-sizing:border-box;overflow-wrap:break-word}
+.main-table td::before,.route-table td::before{display:block;width:auto;margin-bottom:5px;font-size:12px;color:#666}
+.main-table td>*,.route-table td>*{width:auto;min-width:0}
+.main-table td>.map-link,.main-table td>.official-link,.route-table td>.map-link{display:inline-block}
+}</style><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="Navigation des guides" class="guide-navigation"><a data-guide-home="" href="/guides/fr/">← Tous les guides</a><span class="guide-navigation-languages"><a href="/musee-prague/en/" hreflang="en" lang="en">EN</a><a href="/musee-prague/zh/" hreflang="zh-Hans" lang="zh">中文</a><a aria-current="page" href="/musee-prague/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<main class="document">
+<nav aria-label="Navigation dans les pages" class="page-nav">
+<a data-page="venues" href="#venues">Lieu</a>
+<a data-page="architecture" href="#architecture">Bâtiments historiques</a>
+<a data-page="bookstores" href="#bookstores">Librairie</a>
+</nav>
+<section class="page-section" data-title="Musées de Prague — guide de visite" id="venues">
+<h1>Musées et lieux culturels de Prague (guide préparé avec ChatGPT)</h1>
+<p class="note">Astuce : les heures d'ouverture et les fermetures temporaires peuvent changer. Il est préférable de consulter le site officiel correspondant avant le départ. Le Collège Clément exige généralement des réservations pour des visites guidées spécifiques, alors que la plupart des autres lieux n'exigent pas de réservation pour des visites générales.</p>
+<h2>Musées et lieux culturels</h2>
+<div class="table-box">
+<table class="main-table">
+<colgroup>
+<col class="col-place"/><col class="col-address"/><col class="col-hours"/>
+<col class="col-booking"/><col class="col-features"/><col class="col-url"/>
+</colgroup>
+<thead>
+<tr>
+<th>Lieu</th><th>Adresse</th><th>Horaires d'ouverture</th><th>Mode de réservation</th><th>Caractéristiques</th><th>Lien du site officiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Lieu"><strong>Musée national de Prague</strong><br/>Národní muzeum</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1clavsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+68%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Václavské náměstí 68, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">10h00-18h00 tous les jours, y compris le lundi.</td>
+<td data-label="Mode de réservation">Les visites ordinaires ne nécessitent généralement pas de réservation horaire spécifique ; les billets peuvent être achetés à l'avance sur le site officiel ou sur place. Les billets électroniques sont valables pour un voyage dans les 30 jours suivant l'achat.</td>
+<td data-label="Caractéristiques">Fortement recommandé pour votre première fois à Prague. Vous pouvez voir des bâtiments historiques, le Panthéon, l'histoire tchèque, l'histoire naturelle, des squelettes de baleines et le passage souterrain reliant les anciens et les nouveaux bâtiments.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.nm.cz/en/visit-us/buildings/museum-complex-of-the-national-museum" rel="noopener" target="_blank">https://www.nm.cz/en/visit-us/buildings/museum-complex-of-the-national-museum</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Musée juif de Prague</strong><br/>Jewish Museum in Prague</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Maiselova+15%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Centre d'accueil : Maiselova 15, 110 00 Praha 1</a><br/><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E5%90%84%E5%9C%BA%E9%A6%86%E5%88%86%E5%B8%83%E5%9C%A8+Josefov+%E7%8A%B9%E5%A4%AA%E5%8C%BA" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Lieux situés dans le quartier juif Josefov</a></td>
+<td data-label="Horaires d'ouverture">Du 1er mai au 31 août, généralement du dimanche au vendredi de 9h00 à 19h00 ; fermé le samedi et les fêtes juives. Les autres saisons, il fermera tôt.</td>
+<td data-label="Mode de réservation">Les visites générales ne nécessitent généralement pas de réservation pour un créneau horaire spécifique ; vous pouvez acheter un coupon "Ville juive de Prague" à l'avance.</td>
+<td data-label="Caractéristiques">Il ne s'agit pas d'un seul pavillon, mais d'un groupe de synagogues, de pavillons et d'anciens cimetières juifs, dont la synagogue espagnole, l'ancienne et la nouvelle synagogue, la synagogue Pincus, etc.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.jewishmuseum.cz/en/info/visit/" rel="noopener" target="_blank">https://www.jewishmuseum.cz/en/info/visit/</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Collège Clément</strong><br/>Klementinum</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mari%C3%A1nsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+190%2F5%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Mariánské náměstí 190/5, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Généralement de 9h00 à 20h00 tous les jours, entrez selon la visite guidée.</td>
+<td data-label="Mode de réservation"><strong>Il est recommandé de réserver à l'avance.</strong>Vous devez acheter un billet pour la visite guidée en anglais ou en tchèque pour une durée déterminée et le nombre de personnes participant à la session est limité.</td>
+<td data-label="Caractéristiques">Les plus célèbres sont la bibliothèque baroque, la salle méridienne et la tour astronomique. Le trajet dure environ 50 minutes et nécessite de gravir environ 172 marches.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://prague.eu/en/objevujte/the-clementinum-astronomical-tower-and-baroque-library/" rel="noopener" target="_blank">https://prague.eu/en/objevujte/the-clementinum-astronomical-tower-and-baroque-library/</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Musée Technique National</strong><br/>Národní technické muzeum</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Kosteln%C3%AD+1320%2F42%2C+170+00+Praha+7" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Kostelní 1320/42, 170 00 Praha 7</a></td>
+<td data-label="Horaires d'ouverture">Du mardi au dimanche de 9h00 à 18h00 ; fermé le lundi. Si le lundi est un jour férié, il est généralement ouvert de 9h00 à 18h00.</td>
+<td data-label="Mode de réservation">Les visites générales ne nécessitent généralement pas de réservation ; les billets peuvent être achetés sur place ou sur le site officiel à l'avance. Des billets supplémentaires sont requis pour la zone d’exposition de la mine.</td>
+<td data-label="Caractéristiques">Pour ceux qui aiment la technologie, l'industrie, les chemins de fer et les transports. Il y a des avions, des voitures et des trains dans la grande salle d'exposition, ainsi que des espaces d'exposition pour l'astronomie, la photographie, l'imprimerie et l'architecture.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.ntm.cz/en/for-visitors/opening-hours/main-building-in-prague" rel="noopener" target="_blank">https://www.ntm.cz/en/for-visitors/opening-hours/main-building-in-prague</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Galerie nationale de Prague : Palais des Foires</strong><br/>National Gallery Prague · Trade Fair Palace</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dukelsk%C3%BDch+hrdin%C5%AF+47%2C+170+00+Praha+7" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Dukelských hrdinů 47, 170 00 Praha 7</a></td>
+<td data-label="Horaires d'ouverture">Du mardi au dimanche de 10h00 à 18h00 ; fermé le lundi.</td>
+<td data-label="Mode de réservation">Les réservations ne sont généralement pas obligatoires pour les expositions générales. Les billets peuvent être achetés en ligne par succursale ou par exposition spécifique, ou sur place.</td>
+<td data-label="Caractéristiques">Convient pour admirer l'art moderne et contemporain, ainsi que l'art tchécoslovaque. Le bâtiment lui-même est l'un des représentants de l'architecture fonctionnaliste à Prague.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.ngprague.cz/en/about/buildings/trade-fair-palace" rel="noopener" target="_blank">https://www.ngprague.cz/en/about/buildings/trade-fair-palace</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Musée des Arts et Métiers</strong><br/>Museum of Decorative Arts in Prague</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=17.+listopadu+2%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">17. listopadu 2, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Mardi de 10h00 à 20h00 ; Du mercredi au dimanche de 10h00 à 18h00 ; fermé le lundi.</td>
+<td data-label="Mode de réservation">Les visites générales ne nécessitent généralement pas de réservation et les billets peuvent être achetés sur place ou en ligne. Pour les guides touristiques en langue étrangère, vous devez contacter le lieu à l’avance.</td>
+<td data-label="Caractéristiques">Adapté aux amateurs de design, de verre, de bijoux, de meubles, de vêtements et d'arts graphiques, l'espace d'exposition est généralement calme.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.upm.cz/en/visiting/opening-hours/" rel="noopener" target="_blank">https://www.upm.cz/en/visiting/opening-hours/</a></td>
+</tr><tr>
+<td data-label="Lieu"><strong>Centre d'art contemporain DOX</strong><br/>DOX Centre for Contemporary Art</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Poup%C4%9Btova+1%2C+170+00+Praha+7" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Poupětova 1, 170 00 Praha 7</a></td>
+<td data-label="Horaires d'ouverture">Du mardi au dimanche de 11h00 à 19h00 ; fermé le lundi.</td>
+<td data-label="Mode de réservation">Les réservations ne sont généralement pas requises pour les expositions générales ; les performances individuelles, les conférences et les projets spéciaux nécessitent des réservations séparées.</td>
+<td data-label="Caractéristiques">Il se concentre sur des questions contemporaines, expérimentales et sociales, et non sur la voie traditionnelle des musées d'art. Le dirigeable Gulliver sur le toit est également l'un des symboles du lieu.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.dox.cz/en/visit-us" rel="noopener" target="_blank">https://www.dox.cz/en/visit-us</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="page-footer">Heure de compilation des informations : août 2026. Au final, merci de vous référer au site officiel de chaque lieu pour les informations sur la journée.<br/><a href="../../guides/zh/" style="color:#245b8a">← Retour au répertoire du guide</a></p>
+</section>
+<section class="page-section" data-title="Bâtiments historiques de Prague — conseils de visite" hidden="" id="architecture">
+<h1>Suggestions de visite de bâtiments historiques et d'ensembles architecturaux à Prague (organisés par ChatGPT)</h1>
+<p class="note">Astuce : le château de Prague, les églises et les bâtiments gouvernementaux peuvent ajuster temporairement leurs heures d'ouverture en raison du culte, des activités nationales ou de l'entretien. Vous devriez consulter le site officiel pour l'annonce de la journée avant le départ.</p>
+<h2>Bâtiments historiques</h2>
+<div class="table-box">
+<table class="main-table">
+<colgroup>
+<col class="col-place"/><col class="col-address"/><col class="col-hours"/>
+<col class="col-booking"/><col class="col-features"/><col class="col-url"/>
+</colgroup>
+<thead>
+<tr>
+<th>Bâtiment/complexe immobilier</th><th>Adresse</th><th>Horaires d'ouverture</th><th>Mode de réservation</th><th>Caractéristiques</th><th>Lien du site officiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Complexe du château de Prague</strong><br/>Prague Castle</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hrad%C4%8Dany%2C+119+08+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Hradčany, 119 08 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Zone du château de 6h00 à 22h00 tous les jours ; bâtiments historiques de 9h00 à 17h00 du 1er avril au 31 octobre, de 9h00 à 16h00 du 1er novembre au 31 mars. La cathédrale Saint-Guy est généralement ouverte après midi le dimanche.</td>
+<td data-label="Mode de réservation">L'entrée dans la zone du château est gratuite ; des coupons de bâtiments historiques peuvent être achetés au centre d'accueil sur place ou en ligne. Il est recommandé de réserver les visites guidées à l'avance et de vérifier les informations de fermeture temporaire le jour même.</td>
+<td data-label="Caractéristiques">Il est recommandé de prévoir 3 à 4 heures. L'ordre relativement fluide est Cathédrale Saint-Guy → Ancien Palais Royal → Église Saint-Georges → Ruelle d'Or. Essayez d'entrer le plus tôt possible le matin pour éviter le pic de midi du groupe.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.hrad.cz/en/prague-castle-for-visitors" rel="noopener" target="_blank">https://www.hrad.cz/en/prague-castle-for-visitors</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Place de la Vieille Ville et Ancien Hôtel de Ville</strong><br/>Old Town Square &amp; Old Town Hall</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Starom%C4%9Bstsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+1%2F3%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Staroměstské náměstí 1/3, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">La place est ouverte toute la journée. Ancien Hôtel de Ville : de 10h00 à 19h00 tous les jours de janvier à mars ; De 9h00 à 20h00 tous les jours d'avril à décembre. La visite de l'horloge astronomique se déroule généralement toutes les heures de 8h00 à 23h00.</td>
+<td data-label="Mode de réservation">Aucune réservation n'est requise pour visiter la place. Les billets pour l'ascension de la tour et l'intérieur historique peuvent être achetés sur place ou en ligne ; l'entrée à la visite interne dépend du programme de la journée.</td>
+<td data-label="Caractéristiques">Il est recommandé de visiter la place avant 9h00 du matin ou après 19h00 du soir, car il y aura beaucoup moins de monde. Prévoyez 1,5 à 2 heures au total pour gravir la tour et voir les espaces intérieurs et souterrains.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://prague.eu/en/objevujte/old-town-hall-with-astronomical-clock-staromestska-radnice-s-orlojem/" rel="noopener" target="_blank">https://prague.eu/en/objevujte/old-town-hall-with-astronomical-clock-staromestska-radnice-s-orlojem/</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Pont Charles et tours des deux côtés</strong><br/>Charles Bridge &amp; Bridge Towers</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Karl%C5%AFv+most%2C+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Karlův most, Praha 1</a><br/><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E8%BF%9E%E6%8E%A5+Star%C3%A9+M%C4%9Bsto+%E4%B8%8E+Mal%C3%A1+Strana" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Reliez Staré Město à Malá Strana</a></td>
+<td data-label="Horaires d'ouverture">Le Pont Charles est ouvert toute la journée et est gratuit. Les tours du pont des deux côtés sont généralement ouvertes de 9h00 à 20h30 de juin à septembre, et les heures d'ouverture seront raccourcies les autres mois.</td>
+<td data-label="Mode de réservation">Les réservations ne sont pas nécessaires pour traverser le pont. Les billets pour la tour du pont peuvent être achetés sur place ou en ligne, et il n'est généralement pas nécessaire de réserver un créneau horaire fixe.</td>
+<td data-label="Caractéristiques">Il est préférable de s'y rendre au lever du soleil ou après 21h00 du soir. Vous pouvez partir de la tour du pont de la vieille ville et continuer à marcher jusqu'au centre-ville et à l'île de Kampa après avoir traversé le pont.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://prague.eu/en/objevujte/charles-bridge-karluv-most/" rel="noopener" target="_blank">https://prague.eu/en/objevujte/charles-bridge-karluv-most/</a><br/><a class="official-link" href="https://prague.eu/en/objevujte/old-town-bridge-tower-staromestska-mostecka-vez/" rel="noopener" target="_blank">https://prague.eu/en/objevujte/old-town-bridge-tower-staromestska-mostecka-vez/</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Complexe de bâtiments historiques du Haut Château</strong><br/>Vyšehrad</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=V+Pevnosti+163%2F2%2C+128+00+Praha+2" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">V Pevnosti 163/2, 128 00 Praha 2</a></td>
+<td data-label="Horaires d'ouverture">Les remparts extérieurs, les parcs et les zones piétonnes peuvent être visités toute l'année. Le centre d'accueil est généralement ouvert tous les jours de 10h00 à 18h00 environ, avec une courte pause à midi ; les passages souterrains et les attractions intérieures sont ouverts selon des séances spécifiques.</td>
+<td data-label="Mode de réservation">Les réservations ne sont pas requises pour les promenades en plein air. Des billets sont obligatoires pour le passage souterrain, la salle Gorlice ou les visites guidées. Vous pouvez consulter les horaires au centre d'accueil ou sur le site officiel.</td>
+<td data-label="Caractéristiques">Plus calme que la vieille ville, il est recommandé d'y rester 2 à 3 heures. Les points forts sont les remparts de la ville, la cathédrale Saint-Pierre et Paul, le cimetière du Haut Château et la vue sur la rivière Vltava.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://praha-vysehrad.cz/en/visit/" rel="noopener" target="_blank">https://praha-vysehrad.cz/en/visit/</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Monastère et bibliothèque de Strahov</strong><br/>Strahov Monastery &amp; Library</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Strahovsk%C3%A9+n%C3%A1dvo%C5%99%C3%AD+132%2F1%2C+118+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Strahovské nádvoří 132/1, 118 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Tous les jours de 9h00 à 17h00 ; vente des billets généralement jusqu'à 16h15, dernière entrée à 16h30. Fermé ou raccourci certains jours fériés.</td>
+<td data-label="Mode de réservation">Les billets peuvent être achetés en ligne ou sur place. Les visites ordinaires ne peuvent voir les deux salles de bibliothèque historiques que depuis la porte et ne peuvent pas entrer dans les salles ; le nombre de visites spéciales est limité.</td>
+<td data-label="Caractéristiques">Il convient d'être aménagé dans la même zone que le château de Prague. Il est recommandé de rester 60 à 90 minutes. L'accent est mis sur la salle théologique, la salle philosophique et le cabinet de curiosités.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.strahovskyklaster.cz/en/for-visitors/what-you-can-visit/strahov-library" rel="noopener" target="_blank">https://www.strahovskyklaster.cz/en/for-visitors/what-you-can-visit/strahov-library</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Salle civique et tour poudrière</strong><br/>Municipal House &amp; Powder Gate</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=n%C3%A1m%C4%9Bst%C3%AD+Republiky+1090%2F5%2C+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Salle civique : náměstí Republiky 1090/5, Prague 1</a><br/><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=n%C3%A1m%C4%9Bst%C3%AD+Republiky+5%2C+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Tour Poudrière : náměstí Republiky 5, Prague 1</a></td>
+<td data-label="Horaires d'ouverture">Les visites à l'intérieur du centre civique se déroulent selon l'horaire annoncé quotidiennement et la billetterie est généralement ouverte de 10h00 à 19h00 tous les jours. Tour Poudrière : généralement de 9h00 à 20h30 de juin à septembre, plus courte les autres mois.</td>
+<td data-label="Mode de réservation">Vous devez participer à la visite guidée de la Salle civique pour visiter systématiquement l'intérieur. Il est recommandé de vérifier les séances et d'acheter des billets à l'avance. Les tours de poudre ne nécessitent généralement pas de réservation à heure fixe.</td>
+<td data-label="Caractéristiques">Les deux lieux sont ensemble. La salle civique est idéale pour admirer l'intérieur Art nouveau et la salle de concert Smetana ; la Tour Poudrière est idéale pour grimper pour voir la vieille ville. Environ 1,5 à 2 heures au total.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.obecnidum.cz/en/tours/" rel="noopener" target="_blank">https://www.obecnidum.cz/en/tours/</a><br/><a class="official-link" href="https://prague.eu/en/objevujte/powder-gate-tower-prasna-brana/" rel="noopener" target="_blank">https://prague.eu/en/objevujte/powder-gate-tower-prasna-brana/</a></td>
+</tr><tr>
+<td data-label="Bâtiment/complexe immobilier"><strong>Palais et jardins Wallenstein</strong><br/>Waldstein Palace &amp; Garden</td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Vald%C5%A1tejnsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+4%2C+118+01+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Palais : Valdštejnské náměstí 4, 118 01 Praha 1</a><br/><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Letensk%C3%A1%2C+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Entrée du jardin : Letenská, Prague 1</a></td>
+<td data-label="Horaires d'ouverture">Le jardin est ouvert d'avril à octobre : de 7h00 à 19h00 en semaine, de 9h00 à 19h00 le week-end et les jours fériés tchèques. Le palais est ouvert au public d'avril à octobre, généralement le samedi de 9h00 à 16h00.</td>
+<td data-label="Mode de réservation">Les visites privées des jardins ou les journées portes ouvertes du palais sont généralement gratuites et sans réservation. Les groupes de 10 personnes ou plus doivent généralement contacter le palais au moins deux semaines à l'avance.</td>
+<td data-label="Caractéristiques">Convient pour un arrangement avec Small Town et Charles Bridge. Partez 45 à 60 minutes dans le jardin avec ses murs de grottes, Sala Terrena, ses fontaines et ses paons.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.senat.cz/informace/pro_verejnost/valdstejnska_zahrada/index-eng.php" rel="noopener" target="_blank">https://www.senat.cz/informace/pro_verejnost/valdstejnska_zahrada/index-eng.php</a><br/><a class="official-link" href="https://www.senat.cz/informace/pro_verejnost/prohlidky_senatu/otevreni_valdstejnskeho_palace-eng.php" rel="noopener" target="_blank">https://www.senat.cz/informace/pro_verejnost/prohlidky_senatu/otevreni_valdstejnskeho_palace-eng.php</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Itinéraire simple</h2>
+<div class="table-box">
+<table class="route-table">
+<thead><tr><th>Itinéraire</th><th>Disposition</th><th>Durée recommandée</th></tr></thead>
+<tbody><tr><td data-label="Itinéraire"><strong>Journée classique</strong></td><td data-label="Disposition">08h00 Pont Charles → 09h00 Place de la Vieille Ville et Ancien Hôtel de Ville → 11h30 Déjeuner → 13h00 Château de Prague → 16h15 Monastère de Strahov</td><td data-label="Durée recommandée">Environ 8 à 9 heures</td></tr><tr><td data-label="Itinéraire"><strong>Demi-journée en petite ville</strong></td><td data-label="Disposition">Jardin Wallenstein → Rue de la petite ville → Pont Charles → Île Kampa</td><td data-label="Durée recommandée">Environ 3 à 4 heures</td></tr><tr><td data-label="Itinéraire"><strong>Calme pendant une demi-journée</strong></td><td data-label="Disposition">Mur du Haut Château → Cathédrale Saint-Pierre et Paul → Cimetière du Haut Château → Promenade avec vue sur la rivière</td><td data-label="Durée recommandée">Environ 2,5 à 3 heures</td></tr></tbody>
+</table>
+</div>
+<p class="page-footer">Date de compilation des informations : août 2026. Les itinéraires sont estimés en fonction des vitesses de marche et de fréquentation régulière et peuvent être modulés en fonction des plages horaires de réservation.<br/><a href="../../guides/zh/" style="color:#245b8a">← Retour au répertoire du guide</a></p>
+</section>
+<section class="page-section" data-title="Librairies de Prague — nos adresses" hidden="" id="bookstores">
+<h1>Recommandations de librairies à visiter à Prague (organisé par ChatGPT)</h1>
+<p class="note">Astuce : Aucune réservation n'est requise pour les visites générales du magasin. Les magasins marqués comme « librairies d'occasion » ou « contenant des livres d'occasion » conviennent à l'achat de livres d'occasion ; de nombreux magasins antikvariát traditionnels sont fermés le week-end, il est donc recommandé de vérifier les informations commerciales de la veille du départ.</p>
+<h2>Librairies</h2>
+<div class="table-box">
+<table class="main-table">
+<colgroup>
+<col class="col-place"/><col class="col-address"/><col class="col-hours"/>
+<col class="col-booking"/><col class="col-features"/><col class="col-url"/>
+</colgroup>
+<thead>
+<tr>
+<th>Librairie</th><th>Adresse</th><th>Horaires d'ouverture</th><th>Mode de réservation</th><th>Caractéristiques</th><th>Lien du site officiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Librairie"><strong>Palác knih Luxor</strong></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1clavsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+41%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Václavské náměstí 41, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 8h00 à 20h00 ; Samedi et dimanche de 9h00 à 20h00.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Une grande librairie très complète au centre de Prague. Le tchèque possède le plus grand nombre de livres, ainsi que des livres étrangers, des cartes de voyage, des créations artistiques, du matériel pédagogique et de la papeterie, ce qui en fait l'endroit le plus pratique à visiter pour la première fois.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.luxor.cz/pobocky/detail/22/palac-knih-luxor-praha" rel="noopener" target="_blank">https://www.luxor.cz/pobocky/détail/22/palac-knih-luxor-praha</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>Academia</strong></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=V%C3%A1clavsk%C3%A9+n%C3%A1m%C4%9Bst%C3%AD+34%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Václavské náměstí 34, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 8h30 à 20h00 ; samedi de 9h30 à 19h00 ; Dimanche de 9h30 à 18h00.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Se concentre sur les universitaires, les sciences, l'histoire, les sciences humaines et sociales, adapté à une recherche sérieuse de livres. A l'étage se trouve le Café Academia, qui accueille également des expositions et des événements.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.academiaknihy.cz/prodejny/praha-vaclavske-namesti-34/" rel="noopener" target="_blank">https://www.academiaknihy.cz/prodejny/praha-vaclavske-namesti-34/</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>The Globe Bookstore &amp; Café</strong><br/><span class="type-label">Y compris les livres d'occasion</span></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=P%C5%A1trossova+1925%2F6%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Pštrossova 1925/6, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Librairie du lundi au vendredi de 10h00 à 21h00 ; Samedi et dimanche de 9h30 à 21h00. Le café est ouvert plus tard.</td>
+<td data-label="Mode de réservation">Aucune réservation n'est requise pour visiter la librairie. Pour les événements en soirée ou les repas du week-end, vous pouvez réserver une place au café si disponible.</td>
+<td data-label="Caractéristiques">Les livres, la librairie et le café principalement anglais sont reliés entre eux. Il y a souvent des clubs de lecture, des questions-réponses, des micros ouverts et d'autres activités en anglais, adaptées au soir.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://globebookstore.cz/" rel="noopener" target="_blank">https://globebookstore.cz/</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>Shakespeare and Sons</strong><br/><span class="type-label">Y compris les livres d'occasion</span></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=U+Lu%C5%BEick%C3%A9ho+semin%C3%A1%C5%99e+10%2C+118+00+Praha+1+%E2%80%93+Mal%C3%A1+Strana" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">U Lužického semináře 10, 118 00 Praha 1 – Malá Strana</a></td>
+<td data-label="Horaires d'ouverture">Tous les jours de 11h00 à 19h00.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Les librairies indépendantes en langues étrangères situées dans les petites zones urbaines vendent principalement des livres en anglais, mais proposent également des livres en français, des livres neufs et des livres d'occasion. L'espace souterrain est très atmosphérique et très proche du pont Charles.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.shakes.cz/info/company-info" rel="noopener" target="_blank">https://www.shakes.cz/info/company-info</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>Book Therapy</strong></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%C5%98%C3%ADmsk%C3%A1+35%2C+120+00+Praha+2+%E2%80%93+Vinohrady" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Římská 35, 120 00 Praha 2 – Vinohrady</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 10h00 à 19h00 ; samedi de 11h00 à 17h00 ; fermé le dimanche.</td>
+<td data-label="Mode de réservation">Aucune réservation n'est requise pour les visites en magasin général.</td>
+<td data-label="Caractéristiques">La sélection de livres est très sophistiquée, se concentrant sur le design, l'architecture, la photographie, la mode, la gastronomie et le style de vie, avec de nombreuses publications anglaises et internationales. L'espace est calme et propice à la flânerie.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://booktherapy.cz/" rel="noopener" target="_blank">https://booktherapy.cz/</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>PageFive</strong></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Veverkova+5%2C+170+00+Praha+7+%E2%80%93+Hole%C5%A1ovice" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Veverkova 5, 170 00 Praha 7 – Holešovice</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 10h00 à 19h30 ; samedi de 12h00 à 18h30 ; fermé le dimanche.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Il se concentre sur les livres d'art, la culture visuelle, la photographie, les magazines indépendants, les zines et les gravures, et dispose également d'un petit espace d'exposition. Peut être organisé avec le Palais des Expositions ou Letná.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.pagefive.com/content/o-nas" rel="noopener" target="_blank">https://www.pagefive.com/content/o-nas</a></td>
+</tr><tr>
+<td data-label="Librairie"><strong>ArtMap Bookstore</strong></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hybernsk%C3%A1+4%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Hybernská 4, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 8h00 à 18h00 ; Samedi et dimanche de 9h00 à 18h00.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Situé au Kampus Hybernská, il abrite principalement des publications d'art contemporain, des livres d'artistes, des presses indépendantes et des publications de niche, non loin de la gare principale.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://knihy.artmap.cz/en/about-us/" rel="noopener" target="_blank">https://knihy.artmap.cz/en/about-us/</a></td>
+</tr><tr><td data-label="Librairie"><strong>Knihkupectví a antikvariát Spálená 53</strong><br/><span class="type-label">Librairie d'occasion</span></td><td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sp%C3%A1len%C3%A1+53%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Spálená 53, 110 00 Praha 1</a></td><td data-label="Horaires d'ouverture">Du lundi au vendredi de 8h30 à 18h30 ; samedi de 10h00 à 16h00 ; fermé dimanche.</td><td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td><td data-label="Caractéristiques">C'est une ancienne librairie qui mérite une visite dans le centre-ville. Il propose des livres neufs et d'occasion. Vous pouvez également trouver des vinyles, des cartes postales anciennes, des gravures et des cartes. Beaucoup de choix et emplacement idéal.</td><td data-label="Lien du site officiel"><a class="official-link" href="https://www.spalena53.cz/" rel="noopener" target="_blank">https://www.spalena53.cz/</a></td></tr><tr><td data-label="Librairie"><strong>Antikvariát Dlážděná</strong><br/><span class="type-label">Librairie d'occasion</span></td><td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Dl%C3%A1%C5%BEd%C4%9Bn%C3%A1+7%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Dlážděná 7, 110 00 Praha 1</a></td><td data-label="Horaires d'ouverture">Du lundi au vendredi de 10h00 à 18h00 ; fermé le week-end.</td><td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td><td data-label="Caractéristiques">La librairie d'occasion de Prague, traditionnelle et riche en livres, vend principalement des livres tchèques, mais aussi des livres en anglais, français et allemand ; on y trouve également des imprimés anciens, des manuscrits, des cartes, des photos et des gravures.</td><td data-label="Lien du site officiel"><a class="official-link" href="https://www.adplus.cz/" rel="noopener" target="_blank">https://www.adplus.cz/</a></td></tr><tr><td data-label="Librairie"><strong>1. Podzemní antikvariát</strong><br/><span class="type-label">Librairie d'occasion</span></td><td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Hybernsk%C3%A1+22%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Hybernská 22, 110 00 Praha 1</a></td><td data-label="Horaires d'ouverture">Du lundi au vendredi de 9h00 à 19h00 ; fermé le week-end.</td><td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td><td data-label="Caractéristiques">Une librairie d'occasion traditionnelle cachée dans le sous-sol d'un immeuble. L'espace lui-même est très atmosphérique et se concentre sur l'art, la culture des collections de livres, la littérature en édition ancienne et les publications plus anciennes.</td><td data-label="Lien du site officiel"><a class="official-link" href="https://www.podzemni-antikvariat.cz/" rel="noopener" target="_blank">https://www.podzemni-antikvariat.cz/</a></td></tr><tr>
+<td data-label="Librairie"><strong>K-A-V-K-A</strong><br/><span class="type-label">Contient de vieux livres d'art</span></td>
+<td data-label="Adresse"><a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Kroc%C3%ADnova+5%2C+110+00+Praha+1" rel="noopener" target="_blank" title="Ouvrir dans Google Maps">Krocínova 5, 110 00 Praha 1</a></td>
+<td data-label="Horaires d'ouverture">Du lundi au vendredi de 11h00 à 18h00 ; fermé le week-end.</td>
+<td data-label="Mode de réservation">Pas besoin de prendre rendez-vous, il suffit de vous présenter en magasin.</td>
+<td data-label="Caractéristiques">Il se concentre sur l'art, l'architecture, le design, la photographie et les livres d'art anciens tchèques et slovaques. Il a également un caractère de galerie et convient à des publications plus professionnelles et de niche.</td>
+<td data-label="Lien du site officiel"><a class="official-link" href="https://www.kavkaartbooks.com/en/" rel="noopener" target="_blank">https://www.kavkaartbooks.com/en/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="page-footer">Heure de compilation des informations : août 2026. Au final, merci de vous référer au site officiel de chaque librairie pour les informations sur la journée.<br/><a href="../../guides/zh/" style="color:#245b8a">← Retour au répertoire du guide</a></p>
+</section>
+</main>
+<script>
+    (() => {
+      const pageIds = ['venues', 'architecture', 'bookstores'];
+      const sections = [...document.querySelectorAll('.page-section')];
+      const pageLinks = [...document.querySelectorAll('.page-nav [data-page]')];
+
+      function currentId() {
+        const id = location.hash.replace('#', '');
+        return pageIds.includes(id) ? id : 'venues';
+      }
+
+      function render(scrollToTop = false) {
+        const id = currentId();
+        sections.forEach(section => {
+          section.hidden = section.id !== id;
+        });
+        pageLinks.forEach(link => {
+          const active = link.dataset.page === id;
+          link.classList.toggle('active', active);
+          if (active) link.setAttribute('aria-current', 'page');
+          else link.removeAttribute('aria-current');
+        });
+        const section = document.getElementById(id);
+        document.title = section.dataset.title;
+        if (scrollToTop) window.scrollTo(0, 0);
+
+        document.querySelectorAll('.lang-switcher a').forEach(a => {
+          const href = a.getAttribute('href');
+          const base = href.replace(/#.*$/, '');
+          a.setAttribute('href', base + '#' + id);
+        });
+      }
+
+      window.addEventListener('hashchange', () => render(true));
+      render(false);
+    })();
+  </script>
+<a class="guide-return-footer" data-guide-home="" href="/guides/fr/">← Tous les guides</a></body>
+</html>
+

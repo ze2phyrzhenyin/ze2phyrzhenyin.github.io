@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html data-guide="logic-agents" lang="fr">
+<head><script src="/guides/theme.js?v=20260924c"></script><script defer="True" src="/guides/navigation.js?v=20260924c"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#eeece6" name="theme-color"/>
+<meta content="Guide pratique pour construire des agents de recherche en logique : ordre recommande, catalogue de composants, infrastructure partagee et premier prototype en logique modale." name="description"/>
+<meta content="Feuille de route pratique pour les agents de recherche en logique" property="og:title"/>
+<meta content="Que construire en premier, ce que chaque composant doit faire, et comment garder semantique, contre-modeles, verification formelle et jugement humain dans une boucle de recherche." property="og:description"/>
+<meta content="article" property="og:type"/>
+<meta content="https://zhaoyang.fr/logic-agents/fr/" property="og:url"/>
+<meta content="https://zhaoyang.fr/logic-agents/og.svg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<title>Feuille de route pratique pour les agents de recherche en logique</title>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../styles.css?v=20260823c" rel="stylesheet"/>
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Feuille de route pratique pour les agents de recherche en logique",
+      "description": "Guide couvrant l'ordre de construction recommande, les composants, l'infrastructure et le premier prototype pour des agents de recherche en logique verifiables.",
+      "datePublished": "2026-08-23",
+      "dateModified": "2026-08-23",
+      "author": {
+        "@type": "Person",
+        "name": "Zhaoyang SUI",
+        "url": "https://zhaoyang.fr/"
+      },
+      "inLanguage": "fr",
+      "mainEntityOfPage": "https://zhaoyang.fr/logic-agents/fr/"
+    }
+  </script>
+<link href="https://zhaoyang.fr/logic-agents/fr/" rel="canonical"/><link href="https://zhaoyang.fr/logic-agents/en/" hreflang="en" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/fr/" hreflang="fr" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/zh/" hreflang="zh-Hans" rel="alternate"/><link href="https://zhaoyang.fr/logic-agents/en/" hreflang="x-default" rel="alternate"/><link href="/guides/navigation.css?v=20260924c" rel="stylesheet"/><style>.header-meta{flex-wrap:wrap;min-width:0}.header-meta>*{min-width:0;overflow-wrap:anywhere}.home-link{flex-shrink:0}</style><style>.site-bar-inner{gap:12px}.site-bar-inner .brand{flex:1 1 auto;min-width:0;white-space:normal;line-height:1.4;padding-block:12px}.top-nav{flex-shrink:0}</style><link href="/guides/theme.css?v=20260924c" rel="stylesheet"/></head>
+<body><nav aria-label="Navigation des guides" class="guide-navigation"><a data-guide-home="" href="/guides/fr/">← Tous les guides</a><span class="guide-navigation-languages"><a href="/logic-agents/en/" hreflang="en" lang="en">EN</a><a href="/logic-agents/zh/" hreflang="zh-Hans" lang="zh">中文</a><a aria-current="page" href="/logic-agents/fr/" hreflang="fr" lang="fr">FR</a></span></nav>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<header class="site-bar" id="top">
+<div class="site-bar-inner">
+<a class="brand" href="#top"><span aria-hidden="true">⊢</span> Guide des agents de recherche en logique</a>
+<nav aria-label="Sections du guide" class="top-nav">
+<a href="#recommendation">Recommandation</a>
+<a href="#build-order">Ordre</a>
+<a href="#catalogue">Composants</a>
+<a href="#prototype">Prototype</a>
+<a href="#references">Références</a>
+</nav>
+</div>
+</header>
+<main class="document" id="main">
+<header class="intro">
+<p class="breadcrumb">Guide de recherche / Logique et méthodes formelles / Août 2026</p>
+<h1>Feuille de route pratique pour les agents de recherche en logique</h1>
+<p class="standfirst">Que construire en premier, ce que chaque composant doit faire, et comment garder sémantique, contre-modèles, vérification formelle et jugement humain dans une boucle de recherche.</p>
+<div class="recommendation-note">
+<strong>Réponse courte.</strong> Commencer par l'audit sémantique et la recherche de contre-modèles. Ajouter la récupération au niveau des théorèmes et l'orchestration d'outils une fois ceux-ci fiables. Reporter la génération de preuves ouvertes et la découverte de conjectures jusqu’à la maturité de la couche de validation.
+      </div>
+<dl class="intro-meta">
+<div><dt>Périmètre</dt><dd>Flux de recherche en logique</dd></div>
+<div><dt>Composants</dt><dd>12 agents spécialisés</dd></div>
+<div><dt>Plan</dt><dd>3 étapes</dd></div>
+<div><dt>Statut</dt><dd>Feuille de route avec prise de position</dd></div>
+</dl>
+</header>
+<nav aria-label="Sommaire" class="section-tabs">
+<a href="#recommendation">1. Recommandation</a>
+<a href="#why-now">2. Pourquoi maintenant</a>
+<a href="#build-order">3. Ordre de construction</a>
+<a href="#catalogue">4. Composants</a>
+<a href="#infrastructure">5. Infrastructure</a>
+<a href="#prototype">6. Prototype</a>
+</nav>
+<section aria-labelledby="recommendation-title" class="content-section" id="recommendation">
+<div class="section-title">
+<span>1</span>
+<div>
+<h2 id="recommendation-title">Recommandation</h2>
+<p>Utiliser une seule boucle de recherche, mais séparer génération, vérification et explication.</p>
+</div>
+</div>
+<div aria-label="Sequence recommandee" class="summary-table" role="table">
+<div class="summary-row" role="row">
+<div role="cell"><strong>Commencer ici</strong><span>Étape 1</span></div>
+<div role="cell"><h3>Semantique et contre-modèles</h3><p>Rendre explicites la logique, les conditions de cadre, les domaines, la relation de conséquence et les definitions fixees. Tenter de refuter la conjecture avant de la prouver.</p></div>
+</div>
+<div class="summary-row" role="row">
+<div role="cell"><strong>Ajouter ensuite</strong><span>Étape 2</span></div>
+<div role="cell"><h3>Recuperation et orchestration d'outils</h3><p>Connecter la recherche au niveau des théorèmes, la planification de preuves, les chercheurs de modèles, les prouveurs, les assistants de preuve et un journal d'exécution reproductible.</p></div>
+</div>
+<div class="summary-row" role="row">
+<div role="cell"><strong>Reporter</strong><span>Étape 3</span></div>
+<div role="cell"><h3>Preuve ouverte et découverte de systèmes</h3><p>Tenter de nouveaux meta-théorèmes, conjectures, axiomes ou systèmes logiques uniquement lorsque le système peut auditer les enonces et vérifier les résultats de facon independante.</p></div>
+</div>
+</div>
+<h3 class="subheading">La boucle de recherche complete</h3>
+<ol class="research-loop">
+<li><span>1</span><strong>Specifier la question</strong><small>Langage, sémantique, conséquence, limites</small></li>
+<li><span>2</span><strong>Recuperer les travaux anterieurs</strong><small>Theoremes, definitions, contre-exemples</small></li>
+<li><span>3</span><strong>Attaquer la conjecture</strong><small>Modeles et tests de robustesse des hypotheses</small></li>
+<li><span>4</span><strong>Planifier la preuve</strong><small>Sous-objectifs et dependances</small></li>
+<li><span>5</span><strong>Utiliser les bons outils</strong><small>Prouveurs, solveurs, verificateurs de modèles</small></li>
+<li><span>6</span><strong>Verifier independamment</strong><small>Noyau, certificat ou verificateur separe</small></li>
+<li><span>7</span><strong>Digerer le resultat</strong><small>Lemmes cles, structure, explication</small></li>
+<li><span>8</span><strong>Enregistrer la provenance</strong><small>Sources, versions, echecs, coût</small></li>
+</ol>
+<p class="plain-note">Une exécution n'est complete que lorsqu'elle indique la logique utilisee, le resultat exact, pourquoi il est valide, ou il echoue et comment il se rapporte aux travaux connus.</p>
+</section>
+<section aria-labelledby="why-now-title" class="content-section" id="why-now">
+<div class="section-title">
+<span>2</span>
+<div>
+<h2 id="why-now-title">Pourquoi construire maintenant</h2>
+<p>L'opportunite vient du flux de travail autour du modèle, pas de la génération de preuves en un coup.</p>
+</div>
+</div>
+<div class="prose-columns">
+<div>
+<h3>Le travail mathematique de niveau recherche devient testable</h3>
+<p>Les systèmes recents combinent planification informelle, récupération de théorèmes, formalisation, retour du compilateur et tentatives repetees. Les résultats varient selon les benchmarks et le statut de relecture, mais le schema d'ingenierie utile est desormais visible.</p>
+</div>
+<div>
+<h3>La logique offre un retour inhabituellement precis</h3>
+<p>Les solveurs SAT et SMT, les chercheurs de modèles finis, les assistants de preuve et les verificateurs de modèles peuvent rejeter de nombreuses erreurs a faible coût. Cela fait de la logique un cadre ideal pour les flux d'agents dont les affirmations doivent etre verifiees.</p>
+</div>
+<div>
+<h3>Les erreurs sémantiques restent le principal risque produit</h3>
+<p>La meme formule peut se comporter differemment dans une autre classe de cadres, politique de domaine ou relation de conséquence. Une preuve formelle correcte ne suffit pas si l'enonce formel ne correspond pas a l'affirmation visee par le chercheur.</p>
+</div>
+</div>
+<div class="caution-box">
+<strong>Implication pour la conception</strong>
+<p>Le système devrait traiter la configuration sémantique comme un contrat. Modifier ce contrat est une decision de recherche visible, pas une reparation automatique.</p>
+</div>
+</section>
+<section aria-labelledby="build-order-title" class="content-section" id="build-order">
+<div class="section-title">
+<span>3</span>
+<div>
+<h2 id="build-order-title">Ordre de construction</h2>
+<p>Chaque étape a un objectif clair et une condition de sortie.</p>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table build-table">
+<thead>
+<tr>
+<th scope="col">Étape</th>
+<th scope="col">Quoi construire</th>
+<th scope="col">Composants principaux</th>
+<th scope="col">Condition de sortie</th>
+<th scope="col">Production de recherche probable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="recommended-row">
+<td><strong>1</strong><br/><span class="table-status">Construire maintenant</span></td>
+<td><strong>Audit sémantique et contre-modèles</strong><br/>Specifications explicites, recherche Kripke finie, test des hypotheses, journaux reproductibles</td>
+<td>SpecGuard<br/>Counterexample Lab<br/>Proof PR Guard</td>
+<td>Distingue invalidite, inadaptation sémantique, erreur d'encodage et depassement de delai</td>
+<td>Benchmark de conformite, jeu de contre-modèles, méthodes de reparation de conjectures</td>
+</tr>
+<tr>
+<td><strong>2</strong><br/><span class="table-status">Ajouter ensuite</span></td>
+<td><strong>Connaissances et orchestration</strong><br/>Graphe de théorèmes, DAG de preuve, adaptateurs d'outils, traductions verifiees</td>
+<td>LogicAtlas<br/>LogicOS<br/>ProofDAG<br/>PolyLogic Bridge</td>
+<td>Chaque récupération se resout en theoreme, version et hypotheses ; chaque conversion d'outil est tracable</td>
+<td>Graphe de théorèmes, protocole d'outils commun, suite de tests inter-logiques</td>
+</tr>
+<tr>
+<td><strong>3</strong><br/><span class="table-status">Ouvrir plus tard</span></td>
+<td><strong>Preuve et exploration theorique</strong><br/>Meta-theorie, conjectures, nouvelles definitions, digestion de preuves, maintenance de bibliotheques</td>
+<td>MetaProver<br/>LogicFoundry<br/>ProofDigest<br/>LogicLib Maintainer</td>
+<td>Les nouveaux résultats ont des certificats, une attribution, des limites d'echec, des explications lisibles et une approbation humaine</td>
+<td>Meta-theorie reutilisable, bibliotheque de schemas de preuve, études d'exploration controlee</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 class="subheading">Les trois meilleurs premiers produits</h3>
+<ol class="ranked-list">
+<li>
+<span class="rank">1</span>
+<div><h3>Atelier sémantique modal et epistemique</h3><p>Combiner l'audit sémantique, la recherche de contre-modèles finis et les traductions verifiees. C'est la direction de recherche la plus forte car elle a une identite claire en logique et produit des données d'évaluation utiles.</p></div>
+</li>
+<li>
+<span class="rank">2</span>
+<div><h3>Proof PR Guard</h3><p>Comparer les enonces d'articles, les arguments informels, le code formel et les citations. C'est le composant le plus rapide a integrer dans le flux de travail d'une équipe de recherche réelle.</p></div>
+</li>
+<li>
+<span class="rank">3</span>
+<div><h3>LogicAtlas</h3><p>Construire des liens au niveau des théorèmes entre systèmes, definitions, conditions de cadre, meta-théorèmes, contre-exemples, bibliotheques formelles et sources originales.</p></div>
+</li>
+</ol>
+</section>
+<section aria-labelledby="catalogue-title" class="content-section" id="catalogue">
+<div class="section-title">
+<span>4</span>
+<div>
+<h2 id="catalogue-title">Catalogue de composants</h2>
+<p>Douze roles spécialisés. Les scores sont des jugements produit, pas des classements bibliographiques.</p>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table catalogue-table">
+<thead>
+<tr>
+<th scope="col">Composant</th>
+<th scope="col">Mission</th>
+<th scope="col">Sortie typique</th>
+<th scope="col">Besoin</th>
+<th scope="col">Faisabilite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group-row"><th colspan="5" scope="rowgroup">Specification et entree</th></tr>
+<tr><td><strong>SpecGuard</strong><small>Auditeur sémantique</small></td><td>Comparer prose, formules et enonces de prouveur ; vérifier domaines, conséquence, cadres, designation, types et logique de base.</td><td>Diff sémantique, retro-traduction, rapport de risque</td><td>10</td><td>8</td></tr>
+<tr><td><strong>Counterexample Lab</strong><small>Test de modèles et hypotheses</small></td><td>Enumerer les structures finies et les cadres de Kripke, appeler les chercheurs de modèles, affaiblir les hypotheses et chercher des contre-modèles minimaux.</td><td>Contre-modele, monde d'echec, matrice de sensibilite</td><td>10</td><td>9</td></tr>
+<tr><td><strong>Spec-to-Model</strong><small>Formalisation des exigences</small></td><td>Traduire les exigences système en spécifications temporelles, epistemiques, deontiques ou de programmes et lancer la vérification de modèles.</td><td>Specification executable, analyse de conflit, trace temoin</td><td>9</td><td>8</td></tr>
+<tr class="group-row"><th colspan="5" scope="rowgroup">Planification, resolution et traduction</th></tr>
+<tr><td><strong>LogicOS</strong><small>Orchestration d'outils</small></td><td>Choisir les outils pour les sous-objectifs, gerer les conversions saines, recuperer les certificats et classifier les echecs.</td><td>Plan d'outils, journal de conversion, certificat</td><td>9.5</td><td>6</td></tr>
+<tr><td><strong>ProofDAG</strong><small>Architecture de preuve</small></td><td>Transformer une strategie humaine en sous-objectifs dependants et acheminer le travail vers les composants de récupération, modèle, preuve et revue.</td><td>Plan de preuve, DAG de taches, points de decision</td><td>9</td><td>8</td></tr>
+<tr><td><strong>MetaProver</strong><small>Meta-theorie logique</small></td><td>Supporter la correction, la complétude, l'elimination des coupures, les propriétés de modèle fini, l'interpolation, la correspondance et la complexite.</td><td>Plan de meta-preuve, certificat formel, temoin d'echec</td><td>8.5</td><td>6</td></tr>
+<tr><td><strong>PolyLogic Bridge</strong><small>Traductions et plongements</small></td><td>Verifier la preservation, la reflexion, les restrictions de cadre, les changements de complexite et les principes importes entre logiques.</td><td>Traduction, preuve de preservation, conditions de portee</td><td>8.5</td><td>6</td></tr>
+<tr><td><strong>LogicFoundry</strong><small>Exploration controlee</small></td><td>Proposer des axiomes, règles, definitions ou conditions sémantiques et tester la nouveaute, la non-trivialite, la cohérence et l'equivalence.</td><td>Systeme candidat, modèles representatifs, journal d'exploration</td><td>7.5</td><td>5</td></tr>
+<tr class="group-row"><th colspan="5" scope="rowgroup">Revue, connaissances et maintenance</th></tr>
+<tr><td><strong>LogicAtlas</strong><small>Graphe de connaissances</small></td><td>Connecter systèmes, axiomes, sémantique, meta-proprietes, contre-exemples, dependances, bibliotheques formelles et sources.</td><td>Recuperation au niveau theoreme, relations de force, attribution</td><td>9.5</td><td>7</td></tr>
+<tr><td><strong>Proof PR Guard</strong><small>Revue de preuve independante</small></td><td>Verifier la circularite, les lemmes non declares, les axiomes caches, la derive des definitions, les inadaptations de citations et la fidelite formelle.</td><td>Rapport de revue, tests de mutation de preuve, problemes bloquants</td><td>9</td><td>8</td></tr>
+<tr><td><strong>ProofDigest</strong><small>Explication de preuve</small></td><td>Comprimer les preuves machine, identifier les lemmes decisifs et la structure partagee, et séparer les idees de la technique routiniere.</td><td>Carte conceptuelle, schemas de preuve, explication en couches</td><td>8.5</td><td>8</td></tr>
+<tr><td><strong>LogicLib Maintainer</strong><small>Travail de bibliotheque formelle</small></td><td>Resoudre les definitions doublons, construire des API de base, reduire les dependances, gerer les espaces de noms et les migrations, et ponter les bibliotheques.</td><td>Refactorisation de bibliotheque, couche de compatibilite, journal de provenance</td><td>8</td><td>9</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="infrastructure-title" class="content-section" id="infrastructure">
+<div class="section-title">
+<span>5</span>
+<div>
+<h2 id="infrastructure-title">Infrastructure partagee</h2>
+<p>Ces exigences s'appliquent quel que soit le composant construit en premier.</p>
+</div>
+</div>
+<div class="requirements-list">
+<article><span>1</span><div><h3>ProofLedger</h3><p>Enregistrer les sources, numeros de théorèmes, versions d'articles, versions de modèles et d'outils, prompts, modifications humaines, chemins echoues, budget de calcul et certificats finaux.</p></div></article>
+<article><span>2</span><div><h3>Configuration sémantique explicite</h3><p>"S4" ou "logique classique du premier ordre" ne suffit pas. Cadres, domaines, conséquence, egalite, designation et meta-logique doivent etre lisibles par la machine.</p></div></article>
+<article><span>3</span><div><h3>Vérification independante</h3><p>Le generateur ne peut etre le seul relecteur. Utiliser un outil symbolique, un noyau de preuve ou un chemin de vérification reellement separe pour chaque affirmation critique.</p></div></article>
+<article><span>4</span><div><h3>Memoire des echecs</h3><p>Conserver les sous-objectifs echoues, contre-modèles, depassements de delai, formalisations cassees et pistes abandonnees. Les registres d'echec sont des actifs de recherche utiles.</p></div></article>
+<article><span>5</span><div><h3>Points de decision humains</h3><p>Les changements de definitions, d'objectifs de recherche, de logique de base, de strategie principale de preuve et de valeur de publication restent des decisions du chercheur.</p></div></article>
+</div>
+</section>
+<section aria-labelledby="prototype-title" class="content-section" id="prototype">
+<div class="section-title">
+<span>6</span>
+<div>
+<h2 id="prototype-title">Premier prototype suggere</h2>
+<p>Un atelier de modèles finis pour la logique modale et epistemique propositionnelle.</p>
+</div>
+</div>
+<div class="prototype-grid">
+<div class="specification-box">
+<div class="box-heading">
+<h3>Contrat d'entree</h3>
+<button class="copy-button" id="copy-spec" type="button">Copier</button>
+</div>
+<pre id="spec-template"><code>Logic: S4
+Consequence: local
+Frames: reflexive, transitive
+Domains: constant
+Equality: rigid identity
+Premises: …
+Conjecture: …
+Locked: definitions, base logic</code></pre>
+<p aria-live="polite" class="copy-status" id="copy-status"></p>
+</div>
+<div class="output-list">
+<h3>Sortie requise</h3>
+<ol>
+<li>Valide, invalide ou actuellement non resolu</li>
+<li>Un contre-modele minimal ou une preuve verifiee par machine</li>
+<li>Une matrice de sensibilite aux hypotheses</li>
+<li>Une comparaison entre logiques voisines telles que K, T, S4 et S5</li>
+<li>Une explication en langage courant</li>
+<li>Le theoreme connu le plus proche avec une source precise</li>
+<li>Un journal d'exécution complet et reproductible</li>
+</ol>
+</div>
+</div>
+<div class="table-scroll">
+<table class="guide-table scope-table">
+<thead>
+<tr><th scope="col">Version 0.1</th><th scope="col">Extensions suivantes</th><th scope="col">Evaluation</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><ul><li>K, D, T, B, S4, S5</li><li>Logique modale propositionnelle</li><li>Cadres de Kripke finis</li><li>Conséquence locale et globale</li><li>Contre-modèles minimaux</li></ul></td>
+<td><ul><li>Logique modale du premier ordre</li><li>Domaines constants, variables, cumulatifs</li><li>Logique epistemique multi-agents</li><li>Logique epistemique dynamique</li><li>Logique hybride et vérification de modèles</li></ul></td>
+<td><ul><li>Taux de conformite sémantique</li><li>Correction et minimalite des contre-modèles</li><li>Taux d'acceptation des certificats</li><li>Couverture d'attribution et de reproductibilite</li><li>Reformulation humaine fidele</li></ul></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section aria-labelledby="not-first-title" class="content-section" id="not-first">
+<div class="section-title">
+<span>7</span>
+<div>
+<h2 id="not-first-title">Ce qu'il ne faut pas construire en premier</h2>
+<p>Ces elements peuvent faire des demonstrations utiles, mais ne traitent pas le probleme central de fiabilité.</p>
+</div>
+</div>
+<ul class="not-first-list">
+<li>Un assistant PDF qui ne fait que discuter d'articles de logique</li>
+<li>Un auto-completeur de tactiques qui ne voit que l'etat Lean actuel</li>
+<li>Un generateur de conjectures sans filtres de litterature et de contre-modèles</li>
+<li>Un formaliseur qui ne vérifié jamais la fidelite a l'enonce original</li>
+<li>Un agent de recherche autonome sans certificats, sources ou registres d'echec</li>
+<li>Un système qui redige un article complet et declare sa propre nouveaute</li>
+</ul>
+<p class="final-order"><strong>Ordre recommande :</strong> audit sémantique et contre-modèles → graphe de théorèmes et orchestration d'outils → génération de preuves et exploration ouverte.</p>
+</section>
+<section aria-labelledby="references-title" class="content-section references-section" id="references">
+<div class="section-title">
+<span>8</span>
+<div>
+<h2 id="references-title">Références et lectures complementaires</h2>
+<p>Ce guide est un jugement de recherche et de produit, pas un classement consensuel. Les affirmations des preprints restent soumises a un examen ulterieur.</p>
+</div>
+</div>
+<ol class="reference-list">
+<li><span>Rapport institutionnel</span><a href="https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/" rel="noreferrer" target="_blank">Gemini Deep Think at IMO 2025</a><small>Google DeepMind</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/abs/2604.03789" rel="noreferrer" target="_blank">Automated Conjecture Resolution with Formal Vérification</a><small>Rethlas--Archon</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/abs/2601.03298" rel="noreferrer" target="_blank">130k Lines of Formal Topology in Two Weeks</a><small>Autoformalisation</small></li>
+<li><span>Rapport institutionnel</span><a href="https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/" rel="noreferrer" target="_blank">Accelerating scientific breakthroughs with an AI co-scientist</a><small>Google Research</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/html/2602.06533v2" rel="noreferrer" target="_blank">LogicSkills: A Structured Benchmark for Formal Reasoning</a><small>Conformite sémantique et contre-modèles</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/html/2603.26524v1" rel="noreferrer" target="_blank">Mathematical methods and human thought in the age of AI</a><small>Traduction, vérification et contrôle humain</small></li>
+<li><span>Feuille de route</span><a href="https://arxiv.org/html/2607.07779v1" rel="noreferrer" target="_blank">From Solvers to Research</a><small>Mathematiques formelles a la frontiere de la recherche</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/pdf/2606.27041" rel="noreferrer" target="_blank">Formalizing a Many-Sorted Hybrid Polyadic Modal Logic in Lean</a><small>Meta-theorie modale reutilisable</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/html/2605.27246v1" rel="noreferrer" target="_blank">Many Logics, One Methodology</a><small>Pluralisme logique dans le raisonnement formalise</small></li>
+<li><span>Entretien</span><a href="https://nebius.science/stories/kevin-buzzard" rel="noreferrer" target="_blank">Kevin Buzzard on LLMs and formalisation</a><small>Nebius Science</small></li>
+<li><span>Preprint</span><a href="https://arxiv.org/html/2603.03684v2" rel="noreferrer" target="_blank">Mathematicians in the Age of AI</a><small>Agentivite humaine et mathematiques auditables</small></li>
+</ol>
+</section>
+</main>
+<footer class="footer">
+<div>
+<p><strong>Agents de recherche en logique : feuille de route</strong></p>
+<p>Redige en août 2026 · <a href="/guides/fr/">zhaoyang.fr</a></p>
+</div>
+<a href="#top">Retour en haut ↑</a>
+</footer>
+<script defer="" src="../app.js?v=20260823c"></script>
+<a class="guide-return-footer" data-guide-home="" href="/guides/fr/">← Tous les guides</a></body>
+</html>
+
