@@ -51,6 +51,7 @@ const projectsCollection = defineCollection({
     github: z.string().url().optional(),
     demo: z.string().url().optional(),
     site: z.string().url().optional(),
+    download: z.string().url().optional(),
     admin: z.string().url().optional(),
     paper: z.string().url().optional(),
     cover: z.string().optional(),

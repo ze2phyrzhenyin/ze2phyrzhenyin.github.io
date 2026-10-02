@@ -1,50 +1,51 @@
 ---
 title: "Calendrier"
-description: "A calendar, notes, tasks and anniversaries app for everyday planning, with local records, search and backup export. Currently in development."
+description: "A calendar, notes, tasks and anniversaries app for everyday planning, with offline records, account sync and two-way Google Calendar sync. Available for Windows, Android and Linux."
 date: 2026-09-27
 status: active
-tags: ["Calendar", "Notes", "Local-first", "Desktop", "Mobile"]
+demo: "https://rex31.com/calendrier/"
+download: "https://rex31.com/calendrier/download/"
 cover: "/images/projects/calendrier.png"
 i18n:
   en:
     title: "Calendrier"
-    description: "A calendar, notes, tasks and anniversaries app for everyday planning, with local records, search and backup export. Currently in development."
+    description: "A calendar, notes, tasks and anniversaries app for everyday planning, with offline records, account sync and two-way Google Calendar sync. Available for Windows, Android and Linux."
     sections:
       - heading: "Everyday plans and notes in one place"
         paragraphs:
           - "Calendrier brings scheduled events, tasks, anniversaries and free-form notes into one workspace. Month, week and agenda views help organise dated records, while notes without a date remain independent of the calendar."
-      - heading: "Keep records on your device"
+      - heading: "Offline first, synced across devices"
         paragraphs:
-          - "Records are saved locally so writing and organising can continue offline. Search, tags and backup export help keep information easy to find and move. Account sync and optional Google Calendar connection are part of the development work; these services are not publicly available yet."
-      - heading: "Development status"
+          - "Records are saved on the device, so writing and organising continue offline. With an account, they sync between devices. Google Calendar sync works both ways: events can be created and edited in the app or in Google, and when both sides differ, the Google version is kept."
+      - heading: "Download"
         paragraphs:
-          - "The project targets Windows, Android and Linux, with a Simplified Chinese interface. There is currently no public online demo or installation package. The screenshot shows the development interface with sample records."
+          - "Installers are available for Windows, Android and Linux, and the app can also be used in the browser. Installed Windows and Android versions update themselves. The interface is in Simplified Chinese."
   zh:
     title: "Calendrier 日历应用"
-    description: "将日程、备忘录、待办与纪念日集中管理，支持本机记录、搜索和备份导出，方便安排日常生活。目前处于开发阶段。"
+    description: "将日程、备忘录、待办与纪念日集中管理，支持离线记录、账号同步和 Google 日历双向同步。提供 Windows、Android 与 Linux 版本。"
     sections:
       - heading: "日常安排与随手记录放在一起"
         paragraphs:
           - "Calendrier 将日程、待办、纪念日与自由笔记放入同一个工作区。月视图、周视图和日程列表用于查看有日期的安排；没有日期的笔记独立保存，不会被强行放进日历。"
-      - heading: "先保存在自己的设备上"
+      - heading: "离线可用，多设备同步"
         paragraphs:
-          - "记录保存在本机，离线时仍可继续书写和整理。搜索、标签与备份导出帮助查找和迁移内容。账号同步与可选的 Google 日历连接已纳入开发，相关服务尚未公开开放。"
-      - heading: "当前进度"
+          - "记录先保存在本机，离线时仍可继续书写和整理；登录账号后在设备之间同步。Google 日历双向同步：日程可以在应用里新建和修改，也可以在 Google 日历里改，两边不一致时以 Google 为准。"
+      - heading: "下载"
         paragraphs:
-          - "项目面向 Windows、Android 与 Linux 开发，当前应用界面为简体中文，暂无公开在线演示或安装包下载。截图展示开发版界面，使用示例记录。"
+          - "提供 Windows、Android 与 Linux 安装包，也可以直接在浏览器中使用网页版。已安装的 Windows 和 Android 版会自动更新。应用界面为简体中文。"
   fr:
     title: "Calendrier"
-    description: "Une application de calendrier, notes, tâches et anniversaires pour organiser le quotidien, avec enregistrement local, recherche et export de sauvegardes. En cours de développement."
+    description: "Une application de calendrier, notes, tâches et anniversaires pour organiser le quotidien, avec enregistrement hors ligne, synchronisation de compte et synchronisation bidirectionnelle avec Google Agenda. Disponible pour Windows, Android et Linux."
     sections:
       - heading: "Les rendez-vous et les notes au même endroit"
         paragraphs:
           - "Calendrier réunit événements, tâches, anniversaires et notes libres dans un même espace. Les vues mensuelle, hebdomadaire et agenda présentent les éléments datés ; les notes sans date restent indépendantes du calendrier."
-      - heading: "Conserver ses notes sur son appareil"
+      - heading: "Hors ligne d’abord, synchronisé entre appareils"
         paragraphs:
-          - "Les données sont enregistrées localement pour continuer à écrire et à organiser hors connexion. Recherche, étiquettes et exports de sauvegarde facilitent leur consultation et leur transfert. La synchronisation de compte et la connexion facultative à Google Agenda font partie du développement ; ces services ne sont pas encore ouverts au public."
-      - heading: "État du projet"
+          - "Les données sont enregistrées sur l’appareil, ce qui permet de continuer à écrire hors connexion ; avec un compte, elles se synchronisent entre appareils. La synchronisation avec Google Agenda fonctionne dans les deux sens : les événements se créent et se modifient dans l’application ou dans Google, et en cas de différence, la version Google est conservée."
+      - heading: "Téléchargement"
         paragraphs:
-          - "Le projet vise Windows, Android et Linux, avec une interface en chinois simplifié. Aucune démonstration en ligne ni aucun programme d’installation public n’est actuellement proposé. La capture montre l’interface de développement avec des données d’exemple."
+          - "Des programmes d’installation sont proposés pour Windows, Android et Linux, et l’application s’utilise aussi dans le navigateur. Les versions Windows et Android installées se mettent à jour automatiquement. L’interface est en chinois simplifié."
 ---
 
 <!-- -->
