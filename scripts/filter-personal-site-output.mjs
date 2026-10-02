@@ -9,6 +9,7 @@ const personalOnly = process.env.SITEWEB_PERSONAL_ONLY === '1';
 // trilingual personal site. Keep this list explicit so the zhauyoung.com
 // release cannot accidentally start mirroring a newly discovered directory.
 export const zhaoyangOnlyRoutes = [
+  'construction-hotel-sql',
   'francophone-sport-careers',
   'guides',
   'logic-agents',

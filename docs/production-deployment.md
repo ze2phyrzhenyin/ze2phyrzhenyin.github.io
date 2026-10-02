@@ -15,7 +15,7 @@ The command assigns one release identifier to both deployments and stops with
 an error unless both inventory-backed deployment scripts succeed. The canonical
 metadata remains on `zhaoyang.fr` so the second origin is an intentional mirror.
 
-The standalone `/francophone-sport-careers/`, `/guides/`, `/logic-agents/`, `/man-city-ucl-away-guide-2026-27/`, `/medvedin/`, `/musee-prague/`,
+The standalone `/construction-hotel-sql/`, `/francophone-sport-careers/`, `/guides/`, `/logic-agents/`, `/man-city-ucl-away-guide-2026-27/`, `/medvedin/`, `/musee-prague/`,
 `/randonnee/`, `/recruit/`, `/toulouse-bars/`, and `/toulouse-events/` pages are not part of the mirrored personal site. The `zhauyoung-site` build
 sets `SITEWEB_PERSONAL_ONLY=1`, which removes those routes before creating its
 sitemap and release artifact. A change limited to those standalone pages is
