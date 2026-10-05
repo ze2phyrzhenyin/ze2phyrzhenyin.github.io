@@ -33,7 +33,7 @@
         {
           "heading": "Fictional data demo",
           "paragraphs": [
-            "Lanyu Market uses an original icon and newly generated synthetic records. Businesses, people, addresses, contacts, orders and amounts are demo samples. Public business writes are disabled; live payments, SMS, WeChat authorization and native installers are unavailable."
+            "Lanyu Market uses an original icon and newly generated synthetic records. Businesses, people, addresses, contacts, orders and amounts are demo samples. PC and mobile web open directly in a demo account. You can add, edit and delete demo records, with changes shared across both interfaces. Payments and SMS are simulated; live WeChat authorization and native installers are unavailable."
           ]
         }
       ]
@@ -57,7 +57,7 @@
         {
           "heading": "虚构数据演示",
           "paragraphs": [
-            "岚屿集使用原创图标与新生成的合成数据。商家、人员、地址、联系方式、订单与金额均为演示样本；公开环境关闭业务写入，不提供真实支付、短信、微信授权或原生安装包。"
+            "岚屿集使用原创图标与新生成的合成数据。商家、人员、地址、联系方式、订单与金额均为演示样本；打开 PC 或移动 Web 即自动进入演示账号，可新增、修改和删除演示资料，结果在两端共享；支付和短信使用模拟流程，不提供真实微信授权或原生安装包。"
           ]
         }
       ]
@@ -81,7 +81,7 @@
         {
           "heading": "Démonstration fictive",
           "paragraphs": [
-            "Lanyu Market utilise une icône originale et de nouvelles données synthétiques. Entreprises, personnes, adresses, contacts, commandes et montants sont fictifs. Les écritures métier publiques sont désactivées ; aucun paiement réel, SMS, accès WeChat ou installateur natif n’est proposé."
+            "Lanyu Market utilise une icône originale et de nouvelles données synthétiques. Entreprises, personnes, adresses, contacts, commandes et montants sont fictifs. Les interfaces PC et mobile ouvrent automatiquement un compte de démonstration. Il est possible d’ajouter, modifier et supprimer des données, partagées entre les deux interfaces. Paiements et SMS sont simulés ; aucun accès WeChat réel ou installateur natif n’est proposé."
           ]
         }
       ]
