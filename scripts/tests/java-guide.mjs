@@ -29,6 +29,7 @@ try {
     await card.scrollIntoViewIfNeeded();
     await screenshot(`directory-${lang}-390`);
     await card.tap();
+    await page.locator('#main .hero').waitFor();
     assert.equal(await page.locator('.guide-return-mobile').getAttribute('href'),`/guides/${lang}/`);
     await page.locator('.guide-return-mobile').tap();
     await page.waitForURL(`${origin}/guides/${lang}/`);

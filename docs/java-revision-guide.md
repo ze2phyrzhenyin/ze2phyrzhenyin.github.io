@@ -65,3 +65,11 @@ GUIDE_PLAYWRIGHT_MODULE=<playwright-module> node scripts/tests/java-guide.mjs
 directory, and `JAVA_SKIP_LAYOUTS=1` runs only the interaction checks. These are
 browser emulation checks; no physical-phone certification is claimed. The
 original Java compilation reports are retained as provenance, not rerun claims.
+
+## Production receipt
+
+Released on zhao-zenbook as `20261007T075246Z` from clean commit `bbf20f3`.
+The inventory deployer's public smoke checks passed. The Java page and all
+three Guides index pages were fetched over HTTPS and matched the validated
+local files byte for byte. The six browser interaction groups also passed
+against `https://zhaoyang.fr`, with no script or HTTP errors.
