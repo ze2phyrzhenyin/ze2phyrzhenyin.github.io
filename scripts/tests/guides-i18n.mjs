@@ -128,12 +128,25 @@ try {
       assert((await row.locator('td').first().boundingBox()).width>300,'mobile cells must not collapse to one-letter columns');
     }
   });
-  await check('All index cards lead to the same language and return to that index', async()=>{
+  await check('All index cards open their localized or bilingual guides', async()=>{
     for(const lang of ['en','fr','zh']){
       await visit('guides',lang);
       const links=await page.locator('a.card').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
-      assert.equal(links.length,11);assert.equal(new Set(links).size,11);
+      assert.equal(links.length,13);assert.equal(new Set(links).size,13);
       for(const href of links){
+        if(href==='/construction-hotel-sql/'){
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('a[href="/guides/zh/"]').first().click();
+          await page.waitForURL(origin+'/guides/zh/');
+          continue;
+        }
+        if(href.startsWith('/guides/java/')){
+          assert.equal(new URL(href,origin).searchParams.get('from'),lang);
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('.guide-return-mobile').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
+          continue;
+        }
         assert(href.endsWith(`/${lang}/`));
         await page.goto(origin+href,{waitUntil:'domcontentloaded'});
         await page.locator('.guide-navigation [data-guide-home]').click();

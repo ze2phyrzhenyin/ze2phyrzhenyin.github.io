@@ -1,0 +1,6 @@
+bulle : 5471 ns
+selection : 7081 ns
+insertion : 3942 ns
+fusion : 11768 ns
+PASS: 5208 checks; Java 21.0.11
+Scope: full example files and selected language/API cases. Not a proof or exhaustive verification of every teaching fragment.
