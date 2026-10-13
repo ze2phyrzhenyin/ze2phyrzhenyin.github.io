@@ -1,0 +1,112 @@
+---
+import { newsItems } from '@/data/news';
+import type { Lang } from '@/i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = {
+  en: { heading: 'News', attended: 'Attended', awarded: 'Awarded' },
+  zh: { heading: '最新动态', attended: '参加暑校', awarded: '获得' },
+  fr: { heading: 'Actualités', attended: 'Participation', awarded: 'Lauréat du' },
+}[lang];
+const locale = { en: 'en-GB', zh: 'zh-CN', fr: 'fr-FR' }[lang];
+const dateFormat = new Intl.DateTimeFormat(locale, {
+  day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+});
+---
+
+<section id="news" class="mb-14 animate-fade-up delay-150" aria-labelledby="news-heading">
+  <div class="flex items-center gap-4 mb-6">
+    <h2 id="news-heading" class="section-title shrink-0">{copy.heading}</h2>
+    <div class="flex-1 h-px" style="background:rgb(var(--border));"></div>
+  </div>
+  <ol class="news-list">
+    {newsItems.map((item) => (
+      <li class="news-entry" id={`news-${item.id}`}>
+        <p class="news-date">
+          <time datetime={item.startDate}>{dateFormat.format(new Date(`${item.startDate}T00:00:00Z`))}</time>
+          <span aria-hidden="true"> – </span>
+          <time datetime={item.endDate}>{dateFormat.format(new Date(`${item.endDate}T00:00:00Z`))}</time>
+        </p>
+        <div class="news-detail">
+          <h3 class="news-title">
+            <a href={item.url} lang={item.titleLang} target="_blank" rel="noopener noreferrer">
+              {item.title}<span class="news-arrow" aria-hidden="true"> ↗</span>
+            </a>
+          </h3>
+          <p class:list={['news-summary', { 'news-award': item.award }]}>
+            {item.award ? <>{copy.awarded} <strong lang="fr">{item.award}</strong></> : copy.attended}
+          </p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .news-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .news-entry {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgb(var(--border));
+  }
+
+  .news-entry:first-child { padding-top: 0; }
+  .news-entry:last-child { border-bottom: 0; padding-bottom: 0; }
+
+  .news-date {
+    margin: 0;
+    color: rgb(var(--muted));
+    font-size: 0.75rem;
+    line-height: 1.75;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .news-detail { min-width: 0; }
+
+  .news-title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    color: rgb(var(--text));
+  }
+
+  .news-title a {
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--border-2));
+    text-underline-offset: 0.2em;
+    transition: color 150ms ease, text-decoration-color 150ms ease;
+  }
+
+  .news-title a:hover,
+  .news-title a:focus-visible {
+    color: var(--accent-text);
+    text-decoration-color: currentColor;
+  }
+
+  .news-arrow { white-space: nowrap; color: rgb(var(--muted)); }
+
+  .news-summary {
+    margin: 0.35rem 0 0;
+    color: rgb(var(--text-2));
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+
+  .news-award { color: var(--accent-text); }
+
+  @media (min-width: 640px) {
+    .news-entry { grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; }
+  }
+</style>
