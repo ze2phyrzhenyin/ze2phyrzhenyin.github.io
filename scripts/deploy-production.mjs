@@ -25,6 +25,9 @@ function deploy(server, app) {
       'deploy', '--yes', server, app, '--',
       '--project-dir', repoRoot,
       '--release', release,
+      ...(process.env.SITEWEB_ABOUT_BUNDLE
+        ? ['--about-bundle', resolve(process.env.SITEWEB_ABOUT_BUNDLE)]
+        : []),
     ],
     { cwd: serverOpsRoot, env: process.env, stdio: 'inherit' },
   );
