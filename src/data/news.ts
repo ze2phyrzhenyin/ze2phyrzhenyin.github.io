@@ -9,6 +9,7 @@ export type NewsItem = {
   endDate: string;
   location: Record<Lang, { country: string; city: string }>;
   award?: string;
+  role?: 'lightning-talk-speaker';
 };
 
 // Newest first. Dates and links refer to the events' official pages.
@@ -21,6 +22,20 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-10-09',
     endDate: '2026-10-10',
     award: 'Prix Coup de Cœur',
+    location: {
+      en: { country: 'France', city: 'Toulouse' },
+      zh: { country: '法国', city: '图卢兹' },
+      fr: { country: 'France', city: 'Toulouse' },
+    },
+  },
+  {
+    id: 'ut-capitole-entrepreneurship-2026',
+    title: "Entreprendre à UT Capitole : lancement de la communauté d’entrepreneur",
+    titleLang: 'fr',
+    url: 'https://www.ut-capitole.fr/accueil/international/engage-eu-universite-europeenne/engagement-dans-la-societe/lab-engage/entreprendre-a-ut-capitole-lancement-de-la-communaute-dentrepreneur',
+    startDate: '2026-09-23',
+    endDate: '2026-09-23',
+    role: 'lightning-talk-speaker',
     location: {
       en: { country: 'France', city: 'Toulouse' },
       zh: { country: '法国', city: '图卢兹' },
@@ -87,9 +102,9 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-06-13',
     endDate: '2026-06-14',
     location: {
-      en: { country: 'Denmark', city: 'Kongens Lyngby' },
-      zh: { country: '丹麦', city: '孔恩斯灵比' },
-      fr: { country: 'Danemark', city: 'Kongens Lyngby' },
+      en: { country: 'Denmark', city: 'Copenhagen' },
+      zh: { country: '丹麦', city: '哥本哈根' },
+      fr: { country: 'Danemark', city: 'Copenhague' },
     },
   },
 ];

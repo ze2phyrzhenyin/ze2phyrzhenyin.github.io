@@ -8,9 +8,9 @@ interface Props {
 
 const { lang } = Astro.props;
 const copy = {
-  en: { heading: 'News', attended: 'Attended', awarded: 'Awarded' },
-  zh: { heading: '最新动态', attended: '参加暑校', awarded: '获得' },
-  fr: { heading: 'Actualités', attended: 'Participation', awarded: 'Lauréat du' },
+  en: { heading: 'News', attended: 'Attended', awarded: 'Awarded', speaker: '3-minute lightning talk speaker' },
+  zh: { heading: '最新动态', attended: '参加暑校', awarded: '获得', speaker: '三分钟快闪演讲者' },
+  fr: { heading: 'Actualités', attended: 'Participation', awarded: 'Lauréat du', speaker: 'Intervenant · pitch de 3 minutes' },
 }[lang];
 const locale = { en: 'en-GB', zh: 'zh-CN', fr: 'fr-FR' }[lang];
 const dateFormat = new Intl.DateTimeFormat(locale, {
@@ -28,8 +28,10 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
       <li class="news-entry" id={`news-${item.id}`}>
         <p class="news-date">
           <time datetime={item.startDate}>{dateFormat.format(new Date(`${item.startDate}T00:00:00Z`))}</time>
-          <span aria-hidden="true"> – </span>
-          <time datetime={item.endDate}>{dateFormat.format(new Date(`${item.endDate}T00:00:00Z`))}</time>
+          {item.endDate !== item.startDate && <>
+            <span aria-hidden="true"> – </span>
+            <time datetime={item.endDate}>{dateFormat.format(new Date(`${item.endDate}T00:00:00Z`))}</time>
+          </>}
         </p>
         <div class="news-detail">
           <h3 class="news-title">
@@ -39,7 +41,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
           </h3>
           <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>
           <p class:list={['news-summary', { 'news-award': item.award }]}>
-            {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : copy.attended}
+            {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : item.role === 'lightning-talk-speaker' ? copy.speaker : copy.attended}
           </p>
         </div>
       </li>
