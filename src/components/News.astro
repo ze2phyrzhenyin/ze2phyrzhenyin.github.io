@@ -39,7 +39,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
           </h3>
           <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>
           <p class:list={['news-summary', { 'news-award': item.award }]}>
-            {item.award ? <>{copy.awarded} <strong lang="fr">{item.award}</strong></> : copy.attended}
+            {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : copy.attended}
           </p>
         </div>
       </li>
@@ -73,6 +73,8 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
   }
 
   .news-detail { min-width: 0; }
+
+  .news-date time { white-space: nowrap; }
 
   .news-title {
     margin: 0;
