@@ -37,6 +37,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
               {item.title}<span class="news-arrow" aria-hidden="true"> ↗</span>
             </a>
           </h3>
+          <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>
           <p class:list={['news-summary', { 'news-award': item.award }]}>
             {item.award ? <>{copy.awarded} <strong lang="fr">{item.award}</strong></> : copy.attended}
           </p>
@@ -97,12 +98,15 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
 
   .news-arrow { white-space: nowrap; color: rgb(var(--muted)); }
 
+  .news-location,
   .news-summary {
     margin: 0.35rem 0 0;
     color: rgb(var(--text-2));
     font-size: 0.82rem;
     line-height: 1.6;
   }
+
+  .news-location { color: rgb(var(--muted)); }
 
   .news-award { color: var(--accent-text); }
 

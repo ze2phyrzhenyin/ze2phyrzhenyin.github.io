@@ -1,6 +1,5 @@
 ---
 import Base from '@/layouts/Base.astro';
-import AboutNews from '@/components/AboutNews.astro';
 import { getSiteName } from '@/lib/config';
 import { useTranslations, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
@@ -581,8 +580,6 @@ const cvDownload = cvDownloads[lang] ?? cvDownloads.en;
         )
       ))}
     </div>
-
-    <AboutNews lang={lang} />
 
     <section class="cv-download-panel mb-14 animate-fade-up delay-150" aria-label={cvDownload.ariaLabel}>
       <a href={withBase(cvDownload.href)} download={cvDownload.filename} class="btn-secondary cv-download-button">

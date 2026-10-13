@@ -1,5 +1,6 @@
 ---
 import Base from '@/layouts/Base.astro';
+import News from '@/components/News.astro';
 import { SITE } from '@/lib/config';
 import { useTranslations, defaultLang, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
@@ -217,6 +218,10 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
       </div>
     </div>
   </section>
+
+  <div class="container-narrow">
+    <News lang={lang} />
+  </div>
 
   <!-- ── Audience section ── -->
   <section class="container-narrow pb-28 animate-fade-up delay-200">
