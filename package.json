@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/build-sport-locales.mjs && astro build && node scripts/filter-personal-site-output.mjs && node scripts/generate-sitemap.mjs",
+    "build": "node scripts/build-work-order-quote.mjs && node scripts/build-sport-locales.mjs && astro build && node scripts/filter-personal-site-output.mjs && node scripts/generate-sitemap.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "site:sync": "node scripts/sync-personal-site-content.mjs",

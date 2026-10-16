@@ -132,12 +132,20 @@ try {
     for(const lang of ['en','fr','zh']){
       await visit('guides',lang);
       const links=await page.locator('a.card').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
-      assert.equal(links.length,13);assert.equal(new Set(links).size,13);
+      assert.equal(links.length,14);assert.equal(new Set(links).size,14);
       for(const href of links){
         if(href==='/construction-hotel-sql/'){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('a[href="/guides/zh/"]').first().click();
           await page.waitForURL(origin+'/guides/zh/');
+          continue;
+        }
+        if(href.startsWith('/guides/work-order-quote/')){
+          assert(href.endsWith(`/${lang}/`));
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('#project').waitFor();
+          await page.locator('.return').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
           continue;
         }
         if(href.startsWith('/guides/java/')){

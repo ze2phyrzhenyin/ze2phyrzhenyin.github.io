@@ -24,7 +24,7 @@ const screenshot = name=>page.screenshot({path:`${out}/${name}.png`,animations:'
 try {
   for(const lang of ['en','fr','zh']){
     await page.goto(`${origin}/guides/${lang}/`,{waitUntil:'domcontentloaded'});
-    assert.equal(await page.locator('a.card').count(),13);
+    assert.equal(await page.locator('a.card').count(),14);
     const card=page.locator(`a.card[href="/guides/java/?from=${lang}"]`);
     await card.scrollIntoViewIfNeeded();
     await screenshot(`directory-${lang}-390`);
