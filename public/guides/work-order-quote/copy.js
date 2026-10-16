@@ -1,7 +1,7 @@
 import { MODEL } from './model.js';
 export const copy = {
 zh: {
- title:'工单平台，按需选配。', intro:'选功能，看价格。先选一个起点，再按业务需要调整。', pageTitle:'工单平台 · 选配报价', back:'返回 Guides', theme:'切换明暗', skip:'跳到选配', language:'语言',
+ title:'工单平台报价单', intro:'', pageTitle:'工单平台报价单', back:'返回 Guides', theme:'切换明暗', skip:'跳到选配', language:'语言',
  eyebrow:'REX / 工单与售后', own:'独立部署', seats:'不按账号收许可费', warranty:'90 天缺陷保修',
  start:'从一个方案开始', packHint:'套餐价含 €2,400 标准实施，均为折前未税价。', moduleCount:'{n} 个模块',
  features:'选功能', delivery:'交付服务', running:'年度费用',
@@ -33,7 +33,7 @@ zh: {
  ]
 },
 en: {
- title:'Your workflow. Your setup.', intro:'Choose what you need. Start with a package, then adjust the details.', pageTitle:'Work-order platform · Quote builder', back:'Back to Guides', theme:'Switch theme', skip:'Skip to configuration', language:'Language',
+ title:'Work-order platform quotation', intro:'', pageTitle:'Work-order platform quotation', back:'Back to Guides', theme:'Switch theme', skip:'Skip to configuration', language:'Language',
  eyebrow:'REX / WORK ORDERS & AFTER-SALES', own:'Independent deployment', seats:'No per-account licence fee', warranty:'90-day defect warranty',
  start:'Choose a starting point', packHint:'Prices include €2,400 setup, before discount and tax.', moduleCount:'{n} modules',
  features:'Features', delivery:'Delivery', running:'Annual costs',
@@ -65,7 +65,7 @@ en: {
  ]
 },
 fr: {
- title:'Votre SAV, à votre mesure.', intro:'Choisissez vos fonctions, voyez le prix. Partez d’un forfait, puis ajustez.', pageTitle:'Plateforme SAV · Configurateur de devis', back:'Retour aux Guides', theme:'Changer de thème', skip:'Aller à la configuration', language:'Langue',
+ title:'Devis de plateforme SAV', intro:'', pageTitle:'Devis de plateforme SAV', back:'Retour aux Guides', theme:'Changer de thème', skip:'Aller à la configuration', language:'Langue',
  eyebrow:'REX / DOSSIERS & SERVICE APRÈS-VENTE', own:'Déploiement indépendant', seats:'Sans licence par compte', warranty:'Garantie défauts de 90 jours',
  start:'Choisir un point de départ', packHint:'Prix avant remise, HT, avec 2 400 € de mise en service.', moduleCount:'{n} modules',
  features:'Fonctions', delivery:'Livraison', running:'Coûts annuels',
