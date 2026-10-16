@@ -30,7 +30,7 @@ try{
   await page.locator('#tab-delivery').click();await page.locator('#migration').selectOption('1500');await page.locator('#media').check();await page.locator('#source').check();await page.locator('#training').fill('2');await page.locator('.extra-group>summary').click();await page.locator('#x-X01').fill('2');await page.locator('#x-X02').fill('1');
   await page.locator('#tab-running').click();await page.locator('[name="maintenance"][value="1800"]').check();await page.locator('#hosting').fill('80');await page.locator('#thirdparty').fill('120');
   await page.locator('#discount').fill('80');await page.locator('#tax').fill('20');
-  const s=await state(),q=compute(s);assert.equal(s.discount,80);await checkTotal(lang,q.project);assert.equal(await page.locator('#ttc').innerText(),amount(q.ttc,lang));assert.equal(q.recurring,2880);
+  const s=await state(),q=compute(s);assert.equal(s.discount,80);await checkTotal(lang,q.project);assert.equal(await page.locator('#ttc').innerText(),amount(q.ttc,lang));assert.equal(q.recurring,2520);
   assert.equal(await page.locator('#three').innerText(),amount(q.three,lang));
   await page.locator('.customer-details>summary').click();await page.locator('#company').fill('Atelier <test> & associés');
   await page.reload();await page.locator('#project').waitFor();assert.equal((await state()).company,'Atelier <test> & associés');await checkTotal(lang,q.project);assert.equal(await page.locator('#discount').inputValue(),'80');

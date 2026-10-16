@@ -53,11 +53,17 @@ export function compute(raw) {
   const original = round(software+setup+additional+source);
   const project = round(original*s.discount/100), saving = round(original-project);
   const vat = round(project*s.tax/100), ttc = round(project+vat);
-  const maintenance = s.maintenance?price(s.maintenance===1800?'care-basic':'care-plus'):0;
+  const discounted = amount => round(amount*s.discount/100);
+  const maintenanceOriginal = s.maintenance?price(s.maintenance===1800?'care-basic':'care-plus'):0;
+  const maintenance = discounted(maintenanceOriginal);
   const external = round(s.hosting*12+s.thirdparty), recurring = round(maintenance+external);
   // Rental is benchmarked against a 36-month software recovery horizon, not a 36-month commitment.
-  const subLicense = Math.ceil(round(software*s.discount/100/36)/10)*10;
-  const subActivation = round((setup+additional)*s.discount/100), subOps = price('sub-ops'), subDev = round(s.subHours*price('dev-hour'));
+  // Establish the list rental first, then apply the discount once to every in-house charge.
+  // Supplier budgets remain unchanged; custom rate inputs always store undiscounted prices.
+  const subLicenseOriginal = Math.ceil(round(software/36)/10)*10;
+  const subLicense = discounted(subLicenseOriginal);
+  const subActivation = discounted(setup+additional), subOps = discounted(price('sub-ops'));
+  const subRate = discounted(price('dev-hour')), subDev = round(s.subHours*subRate);
   const subRenew = round(subLicense+subOps), subInstallment = s.activationPayment==='spread'?round(subActivation/s.subMonths):0;
   const subLastInstallment = s.activationPayment==='spread'?round(subActivation-subInstallment*(s.subMonths-1)):0;
   const subUpfront = s.activationPayment==='upfront'?subActivation:0, subMonthly = round(subRenew+subInstallment);
@@ -66,5 +72,5 @@ export function compute(raw) {
   const subFirst = round(12*subRenew+activationYear1+external+subDev), subThree = round(36*subRenew+subActivation+3*external+subDev);
   const subStart = round(subUpfront+subDev), subStartVat = round(subStart*s.tax/100), subStartTtc = round(subStart+subStartVat);
 
-  return {ids,auto,reasons:Object.fromEntries(Object.entries(reasons).map(([id,v])=>[id,[...v]])),software,setup,extension,additional,source,original,project,saving,vat,ttc,maintenance,external,recurring,first:round(project+recurring),three:round(project+3*recurring),subLicense,subActivation,subOps,subDev,subRenew,subInstallment,subLastInstallment,subUpfront,subMonthly,subVat,subTtc,subFirst,subThree,subBudget:round(subMonthly+external/12),subStart,subStartVat,subStartTtc,subFirstMonth:round(subStart+subMonthly+external/12)};
+  return {ids,auto,reasons:Object.fromEntries(Object.entries(reasons).map(([id,v])=>[id,[...v]])),software,setup,extension,additional,source,original,project,saving,vat,ttc,maintenanceOriginal,maintenance,external,recurring,first:round(project+recurring),three:round(project+3*recurring),subLicenseOriginal,subLicense,subActivation,subOps,subRate,subDev,subRenew,subInstallment,subLastInstallment,subUpfront,subMonthly,subVat,subTtc,subFirst,subThree,subBudget:round(subMonthly+external/12),subStart,subStartVat,subStartTtc,subFirstMonth:round(subStart+subMonthly+external/12)};
 }

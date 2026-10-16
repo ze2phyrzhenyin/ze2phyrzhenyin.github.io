@@ -1,0 +1,1464 @@
+{
+  "date": "2026-10-16",
+  "modules": [
+    {
+      "id": 1,
+      "code": "M01",
+      "name": "账号与用户管理",
+      "description": "用户注册、登录、账号维护、密码管理；支持管理员、业务用户、仅浏览用户；管理员可切换用户身份进行业务协助。",
+      "price": 350,
+      "fr": "Comptes et utilisateurs",
+      "group": 0,
+      "required": true,
+      "deps": [],
+      "note": "含现有登录及账号能力；不含企业 SSO、LDAP、MFA 改造。管理员身份切换应授权、记录并在验收时测试。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "管理谁能登录、谁在使用系统。",
+        "fr": "Gérer les comptes et les accès au système."
+      },
+      "descriptionFr": "Inscription, connexion, gestion des comptes et mots de passe ; profils administrateur, utilisateur métier et consultation. Assistance métier par changement d’identité administrateur, sous contrôle.",
+      "noteFr": "Pas de nouveau SSO, LDAP ou MFA. Le changement d’identité doit être autorisé, tracé et testé à la recette."
+    },
+    {
+      "id": 2,
+      "code": "M02",
+      "name": "角色权限与数据可见范围",
+      "description": "按人员配置建单、检测、入库、货物分配等权限；按店铺、产品类型限制可见数据及可操作业务；支持客户仅查看其授权范围内的数据。",
+      "price": 650,
+      "fr": "Droits et visibilité des données",
+      "group": 0,
+      "required": true,
+      "deps": [],
+      "note": "含现有角色、店铺与品类可见范围；不含向其他企业转售的多租户 SaaS 平台。基础数据隔离不能取消。",
+      "effortDays": [
+        5,
+        8
+      ],
+      "simple": {
+        "zh": "不同员工、店铺和客户，只看自己的业务。",
+        "fr": "Limiter les données visibles par rôle, boutique et client."
+      },
+      "descriptionFr": "Droits de création, diagnostic, entrée en stock et affectation. Visibilité et actions limitées par boutique et catégorie de produit, y compris pour les clients autorisés.",
+      "noteFr": "Pas de plateforme SaaS multi-entreprises destinée à la revente. L’isolation de base des données n’est pas supprimable."
+    },
+    {
+      "id": 3,
+      "code": "M03",
+      "name": "店铺、平台与基础资料管理",
+      "description": "维护业务平台、店铺、产品选项、仓库、货架、层位、销售版本等基础资料；管理店铺及平台简称、常用退货地址。",
+      "price": 350,
+      "fr": "Boutiques et référentiels",
+      "group": 0,
+      "required": true,
+      "deps": [],
+      "note": "含资料维护页面；首次代录资料的数量上限见 S01。配置已有店铺、仓库不另收模块授权费。",
+      "effortDays": [
+        2,
+        3
+      ],
+      "simple": {
+        "zh": "把店铺、仓库、货架和常用资料整理到一起。",
+        "fr": "Centraliser boutiques, entrepôts et référentiels."
+      },
+      "descriptionFr": "Gestion des plateformes, boutiques, options produits, entrepôts, rayonnages, niveaux et versions de vente ; abréviations et adresses de retour habituelles.",
+      "noteFr": "Les écrans de gestion sont inclus. La saisie initiale réalisée pour le client est limitée par S01 ; ajouter ensuite ses propres référentiels ne crée pas de nouvelle licence."
+    },
+    {
+      "id": 4,
+      "code": "M04",
+      "name": "多品类工单录入",
+      "description": "支持手机、平板、电脑、手表、耳机、吹风机、包袋、其他产品及无产品服务；记录产品、来源店铺、设备标识、物流和业务备注，支持代建工单。",
+      "price": 700,
+      "fr": "Saisie des dossiers SAV",
+      "group": 1,
+      "required": true,
+      "deps": [],
+      "note": "含清单已有品类及字段。记录 IMEI 不等于接入厂商查询、鉴定真伪或自动读取设备。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "不同产品统一建单，不再各用一张表。",
+        "fr": "Créer un dossier unique pour chaque catégorie de produit."
+      },
+      "descriptionFr": "Saisie pour téléphones, tablettes, ordinateurs, montres, écouteurs, sèche-cheveux, sacs, autres produits et services sans produit. Boutique d’origine, identifiants, logistique, notes et création pour le compte d’un tiers.",
+      "noteFr": "Catégories et champs existants uniquement. Enregistrer un IMEI ne comprend ni interrogation constructeur, ni authentification du produit, ni lecture matérielle."
+    },
+    {
+      "id": 5,
+      "code": "M05",
+      "name": "工单全流程管理",
+      "description": "覆盖建单、检测、入库、分配、备货、出库、收货确认及结单；展示当前状态、流程进度和历史记录；无产品服务使用独立的计费与关闭流程。",
+      "price": 1400,
+      "fr": "Cycle de vie des dossiers",
+      "group": 1,
+      "required": true,
+      "deps": [],
+      "note": "本项提供现有流程骨架、状态和单件操作。检测明细、库存台账、批次、计费等增强能力由对应模块提供；不得把本项理解为全部 30 项均已包含。未购模块的节点按双方确认的基础流程处理。",
+      "effortDays": [
+        6,
+        10
+      ],
+      "simple": {
+        "zh": "从收到产品到结单，每一步都有状态。",
+        "fr": "Suivre les étapes, de la réception à la clôture."
+      },
+      "descriptionFr": "Création, diagnostic, stockage, affectation, préparation, sortie, confirmation de réception et clôture. État courant, progression et historique ; circuit distinct de facturation métier et clôture pour les services sans produit.",
+      "noteFr": "Il s’agit du socle de workflow, pas des 30 modules. Diagnostic détaillé, stocks, lots et frais nécessitent leurs modules. Le circuit sans ces modules doit être confirmé."
+    },
+    {
+      "id": 6,
+      "code": "M06",
+      "name": "工单查询与批量处理",
+      "description": "提供工单总览、我的工单、多条件筛选、排序、编号及设备标识查询、批量标识查找；支持多选、批量分配、备货、发货、处理标记和结单。",
+      "price": 650,
+      "fr": "Recherche et traitements par lots",
+      "group": 1,
+      "required": false,
+      "deps": [],
+      "note": "基本工单列表和单号查看已在 M04/M05；本项收取高级检索和批量操作授权。批量入库、分配或发货只对已购的对应业务模块开放。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "快速找单，一次处理多张工单。",
+        "fr": "Retrouver et traiter plusieurs dossiers à la fois."
+      },
+      "descriptionFr": "Vue générale et dossiers personnels, filtres, tri, recherche par numéro et identifiant, recherche multiple. Sélection et actions par lots : affectation, préparation, expédition, marquage et clôture.",
+      "noteFr": "La liste simple et la consultation unitaire restent dans M04/M05. Ici : recherche avancée et traitements groupés. Les actions métier exigent le module correspondant."
+    },
+    {
+      "id": 7,
+      "code": "M07",
+      "name": "退回、异常与申诉处理",
+      "description": "处理检测不合格、货不对板、空包裹、收货异常、退回、申诉、丢件及保险记录；支持退货重新入库、再次寄出和异常结单。",
+      "price": 950,
+      "fr": "Retours, anomalies et réclamations",
+      "group": 1,
+      "required": false,
+      "deps": [],
+      "note": "异常记录与处理属于本项。涉及重新入库、发货、费用时，实际操作需已购 M12、M14、M17 等对应模块，不重复收费。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "退货、空包裹、丢件和申诉，有据可查。",
+        "fr": "Tracer retours, colis vides, pertes et réclamations."
+      },
+      "descriptionFr": "Anomalies de diagnostic, produit non conforme, colis vide, problème de réception, retour, réclamation, perte et assurance. Retour en stock, réexpédition et clôture avec anomalie selon les modules logistiques achetés.",
+      "noteFr": "Les anomalies sont enregistrables ici. Restockage, expédition et frais exigent respectivement les modules concernés, notamment M12, M14 et M17."
+    },
+    {
+      "id": 8,
+      "code": "M08",
+      "name": "检测与维修记录",
+      "description": "按产品类型录入检测信息、故障清单、检测结论、保修判定、成色等级、诊断备注及维修结果；支持检测草稿、信息更正、回退后继续检测或重新检测。",
+      "price": 1400,
+      "fr": "Diagnostic et réparation",
+      "group": 2,
+      "required": false,
+      "deps": [],
+      "note": "使用现有检测表单、草稿和维修记录；不含维修设备接口、自动检测仪、维修商独立门户或新诊断算法。",
+      "effortDays": [
+        5,
+        8
+      ],
+      "simple": {
+        "zh": "把故障、检测结论和维修过程记清楚。",
+        "fr": "Conserver les diagnostics et les interventions."
+      },
+      "descriptionFr": "Fiches par catégorie, défauts, conclusion, garantie, état esthétique, notes de diagnostic et résultat de réparation. Brouillon, correction, reprise ou nouveau diagnostic après retour d’étape.",
+      "noteFr": "Formulaires et fonctions existants ; pas d’interface avec des appareils, d’outil de test automatique, de portail réparateur indépendant ou de nouvel algorithme."
+    },
+    {
+      "id": 9,
+      "code": "M09",
+      "name": "品类专项检测与档案",
+      "description": "支持手机等设备的 IMEI／序列号及锁定状态记录，耳机充电盒与左右耳标识核验、实收差异处理，以及包袋档案、图片及销售去向记录。",
+      "price": 900,
+      "fr": "Contrôles spécifiques et fiches produits",
+      "group": 2,
+      "required": false,
+      "deps": [
+        8,
+        10
+      ],
+      "note": "本目录完整档案交付依赖 M08、M10。设备状态及标识由人员记录；包袋图片与去向记录不等于完整二奢采购、寄售、销售分成系统。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "耳机左右耳、设备编号、包袋档案分别管理。",
+        "fr": "Gérer les identifiants et contrôles propres aux produits."
+      },
+      "descriptionFr": "IMEI, numéros de série et état de verrouillage ; contrôle du boîtier et des écouteurs gauche/droit, écarts de réception ; dossiers de sacs, photos et destination de vente.",
+      "noteFr": "M08 et M10 requis. Les états matériels sont saisis manuellement. Le dossier sac n’est pas un système complet d’achat, dépôt-vente ou partage des recettes."
+    },
+    {
+      "id": 10,
+      "code": "M10",
+      "name": "图片、视频与开箱取证",
+      "description": "支持拍照、录像、上传图片和视频，保存开箱及检测证据；提供采集收件箱、工单关联、在线预览、下载及附件管理，支持手机拍摄和常见图片格式处理。",
+      "price": 1200,
+      "fr": "Photos, vidéos et preuves",
+      "group": 2,
+      "required": false,
+      "deps": [],
+      "note": "含现有采集、关联及附件能力；不含摄像头设备、AI 鉴定、防伪存证、无限存储或无限带宽。视频容量见基础设施预算。",
+      "effortDays": [
+        4,
+        7
+      ],
+      "simple": {
+        "zh": "把开箱和检测照片、视频挂到对应工单。",
+        "fr": "Relier photos et vidéos au bon dossier."
+      },
+      "descriptionFr": "Capture et import de photos et vidéos, preuves de déballage et diagnostic. Boîte de réception des captures, association aux dossiers, aperçu, téléchargement, gestion des pièces jointes et prise de vue mobile.",
+      "noteFr": "Pas d’équipement, d’expertise IA, de preuve certifiée infalsifiable, de stockage ou de bande passante illimités."
+    },
+    {
+      "id": 11,
+      "code": "M11",
+      "name": "检测报告生成与管理",
+      "description": "根据工单资料、检测结论和图片生成 PDF 检测报告；现有法语报告支持译文准备、人工校对及确认，保留报告下载记录，并可关联报告费用。",
+      "price": 900,
+      "fr": "Rapports de diagnostic PDF",
+      "group": 2,
+      "required": false,
+      "deps": [
+        8,
+        10
+      ],
+      "note": "依赖 M08、M10，含现有法语报告模板及现有校对流程；报告费用联动需 M17。第三方翻译调用、人工专业翻译、新报告版式另列。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "将检测结果和照片生成可下载的报告。",
+        "fr": "Produire un rapport à partir du diagnostic et des photos."
+      },
+      "descriptionFr": "Rapport PDF issu des données, conclusions et photos. Modèle français existant avec préparation de traduction, relecture humaine et validation ; historique des téléchargements et liaison possible aux frais.",
+      "noteFr": "M08 et M10 requis ; modèle français et relecture existants. Liaison financière : M17. Traduction externe, traduction professionnelle et nouvelles maquettes exclues."
+    },
+    {
+      "id": 12,
+      "code": "M12",
+      "name": "仓储与库存管理",
+      "description": "管理入库、出库、退回再入库及库存流水；记录仓库和货架位置；提供在库查询、库龄及仓储天数统计与导出。",
+      "price": 1000,
+      "fr": "Stocks et entrepôts",
+      "group": 3,
+      "required": false,
+      "deps": [],
+      "note": "含原清单中的库存统计及现有导出，不要求为了使用这些已包含导出再购买 M23；不含采购计划、盘点硬件或完整 WMS 重建。",
+      "effortDays": [
+        6,
+        9
+      ],
+      "simple": {
+        "zh": "知道货在哪里、存了多久、何时进出。",
+        "fr": "Savoir où se trouve un produit et depuis combien de temps."
+      },
+      "descriptionFr": "Entrées, sorties, retours en stock et mouvements. Entrepôts et emplacements, consultation du stock, ancienneté et durée de stockage avec statistiques et exports existants.",
+      "noteFr": "Les exports de stock existants sont inclus sans M23. Pas de refonte WMS complète, de planification d’achats ni de matériel d’inventaire."
+    },
+    {
+      "id": 13,
+      "code": "M13",
+      "name": "货物分配与去向管理",
+      "description": "支持退回指定地区仓、退回消费者、直接销售及平台代售等去向；支持单件和批量分配、待补地址标记，以及包袋线下成交登记。",
+      "price": 650,
+      "fr": "Affectation et destination des biens",
+      "group": 3,
+      "required": false,
+      "deps": [
+        12
+      ],
+      "note": "依赖 M12。记录去向与业务分配，不等于实时 GPS 定位、门店收款或支付处理。",
+      "effortDays": [
+        3,
+        4
+      ],
+      "simple": {
+        "zh": "记录货物分给谁、下一步去哪里。",
+        "fr": "Tracer l’affectation et la destination de chaque bien."
+      },
+      "descriptionFr": "Destinations : entrepôt régional de retour, consommateur, vente directe ou vente par la plateforme. Affectation unitaire ou en lots, adresses à compléter et enregistrement de ventes de sacs hors ligne.",
+      "noteFr": "M12 requis. Affectation métier, sans GPS en temps réel, encaissement magasin ni traitement des paiements."
+    },
+    {
+      "id": 14,
+      "code": "M14",
+      "name": "发货批次与包裹管理",
+      "description": "按批次组织待发货工单，管理包裹、重量尺寸、运单信息、发票及附件；支持批次备货、出库、成员调整、清单导出，以及未寄出工单重新安排。",
+      "price": 1100,
+      "fr": "Expéditions et colis",
+      "group": 3,
+      "required": false,
+      "deps": [
+        12,
+        13,
+        16
+      ],
+      "note": "依赖 M12、M13、M16。所述发票为批次关联资料/附件，不代表合规会计发票生成；不含承运商在线购单。",
+      "effortDays": [
+        5,
+        8
+      ],
+      "simple": {
+        "zh": "把一批工单组织成包裹，统一备货和发出。",
+        "fr": "Regrouper les dossiers en lots et colis d’expédition."
+      },
+      "descriptionFr": "Lots de dossiers à expédier, colis, poids, dimensions, suivi, documents de facture et pièces jointes. Préparation, sortie, modification des membres, export de listes et replanification des dossiers non expédiés.",
+      "noteFr": "M12, M13 et M16 requis. Les factures sont des documents associés, pas une génération de factures fiscales conformes. Pas d’achat de transport en ligne."
+    },
+    {
+      "id": 15,
+      "code": "M15",
+      "name": "合并寄送管理",
+      "description": "识别同地址可合并寄送的工单，管理合并组、主单、成员、运单及运费；支持移出成员、解除合并和操作历史查询。",
+      "price": 600,
+      "fr": "Regroupement des envois",
+      "group": 3,
+      "required": false,
+      "deps": [
+        14
+      ],
+      "note": "依赖 M14，自动补齐其前置模块。含合并组运费记录；进入费用账及批量结算需 M17/M19。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "同一地址的货合在一起寄，保留拆合记录。",
+        "fr": "Regrouper les envois vers une même adresse."
+      },
+      "descriptionFr": "Détection des dossiers à destination commune, groupes de consolidation, dossier principal, membres, suivi et frais de port. Retrait d’un membre, dissolution du groupe et historique.",
+      "noteFr": "M14 et ses prérequis requis. Les frais de port du groupe sont enregistrés ; leur intégration aux frais et au rapprochement exige M17/M19."
+    },
+    {
+      "id": 16,
+      "code": "M16",
+      "name": "收件地址与 DHL 出货资料",
+      "description": "管理收件人、国际地址、店铺默认退货地址及历史地址复用；支持地址粘贴整理、缺失信息补齐、DHL 发货资料与地址表导出，以及物流查询链接。",
+      "price": 450,
+      "fr": "Adresses et exports DHL",
+      "group": 3,
+      "required": false,
+      "deps": [],
+      "note": "含 DHL 出货资料/地址表导出和查询链接；不含 DHL API 下单、自动买面单、实时轨迹回传或运费实时报价。",
+      "effortDays": [
+        2,
+        3
+      ],
+      "simple": {
+        "zh": "复用收件地址，导出 DHL 出货资料。",
+        "fr": "Réutiliser les adresses et exporter les données DHL."
+      },
+      "descriptionFr": "Destinataires, adresses internationales, retours par défaut et réutilisation de l’historique. Mise en forme d’adresses collées, compléments, export de données/adresses DHL et liens de suivi.",
+      "noteFr": "Export de données et liens DHL uniquement : pas d’API de commande, d’achat automatique d’étiquettes, de remontée des événements ou de tarif transport en direct."
+    },
+    {
+      "id": 17,
+      "code": "M17",
+      "name": "工单费用管理",
+      "description": "管理检测、维修、运输、包装、保险、服务及其他费用；支持工单费用明细、店铺附加费用、用户附加费用，以及待定价、已确认、已结算等状态。",
+      "price": 1000,
+      "fr": "Frais des dossiers",
+      "group": 4,
+      "required": false,
+      "deps": [],
+      "note": "管理业务费用和内部确认状态，不直接证明已收到客户款项、银行到账、退款或税务申报。",
+      "effortDays": [
+        4,
+        6
+      ],
+      "simple": {
+        "zh": "每一单收什么费用、收多少，都能说清。",
+        "fr": "Détailler les frais de chaque dossier."
+      },
+      "descriptionFr": "Frais de diagnostic, réparation, transport, emballage, assurance et services. Détail par dossier, suppléments de boutique/utilisateur et états à tarifer, confirmés ou validés en règlement métier.",
+      "noteFr": "Suivi des frais métier et de leur validation ; ne prouve pas un paiement reçu, un crédit bancaire, un remboursement ou une déclaration fiscale."
+    },
+    {
+      "id": 18,
+      "code": "M18",
+      "name": "店铺计费模板",
+      "description": "配置默认费用模板和店铺独立模板，维护收费项目、数量、价格、币种及自动收费规则；支持草稿、预览、发布、版本记录和指定历史工单同步。",
+      "price": 1400,
+      "fr": "Modèles de tarification",
+      "group": 4,
+      "required": false,
+      "deps": [
+        17
+      ],
+      "note": "依赖 M17。适用现有计费规则框架；新计价引擎、复杂佣金、跨币种实时汇率接口不包含。",
+      "effortDays": [
+        5,
+        9
+      ],
+      "simple": {
+        "zh": "不同店铺用不同价目表，减少重复录入。",
+        "fr": "Appliquer des grilles de prix propres aux boutiques."
+      },
+      "descriptionFr": "Modèles par défaut et par boutique : lignes, quantités, prix, devises et règles automatiques. Brouillon, aperçu, publication, versions et synchronisation ciblée de dossiers historiques.",
+      "noteFr": "M17 requis. Cadre de règles existant uniquement ; pas de nouveau moteur tarifaire, commissions complexes ou API de change en temps réel."
+    },
+    {
+      "id": 19,
+      "code": "M19",
+      "name": "对账与批量结算",
+      "description": "按店铺、工单、费用项目或发货批次核对费用；支持结算预览、单项及批量结算，记录结算结果，并区分退回、重新寄出等业务轮次中的费用。",
+      "price": 1400,
+      "fr": "Rapprochement et validation des frais",
+      "group": 4,
+      "required": false,
+      "deps": [
+        17
+      ],
+      "note": "依赖 M17。属于业务核对及结算确认，不包含银行自动对账、在线收款和法定会计账簿。按发货批次核对需 M14。",
+      "effortDays": [
+        6,
+        10
+      ],
+      "simple": {
+        "zh": "按店铺、工单或项目核对并确认结算。",
+        "fr": "Contrôler les frais et valider les règlements métier."
+      },
+      "descriptionFr": "Contrôle par boutique, dossier, poste ou lot d’expédition ; aperçu, validation unitaire ou collective, résultats et distinction des frais de chaque cycle de retour/réexpédition.",
+      "noteFr": "M17 requis. Validation métier, sans rapprochement bancaire automatique, paiement en ligne ni comptabilité légale. Le rapprochement par lot exige M14."
+    },
+    {
+      "id": 20,
+      "code": "M20",
+      "name": "财务报表与个人账单",
+      "description": "提供管理员财务总览、店铺分组汇总、项目明细、待结算查询、用户个人账单及报告下载费用记录；支持筛选和表格导出。",
+      "price": 700,
+      "fr": "Tableaux financiers et relevés",
+      "group": 4,
+      "required": false,
+      "deps": [
+        17,
+        19
+      ],
+      "note": "依赖 M17、M19；含现有财务筛选、汇总和导出。报告下载收费统计需 M11；并非企业完整财务报表、审计或报税服务。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "看待结算、费用明细和客户账单。",
+        "fr": "Consulter les relevés et montants à valider."
+      },
+      "descriptionFr": "Vue administrateur, regroupement par boutique, détails, montants à valider, relevés individuels et frais de téléchargement des rapports. Filtres et exports de tableaux.",
+      "noteFr": "M17 et M19 requis. Statistiques de téléchargement : M11. Ne remplace pas des états comptables légaux, un audit ou un service fiscal."
+    },
+    {
+      "id": 21,
+      "code": "M21",
+      "name": "工单标签与条码打印",
+      "description": "根据工单生成产品及检测标签，展示编号、设备标识、店铺、故障及检测结果等信息；支持条码生成、标签预览、打印编号管理和品类专用标签。",
+      "price": 550,
+      "fr": "Étiquettes et codes-barres",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "基本产品标签可独立使用；带详细检测结果的标签需 M08。含现有打印模板，不含打印机、耗材或专用驱动定制。",
+      "effortDays": [
+        2,
+        3
+      ],
+      "simple": {
+        "zh": "产品与检测信息直接生成条码标签。",
+        "fr": "Imprimer des étiquettes avec codes-barres."
+      },
+      "descriptionFr": "Étiquettes produits et diagnostic avec numéro, identifiants, boutique, défauts et résultats. Codes-barres, aperçu, numérotation d’impression et modèles par catégorie.",
+      "noteFr": "Étiquette produit de base utilisable seule ; détails de diagnostic : M08. Imprimante, consommables et pilotes spécifiques exclus."
+    },
+    {
+      "id": 22,
+      "code": "M22",
+      "name": "独立标签工作台",
+      "description": "支持脱离工单管理标签资料；可粘贴 Excel 内容、整理字段、检查重复、生成及打印标签，并保留标签编辑、删除和恢复记录。",
+      "price": 600,
+      "fr": "Atelier autonome d’étiquettes",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "在本平台账号体系内独立于工单使用，不强制购买 M21；不是另售一个不依赖基础包的独立软件。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "不建工单，也能整理和打印一批标签。",
+        "fr": "Préparer des étiquettes sans créer de dossier."
+      },
+      "descriptionFr": "Gestion des données d’étiquettes hors dossiers. Collage de données Excel, préparation des champs, détection de doublons, génération et impression ; historique d’édition, suppression et restauration.",
+      "noteFr": "Indépendant des dossiers dans les comptes de la plateforme ; M21 non obligatoire. Ce n’est pas un logiciel autonome vendu sans socle."
+    },
+    {
+      "id": 23,
+      "code": "M23",
+      "name": "表格导入与导出",
+      "description": "支持 CSV／Excel 工单导入、模板下载、预览确认及错误提示；支持客户分配资料和补充商品编码导入，以及工单、财务、库存、批次、物流等资料导出。",
+      "price": 850,
+      "fr": "Imports et exports de données",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "提供导入模板、映射预览、错误反馈及集中数据交换。已在 M12/M14/M20 等写明的现有导出不重复收费；代客户整理和搬迁历史数据另列 S04/S05。",
+      "effortDays": [
+        3,
+        5
+      ],
+      "simple": {
+        "zh": "从 Excel 导入业务资料，减少重复输入。",
+        "fr": "Importer les données et centraliser les échanges."
+      },
+      "descriptionFr": "Import CSV/Excel de dossiers avec modèles, aperçu, confirmation et erreurs. Import de données d’affectation client et de codes produits ; exports de dossiers, finances, stocks, lots et logistique.",
+      "noteFr": "Pas de double facturation des exports déjà inclus dans M12/M14/M20. Nettoyage et migration historique réalisés pour le client : S04/S05, séparément."
+    },
+    {
+      "id": 24,
+      "code": "M24",
+      "name": "内部邮件与消息协作",
+      "description": "提供站内邮箱、收件箱、已发送、草稿、回复、转发、附件及未读提醒；支持邮件检索、回收站和发送任务管理。",
+      "price": 1600,
+      "fr": "Messagerie interne",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "仅按原清单的内部邮件/消息范围交付；不承诺 Gmail、Outlook、Hotmail 聚合、IMAP 同步、外部收信网关或营销邮件平台。",
+      "effortDays": [
+        5,
+        8
+      ],
+      "simple": {
+        "zh": "在系统内收发消息、附件和内部邮件。",
+        "fr": "Échanger messages et pièces jointes en interne."
+      },
+      "descriptionFr": "Messagerie interne avec réception, éléments envoyés, brouillons, réponse, transfert, pièces jointes et non-lus. Recherche, corbeille et gestion des tâches d’envoi.",
+      "noteFr": "Messagerie interne seulement. Pas d’agrégation Gmail/Outlook/Hotmail, de synchronisation IMAP, de passerelle de réception externe ni d’outil marketing."
+    },
+    {
+      "id": 25,
+      "code": "M25",
+      "name": "工单沟通与个人工作辅助",
+      "description": "支持工单评论、评论修改记录、业务备注及处理标记；提供个人便签／剪贴板、常用内容复用、列表偏好和工作草稿保存。",
+      "price": 450,
+      "fr": "Commentaires et outils personnels",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "记录工单交流与个人辅助信息；其他模块本来已包含的业务备注、检测草稿等不因未购买本项被取消。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "围绕工单沟通，保存便签和常用内容。",
+        "fr": "Commenter les dossiers et conserver des notes."
+      },
+      "descriptionFr": "Commentaires de dossier avec historique des modifications, notes métier et marquage. Notes personnelles, presse-papiers, contenus réutilisables, préférences de liste et brouillons.",
+      "noteFr": "Les notes métier et brouillons déjà prévus dans les autres modules restent disponibles sans cet achat."
+    },
+    {
+      "id": 26,
+      "code": "M26",
+      "name": "多语言与多终端使用",
+      "description": "提供简体中文、英语、法语界面及业务词条显示，支持业务文本翻译辅助；适配电脑、平板和手机浏览器，并提供主题及界面偏好设置。",
+      "price": 700,
+      "fr": "Langues et usage multi-écrans",
+      "group": 5,
+      "required": false,
+      "deps": [],
+      "note": "基础交付可从现有中/英/法界面选择一个主语言；本项为三语切换、现有翻译辅助、多终端适配联调及偏好设置。不含原生 iOS/Android App、离线模式或新增语言。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "中、英、法切换，在手机和电脑上使用。",
+        "fr": "Utiliser les interfaces chinoise, anglaise et française."
+      },
+      "descriptionFr": "Interfaces et libellés métier en chinois simplifié, anglais et français ; aide à la traduction de textes. Usage sur navigateurs ordinateur, tablette et mobile ; thème et préférences.",
+      "noteFr": "Le socle permet une langue principale existante ; ce module ajoute le basculement entre trois langues, l’aide à la traduction et la validation multi-écrans. Pas d’app native, d’offline ou de langue nouvelle."
+    },
+    {
+      "id": 27,
+      "code": "M27",
+      "name": "操作日志与业务追溯",
+      "description": "记录业务操作、操作人员、时间和关键数据变更；支持工单历史、管理员操作及系统审计记录的查询与导出。",
+      "price": 450,
+      "fr": "Journal d’audit et traçabilité",
+      "group": 6,
+      "required": true,
+      "deps": [],
+      "note": "基础必选。提供现有操作追溯，但不承诺司法存证、不可篡改认证或无限期日志保留。",
+      "effortDays": [
+        2,
+        4
+      ],
+      "simple": {
+        "zh": "谁在什么时候改过什么，可以回查。",
+        "fr": "Retrouver qui a fait quoi et quand."
+      },
+      "descriptionFr": "Trace des opérations, auteurs, dates et changements clés. Consultation et export des historiques de dossiers, opérations administrateur et journaux d’audit.",
+      "noteFr": "Socle obligatoire selon ce catalogue proposé. Pas de certification probatoire, de journal certifié inaltérable ou de conservation illimitée."
+    },
+    {
+      "id": 28,
+      "code": "M28",
+      "name": "数据纠错与回收站",
+      "description": "支持管理员回退工单状态、保留或重置后续记录；提供重复工单检查与合并、误删恢复、回收站及彻底删除管理。",
+      "price": 950,
+      "fr": "Corrections et corbeille",
+      "group": 6,
+      "required": false,
+      "deps": [],
+      "note": "在当前业务数据上执行授权纠错、合并和回收站操作；与 M30 从备份恢复历史数据的用途不同。跨模块恢复仅覆盖已购模块。",
+      "effortDays": [
+        4,
+        6
+      ],
+      "simple": {
+        "zh": "工单录错或误删时，有工具处理。",
+        "fr": "Corriger des erreurs ou récupérer des suppressions."
+      },
+      "descriptionFr": "Retour d’étape administrateur avec conservation ou réinitialisation des données suivantes. Détection/fusion de doublons, récupération d’erreurs de suppression, corbeille et suppression définitive.",
+      "noteFr": "Corrections de données courantes, distinctes de la restauration historique M30. La restauration transverse ne couvre que les modules achetés."
+    },
+    {
+      "id": 29,
+      "code": "M29",
+      "name": "系统状态与运行管理",
+      "description": "提供系统状态查看、错误日志、问题处理标记及管理数据导出；支持查看数据保护任务及相关执行记录。",
+      "price": 450,
+      "fr": "État du système et exploitation",
+      "group": 6,
+      "required": false,
+      "deps": [],
+      "note": "客户可查看的运行状态及任务管理界面；S02 中的基础部署监控、备份告警不会因不买本项被移除。值守运维属于年度服务。",
+      "effortDays": [
+        2,
+        3
+      ],
+      "simple": {
+        "zh": "查看系统状态、错误日志和任务记录。",
+        "fr": "Consulter l’état du système et les journaux."
+      },
+      "descriptionFr": "État du système, erreurs, marquage des problèmes et export de données de gestion. Consultation des tâches de protection des données et de leurs exécutions.",
+      "noteFr": "Interface d’exploitation client. Les alertes de déploiement et de sauvegarde S02 restent incluses sans ce module. La surveillance humaine est un service annuel."
+    },
+    {
+      "id": 30,
+      "code": "M30",
+      "name": "数据备份与恢复",
+      "description": "配套数据库与附件备份、备份历史和保留策略；支持授权范围内的历史字段恢复、已删除工单及关联资料恢复，并记录恢复预览与操作审计。",
+      "price": 650,
+      "fr": "Sauvegarde et restauration",
+      "group": 6,
+      "required": true,
+      "deps": [],
+      "note": "基础必选。提供备份及授权恢复能力；备份基础设施初始化在 S02，持续检查在维护服务。基于快照恢复并受保留窗口约束，不承诺任意时点/零丢失/双活。",
+      "effortDays": [
+        4,
+        7
+      ],
+      "simple": {
+        "zh": "备份数据库和附件，按权限恢复历史资料。",
+        "fr": "Sauvegarder les données et gérer les restaurations."
+      },
+      "descriptionFr": "Sauvegarde de la base et des pièces jointes, historique et rétention. Restauration autorisée de champs historiques, dossiers supprimés et éléments associés, avec aperçu et audit.",
+      "noteFr": "Socle obligatoire selon le catalogue proposé. Initialisation : S02 ; contrôles continus : maintenance. Fenêtre de rétention limitée ; ni restauration à tout instant, ni zéro perte, ni actif-actif."
+    }
+  ],
+  "groups": [
+    "账号、权限与基础资料",
+    "工单与售后业务",
+    "检测、取证与报告",
+    "仓储、分配与物流",
+    "费用、对账与结算",
+    "标签、数据交换与日常协作",
+    "系统管理与数据保障"
+  ],
+  "packages": [
+    {
+      "id": "base",
+      "name": "最小基础包",
+      "fr": "Socle",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        27,
+        30
+      ],
+      "software": 4550,
+      "project": 6950,
+      "description": {
+        "zh": "账号、基础建单、流程、日志与备份。",
+        "fr": "Comptes, saisie, workflow, audit et sauvegarde."
+      }
+    },
+    {
+      "id": "essential",
+      "name": "工单协作版",
+      "fr": "Essentiel",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        25,
+        27,
+        30
+      ],
+      "software": 5650,
+      "project": 8050,
+      "description": {
+        "zh": "增加高级查询、批量操作和工单评论。",
+        "fr": "Ajoute recherche avancée, lots et commentaires."
+      }
+    },
+    {
+      "id": "atelier",
+      "name": "检测维修版",
+      "fr": "Atelier SAV",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        21,
+        23,
+        25,
+        27,
+        30
+      ],
+      "software": 11500,
+      "project": 13900,
+      "description": {
+        "zh": "加入检测、取证、报告、标签与导入。",
+        "fr": "Ajoute diagnostic, preuves, rapports, étiquettes et imports."
+      }
+    },
+    {
+      "id": "operations",
+      "name": "仓储结算版",
+      "fr": "Opérations",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        25,
+        26,
+        27,
+        28,
+        30
+      ],
+      "software": 22350,
+      "project": 24750,
+      "description": {
+        "zh": "加入仓储、物流、计费与对账。",
+        "fr": "Ajoute stocks, logistique, tarification et rapprochement."
+      }
+    },
+    {
+      "id": "complete",
+      "name": "全功能版",
+      "fr": "Complet",
+      "ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ],
+      "software": 25000,
+      "project": 27400,
+      "description": {
+        "zh": "原清单的 30 项功能全部包含。",
+        "fr": "Les 30 modules du catalogue initial."
+      }
+    }
+  ],
+  "services": [
+    {
+      "code": "S01",
+      "name": "企业品牌与初始化",
+      "price": 600,
+      "scope": "1 个法人主体、1 套 Logo/配色、1 个域名绑定资料；最多代录 20 个账号、10 家店铺、2 个仓库及 3 类角色；已购模块的现有计费/报告/标签模板基础初始化。客户自行继续维护基础资料不另收费。",
+      "required": true,
+      "fr": "Identité et initialisation",
+      "scopeFr": "Une entité, un logo/couleurs et un domaine ; saisie initiale de 20 comptes, 10 boutiques, 2 entrepôts et 3 types de rôles au maximum. Initialisation simple des modèles existants achetés."
+    },
+    {
+      "code": "S02",
+      "name": "独立部署、联调与上线",
+      "price": 1200,
+      "scope": "1 个生产环境及 1 个验收环境的安装配置；独立数据库、文件存储、HTTPS、基础监控告警、每日备份任务；已有模块组合的权限/菜单配置、集成测试和首次恢复验证。服务器资源与后续值守不包含。",
+      "required": true,
+      "fr": "Déploiement, intégration et mise en ligne",
+      "scopeFr": "Un environnement de production et un de recette ; base, stockage, HTTPS, alertes et sauvegardes quotidiennes. Configuration des modules, tests et première restauration. Ressources et surveillance continue exclues."
+    },
+    {
+      "code": "S03",
+      "name": "培训、验收与交接",
+      "price": 600,
+      "scope": "2 次远程培训，每次 2 小时、每次最多 10 人；现有操作说明、选定流程验收清单、运行/部署资料交接；验收后 90 个自然日的范围内缺陷保修。",
+      "required": true,
+      "fr": "Formation, recette et transfert",
+      "scopeFr": "Deux formations à distance de 2 h, 10 personnes maximum chacune ; documentation existante, recette et transfert d’exploitation. Garantie des défauts du périmètre accepté pendant 90 jours après recette."
+    },
+    {
+      "code": "S04",
+      "name": "小型历史数据迁移",
+      "price": 750,
+      "scope": "最多 2 个结构清晰的 CSV/Excel 表、合计 2,000 行；1 次字段映射、1 次试导入、1 次正式导入和数量核对；不含图片视频、去重清洗和人工补录。与 S05 二选一。",
+      "required": false,
+      "fr": "Petite migration de données",
+      "scopeFr": "Deux tableaux CSV/Excel structurés, 2 000 lignes au total ; mapping, un essai, un import final et contrôle des quantités. Sans médias, nettoyage ou saisie. Alternative à S05."
+    },
+    {
+      "code": "S05",
+      "name": "标准历史数据迁移",
+      "price": 1500,
+      "scope": "最多 4 个结构清晰的 CSV/Excel 表、合计 10,000 行；2 次试导入、1 次正式导入及数量核对；不含复杂清洗、旧系统接口开发或媒体。与 S04 二选一。",
+      "required": false,
+      "fr": "Migration standard",
+      "scopeFr": "Quatre tableaux structurés, 10 000 lignes au total ; deux essais, import final et contrôle. Sans nettoyage complexe, interface avec un ancien système ou médias. Alternative à S04."
+    },
+    {
+      "code": "S06",
+      "name": "媒体附件迁移",
+      "price": 400,
+      "scope": "1 个可合法访问的来源、最多 50 GB，客户提供文件与工单对应关系；执行 1 次迁移及抽样核对；超量或缺少关联表先另报价，第三方流量费另计。",
+      "required": false,
+      "fr": "Migration de pièces jointes",
+      "scopeFr": "Une source accessible légalement, 50 Go maximum, correspondance fichiers/dossiers fournie par le client. Une migration et contrôle par échantillon ; trafic tiers séparé."
+    },
+    {
+      "code": "S07",
+      "name": "源码交付及非独占内部修改授权",
+      "price": 8500,
+      "scope": "已购买模块的开发源码及必要公共依赖、构建说明、数据库迁移脚本、环境变量示例；客户可自行或委托第三方维护内部实例。未购模块不因此获得商业使用授权；不包含独家买断、转售或知识产权转让。",
+      "required": false,
+      "fr": "Code source et droit de modification interne",
+      "scopeFr": "Code des modules achetés, dépendances nécessaires, construction, migrations de base et exemples de variables. Droit non exclusif pour l’instance interne ; ni rachat de propriété intellectuelle, ni exclusivité, ni revente."
+    },
+    {
+      "code": "S08",
+      "name": "追加远程培训",
+      "price": 190,
+      "scope": "每次 2 小时、最多 10 人；超出次数按数量相乘，不含差旅和驻场。",
+      "required": false,
+      "fr": "Formation à distance supplémentaire",
+      "scopeFr": "Par séance de 2 h, 10 participants maximum ; déplacements et présence sur site exclus."
+    }
+  ],
+  "extensions": [
+    {
+      "code": "X01",
+      "name": "追加报告版式",
+      "price": 300,
+      "unit": "套",
+      "deps": [
+        11
+      ],
+      "scope": "在现有报告引擎内，1 套、1 种语言、最多 2 页，使用已有字段；不含新计算规则或专业翻译。",
+      "fr": "Maquette de rapport",
+      "scopeFr": "Une langue, deux pages maximum, moteur et champs existants ; sans nouvelle règle de calcul ou traduction professionnelle."
+    },
+    {
+      "code": "X02",
+      "name": "追加标签版式",
+      "price": 150,
+      "unit": "套",
+      "deps": [],
+      "scope": "1 个固定尺寸、最多 10 个已有字段、浏览器标准打印；须已购 M21 或 M22；不含打印驱动开发。",
+      "fr": "Maquette d’étiquette",
+      "scopeFr": "Un format fixe, dix champs existants maximum, impression navigateur. M21 ou M22 requis ; sans pilote spécifique."
+    },
+    {
+      "code": "X03",
+      "name": "追加普通业务字段",
+      "price": 120,
+      "unit": "个",
+      "deps": [],
+      "scope": "1 个现有业务对象的文字/数值/日期/枚举字段，在最多 3 个现有页面展示或编辑；不引入新流程、新权限维度或新计费规则。",
+      "fr": "Champ métier simple",
+      "scopeFr": "Un champ texte/nombre/date/liste sur un objet et trois pages existantes maximum ; sans nouveau processus, permission ou tarif."
+    },
+    {
+      "code": "X04",
+      "name": "追加标准品类配置",
+      "price": 600,
+      "unit": "类",
+      "deps": [
+        8
+      ],
+      "scope": "基于现有产品/检测框架增加 1 类产品、最多 10 个普通字段和 1 套检测选项；不含新硬件、专属流程及报告重设计。",
+      "fr": "Catégorie produit standard",
+      "scopeFr": "Une catégorie sur le cadre existant, dix champs simples maximum et une liste de contrôles ; sans matériel ni nouveau workflow."
+    },
+    {
+      "code": "X05",
+      "name": "追加有限流程分支",
+      "price": 900,
+      "unit": "条",
+      "deps": [],
+      "scope": "现有流程内最多 3 个新增状态、5 个转换规则；不含新的库存模型、计价模型、跨企业协同或第三方接口。",
+      "fr": "Branche de workflow limitée",
+      "scopeFr": "Trois états et cinq transitions supplémentaires maximum ; sans nouveau modèle de stock, frais, collaboration interentreprises ou API."
+    },
+    {
+      "code": "X06",
+      "name": "追加统计报表",
+      "price": 600,
+      "unit": "张",
+      "deps": [],
+      "scope": "使用已有数据表，最多 10 个统计指标、3 个筛选项和 1 份 CSV 导出；财务类必须具备相关财务模块，不含 BI 平台或数据仓库。",
+      "fr": "Rapport statistique",
+      "scopeFr": "Données existantes, dix indicateurs et trois filtres maximum, un export CSV ; données financières sous réserve des modules requis. Sans nouvelle plateforme BI."
+    }
+  ],
+  "required": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    27,
+    30
+  ],
+  "setup": 2400,
+  "maintenance": [
+    {
+      "price": 0,
+      "name": "不购买年度维护"
+    },
+    {
+      "price": 1800,
+      "name": "基础维护（12 个月）"
+    },
+    {
+      "price": 3600,
+      "name": "增强维护（12 个月）"
+    }
+  ],
+  "hourly": 95,
+  "sourcePrice": 8500,
+  "hostingMonthlyDefault": 60,
+  "catalogDate": "2026-10-15",
+  "schemaVersion": 1,
+  "groupsFr": [
+    "Comptes et référentiels",
+    "Dossiers et SAV",
+    "Diagnostic et preuves",
+    "Stocks et logistique",
+    "Frais et rapprochement",
+    "Étiquettes et collaboration",
+    "Administration et sauvegardes"
+  ],
+  "groupShort": [
+    "账号权限",
+    "工单售后",
+    "检测取证",
+    "仓储物流",
+    "费用结算",
+    "协作与数据",
+    "系统保障"
+  ],
+  "groupShortFr": [
+    "Accès",
+    "Dossiers SAV",
+    "Diagnostic",
+    "Logistique",
+    "Frais",
+    "Collaboration",
+    "Protection"
+  ],
+  "modelAssumptions": {
+    "rateLow": 500,
+    "rateHigh": 700,
+    "sharedDaysLow": 18,
+    "sharedDaysHigh": 30,
+    "origin": "新拆分的人日估算，汇总保持原文件的 120—200 人日；不是官网逐模块报价。"
+  },
+  "groupReferences": [
+    [
+      "glpi",
+      "dolicloud"
+    ],
+    [
+      "gosuivi",
+      "freshdesk",
+      "zendesk"
+    ],
+    [
+      "gosuivi",
+      "synchroteam"
+    ],
+    [
+      "dolicloud",
+      "gosuivi"
+    ],
+    [
+      "dolicloud",
+      "gosuivi"
+    ],
+    [
+      "freshdesk",
+      "dolicloud"
+    ],
+    [
+      "glpi",
+      "dolicloud"
+    ]
+  ],
+  "sources": [
+    {
+      "id": "E01",
+      "brand": "GoSuivi",
+      "url": "https://www.gosuivi.fr/tarifs.php",
+      "status": "verified",
+      "tax": "HT",
+      "zh": "维修业务套餐 45 / 59 / 99 € HT／月。官网按套餐展示；多门店另询价，不按员工数盲目相乘。",
+      "fr": "Forfaits SAV à 45 / 59 / 99 € HT par mois. Réseaux multi-boutiques sur devis ; ne pas multiplier arbitrairement par le nombre de salariés.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E02",
+      "brand": "GLPI Network",
+      "url": "https://www.glpi-project.org/fr/pricing/",
+      "status": "verified",
+      "tax": "HT",
+      "zh": "Public Cloud 19 € HT／计费用户／月；Private Cloud 21 €，最低计费 25 人。终端报修用户不等于计费代理。",
+      "fr": "Public Cloud : 19 € HT par utilisateur facturé/mois. Private : 21 €, minimum 25. Les utilisateurs finaux ne sont pas tous des agents facturés.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E03",
+      "brand": "Freshdesk",
+      "url": "https://www.freshworks.com/fr/freshdesk/pricing/",
+      "status": "verified",
+      "tax": "unknown",
+      "zh": "Growth 17、Pro 52、Enterprise 84 €／客服席位／月，为年付折算价。未在所读价格区确认税口径；额外调用另核。",
+      "fr": "Growth 17, Pro 52, Enterprise 84 € par agent/mois, facturation annuelle. Traitement fiscal non confirmé dans le bloc lu ; usages supplémentaires à vérifier.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E04",
+      "brand": "Zendesk",
+      "url": "https://www.zendesk.fr/pricing/",
+      "status": "verified",
+      "tax": "unknown",
+      "zh": "年付折算 19 / 55 / 115 €／客服席位／月；月付 25 / 69 / 149 €。税口径和附加服务以实际订单为准。",
+      "fr": "Annuel : 19 / 55 / 115 € par agent/mois ; mensuel : 25 / 69 / 149 €. Taxes et options à confirmer à la commande.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E05",
+      "brand": "DoliCloud",
+      "url": "https://www.dolicloud.com/fr/fr-faq-pricing.php",
+      "status": "verified",
+      "tax": "HT",
+      "zh": "Basic 14 € HT／用户／月；Premium 每月固定 30 € HT + 15 € HT／用户。页面脚注明确 HT，仅计启用的内部用户。",
+      "fr": "Basic : 14 € HT/utilisateur/mois. Premium : 30 € HT fixes/mois + 15 € HT/utilisateur. La note confirme HT et les utilisateurs internes activés.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E06",
+      "brand": "Synchroteam",
+      "url": "https://www.synchroteam.fr/tarif.php",
+      "status": "partial",
+      "tax": "unknown",
+      "zh": "Standard 并列显示 39 / 49 €；Premium 64 / 79 €／用户／月。静态价格区未逐价绑定年/月周期；仅展示，不纳入精确多年比较。",
+      "fr": "Standard affiche 39 / 49 € et Premium 64 / 79 € par utilisateur/mois. L’extraction ne relie pas sans ambiguïté chaque prix au cycle. Exclu du calcul pluriannuel exact.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E07",
+      "brand": "Falinwa · France",
+      "url": "https://www.falinwa.com/pricing",
+      "status": "verified",
+      "tax": "unknown",
+      "zh": "法国区实施参考包：25 小时 2,500 €、50 小时 4,625 €、100 小时 10,000 €、200 小时 17,000 €。具体包含服务、持续周期及税额须正式确认；不是本系统的整体报价。",
+      "fr": "Packs France : 25 h / 2 500 €, 50 h / 4 625 €, 100 h / 10 000 €, 200 h / 17 000 €. Périmètre, services récurrents et taxes à confirmer ; ce ne sont pas des devis pour ce système.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E08",
+      "brand": "Malt · Fullstack",
+      "url": "https://www.malt.fr/t/barometre-tarifs/tech/developpeur-backend/developpeur-fullstack",
+      "status": "verified",
+      "tax": "unknown",
+      "zh": "活跃资深全栈开发者参考日费率 557 €，是 Malt 平台样本。本站 500—700 €/人日和各模块人日为估算假设，不是全国均价。",
+      "fr": "Repère de 557 €/jour pour les fullstack expérimentés actifs sur Malt. Échantillon de plateforme ; 500–700 €/jour et les jours par module sont des hypothèses du modèle, pas une moyenne nationale.",
+      "verifiedAt": "2026-10-16"
+    },
+    {
+      "id": "E09",
+      "brand": "Ministère de l’Économie",
+      "url": "https://www.economie.gouv.fr/particuliers/impots-et-fiscalite/gerer-mes-autres-impots-et-taxes/tva-quels-sont-les-taux-de-votre-quotidien",
+      "status": "verified",
+      "tax": "n/a",
+      "zh": "法国本土标准 TVA 为 20%。本站可修改税率；具体开票情形和第三方账单不能一概套用。",
+      "fr": "Taux normal de TVA de 20 % en France métropolitaine. Taux modifiable ici ; confirmer chaque opération et chaque facture de tiers.",
+      "verifiedAt": "2026-10-16"
+    }
+  ],
+  "vendors": [
+    {
+      "id": "gosuivi",
+      "name": "GoSuivi",
+      "initials": "Go",
+      "source": "E01",
+      "category": "repair",
+      "tag": {
+        "zh": "维修门店 / SAV",
+        "fr": "Ateliers de réparation"
+      },
+      "description": {
+        "zh": "维修、客户与库存业务的直接参考。",
+        "fr": "Repère direct pour un atelier SAV."
+      },
+      "limit": {
+        "zh": "单一套餐示例；员工上限需确认。多门店必须另询价；白标不等于独立部署。",
+        "fr": "Exemple d’un forfait ; limites d’utilisateurs à confirmer. Multi-boutiques sur devis. Marque blanche ≠ déploiement indépendant."
+      },
+      "plans": [
+        {
+          "id": "premium",
+          "name": "Premium",
+          "price": 45,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "package",
+          "period": "monthly"
+        },
+        {
+          "id": "white",
+          "name": "Marque Blanche",
+          "price": 59,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "package",
+          "period": "monthly"
+        },
+        {
+          "id": "complete",
+          "name": "Complète",
+          "price": 99,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "package",
+          "period": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "glpi",
+      "name": "GLPI Network",
+      "initials": "G",
+      "source": "E02",
+      "category": "helpdesk",
+      "tag": {
+        "zh": "工单 / IT 资产",
+        "fr": "Helpdesk / actifs IT"
+      },
+      "description": {
+        "zh": "技术支持工单与资产管理参考。",
+        "fr": "Repère helpdesk et gestion des actifs IT."
+      },
+      "limit": {
+        "zh": "Private Cloud 至少计费 25 人。实物维修、仓储和费用轮次须另做适配确认。",
+        "fr": "Private : minimum 25 utilisateurs facturés. Diagnostic physique, flux logistiques et cycles de frais à vérifier."
+      },
+      "plans": [
+        {
+          "id": "public",
+          "name": "Public Cloud",
+          "price": 19,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        },
+        {
+          "id": "private",
+          "name": "Private Cloud",
+          "price": 21,
+          "fixed": 0,
+          "minimum": 25,
+          "unit": "seat",
+          "period": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "freshdesk",
+      "name": "Freshdesk",
+      "initials": "F",
+      "source": "E03",
+      "category": "helpdesk",
+      "tag": {
+        "zh": "客服工单 / 协作",
+        "fr": "Support client / collaboration"
+      },
+      "description": {
+        "zh": "客服入口、协作与报表的套餐参考。",
+        "fr": "Repère pour tickets, collaboration et rapports."
+      },
+      "limit": {
+        "zh": "显示年付折算价；计费对象是客服席位。不是检测、仓储与财务全套价格。",
+        "fr": "Prix mensuel équivalent avec engagement annuel ; agents payants. Pas un devis complet diagnostic, stock et finance."
+      },
+      "plans": [
+        {
+          "id": "growth",
+          "name": "Growth",
+          "price": 17,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        },
+        {
+          "id": "pro",
+          "name": "Pro",
+          "price": 52,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        },
+        {
+          "id": "enterprise",
+          "name": "Enterprise",
+          "price": 84,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        }
+      ]
+    },
+    {
+      "id": "zendesk",
+      "name": "Zendesk",
+      "initials": "Z",
+      "source": "E04",
+      "category": "helpdesk",
+      "tag": {
+        "zh": "多渠道客户支持",
+        "fr": "Support omnicanal"
+      },
+      "description": {
+        "zh": "客服体系与跨渠道沟通的参考。",
+        "fr": "Repère pour le support et les canaux clients."
+      },
+      "limit": {
+        "zh": "年付与月付单价不同；AI、电话等增量费用需核实。业务适配与支持承诺不等同。",
+        "fr": "Prix différents selon l’engagement ; usages IA/téléphonie à vérifier. Périmètres et engagements de support non équivalents."
+      },
+      "plans": [
+        {
+          "id": "support-a",
+          "name": "Support Team · 年付 / annuel",
+          "price": 19,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        },
+        {
+          "id": "suite-a",
+          "name": "Suite Team · 年付 / annuel",
+          "price": 55,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        },
+        {
+          "id": "pro-a",
+          "name": "Suite Professional · 年付 / annuel",
+          "price": 115,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "annual"
+        },
+        {
+          "id": "support-m",
+          "name": "Support Team · 月付 / mensuel",
+          "price": 25,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        },
+        {
+          "id": "suite-m",
+          "name": "Suite Team · 月付 / mensuel",
+          "price": 69,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        },
+        {
+          "id": "pro-m",
+          "name": "Suite Professional · 月付 / mensuel",
+          "price": 149,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "dolicloud",
+      "name": "DoliCloud",
+      "initials": "D",
+      "source": "E05",
+      "category": "erp",
+      "tag": {
+        "zh": "ERP / 库存 / 费用",
+        "fr": "ERP / stocks / frais"
+      },
+      "description": {
+        "zh": "Dolibarr 云端整包与扩展路线参考。",
+        "fr": "Repère Dolibarr hébergé et personnalisable."
+      },
+      "limit": {
+        "zh": "仅计启用的内部用户；Premium 的 30 € 是固定月费，不是每人费用。专用流程仍须验证。",
+        "fr": "Utilisateurs internes activés uniquement. Les 30 € Premium sont fixes, pas par utilisateur. Processus spécifiques à valider."
+      },
+      "plans": [
+        {
+          "id": "basic",
+          "name": "Basic",
+          "price": 14,
+          "fixed": 0,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        },
+        {
+          "id": "premium",
+          "name": "Premium",
+          "price": 15,
+          "fixed": 30,
+          "minimum": 1,
+          "unit": "seat",
+          "period": "monthly"
+        }
+      ]
+    },
+    {
+      "id": "synchroteam",
+      "name": "Synchroteam",
+      "initials": "S",
+      "source": "E06",
+      "category": "field",
+      "tag": {
+        "zh": "现场服务 / 移动",
+        "fr": "Interventions terrain"
+      },
+      "description": {
+        "zh": "现场干预、维护和移动工作参考。",
+        "fr": "Repère interventions et maintenance terrain."
+      },
+      "limit": {
+        "zh": "年/月价格对应关系待确认。不用于自动年化；不可据此宣称全年精确成本。",
+        "fr": "Association prix/cycle à confirmer. Pas d’annualisation automatique ni de coût annuel exact affiché."
+      },
+      "plans": [
+        {
+          "id": "standard",
+          "name": "Standard",
+          "display": "39 / 49",
+          "price": null,
+          "unit": "seat",
+          "period": "unknown"
+        },
+        {
+          "id": "premium",
+          "name": "Premium",
+          "display": "64 / 79",
+          "price": null,
+          "unit": "seat",
+          "period": "unknown"
+        }
+      ]
+    }
+  ]
+}
