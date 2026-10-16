@@ -43,3 +43,30 @@ for(const lang of ['zh','en','fr']){
  assert(html.includes(`href="/guides/${lang}/"`));assert(html.includes(`https://zhaoyang.fr/guides/work-order-quote/${lang}/`));
 }
 console.log('PASS source-model parity, 5 packages, dependency closure/deduplication/removal, service totals, 80%/0%/fractional discounts, VAT, recurring-cost separation, invalid data and 3 complete locales.');
+
+// Price overrides must change every billed line, without changing selections or rates in the source model.
+const {defaultPrices,priceFor,MAX_PRICE}=await import('../../public/guides/work-order-quote/engine.js');
+const {subscriptionCopy}=await import('../../public/guides/work-order-quote/subscription-copy.js');
+for(const m of MODEL.modules)assert.equal(compute({requested:MODEL.packages[4].ids,prices:{[m.code]:0}}).original,27400-m.price,m.code+' accepts a free price');
+for(const s of MODEL.services.filter(s=>s.required))assert.equal(compute({prices:{[s.code]:0}}).setup,2400-s.price,s.code+' setup override');
+for(const [choice,code]of [[750,'S04'],[1500,'S05']])assert.equal(compute({migration:choice,prices:{[code]:12.34}}).additional,12.34);
+const ones=compute({requested:MODEL.packages[4].ids,prices:Object.fromEntries(Object.keys(defaultPrices).map(k=>[k,1.11])),migration:1500,media:true,source:true,training:2,extras:Object.fromEntries(MODEL.extensions.map(x=>[x.code,2])),maintenance:1800,hosting:10,thirdparty:1,discount:80});
+assert.equal(ones.original,55.5);assert.equal(ones.project,44.4);assert.equal(ones.vat,8.88);assert.equal(ones.recurring,122.11);
+assert.equal(priceFor(clean({prices:{M01:0}}),'M01'),0);
+assert.deepEqual(clean({prices:{M01:'',M02:null,M03:-2,M04:Infinity,M05:MAX_PRICE+1,unknown:1}}).prices,{});
+assert.equal(priceFor(clean({prices:{M01:'12.35'}}),'M01'),12.35);
+const rental=compute({billing:'subscription'});
+assert.equal(rental.subLicense,130);assert.equal(rental.subMonthly,280);assert.equal(rental.subStart,2400);assert.equal(rental.subDev,0);assert.equal(rental.subBudget,340);assert.equal(rental.subFirst,6480);assert.equal(rental.subThree,14640);assert.equal(rental.subTtc,336);
+assert.equal(compute({billing:'subscription',maintenance:3600}).subMonthly,280,'No duplicate annual maintenance');
+assert.equal(compute({billing:'subscription',source:true,prices:{S07:99999}}).subMonthly,280,'Rental does not include source-code licence');
+const demand=compute({billing:'subscription',subHours:4});assert.equal(demand.subMonthly,280);assert.equal(demand.subDev,320);assert.equal(demand.subFirst,6800);assert.equal(demand.subThree,14960,'On-demand development counted once, not every month');
+for(const subMonths of [12,24,36]){
+ const q=compute({billing:'subscription',activationPayment:'spread',subMonths});
+ assert.equal(q.subStart,0);assert.equal(q.subThree,14640);assert.equal(Math.round((q.subInstallment*(subMonths-1)+q.subLastInstallment)*100),240000,'Final instalment reconciles cents');
+}
+const spread=compute({activationPayment:'spread',subMonths:12});assert.equal(spread.subMonthly,480);assert.equal(spread.subFirst,6480);
+const discountedRent=compute({discount:80});assert.equal(discountedRent.subMonthly,260);assert.equal(discountedRent.subActivation,1920);assert.equal(discountedRent.subThree,13440);
+assert.equal(compute({discount:0}).subMonthly,150,'Operations are not discounted');
+assert.equal(compute({prices:{'sub-ops':0,'dev-hour':0},subHours:4}).subMonthly,130);
+for(const lang of ['zh','en','fr']){assert.deepEqual(Object.keys(subscriptionCopy[lang]).sort(),Object.keys(subscriptionCopy.en).sort());if(lang!=='zh')assert(!/[\u3400-\u9fff]/u.test(JSON.stringify(subscriptionCopy[lang])));}
+console.log('PASS all editable rates, zero/cents, invalid override sanitization, rental/operations split, upfront/12/24/36 instalments, one-time development estimates, source exclusion and subscription locale parity.');
