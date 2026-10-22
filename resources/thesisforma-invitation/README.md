@@ -5,7 +5,7 @@ PDF that is shared by hand. The PDF is not published on the site.
 
 - `../../public/thesisforma/index.html` — the web page (a single-column letter).
 - `og.html` — 1200×630 share card, saved as `public/thesisforma/og.png`.
-- The PDF is a one-page replica of the web page: A4-wide, as tall as the letter, links kept.
+- The PDF is the web page on a single A4 sheet: same styles, tighter spacing, font size stepped down until it fits; links kept.
 
 ```bash
 # PDF + og.png; add TF_SERIF_DIR to re-subset the serif fonts after editing text.

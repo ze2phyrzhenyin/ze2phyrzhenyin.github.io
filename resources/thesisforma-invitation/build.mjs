@@ -4,8 +4,8 @@
 //      subset to the glyphs used by the web page and the share card (only when TF_SERIF_DIR
 //      holds NotoSerifSC-Regular.otf and NotoSerifSC-SemiBold.otf; needs pyftsubset).
 //   2. public/thesisforma/og.png — 1200×630 share card.
-//   3. A one-page PDF replica of the web page (not published on the site), written to --out
-//      or ./out/. The page is A4-wide and as tall as the letter.
+//   3. A one-page A4 PDF of the web page in its own styles (not published on the site),
+//      written to --out or ./out/.
 
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
@@ -71,15 +71,37 @@ try {
   await og.screenshot({ path: join(publicDir, 'og.png') });
   console.log(`Wrote ${join(publicDir, 'og.png')}`);
 
-  const width = 794; // A4 width at 96 dpi
-  const page = await open(`http://127.0.0.1:${server.address().port}/thesisforma/`, { width, height: 1123 });
+  // A4 at 96 dpi. The web styles stay; only sizes and spacing are tightened (in em, so they
+  // scale together) and the font size is stepped down until the letter fits on one sheet.
+  const [width, height] = [794, 1123];
+  const page = await open(`http://127.0.0.1:${server.address().port}/thesisforma/`, { width, height });
   await page.emulateMedia({ media: 'screen' });
-  const height = await page.evaluate(() => Math.ceil(document.documentElement.scrollHeight));
+  await page.addStyleTag({ content: `
+    @page { size: A4; margin: 0; }
+    body { font-size: var(--fs); line-height: 1.72; }
+    .letter { max-width: none; padding: 11mm 17mm 8mm; }
+    .letterhead { font-size: .8em; padding-bottom: .6em; }
+    h1 { font-size: 1em; margin: 1.7em 0 1.5em; }
+    h1 span { font-size: 2.6em; }
+    h1 small { font-size: 1em; margin-top: .45em; }
+    p { margin: 0 0 .3em; }
+    .salutation { margin-bottom: .45em; }
+    h2 { font-size: 1.04em; margin: .95em 0 .2em; }
+    .closing { margin-top: .9em; }
+    .signature { margin-top: .9em; line-height: 1.6; }
+    a { text-underline-offset: 3px; }
+  ` });
+  let fs = 11;
+  for (; fs >= 8; fs = +(fs - 0.1).toFixed(1)) {
+    await page.evaluate((size) => document.documentElement.style.setProperty('--fs', `${size}pt`), fs);
+    if (await page.evaluate(() => document.querySelector('.letter').getBoundingClientRect().height) <= height - 2) break;
+  }
+  assert(fs >= 8, 'the letter does not fit on one A4 page even at 8pt');
   await mkdir(dirname(pdfPath), { recursive: true });
-  const pdf = await page.pdf({ path: pdfPath, width: `${width}px`, height: `${height + 1}px`, printBackground: true, margin: { top: 0, right: 0, bottom: 0, left: 0 } });
+  const pdf = await page.pdf({ path: pdfPath, format: 'A4', printBackground: true, preferCSSPageSize: true });
   const pages = pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length;
   assert.equal(pages, 1, `PDF should be a single page, got ${pages}`);
-  console.log(`Wrote ${pdfPath} (1 page, ${width}×${height}px)`);
+  console.log(`Wrote ${pdfPath} (1 A4 page, body ${fs}pt)`);
 } finally {
   await browser.close();
   server.close();
