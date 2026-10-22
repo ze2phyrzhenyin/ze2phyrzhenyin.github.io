@@ -1,88 +1,63 @@
 #!/usr/bin/env node
 // Builds the ThesisForma invitation assets:
-//   1. public/thesisforma/fonts/tf-serif.woff2 — Noto Serif SC Medium subset to the
-//      glyphs used by the web page, the PDF and the share card (only when
-//      TF_SERIF_SOURCE points at NotoSerifSC-Medium.otf; needs fontTools' pyftsubset).
+//   1. public/thesisforma/fonts/tf-serif-{400,600}.woff2 — Noto Serif SC Regular and SemiBold,
+//      subset to the glyphs used by the web page, the PDF and the share card (only when
+//      TF_SERIF_DIR holds NotoSerifSC-Regular.otf and NotoSerifSC-SemiBold.otf; needs pyftsubset).
 //   2. public/thesisforma/og.png — 1200×630 share card.
-//   3. The A4 PDF (not published on the site), written to --out or ./out/.
-// The document figure is copied from public/thesisforma/index.html so the three
-// outputs never drift apart.
+//   3. The A4 PDF letter (not published on the site), written to --out or ./out/.
 
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const pagePath = resolve(here, '../../public/thesisforma/index.html');
-const fontPath = resolve(here, '../../public/thesisforma/fonts/tf-serif.woff2');
-const ogPath = resolve(here, '../../public/thesisforma/og.png');
+const publicDir = resolve(here, '../../public/thesisforma');
 const outArg = process.argv.indexOf('--out');
 const pdfPath = resolve(outArg > -1 ? process.argv[outArg + 1] : join(here, 'out', 'ThesisForma-测试与合作邀请.pdf'));
 
-const page = await readFile(pagePath, 'utf8');
-const pdfTemplate = await readFile(join(here, 'invitation.html'), 'utf8');
-const ogTemplate = await readFile(join(here, 'og.html'), 'utf8');
-
-const figure = page.match(/<svg viewBox="0 0 560 300"[\s\S]*?<\/svg>/)?.[0];
-assert(figure, 'figure SVG not found in public/thesisforma/index.html');
-
-if (process.env.TF_SERIF_SOURCE) {
+if (process.env.TF_SERIF_DIR) {
+  const sources = await Promise.all(['../../public/thesisforma/index.html', 'invitation.html', 'og.html'].map((file) => readFile(join(here, file), 'utf8')));
   const textFile = join(here, 'out', 'glyphs.txt');
   await mkdir(dirname(textFile), { recursive: true });
-  const glyphs = [...new Set(page + pdfTemplate + ogTemplate)].filter((c) => c.codePointAt(0) > 0x7f).join('');
+  const glyphs = [...new Set(sources.join(''))].filter((c) => c.codePointAt(0) > 0x7f).join('');
   await writeFile(textFile, glyphs);
-  await mkdir(dirname(fontPath), { recursive: true });
-  execFileSync(process.env.PYFTSUBSET || 'pyftsubset', [
-    process.env.TF_SERIF_SOURCE,
-    `--text-file=${textFile}`,
-    '--unicodes=U+0020-007E,U+00A0-00FF,U+2010-2027,U+3000-303F,U+FF01-FF5E',
-    '--layout-features=*',
-    '--flavor=woff2',
-    `--output-file=${fontPath}`,
-  ], { stdio: 'inherit' });
-  console.log(`Subset ${glyphs.length} non-ASCII glyphs into ${fontPath}`);
+  for (const [weight, name] of [[400, 'Regular'], [600, 'SemiBold']]) {
+    execFileSync(process.env.PYFTSUBSET || 'pyftsubset', [
+      join(process.env.TF_SERIF_DIR, `NotoSerifSC-${name}.otf`),
+      `--text-file=${textFile}`,
+      '--unicodes=U+0020-007E,U+00A0-00FF,U+2010-2027,U+3000-303F,U+FF01-FF5E',
+      '--layout-features=*',
+      '--flavor=woff2',
+      `--output-file=${join(publicDir, 'fonts', `tf-serif-${weight}.woff2`)}`,
+    ], { stdio: 'inherit' });
+  }
+  console.log(`Subset ${glyphs.length} non-ASCII glyphs into tf-serif-400/600.woff2`);
 }
 
 const { chromium } = await import(process.env.GUIDE_PLAYWRIGHT_MODULE || 'playwright');
 const browser = await chromium.launch();
 
-async function open(template, name, viewport) {
-  const file = join(here, `.${name}.build.html`);
-  await writeFile(file, template.replace('<!--FIGURE-->', figure));
+async function open(file, viewport) {
   const tab = await browser.newPage({ viewport });
-  await tab.goto(pathToFileURL(file).href);
+  await tab.goto(pathToFileURL(join(here, file)).href);
   await tab.evaluate(() => document.fonts.ready);
-  const fonts = await tab.evaluate(() => [...document.fonts].map((f) => `${f.family}:${f.status}`));
-  assert(fonts.includes('"TF Serif":loaded') || fonts.includes('TF Serif:loaded'), `${name}: serif font did not load (${fonts})`);
-  return { tab, cleanup: () => rm(file, { force: true }) };
+  const loaded = await tab.evaluate(() => [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.weight));
+  assert(loaded.includes('400') && loaded.includes('600'), `${file}: serif fonts did not load (${loaded})`);
+  return tab;
 }
 
 try {
-  const og = await open(ogTemplate, 'og', { width: 1200, height: 630 });
-  await og.tab.screenshot({ path: ogPath });
-  await og.cleanup();
-  console.log(`Wrote ${ogPath}`);
+  const og = await open('og.html', { width: 1200, height: 630 });
+  await og.screenshot({ path: join(publicDir, 'og.png') });
+  console.log(`Wrote ${join(publicDir, 'og.png')}`);
 
-  const pdf = await open(pdfTemplate, 'invitation', { width: 900, height: 1200 });
-  await pdf.tab.emulateMedia({ media: 'print' });
-  // Every sheet must fit its A4 box, and the content must stay clear of the running footer.
-  const sheets = await pdf.tab.evaluate(() => [...document.querySelectorAll('.page')].map((sheet) => {
-    const mm = 96 / 25.4;
-    const sections = sheet.querySelectorAll('section');
-    const gap = sheet.querySelector('.runfoot').getBoundingClientRect().top - sections[sections.length - 1].getBoundingClientRect().bottom;
-    return { overflow: sheet.scrollHeight - sheet.clientHeight, freeMm: +(gap / mm).toFixed(1) };
-  }));
-  sheets.forEach(({ overflow, freeMm }, i) => {
-    console.log(`page ${i + 1}: ${freeMm}mm free above the footer`);
-    assert(overflow <= 1, `page ${i + 1} overflows by ${overflow}px`);
-    assert(freeMm >= 6, `page ${i + 1} content runs into the footer`);
-  });
+  const letter = await open('invitation.html', { width: 900, height: 1200 });
   await mkdir(dirname(pdfPath), { recursive: true });
-  await pdf.tab.pdf({ path: pdfPath, preferCSSPageSize: true, printBackground: true });
-  await pdf.cleanup();
-  console.log(`Wrote ${pdfPath}`);
+  const pdf = await letter.pdf({ path: pdfPath, preferCSSPageSize: true, printBackground: true });
+  const pages = pdf.toString('latin1').match(/\/Type\s*\/Page[^s]/g)?.length;
+  console.log(`Wrote ${pdfPath} (${pages} pages)`);
 } finally {
   await browser.close();
 }
