@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>ThesisForma｜测试与合作邀请</title>
+<style>
+  /* Print template for the A4 invitation. build.mjs injects the figure from
+     public/thesisforma/index.html at FIGURE and renders this file to PDF. */
+  @font-face {
+    font-family: "TF Serif";
+    src: url("../../public/thesisforma/fonts/tf-serif.woff2") format("woff2");
+    font-weight: 500;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --paper: #ffffff;
+    --tint: #f3f1ec;
+    --ink: #1b1a18;
+    --ink-2: #4a4743;
+    --muted: #807a72;
+    --line: #e3dfd8;
+    --line-2: #cfcac1;
+    --accent: #23406a;
+    --doc-paper: #fffdf9;
+    --doc-edge: rgba(27, 26, 24, .12);
+    --doc-ink: #2a2724;
+    --doc-mut: #8b857c;
+    --doc-bar: #dcd7ce;
+    --doc-acc: #2c4a72;
+    --doc-guide: rgba(44, 74, 114, .5);
+    --doc-shadow: rgba(27, 26, 24, .10);
+    --serif: "TF Serif", "Songti SC", serif;
+    --sans: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; background: #d9d6d0; }
+
+  body {
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 9.6pt;
+    line-height: 1.78;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 15mm 20mm 0;
+    overflow: hidden;
+    background: var(--paper);
+    break-after: page;
+  }
+
+  .page:last-child { break-after: auto; }
+
+  @media screen { .page { margin: 10mm auto; box-shadow: 0 2mm 8mm rgba(0, 0, 0, .12); } }
+
+  a { color: inherit; text-decoration: none; }
+
+  strong { font-weight: 600; }
+
+  .runhead, .runfoot {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--muted);
+    font-size: 7.6pt;
+    letter-spacing: .08em;
+  }
+
+  .runhead { padding-bottom: 3mm; border-bottom: .3mm solid var(--ink); }
+
+  .runhead b { font-family: var(--serif); font-weight: 500; font-size: 9pt; color: var(--ink); letter-spacing: .01em; }
+
+  .runfoot {
+    position: absolute;
+    left: 20mm;
+    right: 20mm;
+    bottom: 11mm;
+    padding-top: 2.6mm;
+    border-top: .2mm solid var(--line);
+  }
+
+  /* ── Cover block ─────────────────────────────────────── */
+  .cover { padding-top: 8mm; }
+
+  h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 44pt;
+    line-height: 1;
+    letter-spacing: -.02em;
+  }
+
+  .cover-row {
+    display: grid;
+    grid-template-columns: 72mm 1fr;
+    gap: 8mm;
+    margin-top: 4mm;
+  }
+
+  .subtitle {
+    margin: 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 15pt;
+    line-height: 1.55;
+    letter-spacing: .03em;
+  }
+
+  .lead { margin: 5mm 0 0; color: var(--ink-2); font-size: 10pt; line-height: 1.85; text-align: justify; }
+
+  figure { margin: 1.4mm 0 0; }
+
+  .figure-panel { padding: 5mm 4mm 4mm; background: var(--tint); }
+
+  .figure-panel svg { display: block; width: 100%; height: auto; }
+
+  figcaption { margin-top: 2.4mm; color: var(--muted); font-size: 7.6pt; letter-spacing: .04em; }
+
+  figcaption b { font-family: var(--serif); font-weight: 500; color: var(--ink-2); margin-right: .8em; }
+
+  .doc-page { fill: var(--doc-paper); stroke: var(--doc-edge); }
+  .doc-ink { fill: var(--doc-ink); }
+  .doc-mut { fill: var(--doc-mut); }
+  .doc-bar { fill: var(--doc-bar); }
+  .doc-acc { fill: var(--doc-acc); }
+  .doc-lead { stroke: var(--doc-mut); stroke-width: .7; stroke-dasharray: .1 2.2; stroke-linecap: round; fill: none; }
+  .doc-guide { fill: none; stroke: var(--doc-guide); stroke-width: .6; stroke-dasharray: 2 2; }
+  .doc-shadow { flood-color: var(--doc-shadow); flood-opacity: 1; }
+  .doc-serif { font-family: var(--serif); font-weight: 500; }
+  .doc-sans { font-family: var(--sans); }
+
+  /* ── Sections ────────────────────────────────────────── */
+  .sec {
+    display: grid;
+    grid-template-columns: 44mm 1fr;
+    gap: 7mm;
+    padding-top: 5mm;
+    margin-top: 8mm;
+    border-top: .2mm solid var(--line-2);
+  }
+
+  .page > .sec:nth-child(2) { margin-top: 8mm; }
+
+  .page + .page .sec { margin-top: 12mm; }
+
+  .sec-head h2 {
+    margin: -.6mm 0 0;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 13pt;
+    line-height: 1.45;
+    letter-spacing: .03em;
+  }
+
+  .sec-head h2 em { font-style: normal; color: var(--accent); }
+
+  .sec-body > p { margin: 0 0 3mm; text-align: justify; }
+
+  p, h3 { text-wrap: pretty; }
+
+  .features li:not(.wide) p, .flow p, .lead { text-wrap: balance; text-align: left; }
+
+  .sec-body > p:last-child { margin-bottom: 0; }
+
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 3.6mm 0 0;
+    padding: 0;
+    list-style: none;
+    border: .2mm solid var(--line-2);
+  }
+
+  .flow li { padding: 2.6mm 3.2mm 2.8mm; }
+
+  .flow li + li { border-left: .2mm solid var(--line); }
+
+  .flow .n, .features .n {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 8pt;
+    color: var(--accent);
+    letter-spacing: .08em;
+  }
+
+  .flow h3 { margin: .6mm 0 .2mm; font-size: 9.4pt; font-weight: 600; line-height: 1.5; }
+
+  .flow p { margin: 0; color: var(--muted); font-size: 8.2pt; line-height: 1.6; }
+
+  .sec-body > .quote {
+    margin: 4.4mm 0 0;
+    padding: .4mm 0 .4mm 4.4mm;
+    border-left: .6mm solid var(--accent);
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 10.4pt;
+    line-height: 1.75;
+    letter-spacing: 0;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 8mm;
+    margin: 4mm 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .features li { padding: 2.4mm 0 2.6mm; border-top: .2mm solid var(--line-2); }
+
+  .features li.wide { grid-column: 1 / -1; }
+
+  .features h3 { margin: .4mm 0 .4mm; font-size: 10pt; font-weight: 600; line-height: 1.5; }
+
+  .features p { margin: 0; color: var(--ink-2); font-size: 9pt; line-height: 1.7; }
+
+  .note {
+    margin: 2.4mm 0 0 !important;
+    padding-top: 2.6mm;
+    border-top: .2mm solid var(--line);
+    color: var(--muted);
+    font-size: 8.4pt;
+  }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+
+  .pair h3 {
+    margin: 0 0 2mm;
+    padding-bottom: 1.8mm;
+    border-bottom: .2mm solid var(--line-2);
+    color: var(--muted);
+    font-size: 8.2pt;
+    font-weight: 600;
+    letter-spacing: .1em;
+  }
+
+  .pair p { margin: 0; text-align: justify; }
+
+  .offer { margin: 0; padding: 0; list-style: none; }
+
+  .offer li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1.6mm 0;
+    border-bottom: .2mm solid var(--line);
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 11pt;
+  }
+
+  .offer li span { font-family: var(--sans); font-size: 7.8pt; color: var(--accent); letter-spacing: .1em; }
+
+  .offer + p { margin-top: 2.2mm; color: var(--muted); font-size: 8.4pt; }
+
+  .panel { padding: 5.6mm 6.4mm 6mm; background: var(--tint); border-left: .6mm solid var(--accent); }
+
+  .statement {
+    margin: 0 0 2.6mm !important;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 13.4pt;
+    line-height: 1.65;
+    letter-spacing: .02em;
+    text-align: left !important;
+  }
+
+  .panel p:last-child { margin: 0; color: var(--ink-2); }
+
+  .topics { display: grid; grid-template-columns: repeat(3, 1fr); margin: 3mm 0 0; padding: 0; list-style: none; }
+
+  .topics li {
+    padding: 2.4mm 0 2.6mm;
+    border-top: .2mm solid var(--line-2);
+    border-bottom: .2mm solid var(--line-2);
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 12pt;
+    letter-spacing: .04em;
+  }
+
+  .topics li + li { padding-left: 4mm; border-left: .2mm solid var(--line); }
+
+  .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin: 0 0 5mm; }
+
+  .card { display: grid; grid-template-columns: 22mm 1fr; gap: 4.4mm; align-items: center; padding: 4mm 0; border-top: .2mm solid var(--line-2); border-bottom: .2mm solid var(--line-2); }
+
+  .card img { display: block; width: 22mm; height: 22mm; }
+
+  .card small { display: block; color: var(--muted); font-size: 7.8pt; letter-spacing: .08em; }
+
+  .card span { display: block; margin-top: .6mm; font-family: var(--serif); font-weight: 500; font-size: 11pt; line-height: 1.35; overflow-wrap: anywhere; }
+
+  .card em { display: block; margin-top: 1.4mm; color: var(--muted); font-size: 7.4pt; font-style: normal; }
+
+  .closing { font-size: 10.4pt; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="runhead"><b>ThesisForma</b><span>REX　测试与合作邀请</span></header>
+
+  <section class="cover">
+    <h1>ThesisForma</h1>
+    <div class="cover-row">
+      <div>
+        <p class="subtitle">毕业论文格式<br>自动化处理工具</p>
+        <p class="lead">REX 正在研发一款毕业论文格式自动化处理工具 ThesisForma，现面向高校教师、科研团队及学生招募测试合作伙伴。</p>
+      </div>
+      <figure>
+        <div class="figure-panel"><!--FIGURE--></div>
+        <figcaption><b>图 1</b>目录、正文与参考文献，按院校规范统一排版（示意）</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec">
+    <header class="sec-head"><h2><em>一、</em>软件功能与特点</h2></header>
+    <div class="sec-body">
+      <p>上传院校论文格式规范或标准模板，以及已完成的论文内容（纯文本或 Word 文档），系统即可智能识别格式要求，自动调整排版，生成符合规范的论文文档。</p>
+      <ol class="flow">
+        <li><span class="n">1</span><h3>格式规范或标准模板</h3><p>上传院校的论文格式规范</p></li>
+        <li><span class="n">2</span><h3>已完成的论文内容</h3><p>纯文本或 Word 文档</p></li>
+        <li><span class="n">3</span><h3>符合规范的论文文档</h3><p>智能识别，自动调整排版</p></li>
+      </ol>
+      <p class="quote">重点解决毕业论文格式要求复杂、标准不统一、手动调整繁琐等问题。</p>
+      <ul class="features">
+        <li><span class="n">01</span><h3>参考文献与引用</h3><p>直接引用、间接引用、参考文献格式等。</p></li>
+        <li><span class="n">02</span><h3>目录与页码</h3><p>自动生成目录、设置标题层级、调整页码及分页。</p></li>
+        <li><span class="n">03</span><h3>正文排版</h3><p>字体、字号、行间距、段落缩进、页边距等。</p></li>
+        <li><span class="n">04</span><h3>格式适配</h3><p>根据不同高校及学科的论文规范进行调整。</p></li>
+        <li class="wide"><span class="n">05</span><h3>在线论文编辑</h3><p>提供类似 Microsoft Word 网页版的在线编辑界面，支持用户直接在软件中查看、编辑和修改论文内容及格式，实现论文编辑与自动排版的一体化操作。</p></li>
+      </ul>
+      <p class="note">软件主要面向使用 Microsoft Word 撰写毕业论文的学生。</p>
+    </div>
+  </section>
+
+  <footer class="runfoot"><span>zhaoyang.fr</span><span>1 / 2</span></footer>
+</div>
+
+<div class="page">
+  <header class="runhead"><b>ThesisForma</b><span>REX　测试与合作邀请</span></header>
+
+  <section class="sec">
+    <header class="sec-head"><h2><em>二、</em>合作对象与内容</h2></header>
+    <div class="sec-body">
+      <div class="pair">
+        <div>
+          <h3>合作对象</h3>
+          <p>我们<strong>优先寻求与高校教师及科研课题组建立合作</strong>，邀请其指导的本科生、硕士研究生参与实际试用，通过真实毕业论文检验工具的处理效果。</p>
+        </div>
+        <div>
+          <h3>测试期间，我们提供</h3>
+          <ul class="offer">
+            <li>软件使用<span>免费</span></li>
+            <li>论文格式调整<span>免费</span></li>
+            <li>技术支持服务<span>免费</span></li>
+          </ul>
+          <p>并根据反馈持续优化产品。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <header class="sec-head"><h2><em>三、</em>数据安全</h2></header>
+    <div class="sec-body">
+      <div class="panel">
+        <p class="statement">支持本地化部署，论文无须上传至我方服务器。</p>
+        <p>降低研究成果及个人信息泄露风险。可根据需要签订保密协议。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <header class="sec-head"><h2><em>四、</em>合作目标</h2></header>
+    <div class="sec-body">
+      <p>通过不同高校、学科及课题组的真实论文测试，提升工具的准确性与适配能力，减少学生及教师的论文排版工作量。</p>
+      <p>同时，我们也欢迎进一步探讨：</p>
+      <ul class="topics">
+        <li>软件授权</li>
+        <li>定制开发</li>
+        <li>商业合作</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <header class="sec-head"><h2><em>五、</em>软件体验与<br>开发者信息</h2></header>
+    <div class="sec-body">
+      <div class="contact">
+        <a class="card" href="https://zhauyoung.com/thesisForma/">
+          <img src="qr-app.svg" alt="">
+          <div><small>软件内测地址</small><span>zhauyoung.com/<wbr>thesisForma</span><em>扫码或点击打开</em></div>
+        </a>
+        <a class="card" href="https://zhaoyang.fr/">
+          <img src="qr-site.svg" alt="">
+          <div><small>开发者个人网站</small><span>zhaoyang.fr</span><em>扫码或点击打开</em></div>
+        </a>
+      </div>
+      <p class="closing">欢迎有意向的高校教师、科研课题组及相关人员体验软件，并与我们联系，探讨测试合作事宜。</p>
+    </div>
+  </section>
+
+  <footer class="runfoot"><span>zhaoyang.fr</span><span>2 / 2</span></footer>
+</div>
+
+</body>
+</html>

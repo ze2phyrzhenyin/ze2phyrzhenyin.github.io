@@ -20,6 +20,7 @@ export const zhaoyangOnlyRoutes = [
   'randonnee',
   'recruit',
   'summer-schools-religion',
+  'thesisforma',
   'toulouse-bars',
   'toulouse-events',
 ];

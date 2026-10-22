@@ -18,3 +18,7 @@ Thumbs.db
 .vscode/
 .idea/
 *.swp
+
+# ThesisForma invitation build output (the PDF is shared locally, not published)
+resources/thesisforma-invitation/out/
+resources/thesisforma-invitation/.*.build.html

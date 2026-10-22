@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>ThesisForma share card</title>
+<style>
+  /* 1200×630 share card; build.mjs injects the figure and saves public/thesisforma/og.png. */
+  @font-face {
+    font-family: "TF Serif";
+    src: url("../../public/thesisforma/fonts/tf-serif.woff2") format("woff2");
+    font-weight: 500;
+  }
+
+  :root {
+    --doc-paper: #fffdf9;
+    --doc-edge: rgba(27, 26, 24, .12);
+    --doc-ink: #2a2724;
+    --doc-mut: #8b857c;
+    --doc-bar: #dcd7ce;
+    --doc-acc: #2c4a72;
+    --doc-guide: rgba(44, 74, 114, .5);
+    --doc-shadow: rgba(27, 26, 24, .10);
+    --serif: "TF Serif", "Songti SC", serif;
+    --sans: "PingFang SC", "Hiragino Sans GB", sans-serif;
+  }
+
+  html, body { margin: 0; }
+
+  body {
+    display: grid;
+    grid-template-columns: 470px 1fr;
+    align-items: center;
+    width: 1200px;
+    height: 630px;
+    padding: 0 64px 0 80px;
+    box-sizing: border-box;
+    background: #f7f5f0;
+    color: #1b1a18;
+    font-family: var(--sans);
+  }
+
+  p { margin: 0; }
+
+  .eyebrow { color: #7d7870; font-size: 20px; letter-spacing: .14em; }
+
+  .eyebrow i { font-style: normal; margin: 0 .6em; color: #cfcac1; }
+
+  h1 { margin: 22px 0 26px; font-family: var(--serif); font-weight: 500; font-size: 84px; line-height: 1; letter-spacing: -.02em; }
+
+  .subtitle { font-family: var(--serif); font-weight: 500; font-size: 32px; line-height: 1.5; letter-spacing: .03em; }
+
+  .rule { width: 56px; height: 2px; margin-top: 34px; background: #23406a; }
+
+  svg { display: block; width: 100%; height: auto; }
+
+  .doc-page { fill: var(--doc-paper); stroke: var(--doc-edge); }
+  .doc-ink { fill: var(--doc-ink); }
+  .doc-mut { fill: var(--doc-mut); }
+  .doc-bar { fill: var(--doc-bar); }
+  .doc-acc { fill: var(--doc-acc); }
+  .doc-lead { stroke: var(--doc-mut); stroke-width: .7; stroke-dasharray: .1 2.2; stroke-linecap: round; fill: none; }
+  .doc-guide { fill: none; stroke: var(--doc-guide); stroke-width: .6; stroke-dasharray: 2 2; }
+  .doc-shadow { flood-color: var(--doc-shadow); flood-opacity: 1; }
+  .doc-serif { font-family: var(--serif); font-weight: 500; }
+  .doc-sans { font-family: var(--sans); }
+</style>
+</head>
+<body>
+  <div>
+    <p class="eyebrow">REX<i>/</i>测试与合作邀请</p>
+    <h1>ThesisForma</h1>
+    <p class="subtitle">毕业论文格式<br>自动化处理工具</p>
+    <div class="rule"></div>
+  </div>
+  <div><!--FIGURE--></div>
+</body>
+</html>
