@@ -2,9 +2,12 @@
 
 The English, Chinese, and French personal site has two production origins:
 
-- `https://zhaoyang.fr/` is deployed as `siteweb-zenbook` to `zhao-zenbook`
-  (`/data/projects/siteweb/current`). Since 2026-09-28 `rex` only proxies the
-  public domain; its old `siteweb` deployer is disabled.
+- `https://zhaoyang.fr/` is deployed as `siteweb-rex` to `rex`
+  (`/var/www/siteweb/current`). Since 2026-10-22 Rex nginx serves the static
+  site from disk, so a home-server outage no longer takes it down; dynamic
+  zhaoyang.fr applications are still proxied to `zhao-zenbook`. The former
+  `siteweb-zenbook` deployer is disabled (its last release stays on zenbook as a
+  fallback copy) and the old `rex siteweb` deployer remains disabled.
 - `https://zhauyoung.com/` is deployed as `zhauyoung-site` to `zhaoubuntu`.
 
 Publish every personal-site change to both with one command:
@@ -21,4 +24,4 @@ The standalone `/construction-hotel-sql/`, `/francophone-sport-careers/`, `/guid
 `/randonnee/`, `/recruit/`, `/thesisforma/`, `/toulouse-bars/`, and `/toulouse-events/` pages are not part of the mirrored personal site. The `zhauyoung-site` build
 sets `SITEWEB_PERSONAL_ONLY=1`, which removes those routes before creating its
 sitemap and release artifact. A change limited to those standalone pages is
-deployed only to the `siteweb-zenbook` application on `zhao-zenbook`.
+deployed only to the `siteweb-rex` application on `rex`.

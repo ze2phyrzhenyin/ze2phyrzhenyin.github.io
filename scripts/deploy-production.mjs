@@ -39,7 +39,9 @@ function deploy(server, app) {
   }
 }
 
-deploy('zhao-zenbook', 'siteweb-zenbook');
+// Since 2026-10-22 zhaoyang.fr's static site is served directly by Rex (static-on-rex);
+// the zenbook copy is only a fallback and is no longer published.
+deploy('rex', 'siteweb-rex');
 deploy('zhaoubuntu', 'zhauyoung-site');
 
 console.log(`\nRelease ${release} is live on zhaoyang.fr and zhauyoung.com.`);

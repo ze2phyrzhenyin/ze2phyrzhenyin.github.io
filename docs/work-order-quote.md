@@ -39,7 +39,7 @@ Verification covers five package totals, full source-model parity, direct/transi
 
 Official reference pricing and the qualified commercial assessment are in `work-order-quote-pricing-review.md`. The public page keeps this concise, in a closed disclosure with direct official links and the verification date.
 
-Publish via the inventory-backed `serverctl deploy --yes zhao-zenbook siteweb-zenbook -- --project-dir <checkout>` after committing and pushing `origin main`.
+Publish via the inventory-backed `serverctl deploy --yes rex siteweb-rex -- --project-dir <checkout>` after committing and pushing `origin main`.
 
 The price/rental browser suite covers all three locales, every editable charge category, zero/decimal/invalid prices, individual/global reset, exports, 12/24/36 setup schedules, price/selection persistence, no double maintenance charge, no repeating development estimates and rental layouts from 320 to 1440px.
 
