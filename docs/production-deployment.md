@@ -3,9 +3,11 @@
 The English, Chinese, and French personal site has two production origins:
 
 - `https://zhaoyang.fr/` is deployed as `siteweb-rex` to `rex`
-  (`/var/www/siteweb/current`). Since 2026-10-22 the static site is served
-  directly from `rex`; the `siteweb-zenbook` deployer on `zhao-zenbook` is
-  disabled.
+  (`/var/www/siteweb/current`). Since 2026-10-22 Rex nginx serves the static
+  site from disk, so a home-server outage no longer takes it down; dynamic
+  zhaoyang.fr applications are still proxied to `zhao-zenbook`. The former
+  `siteweb-zenbook` deployer is disabled (its last release stays on zenbook as a
+  fallback copy) and the old `rex siteweb` deployer remains disabled.
 - `https://zhauyoung.com/` is deployed as `zhauyoung-site` to `zhaoubuntu`.
 
 Publish every personal-site change to both with one command:

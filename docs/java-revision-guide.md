@@ -8,7 +8,7 @@ language. The index now contains 13 guides across six categories.
 
 This guide lives under `/guides/`, so the existing personal-only build filter
 excludes it from zhauyoung.com. Publish with the inventory-backed
-`zhao-zenbook/siteweb-zenbook` deployer.
+`rex/siteweb-rex` deployer (`zhao-zenbook/siteweb-zenbook` until 2026-10-22).
 
 ## Source and regeneration
 

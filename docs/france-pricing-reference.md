@@ -41,4 +41,4 @@ The input marked Synchroteam's billing periods ambiguous. Official HTML resolves
 - Existing quote tests cover the companion link and all-charge discount fix; Guides i18n tests cover the new directory card.
 - Browser artifacts: `/tmp/rex-market-audit/browser/`; quote regression: `/tmp/rex-market-audit/quote-regression/`.
 
-Build: `npm run build` runs both static generators, Astro and sitemap checks. Deploy via the registered `zhao-zenbook siteweb-zenbook` inventory app after committing and pushing main.
+Build: `npm run build` runs both static generators, Astro and sitemap checks. Deploy via the registered `rex siteweb-rex` inventory app after committing and pushing main.
