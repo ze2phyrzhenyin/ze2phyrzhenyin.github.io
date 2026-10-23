@@ -39,7 +39,7 @@ function deploy(server, app) {
   }
 }
 
-deploy('zhao-zenbook', 'siteweb-zenbook');
+deploy('rex', 'siteweb-rex');
 deploy('zhaoubuntu', 'zhauyoung-site');
 
 console.log(`\nRelease ${release} is live on zhaoyang.fr and zhauyoung.com.`);

@@ -4,7 +4,7 @@ description: "A browser tool that turns a spreadsheet of device identifiers and 
 date: 2026-10-05
 status: active
 tags: ["React", "TypeScript", "Vite"]
-demo: "https://rex31.com/label-print/"
+demo: "https://etiquettes.rex31.com/"
 cover: "/images/projects/label-print.png"
 i18n:
   en:

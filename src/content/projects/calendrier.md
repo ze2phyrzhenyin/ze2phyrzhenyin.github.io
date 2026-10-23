@@ -3,8 +3,8 @@ title: "Calendrier"
 description: "A calendar, notes, tasks and anniversaries app for everyday planning, with offline records, account sync and two-way Google Calendar sync. Available for Windows, Android and Linux."
 date: 2026-09-27
 status: active
-demo: "https://rex31.com/calendrier/"
-download: "https://rex31.com/calendrier/download/"
+demo: "https://calendrier.rex31.com/"
+download: "https://calendrier.rex31.com/download/"
 cover: "/images/projects/calendrier.png"
 i18n:
   en:
