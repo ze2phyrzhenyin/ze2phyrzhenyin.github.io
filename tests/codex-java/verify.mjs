@@ -14,7 +14,7 @@ await context.route('**/guides/codex-java/access-key',route=>route.fulfill({json
 const page=await context.newPage();
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto(base);await page.waitForSelector('#step-title');
-assert.equal(await page.locator('input,textarea,form').count(),0);
+assert.equal(await page.locator('input,textarea').count(),0);
 await page.locator('#start').click();assert.equal(await page.locator('[aria-current=step]').getAttribute('data-step'),'0');
 for(const os of ['windows','macos','linux']){
  await page.locator(`[data-os=${os}]`).click();const c=commandsFor(os);

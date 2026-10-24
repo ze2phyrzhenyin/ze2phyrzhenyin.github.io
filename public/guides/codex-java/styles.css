@@ -10,3 +10,5 @@
 /* Keep instructions comfortable at reading size on phones. */
 .intro{font-size:14px}.instruction{font-size:14px}.helper{font-size:12px}pre{font-size:13px}.faq summary{font-size:13px}.billing p:not(.small-label){font-size:12px}.hero::after{display:none}
 @media(max-width:560px){.intro,.instruction{font-size:13px}.helper{font-size:12px;line-height:1.95}pre{font-size:12px}.faq summary,.faq details>div{font-size:12px}.billing p:not(.small-label){font-size:11px}.code-caption{font-size:11px}.copy{font-size:12px}.verification-note{font-size:10px}.terminal-tip{line-height:1.95}.step-label{font-size:11px}}
+
+.header-actions{display:flex;align-items:center;gap:22px}.header-actions form{margin:0}.signout{border:0;background:none;padding:8px 0;cursor:pointer}.signout:hover{color:var(--accent)}@media(max-width:560px){.header-actions{gap:12px}.header-actions .quiet-link{font-size:10px}.brand-sub{display:none}}

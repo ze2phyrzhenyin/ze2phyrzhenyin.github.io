@@ -1,61 +1,96 @@
 #!/usr/bin/env python3
-"""Install the authorized route guard on rex-ovh. Read credentials from stdin only."""
+"""Install custom code-only access. Credentials arrive over stdin, never arguments."""
 import datetime
 import grp
+import hashlib
 import json
 import os
 from pathlib import Path
 import re
+import secrets
 import subprocess
 import sys
+import time
 
-assert os.geteuid() == 0, 'Must run as the authorized server administrator'
+assert os.geteuid() == 0, 'Administrator execution required'
 source = Path(__file__).resolve().parent
 vhost = Path('/etc/nginx/sites-available/zhaoyang.fr')
-assert vhost.exists(), 'Expected zhaoyang.fr vhost is missing'
 original = vhost.read_text()
 anchor = 'include /etc/nginx/snippets/static-siteweb.conf;'
-assert original.count(anchor) == 1, 'Unexpected vhost structure; inspect before changing'
+assert original.count(anchor) == 1, 'Unexpected vhost; inspect before changing'
 data = json.load(sys.stdin)
-assert re.fullmatch(r'sk-[A-Za-z0-9_-]{100,}', data['key']), 'Invalid secret format'
-assert data['username'] == 'friend'
-assert re.fullmatch(r'[A-Za-z0-9_-]{20,}', data['accessCode']), 'Access code too short'
+assert re.fullmatch(r'sk-[A-Za-z0-9_-]{100,}', data['key']), 'Invalid key format'
+assert re.fullmatch(r'[A-Za-z0-9_-]{20,}', data['accessCode']), 'Invalid access code'
 www_gid = grp.getgrnam('www-data').gr_gid
 
-def private_dir(path):
-    path.mkdir(parents=True, exist_ok=True)
-    path.chmod(0o750)
-    os.chown(path, 0, www_gid)
-
-def write_atomic(path, body, mode=0o640, gid=www_gid):
-    temp = path.with_name(path.name + '.codex-java-new')
-    fd = os.open(temp, os.O_WRONLY | os.O_CREAT | os.O_EXCL, mode)
+def write_atomic(path, body, mode=0o644, gid=0):
+    temporary = path.with_name(path.name + '.codex-java-new')
+    fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, mode)
     with os.fdopen(fd, 'w') as f:
         f.write(body)
-    os.chown(temp, 0, gid)
-    os.replace(temp, path)
+    os.chown(temporary, 0, gid)
+    os.replace(temporary, path)
 
-private_dir(Path('/etc/nginx/private'))
-private_dir(Path('/var/lib/siteweb-private'))
-private_dir(Path('/var/lib/siteweb-private/codex-java'))
-password_hash = subprocess.run(['openssl', 'passwd', '-6', '-stdin'], input=data['accessCode'] + '\n', text=True, capture_output=True, check=True).stdout.strip()
-assert password_hash.startswith('$6$')
-write_atomic(Path('/etc/nginx/private/codex-java.htpasswd'), 'friend:' + password_hash + '\n')
-write_atomic(Path('/var/lib/siteweb-private/codex-java/key.json'), json.dumps({'key': data['key'], 'expiresAt': data['expiresAt']}) + '\n')
-for name, target in [('auth.conf', 'codex-java-auth.conf'), ('locations.conf', 'codex-java.conf')]:
-    write_atomic(Path('/etc/nginx/snippets') / target, (source / name).read_text(), 0o644, 0)
+# Keep the API key outside both the static release and the auth service.
+for name in ['/var/lib/siteweb-private', '/var/lib/siteweb-private/codex-java']:
+    directory = Path(name)
+    directory.mkdir(parents=True, exist_ok=True)
+    directory.chmod(0o750)
+    os.chown(directory, 0, www_gid)
+write_atomic(Path('/var/lib/siteweb-private/codex-java/key.json'), json.dumps({'key': data['key'], 'expiresAt': data['expiresAt']}) + '\n', 0o640, www_gid)
+private = Path('/etc/siteweb-codex-java')
+private.mkdir(exist_ok=True)
+private.chmod(0o700)
+salt = secrets.token_bytes(16)
+settings = {'salt': salt.hex(), 'digest': hashlib.scrypt(data['accessCode'].encode(), salt=salt, n=16384, r=8, p=1, dklen=32).hex(), 'signingKey': secrets.token_hex(32)}
+write_atomic(private / 'auth.json', json.dumps(settings) + '\n', 0o600)
+app = Path('/usr/local/lib/siteweb-codex-java-auth')
+app.mkdir(exist_ok=True)
+for name in ['auth-server.mjs', 'gate.html', 'gate.css', 'gate.js']:
+    write_atomic(app / name, (source / name).read_text())
+unit = 'siteweb-codex-java-auth.service'
+write_atomic(Path('/etc/systemd/system') / unit, (source / unit).read_text())
+subprocess.run(['systemctl', 'daemon-reload'], check=True)
+subprocess.run(['systemctl', 'enable', unit], check=True, stdout=subprocess.DEVNULL)
+active = subprocess.run(['systemctl', 'is-active', '--quiet', unit]).returncode == 0
+subprocess.run(['systemctl', 'restart' if active else 'start', unit], check=True)
+ready = False
+for _ in range(40):
+    check = subprocess.run(['curl', '--silent', '--fail', '--unix-socket', '/run/siteweb-codex-java-auth/auth.sock', 'http://localhost/health'], capture_output=True)
+    if check.returncode == 0 and check.stdout == b'ok':
+        ready = True
+        break
+    time.sleep(0.25)
+assert ready, 'Auth service not ready; previous Nginx guard left in place'
+
+stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+backup = Path('/var/backups/siteweb-codex-java') / stamp
+backup.mkdir(parents=True)
+backup.chmod(0o700)
+targets = [('auth.conf', 'codex-java-auth.conf'), ('headers.conf', 'codex-java-headers.conf'), ('locations.conf', 'codex-java.conf'), ('proxy.conf', 'codex-java-proxy.conf')]
+prior = {}
+for name, target in targets:
+    path = Path('/etc/nginx/snippets') / target
+    prior[path] = path.read_text() if path.exists() else None
+    if prior[path] is not None:
+        write_atomic(backup / target, prior[path], 0o600)
+    write_atomic(path, (source / name).read_text())
 include = 'include /etc/nginx/snippets/codex-java.conf;'
 if include not in original:
-    backup = Path('/var/backups/siteweb-codex-java')
-    backup.mkdir(parents=True, exist_ok=True)
-    backup.chmod(0o700)
-    stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    write_atomic(backup / (stamp + '-zhaoyang.fr.conf'), original, 0o600, 0)
-    write_atomic(vhost, original.replace(anchor, include + '\n' + anchor), 0o644, 0)
+    write_atomic(backup / 'zhaoyang.fr.conf', original, 0o600)
+    write_atomic(vhost, original.replace(anchor, include + '\n' + anchor))
 check = subprocess.run(['nginx', '-t'], capture_output=True, text=True)
 if check.returncode:
-    write_atomic(vhost, original, 0o644, 0)
-    print('Nginx validation failed; original vhost restored. No reload performed.', file=sys.stderr)
-    sys.exit(1)
+    for path, previous in prior.items():
+        if previous is None:
+            path.unlink()
+        else:
+            write_atomic(path, previous)
+    write_atomic(vhost, original)
+    sys.exit('Nginx validation failed; previous files restored, no reload performed.')
 subprocess.run(['systemctl', 'reload', 'nginx'], check=True)
-print('Protected tutorial route installed; nginx configuration validated and reloaded. Secrets not displayed.')
+# Legacy credential file belongs only to the old version of this route.
+legacy = Path('/etc/nginx/private/codex-java.htpasswd')
+if legacy.exists():
+    legacy.unlink()
+print('Custom access-code gateway ready. Nginx validated and reloaded; credentials not displayed.')
