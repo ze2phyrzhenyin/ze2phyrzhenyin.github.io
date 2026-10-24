@@ -15,7 +15,7 @@ const cookieName = '__Secure-codex_java_session';
 const lifetime = 8 * 60 * 60;
 const origin = process.env.GUIDE_ORIGIN || 'https://zhaoyang.fr';
 const pageTemplate = readFileSync(new URL('gate.html', directory), 'utf8');
-const assets = new Map(['gate.css', 'gate.js'].map(name => [name, readFileSync(new URL(name, directory))]));
+const assets = new Map(['gate.css', 'gate.js', 'theme.js'].map(name => [name, readFileSync(new URL(name, directory))]));
 const attempts = new Map();
 const headers = {
   'Cache-Control': 'private, no-store, max-age=0',
@@ -74,7 +74,7 @@ const server = createServer(async (request, response) => {
     if (request.headers.origin !== origin) return error(request, response, 403, '请从本页面提交访问码。');
     if (route === 'signout') return send(response, 303, '', { 'Set-Cookie': cookie('', 0), Location: prefix + 'signin' });
     const ip = request.headers['x-real-ip'] || request.socket.remoteAddress || 'local';
-    if (rateLimited(ip)) return error(request, response, 429, '尝试次数有点多，请等一分钟再试。');
+    if (rateLimited(ip)) return error(request, response, 429, '尝试过多，请一分钟后再试。');
     if (!(request.headers['content-type'] || '').startsWith('application/x-www-form-urlencoded')) return error(request, response, 415, '请通过访问码输入框进入。');
     let body = '';
     for await (const chunk of request) {

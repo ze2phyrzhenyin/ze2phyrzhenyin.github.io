@@ -3,73 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c0d10">
-  <meta name="description" content="给 Java 初学者的 Codex CLI 入门教程：选择电脑系统，按五个步骤安装、使用专用项目 API Key 登录，并开始分析和修复 Java 代码。">
-  <meta property="og:title" content="让 AI 帮你解决 Java 代码问题">
-  <meta property="og:description" content="从第一行命令，到第一次修复。一个简单、清楚的 Codex CLI 入门指南。">
-  <meta property="og:type" content="website">
+  <meta name="description" content="安装 Codex、登录 API Key，在自己的 Java 项目中开始使用。">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <title>让 AI 帮你解决 Java 代码问题 · Codex 入门</title>
+  <title>用 Codex 修复 Java 代码</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <script src="./theme.js"></script>
   <link rel="stylesheet" href="./styles.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <a class="skip" href="#guide">跳到配置步骤</a>
-  <header class="site-header shell">
-    <a class="brand" href="./" aria-label="Codex Java 入门首页"><span class="brand-mark" aria-hidden="true">&gt;_</span><span>Codex<span class="brand-divider">/</span><span class="brand-sub">Java 入门</span></span></a>
-    <div class="header-actions"><form action="./signout" method="post"><button type="submit" class="quiet-link signout">退出此页面</button></form><a class="quiet-link" href="https://developers.openai.com/codex/cli/" target="_blank" rel="noopener noreferrer">官方文档 <span aria-hidden="true">↗</span></a></div>
+  <a class="skip-link" href="#main">跳到教程</a>
+  <header class="site-header">
+    <span>Codex 教程</span>
+    <nav aria-label="页面设置">
+      <button type="button" data-theme-toggle>深色</button>
+      <form action="./signout" method="post"><button type="submit">退出</button></form>
+    </nav>
   </header>
-  <main class="shell">
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> 从第一行命令，到第一次修复</p>
-      <h1 id="hero-title">让 AI 帮你解决<br><span>Java 代码问题</span></h1>
-      <p class="hero-copy">只需几个步骤，在自己的电脑上安装 Codex，<br class="desktop-break">让 AI 阅读、分析并协助修改你的 Java 项目。</p>
-      <div class="hero-actions"><a class="button primary" id="start" href="#guide">开始配置 <span aria-hidden="true">↗</span></a><span class="hero-meta">5 个步骤<span aria-hidden="true">·</span>已有环境约 3–5 分钟</span></div>
-      <p class="hero-note">第一次安装 Node.js 或等待项目邀请，可能需要多一点时间。</p>
+  <main id="main">
+    <h1>用 Codex 修复 Java 代码</h1>
+    <p class="lead">Windows 版。按顺序操作，命令都在 PowerShell 中运行。</p>
+    <div id="steps"></div>
+    <section class="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">遇到问题</h2>
+      <div id="faq-items"></div>
     </section>
-
-    <section id="guide" class="guide" aria-label="Codex 配置向导">
-      <div class="guide-toolbar">
-        <div><p class="small-label">选择你的电脑系统</p><p id="detected" class="muted">可随时切换，命令会跟着更新</p></div>
-        <div class="os-switch" role="group" aria-label="电脑操作系统">
-          <button type="button" data-os="windows" aria-pressed="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 3h7v6H2zm9 0h7v6h-7zM2 11h7v6H2zm9 0h7v6h-7z" fill="currentColor" stroke="none"/></svg>Windows</button>
-          <button type="button" data-os="macos" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3" width="16" height="11" rx="2"/><path d="M7 17h6m-3-3v3"/></svg>macOS</button>
-          <button type="button" data-os="linux" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="m5 7 3 3-3 3m5 0h4"/></svg>Linux</button>
-        </div>
-      </div>
-      <div class="workspace">
-        <aside class="step-sidebar">
-          <div class="progress-heading"><span>配置进度</span><span id="progress-count">0 / 5</span></div>
-          <progress id="progress" max="5" value="0" aria-label="已完成的步骤">0 / 5</progress>
-          <nav aria-label="教程步骤"><ol class="steps">
-            <li><button type="button" data-step="0" aria-current="step"><span class="step-number">01</span><span class="step-label">准备环境<small>打开终端，检查 Node.js</small></span></button></li>
-            <li><button type="button" data-step="1"><span class="step-number">02</span><span class="step-label">安装 Codex<small>让 AI 来到你的电脑</small></span></button></li>
-            <li><button type="button" data-step="2"><span class="step-number">03</span><span class="step-label">连接密钥<small>领取专用 API Key 并登录</small></span></button></li>
-            <li><button type="button" data-step="3"><span class="step-number">04</span><span class="step-label">打开项目<small>进入 Java 项目文件夹</small></span></button></li>
-            <li><button type="button" data-step="4"><span class="step-number">05</span><span class="step-label">开始修复<small>发送你的第一条提示词</small></span></button></li>
-          </ol></nav>
-          <p class="sidebar-note"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 2 6 3v5c0 4-6 7-6 7s-6-3-6-7V5z"/><path d="m7 9 2 2 4-4"/></svg>此教程需访问码才能打开。<br>密钥仅供受邀朋友使用，请勿转发。</p>
-        </aside>
-        <div class="step-main">
-          <div id="panel"><p>正在准备教程…</p></div>
-          <noscript><p class="callout">请启用浏览器 JavaScript，以切换系统、查看步骤并复制命令。本页不连接 OpenAI API。也可以阅读上方的官方文档。</p></noscript>
-          <div class="step-actions"><button type="button" class="button secondary" id="previous" disabled>← 上一步</button><button type="button" class="button primary" id="next" disabled>检查完成，下一步 <span aria-hidden="true">→</span></button></div>
-          <p class="verification-note">根据终端结果自行确认；网页不会检测你的电脑。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq" aria-labelledby="faq-title"><div class="section-heading"><h2 id="faq-title">卡住了？从这里继续。</h2><span>常见问题</span></div><div id="faq-items"></div></section>
-
-    <footer class="footer">
-      <div class="billing"><p class="small-label">关于费用与密钥</p><p>Codex 使用 API Key 时会产生按量计费费用。请只在需要时使用，不要把密钥公开，也不要将密钥提交到代码仓库。</p><p>本页专用密钥的费用由管理员承担，你无需自行充值。默认使用 GPT-6-Astra / xhigh，复杂任务可能消耗更多额度。请管理员提前设置短期有效期并启用项目硬性消费上限；普通提醒不会停止消费，硬性上限也可能因生效延迟而有少量超额。</p></div>
-      <div class="footer-bottom"><span>为第一次使用 Codex 的你而写。</span><div><a href="https://developers.openai.com/codex/auth/" target="_blank" rel="noopener noreferrer">登录说明 ↗</a><a href="https://developers.openai.com/api/docs/guides/spend-limits" target="_blank" rel="noopener noreferrer">费用说明 ↗</a></div></div>
+    <footer>
+      <p>本页密钥的费用由管理员承担，无需自己充值。API 按用量计费，用完退出；不要转发密钥，也不要放进项目或代码仓库。</p>
+      <p>管理员需设置密钥有效期，并确认项目消费上限已强制执行；普通提醒不等于限额，计费延迟仍可能造成超额。</p>
+      <p><a href="https://developers.openai.com/codex/cli/" target="_blank" rel="noopener noreferrer">Codex 官方文档</a><span aria-hidden="true"> · </span><a href="https://developers.openai.com/codex/auth/" target="_blank" rel="noopener noreferrer">登录说明</a></p>
     </footer>
+    <noscript><p>请开启浏览器的 JavaScript 后刷新，以显示对应系统的命令。</p></noscript>
   </main>
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-  <div id="announcer" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

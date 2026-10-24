@@ -43,10 +43,16 @@ private.mkdir(exist_ok=True)
 private.chmod(0o700)
 salt = secrets.token_bytes(16)
 settings = {'salt': salt.hex(), 'digest': hashlib.scrypt(data['accessCode'].encode(), salt=salt, n=16384, r=8, p=1, dklen=32).hex(), 'signingKey': secrets.token_hex(32)}
-write_atomic(private / 'auth.json', json.dumps(settings) + '\n', 0o600)
+existing_config = private / 'auth.json'
+if existing_config.exists():
+    previous = json.loads(existing_config.read_text())
+    previous_digest = hashlib.scrypt(data['accessCode'].encode(), salt=bytes.fromhex(previous['salt']), n=16384, r=8, p=1, dklen=32).hex()
+    if secrets.compare_digest(previous_digest, previous['digest']):
+        settings = previous
+write_atomic(existing_config, json.dumps(settings) + '\n', 0o600)
 app = Path('/usr/local/lib/siteweb-codex-java-auth')
 app.mkdir(exist_ok=True)
-for name in ['auth-server.mjs', 'gate.html', 'gate.css', 'gate.js']:
+for name in ['auth-server.mjs', 'gate.html', 'gate.css', 'gate.js', 'theme.js']:
     write_atomic(app / name, (source / name).read_text())
 unit = 'siteweb-codex-java-auth.service'
 write_atomic(Path('/etc/systemd/system') / unit, (source / unit).read_text())

@@ -1,8 +1,8 @@
 # Codex CLI · Java 入门教程
 
-独立中文教程：`public/guides/codex-java/`，沿用现有 Astro 的 public 静态文件流程。无 React 运行时、无数据库、无账户系统、无外部字体或追踪脚本。默认启动 GPT-6-Astra / xhigh。
+Windows 单页中文教程，五步从上到下完整展开，无 Stepper 或系统切换。支持亮暗主题：`public/guides/codex-java/`，沿用现有 Astro 的 public 静态文件流程。无 React 运行时、无数据库、无账户系统、无外部字体或追踪脚本。默认启动 GPT-6-Astra / xhigh。
 
-生产版使用定制深色访问码页面，只需输入访问码，不需要用户名，也不会调用浏览器的系统认证弹窗。一个独立 Node.js 服务通过服务器端校验访问码，Nginx 用 auth_request 保护教程及密钥端点；没有数据库或用户账户。
+生产版使用简单的访问码输入页面，支持亮暗主题，只需输入访问码，不需要用户名，也不会调用浏览器的系统认证弹窗。一个独立 Node.js 服务通过服务器端校验访问码，Nginx 用 auth_request 保护教程及密钥端点；没有数据库或用户账户。
 
 ## 本地启动与构建
 
@@ -22,11 +22,10 @@ dev-run npm ci --prefix tests/codex-java
 # 安装缺失的测试浏览器（已有时跳过）
 dev-run npx --prefix tests/codex-java playwright install chromium webkit
 TUTORIAL_URL=http://127.0.0.1:44327/guides/codex-java/index.html dev-run node tests/codex-java/verify.mjs
-python3 tests/codex-java/auth-stdin.py
 dev-run node --test tests/codex-java/access.test.mjs
 ```
 
-本地预览没有真实密钥端点，显示「专用密钥暂不可用」。自动化测试拦截该端点并使用明确的假凭据，不连接 OpenAI，也不把真实密钥写入截图、测试报告或日志。生产密钥只在用户点击第 3 步时加载到页面内存，不写入 LocalStorage、SessionStorage 或 Cookie。
+本地预览没有真实密钥端点，显示「密钥暂不可用」。自动化测试拦截该端点并使用明确的假凭据，不连接 OpenAI，也不把真实密钥写入截图、测试报告或日志。生产密钥在已认证的教程页面加载时读取到页面内存，不写入 LocalStorage、SessionStorage 或 Cookie。LocalStorage 仅记录 `codex-java-theme` 的 light / dark 偏好。
 
 ## 生产发布
 
@@ -47,7 +46,7 @@ dev-run ./serverctl deploy --yes rex-ovh siteweb-rex -- --project-dir /home/zhao
 
 `siteweb-codex-java-auth.service` 使用动态非特权用户和 Unix socket `/run/siteweb-codex-java-auth/auth.sock`，不监听公网端口；额度为 128 MB / CPU 20%。服务器验证正确后只设置签名会话 Cookie（HttpOnly、Secure、SameSite=Strict、路径限于此教程），不含访问码或 API Key，8 小时失效；不存在本地存储里的密钥。提供跨站提交拦截、重复错误尝试限流、签名/到期校验和退出功能。
 
-轮换时用新凭据重新运行安装器，更新到期时间并作废旧会话；访问码和 API Key 是两个不同的凭据。退出网页：点击顶部「退出此页面」清除会话；`codex logout` 仅清除本机 CLI 登录，不撤销平台密钥。获准访问的人仍能复制密钥，因此访问码只应私下给受邀朋友。
+轮换时用新凭据重新运行安装器。访问码不变会保留现有会话；更换访问码会作废旧会话；访问码和 API Key 是两个不同的凭据。退出网页：点击顶部「退出」清除会话；`codex logout` 仅清除本机 CLI 登录，不撤销平台密钥。获准访问的人仍能复制密钥，因此访问码只应私下给受邀朋友。
 
 ## Cloudflare Pages / Vercel
 
@@ -67,3 +66,9 @@ dev-run ./serverctl deploy --yes rex-ovh siteweb-rex -- --project-dir /home/zhao
 - 强制消费上限与延迟：https://developers.openai.com/api/docs/guides/spend-limits
 
 安装成功、登录信息存在与实际模型调用成功是三个不同结果。页面明确提示按输出确认，不冒充自动电脑检测，不承诺余额或模型权限永久有效。
+
+## 文案和界面
+
+入口只有访问码提示、输入框、显示按钮和进入按钮。教程使用短句说明操作及结果，核心步骤全部展开，补充说明和常见问题可折叠。写法参考廖雪峰的安装 Git 教程与网道 Bash 入门，只参考说明方式，不照搬命令或正文。
+
+验证覆盖全部复制按钮、密钥失败及过期、两种主题持久化、320–1440 px 布局、Chromium / WebKit 和无障碍扫描。PowerShell 的隐藏输入曾在 PowerShell 7 中用假凭据验证；未在原生 Windows 桌面实机运行，不调用付费模型。

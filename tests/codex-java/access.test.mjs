@@ -31,7 +31,7 @@ test('custom page contains exactly one code field, no username, and no browser c
  const r=await req(prefix+'signin');assert.equal(r.status,200);assert.equal(r.headers.get('www-authenticate'),null);
  const html=await r.text();assert.equal((html.match(/<input /g)||[]).length,1);assert(html.includes('name="code"'));assert(!html.includes('username'));assert(!html.includes('sk-proj-'));
  assert(r.headers.get('cache-control').includes('no-store'));
- for(const asset of ['gate.css','gate.js'])assert.equal((await req(prefix+asset)).status,200);
+ for(const asset of ['gate.css','gate.js','theme.js'])assert.equal((await req(prefix+asset)).status,200);
 });
 test('missing, incorrect, foreign-origin, and GET submissions cannot sign in',async()=>{
  for(const [code,status]of [['',400],['wrong-code',401]]){const r=await unlock(code);assert.equal(r.status,status);assert.equal(r.headers.get('set-cookie'),null);assert.equal(r.headers.get('www-authenticate'),null);}
