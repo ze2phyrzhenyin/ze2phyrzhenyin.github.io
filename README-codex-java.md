@@ -52,7 +52,7 @@ dev-run ./serverctl deploy --yes rex-ovh siteweb-rex -- --project-dir /home/zhao
 
 普通无密钥教程可以直接部署 `public/guides/codex-java`，或 `npm run build` 后部署 `dist`。Cloudflare Pages：构建 `npm run build`，输出 `dist`；Vercel：Astro 静态预设。
 
-**当前包含密钥的版本不能仅上传静态文件来获得访问保护。** 迁移必须先配置服务端认证（例如 Cloudflare Access），并用受同一认证保护的 Worker / Function 从密钥管理中返回 `access-key`；真实密钥永远不能打入 HTML/JS 或构建包。没有该端点时页面会安全地显示密钥暂不可用，允许使用自己的项目密钥。
+**当前包含密钥的版本不能仅上传静态文件来获得访问保护。** 迁移必须先配置服务端认证（例如 Cloudflare Access），并用受同一认证保护的 Worker / Function 从密钥管理中返回 `access-key`；真实密钥永远不能打入 HTML/JS 或构建包。没有该端点时页面会显示密钥暂不可用，提示重新进入页面或联系管理员。
 
 ## 官方依据（2026-10-24 核对）
 

@@ -42,7 +42,7 @@ function render() {
       <p>检查登录结果：</p>
       ${code(c.status, '查看登录状态')}
       <p class="result">显示 <code>API key</code>，说明已登录。费用由管理员承担，与 ChatGPT 订阅分开。</p>
-      <details><summary>使用自己的项目密钥</summary><p>接受管理员的项目邀请，在 ${link('https://platform.openai.com/api-keys', 'API Keys')} 切换到该项目，创建自己的密钥。重新运行上面的登录命令，在终端粘贴新密钥。</p></details>`),
+    `),
     section(4, '打开 Java 项目', `
       <p>先复制一份项目作为备份；会用 Git 的话，先提交当前改动。</p>
       <p>在文件资源管理器中打开项目，点击顶部地址栏复制路径。把下面引号里的内容换成你的路径，保留引号：</p>
