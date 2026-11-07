@@ -100,9 +100,9 @@ const statusColor: Record<string, string> = {
                         )}
                       </div>
                     </div>
-                    {project.data.cover && (
+                    {text.cover && (
                       <a href={href} class="project-shot" aria-label={text.title}>
-                        <img src={withBase(project.data.cover)} alt={`${text.title} screenshot`} loading="lazy" />
+                        <img src={withBase(text.cover)} alt={text.title} loading="lazy" />
                       </a>
                     )}
                   </article>

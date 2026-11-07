@@ -29,6 +29,7 @@ const essaysCollection = defineCollection({
 });
 
 const localizedProjectContent = z.object({
+  cover: z.string().optional(),
   title: z.string(),
   description: z.string(),
   sections: z.array(z.object({

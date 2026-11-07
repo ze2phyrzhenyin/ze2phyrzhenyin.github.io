@@ -14,7 +14,9 @@ const { project } = Astro.props;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const text = getProjectText(project, lang);
-const { status, github, demo, site, download, admin, paper, date, cover } = project.data;
+const { status, github, demo, site, download, admin, paper, date } = project.data;
+
+const cover = text.cover;
 
 const statusColor: Record<string, string> = {
   active: 'background:hsl(150 50% 94%);color:hsl(150 60% 28%);border-color:hsl(150 50% 85%);',
@@ -62,7 +64,7 @@ const statusColor: Record<string, string> = {
 
     {cover && (
       <figure class="project-hero animate-fade-up delay-100">
-        <img src={withBase(cover)} alt={`${text.title} screenshot`} />
+        <img src={withBase(cover)} alt={text.title} />
       </figure>
     )}
 
