@@ -25,3 +25,11 @@ The standalone `/construction-hotel-sql/`, `/francophone-sport-careers/`, `/guid
 sets `SITEWEB_PERSONAL_ONLY=1`, which removes those routes before creating its
 sitemap and release artifact. A change limited to those standalone pages is
 deployed only to the `siteweb-rex` application on `rex`.
+
+The reverse case is `/intro/`: the ThesisForma invitation with the zhauyoung.com
+contact person (`zhauyoungOnlyRoutes` in `scripts/filter-personal-site-output.mjs`).
+The zhaoyang.fr build removes it, the page is `noindex` so it stays out of both
+sitemaps, and a change limited to it is deployed only to `zhauyoung-site` on
+`zhaoubuntu` (`./serverctl deploy --yes zhaoubuntu zhauyoung-site -- --project-dir
+<this repo> --release <UTC stamp>`). Build its fonts, share card and PDF with
+`resources/thesisforma-invitation/build.mjs --page intro`.

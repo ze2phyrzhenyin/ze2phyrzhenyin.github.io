@@ -1,9 +1,10 @@
 #!/usr/bin/env node
-// Builds the ThesisForma invitation assets:
-//   1. public/thesisforma/fonts/tf-serif-{400,600}.woff2 — Noto Serif SC Regular and SemiBold,
+// Builds the ThesisForma invitation assets for public/<page>/ (--page, default thesisforma;
+// `intro` is the zhauyoung.com copy with its own contact person):
+//   1. public/<page>/fonts/tf-serif-{400,600}.woff2 — Noto Serif SC Regular and SemiBold,
 //      subset to the glyphs used by the web page and the share card (only when TF_SERIF_DIR
 //      holds NotoSerifSC-Regular.otf and NotoSerifSC-SemiBold.otf; needs pyftsubset).
-//   2. public/thesisforma/og.png — 1200×630 share card.
+//   2. public/<page>/og.png — 1200×630 share card.
 //   3. A one-page A4 PDF of the web page in its own styles (not published on the site),
 //      written to --out or ./out/.
 
@@ -16,13 +17,16 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const publicRoot = resolve(here, '../../public');
-const publicDir = join(publicRoot, 'thesisforma');
+const pageArg = process.argv.indexOf('--page');
+const pageName = pageArg > -1 ? process.argv[pageArg + 1] : 'thesisforma';
+assert(['thesisforma', 'intro'].includes(pageName), `unknown --page ${pageName}`);
+const publicDir = join(publicRoot, pageName);
 const outArg = process.argv.indexOf('--out');
-const pdfPath = resolve(outArg > -1 ? process.argv[outArg + 1] : join(here, 'out', 'ThesisForma-测试与合作邀请.pdf'));
+const pdfPath = resolve(outArg > -1 ? process.argv[outArg + 1] : join(here, 'out', `ThesisForma-测试与合作邀请-${pageName}.pdf`));
 
 if (process.env.TF_SERIF_DIR) {
   const sources = await Promise.all([join(publicDir, 'index.html'), join(here, 'og.html')].map((file) => readFile(file, 'utf8')));
-  const textFile = join(here, 'out', 'glyphs.txt');
+  const textFile = join(here, 'out', `glyphs-${pageName}.txt`);
   await mkdir(dirname(textFile), { recursive: true });
   const glyphs = [...new Set(sources.join(''))].filter((c) => c.codePointAt(0) > 0x7f).join('');
   await writeFile(textFile, glyphs);
@@ -74,7 +78,7 @@ try {
   // A4 at 96 dpi. The web styles stay; only sizes and spacing are tightened (in em, so they
   // scale together) and the font size is stepped down until the letter fits on one sheet.
   const [width, height] = [794, 1123];
-  const page = await open(`http://127.0.0.1:${server.address().port}/thesisforma/`, { width, height });
+  const page = await open(`http://127.0.0.1:${server.address().port}/${pageName}/`, { width, height });
   await page.emulateMedia({ media: 'screen' });
   await page.addStyleTag({ content: `
     @page { size: A4; margin: 0; }

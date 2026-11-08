@@ -25,6 +25,13 @@ export const zhaoyangOnlyRoutes = [
   'toulouse-events',
 ];
 
+// The other way round: zhauyoung.com-only pages, removed from the zhaoyang.fr build.
+// `intro` is the ThesisForma invitation with the zhauyoung.com contact person; the
+// zhaoyang.fr copy stays at /thesisforma/.
+export const zhauyoungOnlyRoutes = [
+  'intro',
+];
+
 if (personalOnly) {
   await Promise.all(zhaoyangOnlyRoutes.map((route) => (
     rm(fileURLToPath(new URL(`../dist/${route}/`, import.meta.url)), {
@@ -34,5 +41,11 @@ if (personalOnly) {
   )));
   console.log(`Excluded ${zhaoyangOnlyRoutes.length} zhaoyang.fr-only routes from the personal-site mirror.`);
 } else {
-  console.log('Kept zhaoyang.fr-only routes in the primary site build.');
+  await Promise.all(zhauyoungOnlyRoutes.map((route) => (
+    rm(fileURLToPath(new URL(`../dist/${route}/`, import.meta.url)), {
+      recursive: true,
+      force: true,
+    })
+  )));
+  console.log(`Kept zhaoyang.fr-only routes and excluded ${zhauyoungOnlyRoutes.length} zhauyoung.com-only route from the primary site build.`);
 }
