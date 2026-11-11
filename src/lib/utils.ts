@@ -77,7 +77,9 @@ export async function getAllEssays() {
 export async function getAllProjects() {
   if (!hasCollectionContent('projects')) return [];
   const projects = await getCollection('projects');
+  const tier = (p: (typeof projects)[number]) => (p.data.pinnedLast ? 2 : p.data.pinnedBottom ? 1 : 0);
   return projects.sort((a, b) => {
+    if (tier(a) !== tier(b)) return tier(a) - tier(b);
     if (a.data.pinnedBottom && !b.data.pinnedBottom) return 1;
     if (!a.data.pinnedBottom && b.data.pinnedBottom) return -1;
     if (a.data.featured && !b.data.featured) return -1;
