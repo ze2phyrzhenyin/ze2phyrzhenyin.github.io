@@ -1,6 +1,6 @@
 ---
 title: "Veillée"
-description: "A phone web app that hosts One Night Ultimate Werewolf and The Resistance: Avalon at the table: it reads the host lines, times the night and the discussion, and keeps Avalon's score. Cards stay physical; the app never knows who holds which role."
+description: "Veillée (皮匠不许赢) is a phone web app that hosts One Night Ultimate Werewolf and The Resistance: Avalon at the table: it reads the host lines, times the night and the discussion, and keeps Avalon's score. Cards stay physical; the app never knows who holds which role."
 date: 2026-11-12
 status: active
 tags: ["TypeScript", "Preact", "Three.js", "Web Audio"]
@@ -10,7 +10,7 @@ i18n:
   en:
     cover: "/images/projects/veillee.jpg"
     title: "Veillée"
-    description: "A phone web app that hosts One Night Ultimate Werewolf and The Resistance: Avalon at the table: it reads the host lines, times the night and the discussion, and keeps Avalon's score. Cards stay physical; the app never knows who holds which role."
+    description: "Veillée (皮匠不许赢) is a phone web app that hosts One Night Ultimate Werewolf and The Resistance: Avalon at the table: it reads the host lines, times the night and the discussion, and keeps Avalon's score. Cards stay physical; the app never knows who holds which role."
     sections:
       - heading: "At the table"
         paragraphs:
@@ -33,7 +33,7 @@ i18n:
           - "An independent project, not affiliated with Bézier Games or Indie Boards & Cards."
   zh:
     cover: "/images/projects/veillee.jpg"
-    title: "Veillée 桌游主持"
+    title: "皮匠不许赢"
     description: "用一部手机在桌边主持一夜狼和阿瓦隆：念主持词，给夜间行动和讨论计时，记录阿瓦隆的公开战况。发牌用实体卡，应用不知道任何人的身份。"
     sections:
       - heading: "主持"
@@ -58,7 +58,7 @@ i18n:
   fr:
     cover: "/images/projects/veillee.jpg"
     title: "Veillée"
-    description: "Une application web mobile qui anime à table Loup-Garou pour une Nuit et The Resistance: Avalon : elle lit les phrases du meneur, chronomètre la nuit et la discussion, et tient le score d’Avalon. Les cartes restent physiques ; l’application ne connaît l’identité de personne."
+    description: "Veillée (皮匠不许赢) est une application web mobile qui anime à table Loup-Garou pour une Nuit et The Resistance: Avalon : elle lit les phrases du meneur, chronomètre la nuit et la discussion, et tient le score d’Avalon. Les cartes restent physiques ; l’application ne connaît l’identité de personne."
     sections:
       - heading: "À table"
         paragraphs:
