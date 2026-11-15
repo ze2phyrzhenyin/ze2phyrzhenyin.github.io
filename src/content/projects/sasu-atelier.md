@@ -4,7 +4,7 @@ description: "Prepare SASU, SAS, SARL, SCI or EURL company files locally in the 
 date: 2026-11-15
 status: active
 tags: []
-site: "https://zhaoyang.fr/sasu-atelier/"
+demo: "https://zhaoyang.fr/sasu-atelier/"
 cover: "/images/projects/sasu-atelier.jpg"
 i18n:
   en:

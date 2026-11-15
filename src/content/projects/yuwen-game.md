@@ -4,7 +4,7 @@ description: "Place figures and objects on a 3D carved boat using the classical 
 date: 2026-11-14
 status: active
 tags: ["TypeScript", "Three.js"]
-site: "https://yuwen.zhaoyang.fr/"
+demo: "https://yuwen.zhaoyang.fr/"
 cover: "/images/projects/yuwen-game.jpg"
 i18n:
   en:

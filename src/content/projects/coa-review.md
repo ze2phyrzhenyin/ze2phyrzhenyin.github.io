@@ -4,7 +4,7 @@ description: "Step through 3D explanations of overflow, cache accesses and instr
 date: 2026-11-15
 status: active
 tags: ["TypeScript", "Three.js"]
-site: "https://coa.zhaoyang.fr/"
+demo: "https://coa.zhaoyang.fr/"
 cover: "/images/projects/coa-review.jpg"
 i18n:
   en:

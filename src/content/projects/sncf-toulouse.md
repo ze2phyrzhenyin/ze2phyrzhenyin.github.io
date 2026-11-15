@@ -4,7 +4,7 @@ description: "Toulouse hackathon team project: train routes in Occitanie and sch
 date: 2026-11-15
 status: active
 tags: []
-site: "https://sncf.zhaoyang.fr/"
+demo: "https://sncf.zhaoyang.fr/"
 cover: "/images/projects/sncf-toulouse.jpg"
 i18n:
   en:
