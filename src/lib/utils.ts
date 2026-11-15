@@ -73,12 +73,12 @@ export async function getAllEssays() {
   return sortByDate(essays);
 }
 
-/** Get all projects sorted by date */
+/** Project order: pins and dates, then explicit neighbouring placements. */
 export async function getAllProjects() {
   if (!hasCollectionContent('projects')) return [];
   const projects = await getCollection('projects');
   const tier = (p: (typeof projects)[number]) => (p.data.pinnedLast ? 2 : p.data.pinnedBottom ? 1 : 0);
-  return projects.sort((a, b) => {
+  projects.sort((a, b) => {
     if (tier(a) !== tier(b)) return tier(a) - tier(b);
     if (a.data.pinnedBottom && !b.data.pinnedBottom) return 1;
     if (!a.data.pinnedBottom && b.data.pinnedBottom) return -1;
@@ -86,6 +86,13 @@ export async function getAllProjects() {
     if (!a.data.featured && b.data.featured) return 1;
     return b.data.date.valueOf() - a.data.date.valueOf();
   });
+  for (const project of projects.filter((p) => p.data.displayAfter)) {
+    const anchor = projects.find((p) => p.slug === project.data.displayAfter);
+    if (!anchor || anchor === project) continue;
+    projects.splice(projects.indexOf(project), 1);
+    projects.splice(projects.indexOf(anchor) + 1, 0, project);
+  }
+  return projects;
 }
 
 /** Get all publications sorted by year */

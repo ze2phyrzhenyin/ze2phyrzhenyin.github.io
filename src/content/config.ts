@@ -49,6 +49,7 @@ const projectsCollection = defineCollection({
     featured: z.boolean().default(false),
     pinnedBottom: z.boolean().default(false),
     pinnedLast: z.boolean().default(false),
+    displayAfter: z.string().optional(),
     tags: z.array(z.string()).default([]),
     github: z.string().url().optional(),
     demo: z.string().url().optional(),

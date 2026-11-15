@@ -2,6 +2,7 @@
 title: "SNCF · Occitanie en train"
 description: "Toulouse hackathon team project: train routes in Occitanie and school outings by class, theme and travel times."
 date: 2026-11-15
+displayAfter: label-print
 status: active
 tags: []
 demo: "https://sncf.zhaoyang.fr/"
