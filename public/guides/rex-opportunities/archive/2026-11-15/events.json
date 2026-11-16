@@ -1,0 +1,246 @@
+{
+  "reportDate": "2026-11-15",
+  "period": ["2026-11-15", "2027-05-15"],
+  "timezone": "Europe/Paris",
+  "events": [
+    {
+      "id": "transfo", "name": "Transfo Digitale Day", "date": "2026-11-17", "when": "2026/11/17", "city": "图卢兹", "venue": "La Cité", "priority": "A", "goals": ["获客", "合作"], "status": "已开放",
+      "value": "企业数字化、数据和 AI 问题，与 REX 的软件服务直接相关；本地参会成本低。",
+      "who": "本人以软件与 AI 服务商、REX 企业代表身份参加；合伙人可参加业务交流。",
+      "entry": "普通参会入口开放；企业问题工作坊征集已截止，普通报名不保证上台或进入指定工作组。",
+      "fee": "免费参会（首轮资料）；其他权益按报名确认。",
+      "action": "优先办理参会登记，准备一个可操作的业务系统演示。与同日 MEETT 企业展取舍。",
+      "contacts": "中小企业负责人、业务负责人、数字化服务商。",
+      "demo": "订单、库存和单据相连的完整流程。",
+      "question": "你们每周在哪个环节重复录入或核对最多？",
+      "pilot": "选择一种单据或一个业务环节，记录现有耗时后验证自动化方案。",
+      "checked": "发布前复核了主办方的日期、场地、议程和报名入口。",
+      "sources": [["主办方与议程", "https://www.agence-adocc.com/-evenements-/transfo-digitale-day-2026/"], ["Digital 113 参会入口", "https://www.digital113.fr/event/transfo-digitale-day-2026-154/register"]]
+    },
+    {
+      "id": "salon-entreprise", "name": "Salon de l’Entreprise & de la Franchise Occitanie", "date": "2026-11-17", "when": "2026/11/17", "city": "图卢兹", "venue": "MEETT", "priority": "A", "goals": ["获客", "合作"], "status": "已开放",
+      "value": "接触创业者、中小企业经营者、商会和融资支持机构，适合网站与业务软件服务。",
+      "who": "合伙人以企业代表参加；两人分工时，本人可去 Transfo Digitale Day。",
+      "entry": "正式报名表开放，可下载 badge；专家交流和展位咨询另有入口。",
+      "fee": "免费入场；展位费用另询。",
+      "action": "准备一页法语企业介绍，筛选商会、服务商与潜在转介绍伙伴。",
+      "checked": "发布前复核了正式报名表。",
+      "sources": [["报名表", "https://www.salon-entreprise-occitanie.fr/inscription"], ["参会信息", "https://www.salon-entreprise-occitanie.fr/infos"]]
+    },
+    {
+      "id": "vinitech", "name": "Vinitech-Sifel", "date": "2026-12-01", "when": "2026/12/01–03", "city": "波尔多", "venue": "Parc des Expositions", "priority": "A", "goals": ["获客", "合作"], "status": "已开放",
+      "value": "农业获客重点。葡萄酒、果树、蔬菜产业覆盖生产、设备、包装和销售，适合两人结合农业经验与软件案例交流。",
+      "who": "建议两人一起；合伙人交流经营问题，本人演示库存、订单、批次追踪和单据流程。",
+      "entry": "专业观众票务开放，三日有效。",
+      "fee": "25€ TTC／人，覆盖 12 月 1–3 日。",
+      "action": "先筛选农业经营者、合作社和设备商，再决定具体参会日期；优先于同周泛科技活动。",
+      "contacts": "农业经营者、合作社运营负责人、仓储负责人、农业设备与软件服务商。",
+      "demo": "订单进入、库存变化、出库、单据生成及批次查询。",
+      "question": "从客户订单到出库单，现在需要在哪几处重复录入？",
+      "pilot": "先覆盖一个产品批次或一条订单流程，不同时改造全部系统。",
+      "checked": "发布前复核了本届日期、观众票类型、三日有效期与 25€ TTC 票价。",
+      "sources": [["活动官网", "https://www.vinitech-sifel.com/"], ["购买观众票", "https://billetterie.vinitech-sifel.com/Boutique-Billetterie?trk=WEB"]]
+    },
+    {
+      "id": "nuit-reseaux", "name": "La Nuit des Réseaux", "date": "2026-12-01", "when": "2026/12/01", "city": "图卢兹", "priority": "B", "goals": ["获客", "合作"], "status": "待确认",
+      "value": "本地企业网络和商务快速交流，适合建立合作、转介绍关系。",
+      "who": "本人或合伙人以企业代表参加。",
+      "entry": "有预报名入口；页面偏向俱乐部、集体和会员参与，个人路线需先确认。",
+      "fee": "90€ HT／人（首轮资料）。",
+      "action": "确认个人参加方式和可接触的企业类型，再与 Vinitech 行程比较。",
+      "sources": [["图卢兹活动页", "https://nuit-des-reseaux.com/toulouse/"], ["La Mêlée", "https://lamelee.com/evenement/nuit-des-reseaux-2026/"]]
+    },
+    {
+      "id": "soft", "name": "SOFT", "date": "2026-12-01", "when": "2026/12/01", "city": "马赛", "priority": "B", "goals": ["合作", "融资"], "status": "已开放",
+      "value": "企业发展、融资和合作交流，可提前申请商务会谈；有约见对象才值得专程前往。",
+      "who": "有明确合作或融资目标的一名企业代表。",
+      "entry": "B2B 配对报名开放，截止 2026/11/30。",
+      "fee": "活动免费；差旅自理。",
+      "action": "先在配对平台确认相关对象和会面，再决定出行。",
+      "sources": [["商务配对入口", "https://www.b2match.com/e/soft2026"], ["主办活动页", "https://soft.risingsud.fr/"]]
+    },
+    {
+      "id": "place-creative", "name": "La Place Créative / La Place aux Pitchs", "date": "2026-12-02", "when": "2026/12/02", "city": "蒙彼利埃", "venue": "Parc des expositions，Hall B1", "priority": "B", "goals": ["展示", "合作"], "status": "需审核",
+      "value": "创业网络、专家预约与三分钟 pitch；近期可准备的项目展示机会。",
+      "who": "本人带一个具体产品申请；既有 SAS 下的新产品是否适用需确认。",
+      "entry": "主展报名开放。Pitch 申请要求 12 月 1 日前提交，建议 11 月 30 日前完成；12 月 2 日 14:00–16:00 初选，前五名进入决赛。",
+      "fee": "主展免费；pitch 费用原资料未单独确认。",
+      "action": "核对既有企业参赛资格，准备三分钟产品介绍，并留出 12 月 2 日下午。",
+      "eligibility": "申请表阶段覆盖创意、市场调研、法律形式、商业计划、融资和注册，没有既有运营企业的独立选项；不能据此直接认定符合或被排除。",
+      "checked": "发布前复核了本届申请表、提交时间、现场出席要求和项目阶段选项。",
+      "sources": [["比赛说明", "https://www.laplacecreative.com/visiter/la-place-aux-pitchs"], ["正式申请表", "https://placeauxpitchs2026.questionnaireweb.com/f/467768/4qpfRXy36JkLhMQwnWpgi8"], ["展会官网", "https://www.laplacecreative.com/"]]
+    },
+    {
+      "id": "tech-spirit", "name": "Tech Spirit Barcelona", "date": "2026-12-02", "when": "2026/12/02–03", "city": "巴塞罗那", "venue": "Casa Llotja de Mar", "priority": "B", "goals": ["展示", "合作", "融资"], "status": "已开放",
+      "value": "AI、创业、硬件和投资交流；有产品化与国际合作目标时值得出行。",
+      "who": "本人以产品团队或企业代表参加。",
+      "entry": "免费参会登记开放；首轮资料记录投资人十分钟会谈于 11 月 18 日开放预约，需对方接受，法国企业条件待核对。",
+      "fee": "免费入场，须注册；差旅另计。",
+      "action": "11 月 18 日查看会谈机制，预约到相关对象后再安排差旅。",
+      "checked": "发布前复核了 12 月 2–3 日、场地与免费登记；投资人会谈仍按原资料列为待检查事项。",
+      "sources": [["正式参会登记", "https://luma.com/techspirit26"], ["ACCIÓ 投资交流", "https://www.accio.gencat.cat/ca/activitats/grans-actes/forum-inversio/index.html"]]
+    },
+    {
+      "id": "aeromart", "name": "Aeromart Student Day", "date": "2026-12-03", "when": "2026/12/03 · 09:00–16:00", "city": "图卢兹", "venue": "MEETT", "priority": "A", "goals": ["合作"], "status": "需审核",
+      "value": "用学生入口了解航空产业、参加企业交流和展会参观，本地投入低。",
+      "who": "本人以 UT Capitole MIAGE M1 学生身份申请；合伙人不能套用学生资格。",
+      "entry": "学生须提前联系 psouques@advbe.com 报名；不接受现场报名。",
+      "fee": "学生日免费。普通商务观众单日票为 750€ HT，且不含预安排 B2B 会谈（首轮资料）。",
+      "action": "按官方学生日流程申请，确认学生证明与参观安排；不将学生票当成完整商务配对票。",
+      "sources": [["学生日说明", "https://aeromart-toulouse.com/fr/emploi-etudiants/student-day"], ["商务观众权益", "https://aeromart-toulouse.com/fr/visiter/inscription-visiteurs"]]
+    },
+    {
+      "id": "energaia", "name": "EnerGaïa", "date": "2026-12-09", "when": "2026/12/09–10", "city": "蒙彼利埃", "priority": "B", "goals": ["获客", "合作"], "status": "已开放",
+      "value": "可再生能源、工业、建筑与农业能源场景，适合工单、运维和设备数据看板。",
+      "who": "本人以软件服务商或学生入口参加，合伙人可按农业业务身份核对。",
+      "entry": "免费观众报名开放，有专业人士和学生入口；晚间 networking 另行订票。",
+      "fee": "观众免费；晚会费用尚未核实。",
+      "action": "优先接触有运维流程、设备台账和工单管理需求的企业。",
+      "contacts": "能源设备运营、维护负责人及农业能源项目经营者。",
+      "demo": "设备台账、巡检、维修工单和处理记录。",
+      "question": "一次故障的报修、派工和验收记录现在存在哪里？",
+      "pilot": "以一类设备的工单为范围，硬件采集和现场部署另行评估。",
+      "sources": [["观众入口", "https://www.energaia.fr/fr/content/votre-profil-visiteur"], ["论坛介绍", "https://www.energaia.fr/fr/content/decouvrez-le-forum"]]
+    },
+    {
+      "id": "club-lr", "name": "Club LR Afterwork Pitch", "date": "2027-01-14", "when": "2027/01/14 · 19:00", "city": "蒙彼利埃", "priority": "B", "goals": ["获客", "合作"], "status": "需审核",
+      "value": "每人约一分钟介绍业务，适合练习 REX 介绍、建立中小企业联系。",
+      "who": "本人或合伙人，以会员或会员邀请的企业代表身份参加。",
+      "entry": "活动页提供报名，要求会员身份或会员邀请；普通访问不等于有报名资格。",
+      "fee": "活动免费；会员相关费用尚未核实。",
+      "action": "先确认会员或邀请渠道。这是商业交流，不视为正式投资人路演。",
+      "sources": [["活动与报名条件", "https://www.clublr.pro/evenements/afterwork-pitch-elevator-entrepreneur-janvier-2027"]]
+    },
+    {
+      "id": "sirha", "name": "SIRHA Lyon", "date": "2027-01-21", "when": "2027/01/21–25", "city": "里昂", "priority": "B", "goals": ["获客", "合作"], "status": "需审核",
+      "value": "酒店、餐饮、食品供应链，适合订货、库存、客户管理系统；需明确目标企业才值得远途参加。",
+      "who": "本人或合伙人以相关行业服务商身份核对资格。",
+      "entry": "票务已开放，仅限相关行业专业人士；REX 服务商身份是否符合尚待确认。",
+      "fee": "本次未可靠核实单人票价。",
+      "action": "先核对资格、票价和目标企业名单，再安排里昂行程。",
+      "sources": [["活动官网", "https://www.sirha-lyon.com/fr"], ["正式票务", "https://pass.sirha-lyon.com/"], ["FAQ", "https://www.sirha-lyon.com/fr/content/faq"]]
+    },
+    {
+      "id": "ise", "name": "ISE Open Innovation Challenge", "date": "2027-02-02", "when": "2027/02/02–04 线下；02/09–11 线上", "city": "巴塞罗那", "priority": "A", "goals": ["获客", "合作"], "status": "即将开放",
+      "value": "ACCIÓ 与 EEN 组织的企业技术挑战和三十分钟会谈，可从明确问题判断试点机会。",
+      "who": "本人以技术供应商身份筛选并提交解决方案。",
+      "entry": "技术供应商 2026/11/18 开放，2027/02/02 截止。页面顶部另显示总报名截止 02/11，此处采用技术供应商专门规则。",
+      "fee": "本届费用尚未核实；线下与线上权益需分别确认。",
+      "action": "11 月 18 日检查挑战，优先匹配已有文档、业务系统、教育或旅游工具。",
+      "contacts": "公开挑战的业务负责人和技术负责人；以实际发布的需求为准。",
+      "question": "这是采购试点、联合研发还是探索交流？由谁验收结果？",
+      "pilot": "选一项可用现有技术实现的问题，约定数据、交付物与验收范围；硬件、现场安装和设备集成单独核算。",
+      "checked": "发布前复核了技术供应商开放日、专门截止日与线上线下会谈日期。",
+      "sources": [["报名与参与规则", "https://www.b2match.com/e/ise-2027-open-innovation-challenge/components/72118"]]
+    },
+    {
+      "id": "siprho", "name": "SIPRHO", "date": "2027-02-08", "when": "2027/02/08–10", "city": "蒙彼利埃", "priority": "B", "goals": ["获客", "合作"], "status": "需审核",
+      "value": "酒店、餐厅、酒吧和露营地经营者集中；展出范围包括业务软件、应用和追溯工具。",
+      "who": "本人或合伙人以软件供应商身份核对观众或展商路线。",
+      "entry": "2027 免费专业观众表单开放；供应商适用身份需确认，学生身份不自动赋予推广权限。",
+      "fee": "专业观众免费；参展另询。",
+      "action": "明确观众资格与推广规则，准备库存或订货案例。",
+      "sources": [["专业观众入口", "https://www.siprho.com/visiteurs/"]]
+    },
+    {
+      "id": "engage", "name": "ENGAGE.EU / 4YFN", "date": "2027-03-01", "when": "2027/03/01–04", "city": "巴塞罗那", "priority": "A", "goals": ["展示", "合作", "融资"], "status": "需审核",
+      "value": "大学创业资源、国际合作与路演，当前首先要确认校内孵化资格。",
+      "who": "本人作为与 UT Capitole 有关联的活跃联合创始人申请；该身份需由本人实际情况和证明确认。",
+      "entry": "ENGAGE 申请截止 2026/12/03 23:59 CET。入选项目一名创业者代表；pitch 可能再次筛选，展位另选一家。",
+      "fee": "入选项目获四日票，差旅支持仅为可能。原报告记录普通自费票 399€ 含税，购买前需复核现价。",
+      "eligibility": "至少一位活跃联合创始人与派出大学有关联；至少一位活跃创始团队成员完成或正在参加该校内部孵化／加速；具备可用 MVP、用户或试点等验证、国际化意图和流利英语。",
+      "action": "向学校创业支持联系人确认校内孵化条件；以一个具体产品整理使用证据、英文动机和参会目标。",
+      "checked": "发布前复核了资格、截止时间、四日票、一名代表及再次筛选机制。",
+      "sources": [["ENGAGE 规则与申请入口", "https://www.engageuniversity.eu/engage-eu-startup-growth-pathway-4yfn-barcelona-2027/"], ["4YFN 官网", "https://www.4yfn.com/"]]
+    },
+    {
+      "id": "talent-arena", "name": "Talent Arena", "date": "2027-03-01", "when": "2027/03/01–03", "city": "巴塞罗那", "priority": "B", "goals": ["合作"], "status": "已开放",
+      "value": "技术交流、企业接触、比赛和开发伙伴，可与 4YFN 同程安排。",
+      "who": "本人以技术参与者身份参加。",
+      "entry": "2027 General Pass 报名开放；表单中的比赛兴趣登记不等于获得参赛资格。",
+      "fee": "General Pass 免费；差旅另计。",
+      "action": "与 4YFN 行程合并评估，核对感兴趣的比赛规则。",
+      "sources": [["2027 报名表", "https://event.talentarena.tech/TalentArena27General/en/registration"], ["票种说明", "https://talentarena.tech/tickets-talent-arena/"]]
+    },
+    {
+      "id": "global-industrie", "name": "Global Industrie / Industrial Futures", "date": "2027-03-15", "when": "2027/03/15–18", "city": "里昂", "priority": "B", "goals": ["获客", "合作", "展示"], "status": "待确认",
+      "value": "制造业获客重点，覆盖工业软件、AI、生产维护、物流和设备集成；提前约到目标企业再决定远途投入。",
+      "who": "两人以软件供应商与仓储业务参与者身份参观或评估联合展示。",
+      "entry": "展商申请开放；普通观众开票未核实，Pré-inscription 实际为订阅通知。创业比赛已于 2026/11/10 截止。",
+      "fee": "观众票价尚未核实；展位询价。",
+      "action": "关注观众与商务交流入口，整理目标企业和案例；不再申请本届已截止比赛。",
+      "contacts": "工厂生产、质量、维护、物流和 IT 负责人，以及设备商、系统集成商。",
+      "demo": "检测记录、库存状态与维修工单相互追踪。",
+      "question": "质量异常发生后，能否从批次直接找到检测、库存和处理记录？",
+      "pilot": "以一类设备或一条产线的记录为试点，明确设备接口与现场交付责任。",
+      "sources": [["官网与展商入口", "https://www.global-industrie.com/"], ["已截止创业比赛", "https://www.global-industrie.com/concours-des-startups"]]
+    },
+    {
+      "id": "occitanie-invest", "name": "Occitanie Invest", "date": "2027-03-18", "when": "2027/03/18", "city": "图卢兹", "priority": "B", "goals": ["融资", "展示"], "status": "需审核",
+      "value": "本地融资准备、pitch 和投资人会谈；仅在有明确融资产品和用途时推进。",
+      "who": "REX 的有权企业代表，基于 REX 自身营收和财务资料申请。",
+      "entry": "申请截止 2026/12/10；需要差异化产品或服务、营收、健康财务和明确融资计划。",
+      "fee": "费用尚未核实。",
+      "eligibility": "原资料记录 startup 现金须覆盖至少六个月费用。不要把合伙人其他实体收入计为 REX 营收。",
+      "action": "先确认融资产品、资金用途、营收和实际使用情况；若目标是接订单，继续优先行业获客。",
+      "sources": [["企业申请说明", "https://www.occitanie-invest.com/entreprises/"], ["AD’OCC 征集公告", "https://www.agence-adocc.com/presse/communique-de-presse-occitanie-invest-ouverture-de-lappel-a-candidatures/"]]
+    },
+    {
+      "id": "advanced-factories", "name": "Advanced Factories", "date": "2027-03-31", "when": "2027/03/31–04/02", "city": "巴塞罗那", "venue": "Fira Barcelona Gran Via", "priority": "A", "goals": ["展示", "获客", "合作"], "status": "需审核",
+      "value": "优先准备的正式案例演讲渠道，面向工业 AI、自动化、机器视觉、物流和工业数字化。",
+      "who": "本人以实际项目开发者、技术专业人士或创业者身份投稿。",
+      "entry": "演讲征集开放，2027/02/07 23:59:59 CET 截止；观众票开售情况尚未确认。",
+      "fee": "演讲申请免费（首轮资料）；观众票和差旅另计。",
+      "eligibility": "首轮资料记录使用英语或西班牙语，附件最多 8 页／16 MB；强调实际案例，避免产品推销。规则 PDF 本次抓取未成功，提交前复核附件限制。",
+      "action": "选一个已有使用证据的系统，讲清原流程、实现、实际变化和可迁移经验。",
+      "demo": "候选主题：电子产品仓储中，如何把检测、库存与出入库记录连接成可追踪流程。",
+      "pilot": "只陈述有证据的功能与效果；区分普通业务逻辑、自动化和确实使用 AI 的部分。",
+      "checked": "发布前复核了本届日期、演讲征集与精确截止时间。",
+      "sources": [["演讲征集", "https://www.advancedfactories.com/en/congress/call-speakers-advancedfactories/"], ["投稿入口", "https://www.advancedfactories.com/en/congress/call-speakers-application-advancedfactories/"], ["本届规则 PDF", "https://www.advancedfactories.com/app/uploads/sites/3/2026/10/cfs_af27_en.pdf"]]
+    },
+    {
+      "id": "medfel", "name": "medFEL", "date": "2027-04-28", "when": "2027/04/28–29", "city": "佩皮尼昂", "priority": "B", "goals": ["获客", "合作", "展示"], "status": "即将开放",
+      "value": "农业、物流与软件的交叉机会，覆盖果蔬生产、批发、运输、包装和技术工程。",
+      "who": "建议两人一起，以农业业务与软件供应商身份核对参与方式。",
+      "entry": "免费观众 badge 尚未开放，官网预计年底开放；AD’OCC 区域展团申请截止 2027/01/31。",
+      "fee": "普通观众免费。原资料记录展团 9㎡ 为 3,591€ HT，加每展商必付 380€ HT；共享展位另询。",
+      "action": "优先等免费观众入口并筛选目标企业；有明确展示、约见和预算后再比较展位。",
+      "contacts": "果蔬生产和批发经营者、运输与仓储负责人、包装设备及技术服务商。",
+      "demo": "批次、订单、出入库与交付记录关联查询。",
+      "question": "跨仓库或运输交接时，哪部分批次信息最容易断开？",
+      "pilot": "在一个仓库与一类果蔬业务验证追踪流程，冷链硬件和接口另行评估。",
+      "sources": [["观众 badge", "https://medfel.com/entree-gratuite/"], ["AD’OCC 展团", "https://www.agence-adocc.com/-evenements-/medfel-2027/"]]
+    },
+    {
+      "id": "hispack", "name": "Hispack", "date": "2027-05-04", "when": "2027/05/04–07", "city": "巴塞罗那", "priority": "B", "goals": ["获客", "合作", "展示"], "status": "待确认",
+      "value": "仓储与物流获客重点，包装、标签、物流、自动化和机器人，可寻找设备商及集成伙伴。",
+      "who": "两人以仓储业务参与者和软件供应商身份参观或评估联合展示。",
+      "entry": "展商联系／申请入口开放；普通观众报名与票价尚未核实。",
+      "fee": "观众价格未核实；展位询价。",
+      "action": "规划仓储案例和目标伙伴，等待观众或商务配对入口；暂不直接购买展位。",
+      "contacts": "包装设备商、仓储自动化集成商、物流运营及 IT 负责人。",
+      "demo": "标签、检测、入库、拣货与出库记录衔接。",
+      "question": "设备产出的数据现在怎样进入库存和订单系统？",
+      "pilot": "先对接一种标签或一台设备的数据；评估接口文档、现场调试和维护边界。",
+      "sources": [["活动官网", "https://www.hispack.com/en/"], ["展商联系入口", "https://www.hispack.com/en/participation-form/"]]
+    },
+    {
+      "id": "world-fira", "name": "World FIRA", "date": "", "when": "2027 · 日期待公布", "city": "图卢兹周边", "priority": "C", "goals": ["获客", "合作", "展示"], "status": "待确认", "watch": true,
+      "value": "农业机器人、农业数字化与 AI，行业匹配高。",
+      "who": "合伙人主导农业交流，本人评估软件合作。",
+      "entry": "官网表示 2027 年回归，但尚无明确日期，不能认定在本次六个月范围内。",
+      "fee": "尚未公布。",
+      "action": "等待日期、报名与展示规则。",
+      "sources": [["官方公告", "https://world-fira.com/fr/home-fr/"]]
+    },
+    {
+      "id": "mixit", "name": "MiXiT", "date": "2027-04-22", "when": "2027/04/22–23", "city": "里昂", "priority": "C", "goals": ["展示", "合作"], "status": "仅日期确定", "watch": true,
+      "value": "技术社区与经验分享；取得本届演讲机会后再评估远途参加。",
+      "who": "本人以技术分享者身份关注。",
+      "entry": "日期已公布，本轮未核实 2027 演讲征集开放；不沿用旧 FAQ 的投稿日期。",
+      "fee": "本届费用尚未核实。",
+      "action": "监测本届 CFP 和票务。",
+      "sources": [["活动官网", "https://mixitconf.org/fr"]]
+    }
+  ]
+}

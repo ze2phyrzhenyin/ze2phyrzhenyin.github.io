@@ -1,154 +1,78 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-// Static content: run this after editing events.json or prompt.txt.
 const root = new URL('../../public/guides/rex-opportunities/', import.meta.url);
 const data = JSON.parse(await readFile(new URL('events.json', root), 'utf8'));
 const prompt = await readFile(new URL('prompt.txt', root), 'utf8');
-const esc = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-const main = data.events.filter(event => !event.watch);
-const watch = data.events.filter(event => event.watch);
-const labels = { value: '参与价值', who: '身份与分工', entry: '入口与截止', fee: '费用', eligibility: '资格条件', action: '下一步', contacts: '建议接触', demo: '演示案例', question: '交流问题', pilot: '试点方向', checked: '本次复核' };
-const priorities = { A: '优先行动', B: '有条件参加', C: '持续观察' };
+const esc = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
+const labels = { value:'参与价值', who:'身份与分工', entry:'入口与截止', fee:'费用', eligibility:'资格条件', action:'下一步', contacts:'建议接触', demo:'演示案例', question:'交流问题', pilot:'试点方向', checked:'资料来源与复核' };
+const priorities = { A:'优先行动', B:'有条件参加', C:'持续观察' };
+const options = values => [...new Set(values)].map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join('');
+const link = (id, label) => `<a href="#${id}">${label}</a>`;
+const external = ([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="sr-only">（新窗口）</span></a>`;
+const dayDiff = date => Math.round((Date.parse(date)-Date.parse(data.reportDate))/86400000);
+const chevron = '<svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="m6 8 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const bookmark = '<svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M5 3h10v14l-5-3-5 3Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
 
-function eventHTML(event) {
-  return `<details class="event" id="${esc(event.id)}" data-priority="${event.priority}" data-city="${esc(event.city)}" data-goals="${esc(event.goals.join(' '))}">
-<summary><span class="event-date">${esc(event.when)}</span><span class="event-name">${esc(event.name)}<span class="event-meta">${esc(event.city)}${event.venue ? ' · ' + esc(event.venue) : ''} · ${esc(event.goals.join(' / '))}</span></span><span class="event-status">${esc(event.status)}</span><span class="priority priority-${event.priority}">${event.priority}<span class="sr-only"> ${priorities[event.priority]}</span></span></summary>
-<div class="event-body"><dl>${Object.entries(labels).filter(([key]) => event[key]).map(([key,label]) => `<div><dt>${label}</dt><dd>${esc(event[key])}</dd></div>`).join('')}</dl>
-<p class="sources">${event.sources.map(([label,url]) => `<a href="${esc(url)}" rel="noopener noreferrer" target="_blank">${esc(label)}<span class="sr-only">（新窗口）</span></a>`).join('')}</p><a class="permalink" href="#${event.id}">此活动链接</a></div></details>`;
+const plans = [
+ ['11/16–18','核对近期入口','FRAMES 11/17 截止；11/17 两场本地活动择一或分工。11/18 检查 ISE 挑战、Tech Spirit 会谈及 EIC 说明会报名。'],
+ ['本周','决定 12 月主行程','农业需求访谈优先波尔多；明确零售或供应链会谈再选巴黎。若 FRAMES 有匹配会谈，可由本人留图卢兹、合伙人去 Vinitech。'],
+ ['未来两周','准备产品和申请','确认 ENGAGE 身份与孵化经历，选定一个产品；整理 SIVAL、CFIA 目标企业，询问 Startup World 产品适配及余位。']
+];
+const conflicts = [
+ ['11/17','图卢兹两场本地活动','Transfo Digitale Day 在 La Cité，企业展在 MEETT。软件需求交流优先前者；两人可分工。'],
+ ['11/30–12/03','巴黎、波尔多与本地对接','Tech for Retail / Supply Chain Event 可同程但分别取票；与 Vinitech、FRAMES、BtoBuild、SOFT、La Place、Tech Spirit 和 Aeromart 取舍。'],
+ ['03/01–04','巴塞罗那同程','ENGAGE／4YFN 与 Talent Arena 可组合；若入选 ENGAGE，先满足四日参与要求。'],
+ ['03/15–18','里昂或斯图加特','法国制造业客户选 Global Industrie；仓储系统与设备集成选 LogiMAT。若入选 3/18 Occitanie Invest，还需保留图卢兹当天。'],
+ ['03/31–04/02','巴塞罗那或 Labège','Advanced Factories 与 MIDI MAT 重叠。演讲获选优先履行演讲安排；本地设备需求调研可由合伙人负责。'],
+ ['04/26–29','慕尼黑或佩皮尼昂','国际仓储与运输合作选 transport logistic；农业软件和果蔬流通选 medFEL。']
+];
+const materialSets = [
+ ['农业与食品','Vinitech · SIVAL · CFIA · FRUIT LOGISTICA · medFEL','供应商／农户来料、批次、收货重量、库存、筛选或加工、发货及单据。','从收货到发货，哪一步最容易重复录入或对不上数量？','一个品类、一个仓点、一条流程。农业模块未上线时明确标为原型。'],
+ ['仓储与物流','Supply Chain Event · SITL · LogiMAT · transport logistic','收货、产品识别、检测结果、库位与库存、订单、出库、发货记录。','哪些信息需要在 Excel、邮件、仓储软件和运输平台之间重复填写？','订单导入、运输资料生成、检测与库存连接或客户货物查询中的一项。设备、硬件和现场部署单独界定。'],
+ ['演讲与创业申请','Advanced Factories · WAICF · ENGAGE.EU','业务问题、原流程、已实现功能、实际使用范围、测量结果与限制。','哪些步骤自动处理，哪些必须由人确认？','内部使用、用户试用和客户付费分别举证；没有测量的数据不写成节省时间、准确率或成本成果。']
+];
+
+function eventHTML(e) {
+ const date = e.date?.match(/^\d{4}-\d{2}-\d{2}$/) ? e.date : '';
+ return `<details class="event" id="${esc(e.id)}" data-priority="${e.priority}" data-city="${esc(e.city)}" data-country="${esc(e.country)}" data-sectors="${esc(e.sectors.join('|'))}" data-goals="${esc(e.goals.join('|'))}" data-date="${date}" data-deadline="${esc(e.deadline)}" data-update="${esc(e.update)}">
+<summary><span class="event-date">${date ? `<span>${date.slice(5,7)}月</span><strong>${date.slice(8)}</strong><small>${date.slice(0,4)}</small>` : '<span>日期</span><strong>待定</strong>'}</span>
+<span class="event-description"><span class="event-title">${esc(e.name)}<span class="saved-mark" hidden aria-label="已收藏">${bookmark}</span></span><span class="event-meta">${esc(e.country)} · ${esc(e.city)}${e.venue ? ` · ${esc(e.venue)}` : ''}</span><span class="event-context">${esc(e.sectors.join(' / '))}<span class="update-label">${e.update==='首轮保留' ? '' : esc(e.update)}</span></span></span>
+<span class="event-availability"><span>${esc(e.status)}</span><small>${esc(e.when)}</small></span><span class="priority priority-${e.priority}" title="${priorities[e.priority]}">${e.priority}<span class="sr-only"> ${priorities[e.priority]}</span></span><span class="disclosure">${chevron}</span></summary>
+<div class="event-body"><p class="event-value">${esc(e.value)}</p><div class="event-actions">${external(e.sources[0])}<button type="button" class="save-event" data-id="${esc(e.id)}" aria-pressed="false" hidden>${bookmark}<span>收藏活动</span></button><a class="permalink" href="#${e.id}">此活动链接</a></div><dl>${Object.entries(labels).filter(([key])=>key!=='value' && e[key]).map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(e[key])}</dd></div>`).join('')}</dl><div class="sources">${e.sources.slice(1).map(external).join('')}</div></div></details>`;
 }
-
-const html = `<!doctype html>
-<html lang="zh-CN" data-guide="rex-opportunities">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>REX 创业活动与商业机会｜2026–2027</title>
-<meta name="description" content="图卢兹、法国南部与巴塞罗那的行业展会、演讲、创业合作和融资机会。含报名入口、资格、截止提醒及可复用检索提示词。">
-<meta name="theme-color" content="#f8f8f7">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="canonical" href="https://zhaoyang.fr/guides/rex-opportunities/">
-<meta property="og:title" content="REX 创业活动与商业机会">
-<meta property="og:description" content="2026 年 11 月至 2027 年 5 月：活动清单、申请条件、行动安排与检索提示词。">
-<meta property="og:type" content="article"><meta property="og:url" content="https://zhaoyang.fr/guides/rex-opportunities/">
-<script src="/guides/theme.js?v=20260924c"></script>
-<link rel="stylesheet" href="/guides/navigation.css?v=20260924c">
-<link rel="stylesheet" href="./style.css?v=20261115">
-<script defer src="/guides/navigation.js?v=20260924c"></script>
-<script defer src="./app.js?v=20261115"></script>
-</head>
-<body>
-<a class="skip" href="#main">跳到正文</a>
-<nav class="guide-navigation" aria-label="攻略导航"><a href="/guides/zh/">返回攻略总览</a><span class="guide-navigation-languages"><a href="#prompt">检索提示词</a></span></nav>
-<main id="main" class="shell">
-<header>
-<h1>REX 创业活动与商业机会</h1>
-<p class="report-date">资料日期 <time datetime="2026-11-15">2026 年 11 月 15 日</time> · Europe/Paris</p>
-<p>覆盖 2026 年 11 月 15 日至 2027 年 5 月 15 日。优先图卢兹及周边，同时纳入波尔多、巴塞罗那、马赛和里昂。</p>
-<p class="source-note">依据本次提供的首轮报告整理，发布前复核了部分重点入口，各项内注明复核范围。原报告未记录检索截止时刻；报名状态和价格是本期资料快照，行动前请查看对应官方入口。</p>
-<div class="downloads"><a href="./report.md" download="REX-创业活动-2026-11-15.md">下载活动清单</a><a href="./prompt.txt" download="REX-活动研究提示词.txt">下载提示词</a><button type="button" id="print" hidden>打印攻略</button></div>
-</header>
-<nav class="contents" aria-label="页内目录"><a href="#priorities">优先行动</a><a href="#events">活动清单</a><a href="#deadlines">截止提醒</a><a href="#schedule">出行安排</a><a href="#materials">准备材料</a><a href="#watch">观察名单</a><a href="#prompt">完整提示词</a></nav>
-
-<section id="priorities" class="reading">
-<h2>优先行动</h2>
-<ol class="actions">
-<li><a href="#transfo">11 月 17 日：Transfo Digitale Day</a>。本人优先交流企业数字化问题；合伙人有时间可分头参加 MEETT 的企业展。带一个能在电脑上操作的业务系统。</li>
-<li><a href="#vinitech">12 月 1–3 日：Vinitech-Sifel</a>。农业获客优先考虑两人一起去，围绕订单、库存、出库与单据展示完整流程。</li>
-<li><a href="#engage">12 月 3 日前：ENGAGE／4YFN</a>。先向学校确认内部孵化条件，再决定申请产品并准备使用证据。</li>
-<li><a href="#advanced-factories">2027 年 2 月 7 日前：Advanced Factories</a>。准备一份有实际使用结果的案例演讲，分别说明业务软件、自动化和 AI 的作用。</li>
-<li><a href="#ise">11 月 18 日起：ISE 技术挑战</a>。检查发布的真实需求，优先匹配现有产品；有明确问题和会谈对象后再安排出行。</li>
-</ol>
-<p>这些优先级是根据 REX 的业务匹配、投入和参与机制作出的建议。行业匹配与演示方向不表示相关企业已提出采购需求。</p>
-</section>
-
-<section id="profile" class="reading">
-<h2>身份与参与方式</h2>
-<p>背景来自本人提供的信息：UT Capitole MIAGE M1 学生、法国 SAS 公司 REX，合伙人具有法国国籍及农业、海外仓储经验。数字业务包括定制软件、网站与应用、库存、检测、工单、文档自动化、系统集成和企业流程中的 AI 应用。</p>
-<div class="table-scroll" role="region" aria-label="身份与参与方式对照" tabindex="0"><table><thead><tr><th>身份</th><th>适合寻找的入口</th><th>分工</th></tr></thead><tbody>
-<tr><td>法国企业与软件服务商</td><td>行业展、技术挑战、企业对接、合作交付</td><td>本人讲软件；合伙人讲经营场景</td></tr>
-<tr><td>农业、海外仓储业务参与者</td><td>农业、包装、物流、供应链与设备交流</td><td>合伙人切入业务，两人共同演示</td></tr>
-<tr><td>大学学生与创业参与者</td><td>学生日、大学联盟、校内创业支持</td><td>本人按真实学籍和创业身份申请</td></tr>
-<tr><td>有实际产品的团队</td><td>案例演讲、路演、孵化和投资交流</td><td>以一个具体产品和使用证据申请</td></tr>
-</tbody></table></div>
-<p>国籍、公司注册地、学生资格、法定职务和孵化经历分别核验。只有确有采购职责和需求时才使用专业买家渠道；营收、股份和融资条件未确认的部分保持未知。</p>
-</section>
-
-<section id="events">
-<h2>活动清单</h2>
-<p>A：优先行动。B：有明确资格、目标或约见对象后值得参加。C：持续观察。点击活动可查看条件、费用、分工与官方入口。HT 为未税，TTC 为含税。</p>
-<form id="filters" class="filters" hidden role="search" aria-label="筛选活动">
-<label class="search-label">搜索活动<input id="search" type="search" placeholder="活动、行业或关键词" autocomplete="off"></label>
-<label>目标<select id="goal"><option value="">全部目标</option>${['获客','展示','合作','融资'].map(goal => `<option>${goal}</option>`).join('')}</select></label>
-<label>城市<select id="city"><option value="">全部城市</option>${[...new Set(main.map(event=>event.city))].map(city=>`<option>${city}</option>`).join('')}</select></label>
-<label>优先级<select id="priority"><option value="">全部优先级</option><option value="A">A · 优先行动</option><option value="B">B · 有条件参加</option></select></label>
-<button type="reset">清除筛选</button>
-</form>
-<div class="list-tools"><p id="result-count" role="status" aria-live="polite">${main.length} 项活动</p><button id="expand" type="button" hidden>展开当前活动</button></div>
-<div class="event-head" aria-hidden="true"><span>日期</span><span>活动与地点</span><span>参与状态</span><span>优先级</span></div>
-<div id="event-list">${main.map(eventHTML).join('\n')}</div>
-<p id="empty" hidden>没有符合条件的活动，请调整关键词或清除筛选。</p>
-</section>
-
-<section id="deadlines" class="reading">
-<h2>截止提醒</h2>
-<p>以 2026 年 11 月 15 日为起点。未来 7 天与 14 天内，原清单没有另外确认的申请截止；11 月 17 日有本地活动，11 月 18 日有新入口开放。未来 30 天重点处理下列事项。</p>
-<div class="table-scroll" role="region" aria-label="截止提醒表" tabindex="0"><table><thead><tr><th>日期</th><th>事项</th><th>行动</th></tr></thead><tbody>
-<tr><td>11/18 起</td><td><a href="#ise">ISE</a>、<a href="#tech-spirit">Tech Spirit</a></td><td>检查技术挑战与投资人会谈预约，分别核对资格</td></tr>
-<tr><td>11/30</td><td><a href="#soft">SOFT B2B</a></td><td>配对报名截止；先确认约见对象</td></tr>
-<tr><td>12/01 前</td><td><a href="#place-creative">La Place aux Pitchs</a></td><td>建议 11/30 前提交，先确认既有 SAS 产品是否适用</td></tr>
-<tr><td>12/03 23:59 CET</td><td><a href="#engage">ENGAGE／4YFN</a></td><td>完成孵化资格核对与英文材料</td></tr>
-<tr><td>12/10</td><td><a href="#occitanie-invest">Occitanie Invest</a></td><td>核对营收、现金、融资产品与用途</td></tr>
-<tr><td>2027/01/31</td><td><a href="#medfel">medFEL 区域展团</a></td><td>只在有展示目标和预算时申请付费展团</td></tr>
-<tr><td>2027/02/02</td><td><a href="#ise">ISE 技术供应商</a></td><td>按技术供应商专门截止日提交</td></tr>
-<tr><td>2027/02/07 23:59:59 CET</td><td><a href="#advanced-factories">Advanced Factories</a></td><td>案例演讲投稿截止</td></tr>
-</tbody></table></div>
-</section>
-
-<section id="schedule" class="reading">
-<h2>两周行动与出行取舍</h2>
-<ul>
-<li>11 月 15–17 日：落实本地活动，准备一页法语企业介绍和五分钟演示。La Cité 与 MEETT 分属两处，不把两个全天议程都排满。</li>
-<li>11 月 18 日：检查 ISE 技术供应商入口和 Tech Spirit 会谈；只为匹配的问题和对象继续准备。</li>
-<li>11 月 19–22 日：确定 12 月初主行程；核对 ENGAGE 校内孵化条件、La Place aux Pitchs 资格和 Aeromart 学生日报名。</li>
-<li>11 月 23–29 日：完成产品使用证据、英文动机与三分钟 pitch；如果选择 SOFT，提前落实约见。</li>
-</ul>
-<div class="table-scroll" role="region" aria-label="行程撞期与取舍" tabindex="0"><table><thead><tr><th>时间</th><th>冲突或组合</th><th>建议取舍</th></tr></thead><tbody>
-<tr><td>11/17</td><td>Transfo Digitale Day / 企业展</td><td>软件需求优先前者；两人可分头参加</td></tr>
-<tr><td>12/01–03</td><td>Vinitech / Nuit des Réseaux / SOFT / La Place Créative / Tech Spirit / Aeromart</td><td>农业获客优先 Vinitech；练 pitch 选 La Place；融资合作需先约会谈；航空了解走学生日</td></tr>
-<tr><td>2027/03/01–04</td><td>4YFN / Talent Arena</td><td>同在巴塞罗那，可合并差旅，但入选 ENGAGE 后优先满足其四日出席要求</td></tr>
-<tr><td>2027/03/18</td><td>Global Industrie / Occitanie Invest</td><td>若入选融资活动，保留图卢兹当天；里昂展可选其他日期</td></tr>
-</tbody></table></div>
-<p>两人分工时，合伙人主攻农业和仓储交流，本人主攻演讲、大学创业和技术合作。共同去农业展时，把时间留给联合演示与需求访谈。</p>
-</section>
-
-<section id="materials" class="reading">
-<h2>准备材料</h2>
-<ul>
-<li>一页法语企业介绍：REX 做什么、已完成的项目、希望接触的客户。</li>
-<li>三分钟项目介绍：围绕一个产品或案例，说明问题、方案和实际使用。</li>
-<li>五分钟可操作演示：完整展示订单、库存、检测、工单或单据中的一条业务流程。</li>
-<li>一页效果记录：使用场景、使用者、处理量、减少的步骤或时间；尚未测量的数据不写成成果。</li>
-</ul>
-<p>Advanced Factories 可围绕电子产品仓储的检测、库存与出入库追踪准备案例。ENGAGE 需要把公司与合伙人的经营背景联系到参选产品的 MVP、试点、用户或收入证据；不同实体的业务收入分别说明。</p>
-<p>展示硬件、现场安装或设备接口时，明确设备访问、协议、调试、维护和验收责任。软件演示中使用已获授权的数据或清楚标注的示例数据。</p>
-</section>
-
-<section id="watch">
-<h2>观察名单与未开放入口</h2>
-${watch.map(eventHTML).join('\n')}
-<ul class="reading"><li><a href="#global-industrie">Global Industrie</a> 创业比赛已截止，继续看观众与商务交流入口。</li><li><a href="#medfel">medFEL</a> 免费观众 badge 尚未开放，等待年底公告。</li><li><a href="#hispack">Hispack</a> 目前仅确认展商联系入口，观众票价和报名待核实。</li></ul>
-</section>
-
-<section id="prompt" class="reading">
-<h2>可复用检索提示词</h2>
-<p>首次用于完整调研；后续与上一期成功报告比较，滚动检查未来六个月。复制文本不会创建定时任务，已有任务继续沿用。</p>
-<div class="downloads"><button id="copy-prompt" type="button" hidden>复制提示词</button><a href="./prompt.txt" download="REX-活动研究提示词.txt">下载 TXT</a><button id="select-prompt" type="button" hidden>选中全文</button></div>
-<p id="copy-status" role="status" aria-live="polite"></p>
-<details class="prompt-details"><summary>查看完整提示词</summary><pre id="prompt-text" tabindex="0">${esc(prompt)}</pre></details>
-</section>
-<footer class="reading"><p>本期资料整理：2026 年 11 月 15 日。原报告提及每周一上午（法国时间）更新，首次为 11 月 16 日；任务状态以原任务记录为准，本页不会自动发起报名、购票或联系。</p><a href="/guides/zh/">返回攻略总览</a></footer>
-</main></body></html>`;
+function noticeHTML(n) {
+ return `<li data-days="${dayDiff(n.date)}"><time datetime="${n.date}"><strong>${n.date.slice(5).replace('-','/')}</strong>${n.time ? `<small>${n.time}</small>` : ''}</time><div><a href="#${n.event}">${esc(n.label)}</a><span class="notice-kind">${esc(n.kind)}</span><p>${esc(n.note)}</p></div></li>`;
+}
+const navItems=[['priorities','本期重点'],['events','机会清单'],['deadlines','截止日历'],['schedule','出行安排'],['materials','参会准备'],['profile','参与身份'],['prompt','研究提示词'],['archive','历史报告']];
+const html=`<!doctype html>
+<html lang="zh-CN" data-guide="rex-opportunities"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>创业调研 · REX｜欧洲活动与商业机会</title>
+<meta name="description" content="REX 创业调研，2026 年 11 月 16 日更新。法国全境及欧洲行业展会、演讲、商务对接与大学创业资源，含费用、资格、截止日历与官方入口。">
+<meta name="theme-color" content="#f5f7f8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://zhaoyang.fr/guides/rex-opportunities/">
+<meta property="og:title" content="创业调研 · REX"><meta property="og:description" content="11 月 16 日周报：本地获客与欧洲行业机会，覆盖至 2027 年 5 月 16 日。"><meta property="og:type" content="article"><meta property="og:url" content="https://zhaoyang.fr/guides/rex-opportunities/">
+<script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="./style.css?v=20261116"><script defer src="./app.js?v=20261116"></script></head>
+<body><a class="skip" href="#main">跳到正文</a>
+<div class="topbar"><a class="back-link" href="/guides/zh/">${chevron} 攻略总览</a><a class="top-brand" href="#main">REX <span>创业调研</span></a><div class="top-tools"><a href="./report.md" download="REX-创业调研-2026-11-16.md">下载周报</a><button id="theme-toggle" type="button" aria-label="切换阅读主题" hidden>深色</button></div></div>
+<div class="layout"><aside class="sidebar"><nav aria-label="页内目录">${navItems.map(([id,name],i)=>`<a href="#${id}"${i===0?' aria-current="location"':''}>${name}</a>`).join('')}</nav><div class="sidebar-note"><span>更新计划</span><strong>每周一 · 08:00</strong><span>法国时间</span><p>下期 11 月 23 日</p></div></aside>
+<main id="main"><header class="masthead"><div><h1>创业调研</h1><p class="report-date"><time datetime="2026-11-16">2026 年 11 月 16 日</time><span>Europe/Paris</span></p></div><div class="period"><span>本期覆盖</span><strong>2026.11.16 <span>至</span> 2027.05.16</strong><span>法国全境及欧洲目的地</span></div></header>
+<nav class="mobile-nav" aria-label="快捷目录"><a href="#priorities">本期</a><a href="#events">机会</a><a href="#deadlines">截止</a><a href="#schedule">出行</a><a href="#prompt">提示词</a></nav>
+<section id="priorities" class="overview"><div class="section-heading"><h2>本期重点</h2><span>范围已扩展至欧洲</span></div><div class="overview-grid"><div class="action-list"><article><span class="action-date">11/17 截止</span><h3>${link('frames','FRAMES 法西商务对接')}</h3><p>先核对航空产业相关性与入场权益，用已有检测、库存案例说明软件能力。</p></article><article><span class="action-date">本周决定</span><h3>${link('vinitech','12 月初，波尔多还是巴黎')}</h3><p>农业获客优先 Vinitech；零售或仓储目标明确、有会谈再选巴黎。</p></article><article><span class="action-date">12/03 截止</span><h3>${link('engage','ENGAGE.EU / 4YFN')}</h3><p>请学校确认共同创始人与孵化条件，选定一个产品，准备真实使用证据。</p></article></div><div class="focus-panel"><h3>行业日历</h3><ul><li><time>01 月</time><span>${link('sival','SIVAL')}<small>昂热 · 农业生产</small></span></li><li><time>02 月</time><span>${link('fruit-logistica','FRUIT LOGISTICA')}<small>柏林 · 果蔬与物流</small></span></li><li><time>03 月</time><span>${link('cfia','CFIA')} / ${link('logimat','LogiMAT')} / ${link('sitl','SITL')}<small>雷恩 · 斯图加特 · 巴黎</small></span></li></ul><p>演讲准备 ${link('advanced-factories','Advanced Factories')} 与 ${link('waicf','WAICF')}；远途出行以会谈、演讲或展示机会为依据。</p></div></div>
+<details class="source-note"><summary>本期资料与更新说明 ${chevron}</summary><p>合并 11 月 15 日首轮、11 月 16 日本地增补与欧洲范围扩展。取消图卢兹距离限制，覆盖法国、西班牙、德国、比利时，按价值加入荷兰等欧洲目的地。各条目保留来源与复核范围；并非全部字段重新检索。</p><p>报名、价格和截止按 11 月 16 日资料快照展示，行动前查看官方入口。原报告未记录统一检索截止时刻。每周一约 08:00、下期 11/23 为既有更新计划；本页展示已发布资料，不会自行执行研究或提交申请。</p></details></section>
+<section id="events"><div class="section-heading"><h2>机会清单</h2><span>${data.events.length} 项活动与机会</span></div><p class="legend"><span><b>A</b> 优先行动</span><span><b>B</b> 有条件参加</span><span><b>C</b> 持续观察</span></p>
+<form id="filters" role="search" aria-label="筛选活动" hidden><div class="quick-filters" aria-label="常用筛选"><button type="button" data-view="all" aria-pressed="true">全部机会</button><button type="button" data-view="new" aria-pressed="false">本期新增</button><button type="button" data-view="priority" aria-pressed="false">优先行动</button><button type="button" data-view="saved" aria-pressed="false">我的收藏 <span id="saved-count">0</span></button></div>
+<div class="filter-primary"><label class="search-label">搜索<input id="search" type="search" placeholder="活动、城市、行业或关键词" autocomplete="off"></label><label>国家与地区<select id="country"><option value="">全部地区</option>${options(data.events.map(e=>e.country))}</select></label><label>行业<select id="sector"><option value="">全部行业</option>${options(data.events.flatMap(e=>e.sectors))}</select></label><button id="more-filters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-extra">更多筛选 ${chevron}</button></div>
+<div class="filter-extra" id="filter-extra" hidden><label>参与目标<select id="goal"><option value="">全部目标</option>${options(['获客','展示','合作','融资'])}</select></label><label>城市<select id="city"><option value="">全部城市</option>${options(data.events.map(e=>e.city))}</select></label><label>优先级<select id="priority"><option value="">全部优先级</option>${options(['A','B','C'])}</select></label><label>活动月份<select id="month"><option value="">全部月份</option>${options(data.events.map(e=>e.date?.slice(0,7)).filter(v=>/^\d{4}-\d{2}$/.test(v)))}</select></label></div>
+<div class="filter-footer"><span id="filter-summary">全部地区与行业</span><button type="reset">清除筛选</button></div></form>
+<div class="list-tools"><p id="result-count" role="status" aria-live="polite">${data.events.length} 项活动</p><div><label class="sort-label" hidden>排序<select id="sort"><option value="date">按活动日期</option><option value="priority">按优先级</option><option value="deadline">按申请截止</option></select></label><button id="expand" type="button" hidden>展开当前活动</button></div></div>
+<div id="event-list">${data.events.map(eventHTML).join('\n')}</div><div id="empty" class="empty" hidden><h3>没有符合条件的活动</h3><p>调整筛选，或在活动详情中收藏感兴趣的机会。</p><button id="empty-reset" type="button">清除筛选</button></div><p class="list-footnote">A / B / C 是参与建议；是否开放、费用和资格单独列出。HT 为未税，TTC 为含税。收藏保存在当前浏览器。</p></section>
+<section id="deadlines"><div class="section-heading"><h2>截止日历</h2><span>相对本期 11 月 16 日</span></div><div class="deadline-tabs" hidden aria-label="截止时间范围"><button type="button" data-window="7" aria-pressed="true">7 天内</button><button type="button" data-window="14" aria-pressed="false">14 天内</button><button type="button" data-window="30" aria-pressed="false">30 天内</button><button type="button" data-window="all" aria-pressed="false">全部提醒</button></div><ol class="deadline-list">${data.notices.map(noticeHTML).join('')}</ol><p class="minor">包含申请截止与入口开放提醒；不是活动举办日期。</p></section>
+<section id="schedule"><div class="section-heading"><h2>出行与行动安排</h2></div><div class="plan-list">${plans.map(([time,title,text])=>`<article><span>${time}</span><div><h3>${title}</h3><p>${text}</p></div></article>`).join('')}</div><h3 class="conflict-heading">撞期与取舍</h3><div class="conflicts">${conflicts.map(([date,title,text])=>`<details><summary><time>${date}</time><span>${title}</span>${chevron}</summary><p>${text}</p></details>`).join('')}</div></section>
+<section id="materials"><div class="section-heading"><h2>参会准备</h2></div><p>准备一页法语企业介绍、三分钟项目介绍、五分钟可操作演示和一页实际效果记录。</p><div class="materials">${materialSets.map(([title,events,demo,question,pilot])=>`<article><h3>${title}</h3><p class="minor">${events}</p><dl><div><dt>演示流程</dt><dd>${demo}</dd></div><div><dt>交流切入</dt><dd>${question}</dd></div><div><dt>试点范围</dt><dd>${pilot}</dd></div></dl></article>`).join('')}</div><p class="minor">这些演示、访谈和试点是准备建议，不代表参会企业已公开提出采购需求。</p></section>
+<section id="profile"><div class="section-heading"><h2>身份与参与方式</h2></div><div class="profile-list"><div><h3>法国 SAS · 软件与 AI</h3><p>以企业代表、软件供应商或合作交付方参加；按真实职务填写，专业买家渠道需要实际采购职责。</p></div><div><h3>农业 · 海外仓储</h3><p>合伙人讲经营问题，本人展示软件流程；不同实体的营收与业务证据分别说明。</p></div><div><h3>UT Capitole · MIAGE M1</h3><p>本人按真实学籍申请学生与大学入口。目前不是 REX 股东，不自动认定符合 active co-founder 或校内孵化要求。</p></div></div><p class="minor">国籍、企业注册地、学生资格、股份、孵化经历及产品成熟度分别核验。</p></section>
+<section id="prompt"><div class="section-heading"><h2>可复用研究提示词</h2><a href="./prompt.txt" download="REX-欧洲活动研究提示词.txt">下载 TXT</a></div><p>已纳入欧洲范围、真实身份、报名核验和与上期比较的要求。沿用既有每周任务。</p><div class="prompt-actions"><button id="copy-prompt" type="button" hidden>复制完整提示词</button><button id="select-prompt" type="button" hidden>选中全文</button></div><p id="copy-status" role="status" aria-live="polite"></p><details class="prompt-details"><summary>查看完整提示词 ${chevron}</summary><pre id="prompt-text" tabindex="0">${esc(prompt)}</pre></details></section>
+<section id="archive"><div class="section-heading"><h2>历史报告</h2><button id="print" type="button" hidden>打印本期</button></div><div class="archive-row"><time>2026.11.16</time><span>本地增补与欧洲范围扩展</span><a href="./report.md" download>下载本期</a></div><div class="archive-row"><time>2026.11.15</time><span>首轮调研与原始提示词</span><a href="./archive/2026-11-15/report.md" download>下载首轮</a></div></section>
+<footer><span>REX 创业活动与客户机会周报</span><a href="#main">回到顶部</a><p>资料日期 2026.11.16 · 下期计划 2026.11.23 · 每周一约 08:00，法国时间。</p></footer><div id="toast" role="status" aria-live="polite"></div></main></div></body></html>`;
 await writeFile(new URL('index.html', root), html);
-
-const report = `# REX 创业活动与商业机会\n\n资料日期：2026-11-15（Europe/Paris）。覆盖：2026-11-15 至 2027-05-15。\n\n依据提供的首轮报告整理，部分重点入口在发布前复核，范围见各项。原报告未记录检索截止时刻。状态与价格是本期资料快照，行动前请复核官方入口。参与、演示和试点方向是建议，不代表公开采购需求。\n\nA：优先行动；B：有明确条件后参加；C：持续观察。HT 为未税，TTC 为含税。\n\n${data.events.map(event => `## ${event.name}${event.watch ? '（观察名单）' : ''}\n\n${event.when} · ${event.city}${event.venue ? ' · ' + event.venue : ''} · ${event.priority} ${priorities[event.priority]}\n目标：${event.goals.join('、')}。状态：${event.status}。\n\n${Object.entries(labels).filter(([key])=>event[key]).map(([key,label])=>`- ${label}：${event[key]}`).join('\n')}\n\n${event.sources.map(([label,url])=>`[${label}](${url})`).join(' · ')}`).join('\n\n')}\n\n## 检索提示词\n\n${prompt}`;
-await writeFile(new URL('report.md', root), report);
-console.log(`Built ${main.length} opportunities, ${watch.length} watch items and the complete research prompt.`);
+const report=`# REX 创业活动与客户机会周报\n\n资料日期：${data.reportDate}（Europe/Paris）。覆盖：${data.period.join(' 至 ')}。\n\n范围：${data.scope}\n\n更新计划：${data.updatePlan}；下期 ${data.nextReport}。此处记录既有任务约定，不代表本次新建或更改调度。\n\n合并用户提供的首轮、本地增补与欧洲扩展资料；各条目说明复核范围，未将全部资料表示为本次重新验证。原资料未记录统一检索截止时刻。行动前复核官方入口。\n\nA：优先行动；B：有条件参加；C：持续观察。HT 未税，TTC 含税。演示、访谈与试点为建议，不是公开采购需求。\n\n## 近期行动\n\n${plans.map(([time,title,text])=>`- ${time} · ${title}：${text}`).join('\n')}\n\n## 截止与开放提醒\n\n${data.notices.map(n=>`- ${n.date}${n.time?' '+n.time:''} · ${n.kind} · ${n.label}：${n.note} [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#${n.event})`).join('\n')}\n\n## 行程取舍\n\n${conflicts.map(([date,title,text])=>`- ${date} · ${title}：${text}`).join('\n')}\n\n## 准备材料\n\n一页法语企业介绍、三分钟项目介绍、五分钟可操作演示、一页实际效果记录。\n\n${materialSets.map(([title,events,demo,question,pilot])=>`### ${title}\n\n适用：${events}\n\n演示：${demo}\n\n交流：${question}\n\n试点：${pilot}`).join('\n\n')}\n\n## 活动与机会\n\n${data.events.map(e=>`### ${e.name}\n\n${e.when} · ${e.country} · ${e.city}${e.venue?' · '+e.venue:''} · ${e.priority} ${priorities[e.priority]}\n目标：${e.goals.join('、')}。状态：${e.status}。本期：${e.update}。\n\n${Object.entries(labels).filter(([key])=>e[key]).map(([key,label])=>`- ${label}：${e[key]}`).join('\n')}\n\n${e.sources.map(([label,url])=>`[${label}](${url})`).join(' · ')}`).join('\n\n')}\n\n## 完整研究提示词\n\n${prompt}`;
+await writeFile(new URL('report.md',root),report);
+console.log(`Built ${data.events.length} opportunities and ${data.notices.length} date notices.`);
