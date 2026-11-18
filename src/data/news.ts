@@ -129,9 +129,9 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-03-01',
     endDate: '2026-03-01',
     title: {
-      zh: '计算机学习方法线上分享会',
-      en: 'Online talk on how to study computer science',
-      fr: 'Rencontre en ligne sur les méthodes de travail en informatique',
+      zh: '线上分享会',
+      en: 'Online sharing session',
+      fr: 'Rencontre en ligne',
     },
     audience: {
       zh: '听众：上海师范大学商学院中法计算机项目学生',
@@ -139,9 +139,9 @@ export const newsItems: NewsItem[] = [
       fr: 'Public : étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
     },
     summary: {
-      zh: '主讲人 · 演讲 30 分钟',
-      en: 'Speaker · 30-minute talk',
-      fr: 'Intervenant · présentation de 30 minutes',
+      zh: '分享计算机学习方法',
+      en: 'Shared approaches to studying computer science',
+      fr: 'Présentation de méthodes de travail en informatique',
     },
   },
 ];
