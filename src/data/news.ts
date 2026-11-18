@@ -7,6 +7,7 @@ export type NewsItem = {
   url?: string;
   startDate: string;
   endDate: string;
+  audience?: Record<Lang, string>;
   summary?: Record<Lang, string>;
   location?: Record<Lang, { country: string; city: string }>;
   award?: string;
@@ -128,14 +129,19 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-03-01',
     endDate: '2026-03-01',
     title: {
-      zh: '线上分享计算机学习方法',
+      zh: '计算机学习方法线上分享会',
       en: 'Online talk on how to study computer science',
       fr: 'Rencontre en ligne sur les méthodes de travail en informatique',
     },
+    audience: {
+      zh: '听众：上海师范大学商学院中法计算机项目学生',
+      en: 'Audience: students in the Sino-French computer science programme at Shanghai Normal University Business School.',
+      fr: 'Public : étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
+    },
     summary: {
-      zh: '面向上海师范大学商学院中法计算机项目的学生。',
-      en: 'For students in the Sino-French computer science programme at Shanghai Normal University Business School.',
-      fr: 'Pour les étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
+      zh: '主讲人 · 演讲 30 分钟',
+      en: 'Speaker · 30-minute talk',
+      fr: 'Intervenant · présentation de 30 minutes',
     },
   },
 ];

@@ -40,6 +40,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
             </a> : typeof item.title === 'string' ? item.title : item.title[lang]}
           </h3>
           {item.location && <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>}
+          {item.audience && <p class="news-location">{item.audience[lang]}</p>}
           <p class:list={['news-summary', { 'news-award': item.award }]}>
             {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : item.role === 'lightning-talk-speaker' ? copy.speaker : (item.summary?.[lang] ?? copy.attended)}
           </p>
