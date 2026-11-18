@@ -53,15 +53,10 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
           </p>
         </div>
         {item.image && (
-          <a class="news-media" href={withBase(item.image.src)} data-news-photo>
+          <a class="news-media" href={withBase(item.image.src)} data-news-photo
+            aria-label={`${photoCopy.open} · ${item.image.alt[lang]}`}>
             <img src={withBase(item.image.src)} width={item.image.width} height={item.image.height}
               alt={item.image.alt[lang]} loading="lazy" decoding="async" />
-            <span class="news-enlarge">
-              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-                <path d="M14 4h6v6m0-6-7 7M10 20H4v-6m0 6 7-7" />
-              </svg>
-              {photoCopy.open}
-            </span>
           </a>
         )}
       </li>
@@ -181,12 +176,9 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
 
   .news-media {
     grid-area: photo;
-    display: grid;
-    gap: .45rem;
+    display: block;
     margin-top: .65rem;
     min-width: 0;
-    color: rgb(var(--text-2));
-    text-decoration: none;
     cursor: zoom-in;
   }
 
@@ -196,16 +188,6 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
     height: auto;
     border-radius: .4rem;
   }
-
-  .news-enlarge {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: .35rem;
-    font-size: .75rem;
-  }
-
-  .news-media:hover .news-enlarge, .news-media:focus-visible .news-enlarge { color: var(--accent-text); }
 
   .news-viewer {
     margin: auto;
