@@ -352,10 +352,10 @@ export const newsItems: NewsItem[] = [
     url: 'https://www.enseeiht.fr/fr/actualites/hackathon.html',
     startDate: '2025-09-26',
     endDate: '2025-09-27',
-    location: {
-      zh: { country: '法国', city: '图卢兹' },
-      en: { country: 'France', city: 'Toulouse' },
-      fr: { country: 'France', city: 'Toulouse' },
+    venue: {
+      zh: '法国 · 图卢兹 · Toulouse INP–ENSEEIHT（N7）',
+      en: 'France · Toulouse · Toulouse INP–ENSEEIHT (N7)',
+      fr: 'France · Toulouse · Toulouse INP–ENSEEIHT (N7)',
     },
     summary: {
       zh: '参加黑客松',
@@ -370,6 +370,36 @@ export const newsItems: NewsItem[] = [
         zh: '黑客松现场自拍，颈间挂着红色活动挂带。',
         en: 'Selfie at the hackathon wearing a red event lanyard.',
         fr: 'Selfie au hackathon avec un cordon rouge autour du cou.',
+      },
+    },
+  },
+  {
+    id: 'ut-capitole-welcome-2025',
+    startDate: '2025-09-24',
+    endDate: '2025-09-24',
+    title: {
+      zh: '图卢兹第一大学计算机学院迎新晚会',
+      en: 'Computer Science Welcome Party at Toulouse Capitole University',
+      fr: 'Soirée de rentrée de la faculté d’informatique de l’Université Toulouse Capitole',
+    },
+    location: {
+      zh: { country: '法国', city: '图卢兹' },
+      en: { country: 'France', city: 'Toulouse' },
+      fr: { country: 'France', city: 'Toulouse' },
+    },
+    summary: {
+      zh: '参加迎新晚会',
+      en: 'Attended the welcome party',
+      fr: 'Participation à la soirée de rentrée',
+    },
+    image: {
+      src: '/images/news/ut-capitole-welcome-2025.jpg',
+      width: 884,
+      height: 1246,
+      alt: {
+        zh: '迎新晚会上的自拍，红紫色灯光下，脸颊上有一颗粉色爱心。',
+        en: 'Selfie under red and purple lights at the welcome party, with a pink heart on one cheek.',
+        fr: 'Selfie sous les lumières rouges et violettes de la soirée, avec un cœur rose sur la joue.',
       },
     },
   },
