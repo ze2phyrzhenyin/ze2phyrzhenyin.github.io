@@ -14,6 +14,15 @@ const tfcUrl = 'https://www.toulousefc.com/';
 
 const photos: { src: string; alt: string; category: string }[] = [
   {
+    src: '/images/life/img-7902.webp',
+    alt: {
+      en: 'Standing on a grassy hillside with forested mountains behind me',
+      zh: '站在草坡上，身后是林木覆盖的山脊',
+      fr: 'Sur une pente herbeuse, avec des montagnes boisées derrière moi',
+    }[lang],
+    category: 'life',
+  },
+  {
     src: '/images/life/IMG_6068.webp',
     alt: 'Sitting on an ornate chair indoors',
     category: 'life',
@@ -121,7 +130,12 @@ const photos: { src: string; alt: string; category: string }[] = [
     const lb = document.getElementById('lightbox')!;
     const img = document.getElementById('lb-img') as HTMLImageElement;
     document.querySelectorAll<HTMLElement>('[data-src]').forEach(el => {
-      el.addEventListener('click', () => { img.src=el.dataset.src!; lb.classList.remove('hidden'); document.body.style.overflow='hidden'; });
+      el.addEventListener('click', () => {
+        img.src = el.dataset.src!;
+        img.alt = el.dataset.alt ?? '';
+        lb.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
     });
     function close(){ lb.classList.add('hidden'); document.body.style.overflow=''; }
     document.getElementById('lb-close')!.addEventListener('click', close);
