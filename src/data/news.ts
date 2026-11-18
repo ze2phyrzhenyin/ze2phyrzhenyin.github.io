@@ -139,9 +139,9 @@ export const newsItems: NewsItem[] = [
       fr: 'Pour les étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
     },
     summary: {
-      zh: '分享计算机学习方法',
-      en: 'Shared approaches to studying computer science',
-      fr: 'Présentation de méthodes de travail en informatique',
+      zh: '演讲者·分享计算机学习方法',
+      en: 'Speaker · Approaches to studying computer science',
+      fr: 'Intervenant · Méthodes de travail en informatique',
     },
   },
 ];
