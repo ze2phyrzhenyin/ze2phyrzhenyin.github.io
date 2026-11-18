@@ -100,6 +100,16 @@ export const newsItems: NewsItem[] = [
       en: 'France · Toulouse · Toulouse Faculty of Medicine',
       fr: 'France · Toulouse · Faculté de médecine de Toulouse',
     },
+    image: {
+      src: '/images/news/nwafu-recruitment-toulouse.webp',
+      width: 1179,
+      height: 890,
+      alt: {
+        zh: '蓝天下，一座红砖建筑的绿色穹顶高出树梢。',
+        en: 'The green dome of a red-brick building rises above the trees against a blue sky.',
+        fr: 'Le dôme vert d’un bâtiment en briques rouges se détache au-dessus des arbres sur un ciel bleu.',
+      },
+    },
     summary: {
       zh: '观众 · 交流智慧牧业与计算机',
       en: 'Attendee · Discussed computing in smart livestock farming',
