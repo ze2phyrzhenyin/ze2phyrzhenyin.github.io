@@ -73,10 +73,20 @@ export const newsItems: NewsItem[] = [
     url: 'https://2026.esslli.eu/',
     startDate: '2026-08-03',
     endDate: '2026-08-14',
-    location: {
-      en: { country: 'Czech Republic', city: 'Prague' },
-      zh: { country: '捷克', city: '布拉格' },
-      fr: { country: 'République tchèque', city: 'Prague' },
+    venue: {
+      en: 'Czech Republic · Prague · Faculty of Civil Engineering, Czech Technical University in Prague (CTU)',
+      zh: '捷克 · 布拉格 · 布拉格捷克理工大学（CTU）土木工程学院',
+      fr: 'Tchéquie · Prague · Faculté de génie civil de l’Université technique tchèque de Prague (CTU)',
+    },
+    image: {
+      src: '/images/news/esslli-prague.webp',
+      width: 1179,
+      height: 870,
+      alt: {
+        zh: 'ESSLLI 暑校期间的聚餐合照，大家围坐在圆桌旁。',
+        en: 'Group photo around a dinner table during ESSLLI in Prague.',
+        fr: 'Photo de groupe autour d’une table lors d’un dîner pendant ESSLLI à Prague.',
+      },
     },
   },
   {
