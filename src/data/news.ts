@@ -16,6 +16,21 @@ export type NewsItem = {
 // Newest first. Dates and links refer to the events' official pages.
 export const newsItems: NewsItem[] = [
   {
+    id: 'enac-vibe-coding-2026',
+    startDate: '2026-11-19',
+    endDate: '2026-11-19',
+    title: {
+      zh: '小型 Vibe Coding 分享会',
+      en: 'Small-group vibe coding meetup',
+      fr: 'Rencontre en petit comité autour du vibe coding',
+    },
+    summary: {
+      zh: '法国国立民航大学（ENAC）',
+      en: 'École nationale de l’aviation civile (ENAC)',
+      fr: 'École nationale de l’aviation civile (ENAC)',
+    },
+  },
+  {
     id: 'ia-for-impact-2026',
     title: 'Hackathon IA for Impact 2026',
     titleLang: 'fr',
