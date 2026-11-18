@@ -28,9 +28,9 @@ export const newsItems: NewsItem[] = [
       fr: 'Rencontre en petit comité autour du vibe coding',
     },
     venue: {
-      zh: '法国国立民航大学（ENAC）',
-      en: 'École nationale de l’aviation civile (ENAC)',
-      fr: 'École nationale de l’aviation civile (ENAC)',
+      zh: '法国 · 图卢兹 · 法国国立民航大学（ENAC）',
+      en: 'France · Toulouse · École nationale de l’aviation civile (ENAC)',
+      fr: 'France · Toulouse · École nationale de l’aviation civile (ENAC)',
     },
     summary: {
       zh: '演讲者',
