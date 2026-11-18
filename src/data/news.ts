@@ -262,6 +262,34 @@ export const newsItems: NewsItem[] = [
     },
   },
   {
+    id: 'toulouse-urban-trail-2026',
+    title: 'Kinetik Toulouse Urban Trail 2026',
+    titleLang: 'fr',
+    url: 'https://toulouse-urbantrail.fr/',
+    startDate: '2026-04-19',
+    endDate: '2026-04-19',
+    location: {
+      zh: { country: '法国', city: '图卢兹' },
+      en: { country: 'France', city: 'Toulouse' },
+      fr: { country: 'France', city: 'Toulouse' },
+    },
+    summary: {
+      zh: '参加 14 公里组',
+      en: 'Ran the 14 km race',
+      fr: 'Participation au 14 km',
+    },
+    image: {
+      src: '/images/news/toulouse-urban-trail.webp',
+      width: 1179,
+      height: 879,
+      alt: {
+        zh: '两位跑者在赛事现场的树荫下合影。',
+        en: 'Two runners pose together under the trees at the race.',
+        fr: 'Deux coureurs posent ensemble à l’ombre des arbres sur le site de la course.',
+      },
+    },
+  },
+  {
     id: 'shnu-computer-science-2026',
     image: {
       src: '/images/news/shnu-online-session.jpg',
