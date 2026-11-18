@@ -94,9 +94,9 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-08-03',
     endDate: '2026-08-14',
     venue: {
-      en: 'Czech Republic · Prague · Faculty of Civil Engineering, Czech Technical University in Prague (CTU)',
-      zh: '捷克 · 布拉格 · 布拉格捷克理工大学（CTU）土木工程学院',
-      fr: 'Tchéquie · Prague · Faculté de génie civil de l’Université technique tchèque de Prague (CTU)',
+      en: 'Czech Republic · Prague · Czech Technical University in Prague (CTU)',
+      zh: '捷克 · 布拉格 · 布拉格捷克理工大学（CTU）',
+      fr: 'Tchéquie · Prague · Université technique tchèque de Prague (CTU)',
     },
     image: {
       src: '/images/news/esslli-prague.webp',
