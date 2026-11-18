@@ -86,10 +86,20 @@ export const newsItems: NewsItem[] = [
     url: 'https://www.ifi.lmu.de/kiml/en/school26/',
     startDate: '2026-07-27',
     endDate: '2026-07-31',
-    location: {
-      en: { country: 'Germany', city: 'Munich' },
-      zh: { country: '德国', city: '慕尼黑' },
-      fr: { country: 'Allemagne', city: 'Munich' },
+    venue: {
+      en: 'Germany · Munich · Ludwig Maximilian University of Munich (LMU)',
+      zh: '德国 · 慕尼黑 · 慕尼黑大学（LMU）',
+      fr: 'Allemagne · Munich · Université Louis-et-Maximilien de Munich (LMU)',
+    },
+    image: {
+      src: '/images/news/imprecise-probabilities-lmu.webp',
+      width: 1179,
+      height: 904,
+      alt: {
+        zh: '教室前方投影着关于实践理性与认识理性的手写讲义。',
+        en: 'Handwritten notes on practical and epistemic rationality projected at the front of the classroom.',
+        fr: 'Des notes manuscrites sur la rationalité pratique et la rationalité épistémique sont projetées devant la classe.',
+      },
     },
   },
   {
