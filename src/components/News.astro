@@ -35,13 +35,13 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
         </p>
         <div class="news-detail">
           <h3 class="news-title">
-            <a href={item.url} lang={item.titleLang} target="_blank" rel="noopener noreferrer">
-              {item.title}<span class="news-arrow" aria-hidden="true"> ↗</span>
-            </a>
+            {item.url ? <a href={item.url} lang={item.titleLang} target="_blank" rel="noopener noreferrer">
+              {typeof item.title === 'string' ? item.title : item.title[lang]}<span class="news-arrow" aria-hidden="true"> ↗</span>
+            </a> : typeof item.title === 'string' ? item.title : item.title[lang]}
           </h3>
-          <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>
+          {item.location && <p class="news-location">{item.location[lang].country} · {item.location[lang].city}</p>}
           <p class:list={['news-summary', { 'news-award': item.award }]}>
-            {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : item.role === 'lightning-talk-speaker' ? copy.speaker : copy.attended}
+            {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : item.role === 'lightning-talk-speaker' ? copy.speaker : (item.summary?.[lang] ?? copy.attended)}
           </p>
         </div>
       </li>

@@ -2,12 +2,13 @@ import type { Lang } from '@/i18n/ui';
 
 export type NewsItem = {
   id: string;
-  title: string;
-  titleLang: 'en' | 'fr';
-  url: string;
+  title: string | Record<Lang, string>;
+  titleLang?: 'en' | 'fr';
+  url?: string;
   startDate: string;
   endDate: string;
-  location: Record<Lang, { country: string; city: string }>;
+  summary?: Record<Lang, string>;
+  location?: Record<Lang, { country: string; city: string }>;
   award?: string;
   role?: 'lightning-talk-speaker';
 };
@@ -105,6 +106,21 @@ export const newsItems: NewsItem[] = [
       en: { country: 'Denmark', city: 'Copenhagen' },
       zh: { country: '丹麦', city: '哥本哈根' },
       fr: { country: 'Danemark', city: 'Copenhague' },
+    },
+  },
+  {
+    id: 'shnu-computer-science-2026',
+    startDate: '2026-03-01',
+    endDate: '2026-03-01',
+    title: {
+      zh: '线上分享计算机学习方法',
+      en: 'Online talk on how to study computer science',
+      fr: 'Rencontre en ligne sur les méthodes de travail en informatique',
+    },
+    summary: {
+      zh: '面向上海师范大学商学院中法计算机项目的学生。',
+      en: 'For students in the Sino-French computer science programme at Shanghai Normal University Business School.',
+      fr: 'Pour les étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
     },
   },
 ];
