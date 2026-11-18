@@ -125,10 +125,20 @@ export const newsItems: NewsItem[] = [
     url: 'https://cpm2026.compute.dtu.dk/p/summer_school',
     startDate: '2026-06-13',
     endDate: '2026-06-14',
-    location: {
-      en: { country: 'Denmark', city: 'Copenhagen' },
-      zh: { country: '丹麦', city: '哥本哈根' },
-      fr: { country: 'Danemark', city: 'Copenhague' },
+    venue: {
+      en: 'Denmark · Copenhagen · Technical University of Denmark (DTU)',
+      zh: '丹麦 · 哥本哈根 · 丹麦技术大学（DTU）',
+      fr: 'Danemark · Copenhague · Université technique du Danemark (DTU)',
+    },
+    image: {
+      src: '/images/news/strings-privacy-dtu.webp',
+      width: 1179,
+      height: 1578,
+      alt: {
+        en: 'Portrait at the summer school, wearing a DTU name badge.',
+        zh: '暑校现场，佩戴 DTU 姓名牌的照片。',
+        fr: 'Portrait à l’école d’été, avec un badge de la DTU.',
+      },
     },
   },
   {
