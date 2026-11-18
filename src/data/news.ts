@@ -251,12 +251,12 @@ export const newsItems: NewsItem[] = [
       fr: 'Rencontre en ligne',
     },
     audience: {
-      zh: '面向上海师范大学商学院中法计算机项目的学生。',
+      zh: '面向上海师范大学商学院中法计算机项目的学生',
       en: 'For students in the Sino-French computer science programme at Shanghai Normal University Business School.',
       fr: 'Pour les étudiants du programme franco-chinois d’informatique de l’école de commerce de l’Université normale de Shanghai.',
     },
     summary: {
-      zh: '演讲者·分享计算机学习方法',
+      zh: '演讲者 · 分享计算机学习方法',
       en: 'Speaker · Approaches to studying computer science',
       fr: 'Intervenant · Méthodes de travail en informatique',
     },
