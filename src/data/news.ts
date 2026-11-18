@@ -345,4 +345,32 @@ export const newsItems: NewsItem[] = [
       },
     },
   },
+  {
+    id: 'ia-for-impact-2025',
+    title: 'Hackathon IA for Impact 2025',
+    titleLang: 'fr',
+    url: 'https://www.enseeiht.fr/fr/actualites/hackathon.html',
+    startDate: '2025-09-26',
+    endDate: '2025-09-27',
+    location: {
+      zh: { country: '法国', city: '图卢兹' },
+      en: { country: 'France', city: 'Toulouse' },
+      fr: { country: 'France', city: 'Toulouse' },
+    },
+    summary: {
+      zh: '参加黑客松',
+      en: 'Hackathon participant',
+      fr: 'Participation au hackathon',
+    },
+    image: {
+      src: '/images/news/ia-for-impact-2025.webp',
+      width: 1179,
+      height: 1591,
+      alt: {
+        zh: '黑客松现场自拍，颈间挂着红色活动挂带。',
+        en: 'Selfie at the hackathon wearing a red event lanyard.',
+        fr: 'Selfie au hackathon avec un cordon rouge autour du cou.',
+      },
+    },
+  },
 ];
