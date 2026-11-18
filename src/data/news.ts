@@ -7,6 +7,7 @@ export type NewsItem = {
   url?: string;
   startDate: string;
   endDate: string;
+  venue?: Record<Lang, string>;
   audience?: Record<Lang, string>;
   summary?: Record<Lang, string>;
   location?: Record<Lang, { country: string; city: string }>;
@@ -25,10 +26,15 @@ export const newsItems: NewsItem[] = [
       en: 'Small-group vibe coding meetup',
       fr: 'Rencontre en petit comité autour du vibe coding',
     },
-    summary: {
+    venue: {
       zh: '法国国立民航大学（ENAC）',
       en: 'École nationale de l’aviation civile (ENAC)',
       fr: 'École nationale de l’aviation civile (ENAC)',
+    },
+    summary: {
+      zh: '演讲者',
+      en: 'Speaker',
+      fr: 'Intervenant',
     },
   },
   {
