@@ -112,10 +112,20 @@ export const newsItems: NewsItem[] = [
     url: 'https://ltsscopenhagen.github.io/',
     startDate: '2026-06-22',
     endDate: '2026-06-25',
-    location: {
-      en: { country: 'Denmark', city: 'Copenhagen' },
-      zh: { country: '丹麦', city: '哥本哈根' },
-      fr: { country: 'Danemark', city: 'Copenhague' },
+    venue: {
+      en: 'Denmark · Copenhagen · University of Copenhagen',
+      zh: '丹麦 · 哥本哈根 · 哥本哈根大学',
+      fr: 'Danemark · Copenhague · Université de Copenhague',
+    },
+    image: {
+      src: '/images/news/learning-theory-copenhagen.webp',
+      width: 1179,
+      height: 878,
+      alt: {
+        en: 'A lecturer writes on the board at the University of Copenhagen summer school.',
+        zh: '哥本哈根大学暑校课堂上，讲师正在黑板上板书。',
+        fr: 'Un enseignant écrit au tableau pendant l’école d’été à l’Université de Copenhague.',
+      },
     },
   },
   {
