@@ -46,10 +46,20 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-10-09',
     endDate: '2026-10-10',
     award: 'Prix Coup de Cœur',
-    location: {
-      en: { country: 'France', city: 'Toulouse' },
-      zh: { country: '法国', city: '图卢兹' },
-      fr: { country: 'France', city: 'Toulouse' },
+    venue: {
+      en: 'France · Toulouse · Toulouse INP–ENSEEIHT (N7)',
+      zh: '法国 · 图卢兹 · Toulouse INP–ENSEEIHT（N7）',
+      fr: 'France · Toulouse · Toulouse INP–ENSEEIHT (N7)',
+    },
+    image: {
+      src: '/images/news/ia-for-impact-n7.webp',
+      width: 1179,
+      height: 660,
+      alt: {
+        zh: '黑客松的五位队员手持奖牌和奖金支票合影。',
+        en: 'Five hackathon teammates pose with their award plaque and prize cheque.',
+        fr: 'Les cinq membres de l’équipe posent avec leur trophée et leur chèque.',
+      },
     },
   },
   {
