@@ -11,6 +11,7 @@ export type NewsItem = {
   audience?: Record<Lang, string>;
   summary?: Record<Lang, string>;
   location?: Record<Lang, { country: string; city: string }>;
+  image?: { src: string; width: number; height: number; alt: Record<Lang, string> };
   award?: string;
   role?: 'lightning-talk-speaker';
 };
@@ -132,6 +133,16 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 'shnu-computer-science-2026',
+    image: {
+      src: '/images/news/shnu-online-session.jpg',
+      width: 882,
+      height: 665,
+      alt: {
+        zh: '线上分享会的演示封面，标题为「中法计算机专业毕业生信息分享」',
+        en: 'Opening slide of the online session for graduates of the Sino-French computer science programme',
+        fr: 'Diapositive d’ouverture de la rencontre en ligne pour les diplômés du programme franco-chinois d’informatique',
+      },
+    },
     startDate: '2026-03-01',
     endDate: '2026-03-01',
     title: {

@@ -1,4 +1,5 @@
 ---
+import { withBase } from '@/i18n/utils';
 import { newsItems } from '@/data/news';
 import type { Lang } from '@/i18n/ui';
 
@@ -11,6 +12,11 @@ const copy = {
   en: { heading: 'News', attended: 'Attended', awarded: 'Awarded', speaker: '3-minute lightning talk speaker' },
   zh: { heading: '最新动态', attended: '参加暑校', awarded: '获得', speaker: '三分钟快闪演讲者' },
   fr: { heading: 'Actualités', attended: 'Participation', awarded: 'Lauréat du', speaker: 'Intervenant · pitch de 3 minutes' },
+}[lang];
+const photoCopy = {
+  en: { open: 'View full image', close: 'Close' },
+  zh: { open: '查看大图', close: '关闭' },
+  fr: { open: 'Agrandir l’image', close: 'Fermer' },
 }[lang];
 const locale = { en: 'en-GB', zh: 'zh-CN', fr: 'fr-FR' }[lang];
 const dateFormat = new Intl.DateTimeFormat(locale, {
@@ -25,7 +31,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
   </div>
   <ol class="news-list">
     {newsItems.map((item) => (
-      <li class="news-entry" id={`news-${item.id}`}>
+      <li class:list={['news-entry', { 'news-illustrated': item.image }]} id={`news-${item.id}`}>
         <p class="news-date">
           <time datetime={item.startDate}>{dateFormat.format(new Date(`${item.startDate}T00:00:00Z`))}</time>
           {item.endDate !== item.startDate && <>
@@ -46,10 +52,45 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
             {item.award ? <>{copy.awarded}{'\u00A0'}<strong lang="fr">{item.award}</strong></> : item.role === 'lightning-talk-speaker' ? copy.speaker : (item.summary?.[lang] ?? copy.attended)}
           </p>
         </div>
+        {item.image && (
+          <a class="news-media" href={withBase(item.image.src)} data-news-photo>
+            <img src={withBase(item.image.src)} width={item.image.width} height={item.image.height}
+              alt={item.image.alt[lang]} loading="lazy" decoding="async" />
+            <span class="news-enlarge">
+              <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                <path d="M14 4h6v6m0-6-7 7M10 20H4v-6m0 6 7-7" />
+              </svg>
+              {photoCopy.open}
+            </span>
+          </a>
+        )}
       </li>
     ))}
   </ol>
+  <dialog class="news-viewer" aria-label={photoCopy.open}>
+    <form method="dialog"><button autofocus>{photoCopy.close} <span aria-hidden="true">×</span></button></form>
+    <img alt="" />
+  </dialog>
 </section>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.news-viewer');
+  const preview = dialog?.querySelector('img');
+  if (dialog && preview) {
+    document.querySelectorAll<HTMLAnchorElement>('[data-news-photo]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        preview.src = link.href;
+        preview.alt = link.querySelector('img')?.alt ?? '';
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+</script>
 
 <style>
   .news-list {
@@ -59,6 +100,7 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
   }
 
   .news-entry {
+    scroll-margin-block-start: 5rem;
     display: grid;
     gap: 0.5rem;
     padding: 1.25rem 0;
@@ -118,5 +160,77 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
 
   @media (min-width: 640px) {
     .news-entry { grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; }
+  }
+
+  .news-entry.news-illustrated {
+    grid-template-areas: "date" "detail" "photo";
+    grid-template-columns: minmax(0, 1fr);
+    gap: .45rem;
+    margin-block: 1.25rem;
+    padding: clamp(1rem, 3vw, 1.75rem);
+    border: 1px solid rgb(var(--border));
+    border-radius: 1rem;
+    background: rgb(var(--surface));
+  }
+
+  .news-illustrated .news-date { grid-area: date; }
+  .news-illustrated .news-detail { grid-area: detail; }
+  .news-illustrated .news-title { font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.45; }
+  .news-illustrated .news-location { text-wrap: balance; }
+  .news-illustrated .news-summary { margin-top: .85rem; }
+
+  .news-media {
+    grid-area: photo;
+    display: grid;
+    gap: .45rem;
+    margin-top: .65rem;
+    min-width: 0;
+    color: rgb(var(--text-2));
+    text-decoration: none;
+    cursor: zoom-in;
+  }
+
+  .news-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: .4rem;
+  }
+
+  .news-enlarge {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .35rem;
+    font-size: .75rem;
+  }
+
+  .news-media:hover .news-enlarge, .news-media:focus-visible .news-enlarge { color: var(--accent-text); }
+
+  .news-viewer {
+    margin: auto;
+    width: fit-content;
+    max-width: calc(100% - 1.5rem);
+    max-height: 94dvh;
+    padding: .65rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: .75rem;
+    background: rgb(var(--surface));
+    color: rgb(var(--text));
+  }
+
+  .news-viewer::backdrop { background: rgb(10 9 8 / .8); }
+  .news-viewer form { display: flex; justify-content: flex-end; }
+  .news-viewer button { padding: .5rem .65rem; min-height: 44px; cursor: pointer; }
+  .news-viewer img { display: block; max-width: 100%; max-height: calc(90dvh - 4rem); object-fit: contain; }
+
+  @media (min-width: 640px) {
+    .news-entry.news-illustrated {
+      grid-template: "date photo" auto "detail photo" auto / minmax(0, 1fr) minmax(0, .85fr);
+      align-content: center;
+      column-gap: clamp(1.5rem, 4vw, 3rem);
+    }
+    .news-illustrated .news-date { align-self: end; }
+    .news-media { align-self: center; margin-top: 0; }
   }
 </style>
