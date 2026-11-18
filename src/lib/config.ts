@@ -19,8 +19,9 @@ export const SITE = {
   orcid: '',
   institution: 'Toulouse Capitole University',
   department: 'MIAGE',
-  // To restore the illustrated avatar, select '/images/avatar/avatar.jpg'.
-  avatar: '/images/avatar/portrait.webp',
+  avatar: '/images/avatar/avatar.jpg',
+  // Set homePortrait to null to restore the small illustrated avatar and its layout.
+  homePortrait: '/images/avatar/standing-portrait.webp',
 } as const;
 
 export function getSiteName(lang?: string) {

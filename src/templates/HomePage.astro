@@ -10,6 +10,7 @@ const t    = useTranslations(lang);
 const homeDisplayName = 'Zhaoyang SUI 隋朝阳';
 const homePageTitle = homeDisplayName;
 const avatarSrc = withBase(SITE.avatar);
+const portraitSrc = SITE.homePortrait && withBase(SITE.homePortrait);
 const brandMarkSrc = withBase('/brand-mark.svg');
 
 type LinkedText = {
@@ -180,51 +181,44 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
 ---
 <Base pageTitle={homePageTitle}>
   <!-- ── Hero ── -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 dot-grid opacity-60 dark:opacity-30 pointer-events-none" />
-    <div class="absolute inset-0 pointer-events-none"
-         style="background:radial-gradient(ellipse 80% 60% at 50% 0%,transparent 40%,rgb(var(--bg)) 100%);"/>
-    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full pointer-events-none opacity-30 dark:opacity-20"
-         style="background:radial-gradient(ellipse,hsl(var(--accent-h) var(--accent-s) var(--accent-l)/.25) 0%,transparent 70%);"/>
-    <div class="container-narrow relative pt-24 pb-20">
-      <div class="animate-fade-up inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6"
-           style="background:rgb(var(--surface));border:1px solid rgb(var(--border));color:rgb(var(--text-2));">
-        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse-slow"></span>
-        <span>{statusText}</span>
+  <section class="relative overflow-hidden" aria-labelledby="profile-name">
+    {!portraitSrc && <div class="absolute inset-0 dot-grid opacity-60 dark:opacity-30 pointer-events-none" />}
+    <div class:list={['profile', portraitSrc ? 'profile-standing home-column' : 'profile-avatar container-narrow']}>
+      {portraitSrc ? (
+        <img class="profile-photo" src={portraitSrc} width="704" height="805" alt={homeDisplayName} fetchpriority="high" />
+      ) : (
+        <div class="profile-photo w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-offset-2 bg-primary-700">
+          <img src={avatarSrc} alt={homeDisplayName} class="w-full h-full object-cover"
+               onerror={`this.src='${brandMarkSrc}';this.onerror=null`} />
+        </div>
+      )}
+      <div class="profile-identity">
+        <p class="profile-status"><span aria-hidden="true"></span>{statusText}</p>
+        <h1 id="profile-name">
+          {portraitSrc ? <>
+            <span lang={lang === 'zh' ? 'zh' : undefined}>{lang === 'zh' ? SITE.nameZh : SITE.name}</span>{' '}
+            <span class="profile-other-name" lang={lang === 'zh' ? 'en' : 'zh'}>{lang === 'zh' ? SITE.name : SITE.nameZh}</span>
+          </> : homeDisplayName}
+        </h1>
       </div>
-      <div class="flex flex-col sm:flex-row items-start gap-7 animate-fade-up delay-100">
-        <div class="shrink-0 relative">
-          <div class="w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-offset-2"
-               style="ring-color:rgb(var(--border-2));ring-offset-color:rgb(var(--bg));">
-            <div class="w-full h-full bg-gradient-to-br from-primary-600 to-primary-800 flex items-center justify-center">
-              <img src={avatarSrc} alt={homeDisplayName} class="w-full h-full object-cover"
-                   onerror={`this.parentElement.innerHTML='<span style="display:block;width:2.5rem;height:2.5rem;background:white;-webkit-mask:url(${brandMarkSrc}) center / contain no-repeat;mask:url(${brandMarkSrc}) center / contain no-repeat;"></span>'`}/>
-            </div>
-          </div>
-        </div>
-        <div>
-          <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight mb-4"
-              style="color:rgb(var(--text));">{homeDisplayName}</h1>
-          <div class="max-w-xl mb-6 space-y-3 text-sm leading-relaxed" style="color:rgb(var(--text-2));">
-            {intro.map((paragraph) => (
-              <p>
-                {paragraph.map((part) => part.href ? (
-                  <a href={part.href} target="_blank" rel="noopener" class="home-inline-link">{part.text}</a>
-                ) : part.text)}
-              </p>
-            ))}
-          </div>
-        </div>
+      <div class="profile-copy">
+        {intro.map((paragraph) => (
+          <p>
+            {paragraph.map((part) => part.href ? (
+              <a href={part.href} target="_blank" rel="noopener" class="home-inline-link">{part.text}</a>
+            ) : part.text)}
+          </p>
+        ))}
       </div>
     </div>
   </section>
 
-  <div class="container-narrow">
+  <div class={portraitSrc ? 'home-column' : 'container-narrow'}>
     <News lang={lang} />
   </div>
 
   <!-- ── Audience section ── -->
-  <section class="container-narrow pb-28 animate-fade-up delay-200">
+  <section class:list={[portraitSrc ? 'home-column' : 'container-narrow', 'pb-28 animate-fade-up delay-200']}>
     <!-- Section header -->
     <div class="flex items-center gap-3 mb-1">
       <span class="font-mono text-base select-none" style="color:var(--accent);">§</span>
@@ -265,6 +259,104 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
 </Base>
 
 <style>
+  .home-column {
+    width: min(100%, 61rem);
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .profile {
+    position: relative;
+    display: grid;
+    grid-template-areas: "photo identity" "photo copy";
+    align-items: start;
+  }
+  .profile-photo { grid-area: photo; }
+  .profile-identity { grid-area: identity; align-self: end; min-width: 0; }
+  .profile-copy { grid-area: copy; min-width: 0; color: rgb(var(--text-2)); }
+  .profile-copy p + p { margin-top: .85em; }
+  .profile-status {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: rgb(var(--text-2));
+    font-size: .76rem;
+    line-height: 1.5;
+  }
+  .profile-status > span {
+    width: .42rem;
+    height: .42rem;
+    border-radius: 50%;
+    background: #508367;
+  }
+  .profile-standing {
+    grid-template-columns: clamp(12.25rem, 24vw, 16.75rem) minmax(0, 1fr);
+    gap: 1.2rem clamp(2rem, 5.2vw, 4.5rem);
+    padding-block: clamp(3rem, 5.5vw, 5.5rem);
+  }
+  .profile-standing .profile-photo {
+    display: block;
+    align-self: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: .625rem;
+  }
+  .profile-standing h1 {
+    margin-top: .65rem;
+    font-weight: 620;
+    font-size: clamp(2.25rem, 4.1vw, 3.65rem);
+    line-height: 1.07;
+    letter-spacing: -.04em;
+  }
+  .profile-standing h1 > span { display: block; }
+  .profile-standing h1 > [lang="zh"] { letter-spacing: .015em; }
+  .profile-standing .profile-other-name {
+    margin-top: .48em;
+    color: rgb(var(--text-2));
+    font-family: Lora, Georgia, serif;
+    font-size: clamp(1.1rem, 1.55vw, 1.4rem);
+    font-weight: 400;
+    letter-spacing: .005em;
+    line-height: 1.25;
+  }
+  .profile-standing .profile-copy {
+    max-width: 64ch;
+    font-size: clamp(.9375rem, 1.3vw, 1rem);
+    line-height: 1.7;
+  }
+  .profile-avatar {
+    grid-template: "status status" auto "photo identity" auto "photo copy" auto / 5rem minmax(0, 1fr);
+    gap: 1rem 1.75rem;
+    padding-block: 6rem 5rem;
+  }
+  .profile-avatar .profile-identity { display: contents; }
+  .profile-avatar h1 { grid-area: identity; font-size: 2.25rem; line-height: 1.25; font-weight: 700; letter-spacing: -.025em; }
+  .profile-avatar .profile-status {
+    grid-area: status;
+    justify-self: start;
+    margin-bottom: .5rem;
+    padding: .25rem .75rem;
+    border: 1px solid rgb(var(--border));
+    border-radius: 2rem;
+    background: rgb(var(--surface));
+  }
+  .profile-avatar .profile-copy { font-size: .875rem; line-height: 1.625; }
+  @media (max-width: 44.99rem) {
+    .profile-standing {
+      grid-template: "photo identity" auto "copy copy" auto / clamp(7.5rem, 37vw, 12.25rem) minmax(0, 1fr);
+      gap: 1.55rem clamp(1rem, 5vw, 2rem);
+      padding-block: clamp(1.75rem, 5vw, 3rem) 2.75rem;
+    }
+    .profile-standing .profile-identity { align-self: center; }
+    .profile-standing h1 { margin-top: .55rem; font-size: clamp(1.72rem, 6.7vw, 2.65rem); }
+    .profile-standing .profile-other-name { font-size: clamp(1rem, 3.6vw, 1.25rem); }
+    .profile-standing .profile-copy { max-width: none; }
+  }
+  @media (max-width: 39.99rem) {
+    .profile-avatar { grid-template: "status" auto "photo" auto "identity" auto "copy" auto / 1fr; }
+    .profile-avatar h1 { font-size: 1.875rem; }
+  }
   .home-inline-link {
     color: rgb(var(--text));
     font-weight: 500;
