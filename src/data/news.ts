@@ -99,10 +99,20 @@ export const newsItems: NewsItem[] = [
     url: 'https://www.epicenter.name/summercourse/',
     startDate: '2026-07-06',
     endDate: '2026-07-17',
-    location: {
-      en: { country: 'Netherlands', city: 'Maastricht' },
-      zh: { country: '荷兰', city: '马斯特里赫特' },
-      fr: { country: 'Pays-Bas', city: 'Maastricht' },
+    venue: {
+      en: 'Netherlands · Maastricht · Maastricht University',
+      zh: '荷兰 · 马斯特里赫特 · 马斯特里赫特大学',
+      fr: 'Pays-Bas · Maastricht · Université de Maastricht',
+    },
+    image: {
+      src: '/images/news/maastricht-game-theory.webp',
+      width: 1179,
+      height: 860,
+      alt: {
+        en: 'Participants at the workshop, with a game theory textbook and a course mug in the foreground.',
+        zh: '研讨班学员围桌而坐，前方桌上放着博弈论教材和印有课程名称的马克杯。',
+        fr: 'Des participants à l’atelier, avec au premier plan un manuel de théorie des jeux et une tasse au nom du cours.',
+      },
     },
   },
   {
