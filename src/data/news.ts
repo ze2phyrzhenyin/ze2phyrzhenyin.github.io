@@ -87,6 +87,26 @@ export const newsItems: NewsItem[] = [
     },
   },
   {
+    id: 'nwafu-recruitment-toulouse-2026',
+    startDate: '2026-08-21',
+    endDate: '2026-08-21',
+    title: {
+      zh: '西北农林科技大学动物科技学院人才招聘巡回宣讲',
+      en: 'Recruitment tour of the College of Animal Science and Technology, Northwest A&F University',
+      fr: 'Tournée de recrutement de la faculté des sciences et technologies animales de la Northwest A&F University',
+    },
+    venue: {
+      zh: '法国 · 图卢兹 · 图卢兹医学院',
+      en: 'France · Toulouse · Toulouse Faculty of Medicine',
+      fr: 'France · Toulouse · Faculté de médecine de Toulouse',
+    },
+    summary: {
+      zh: '观众 · 交流智慧牧业与计算机',
+      en: 'Attendee · Discussed computing in smart livestock farming',
+      fr: 'Dans le public · Échanges sur l’informatique appliquée à l’élevage de précision',
+    },
+  },
+  {
     id: 'esslli-2026',
     title: '37th European Summer School in Logic, Language and Information (ESSLLI 2026)',
     titleLang: 'en',
