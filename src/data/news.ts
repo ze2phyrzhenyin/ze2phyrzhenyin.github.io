@@ -151,14 +151,14 @@ export const newsItems: NewsItem[] = [
       fr: 'Cendrillon',
     },
     venue: {
-      zh: '图卢兹 · Théâtre du Chien Blanc',
-      en: 'Toulouse · Théâtre du Chien Blanc',
-      fr: 'Toulouse · Théâtre du Chien Blanc',
+      zh: '法国 · 图卢兹 · Théâtre du Chien Blanc',
+      en: 'France · Toulouse · Théâtre du Chien Blanc',
+      fr: 'France · Toulouse · Théâtre du Chien Blanc',
     },
     summary: {
-      zh: '演员',
-      en: 'Cast member',
-      fr: 'Comédien',
+      zh: '饰演国王',
+      en: 'Played the King',
+      fr: 'Rôle du roi',
     },
   },
   {

@@ -153,31 +153,18 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
 
   .news-award { color: var(--accent-text); }
 
-  @media (min-width: 640px) {
-    .news-entry { grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; }
-  }
-
-  .news-entry.news-illustrated {
-    grid-template-areas: "date" "detail" "photo";
-    grid-template-columns: minmax(0, 1fr);
-    gap: .45rem;
-    margin-block: 1.25rem;
-    padding: clamp(1rem, 3vw, 1.75rem);
-    border: 1px solid rgb(var(--border));
-    border-radius: 1rem;
-    background: rgb(var(--surface));
+  .news-illustrated {
+    grid-template: "date photo" auto "detail photo" auto / minmax(0, 1fr) clamp(4.75rem, 20vw, 6rem);
+    column-gap: 1rem;
   }
 
   .news-illustrated .news-date { grid-area: date; }
   .news-illustrated .news-detail { grid-area: detail; }
-  .news-illustrated .news-title { font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.45; }
-  .news-illustrated .news-location { text-wrap: balance; }
-  .news-illustrated .news-summary { margin-top: .85rem; }
 
   .news-media {
     grid-area: photo;
+    align-self: center;
     display: block;
-    margin-top: .65rem;
     min-width: 0;
     cursor: zoom-in;
   }
@@ -207,12 +194,9 @@ const dateFormat = new Intl.DateTimeFormat(locale, {
   .news-viewer img { display: block; max-width: 100%; max-height: calc(90dvh - 4rem); object-fit: contain; }
 
   @media (min-width: 640px) {
-    .news-entry.news-illustrated {
-      grid-template: "date photo" auto "detail photo" auto / minmax(0, 1fr) minmax(0, .85fr);
-      align-content: center;
-      column-gap: clamp(1.5rem, 4vw, 3rem);
+    .news-entry { grid-template-columns: 10rem minmax(0, 1fr); gap: 1.5rem; }
+    .news-illustrated {
+      grid-template: "date detail photo" auto / 10rem minmax(0, 1fr) 6.5rem;
     }
-    .news-illustrated .news-date { align-self: end; }
-    .news-media { align-self: center; margin-top: 0; }
   }
 </style>
