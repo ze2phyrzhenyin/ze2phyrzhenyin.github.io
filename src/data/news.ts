@@ -133,6 +133,16 @@ export const newsItems: NewsItem[] = [
   },
   {
     id: 'cinderella-toulouse-2026',
+    image: {
+      src: '/images/news/cinderella-curtain-call.webp',
+      width: 1600,
+      height: 1200,
+      alt: {
+        zh: '《灰姑娘》谢幕时，演员们在紫色舞台灯光下鼓掌，一人手捧鲜花。',
+        en: 'The Cinderella cast applauds under purple stage lights at the curtain call, one member holding a bouquet.',
+        fr: 'Au salut de Cendrillon, les comédiens applaudissent sous les projecteurs violets. L’un d’eux tient un bouquet.',
+      },
+    },
     startDate: '2026-05-21',
     endDate: '2026-05-21',
     title: {
