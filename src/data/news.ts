@@ -132,6 +132,26 @@ export const newsItems: NewsItem[] = [
     },
   },
   {
+    id: 'cinderella-toulouse-2026',
+    startDate: '2026-05-21',
+    endDate: '2026-05-21',
+    title: {
+      zh: '话剧《灰姑娘》',
+      en: 'Cinderella',
+      fr: 'Cendrillon',
+    },
+    venue: {
+      zh: '图卢兹 · Théâtre du Chien Blanc',
+      en: 'Toulouse · Théâtre du Chien Blanc',
+      fr: 'Toulouse · Théâtre du Chien Blanc',
+    },
+    summary: {
+      zh: '演员',
+      en: 'Cast member',
+      fr: 'Comédien',
+    },
+  },
+  {
     id: 'shnu-computer-science-2026',
     image: {
       src: '/images/news/shnu-online-session.jpg',
