@@ -60,10 +60,20 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-09-23',
     endDate: '2026-09-23',
     role: 'lightning-talk-speaker',
-    location: {
-      en: { country: 'France', city: 'Toulouse' },
-      zh: { country: '法国', city: '图卢兹' },
-      fr: { country: 'France', city: 'Toulouse' },
+    venue: {
+      en: 'France · Toulouse · Toulouse Capitole University',
+      zh: '法国 · 图卢兹 · 图卢兹第一大学（UT Capitole）',
+      fr: 'France · Toulouse · Université Toulouse Capitole',
+    },
+    image: {
+      src: '/images/news/ut-capitole-talk.webp',
+      width: 1174,
+      height: 2082,
+      alt: {
+        zh: '创业活动现场，演讲者站在听众面前作三分钟分享。',
+        en: 'A speaker addresses the audience during a three-minute talk at the entrepreneurship event.',
+        fr: 'Un intervenant présente son pitch de trois minutes devant le public lors de la rencontre entrepreneuriale.',
+      },
     },
   },
   {
