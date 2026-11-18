@@ -319,4 +319,30 @@ export const newsItems: NewsItem[] = [
       fr: 'Intervenant · Méthodes de travail en informatique',
     },
   },
+  {
+    id: 'epita-ski-andorra-2026',
+    startDate: '2026-01-09',
+    endDate: '2026-01-10',
+    title: {
+      zh: '安道尔滑雪之行',
+      en: 'Ski trip to Andorra',
+      fr: 'Séjour au ski en Andorre',
+    },
+    venue: { zh: '安道尔', en: 'Andorra', fr: 'Andorre' },
+    summary: {
+      zh: '参加 EPITA 学生会（BDE）组织的滑雪活动',
+      en: 'Joined the ski trip organised by EPITA’s student association (BDE)',
+      fr: 'Participation au séjour organisé par le BDE de l’EPITA',
+    },
+    image: {
+      src: '/images/news/epita-ski-andorra.webp',
+      width: 1179,
+      height: 1587,
+      alt: {
+        zh: '安道尔雪夜的自拍，头发和外套上落着雪。',
+        en: 'A nighttime selfie in Andorra, with snow on the hair and coat.',
+        fr: 'Selfie de nuit en Andorre, avec de la neige sur les cheveux et le manteau.',
+      },
+    },
+  },
 ];
