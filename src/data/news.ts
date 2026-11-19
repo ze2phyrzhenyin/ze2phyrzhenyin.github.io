@@ -31,9 +31,9 @@ export const newsItems: NewsItem[] = [
       fr: 'France · Toulouse · Université Toulouse Capitole',
     },
     summary: {
-      zh: '我将参加 ENGAGE.EU 的创业工作坊。',
-      en: 'I’ll take part in the ENGAGE.EU entrepreneurship workshops.',
-      fr: 'Je participerai aux ateliers d’entrepreneuriat d’ENGAGE.EU.',
+      zh: '参与者',
+      en: 'Participant',
+      fr: 'Participant',
     },
   },
   {
