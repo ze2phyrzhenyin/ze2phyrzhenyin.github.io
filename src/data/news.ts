@@ -55,6 +55,16 @@ export const newsItems: NewsItem[] = [
       en: 'Speaker',
       fr: 'Intervenant',
     },
+    image: {
+      src: '/images/news/enac-vibe-coding-2026.webp',
+      width: 1200,
+      height: 1600,
+      alt: {
+        zh: '分享会演讲者穿着蓝色衬衫，站在 ENAC 会议室的屏幕旁。',
+        en: 'The meetup speaker in a blue shirt stands beside a screen in an ENAC meeting room.',
+        fr: 'L’intervenant, en chemise bleue, se tient à côté d’un écran dans une salle de réunion de l’ENAC.',
+      },
+    },
   },
   {
     id: 'ia-for-impact-2026',
