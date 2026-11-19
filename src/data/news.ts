@@ -19,6 +19,24 @@ export type NewsItem = {
 // Newest first. Dates and links refer to the events' official pages.
 export const newsItems: NewsItem[] = [
   {
+    id: 'entrepreneurial-pathway-toulouse-2026',
+    title: 'Entrepreneurial Pathway @ Toulouse Capitole 2026',
+    titleLang: 'en',
+    url: 'https://www.engageuniversity.eu/entrepreneurial-pathway-toulouse-capitole-2026/',
+    startDate: '2026-11-25',
+    endDate: '2026-11-27',
+    venue: {
+      zh: '法国 · 图卢兹 · 图卢兹第一大学（UT Capitole）',
+      en: 'France · Toulouse · Toulouse Capitole University',
+      fr: 'France · Toulouse · Université Toulouse Capitole',
+    },
+    summary: {
+      zh: '我将参加 ENGAGE.EU 的创业工作坊。',
+      en: 'I’ll take part in the ENGAGE.EU entrepreneurship workshops.',
+      fr: 'Je participerai aux ateliers d’entrepreneuriat d’ENGAGE.EU.',
+    },
+  },
+  {
     id: 'enac-vibe-coding-2026',
     startDate: '2026-11-19',
     endDate: '2026-11-19',
