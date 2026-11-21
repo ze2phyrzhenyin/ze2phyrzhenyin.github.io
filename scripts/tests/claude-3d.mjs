@@ -10,11 +10,13 @@ try {
   const context = await browser.newContext({viewport:{width:1400,height:900},locale:'zh-CN',colorScheme:'light',permissions:['clipboard-read','clipboard-write']});
   const p = await context.newPage();
   const errors = [];
+  const waitForGuide = () => p.locator('html.enhanced').waitFor({state:'attached'});
   p.on('pageerror',e=>errors.push(e.message));
   p.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)errors.push(r.url()+' '+r.status());});
   for (const locale of ['en','fr','zh']) {
     await p.goto(origin+'/guides/'+locale+'/',{waitUntil:'domcontentloaded'});
     await p.locator('a.card[href*="/guides/claude-3d/"]').click();
+    await waitForGuide();
     assert.equal(await p.locator('#all-guides').getAttribute('href'),'/guides/'+locale+'/');
   }
   const shot=async name=>{if(out)await p.screenshot({path:out+'/'+name+'.png'});};
@@ -35,6 +37,7 @@ try {
   await locator('subject').selectOption('ui');
   assert.match(await locator('advice').innerText(),/录制原始界面/);
   await locator('route-code').locator('a').click();
+  await waitForGuide();
   assert.equal(await locator('category').inputValue(),'code');
   assert.equal(await p.locator('[data-tool]:visible').count(),4);
   await locator('category').selectOption('all');
