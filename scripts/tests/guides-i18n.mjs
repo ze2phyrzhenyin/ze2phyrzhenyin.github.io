@@ -132,9 +132,23 @@ try {
     for(const lang of ['en','fr','zh']){
       await visit('guides',lang);
       const links=await page.locator('a.card').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
-      assert.equal(links.length,15);assert.equal(new Set(links).size,15);
+      assert.equal(links.length,Number(await page.locator('.stat strong').first().textContent()));
+      assert.equal(new Set(links).size,links.length);
+      assert(links.includes(`/guides/claude-3d/?from=${lang}`));
       for(const href of links){
-        if(href==='/construction-hotel-sql/'){
+        if(href.startsWith('/guides/claude-3d/')){
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('#all-guides').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
+          continue;
+        }
+        if(href==='/thesisforma/'){
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          assert.match(await page.title(),/ThesisForma/);
+          await page.goBack({waitUntil:'domcontentloaded'});
+          continue;
+        }
+        if(href==='/construction-hotel-sql/'||href==='/guides/rex-opportunities/'){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('a[href="/guides/zh/"]').first().click();
           await page.waitForURL(origin+'/guides/zh/');

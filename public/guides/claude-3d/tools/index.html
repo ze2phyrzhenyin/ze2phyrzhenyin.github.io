@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>工具比较 | Claude 3D 视频制作指南</title>
+<meta name="description" content="工具比较。用 Blender 相机工程学习三维镜头制作，查阅工具、案例与渲染估算。"><link rel="canonical" href="https://zhaoyang.fr/guides/claude-3d/tools/">
+<link rel="icon" href="/guides/claude-3d/media/studio.webp" type="image/webp"><meta property="og:title" content="工具比较 | Claude 3D 视频制作指南"><meta property="og:image" content="https://zhaoyang.fr/guides/claude-3d/media/studio.webp">
+<script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="/guides/claude-3d/guide.css?v=1"><script defer src="/guides/claude-3d/guide.js?v=1"></script></head>
+<body><a class="skip" href="#main">跳到正文</a><header class="mast"><div class="mast-inner"><div class="identity"><a id="all-guides" href="/guides/zh/">攻略总览</a><span aria-hidden="true">/</span><a class="brand" href="/guides/claude-3d/">影像制作手册</a></div><nav class="main-nav" aria-label="指南栏目"><a href="/guides/claude-3d/" >制作路线</a><a href="/guides/claude-3d/tools/" aria-current="page">工具比较</a><a href="/guides/claude-3d/cases/" >案例库</a><a href="/guides/claude-3d/estimate/" >用量估算</a><a href="/guides/claude-3d/handbook/" >项目手册</a></nav>
+<button id="theme" class="only-js" type="button" aria-label="切换配色"><span aria-hidden="true" class="theme-symbol"></span><span id="theme-label">配色</span></button></div></header>
+<main id="main" class="shell"><header class="page-title"><h1>工具比较</h1></header>
+  <div class="toolbar only-js"><label>搜索工具<input type="search" id="search" placeholder="名称、用途或搭配"></label>
+  <label>类别<select id="category"><option value="all">全部类别</option><option value="native">三维软件与连接器</option><option value="code">代码动画</option><option value="skill">制作 Skills</option><option value="asset">素材与输出</option><option value="video">生成视频</option></select></label><a class="button" href="#comparison">查看对比<span id="picked"></span></a></div>
+  <p id="found" class="status only-js" role="status"></p>
+  <div id="tools-list" class="catalog">
+    <article data-category="native" data-tool="blender">
+      <div class="tool-description"><h2><a href="https://docs.blender.org/manual/en/latest/">Blender</a></h2><p>建模、布光和渲染，交付可继续修改的 .blend 文件。</p></div><span class="type">三维软件与连接器</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender" aria-label="对比 Blender">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>逐帧渲染耗时取决于场景、采样和设备。</dd><dt>搭配方式</dt><dd data-setup>用 Python 设置相机和关键帧，输出图像序列。</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="blender-mcp">
+      <div class="tool-description"><h2><a href="https://www.blender.org/lab/mcp-server/">Blender MCP</a></h2><p>从 Claude 检查或修改打开的 Blender 场景。</p></div><span class="type">三维软件与连接器</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-mcp" aria-label="对比 Blender MCP">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>镜头设计和渲染参数仍要写进工程。</dd><dt>搭配方式</dt><dd data-setup>在 Blender 中启用对应扩展，再连接 MCP 客户端。</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="mcp-for-blender">
+      <div class="tool-description"><h2><a href="https://github.com/ahujasid/mcp-for-blender">mcp-for-blender</a></h2><p>社区维护的 Blender 连接器，含模型和环境素材的接入示例。</p></div><span class="type">三维软件与连接器</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="mcp-for-blender" aria-label="对比 mcp-for-blender">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>连接器可以执行代码，使用前要核对工具权限。</dd><dt>搭配方式</dt><dd data-setup>将社区插件与它对应的服务端配对使用。</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="cinema-4d-mcp">
+      <div class="tool-description"><h2><a href="https://www.maxon.net/en/cinema-4d/features/mcp-server">Cinema 4D MCP</a></h2><p>在已有的 Cinema 4D 工程中调整对象和动态图形。</p></div><span class="type">三维软件与连接器</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cinema-4d-mcp" aria-label="对比 Cinema 4D MCP">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>制作端需要可用的 Cinema 4D 环境。</dd><dt>搭配方式</dt><dd data-setup>沿用项目已有的 MoGraph 和渲染设置。</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="unreal-engine-mcp">
+      <div class="tool-description"><h2><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-mcp-in-unreal-editor">Unreal Engine MCP</a></h2><p>在 Unreal Editor 中调用编辑器工具、查看场景。</p></div><span class="type">三维软件与连接器</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="unreal-engine-mcp" aria-label="对比 Unreal Engine MCP">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>插件能力和项目使用的引擎版本有关。</dd><dt>搭配方式</dt><dd data-setup>在 Sequencer 中管理镜头，使用 Movie Render Queue 输出。</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="remotion">
+      <div class="tool-description"><h2><a href="https://www.remotion.dev/docs/ai/claude-code-plugin">Remotion</a></h2><p>用 React 排列镜头、字幕与音轨。</p></div><span class="type">代码动画</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="remotion" aria-label="对比 Remotion">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>复杂三维场景需要额外的渲染组件。</dd><dt>搭配方式</dt><dd data-setup>用参数替换产品名称、语言或画幅。</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="react-three-fiber">
+      <div class="tool-description"><h2><a href="https://www.remotion.dev/templates/three">React Three Fiber</a></h2><p>把 Three.js 场景写成 React 组件。</p></div><span class="type">代码动画</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="react-three-fiber" aria-label="对比 React Three Fiber">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>导出视频时，动画应当能按指定帧重复计算。</dd><dt>搭配方式</dt><dd data-setup>在 Remotion 的 ThreeCanvas 中渲染。</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="three-js">
+      <div class="tool-description"><h2><a href="https://threejs.org/">Three.js</a></h2><p>在浏览器里控制模型、材质、相机和光照。</p></div><span class="type">代码动画</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="three-js" aria-label="对比 Three.js">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>录音、时间线和视频编码需要另行安排。</dd><dt>搭配方式</dt><dd data-setup>配合 Remotion 或逐帧导出工具。</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="hyperframes">
+      <div class="tool-description"><h2><a href="https://github.com/heygen-com/hyperframes">HyperFrames</a></h2><p>用网页元素编排界面演示、文字和媒体。</p></div><span class="type">代码动画</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="hyperframes" aria-label="对比 HyperFrames">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>需要模型和灯光的镜头要另做三维场景。</dd><dt>搭配方式</dt><dd data-setup>把已有网页动效与录屏放进同一条时间线。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-film">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-film</a></h2><p>夜间城市穿越镜头，附飞行路径、灯光和声音制作脚本。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-film" aria-label="对比 blender-film">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>飞行速度和机位需要按场景比例调整。</dd><dt>搭配方式</dt><dd data-setup>配合 Blender，参看作者的城市夜航成片。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-forest">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-forest</a></h2><p>拆解森林布景、植被散布和汽车运动。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-forest" aria-label="对比 blender-forest">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>树木密度和材质会影响显存占用。</dd><dt>搭配方式</dt><dd data-setup>用代表帧检查植被、车身反射和投影。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-car-film">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-car-film</a></h2><p>雪夜汽车短片的分镜、降雪与多机位制作脚本。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-car-film" aria-label="对比 blender-car-film">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>车辆模型及外部素材要按项目替换。</dd><dt>搭配方式</dt><dd data-setup>分镜使用同一套资产，分别输出再剪辑。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="el4cteo-blender-skills">
+      <div class="tool-description"><h2><a href="https://github.com/EL4CTEO/blender-skills">EL4CTEO / blender-skills</a></h2><p>按任务查找建模、UV、材质、绑定和烘焙说明。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="el4cteo-blender-skills" aria-label="对比 EL4CTEO / blender-skills">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>每项技能对 Blender 版本的要求可能不同。</dd><dt>搭配方式</dt><dd data-setup>按当前镜头需要选用对应技能。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="claude-3d-harness">
+      <div class="tool-description"><h2><a href="https://github.com/MAX-786/claude-3d-harness">claude-3d-harness</a></h2><p>管理制作阶段、技能版本和中间产物。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="claude-3d-harness" aria-label="对比 claude-3d-harness">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>接管已有工程前要核对其目录约定。</dd><dt>搭配方式</dt><dd data-setup>对照仓库中的场景阶段和检查点使用。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="cloudai-x-threejs-skills">
+      <div class="tool-description"><h2><a href="https://github.com/CloudAI-X/threejs-skills">CloudAI-X / threejs-skills</a></h2><p>查阅 Three.js 的动画、着色器和性能示例。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cloudai-x-threejs-skills" aria-label="对比 CloudAI-X / threejs-skills">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>视频时间线和导出需要另外实现。</dd><dt>搭配方式</dt><dd data-setup>配合 Three.js 场景或 R3F 组件。</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="cinematic-3d-video">
+      <div class="tool-description"><h2><a href="https://github.com/cumalibilgic/cinematic-3d-video">cinematic-3d-video</a></h2><p>以 Three.js 场景、浏览器截图和 FFmpeg 制作短片。</p></div><span class="type">制作 Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cinematic-3d-video" aria-label="对比 cinematic-3d-video">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>先检查模板在目标浏览器中的逐帧输出。</dd><dt>搭配方式</dt><dd data-setup>适合可用几何体描述的片头或标志动画。</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="meshy-3d-agent">
+      <div class="tool-description"><h2><a href="https://github.com/meshy-dev/meshy-3d-agent">Meshy 3D Agent</a></h2><p>从文字或参考图生成模型，再导入场景。</p></div><span class="type">素材与输出</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="meshy-3d-agent" aria-label="对比 Meshy 3D Agent">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>模型尺寸、拓扑和轮廓需要人工核对。</dd><dt>搭配方式</dt><dd data-setup>导入 Blender 后对照产品参考图检查。</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="poly-haven">
+      <div class="tool-description"><h2><a href="https://polyhaven.com/license">Poly Haven</a></h2><p>检索 CC0 环境光贴图、纹理和模型。</p></div><span class="type">素材与输出</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="poly-haven" aria-label="对比 Poly Haven">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>下载分辨率影响工程大小和渲染内存。</dd><dt>搭配方式</dt><dd data-setup>用 HDRI 布光，按实际画面尺寸选择纹理。</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="ffmpeg">
+      <div class="tool-description"><h2><a href="https://ffmpeg.org/ffmpeg-formats.html#image2">FFmpeg</a></h2><p>把连续帧合成视频，编码并封装音轨。</p></div><span class="type">素材与输出</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="ffmpeg" aria-label="对比 FFmpeg">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>序列编号和输入帧率要与渲染设置一致。</dd><dt>搭配方式</dt><dd data-setup>读取 Blender 或浏览器导出的帧序列。</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="runway-mcp">
+      <div class="tool-description"><h2><a href="https://runway.com/mcp/claude">Runway MCP</a></h2><p>从 Claude 调用 Runway 的图像和视频工具。</p></div><span class="type">生成视频</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="runway-mcp" aria-label="对比 Runway MCP">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>需要 Runway 账号，生成用量单独核算。</dd><dt>搭配方式</dt><dd data-setup>用分镜和主体图生成候选片段，再剪辑。</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="google-flow">
+      <div class="tool-description"><h2><a href="https://labs.google/fx/tools/flow">Google Flow</a></h2><p>以参考素材生成和编排视频镜头。</p></div><span class="type">生成视频</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="google-flow" aria-label="对比 Google Flow">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>可用模型与输入形式取决于当前产品设置。</dd><dt>搭配方式</dt><dd data-setup>先比较同一主体在相邻镜头中的外观。</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="kling-ai">
+      <div class="tool-description"><h2><a href="https://kling.ai/quickstart/kling-4-model-user-guide">Kling AI</a></h2><p>用可灵的参考图、提示词和关键帧控制生成镜头。</p></div><span class="type">生成视频</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="kling-ai" aria-label="对比 Kling AI">对比</label>
+      <details><summary>使用条件</summary><dl><dt>使用限制</dt><dd data-limit>局部几何尺寸难以逐项指定。</dd><dt>搭配方式</dt><dd data-setup>保留参考图和生成参数，剪辑时检查连续性。</dd></dl></details>
+    </article></div><div id="no-tools" hidden><p>没有找到符合条件的工具。</p><button id="reset-filter" type="button">清除筛选</button></div>
+  <section class="section only-js" id="comparison" tabindex="-1"><div class="section-head"><h2>已选工具</h2><button type="button" class="quiet" id="clear" hidden>清空对比</button></div><p class="status" id="compare-hint">勾选列表中的工具，最多可比较三项。</p><div id="compare-table"></div></section><a href="#comparison" id="compare-shortcut" class="button primary" hidden>查看对比</a></main><footer class="shell foot"><a href="/guides/claude-3d/">Claude 3D 视频制作指南</a><a href="/guides/claude-3d/handbook/#sources">参考资料</a></footer></body></html>
