@@ -1,0 +1,91 @@
+﻿id,category,categoryLabel,title,market,url,insight,application,tags,dating,featured,isNew,isConcept,isHistorical
+I01,industry,瓷砖 / 家具,Mutina,意大利 · 设计瓷砖,https://www.mutina.it/en/interiors,Interiors 用建筑实景介绍瓷砖，同一项目还能查看材料近照、系列和设计师。,在厨房或浴室的完工照片旁标出砖款，附一张砖面近照和可替换的同色产品。,空间叙事、材料质感、克制,经典,True,False,False,True
+I02,industry,瓷砖 / 家具,Salvatori,意大利 · 天然石材与家居,https://bathroom.salvatoriofficial.com/en/,从房间照片进入，可以接着看同一空间里的石材、家具和配件。,让客户把墙砖、地砖、台面和配件一起存为一套搭配。,整套搭配、项目路径,持续更新,False,False,False,False
+I03,industry,瓷砖 / 家具,Living Ceramics,西班牙 · 建筑陶瓷,https://livingceramics.com/en/,建筑案例和定制产品分开查阅，可以从完工空间了解材料的用法。,给大板、台面和卫浴分别设置定制入口，附对应的完工案例。,建筑实景、定制,持续更新,False,False,False,False
+I04,industry,瓷砖 / 家具,WOW Design,西班牙 · 设计瓷砖,https://www.wowdesigneu.com/,让几何形状、表面与铺贴节奏成为视觉主体,异形砖和立体砖应先看局部光影与排列，再查看参数,异形砖、纹理、铺贴,持续更新,False,False,False,False
+I05,industry,瓷砖 / 家具,Florim,意大利 · 高端建筑陶瓷,https://www.florim.com/en,品牌摄影强，同时维持大型材料目录的检索,高级搜索按用途、色彩、规格逐层展开,筛选、品牌摄影,经典,False,False,False,True
+I06,industry,瓷砖 / 家具,Atlas Concorde,意大利 · 陶瓷与大板,https://www.atlasconcorde.com/en,系列、效果、颜色、尺寸与场景导航组织清楚,多个SKU按系列和适用空间联动，而非只有平铺网格,大型目录、导航,经典,False,False,False,True
+I07,industry,瓷砖 / 家具,Fireclay Tile,美国 · 手工瓷砖,https://www.fireclaytile.com/pages/gallery,实景、样品、配色与咨询形成连续的选材路线,每个实景图片标出可售商品，并提供样品和联系入口,彩砖、样品、转化,经典,False,False,False,True
+I08,industry,瓷砖 / 家具,Artedomus,澳大利亚 · 石材与瓷砖,https://www.artedomus.com/tiles,空间照片配有材料信息，可以沿着建筑项目找产品。,在图片下写明材料型号，以及它铺在墙面、地面还是台面。,建筑杂志、图注,持续更新,False,False,False,False
+I09,industry,瓷砖 / 家具,New Terracotta,葡萄牙 · 手工陶瓷,https://newterracotta.com/,靠色彩、釉面与微妙差异建立品牌辨识度,制作可以并排比较的釉面色卡、近拍与适用范围,色卡、手工、工艺,持续更新,False,False,False,False
+I10,industry,瓷砖 / 家具,INAX,日本 · 瓷砖与卫浴,https://www.inax.com/,用工艺和地域文化解释材料价值,在产品目录之外增加有事实依据的工艺专题,工艺、文化叙事,经典,False,False,False,True
+I11,industry,瓷砖 / 家具,Moooi,荷兰 · 家具与灯具,https://www.moooi.com/en,以舞台化视觉呈现系列发布,为旗舰瓷砖系列做短篇沉浸专题，同时保留清楚的产品入口,舞台感、故事、动效,经典,False,False,False,True
+I12,industry,瓷砖 / 家具,GUBI,丹麦 · 家具与照明,https://gubi.com/en/pl,系列介绍把设计师、材料和成品放在同一篇文章里。,在系列页保留一段设计师访谈，配上谈到的表面细节。,编辑设计、设计师,经典,False,False,False,True
+I13,industry,瓷砖 / 家具,Tylko,波兰 · 定制家具,https://tylko.com/en-ot,尺寸、模块和产品形态形成同步的配置体验,把砖尺寸、铺贴、缝色和面积做成可修改的方案,配置器、参数化,持续更新,False,False,False,False
+I14,industry,瓷砖 / 家具,USM,瑞士 · 模块家具,https://us.usm.com/,一致的模块系统、配件关系与配置路径,为主砖、配套花砖、收边件建立一套组件系统,模块化、配件,经典,False,False,False,True
+I15,industry,瓷砖 / 家具,Karimoku Case,日本 · 建筑与家具,https://www.karimoku-case.com/case_studies/,Case Studies 按整栋建筑或室内项目展示家具，再链接到相关系列。,从厨房或浴室的完工案例链接到实际使用的砖款。,建筑案例、极简,经典,False,False,False,True
+I16,industry,瓷砖 / 家具,Pedestal,丹麦 · 家居产品,https://www.pedestal.com/pages/studio,同一套布景里反复出现不同配色的产品，颜色和轮廓很容易对照。,用同一面墙、同一机位拍几个砖色，保留相同的铺贴面积。,配色、产品性格,2026奖项,True,True,False,False
+I17,industry,瓷砖 / 家具,Floema,葡萄牙 · 户外家具,https://floema.com/en/products?collection=Urban,从室内或户外场景进入，也能在产品目录里继续筛选。,一款砖可以出现在浴室和商业空间两个入口，尺寸和库存仍取自同一条商品记录。,品牌、目录、场景,2026案例,True,True,False,False
+I18,industry,瓷砖 / 家具,Oakâme,法国 · 家具与空间,https://www.oakame.com/en/,Lookbook式的可翻阅家具和空间内容,给材料案例提供列表与滑动两种阅读方式,画册、阅读方式,持续更新,False,False,False,False
+I19,industry,瓷砖 / 家具,Stellar Works,中国／国际 · 家具,https://www.stellarworks.com/,系列、设计师、材料、实景项目的统一表达,多系列品牌保持共同的视觉语言与导航结构,多系列、品牌系统,持续更新,False,False,False,False
+I20,industry,瓷砖 / 家具,Muuto,丹麦 · 家具与灯具,https://www.muuto.com/,生活方式内容与理性的产品体系并行,以生活场景承接色彩与模块组合，资料保持易找,生活方式、目录,经典,False,False,False,True
+P01,product,产品信息,Cosentino — Colors,西班牙 · 建筑表面,https://www.cosentino.com/colors/,Colors 把纹理大样和筛选放在一起，可以边看花纹边缩小范围。,把色系、表面、尺寸和用途放在样板旁，改选项后保留已选条件。,纹理、筛选、材料,持续更新,True,False,False,False
+P02,product,产品信息,Halcyon — Product Catalogue,新西兰 · 建筑照明,https://www.halcyon.co.nz/collections/downlights,灯具列表直接列出选型参数，并提供项目清单。,在列表上显示砖的尺寸、厚度和表面处理，让客户挑出要比较的几款。,参数卡、项目清单、比较,持续更新,True,False,False,False
+P03,product,产品信息,Apple — iPhone Compare,美国 · 消费电子,https://www.apple.com/iphone/compare/,同类参数逐项对齐，不需要来回打开多个页面,用相同字段对照最多三款SKU，突出差异,参数对比、清晰,持续更新,False,False,False,False
+P04,product,产品信息,Teenage Engineering — OP–XY,瑞典 · 音乐硬件,https://teenage.engineering/products/op-xy,在有强品牌感的版式中解释复杂技术,材料的实测参数可搭配结构细节和解释图，而不堆表格,技术叙事、字体,持续更新,False,False,False,False
+P05,product,产品信息,Tylko — Custom Furniture,波兰 · 定制家具,https://tylko.com/en-ot/furniture-c,参数变化直接反馈到产品外观,砖尺寸与铺贴方案更改时，图像和材料数量同步更新,配置器、动态反馈,持续更新,False,False,False,False
+P06,product,产品信息,Vitsœ — Components,英国 · 系统家具,https://www.vitsoe.com/606/components,将复杂产品系统拆成清楚、相互关联的组件,主砖、花砖、踢脚线与收边件建立组件关系,系统组件、结构,经典,False,False,False,True
+P07,product,产品信息,Framework — Laptop 13,美国 · 模块笔记本,https://frame.work/laptop13/?tab=specs,规格、兼容性和模块被分层解释,先看常用瓷砖参数，专业技术资料按需展开,模块、兼容性、规格,持续更新,False,False,False,False
+P08,product,产品信息,DJI — Mavic 4 Pro Specs,中国 · 消费电子,https://www.dji.com/mavic-4-pro/specs,大量参数分组呈现，技术用户容易核对,瓷砖测试结果按用途分类，标注测试标准和单位,技术表、分组,持续更新,False,False,False,False
+P09,product,产品信息,Bang & Olufsen — Beolab 90,丹麦 · 音响,https://www.bang-olufsen.com/en/int/speakers/beolab-90,材料、精密工艺与技术说明融合,把性能数值与具体表面和结构结合解释,技术美学、工艺,经典,False,False,False,True
+P10,product,产品信息,Bellroy — Slim Your Wallet,澳大利亚 · 配件,https://bellroy.com/collection/slim-your-wallet,用视觉变化帮助用户理解抽象差异,利用实景比较解释厚度、尺寸和施工效果,可视化差异、教育,经典,False,False,False,True
+C01,contact,联系 / 表单,Vitsœ — Space Planning Inquiry,英国 · 家具设计,https://www.vitsoe.com/us/606/inquiry,Vitsœ 以免费空间规划作为联系入口，填表人知道提交后会得到什么服务。,先列出客户已选的砖款，再问房间情况、希望解决的问题和联系方式。,空间规划、预约、上传,持续更新,True,False,False,False
+C02,contact,联系 / 表单,Reform — Book a Meeting,丹麦 · 厨房,https://www.reformcph.com/en/book-a-meeting,明确提供远程咨询和展厅预约路径,瓷砖项目可以直接预约看样或线上设计咨询,预约、远程、展厅,持续更新,False,False,False,False
+C03,contact,联系 / 表单,KOBU — Contact,葡萄牙 · 数字机构,https://kobu.agency/contact/,用分支提问代替一次抛出所有字段,根据零售、建筑师、工程项目展示不同问题,分支表单、体验,持续更新,False,False,False,False
+C04,contact,联系 / 表单,EPIC Agency — New Project,比利时 · 数字机构,https://www.epic.net/en/contact/new-project/,预算、时间、需求和附件构成结构化项目简报,用可选预算和照片附件提高瓷砖询价质量,项目简报、附件,持续更新,False,False,False,False
+C05,contact,联系 / 表单,Obys — Contacts,欧洲 · 设计工作室,https://obys.agency/about,旧联系页用自然语言组织提问。现官网在页尾提供联系邮箱。,询价时用客户熟悉的说法提问，保留明确的字段名和错误提示。,自然语言、品牌,历史表单，现为邮件联系,False,False,False,True
+C06,contact,联系 / 表单,Locomotive — Lisa,加拿大 · 数字机构,https://locomotive.ca/en/contact,公开资料中的智能对话参与需求梳理,在正式询价前以对话方式确认空间、预算和产品,AI咨询、对话,功能说明,False,False,False,False
+C07,contact,联系 / 表单,Dennis Snellenberg — Contact,荷兰 · 设计师,https://www.dennissnellenberg.com/contact,编号式简短问题形成节奏,一屏一个关键字段，避免一次展示过多必填项,编号表单、节奏,历史版本,False,False,False,True
+C08,contact,联系 / 表单,Pentagram — Contact,国际 · 设计机构,https://www.pentagram.com/contact,联系页按城市列出工作室，访客可以直接找到当地团队。,每个展厅分别列地址和联系人，让客户选离工地最近的一家。,多地点、信任,持续更新,False,False,False,False
+C09,contact,联系 / 表单,OFF+BRAND. — Contact,英国 · 创意机构,https://www.itsoffbrand.com/contact,服务和项目类型决定后续咨询结构,不同业务线使用不同的资料收集分支,需求分流、表单,持续更新,False,False,False,False
+C10,contact,联系 / 表单,2Frames Animation,国际 · 动画制作,https://www.2framesanimation.com/,浏览到案例末尾就能联系工作室。,在完工照片后提供咨询入口，把刚看过的项目名称带入表单。,叙事衔接、联系,持续更新,False,False,False,False
+A01,assistant,AI 助手,Lowe’s — Mylow,美国 · 家装零售,https://www.lowes.com/Mylow,先理解项目目标，再解释步骤并推荐商品,从浴室改造等任务出发引导确定材料需求,项目助手、家装,持续更新,False,False,False,False
+A02,assistant,AI 助手,The Home Depot — Magic Apron,美国 · 建材零售,https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet,Magic Apron 的官方说明展示了商品页内的问答，提问时已有当前商品作参考。,让客户在砖款详情页问“适合浴室吗”，回答时列出该款的适用位置和参数来源。,商品上下文、参数问答,官方介绍,True,False,False,False
+A03,assistant,AI 助手,Amazon — Alexa for Shopping,美国 · 电商,https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant,购物问答、比较与推荐融合,根据已选瓷砖与预算帮助缩小候选,购物助手、比较,2026更新,False,True,False,False
+A04,assistant,AI 助手,Zalando Assistant,德国 · 服装电商,https://en.zalando.de/campaigns/zfa/,支持用照片和对话描述偏好并排除不喜欢的选项,用户上传喜欢的浴室参考图，助手将风格偏好转成筛选,多模态、偏好,2026更新,False,True,False,False
+A05,assistant,AI 助手,Carrefour — Hopla,法国 · 零售,https://www.carrefour.fr/services/hopla,从生活场景、任务需求进入商品,用户告诉助手装修预算与空间，得到采购方向,任务型、导购,持续更新,False,False,False,False
+A06,assistant,AI 助手,Accio / Accio Work,国际 · B2B采购,https://static.accio.com/accio-user-guide.html,把需求转换成可执行的采购任务,商用工程用户可提交项目约束，形成待核实材料清单,B2B、采购,持续更新,False,False,False,False
+A07,assistant,AI 助手,Sherwin-Williams — Color Tools,美国 · 涂料,https://www.sherwin-williams.com/en-us/color/color-tools,颜色选择与使用场景、知识问答结合,根据照片色调、光线与用途推荐相近色系,颜色、涂料,功能入口,False,False,False,False
+A08,assistant,AI 助手,Stripe Docs — Inline AI,美国 · 开发者工具,https://docs.stripe.com/,在正在阅读的文档附近解释内容,技术参数旁提供针对当前条目的快捷问答,上下文、文档,持续更新,False,False,False,False
+A09,assistant,AI 助手,Livinit — Livi,国际 · 室内设计,https://web.livinit.ai/,家居语境中的空间与产品建议,让用户在图片、需求与产品中切换而不丢失状态,家居助手、空间,功能入口,False,False,False,False
+A10,assistant,AI 助手,Locomotive — Lisa,加拿大 · 数字机构,https://locomotive.ca/en/contact,通过会话收集客户项目背景,咨询助手在确认需求后把信息交给人工销售,AI咨询、线索,功能说明,False,False,False,False
+H01,hero,首屏体验,Lusion,英国 · 创意技术,https://lusion.co/,首屏以可交互的数字作品开场，访客先看到作品怎样响应操作。,选一种能看清表面特征的动作，例如让光线掠过釉面。,3D、艺术、动态,历史版本注意,False,False,False,True
+H02,hero,首屏体验,Igloo Inc.,国际 · 数字工作室,https://www.igloo.inc/,访客沿着数字空间移动，在不同场景里浏览内容。,用一条短的空间动线介绍主打系列，沿途提供系列入口。,沉浸、场景,持续更新,False,False,False,False
+H03,hero,首屏体验,Lando Norris,英国 · 运动员品牌,https://landonorris.com/,人物、赛道动势和画面切换的节奏共同构成赛车手的首屏。,比较画面停留时间，给砖面纹理留出看清细节的时间。,速度感、构图,持续更新,False,False,False,False
+H04,hero,首屏体验,Cartier — Watches & Wonders 2026,法国 · 奢侈品,https://www.cartier.com/en-fr/watchesandwonders,Watches & Wonders 2026 用 WebGL 切换展厅，镜头从主题场景移向腕表。,围绕一个旗舰系列布置展厅，给每个特写配上对应的砖款和规格入口。,奢侈品、展览、WebGL,2026案例,True,True,False,False
+H05,hero,首屏体验,Agrumea Farm,意大利 · 食品,https://www.agrumeafarm.it/,Agrumea Farm 的首屏用作物的轮廓和颜色组织画面。,从陶土、石粉或釉色中取主色，用在对应系列的图片和导航上。,艺术指导、色彩,2026案例,True,True,False,False
+H06,hero,首屏体验,Santioni — The Notturno Experience,国际 · 酒饮,https://santionispirits.com/,字体、暗调和镜头叙事形成氛围,少量重点砖款可以采用短篇电影式开场,电影感、字体,持续更新,False,False,False,False
+H07,hero,首屏体验,Gentle Monster × Maison Margiela 2026,韩国／法国 · 时尚,https://www.gentlemonster.com/int/en/stories/maison-margiela-2026,造型、摄影和动态作为品牌专题的整体语言,高端系列发布使用独立于常规目录的专题页面,时尚、专题,2026案例,False,True,False,False
+H08,hero,首屏体验,Henge — Milan Design Week 2026,意大利 · 高端家具,https://mdw.henge07.com/,家具出现在建筑空间里，照片同时交代了尺度和材质。,拍一张能看到铺贴位置和砖缝的实景，再配砖面细节。,材质、摄影,2026案例,False,True,False,False
+H09,hero,首屏体验,Oryzo AI,国际 · 数字工作室概念,https://oryzo.ai/,微距、缓慢揭示和精致镜头突出产品,只借视觉手法；这是概念作品，不能当作真实AI功能,微距、概念、叙事,2026概念,False,True,True,False
+H10,hero,首屏体验,Lightship,美国 · 电动房车,https://lightshiprv.com/,产品尺度与真实场景构成直观的首屏,用一张可信的真实应用空间图完成首次介绍,产品摄影、尺度,持续更新,False,False,False,False
+V01,visualizer,照片换材质,Roomvo — Home Depot Demo,北美 · 地板和瓷砖,https://hello.roomvo.com/hd,Home Depot 的 Roomvo 演示可以把目录里的地板放进房间照片。,保留客户选中的型号和原始照片，比较完两种铺法后直接带入询价单。,真实SKU、换材质、房间,公开实例,True,False,False,False
+V02,visualizer,照片换材质,Tilesview — Tile Visualizer,印度 · 瓷砖可视化,https://tilesview.ai/app/oBOx1jfSUAB6SU_-Vyr_xA/room-select,在房间预览里可以分别选墙面和地面，调整规格、铺法和砖缝。,更换墙砖时保留原来的地面，允许单独修改缝色和铺贴方向。,墙地、缝色、铺法,公开实例,True,False,False,False
+V03,visualizer,照片换材质,Wizart Visualizer,欧洲／国际 · 空间材料,https://wizart.ai/visualizer,照片材质预览与商品目录相连,将每个可视化效果绑定真实可售款和明确规格,可视化、商品目录,官方产品,False,False,False,False
+V04,visualizer,照片换材质,Floori — Barlinek Demo,欧洲 · 地板,https://www.barlinek.co.uk/visualizer/,真实房间中的地板材质预览,参考它的拍照、换材质和购买入口组织,地板、照片,公开实例,False,False,False,False
+V05,visualizer,照片换材质,Chameleon Power — Best Tile,美国 · 建材,https://besttile.chameleonpower.com/,按墙面、地面、淋浴壁龛等真实施工区域编辑,复杂卫生间允许多个不同表面独立选择,区域编辑、浴室,公开实例,False,False,False,False
+V06,visualizer,照片换材质,Renoworks AI,加拿大 · 建筑材料,https://www.renoworks.com/ai/,可视化与AI产品功能组成方案平台,分清版本与模块，再研究可视化和线索转化,建筑材料、AI,官方介绍,False,False,False,False
+V07,visualizer,照片换材质,Hover — Instant Design,美国 · 建筑科技,https://hover.to/design/instant-design-2d,将风格构思和可购买材料编辑区分开,灵感生成不直接当作某SKU精确贴图,构思、编辑,官方介绍,False,False,False,False
+V08,visualizer,照片换材质,IKEA Kreativ,瑞典 · 家居零售,https://www.ikea.com/gb/en/home-design/,空间扫描、移除现有物品与数字家具摆放,瓷砖试铺可保留遮挡、透视与空间上下文,空间扫描、AR、家具,地区限制,False,False,False,False
+V09,visualizer,照片换材质,Zolak — Room Furniture Planner,国际 · 家具科技,https://zolak.tech/room-furniture-planner,在用户房间里尝试具体家具产品,让用户直观比较不同真实商品组合,家具、空间、商品,官方介绍,False,False,False,False
+V10,visualizer,照片换材质,REimagineHome,国际 · 生成式室内改造,https://app.reimaginehome.ai/,用生成式效果图寻找风格方向,明确标记创意概念不等于真实SKU贴图和工程量,生成式、风格灵感,生成式,False,False,False,False
+D01,3d,3D / 制作过程,Muuble — Store Configurator,荷兰 · 零售家具,https://getmuuble.com/,在 Muuble 的房间里可以转动视角、摆家具、更换墙地材料和测距。,立体视图和俯视图沿用同一份配置，切换视角后保留材料和位置。,3D空间、2D、配置,案例介绍,True,False,False,False
+D02,3d,3D / 制作过程,Ton — AR Furniture,捷克 · 家具,https://www.ton.eu/en/try-out-our-furniture-at-home-with-augmented-reality,配置产品并在真实空间中预览,从产品页进入AR，但明确其不等于AI识别,AR、产品状态,官方介绍,False,False,False,False
+D03,3d,3D / 制作过程,Sklum — Product Experience,西班牙 · 家具零售,https://www.sklum.com/fr/acheter-canape-3-places/149837-canape-3-places-en-lin-et-coton-grace.html,产品可视化直接嵌入采购页面,模型、颜色、价格与加入清单保持在同一页面,产品视图、电商,产品页面,False,False,False,False
+D04,3d,3D / 制作过程,Porsche — Cayenne Configurator,德国 · 汽车,https://configurator.porsche.com/de-CH/mode/model/X1AAA1,产品配置、视角与细节状态形成一致反馈,对砖款提供光照、表面、方向和尺寸的不同视角,配置器、镜头,区域入口,False,False,False,False
+D05,3d,3D / 制作过程,OFFFICE,国际 · 数字设计,https://offficestud.io/,把家具浏览变成数字空间漫游,旗舰系列可使用探索式展厅，但保留常规目录,空间漫游、数字场景,历史案例,False,False,False,True
+D06,3d,3D / 制作过程,Abacus Tables — Builder,英国 · 家具,https://abacustables.co.uk/builder/,材质、结构与外观随配置改变,通过配置历史和对比保留客户决策过程,材质配置、状态,配置器,False,False,False,False
+D07,3d,3D / 制作过程,Cartier — Watches & Wonders 2026,法国 · 奢侈品,https://www.cartier.com/watchesandwonders,精致3D空间与主题切换组织产品展览,把各个纹理家族做成可访问的材料展厅,3D展示、主题,2026案例,False,True,False,False
+D08,3d,3D / 制作过程,Pillar of Siberia — Case,国际 · 设计机构,https://chipsa.design/works/pillar,工艺与产品揭示以线性叙事呈现,为制砖工艺制作有依据的阶段性视觉序列,制作过程、历史,历史案例,False,False,False,True
+D09,3d,3D / 制作过程,IST,国际 · 制造业,https://24ist.ru/,用3D序列解释生产阶段与设备,原料、成型、施釉、烧制以有逻辑的分镜展示,工业、工艺、3D,案例介绍,False,False,False,False
+D10,3d,3D / 制作过程,The Watch — FS 60P,国际 · 数字概念,https://thewatch.60fps.fr/,虚构腕表作为数字产品展示，重点在镜头细节,学习表面微距、旋转和材料揭示；不视为真实商品,概念、细节、镜头,概念,False,False,True,False
+W01,homepage,整个首页,Floema — Home,葡萄牙 · 户外家具,https://floema.com/en,品牌价值、场景选择、目录和制造过程自然连接,首页分场景进入，但产品仍回到统一目录,全页、场景、目录,2026案例,False,True,False,False
+W02,homepage,整个首页,Moooi — Home,荷兰 · 家居,https://www.moooi.com/en,把产品系列与艺术专题持续交织,首页可有一个旗舰故事，但所有产品入口需始终清楚,叙事、编辑、产品,经典,False,False,False,True
+W03,homepage,整个首页,Aesop — Home,澳大利亚 · 护肤零售,https://www.aesop.com/,Aesop 的商品、门店与服务栏目沿用相近的版式和文字语气。,目录、门店地址和看样预约使用相同的栏目名与排版。,编辑、一致性、门店,经典,False,False,False,True
+W04,homepage,整个首页,Nothing — Home,英国 · 消费电子,https://nothing.tech/,Nothing 用醒目的产品照片介绍新品，页面上能直接进入系列。,系列页延续首屏的产品名称、用色和照片裁切方式。,品牌性格、系列,持续更新,False,False,False,False
+W05,homepage,整个首页,Linear — Home,美国 · 软件,https://linear.app/,每个区块解释工作流程的下一步,瓷砖首页从场景到筛选、样品、预览、咨询依次展开,故事架构、清楚,持续更新,False,False,False,False
+W06,homepage,整个首页,Stripe — Home,美国 · 支付技术,https://stripe.com/,复杂功能、客户证据与行动入口分层组织,在首页区分零售客户、设计师和工程项目的需求,功能、证据、分层,持续更新,False,False,False,False
+W07,homepage,整个首页,Teenage Engineering — Home,瑞典 · 消费硬件,https://teenage.engineering/,新品介绍和技术规格沿用同一套产品字体、图片和版式。,把系列页里的材料名称和细节图用到规格页，方便来回核对。,工业、编辑、品牌,经典,False,False,False,True
+W08,homepage,整个首页,Polestar — Home,瑞典 · 汽车,https://www.polestar.com/uk/,产品探索到配置、预约和品牌内容自然转换,系列看完直接进入样品或展厅安排,行动路径、产品,持续更新,False,False,False,False
+W09,homepage,整个首页,Gentle Monster — Home,韩国 · 时尚,https://www.gentlemonster.com/us/en,商品目录和艺术专题并存,大胆视觉可以存在于专题页，主站仍可快速选货,艺术、商业,持续更新,False,False,False,False
+W10,homepage,整个首页,Lusion — Home,英国 · 数字创意,https://lusion.co/,Lusion 用已经完成的项目展示工作室能做哪些设计。,用完工项目说明能做什么工艺，附实景、局部和所用材料。,项目、演示,历史版本注意,False,False,False,True

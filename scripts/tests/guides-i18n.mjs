@@ -135,8 +135,9 @@ try {
       assert.equal(links.length,Number(await page.locator('.stat strong').first().textContent()));
       assert.equal(new Set(links).size,links.length);
       assert(links.includes(`/guides/claude-3d/?from=${lang}`));
+      assert(links.includes(`/guides/material-inspiration/?from=${lang}`));
       for(const href of links){
-        if(href.startsWith('/guides/claude-3d/')){
+        if(href.startsWith('/guides/claude-3d/') || href.startsWith('/guides/material-inspiration/')){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('#all-guides').click();
           await page.waitForURL(origin+`/guides/${lang}/`);
