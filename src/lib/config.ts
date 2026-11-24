@@ -21,7 +21,7 @@ export const SITE = {
   department: 'MIAGE',
   avatar: '/images/avatar/avatar.jpg',
   // Set homePortrait to null to restore the small illustrated avatar and its layout.
-  homePortrait: '/images/avatar/home-portrait-9501.webp',
+  homePortrait: '/images/avatar/home-portrait-3205.webp',
 } as const;
 
 export function getSiteName(lang?: string) {
