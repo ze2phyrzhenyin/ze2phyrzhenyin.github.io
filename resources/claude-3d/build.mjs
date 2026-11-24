@@ -96,7 +96,7 @@ for (const [index,[key,title]] of pages.entries()){
   await writeFile(new URL('index.html',dir),`<!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${pageTitle}</title>
 <meta name="description" content="${key?title+'。':''}用 Blender 相机工程学习三维镜头制作，查阅工具、案例与渲染估算。"><link rel="canonical" href="https://zhaoyang.fr${path(key)}">
-<link rel="icon" href="${base}media/studio.webp" type="image/webp"><meta property="og:title" content="${pageTitle}"><meta property="og:image" content="https://zhaoyang.fr${src('studio.webp')}">
+<link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="icon" href="/guides/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/guides/apple-touch-icon.png"><meta property="og:title" content="${pageTitle}"><meta property="og:image" content="https://zhaoyang.fr${src('studio.webp')}">
 <script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="${base}guide.css?v=1"><script defer src="${base}guide.js?v=1"></script></head>
 <body><a class="skip" href="#main">跳到正文</a><header class="mast"><div class="mast-inner"><div class="identity"><a id="all-guides" href="/guides/zh/">攻略总览</a><span aria-hidden="true">/</span><a class="brand" href="${base}">影像制作手册</a></div><nav class="main-nav" aria-label="指南栏目">${pages.map(([slug,label])=>`<a href="${path(slug)}" ${slug===key?'aria-current="page"':''}>${label}</a>`).join('')}</nav>
 <button id="theme" class="only-js" type="button" aria-label="切换配色"><span aria-hidden="true" class="theme-symbol"></span><span id="theme-label">配色</span></button></div></header>
