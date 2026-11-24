@@ -3,5 +3,5 @@ import type { Lang } from '@/i18n/ui';
 
 export function getProjectText(project: CollectionEntry<'projects'>, lang: Lang) {
   const text = project.data.i18n[lang] ?? project.data.i18n.en;
-  return { ...text, cover: text.cover ?? project.data.cover };
+  return { ...text, cover: text.cover ?? project.data.cover, demo: text.demo ?? project.data.demo };
 }

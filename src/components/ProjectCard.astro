@@ -1,5 +1,6 @@
 ---
 import { formatDate } from '@/lib/utils';
+import { getProjectText } from '@/lib/project-i18n';
 import { localizePath, defaultLang, useTranslations } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 import type { CollectionEntry } from 'astro:content';
@@ -8,8 +9,9 @@ interface Props {
   project: CollectionEntry<'projects'>;
 }
 const { project } = Astro.props;
-const { title, description, status, github, demo, date } = project.data;
+const { title, description, status, github, date } = project.data;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
+const demo = getProjectText(project, lang).demo;
 const t = useTranslations(lang);
 
 const statusConfig: Record<string, { key: 'status.active' | 'status.completed' | 'status.archived'; dot: string }> = {

@@ -14,7 +14,8 @@ const { project } = Astro.props;
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
 const t = useTranslations(lang);
 const text = getProjectText(project, lang);
-const { status, github, demo, site, download, admin, paper, date } = project.data;
+const { status, github, site, download, admin, paper, date } = project.data;
+const demo = text.demo;
 
 const cover = text.cover;
 

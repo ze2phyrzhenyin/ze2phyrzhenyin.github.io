@@ -30,6 +30,8 @@ const essaysCollection = defineCollection({
 
 const localizedProjectContent = z.object({
   cover: z.string().optional(),
+  // Optional per-language demo link (overrides the top-level `demo` on that language's pages).
+  demo: z.string().url().optional(),
   title: z.string(),
   description: z.string(),
   sections: z.array(z.object({
