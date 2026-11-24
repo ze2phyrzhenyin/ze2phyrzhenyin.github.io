@@ -119,7 +119,7 @@
 
 十、当前更新约定与比较基准
 
-每周一约 08:00（Europe/Paris）沿用既有更新任务，不重复创建。当前成功资料为 2026-11-16，覆盖至 2027-05-16；下一期计划为 2026-11-23。执行时滚动调整日期，勿将本段固定日期当作永久日期。
+每周一约 08:00（Europe/Paris）沿用既有更新任务，不重复创建。每期读取 events.json 的周报日期、补订日期和覆盖区间，再按执行当日滚动计算未来六个月及下一期周一日期。
 当前网站清单：https://zhaoyang.fr/guides/rex-opportunities/ 。以 events.json 和历史报告比较，报告新增、资格变化、未来 7／14／30 天截止，并保留原来源。
 本地继续关注 FRAMES、Transfo Digitale Day、Rencontres Protéinées；行业重点包括 Vinitech、SIVAL、CFIA、FRUIT LOGISTICA、Global Industrie、LogiMAT、SITL、medFEL 与 Hispack。演讲关注 Advanced Factories 与 WAICF，大学资源关注 ENGAGE.EU／4YFN。
 ISE 需 VAT 号码与具体方案，普通软件外包不自动符合资格；SIPRHO 访客身份、ENGAGE 共同创始人与孵化条件、Startup World 余位及税别须单独核实。

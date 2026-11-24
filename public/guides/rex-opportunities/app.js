@@ -47,10 +47,10 @@
         (!fields.sector.value || e.dataset.sectors.split('|').includes(fields.sector.value)) &&
         (!fields.goal.value || e.dataset.goals.split('|').includes(fields.goal.value)) &&
         (!fields.city.value || e.dataset.city === fields.city.value) &&
-        (!fields.priority.value || e.dataset.priority === fields.priority.value) &&
+        (!fields.priority.value || e.dataset.priority.split('/').includes(fields.priority.value)) &&
         (!fields.month.value || e.dataset.date.startsWith(fields.month.value)) &&
         (view!=='new' || e.dataset.update === '本期新增') &&
-        (view!=='priority' || e.dataset.priority === 'A') &&
+        (view!=='priority' || e.dataset.priority.split('/').includes('A')) &&
         (view!=='saved' || saved.has(e.id))
       );
       if (!e.hidden) count++;

@@ -7,7 +7,7 @@ const ids=new Set();
 for(const e of data.events) {
   assert(!ids.has(e.id),`duplicate ${e.id}`);ids.add(e.id);
   assert(e.country && e.sectors.length && e.sources.length,`missing metadata ${e.id}`);
-  assert(['A','B','C'].includes(e.priority));
+  assert(['A','B','C','A/B'].includes(e.priority));
   if(e.date) assert(e.date>=data.period[0] && e.date<=data.period[1],`outside coverage ${e.id}`);
   assert(html.includes(`id="${e.id}"`) && report.includes(e.name),`missing output ${e.id}`);
   for(const [,url] of e.sources) assert.equal(new URL(url).protocol,'https:');
@@ -17,6 +17,9 @@ for(const n of data.notices) {
   assert(!isNaN(Date.parse(n.date)),`invalid reminder date ${n.date}`);
 }
 const byID=Object.fromEntries(data.events.map(e=>[e.id,e]));
+assert.equal(byID.medfel.priority,'A/B');
+assert(byID['tech-retail'].fee.includes('330 € TTC'));
+assert(data.notices.every(n => n.date >= data.revisedDate));
 assert.equal(byID.frames.deadline,'2026-11-17');
 assert.equal(byID.ise.deadline,'2027-02-02');
 assert(byID.ise.eligibility.includes('VAT') && byID.ise.eligibility.includes('一般受托软件开发'));
