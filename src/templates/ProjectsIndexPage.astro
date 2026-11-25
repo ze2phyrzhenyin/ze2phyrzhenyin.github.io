@@ -29,6 +29,9 @@ const statusColor: Record<string, string> = {
       <h1 class="text-4xl font-bold tracking-tight mb-2"
           style="color:rgb(var(--text));letter-spacing:-0.025em;">{t('projects.title')}</h1>
       {pageDescription && <p class="text-sm" style="color:rgb(var(--text-2));">{pageDescription}</p>}
+      <p class="mt-2 text-sm" style="color:rgb(var(--text-2));">
+        {t('projects.showcaseIntro')}<a class="underline underline-offset-4" style="color:var(--accent-text);" href={`https://demos.rex31.com/${lang === 'zh' ? '' : lang + '/'}`}>{t('projects.showcaseLink')}</a>{lang === 'zh' ? '。' : '.'}
+      </p>
     </header>
     {projects.length === 0 ? (
       <div class="text-center py-20">
