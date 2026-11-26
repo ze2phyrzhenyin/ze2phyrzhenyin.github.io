@@ -9,7 +9,7 @@ import {createHash} from 'node:crypto';
 import {mkdir, readFile, stat, writeFile} from 'node:fs/promises';
 import {dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {base, copy, demo, demoQuery, downloads, fontFile, hreflang, htmlLang, languageNames, links, locales, origin, sections, slideCount, slideName, translationFr} from './content.mjs';
+import {base, copy, demo, demoQuery, downloads, fontFile, history, hreflang, htmlLang, languageNames, links, locales, mp4Seconds, origin, sections, slideCount, slideName, translationFr, version as kit} from './content.mjs';
 
 const here = new URL('./', import.meta.url);
 const out = new URL('../../public/guides/rex-pitch/', import.meta.url);
@@ -74,6 +74,11 @@ function rich(text, locale, extra = {}) {
     .replace(/\{(\w+)\}/g, (match, key) => key in extra ? extra[key] : match);
 }
 const plain = (text, locale) => esc(typeset(text, locale).replace(/\[\[f:([\w.-]+)\]\]/g, '$1').replace(/\[\[l:\w+\|([^\]]+)\]\]/g, '$1').replace(/[*]/g, '').replace(/\{\{([^}]+)\}\}/g, '$1'));
+const duration = (seconds, locale) => {
+  if (!seconds) throw new Error('content.mjs: set mp4Seconds to the length of the MP4');
+  const m = Math.floor(seconds / 60), sec = Math.round(seconds % 60);
+  return locale === 'zh' ? `${m} 分 ${sec} 秒` : `${m} min ${sec} s`;
+};
 const fill = (text, values) => text.replace(/\{(\w+)\}/g, (match, key) => key in values ? values[key] : match);
 // The owner's text: escaped, nothing else changed, except Markdown bold shown as bold.
 const verbatim = text => esc(text).replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -179,7 +184,8 @@ ${locales.map(other => `<link rel="alternate" hreflang="${hreflang[other]}" href
     `<a href="${base}${other}/" lang="${other}" hreflang="${hreflang[other]}" data-language="${other}"${other === locale ? ' aria-current="page"' : ''}>${languageNames[other]}</a>`).join('')}</div>
 <button id="theme-toggle" type="button" data-dark="${a(c.theme.dark)}" data-light="${a(c.theme.light)}" data-to-dark="${a(c.theme.toDark)}" data-to-light="${a(c.theme.toLight)}" aria-label="${a(c.theme.toDark)}">${t(c.theme.dark)}</button></div></nav>
 <header class="masthead"><div class="wrap"><h1>${t(c.title)}</h1>
-<p class="lead">${t(c.lead)}</p></div></header>`;
+<p class="lead">${t(c.lead)}</p>
+<p class="version">${esc(fill(c.versionLine, kit))}</p></div></header>`;
 
   const stage = `<section class="band" id="stage" data-anchor><div class="onstage">
 <h2>${t(c.stage.heading)}</h2>
@@ -210,10 +216,17 @@ ${locales.map(other => `<link rel="alternate" hreflang="${hreflang[other]}" href
   }).join('\n');
   const script = `<section class="band" id="script" data-anchor>
 <h2>${t(c.script.heading)}</h2>
-<p class="meta-line">${t(c.script.meta, {words: String(data.words), click: marker})}</p>
+<p class="meta-line">${t(c.script.meta, {words: String(data.words), click: marker, mp4: duration(mp4Seconds, locale)})}</p>
 <ol class="slides">
 ${slides}
 </ol>
+</section>`;
+
+  // Owner 2026-11-26: the English script also as running text, laid out like the Chinese draft.
+  const full = `<section class="band" id="full" data-anchor>
+<h2>${t(c.full.heading)}</h2>
+<p class="note">${t(c.full.note)}</p>
+<div class="draft" lang="en">${data.script.map(slide => `<p>${esc(slide.lines.map(line => line.text).join(' '))}</p>`).join('\n')}</div>
 </section>`;
 
   let aid = '';
@@ -233,8 +246,13 @@ ${slides}
 <ul class="plain">${c.sources.items.map(item => `<li>${t(item)}</li>`).join('')}</ul>
 </section>`;
 
+  const versions = `<section class="band" id="versions">
+<h2>${esc(c.historyHeading)}</h2>
+<ul class="plain versions">${[...history].reverse().map(item => `<li><strong>${esc(fill(c.historyItem, item))}</strong> ${esc(typeset(item[locale], locale))}</li>`).join('')}</ul>
+</section>`;
+
   const footer = `<footer class="foot"><p>${t(c.footer)}</p><a href="/guides/${locale}/">${t(c.back)}</a></footer>`;
-  return `${head}\n<body>\n${topbar}\n<main id="content">\n${stage}\n${deck}\n${files}\n${script}\n${aid ? aid + '\n' : ''}${sources}\n</main>\n${footer}\n</body>\n</html>\n`;
+  return `${head}\n<body>\n${topbar}\n<main id="content">\n${stage}\n${deck}\n${files}\n${script}\n${full}\n${aid ? aid + '\n' : ''}${versions}\n${sources}\n</main>\n${footer}\n</body>\n</html>\n`;
 }
 
 // Address without a language: /guides/entry.js sends it to ?lang=, or to English.
@@ -246,7 +264,7 @@ function entry() {
 
 async function build() {
   if (translationFr.length !== slideCount) throw new Error(`content.mjs: translationFr has ${translationFr.length} slides, expected ${slideCount}`);
-  if (sections.length !== 6) throw new Error('content.mjs: sections changed, update build.mjs');
+  if (sections.length !== 7) throw new Error('content.mjs: sections changed, update build.mjs');
   const [css, js, script, draft, found] = await Promise.all([readFile(new URL('style.css', here), 'utf8'), readFile(new URL('page.js', here), 'utf8'), readScript(), readChineseDraft(), assets()]);
   const hash = text => createHash('sha256').update(text).digest('hex').slice(0, 8);
   const version = {css: hash(css), js: hash(js)};

@@ -77,7 +77,7 @@ try {
     assert(await overflow() <= 0, `${where}: horizontal page scroll ${await overflow()} px`);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'), 'noindex,follow', `${where}: robots`);
     assert(await page.evaluate(() => document.fonts.check('800 40px Archivo')), `${where}: the self-hosted font is loaded`);
-    const expected = ['stage', 'deck', 'downloads', 'script', ...(locale === 'en' ? [] : ['aid']), 'sources'];
+    const expected = ['stage', 'deck', 'downloads', 'script', 'full', ...(locale === 'en' ? [] : ['aid']), 'versions', 'sources'];
     assert.deepEqual(await page.evaluate(() => [...document.querySelectorAll('main > section')].map(item => item.id)), expected, `${where}: sections`);
 
     // Language switch, alternates, return link.

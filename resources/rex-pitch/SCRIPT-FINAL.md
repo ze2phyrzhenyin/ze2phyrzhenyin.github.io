@@ -1,6 +1,6 @@
 # REX pitch — final script (all suggested edits accepted, owner 2026-11-26; new opening from the owner the same day)
 
-Limit 3 minutes. About 300 words with the optional slide 9, about 2 min 45 s at a calm pace (2 min 35 s without it). `▸` = one click. Slide numbers match the deck.
+Limit 3 minutes. About 275 words, about 2 min 35 s at a calm pace. `▸` = one click. Slide numbers match the deck.
 
 ## 1 · REX Digital & AI
 Good morning, everyone. I'm Zhaoyang, co-founder of REX Digital & AI.
@@ -40,11 +40,8 @@ Imagine a retailer placing an order by talking to an AI assistant.
 According to France Num's 2026 survey, about one in four French small businesses say buying or upgrading software is a priority for the next two years.
 ▸ That's roughly 600,000 companies.
 
-## 9 · Beyond small businesses (optional)
-And it's not just small businesses. Even with large companies included, fewer than half of French construction and transport firms use an ERP.
-
-## 10 · Every business
+## 9 · Every business
 Our vision is to make digital transformation easy for every business, whatever its industry or digital skills.
 
-## 11 · Close
+## 10 · Close
 Because we believe software should adapt to people, not the other way around.
