@@ -1,78 +1,275 @@
-import { readFile, writeFile } from 'node:fs/promises';
+// Builds the REX opportunity guide in Chinese, English and French from one data set.
+//   node resources/rex-opportunities/build.mjs
+// Inputs:  public/guides/rex-opportunities/events.json + prompt.txt (Chinese, the source),
+//          translations.json, prompt.en.txt, prompt.fr.txt and locales.mjs in this folder.
+// Outputs: {zh,en,fr}/index.html, the root redirect, report.md / report.en.md / report.fr.md,
+//          prompt.en.txt / prompt.fr.txt and filter-aliases.json under public/guides/rex-opportunities/.
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { locales, issue } from './locales.mjs';
 
+const here = new URL('./', import.meta.url);
 const root = new URL('../../public/guides/rex-opportunities/', import.meta.url);
-const data = JSON.parse(await readFile(new URL('events.json', root), 'utf8'));
-const prompt = await readFile(new URL('prompt.txt', root), 'utf8');
+const site = 'https://zhaoyang.fr', base = '/guides/rex-opportunities/';
+export const languages = ['zh', 'en', 'fr'];
+// Han characters, kana, CJK punctuation and full-width forms: text that still needs translating.
+export const cjk = /[⺀-〿぀-ヿ㈀-㏿㐀-鿿豈-﫿︰-﹏＀-￯]/u;
+
+const NBSP = ' ', NNBSP = ' ';
+// French sources are written with ordinary spaces; the no-break spaces are set here.
+export const frenchSpacing = text => text
+  .replace(/ ([;?!])/g, `${NNBSP}$1`)
+  .replace(/ :(?=\s|$)/g, `${NBSP}:`)
+  .replace(/« /g, `«${NBSP}`).replace(/ »/g, `${NBSP}»`)
+  .replace(/(\d) (?=\d{3}(?!\d))/g, `$1${NNBSP}`)
+  .replace(/(\d) (?=(?:€|%))/g, `$1${NNBSP}`)
+  .replace(/(\d) (?=(?:m²|Mo\b))/g, `$1${NBSP}`);
+function spaced(value) {
+  if (typeof value === 'string') return frenchSpacing(value);
+  if (typeof value === 'function') return (...args) => spaced(value(...args));
+  if (Array.isArray(value)) return value.map(spaced);
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, spaced(item)]));
+  return value;
+}
+
 const esc = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
-const labels = { value:'参与价值', who:'身份与分工', entry:'入口与截止', fee:'费用', eligibility:'资格条件', action:'下一步', contacts:'建议接触', demo:'演示案例', question:'交流问题', pilot:'试点方向', checked:'资料来源与复核' };
-const priorities = { A:'优先行动', B:'有条件参加', C:'持续观察' };
-const options = values => [...new Set(values)].map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join('');
-const link = (id, label) => `<a href="#${id}">${label}</a>`;
-const external = ([label,url]) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="sr-only">（新窗口）</span></a>`;
-const dayDiff = date => Math.round((Date.parse(date)-Date.parse(data.reportDate))/86400000);
+const sha = text => createHash('sha256').update(text).digest('hex');
 const chevron = '<svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="m6 8 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const bookmark = '<svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M5 3h10v14l-5-3-5 3Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+const downloadIcon = '<svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20"><path d="M10 3v10m0 0 4-4m-4 4-4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const link = (id, label) => `<a href="#${id}">${label}</a>`;
+const fieldOrder = ['value', 'who', 'entry', 'fee', 'eligibility', 'action', 'contacts', 'demo', 'question', 'pilot', 'checked'];
+const lowerFirst = text => /^\p{Lu}(?!\p{Lu})/u.test(text) ? text[0].toLocaleLowerCase() + text.slice(1) : text;
 
-const plans = [
- ['11/16–18','核对近期入口','FRAMES 11/17 截止；11/17 两场本地活动择一或分工。11/18 检查 ISE 挑战、Tech Spirit 会谈及 EIC 说明会报名。'],
- ['本周','决定 12 月主行程','农业需求访谈优先波尔多；明确零售或供应链会谈再选巴黎。若 FRAMES 有匹配会谈，可由本人留图卢兹、合伙人去 Vinitech。'],
- ['未来两周','准备产品和申请','确认 ENGAGE 身份与孵化经历，选定一个产品；整理 SIVAL、CFIA 目标企业，询问 Startup World 产品适配及余位。']
-];
-const conflicts = [
- ['11/17','图卢兹两场本地活动','Transfo Digitale Day 在 La Cité，企业展在 MEETT。软件需求交流优先前者；两人可分工。'],
- ['11/30–12/03','巴黎、波尔多与本地对接','Tech for Retail / Supply Chain Event 可同程但分别取票；与 Vinitech、FRAMES、BtoBuild、SOFT、La Place、Tech Spirit 和 Aeromart 取舍。'],
- ['03/01–04','巴塞罗那同程','ENGAGE／4YFN 与 Talent Arena 可组合；若入选 ENGAGE，先满足四日参与要求。'],
- ['03/15–18','里昂或斯图加特','法国制造业客户选 Global Industrie；仓储系统与设备集成选 LogiMAT。若入选 3/18 Occitanie Invest，还需保留图卢兹当天。'],
- ['03/31–04/02','巴塞罗那或 Labège','Advanced Factories 与 MIDI MAT 重叠。演讲获选优先履行演讲安排；本地设备需求调研可由合伙人负责。'],
- ['04/26–29','慕尼黑或佩皮尼昂','国际仓储与运输合作选 transport logistic；农业软件和果蔬流通选 medFEL。']
-];
-const materialSets = [
- ['农业与食品','Vinitech · SIVAL · CFIA · FRUIT LOGISTICA · medFEL','供应商／农户来料、批次、收货重量、库存、筛选或加工、发货及单据。','从收货到发货，哪一步最容易重复录入或对不上数量？','一个品类、一个仓点、一条流程。农业模块未上线时明确标为原型。'],
- ['仓储与物流','Supply Chain Event · SITL · LogiMAT · transport logistic','收货、产品识别、检测结果、库位与库存、订单、出库、发货记录。','哪些信息需要在 Excel、邮件、仓储软件和运输平台之间重复填写？','订单导入、运输资料生成、检测与库存连接或客户货物查询中的一项。设备、硬件和现场部署单独界定。'],
- ['演讲与创业申请','Advanced Factories · WAICF · ENGAGE.EU','业务问题、原流程、已实现功能、实际使用范围、测量结果与限制。','哪些步骤自动处理，哪些必须由人确认？','内部使用、用户试用和客户付费分别举证；没有测量的数据不写成节省时间、准确率或成本成果。']
-];
+export async function render() {
+  const read = (path, from = root) => readFile(new URL(path, from), 'utf8');
+  const data = JSON.parse(await read('events.json'));
+  const memory = JSON.parse(await read('translations.json', here));
+  const prompts = { zh: await read('prompt.txt'), en: await read('prompt.en.txt', here), fr: frenchSpacing(await read('prompt.fr.txt', here)) };
+  const assets = { style: sha(await read('style.css')).slice(0, 10), app: sha(await read('app.js')).slice(0, 10) };
+  const problems = [];
 
-function eventHTML(e) {
- const date = e.date?.match(/^\d{4}-\d{2}-\d{2}$/) ? e.date : '';
- return `<details class="event" id="${esc(e.id)}" data-priority="${e.priority}" data-city="${esc(e.city)}" data-country="${esc(e.country)}" data-sectors="${esc(e.sectors.join('|'))}" data-goals="${esc(e.goals.join('|'))}" data-date="${date}" data-deadline="${esc(e.deadline)}" data-update="${esc(e.update)}">
-<summary><span class="event-date">${date ? `<span>${date.slice(5,7)}月</span><strong>${date.slice(8)}</strong><small>${date.slice(0,4)}</small>` : '<span>日期</span><strong>待定</strong>'}</span>
-<span class="event-description"><span class="event-title">${esc(e.name)}<span class="saved-mark" hidden aria-label="已收藏">${bookmark}</span></span><span class="event-meta">${esc(e.country)} · ${esc(e.city)}${e.venue ? ` · ${esc(e.venue)}` : ''}</span><span class="event-context">${esc(e.sectors.join(' / '))}<span class="update-label">${e.update==='首轮保留' ? '' : esc(e.update)}</span></span></span>
-<span class="event-availability"><span>${esc(e.status)}</span><small>${esc(e.when)}</small></span><span class="priority priority-${e.priority}" title="${priorities[e.priority]}">${e.priority}<span class="sr-only"> ${priorities[e.priority]}</span></span><span class="disclosure">${chevron}</span></summary>
-<div class="event-body"><p class="event-value">${esc(e.value)}</p><div class="event-actions">${external(e.sources[0])}<button type="button" class="save-event" data-id="${esc(e.id)}" aria-pressed="false" hidden>${bookmark}<span>收藏活动</span></button><a class="permalink" href="#${e.id}">此活动链接</a></div><dl>${Object.entries(labels).filter(([key])=>key!=='value' && e[key]).map(([key,label])=>`<div><dt>${label}</dt><dd>${esc(e[key])}</dd></div>`).join('')}</dl><div class="sources">${e.sources.slice(1).map(external).join('')}</div></div></details>`;
+  if (memory.sources['prompt.txt'] !== sha(prompts.zh)) {
+    problems.push(`prompt.txt changed since prompt.en.txt and prompt.fr.txt were translated. Update both, then set sources["prompt.txt"] in translations.json to ${sha(prompts.zh)}`);
+  }
+  const strings = new Map(memory.strings.map(entry => [entry.zh, entry]));
+  const used = new Set();
+  const terms = Object.fromEntries(Object.entries(memory.terms).map(([group, rows]) => [group, new Map(rows.map(row => [row.zh, row]))]));
+  for (const [group, rows] of Object.entries(memory.terms)) {
+    if (new Set(rows.map(row => row.key)).size !== rows.length) problems.push(`translations.json terms.${group}: duplicate key`);
+  }
+  // A string without Chinese (official names, URLs, dates) is the same in every language.
+  function translate(lang, text, where) {
+    if (lang === 'zh' || !cjk.test(text)) return text;
+    const hit = strings.get(text);
+    used.add(text);
+    if (!hit?.[lang]) { problems.push(`${where}: no ${lang} translation in translations.json strings for “${text}”`); return text; }
+    return lang === 'fr' ? frenchSpacing(hit.fr) : hit.en;
+  }
+  function term(group, zh, where) {
+    const hit = terms[group].get(zh);
+    if (!hit) { problems.push(`${where}: “${zh}” is missing from translations.json terms.${group}`); return { key: zh, zh, en: zh, fr: zh }; }
+    return hit;
+  }
+
+  const baseDate = data.revisedDate && data.revisedDate !== data.reportDate ? data.revisedDate : data.reportDate;
+  const isRevised = baseDate !== data.reportDate;
+  const dayDiff = date => Math.round((Date.parse(date) - Date.parse(baseDate)) / 86400000);
+  const records = data.events.map(event => ({
+    event,
+    date: /^\d{4}-\d{2}-\d{2}$/.test(event.date ?? '') ? event.date : '',
+    country: term('country', event.country, `${event.id}.country`),
+    city: term('city', event.city, `${event.id}.city`),
+    sectors: event.sectors.map(sector => term('sector', sector, `${event.id}.sectors`)),
+    goals: event.goals.map(goal => term('goal', goal, `${event.id}.goals`)),
+    update: term('update', event.update, `${event.id}.update`),
+  }));
+  const unique = (rows, key = row => row.key) => [...new Map(rows.map(row => [key(row), row])).values()];
+  const months = [...new Set(records.map(record => record.date.slice(0, 7)).filter(Boolean))];
+
+  function view(lang) {
+    const locale = locales[lang];
+    const t = lang === 'fr' ? spaced(locale.ui) : locale.ui;
+    const own = text => lang === 'fr' ? spaced(text) : text;
+    const stamp = iso => ({ iso, monthDay: locale.date.monthDay(iso), full: locale.date.full(iso), compact: locale.date.compact(iso) });
+    const when = (event) => {
+      if (lang === 'zh') return event.when;
+      if (cjk.test(event.when)) return translate(lang, event.when, `${event.id}.when`);
+      const text = locale.date.when(event.when);
+      if (!text) { problems.push(`${event.id}.when: “${event.when}” does not follow YYYY/MM/DD[–[MM/]DD][ · HH:MM[–HH:MM]]; add it to translations.json strings`); return event.when; }
+      return text;
+    };
+    const events = records.map(record => {
+      const { event } = record, at = field => `${event.id}.${field}`;
+      const text = Object.fromEntries(fieldOrder.filter(field => event[field]).map(field => [field, translate(lang, event[field], at(field))]));
+      const others = languages.filter(other => other !== lang && other !== 'zh');
+      const labels = other => [record.country[other], record.city[other], ...record.sectors.map(row => row[other]), ...record.goals.map(row => row[other]),
+        strings.get(event.name)?.[other] ?? '', event.venue && cjk.test(event.venue) ? strings.get(event.venue)?.[other] ?? '' : ''];
+      return {
+        ...record, text,
+        name: translate(lang, event.name, at('name')),
+        venue: event.venue ? translate(lang, event.venue, at('venue')) : '',
+        status: translate(lang, event.status, at('status')),
+        when: when(event),
+        sources: event.sources.map(([label, url], index) => [translate(lang, label, at(`sources.${index}`)), url]),
+        // Place, sector and goal names in the other Latin-script language, so a search survives a language switch.
+        keywords: [...new Set(others.flatMap(labels).filter(Boolean))].join(' '),
+      };
+    });
+    const notices = data.notices.map((notice, index) => ({
+      ...notice,
+      kind: term('kind', notice.kind, `notices.${index}.kind`)[lang],
+      label: translate(lang, notice.label, `notices.${index}.label`),
+      note: translate(lang, notice.note, `notices.${index}.note`),
+    }));
+    return {
+      lang, locale, t, events, notices,
+      report: stamp(data.reportDate), revised: isRevised ? stamp(data.revisedDate) : null, base: stamp(baseDate), next: stamp(data.nextReport),
+      period: data.period.map(stamp), scope: translate(lang, data.scope, 'scope'), prompt: prompts[lang],
+      actions: issue.actions.map(item => ({ id: item.id, text: own(item[lang]) })),
+      calendar: issue.calendar.map(item => ({ ...item, place: own(item[lang]) })),
+      sourceNotes: own(issue.sourceNotes[lang]),
+      plans: issue.plans.map(item => own(item[lang])),
+      conflicts: issue.conflicts.map(item => ({ ended: item.ended, text: own(item[lang]) })),
+      materials: issue.materials.map(item => ({ events: item.events, text: own(item[lang]) })),
+      archive: issue.archive.map(item => ({ ...item, text: own(item[lang]) })),
+      reportPath: lang === 'zh' ? 'report.md' : `report.${lang}.md`,
+      promptPath: lang === 'zh' ? 'prompt.txt' : `prompt.${lang}.txt`,
+    };
+  }
+
+  function page(v) {
+    const { lang, locale, t } = v;
+    const url = `${site}${base}${lang}/`;
+    const options = rows => rows.map(([value, label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
+    const termOptions = rows => options(unique(rows).map(row => [row.key, row[lang]]));
+    const external = ([label, href]) => `<a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}<span class="sr-only">${t.newWindow}</span></a>`;
+    const eventHTML = e => {
+      const { event, date } = e, grade = event.priority;
+      return `<details class="event" id="${esc(event.id)}" data-priority="${grade}" data-city="${esc(e.city.key)}" data-country="${esc(e.country.key)}" data-sectors="${esc(e.sectors.map(row => row.key).join('|'))}" data-goals="${esc(e.goals.map(row => row.key).join('|'))}" data-date="${date}" data-deadline="${esc(event.deadline)}" data-update="${esc(e.update.key)}" data-search="${esc(e.keywords)}">
+<summary><span class="event-date">${date ? `<span>${locale.date.eventMonth(+date.slice(5, 7))}</span><strong>${date.slice(8)}</strong><small>${date.slice(0, 4)}</small>` : `<span>${t.dateUnknownLabel}</span><strong>${t.dateUnknown}</strong>`}</span>
+<span class="event-description"><span class="event-title">${esc(e.name)}<span class="saved-mark" hidden aria-label="${t.savedMark}">${bookmark}</span></span><span class="event-meta">${esc(e.country[lang])} · ${esc(e.city[lang])}${e.venue ? ` · ${esc(e.venue)}` : ''}</span><span class="event-context">${esc(e.sectors.map(row => row[lang]).join(' / '))}<span class="update-label">${e.update.key === 'kept' ? '' : esc(e.update[lang])}</span></span></span>
+<span class="event-availability"><span>${esc(e.status)}</span><small>${esc(e.when)}</small></span><span class="priority priority-${grade.split('/')[0]}" title="${t.priorities[grade]}">${grade}<span class="sr-only"> ${t.priorities[grade]}</span></span><span class="disclosure">${chevron}</span></summary>
+<div class="event-body"><p class="event-value">${esc(e.text.value)}</p><div class="event-actions">${external(e.sources[0])}<button type="button" class="save-event" data-id="${esc(event.id)}" aria-pressed="false" hidden>${bookmark}<span>${t.saveEvent}</span></button><a class="permalink" href="#${event.id}">${t.permalink}</a></div><dl>${fieldOrder.filter(field => field !== 'value' && e.text[field]).map(field => `<div><dt>${t.labels[field]}</dt><dd>${esc(e.text[field])}</dd></div>`).join('')}</dl><div class="sources">${e.sources.slice(1).map(external).join('')}</div></div></details>`;
+    };
+    const noticeHTML = n => `<li data-days="${dayDiff(n.date)}"><time datetime="${n.date}"><strong>${locale.date.notice(n.date)}</strong>${n.time ? `<small>${n.time}</small>` : ''}</time><div><a href="#${n.event}">${esc(n.label)}</a><span class="notice-kind">${esc(n.kind)}</span><p>${esc(n.note)}</p></div></li>`;
+    const alternates = languages.map(other => `<link rel="alternate" hreflang="${locales[other].hreflang}" href="${site}${base}${other}/">`).join('') + `<link rel="alternate" hreflang="x-default" href="${site}${base}en/">`;
+    const switcher = languages.map(other => `<a href="../${other}/" lang="${other}" hreflang="${locales[other].hreflang}" data-language="${other}"${other === lang ? ' aria-current="page"' : ''}>${locales[other].languageName}</a>`).join('');
+    const script = JSON.stringify({
+      expand: t.expand, collapse: t.collapse, resultCountOf: t.resultCountOf, filterSummary: t.filterSummary,
+      views: { new: t.viewNew, priority: t.viewPriority, saved: t.viewSaved }, quoteOpen: t.quoteOpen, quoteClose: t.quoteClose,
+      saveEvent: t.saveEvent, savedEvent: t.savedEvent, toastSaved: t.toastSaved, toastRemoved: t.toastRemoved, toastNoStorage: t.toastNoStorage,
+      themeDark: t.themeDark, themeLight: t.themeLight, themeToDark: t.themeToDark, themeToLight: t.themeToLight,
+      promptSelected: t.promptSelected, promptCopied: t.promptCopied, toastPromptCopied: t.toastPromptCopied, promptCopyBlocked: t.promptCopyBlocked,
+    }).replaceAll('<', '\\u003c');
+    const navItems = Object.entries(t.nav);
+    const archiveRow = row => {
+      const [label, action] = row.text;
+      return row.current
+        ? `<div class="archive-row"><time>${locale.date.compact(row.date)}</time><span>${label}</span><a href="../${v.reportPath}" download>${action}</a></div>`
+        : `<div class="archive-row"><time>${locale.date.compact(row.date)}</time><span>${label}</span><a href="../${row.path}" download${lang === 'zh' ? '' : ' hreflang="zh-Hans"'}>${action}${t.chineseOnly}</a></div>`;
+    };
+    return `<!doctype html>
+<html lang="${locale.htmlLang}" data-guide="rex-opportunities" data-locale="${lang}"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="icon" href="/guides/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/guides/apple-touch-icon.png"><title>${esc(t.title)}</title>
+<meta name="description" content="${esc(t.description(v.report, v.revised))}">
+<meta name="theme-color" content="#f5f7f8"><link rel="canonical" href="${url}">${alternates}
+<meta property="og:title" content="${esc(t.ogTitle)}"><meta property="og:description" content="${esc(t.ogDescription(v.report, v.revised, v.period[1]))}"><meta property="og:type" content="article"><meta property="og:url" content="${url}">
+<script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="../style.css?v=${assets.style}"><script defer src="../app.js?v=${assets.app}"></script></head>
+<body><a class="skip" href="#main">${t.skip}</a>
+<div class="topbar"><a class="back-link" href="/guides/${lang}/">${chevron} <span>${t.back}</span></a><a class="top-brand" href="#main">REX <span>${esc(t.brand)}</span></a><div class="top-tools"><a class="report-download" href="../${v.reportPath}" download="${esc(t.reportFile(v.report, v.revised))}">${downloadIcon}<span>${t.downloadReport}</span></a><div class="languages" aria-label="${t.languages}">${switcher}</div><button id="theme-toggle" type="button" aria-label="${t.themeToggle}" hidden>${t.themeDark}</button></div></div>
+<div class="layout"><aside class="sidebar"><nav aria-label="${t.toc}">${navItems.map(([id, name], index) => `<a href="#${id}"${index === 0 ? ' aria-current="location"' : ''}>${name}</a>`).join('')}</nav><div class="sidebar-note"><span>${t.schedulePlan}</span><strong>${t.scheduleSlot}</strong><span>${t.scheduleZone}</span><p>${t.nextIssue(v.next)}</p></div></aside>
+<main id="main"><header class="masthead"><div><h1>${esc(t.heading)}</h1><p class="report-date">${v.revised ? `<time datetime="${v.report.iso}">${t.reportOf(v.report)}</time><time datetime="${v.revised.iso}">${t.revisedOn(v.revised)}</time>` : `<time datetime="${v.report.iso}">${v.report.full}</time><span>${esc(data.timezone)}</span>`}</p></div><div class="period"><span>${t.periodLabel}</span><strong>${v.period[0].compact} <span>${t.periodTo}</span> ${v.period[1].compact}</strong><span>${t.periodScope}</span></div></header>
+<nav class="mobile-nav" aria-label="${t.shortcuts}">${Object.entries(t.mobileNav).map(([id, name]) => `<a href="#${id}">${name}</a>`).join('')}</nav>
+<section id="priorities" class="overview"><div class="section-heading"><h2>${t.prioritiesHeading}</h2><span>${t.asOf(v.base)}</span></div><div class="overview-grid"><div class="action-list">${v.actions.map(({ id, text: [date, title, text] }) => `<article><span class="action-date">${date}</span><h3>${link(id, esc(title))}</h3><p>${esc(text)}</p></article>`).join('')}</div><div class="focus-panel"><h3>${t.calendarHeading}</h3><ul>${v.calendar.map(item => `<li><time>${locale.date.month(item.month)}</time><span>${item.links.map(([id, name]) => link(id, name)).join(' / ')}<small>${esc(item.place)}</small></span></li>`).join('')}</ul><p>${t.talks(...issue.talks.map(([id, name]) => link(id, name)))}</p></div></div>
+<details class="source-note"><summary>${t.sourceNoteSummary} ${chevron}</summary>${v.sourceNotes.map(text => `<p>${esc(text)}</p>`).join('')}</details></section>
+<section id="events"><div class="section-heading"><h2>${t.eventsHeading}</h2><span>${t.eventsCount(v.events.length)}</span></div><p class="legend">${['A', 'B', 'C'].map(grade => `<span><b>${grade}</b> ${t.priorities[grade]}</span>`).join('')}</p>
+<form id="filters" role="search" aria-label="${t.filterForm}" hidden><div class="quick-filters" aria-label="${t.quickFilters}"><button type="button" data-view="all" aria-pressed="true">${t.viewAll}</button><button type="button" data-view="new" aria-pressed="false">${t.viewNew}</button><button type="button" data-view="priority" aria-pressed="false">${t.viewPriority}</button><button type="button" data-view="saved" aria-pressed="false">${t.viewSaved} <span id="saved-count">0</span></button></div>
+<div class="filter-primary"><label class="search-label">${t.search}<input id="search" type="search" placeholder="${esc(t.searchPlaceholder)}" autocomplete="off"></label><label>${t.country}<select id="country"><option value="">${t.allCountries}</option>${termOptions(v.events.map(e => e.country))}</select></label><label>${t.sector}<select id="sector"><option value="">${t.allSectors}</option>${termOptions(v.events.flatMap(e => e.sectors))}</select></label><button id="more-filters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-extra">${t.moreFilters} ${chevron}</button></div>
+<div class="filter-extra" id="filter-extra" hidden><label>${t.goal}<select id="goal"><option value="">${t.allGoals}</option>${termOptions(memory.terms.goal)}</select></label><label>${t.city}<select id="city"><option value="">${t.allCities}</option>${termOptions(v.events.map(e => e.city))}</select></label><label>${t.priority}<select id="priority"><option value="">${t.allPriorities}</option>${options(['A', 'B', 'C'].map(grade => [grade, grade]))}</select></label><label>${t.month}<select id="month"><option value="">${t.allMonths}</option>${options(months.map(month => [month, locale.date.monthOption(month)]))}</select></label></div>
+<div class="filter-footer"><span id="filter-summary">${t.filterSummary}</span><button type="reset">${t.clearFilters}</button></div></form>
+<div class="list-tools"><p id="result-count" role="status" aria-live="polite">${t.resultCount.replace('{count}', v.events.length)}</p><div><label class="sort-label" hidden>${t.sort}<select id="sort"><option value="date">${t.sortDate}</option><option value="priority">${t.sortPriority}</option><option value="deadline">${t.sortDeadline}</option></select></label><button id="expand" type="button" hidden>${t.expand}</button></div></div>
+<div id="event-list">${v.events.map(eventHTML).join('\n')}</div><div id="empty" class="empty" hidden><h3>${t.emptyHeading}</h3><p>${t.emptyText}</p><button id="empty-reset" type="button">${t.clearFilters}</button></div><p class="list-footnote">${t.listFootnote}</p></section>
+<section id="deadlines"><div class="section-heading"><h2>${t.deadlinesHeading}</h2><span>${t.deadlinesFrom(v.base, v.revised)}</span></div><div class="deadline-tabs" hidden aria-label="${t.deadlineRange}"><button type="button" data-window="7" aria-pressed="true">${t.within7}</button><button type="button" data-window="14" aria-pressed="false">${t.within14}</button><button type="button" data-window="30" aria-pressed="false">${t.within30}</button><button type="button" data-window="all" aria-pressed="false">${t.allReminders}</button></div><ol class="deadline-list">${v.notices.map(noticeHTML).join('')}</ol><p class="minor">${t.deadlinesNote}</p></section>
+<section id="schedule"><div class="section-heading"><h2>${t.scheduleHeading}</h2></div><div class="plan-list">${v.plans.map(([time, title, text]) => `<article><span>${time}</span><div><h3>${esc(title)}</h3><p>${esc(text)}</p></div></article>`).join('')}</div><h3 class="conflict-heading">${t.conflictsHeading}</h3><div class="conflicts">${v.conflicts.map(({ ended, text: [date, title, text] }) => `<details><summary><time>${date}${ended ? ` · ${t.ended}` : ''}</time><span>${esc(title)}</span>${chevron}</summary><p>${esc(text)}</p></details>`).join('')}</div></section>
+<section id="materials"><div class="section-heading"><h2>${t.materialsHeading}</h2></div><p>${t.materialsIntro}</p><div class="materials">${v.materials.map(({ events, text: [title, demo, question, pilot] }) => `<article><h3>${esc(title)}</h3><p class="minor">${events}</p><dl><div><dt>${t.materialDemo}</dt><dd>${esc(demo)}</dd></div><div><dt>${t.materialQuestion}</dt><dd>${esc(question)}</dd></div><div><dt>${t.materialPilot}</dt><dd>${esc(pilot)}</dd></div></dl></article>`).join('')}</div><p class="minor">${t.materialsNote}</p></section>
+<section id="profile"><div class="section-heading"><h2>${t.profileHeading}</h2></div><div class="profile-list">${t.profiles.map(([title, text]) => `<div><h3>${esc(title)}</h3><p>${esc(text)}</p></div>`).join('')}</div><p class="minor">${t.profileNote}</p></section>
+<section id="prompt"><div class="section-heading"><h2>${t.promptHeading}</h2><a href="../${v.promptPath}" download="${esc(t.promptFile)}">${t.promptDownload}</a></div><p>${t.promptIntro}</p>${t.promptOriginal ? `<p class="minor"><a href="../prompt.txt" download hreflang="zh-Hans">${t.promptOriginal}</a></p>` : ''}<div class="prompt-actions"><button id="copy-prompt" type="button" hidden>${t.promptCopy}</button><button id="select-prompt" type="button" hidden>${t.promptSelect}</button></div><p id="copy-status" role="status" aria-live="polite"></p><details class="prompt-details"><summary>${t.promptView} ${chevron}</summary><pre id="prompt-text" tabindex="0">${esc(v.prompt)}</pre></details></section>
+<section id="archive"><div class="section-heading"><h2>${t.archiveHeading}</h2><button id="print" type="button" hidden>${t.print}</button></div>${v.archive.map(archiveRow).join('')}</section>
+<footer><span>${t.footerTitle}</span><a href="#main">${t.backToTop}</a><p>${t.footerLine(v.report, v.revised, v.next)}</p></footer><div id="toast" role="status" aria-live="polite"></div></main></div><script type="application/json" id="guide-strings">${script}</script></body></html>`;
+  }
+
+  function report(v) {
+    const { lang, locale, t } = v, r = t.report;
+    const sentence = text => lang === 'zh' ? text : lowerFirst(text);
+    const list = rows => rows.map(row => sentence(row[lang])).join(locale.listSeparator);
+    const previous = v.revised ? r.previous({ monthDay: locale.date.monthDay(issue.previous.date) }, `${site}${base}${issue.previous.path}`) : '';
+    return `# ${r.title}
+
+${r.dated(v.report, v.revised, data.period, data.timezone)}
+
+${r.scope(v.scope)}
+
+${r.next(v.next)}
+
+${r.checks}${previous && lang !== 'zh' ? ' ' : ''}${previous}
+
+${r.legend}
+
+## ${r.actions}
+
+${v.plans.map(row => r.plan(...row)).join('\n')}
+
+## ${r.notices}
+
+${v.notices.map(n => r.notice(`${n.date}${n.time ? ' ' + n.time : ''}`, n.kind, n.label, n.note, `${site}${base}${lang}/#${n.event}`)).join('\n')}
+
+## ${r.conflicts}
+
+${v.conflicts.map(({ ended, text: [date, title, text] }) => r.conflict(date, title, text, ended ? t.ended : '')).join('\n')}
+
+## ${r.materials}
+
+${r.materialsIntro}
+
+${v.materials.map(({ events, text: [title, demo, question, pilot] }) => `### ${title}\n\n${r.materialFor}${events}\n\n${r.materialDemo}${demo}\n\n${r.materialQuestion}${question}\n\n${r.materialPilot}${pilot}`).join('\n\n')}
+
+## ${r.events}
+
+${v.events.map(e => `### ${e.name}\n\n${e.when} · ${e.country[lang]} · ${e.city[lang]}${e.venue ? ' · ' + e.venue : ''} · ${r.priority(e.event.priority, t.priorities[e.event.priority])}\n${r.eventFacts(list(e.goals), sentence(e.status), sentence(e.update[lang]))}\n\n${fieldOrder.filter(field => e.text[field]).map(field => r.field(t.labels[field], e.text[field])).join('\n')}\n\n${e.sources.map(([label, url]) => `[${label}](${url})`).join(' · ')}`).join('\n\n')}
+
+## ${r.prompt}
+
+${v.prompt}`;
+  }
+
+  const views = Object.fromEntries(languages.map(lang => [lang, view(lang)]));
+  const files = new Map();
+  for (const lang of languages) {
+    const v = views[lang];
+    files.set(`${lang}/index.html`, page(v));
+    files.set(v.reportPath, report(v));
+    if (lang !== 'zh') files.set(v.promptPath, v.prompt);
+  }
+  const english = locales.en.ui;
+  files.set('index.html', `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="icon" href="/guides/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/guides/apple-touch-icon.png"><title>${esc(english.rootTitle)}</title><link rel="canonical" href="${site}${base}en/"><script src="/guides/entry.js"></script></head><body><a href="zh/">中文</a> · <a href="en/">English</a> · <a href="fr/">Français</a></body></html>\n`);
+  // Lets app.js resolve filter values written as labels (links saved before the filters used keys).
+  const aliases = Object.fromEntries(['country', 'sector', 'goal', 'city'].map(group => [group, Object.fromEntries(memory.terms[group].flatMap(row => languages.map(lang => [row[lang], row.key])))]));
+  files.set('filter-aliases.json', JSON.stringify(aliases) + '\n');
+
+  const unused = memory.strings.filter(entry => !used.has(entry.zh)).map(entry => entry.zh);
+  return { files, problems, unused, counts: { events: data.events.length, notices: data.notices.length } };
 }
-function noticeHTML(n) {
- return `<li data-days="${dayDiff(n.date)}"><time datetime="${n.date}"><strong>${n.date.slice(5).replace('-','/')}</strong>${n.time ? `<small>${n.time}</small>` : ''}</time><div><a href="#${n.event}">${esc(n.label)}</a><span class="notice-kind">${esc(n.kind)}</span><p>${esc(n.note)}</p></div></li>`;
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const { files, problems, unused, counts } = await render();
+  if (problems.length) {
+    console.error(`Not built: ${problems.length} problem(s).\n- ${problems.join('\n- ')}`);
+    process.exit(1);
+  }
+  for (const lang of languages) await mkdir(new URL(`${lang}/`, root), { recursive: true });
+  for (const [path, content] of files) await writeFile(new URL(path, root), content);
+  if (unused.length) console.log(`translations.json: ${unused.length} string(s) no longer used by events.json:\n- ${unused.join('\n- ')}`);
+  console.log(`Built ${counts.events} opportunities and ${counts.notices} date notices in ${languages.join(', ')}.`);
 }
-const navItems=[['priorities','本期重点'],['events','机会清单'],['deadlines','截止日历'],['schedule','出行安排'],['materials','参会准备'],['profile','参与身份'],['prompt','研究提示词'],['archive','历史报告']];
-const html=`<!doctype html>
-<html lang="zh-CN" data-guide="rex-opportunities"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>创业调研 · REX｜欧洲活动与商业机会</title>
-<meta name="description" content="REX 创业调研，2026 年 11 月 16 日更新。法国全境及欧洲行业展会、演讲、商务对接与大学创业资源，含费用、资格、截止日历与官方入口。">
-<meta name="theme-color" content="#f5f7f8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="canonical" href="https://zhaoyang.fr/guides/rex-opportunities/">
-<meta property="og:title" content="创业调研 · REX"><meta property="og:description" content="11 月 16 日周报：本地获客与欧洲行业机会，覆盖至 2027 年 5 月 16 日。"><meta property="og:type" content="article"><meta property="og:url" content="https://zhaoyang.fr/guides/rex-opportunities/">
-<script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="./style.css?v=20261116"><script defer src="./app.js?v=20261116"></script></head>
-<body><a class="skip" href="#main">跳到正文</a>
-<div class="topbar"><a class="back-link" href="/guides/zh/">${chevron} 攻略总览</a><a class="top-brand" href="#main">REX <span>创业调研</span></a><div class="top-tools"><a href="./report.md" download="REX-创业调研-2026-11-16.md">下载周报</a><button id="theme-toggle" type="button" aria-label="切换阅读主题" hidden>深色</button></div></div>
-<div class="layout"><aside class="sidebar"><nav aria-label="页内目录">${navItems.map(([id,name],i)=>`<a href="#${id}"${i===0?' aria-current="location"':''}>${name}</a>`).join('')}</nav><div class="sidebar-note"><span>更新计划</span><strong>每周一 · 08:00</strong><span>法国时间</span><p>下期 11 月 23 日</p></div></aside>
-<main id="main"><header class="masthead"><div><h1>创业调研</h1><p class="report-date"><time datetime="2026-11-16">2026 年 11 月 16 日</time><span>Europe/Paris</span></p></div><div class="period"><span>本期覆盖</span><strong>2026.11.16 <span>至</span> 2027.05.16</strong><span>法国全境及欧洲目的地</span></div></header>
-<nav class="mobile-nav" aria-label="快捷目录"><a href="#priorities">本期</a><a href="#events">机会</a><a href="#deadlines">截止</a><a href="#schedule">出行</a><a href="#prompt">提示词</a></nav>
-<section id="priorities" class="overview"><div class="section-heading"><h2>本期重点</h2><span>范围已扩展至欧洲</span></div><div class="overview-grid"><div class="action-list"><article><span class="action-date">11/17 截止</span><h3>${link('frames','FRAMES 法西商务对接')}</h3><p>先核对航空产业相关性与入场权益，用已有检测、库存案例说明软件能力。</p></article><article><span class="action-date">本周决定</span><h3>${link('vinitech','12 月初，波尔多还是巴黎')}</h3><p>农业获客优先 Vinitech；零售或仓储目标明确、有会谈再选巴黎。</p></article><article><span class="action-date">12/03 截止</span><h3>${link('engage','ENGAGE.EU / 4YFN')}</h3><p>请学校确认共同创始人与孵化条件，选定一个产品，准备真实使用证据。</p></article></div><div class="focus-panel"><h3>行业日历</h3><ul><li><time>01 月</time><span>${link('sival','SIVAL')}<small>昂热 · 农业生产</small></span></li><li><time>02 月</time><span>${link('fruit-logistica','FRUIT LOGISTICA')}<small>柏林 · 果蔬与物流</small></span></li><li><time>03 月</time><span>${link('cfia','CFIA')} / ${link('logimat','LogiMAT')} / ${link('sitl','SITL')}<small>雷恩 · 斯图加特 · 巴黎</small></span></li></ul><p>演讲准备 ${link('advanced-factories','Advanced Factories')} 与 ${link('waicf','WAICF')}；远途出行以会谈、演讲或展示机会为依据。</p></div></div>
-<details class="source-note"><summary>本期资料与更新说明 ${chevron}</summary><p>合并 11 月 15 日首轮、11 月 16 日本地增补与欧洲范围扩展。取消图卢兹距离限制，覆盖法国、西班牙、德国、比利时，按价值加入荷兰等欧洲目的地。各条目保留来源与复核范围；并非全部字段重新检索。</p><p>报名、价格和截止按 11 月 16 日资料快照展示，行动前查看官方入口。原报告未记录统一检索截止时刻。每周一约 08:00、下期 11/23 为既有更新计划；本页展示已发布资料，不会自行执行研究或提交申请。</p></details></section>
-<section id="events"><div class="section-heading"><h2>机会清单</h2><span>${data.events.length} 项活动与机会</span></div><p class="legend"><span><b>A</b> 优先行动</span><span><b>B</b> 有条件参加</span><span><b>C</b> 持续观察</span></p>
-<form id="filters" role="search" aria-label="筛选活动" hidden><div class="quick-filters" aria-label="常用筛选"><button type="button" data-view="all" aria-pressed="true">全部机会</button><button type="button" data-view="new" aria-pressed="false">本期新增</button><button type="button" data-view="priority" aria-pressed="false">优先行动</button><button type="button" data-view="saved" aria-pressed="false">我的收藏 <span id="saved-count">0</span></button></div>
-<div class="filter-primary"><label class="search-label">搜索<input id="search" type="search" placeholder="活动、城市、行业或关键词" autocomplete="off"></label><label>国家与地区<select id="country"><option value="">全部地区</option>${options(data.events.map(e=>e.country))}</select></label><label>行业<select id="sector"><option value="">全部行业</option>${options(data.events.flatMap(e=>e.sectors))}</select></label><button id="more-filters" class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-extra">更多筛选 ${chevron}</button></div>
-<div class="filter-extra" id="filter-extra" hidden><label>参与目标<select id="goal"><option value="">全部目标</option>${options(['获客','展示','合作','融资'])}</select></label><label>城市<select id="city"><option value="">全部城市</option>${options(data.events.map(e=>e.city))}</select></label><label>优先级<select id="priority"><option value="">全部优先级</option>${options(['A','B','C'])}</select></label><label>活动月份<select id="month"><option value="">全部月份</option>${options(data.events.map(e=>e.date?.slice(0,7)).filter(v=>/^\d{4}-\d{2}$/.test(v)))}</select></label></div>
-<div class="filter-footer"><span id="filter-summary">全部地区与行业</span><button type="reset">清除筛选</button></div></form>
-<div class="list-tools"><p id="result-count" role="status" aria-live="polite">${data.events.length} 项活动</p><div><label class="sort-label" hidden>排序<select id="sort"><option value="date">按活动日期</option><option value="priority">按优先级</option><option value="deadline">按申请截止</option></select></label><button id="expand" type="button" hidden>展开当前活动</button></div></div>
-<div id="event-list">${data.events.map(eventHTML).join('\n')}</div><div id="empty" class="empty" hidden><h3>没有符合条件的活动</h3><p>调整筛选，或在活动详情中收藏感兴趣的机会。</p><button id="empty-reset" type="button">清除筛选</button></div><p class="list-footnote">A / B / C 是参与建议；是否开放、费用和资格单独列出。HT 为未税，TTC 为含税。收藏保存在当前浏览器。</p></section>
-<section id="deadlines"><div class="section-heading"><h2>截止日历</h2><span>相对本期 11 月 16 日</span></div><div class="deadline-tabs" hidden aria-label="截止时间范围"><button type="button" data-window="7" aria-pressed="true">7 天内</button><button type="button" data-window="14" aria-pressed="false">14 天内</button><button type="button" data-window="30" aria-pressed="false">30 天内</button><button type="button" data-window="all" aria-pressed="false">全部提醒</button></div><ol class="deadline-list">${data.notices.map(noticeHTML).join('')}</ol><p class="minor">包含申请截止与入口开放提醒；不是活动举办日期。</p></section>
-<section id="schedule"><div class="section-heading"><h2>出行与行动安排</h2></div><div class="plan-list">${plans.map(([time,title,text])=>`<article><span>${time}</span><div><h3>${title}</h3><p>${text}</p></div></article>`).join('')}</div><h3 class="conflict-heading">撞期与取舍</h3><div class="conflicts">${conflicts.map(([date,title,text])=>`<details><summary><time>${date}</time><span>${title}</span>${chevron}</summary><p>${text}</p></details>`).join('')}</div></section>
-<section id="materials"><div class="section-heading"><h2>参会准备</h2></div><p>准备一页法语企业介绍、三分钟项目介绍、五分钟可操作演示和一页实际效果记录。</p><div class="materials">${materialSets.map(([title,events,demo,question,pilot])=>`<article><h3>${title}</h3><p class="minor">${events}</p><dl><div><dt>演示流程</dt><dd>${demo}</dd></div><div><dt>交流切入</dt><dd>${question}</dd></div><div><dt>试点范围</dt><dd>${pilot}</dd></div></dl></article>`).join('')}</div><p class="minor">这些演示、访谈和试点是准备建议，不代表参会企业已公开提出采购需求。</p></section>
-<section id="profile"><div class="section-heading"><h2>身份与参与方式</h2></div><div class="profile-list"><div><h3>法国 SAS · 软件与 AI</h3><p>以企业代表、软件供应商或合作交付方参加；按真实职务填写，专业买家渠道需要实际采购职责。</p></div><div><h3>农业 · 海外仓储</h3><p>合伙人讲经营问题，本人展示软件流程；不同实体的营收与业务证据分别说明。</p></div><div><h3>UT Capitole · MIAGE M1</h3><p>本人按真实学籍申请学生与大学入口。目前不是 REX 股东，不自动认定符合 active co-founder 或校内孵化要求。</p></div></div><p class="minor">国籍、企业注册地、学生资格、股份、孵化经历及产品成熟度分别核验。</p></section>
-<section id="prompt"><div class="section-heading"><h2>可复用研究提示词</h2><a href="./prompt.txt" download="REX-欧洲活动研究提示词.txt">下载 TXT</a></div><p>已纳入欧洲范围、真实身份、报名核验和与上期比较的要求。沿用既有每周任务。</p><div class="prompt-actions"><button id="copy-prompt" type="button" hidden>复制完整提示词</button><button id="select-prompt" type="button" hidden>选中全文</button></div><p id="copy-status" role="status" aria-live="polite"></p><details class="prompt-details"><summary>查看完整提示词 ${chevron}</summary><pre id="prompt-text" tabindex="0">${esc(prompt)}</pre></details></section>
-<section id="archive"><div class="section-heading"><h2>历史报告</h2><button id="print" type="button" hidden>打印本期</button></div><div class="archive-row"><time>2026.11.16</time><span>本地增补与欧洲范围扩展</span><a href="./report.md" download>下载本期</a></div><div class="archive-row"><time>2026.11.15</time><span>首轮调研与原始提示词</span><a href="./archive/2026-11-15/report.md" download>下载首轮</a></div></section>
-<footer><span>REX 创业活动与客户机会周报</span><a href="#main">回到顶部</a><p>资料日期 2026.11.16 · 下期计划 2026.11.23 · 每周一约 08:00，法国时间。</p></footer><div id="toast" role="status" aria-live="polite"></div></main></div></body></html>`;
-await writeFile(new URL('index.html', root), html);
-const report=`# REX 创业活动与客户机会周报\n\n资料日期：${data.reportDate}（Europe/Paris）。覆盖：${data.period.join(' 至 ')}。\n\n范围：${data.scope}\n\n更新计划：${data.updatePlan}；下期 ${data.nextReport}。此处记录既有任务约定，不代表本次新建或更改调度。\n\n合并用户提供的首轮、本地增补与欧洲扩展资料；各条目说明复核范围，未将全部资料表示为本次重新验证。原资料未记录统一检索截止时刻。行动前复核官方入口。\n\nA：优先行动；B：有条件参加；C：持续观察。HT 未税，TTC 含税。演示、访谈与试点为建议，不是公开采购需求。\n\n## 近期行动\n\n${plans.map(([time,title,text])=>`- ${time} · ${title}：${text}`).join('\n')}\n\n## 截止与开放提醒\n\n${data.notices.map(n=>`- ${n.date}${n.time?' '+n.time:''} · ${n.kind} · ${n.label}：${n.note} [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#${n.event})`).join('\n')}\n\n## 行程取舍\n\n${conflicts.map(([date,title,text])=>`- ${date} · ${title}：${text}`).join('\n')}\n\n## 准备材料\n\n一页法语企业介绍、三分钟项目介绍、五分钟可操作演示、一页实际效果记录。\n\n${materialSets.map(([title,events,demo,question,pilot])=>`### ${title}\n\n适用：${events}\n\n演示：${demo}\n\n交流：${question}\n\n试点：${pilot}`).join('\n\n')}\n\n## 活动与机会\n\n${data.events.map(e=>`### ${e.name}\n\n${e.when} · ${e.country} · ${e.city}${e.venue?' · '+e.venue:''} · ${e.priority} ${priorities[e.priority]}\n目标：${e.goals.join('、')}。状态：${e.status}。本期：${e.update}。\n\n${Object.entries(labels).filter(([key])=>e[key]).map(([key,label])=>`- ${label}：${e[key]}`).join('\n')}\n\n${e.sources.map(([label,url])=>`[${label}](${url})`).join(' · ')}`).join('\n\n')}\n\n## 完整研究提示词\n\n${prompt}`;
-await writeFile(new URL('report.md',root),report);
-console.log(`Built ${data.events.length} opportunities and ${data.notices.length} date notices.`);

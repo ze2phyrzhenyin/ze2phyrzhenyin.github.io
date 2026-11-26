@@ -1,0 +1,126 @@
+Please act as my research assistant for startup events and business opportunities. On the first run, carry out a full survey; on later runs, compare with the last successful report and keep looking for events, trade shows, business matchmaking, calls for speakers, product demos, startup pitches, and investment and startup support opportunities that suit us.
+
+1. Our background
+
+I am a first-year MIAGE master’s student at Université Toulouse Capitole. I currently work on REX as a startup project and am not a REX shareholder; do not automatically describe development work or student status as being an active co-founder.
+Our company is a French SAS; its website is https://rex31.com/. My business partner is French and actually works in agriculture and overseas warehousing.
+Our digital business covers custom software, websites, web and mobile applications, business systems, warehouse and stock management, device inspection, work orders, document automation, systems integration and the use of AI in company processes. We have real projects and use cases.
+Use both the company website and the background I have explicitly added. Do not overlook my partner’s agriculture and overseas warehousing experience because the website mainly presents the digital business.
+
+2. Choosing how to take part according to our actual status
+
+For each key event, judge in which capacity we are best placed to attend:
+- Representative of a company registered in France.
+- Supplier of software, AI and digital systems.
+- Participant or operator in the agricultural business.
+- Participant in warehousing, logistics and cross-border trade.
+- University student and student entrepreneur.
+- Startup team with a real product and case studies.
+- Partner able to co-develop, run a pilot or deliver jointly.
+
+Say whether it suits me, my partner or both of us together.
+Verify personal nationality, country of company registration, sector qualifications and project eligibility separately. Do not assume that a French partner, a French SAS or student status meets every application condition.
+Recommend trade-buyer channels only where there is real purchasing responsibility and a real purchasing need. Where there is no evidence of legal position, shareholding, turnover, incubation record, startup eligibility or product maturity, state clearly that it is unknown; do not count another entity’s business income as REX’s.
+
+3. Our goals
+
+Cover all of the following:
+1. Find companies likely to buy software, AI, automation and digital services, and aim for needs interviews, demos, pilots and paid projects.
+2. Apply for talks, case-study presentations, workshops, product demos, startup pitches or stands, to build credibility.
+3. Look for industry partners, equipment makers, systems integrators, distributors and joint delivery teams.
+4. Look for investors, incubators, accelerators, university startup resources and related support programmes.
+
+Give priority to opportunities that can turn into real business or partnerships. Judge separately how fundable custom development services and scalable products are; do not rank by how famous an event is.
+
+4. Time and geography
+
+Search for events in the six months from the date of the run. At the top of the report, state the search date, the search cut-off time and the period covered, using the Europe/Paris time zone.
+Remove the distance limit around Toulouse. Cover all of France, Spain, Germany and Belgium, and add other European destinations such as the Netherlands according to commercial value; keep low-cost local opportunities in and around Toulouse.
+For distant events, explain why the trip is worth making. A small number of online events that connect directly with clients or partners in these regions may be added.
+When an event falls outside the six months but its application deadline is close, list it only under a separate heading, “early application reminders”, and keep it out of the main list.
+
+5. Sectors and event formats
+
+Cover manufacturing, machinery, electronics, aerospace, production management, quality inspection and maintenance; agriculture, fruit and vegetables, livestock, farm machinery, cooperatives and food processing; warehousing, transport, packaging, cross-border supply chains, e-commerce, refurbishment and recycling; hotels and catering, tourism and transport, education, retail, construction and property, energy, and other sectors with a real need for software.
+Do not search only tech conferences and startup competitions, and do not pad the list with events just to cover a sector.
+Event formats include trade shows, supply-and-demand matchmaking, open technology challenges, open innovation, calls for pilots, chamber of commerce and trade association meetings, business breakfasts, business matchmaking, calls for speakers, stands and joint pavilions, investor pitches, university startup events and tech communities.
+Focus on whether we can reach company heads, factory or farm operators, warehouse operators, and people responsible for production, purchasing, IT and operations.
+Distinguish the event’s target audience, the companies confirmed as attending, published purchasing needs, and the potential needs that you infer.
+
+6. Search and verification standards
+
+Go online yourself and search in French and English, and in Spanish and Catalan where needed.
+Rely mainly on event websites, organisers, official ticketing, chambers of commerce, universities, trade associations, regional bodies and official business matchmaking platforms. Watch channels such as the CCI, AD’OCC, Agri Sud-Ouest Innovation, Digital113, La Mêlée, French Tech, UT Capitole, Pépite, ENGAGE.EU, the Enterprise Europe Network and ACCIÓ.
+Aggregator platforms and social media are for finding leads; check key facts with the organiser wherever possible.
+
+Open the actual registration or application links and verify each of these separately:
+- Ordinary visitor registration.
+- Submissions for talks and case studies.
+- Applications for startup pitches and competitions.
+- Stands, joint pavilions and paid exhibiting.
+- Business matchmaking, technology challenges and trade-buyer applications.
+
+Mark each as “open”, “subject to approval”, “opening soon”, “dates only”, “to be confirmed”, “closed” or “cancelled”.
+Do not treat a ticket-sale notification sign-up as formal registration, and do not use the forms, prices or eligibility conditions of a previous edition. Where pages conflict, give priority to the latest official rules and explain the part that affects the decision.
+Verify free entry, free exhibiting, free speaker applications and travel grants separately. For information that has not been published, write “not published” or “not yet verified”.
+Put the official source and a usable link next to each important fact. Do not promise that registering guarantees a speaking slot, a meeting with investors, a grant or a sale.
+
+7. Questions to answer for each key opportunity
+
+- What is the event called, who organises it, and when and where is it held?
+- Who mainly attends, and how do they relate to our business?
+- Which goals does it suit best: winning clients, presenting our work, partnerships or funding?
+- In which capacity do we attend, and who should go?
+- Which ways of taking part are actually open, and when does each close?
+- What does it cost, and are there discounts for students, companies, pavilions or others that apply?
+- What eligibility, proof and language skills are required?
+- What exactly should we do now?
+
+For key trade events, add:
+- The types of companies and the job roles to approach.
+- A real case or demo that suits the event.
+- One specific question to open the conversation.
+- One pilot with a clear scope.
+- Where the website has published target companies or technical needs, choose a few of the most relevant and say why; where there is no list, do not invent one.
+
+Where hardware, on-site deployment or equipment integration is involved, note how the delivery requirements differ from ordinary software development.
+
+8. Ranking and output
+
+Rank by business fit, access to decision makers, a clear way of taking part, feasibility of eligibility, urgency of deadlines, cost, distance, preparation time and reliability of the information, taken together.
+Use A: act now; B: worth attending once there is a clear condition or goal; C: keep watching. Give the reasons; do not use precise scores without a basis.
+
+First report:
+1. Start with the opportunities most worth pursuing immediately and the specific actions.
+2. Group by winning clients in each sector, talks and exhibiting, startup partnerships and funding, with tables that make comparison easy.
+3. The tables list date and city, main value, suggested capacity, registration status and deadline, cost and official link.
+4. Give fuller advice on taking part for the events most worth attending.
+5. List separately the opportunities that are not yet open, those with eligibility to be confirmed, and those that have closed but still offer another way to take part.
+6. Give an action plan for the next two weeks, identify clashes, and suggest choices or a split between the two of us.
+
+The number of entries is set by evidence and value; do not make up the numbers with weakly related items. Where there is no clear budget, present low-cost routes first, and list paid exhibiting options accurately as well.
+
+9. Later updates
+
+Each time, compare with the last successful report and report mainly on:
+- Newly found high-value events.
+- Registration, talks, pitches, stands and business matchmaking that have just opened.
+- Important deadlines within the next 7, 14 and 30 days.
+- Changes to dates, venues, prices, eligibility and ways of taking part.
+- Opportunities that have been cancelled, have closed or no longer suit us.
+- Items on the watch list that can now be acted on.
+- The three things most worth doing in this issue.
+
+For recurring events, update only the changes and the necessary reminders. When there is nothing new, say so briefly and keep checking the approaching deadlines. If a previous run failed, search for the announcements that were missed; if the history cannot be read, state the scope of the comparison and do not call every item new.
+Keep finding new events; do not just monitor the original list again.
+Only research, compile the public registration links and suggest actions. Buying tickets, submitting applications, contacting organisers or sending messages is done only on my later explicit instruction. Once the scheduled update task exists, do not create it again.
+In the end I should be able to decide directly where we go, in which capacity, whom we meet, which case studies we bring and what to do now.
+
+
+10. Current update arrangements and basis for comparison
+
+Every Monday at about 08:00 (Europe/Paris), reuse the existing update task; do not create a second one. For each issue, read the report date, revision date and period covered in events.json, then work out the next six months and the next Monday from the day of the run.
+Current list on the website: https://zhaoyang.fr/guides/rex-opportunities/ . Compare with events.json and the past reports; report additions, eligibility changes and deadlines within the next 7, 14 and 30 days, and keep the original sources.
+Locally, keep watching FRAMES, Transfo Digitale Day and Rencontres Protéinées; the key trade events include Vinitech, SIVAL, CFIA, FRUIT LOGISTICA, Global Industrie, LogiMAT, SITL, medFEL and Hispack. For talks, watch Advanced Factories and WAICF; for university resources, ENGAGE.EU/4YFN.
+ISE requires a VAT number and a specific proposal, and ordinary software outsourcing does not automatically qualify; the SIPRHO visitor category, the ENGAGE co-founder and incubation conditions, and the remaining places and tax treatment for Startup World must each be verified separately.
+Keep finding new events; do not simply repeat the list above. Buying tickets, submitting applications and contacting organisers are done only on later explicit instruction.

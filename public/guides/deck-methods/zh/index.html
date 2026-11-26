@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN" data-locale="zh" data-guide="deck-methods">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light dark">
+<title>PPT 手法总表</title>
+<meta name="description" content="看不出是 PPT 的演示文稿用了哪些手法、怎么做、现在有什么更好的路线。附可播放的样片，.pptx 和 MP4 可下载。">
+<link rel="canonical" href="https://zhaoyang.fr/guides/deck-methods/zh/">
+<link rel="alternate" hreflang="zh-Hans" href="https://zhaoyang.fr/guides/deck-methods/zh/"><link rel="alternate" hreflang="en" href="https://zhaoyang.fr/guides/deck-methods/en/"><link rel="alternate" hreflang="fr" href="https://zhaoyang.fr/guides/deck-methods/fr/"><link rel="alternate" hreflang="x-default" href="https://zhaoyang.fr/guides/deck-methods/en/">
+<link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="icon" href="/guides/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/guides/apple-touch-icon.png">
+<meta property="og:title" content="PPT 手法总表"><meta property="og:type" content="website"><meta property="og:url" content="https://zhaoyang.fr/guides/deck-methods/zh/"><meta property="og:description" content="看不出是 PPT 的演示文稿用了哪些手法、怎么做、现在有什么更好的路线。附可播放的样片，.pptx 和 MP4 可下载。">
+<link rel="preload" href="/guides/deck-methods/fonts/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<script src="/guides/theme.js?v=20260924c"></script>
+<link rel="stylesheet" href="/guides/deck-methods/style.css?v=c17016c1"><script defer src="/guides/deck-methods/page.js?v=040e3514"></script>
+</head>
+<body>
+<a class="skip" href="#content">跳到正文</a>
+<nav class="topbar guide-navigation" aria-label="攻略导航"><a data-guide-home href="/guides/zh/">攻略总览</a>
+<div class="tools"><div class="languages" role="group" aria-label="语言"><a href="/guides/deck-methods/zh/" lang="zh" hreflang="zh-Hans" data-language="zh" aria-current="page">中文</a><a href="/guides/deck-methods/en/" lang="en" hreflang="en" data-language="en">EN</a><a href="/guides/deck-methods/fr/" lang="fr" hreflang="fr" data-language="fr">FR</a></div>
+<button id="theme-toggle" type="button" data-dark="深色" data-light="浅色" data-to-dark="切换为深色模式" data-to-light="切换为浅色模式" aria-label="切换为深色模式">深色</button></div></nav>
+<main id="content">
+<section class="studio" id="reel">
+<div class="stage"><div class="stage-pin">
+<div class="screen"><div class="ratio"><iframe id="player" src="/guides/deck-methods/demo/zh/index.html" title="手法样片"></iframe></div></div>
+<div class="slate">
+<p class="credits">浏览器预览，和 .pptx 出自同一个 Python 脚本：15 页、254 个形状、428 个动画行为，生成用 5 秒。地球照片：阿波罗 17 号，NASA，1972。第 6 到 10 页的数字来自 FUJI《PowerPoint Motion Graphics 2020》的原始文件。</p>
+<h1>PPT 手法总表</h1>
+<nav class="sections" aria-label="本页内容"><a href="#methods">手法</a><a href="#works">作品</a><a href="#checklist">做法清单</a><a href="#better">更好的办法</a><a href="#status">本项目进度</a><a href="#downloads">下载</a></nav>
+</div>
+</div></div>
+<div class="methods" id="methods" data-anchor>
+<h2>手法</h2>
+<ol class="method-list">
+<li class="method" id="m-cover" data-anchor data-chapter="cover" data-first="1" data-last="1">
+<div class="method-head"><h3><span class="tc">0:00</span>道具封面</h3><button class="cue" type="button">播放第 1 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>文件本身是故事里的一件东西。《Montauk》是一本磨损的旧平装书，样片是一张幻灯片卡纸。</dd></div><div><dt>做法</dt><dd>纸张、灰尘、暗角用程序算成透明图。PowerPoint 没有混合模式：纹理烤进图里，或者做成半透明图盖在上面。照片级的旧书、旧海报要实拍或生成的素材。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-montauk">《Montauk》</a></p>
+</li>
+<li class="method" id="m-kinetic" data-anchor data-chapter="kinetic" data-first="2" data-last="2">
+<div class="method-head"><h3><span class="tc">0:05</span>字演字义</h3><button class="cue" type="button">播放第 2 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>一页一个镜头，整页是一条时间轴。三个词各按字义动：重、散、对齐成行。</dd></div><div><dt>做法</dt><dd>全部设成「与上一动画同时」，靠延迟排时间。字要逐字动，先转成形状：合并形状里的「拆分」。FUJI 的 19 页里有 2 063 个动画行为。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-fuji">FUJI《PowerPoint Motion Graphics 2020》</a></p>
+</li>
+<li class="method" id="m-frames" data-anchor data-chapter="frames" data-first="3" data-last="3">
+<div class="method-head"><h3><span class="tc">0:15</span>逐帧</h3><button class="cue" type="button">播放第 3 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>手绘的旋涡在动，每一帧是另画的一张。</dd></div><div><dt>做法</dt><dd>一组形状，每个只出现 0.05 秒：每 0.05 秒出现一个、消失一个。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-fuji">FUJI《PowerPoint Motion Graphics 2020》</a></p>
+</li>
+<li class="method" id="m-pattern" data-anchor data-chapter="pattern" data-first="4" data-last="5">
+<div class="method-head"><h3><span class="tc">0:21</span>规律与例外</h3><button class="cue" type="button">播放第 4、5 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>同一张格子出现两次，第二次变了状态。Pitch 的第 2 页是四个老工具各配两个新工具；第 3 页同一张格子变灰，多出一列彩色的 PowerPoint 和 Pitch。</dd></div><div><dt>做法</dt><dd>两页用平滑（Morph）接起来。平滑靠名字配对：两页里的对象用同一个名字，名字以两个感叹号开头，类型相同，每页唯一。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-pitch">Pitch B 轮融资稿</a></p>
+</li>
+<li class="method" id="m-cuts" data-anchor data-chapter="cuts" data-first="6" data-last="10">
+<div class="method-head"><h3><span class="tc">0:28</span>硬切</h3><button class="cue" type="button">播放第 6 到 10 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>翻页当剪辑。《SMOKE》把一句 15 个词的话拆成 15 次点击：黑底 1 到 3 个词，白底一张照片，交替。</dd></div><div><dt>做法</dt><dd>没有转场。文字锚点固定在左 5%、上 28%，每点一下补完一个分句。要自动播放，换页设成 0 秒。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-smoke">《SMOKE - The Convenient Truth》</a></p>
+</li>
+<li class="method" id="m-layout" data-anchor data-chapter="layout" data-first="11" data-last="13">
+<div class="method-head"><h3><span class="tc">0:40</span>固定版式</h3><button class="cue" type="button">播放第 11 到 13 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>版式固定，只换画。《纪念碑谷》演讲第 14 到 18 页：画板在左侧，占宽 42%，上下出血；右侧标题、细线、一句话，五页里标题坐标不变。</dd></div><div><dt>做法</dt><dd>版式固定下来，连续几页只换一个元素。字只放在白底上，不压在画上。样片的三页用平滑接续，等距图形是代码画的。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-monument">《纪念碑谷》GDC 演讲</a></p>
+</li>
+<li class="method" id="m-crop" data-anchor data-chapter="crop" data-first="14" data-last="14">
+<div class="method-head"><h3><span class="tc">0:51</span>裁切</h3><button class="cue" type="button">播放第 14 页</button></div>
+<dl class="facts"><div><dt>观众看到</dt><dd>主体被页面边缘裁掉一截。HyperloopTT 把同一个对象放在三页里看：车外、剖面、车内。</dd></div><div><dt>做法</dt><dd>让主体碰到页面边缘，被边缘裁掉；居中放在框里的东西像贴上去的。把图片裁成窗口，两页窗口位置不同，平滑会做出推拉和视差。</dd></div></dl>
+<p class="from"><span class="label">出处</span><a href="#w-hyperloop">HyperloopTT × Slidor</a></p>
+</li>
+</ol>
+</div>
+</section>
+<section class="band" id="works" data-anchor>
+<h2>作品</h2>
+<table class="table works" role="table"><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">作品</th><th scope="col" role="columnheader">看哪里</th><th scope="col" role="columnheader">手法</th><th scope="col" role="columnheader">做法</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row" id="w-fuji" data-anchor><th scope="row" role="rowheader">FUJI《PowerPoint Motion Graphics 2020》<span class="links"><a href="https://vimeo.com/407652583" target="_blank" rel="noopener noreferrer">看成片</a><a href="https://note.com/yoshifujidesign/n/nbea8b9ce928e" target="_blank" rel="noopener noreferrer">取原始 .pptx</a></span></th><td role="cell" data-label="看哪里">成片；原始 .pptx 的动画窗格</td><td role="cell" data-label="手法">一页一个镜头，整页是一条时间轴</td><td role="cell" data-label="做法">19 页，2 063 个动画行为，1.37 MB。每个效果都设「与上一动画同时」加绝对延迟；页面 0 秒自动换页，换页就是切镜头；字拆成单字母形状；手绘旋涡是一组形状，每 0.05 秒出现一个、消失一个；页间用平滑（Morph）接续。</td></tr>
+<tr role="row" id="w-montauk" data-anchor><th scope="row" role="rowheader">《怪奇物语》早期提案《Montauk》<span class="links"><a href="https://slamdance.com/wp-content/uploads/2024/07/Stranger_Things_-_Pitch-Deck.pdf" target="_blank" rel="noopener noreferrer">打开 PDF</a></span></th><td role="cell" data-label="看哪里">第 1 到 5 页，然后整本</td><td role="cell" data-label="手法">文件本身是故事里的一件东西</td><td role="cell" data-label="做法">23 页，3:4 竖版，每页是一张图。封面是磨损的旧平装书。正文 11 页、剧照 10 页严格交替。正文页用同一张泛黄纸扫描图，页眉、细线、只标奇数页码。剧照印在折过的黑纸上，下面固定三行：片名、导演、年份和片厂。全书一种衬线字，不加粗，不用列表。</td></tr>
+<tr role="row" id="w-hyperloop" data-anchor><th scope="row" role="rowheader">HyperloopTT × Slidor<span class="links"><a href="https://www.slidor.fr/productions/hyperloop-transportation-technologies" target="_blank" rel="noopener noreferrer">看 Slidor 页面</a></span></th><td role="cell" data-label="看哪里">黑底剖面页；Passenger Journey 页</td><td role="cell" data-label="手法">同一个对象换三个位置看</td><td role="cell" data-label="做法">车外、剖面、车内各一页。每页一条竖细线，同时当页边、坐标轴、时间线和轨道。主体被页面边缘裁掉一截。红底车头那张是网页横幅，幻灯片里是黑底。</td></tr>
+<tr role="row" id="w-monument" data-anchor><th scope="row" role="rowheader">《纪念碑谷》主设计师 GDC 演讲<span class="links"><a href="https://media.gdcvault.com/gdcchina14/presentations/833764_KenWong_KeynoteMonumentValley_BI.pdf#page=14" target="_blank" rel="noopener noreferrer">打开 PDF 第 14 页</a></span></th><td role="cell" data-label="看哪里">第 14 到 18 页</td><td role="cell" data-label="手法">版式固定，只换画</td><td role="cell" data-label="做法">41 页。画板在左侧，占宽 42%，上下出血；右侧标题、细线、一句话，五页里标题坐标不变。字只放在白底上，从不压在画上。每页英文词数中位数 6。</td></tr>
+<tr role="row" id="w-smoke" data-anchor><th scope="row" role="rowheader">《SMOKE - The Convenient Truth》<span class="links"><a href="https://www.slideshare.net/slideshow/smoke-the-convenient-truth-5602255/5602255#54" target="_blank" rel="noopener noreferrer">从第 54 页看</a></span></th><td role="cell" data-label="看哪里">第 54 到 68 页</td><td role="cell" data-label="手法">翻页当剪辑</td><td role="cell" data-label="做法">78 页，4:3，没有转场。一句 15 个词的话拆成 15 次点击：黑底 1 到 3 个词，白底一张照片，交替。文字锚点固定在左 5%、上 28%。七张照片是七张不同的图库照片，共同点是白底、机位贴地朝脚。全稿每页词数中位数 5。</td></tr>
+<tr role="row" id="w-pitch" data-anchor><th scope="row" role="rowheader">Pitch 8 500 万美元 B 轮融资稿<span class="links"><a href="https://pitch.com/presentations/Series-B-pitch-deck-55EVgG5xwWBf4QTimp4asXQk" target="_blank" rel="noopener noreferrer">打开融资稿</a><a href="https://pitch.com/blog/how-we-built-the-pitch-deck-for-our-85m-series-b" target="_blank" rel="noopener noreferrer">读制作说明</a></span></th><td role="cell" data-label="看哪里">第 2、3 页</td><td role="cell" data-label="手法">同一张格子出现两次，第二次变了状态</td><td role="cell" data-label="做法">第 2 页：四个老工具各配两个新工具。第 3 页：同一张格子变灰，多出一列彩色的 PowerPoint 和 Pitch。标题是一句话，其中一段上色，只读上色的部分也成文。团队先开工作坊定故事，再做页面；讲的一份和给数据的一份分开。</td></tr>
+<tr role="row" id="w-bilibili" data-anchor><th scope="row" role="rowheader">ACE 哔哩用 PPT 复刻苹果 2019 发布会动画<span class="links"><a href="https://www.bilibili.com/video/BV1EE41197TW/" target="_blank" rel="noopener noreferrer">在 B 站看</a></span></th><td role="cell" data-label="看哪里">P2 对比，P3 工程拆解</td><td role="cell" data-label="手法">逐帧对着原片还原</td><td role="cell" data-label="做法">作者自述约 80 小时，PowerPoint 365。视频本身没看，只核对了简介和分 P。</td></tr>
+<tr role="row" id="w-puma" data-anchor><th scope="row" role="rowheader">PUMA 年度大会 × Slidor<span class="links"><a href="https://www.slidor.fr/productions/puma" target="_blank" rel="noopener noreferrer">看 Slidor 页面</a></span></th><td role="cell" data-label="看哪里">A$AP Rocky、Fenty × Puma、Speedcat 三组</td><td role="cell" data-label="手法">杂志版式搬上大屏</td><td role="cell" data-label="做法">21 张图里 16 张是 3.75:1 超宽幅，推测对应会场的拼接屏。页边距等于栏间距，内容不跨屏缝。一种字体，字号从页高的 2% 到 30%。实心标题后面叠几层描边的同一个词。</td></tr>
+<tr role="row" id="w-wittens" data-anchor><th scope="row" role="rowheader">Steven Wittens《Making things with Maths》<span class="links"><a href="https://acko.net/files/fullfrontal/fullfrontal/wdcode/online.html" target="_blank" rel="noopener noreferrer">打开演示</a></span></th><td role="cell" data-label="看哪里">Math Machines 一节</td><td role="cell" data-label="手法">页面里是一个一步步变化的三维场景</td><td role="cell" data-label="做法">2013 年，deck.js 加 MathBox（WebGL）。每个场景由一段步骤脚本驱动，点一下改一次场景状态，线段长成曲线不用换页。按住 Shift 全局放慢到五分之一。</td></tr>
+</tbody></table>
+<p class="aside">三份 Slidor 和 Pitch 的版面本身只是矩形、线和字。HyperloopTT 靠三维渲染图，PUMA 靠广告大片，Pitch 靠定制插画和真实产品界面：没有这些素材，版式做对了也出不来那个效果。</p>
+</section>
+<section class="band" id="checklist" data-anchor>
+<h2>做法清单</h2>
+<div class="columns">
+<div><h3>内容</h3><ul class="plain"><li>先写故事，再开页面。一页一件事，观众 3 秒内能看完。</li><li>标题写成一句结论，页面其余部分是它的证据。</li><li>一句话可以跨好几页，每点一下补完一个分句。</li><li>讲的稿和发给人看的稿分开做。</li></ul></div>
+<div><h3>版式</h3><ul class="plain"><li>版式固定下来，连续几页只换一个元素。</li><li>一种字体，五六个差得很远的字号。</li><li>让主体碰到页面边缘，被边缘裁掉。居中放在框里的东西像贴上去的。</li><li>字和图分开放。要压图就垫一块纯色底。</li><li>一页只有一处强调色。</li></ul></div>
+<div><h3>动画（PowerPoint 里手工做）</h3><ul class="plain"><li>全部设成「与上一动画同时」，靠延迟排时间。这就是时间轴。</li><li>换页设 0 秒自动，换页当切镜头用。</li><li>平滑（Morph）靠名字配对：两页里的对象用同一个名字，名字以两个感叹号开头，类型相同，每页唯一。</li><li>把图片裁成窗口，两页窗口位置不同，平滑会做出推拉和视差。</li><li>字要逐字动，先转成形状：合并形状里的「拆分」。</li><li>逐帧：一组形状，每个只出现 0.05 秒。</li><li>循环：平滑开始和结束设 0，重复到幻灯片末尾。</li></ul></div>
+<div><h3>出了自己电脑会坏的地方</h3><ul class="plain"><li>平滑在旧版 PowerPoint、Google Slides、LibreOffice 里变成淡入淡出。图表不参与平滑。</li><li>超过一个孔的形状，平滑不会做形变（B、8 这类字母转成形状以后）。</li><li>网页版 PowerPoint 不用嵌入字体。可变字体只显示默认字重。</li><li>Google Slides 会丢掉延迟、路径和大部分效果。</li><li>Keynote 打开 .pptx：版面在，关键帧写法的动画只剩出现和消失；改用 PowerPoint 自带效果的写法（路径、放大缩小、陀螺旋）就能播放（本项目实测）。</li><li>视频用 MP4，H.264 加 AAC。</li></ul></div>
+</div>
+</section>
+<section class="band" id="better" data-anchor>
+<h2>更好的办法</h2>
+<h3 class="over">按用途选路线</h3>
+<table class="table pipeline" role="table"><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">用途</th><th scope="col" role="columnheader">路线</th><th scope="col" role="columnheader">原因</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">自己电脑上现场讲</th><td role="cell" data-label="路线">网页演示（<a href="https://github.com/hakimel/reveal.js/releases/tag/6.0.0" target="_blank" rel="noopener noreferrer">reveal.js</a>、<a href="https://sli.dev/guide/exporting" target="_blank" rel="noopener noreferrer">Slidev</a>，加 GSAP、three.js）</td><td role="cell" data-label="原因">没有格式上限，全是代码</td></tr>
+<tr role="row"><th scope="row" role="rowheader">发给客户、对方要改</th><td role="cell" data-label="路线">原生 .pptx：文字保持可编辑，字体嵌入，平滑加少量预设动画</td><td role="cell" data-label="原因">能改，能套模板</td></tr>
+<tr role="row"><th scope="row" role="rowheader">自动播放的 40 秒动态片</th><td role="cell" data-label="路线">网页逐帧渲染成 MP4</td><td role="cell" data-label="原因">逐帧准确；在 .pptx 里做更费时，效果更差</td></tr>
+<tr role="row"><th scope="row" role="rowheader">当 PDF 看的提案</th><td role="cell" data-label="路线">HTML 排版，Chromium 导出 PDF</td><td role="cell" data-label="原因">字体和版面完全可控</td></tr>
+</tbody></table>
+<div class="columns wide">
+<div><h3>开源工具</h3><ul class="plain"><li><a href="https://github.com/hugohe3/ppt-master" target="_blank" rel="noopener noreferrer">ppt-master</a>（MIT）：SVG 转原生形状，带 PowerPoint 203 个预设动画和 48 种转场。</li><li><a href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener noreferrer">OfficeCLI</a>（Apache-2.0）：命令行读写 Office 文件，有动画、平滑名字检查、内置渲染。</li><li><a href="https://sli.dev/guide/exporting" target="_blank" rel="noopener noreferrer">Slidev</a> <code>--format pptx-editable</code>、<a href="https://www.npmjs.com/package/dom-to-pptx" target="_blank" rel="noopener noreferrer">dom-to-pptx</a>：网页转可编辑的 .pptx。</li><li><a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener noreferrer">HyperFrames</a>（Apache-2.0）、<a href="https://www.remotion.dev/docs/license/pricing.md" target="_blank" rel="noopener noreferrer">Remotion</a>（3 人以内的个人和公司免费）：网页逐帧渲染成 MP4。</li></ul><p class="note">仓库在 2026-11-26 核对过。</p>
+<h3>现成的 AI 生成工具</h3><p class="text">Copilot、Gamma、Canva、Kimi 等能出干净的商务页。没找到任何独立来源显示它们做出过设计公司水平的作品。画面强的那几个，导出 .pptx 时会丢动画或者变成图片。</p></div>
+<div><h3>代码能做到的</h3><dl class="terms"><div><dt>缓动曲线</dt><dd>PowerPoint 界面里只有平滑开始、平滑结束、弹跳结束。文件格式允许给属性动画写关键帧，PowerPoint 自带的「中心旋转」预设就用了 21 个关键帧。把任意曲线采样成关键帧，就能写进去。手工做不到，代码可以。</dd></div><div><dt>字转成轮廓</dt><dd>HarfBuzz 排字，Skia 去重叠，每个字、每个部件都是一个形状。任何电脑上都一样，可以逐字、逐笔画动。代价是不能再改字。</dd></div><div><dt>程序生成的纹理</dt><dd>纸张、灰尘、暗角都是算出来的透明图，不用图库。PowerPoint 没有混合模式，纹理要么烤进图里，要么做成半透明图盖在上面。</dd></div><div><dt>同一个脚本</dt><dd>一个 Python 脚本描述场景和时间轴，生成原生 .pptx、浏览器里可拖动的预览、MP4。</dd></div></dl></div>
+</div>
+</section>
+<section class="band" id="status" data-anchor>
+<h2>本项目进度</h2>
+<table class="table statuses" role="table"><thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">手法</th><th scope="col" role="columnheader">样片里</th><th scope="col" role="columnheader">状态</th></tr></thead>
+<tbody role="rowgroup">
+<tr role="row"><th scope="row" role="rowheader">时间轴动画、逐字、逐帧</th><td role="cell" data-label="样片里">第 2、3 页</td><td role="cell" data-label="状态">做出来了，全部是原生形状和原生动画</td></tr>
+<tr role="row"><th scope="row" role="rowheader">道具封面</th><td role="cell" data-label="样片里">第 1 页</td><td role="cell" data-label="状态">幻灯片卡纸，纹理是程序生成的。照片级的旧书、旧海报需要实拍或生成的素材</td></tr>
+<tr role="row"><th scope="row" role="rowheader">规律与例外</th><td role="cell" data-label="样片里">第 4、5 页</td><td role="cell" data-label="状态">做出来了，用平滑</td></tr>
+<tr role="row"><th scope="row" role="rowheader">硬切</th><td role="cell" data-label="样片里">第 6 到 10 页</td><td role="cell" data-label="状态">做出来了</td></tr>
+<tr role="row"><th scope="row" role="rowheader">固定版式</th><td role="cell" data-label="样片里">第 11 到 13 页</td><td role="cell" data-label="状态">做出来了，等距图形是代码画的</td></tr>
+<tr role="row"><th scope="row" role="rowheader">裁切</th><td role="cell" data-label="样片里">第 14 页</td><td role="cell" data-label="状态">做出来了，照片是 NASA 公有领域图片</td></tr>
+<tr role="row"><th scope="row" role="rowheader">广告大片、三维渲染</th><td role="cell" data-label="样片里">没做</td><td role="cell" data-label="状态">版式能做，素材要另外拍、渲染或生成</td></tr>
+<tr role="row"><th scope="row" role="rowheader">WebGL 连续场景</th><td role="cell" data-label="样片里">没做</td><td role="cell" data-label="状态">网页输出还只有 SVG 预览</td></tr>
+</tbody></table>
+<div class="columns wide">
+<div><h3>已验证</h3><ul class="plain"><li>三个语言版本都通过 Office 文件结构校验，也通过 ppt-master 的动画校验（默认模式）。</li><li>LibreOffice、WPS、Keynote 三个程序都能打开，静态画面和预览一致。</li><li>Keynote 打开两份 .pptx 版面都对。自带效果版的动画能播放，有一处瑕疵：从偏移位置进场的形状，会先在落点上出现一帧。关键帧缓动版只剩出现和消失。</li><li>动画用的属性名和公式写法，和 PowerPoint 自带预设的 XML 一致。</li></ul></div>
+<div><h3>没验证</h3><ul class="plain"><li>两份 .pptx 在 PowerPoint 桌面版里的播放。制作用的 Mac 和服务器都没装 PowerPoint。</li><li>两份 .pptx 在 WPS 放映模式里的播放。只验证了 WPS 能打开、画面正确。</li><li>浏览器预览是本项目自己的渲染，平滑的插值和 PowerPoint 的不会完全一样。</li></ul></div>
+</div>
+</section>
+<section class="band" id="downloads" data-anchor>
+<h2>下载</h2>
+<div class="columns">
+<div><h3>中文版</h3><ul class="files"><li><a href="/guides/deck-methods/files/deck-methods-zh.pptx" download><span class="what">关键帧缓动版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-zh-compat.pptx" download><span class="what">自带效果版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-zh.mp4" download><span class="what">成片</span><span class="meta">MP4 1.6 MB</span></a></li></ul></div>
+<div><h3>英文版</h3><ul class="files"><li><a href="/guides/deck-methods/files/deck-methods-en.pptx" download><span class="what">关键帧缓动版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-en-compat.pptx" download><span class="what">自带效果版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-en.mp4" download><span class="what">成片</span><span class="meta">MP4 1.6 MB</span></a></li></ul></div>
+<div><h3>法文版</h3><ul class="files"><li><a href="/guides/deck-methods/files/deck-methods-fr.pptx" download><span class="what">关键帧缓动版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-fr-compat.pptx" download><span class="what">自带效果版</span><span class="meta">PPTX 3.2 MB</span></a></li><li><a href="/guides/deck-methods/files/deck-methods-fr.mp4" download><span class="what">成片</span><span class="meta">MP4 1.7 MB</span></a></li></ul></div>
+</div>
+<dl class="terms kinds"><div><dt>关键帧缓动版</dt><dd>运动写成关键帧属性动画，缓动曲线完整。</dd></div><div><dt>自带效果版</dt><dd>同一份样片，只用 PowerPoint 自带的效果：出现、淡化、擦除、动作路径、放大/缩小、陀螺旋。缓动只有平滑开始和平滑结束。</dd></div><div><dt>成片</dt><dd>浏览器预览渲染的 MP4，1280×720，65 秒。</dd></div></dl>
+<p class="note">两份 .pptx 在 PowerPoint 桌面版和 WPS 放映模式里的播放都还没验证。</p>
+</section>
+</main>
+<footer class="foot"><p>2026-11-26 整理。来源：逐份打开核对过的九份作品，FUJI 原始 .pptx 的拆解，PowerPoint 自带 203 个动画预设的 XML，对现有工具的检索。</p><a href="/guides/zh/">攻略总览</a></footer>
+</body>
+</html>

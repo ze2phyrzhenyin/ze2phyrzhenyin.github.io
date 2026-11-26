@@ -18,16 +18,16 @@ A：优先行动；B：有条件参加；C：持续观察。HT 未税，TTC 含�
 
 ## 截止与开放提醒
 
-- 2026-11-29 · 优惠截止 · 柏林果蔬展专业观众票。官方专业观众票八折至 11 月 29 日，使用 FRESHWEEK。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#fruit-logistica)
-- 2026-11-30 · 截止 · SOFT 商务配对。约到相关对象再安排马赛行程。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#soft)
-- 2026-12-01 · 截止 · La Place aux Pitchs。规则为 12/1 前提交，建议最迟 11/30；既有 SAS 产品资格待确认。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#place-creative)
-- 2026-12-01 17:00 · 截止 · BtoBuild 登记。登记页时间不保证临时仍能约到会谈。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#btobuild)
-- 2026-12-03 23:59 CET · 截止 · ENGAGE.EU / 4YFN。确认共同创始人、孵化与 MVP 验证条件。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#engage)
-- 2026-12-10 · 截止 · Occitanie Invest。有明确产品、收入与融资计划后推进。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#occitanie-invest)
-- 2026-12-15 · 优惠截止 · MIDI MAT 参展优惠。先验证行业方向，不必急于付费。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#midi-mat)
-- 2027-01-31 · 截止 · medFEL 区域展团。与免费专业观众报名分开。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#medfel)
-- 2027-02-02 · 截止 · ISE 技术供应商。采用供应商专门截止，非通用页头日期。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#ise)
-- 2027-02-07 23:59:59 CET · 截止 · Advanced Factories 演讲。准备实际流程、使用结果和限制。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/#advanced-factories)
+- 2026-11-29 · 优惠截止 · 柏林果蔬展专业观众票。官方专业观众票八折至 11 月 29 日，使用 FRESHWEEK。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#fruit-logistica)
+- 2026-11-30 · 截止 · SOFT 商务配对。约到相关对象再安排马赛行程。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#soft)
+- 2026-12-01 · 截止 · La Place aux Pitchs。规则为 12/1 前提交，建议最迟 11/30；既有 SAS 产品资格待确认。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#place-creative)
+- 2026-12-01 17:00 · 截止 · BtoBuild 登记。登记页时间不保证临时仍能约到会谈。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#btobuild)
+- 2026-12-03 23:59 CET · 截止 · ENGAGE.EU / 4YFN。确认共同创始人、孵化与 MVP 验证条件。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#engage)
+- 2026-12-10 · 截止 · Occitanie Invest。有明确产品、收入与融资计划后推进。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#occitanie-invest)
+- 2026-12-15 · 优惠截止 · MIDI MAT 参展优惠。先验证行业方向，不必急于付费。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#midi-mat)
+- 2027-01-31 · 截止 · medFEL 区域展团。与免费专业观众报名分开。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#medfel)
+- 2027-02-02 · 截止 · ISE 技术供应商。采用供应商专门截止，非通用页头日期。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#ise)
+- 2027-02-07 23:59:59 CET · 截止 · Advanced Factories 演讲。准备实际流程、使用结果和限制。 [活动详情](https://zhaoyang.fr/guides/rex-opportunities/zh/#advanced-factories)
 
 ## 行程取舍
 

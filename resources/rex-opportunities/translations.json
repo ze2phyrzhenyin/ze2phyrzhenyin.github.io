@@ -1,0 +1,2913 @@
+{
+ "sources": {
+  "prompt.txt": "264f5642d7955093069b771cb3baa96718362c0370ce4574a07cc19ec067366f"
+ },
+ "terms": {
+  "country": [
+   {
+    "key": "FR",
+    "zh": "法国",
+    "en": "France",
+    "fr": "France"
+   },
+   {
+    "key": "online",
+    "zh": "线上",
+    "en": "Online",
+    "fr": "En ligne"
+   },
+   {
+    "key": "ES",
+    "zh": "西班牙",
+    "en": "Spain",
+    "fr": "Espagne"
+   },
+   {
+    "key": "BE",
+    "zh": "比利时",
+    "en": "Belgium",
+    "fr": "Belgique"
+   },
+   {
+    "key": "DE",
+    "zh": "德国",
+    "en": "Germany",
+    "fr": "Allemagne"
+   },
+   {
+    "key": "NL",
+    "zh": "荷兰",
+    "en": "Netherlands",
+    "fr": "Pays-Bas"
+   },
+   {
+    "key": "MT",
+    "zh": "马耳他",
+    "en": "Malta",
+    "fr": "Malte"
+   }
+  ],
+  "city": [
+   {
+    "key": "toulouse",
+    "zh": "图卢兹",
+    "en": "Toulouse",
+    "fr": "Toulouse"
+   },
+   {
+    "key": "online",
+    "zh": "线上",
+    "en": "Online",
+    "fr": "En ligne"
+   },
+   {
+    "key": "paris",
+    "zh": "巴黎",
+    "en": "Paris",
+    "fr": "Paris"
+   },
+   {
+    "key": "bordeaux",
+    "zh": "波尔多",
+    "en": "Bordeaux",
+    "fr": "Bordeaux"
+   },
+   {
+    "key": "marseille",
+    "zh": "马赛",
+    "en": "Marseille",
+    "fr": "Marseille"
+   },
+   {
+    "key": "montpellier",
+    "zh": "蒙彼利埃",
+    "en": "Montpellier",
+    "fr": "Montpellier"
+   },
+   {
+    "key": "barcelona",
+    "zh": "巴塞罗那",
+    "en": "Barcelona",
+    "fr": "Barcelone"
+   },
+   {
+    "key": "angers",
+    "zh": "昂热",
+    "en": "Angers",
+    "fr": "Angers"
+   },
+   {
+    "key": "ghent",
+    "zh": "根特",
+    "en": "Ghent",
+    "fr": "Gand"
+   },
+   {
+    "key": "lyon",
+    "zh": "里昂",
+    "en": "Lyon",
+    "fr": "Lyon"
+   },
+   {
+    "key": "brussels",
+    "zh": "布鲁塞尔",
+    "en": "Brussels",
+    "fr": "Bruxelles"
+   },
+   {
+    "key": "berlin",
+    "zh": "柏林",
+    "en": "Berlin",
+    "fr": "Berlin"
+   },
+   {
+    "key": "cannes",
+    "zh": "戛纳",
+    "en": "Cannes",
+    "fr": "Cannes"
+   },
+   {
+    "key": "rennes",
+    "zh": "雷恩",
+    "en": "Rennes",
+    "fr": "Rennes"
+   },
+   {
+    "key": "tarbes",
+    "zh": "塔布",
+    "en": "Tarbes",
+    "fr": "Tarbes"
+   },
+   {
+    "key": "stuttgart",
+    "zh": "斯图加特",
+    "en": "Stuttgart",
+    "fr": "Stuttgart"
+   },
+   {
+    "key": "labege",
+    "zh": "Labège",
+    "en": "Labège",
+    "fr": "Labège"
+   },
+   {
+    "key": "hanover",
+    "zh": "汉诺威",
+    "en": "Hanover",
+    "fr": "Hanovre"
+   },
+   {
+    "key": "utrecht",
+    "zh": "乌得勒支",
+    "en": "Utrecht",
+    "fr": "Utrecht"
+   },
+   {
+    "key": "munich",
+    "zh": "慕尼黑",
+    "en": "Munich",
+    "fr": "Munich"
+   },
+   {
+    "key": "perpignan",
+    "zh": "佩皮尼昂",
+    "en": "Perpignan",
+    "fr": "Perpignan"
+   },
+   {
+    "key": "valletta",
+    "zh": "瓦莱塔",
+    "en": "Valletta",
+    "fr": "La Valette"
+   },
+   {
+    "key": "toulouse-area",
+    "zh": "图卢兹周边",
+    "en": "Toulouse area",
+    "fr": "Région toulousaine"
+   }
+  ],
+  "sector": [
+   {
+    "key": "software-ai",
+    "zh": "软件与 AI",
+    "en": "Software & AI",
+    "fr": "Logiciel et IA"
+   },
+   {
+    "key": "business",
+    "zh": "企业与创业",
+    "en": "Business & entrepreneurship",
+    "fr": "Entreprise et entrepreneuriat"
+   },
+   {
+    "key": "tourism-hospitality",
+    "zh": "旅游与餐饮",
+    "en": "Tourism & hospitality",
+    "fr": "Tourisme et hôtellerie-restauration"
+   },
+   {
+    "key": "retail",
+    "zh": "零售与电商",
+    "en": "Retail & e-commerce",
+    "fr": "Commerce et e-commerce"
+   },
+   {
+    "key": "agrifood",
+    "zh": "农业与食品",
+    "en": "Agriculture & food",
+    "fr": "Agriculture et agroalimentaire"
+   },
+   {
+    "key": "logistics",
+    "zh": "仓储与物流",
+    "en": "Warehousing & logistics",
+    "fr": "Entreposage et logistique"
+   },
+   {
+    "key": "industry",
+    "zh": "工业与制造",
+    "en": "Industry & manufacturing",
+    "fr": "Industrie et fabrication"
+   },
+   {
+    "key": "construction-energy",
+    "zh": "建筑与能源",
+    "en": "Construction & energy",
+    "fr": "Bâtiment et énergie"
+   }
+  ],
+  "goal": [
+   {
+    "key": "clients",
+    "zh": "获客",
+    "en": "Clients",
+    "fr": "Prospection"
+   },
+   {
+    "key": "visibility",
+    "zh": "展示",
+    "en": "Visibility",
+    "fr": "Visibilité"
+   },
+   {
+    "key": "partners",
+    "zh": "合作",
+    "en": "Partnerships",
+    "fr": "Partenariats"
+   },
+   {
+    "key": "funding",
+    "zh": "融资",
+    "en": "Funding",
+    "fr": "Financement"
+   }
+  ],
+  "update": [
+   {
+    "key": "kept",
+    "zh": "首轮保留",
+    "en": "Kept from the first survey",
+    "fr": "Repris du premier relevé"
+   },
+   {
+    "key": "new",
+    "zh": "本期新增",
+    "en": "New this issue",
+    "fr": "Nouveau dans ce numéro"
+   },
+   {
+    "key": "eligibility",
+    "zh": "资格更新",
+    "en": "Eligibility updated",
+    "fr": "Conditions mises à jour"
+   },
+   {
+    "key": "priority",
+    "zh": "优先级更新",
+    "en": "Priority updated",
+    "fr": "Priorité revue"
+   },
+   {
+    "key": "funding",
+    "zh": "融资条件更新",
+    "en": "Funding criteria updated",
+    "fr": "Critères de financement mis à jour"
+   }
+  ],
+  "kind": [
+   {
+    "key": "deadline",
+    "zh": "截止",
+    "en": "Deadline",
+    "fr": "Date limite"
+   },
+   {
+    "key": "offer",
+    "zh": "优惠截止",
+    "en": "Offer ends",
+    "fr": "Fin de l’offre"
+   }
+  ]
+ },
+ "strings": [
+  {
+   "at": "transfo.status",
+   "zh": "活动日期已过",
+   "en": "Event over",
+   "fr": "Événement passé"
+  },
+  {
+   "at": "transfo.value",
+   "zh": "企业数字化、数据和 AI 问题，与 REX 的软件服务直接相关；本地参会成本低。",
+   "en": "Company digitalisation, data and AI questions, directly related to REX’s software services; a local event that costs little to attend.",
+   "fr": "Transformation numérique, données et IA en entreprise : des sujets directement liés aux services logiciels de REX ; déplacement local, peu coûteux."
+  },
+  {
+   "at": "transfo.who",
+   "zh": "本人以软件与 AI 服务商、REX 企业代表身份参加；合伙人可参加业务交流。",
+   "en": "I attend as a software and AI service provider representing REX; my business partner can join the business discussions.",
+   "fr": "J’y vais comme prestataire logiciel et IA, au nom de REX ; mon associé peut participer aux échanges d’affaires."
+  },
+  {
+   "at": "transfo.entry",
+   "zh": "本场活动日期为 11 月 17 日。",
+   "en": "The event was held on 17 November.",
+   "fr": "L’événement a eu lieu le 17 novembre."
+  },
+  {
+   "at": "transfo.fee",
+   "zh": "免费参会（首轮资料）；其他权益按报名确认。",
+   "en": "Free to attend (first-survey data); other entitlements as confirmed at registration.",
+   "fr": "Participation gratuite (premier relevé) ; les autres prestations sont confirmées à l’inscription."
+  },
+  {
+   "at": "transfo.action",
+   "zh": "如需会后资料，可查看主办方活动页。",
+   "en": "For material published after the event, see the organiser’s event page.",
+   "fr": "Pour les documents publiés après l’événement, consulter la page de l’organisateur."
+  },
+  {
+   "at": "transfo.contacts",
+   "zh": "中小企业负责人、业务负责人、数字化服务商。",
+   "en": "SME owners, business managers and digital service providers.",
+   "fr": "Dirigeants de PME, responsables métier, prestataires du numérique."
+  },
+  {
+   "at": "transfo.demo",
+   "zh": "订单、库存和单据相连的完整流程。",
+   "en": "A complete flow linking orders, stock and documents.",
+   "fr": "Un flux complet reliant commandes, stocks et documents."
+  },
+  {
+   "at": "transfo.question",
+   "zh": "你们每周在哪个环节重复录入或核对最多？",
+   "en": "Which step makes you re-enter or cross-check the most data each week?",
+   "fr": "À quelle étape ressaisissez-vous ou recoupez-vous le plus de données chaque semaine ?"
+  },
+  {
+   "at": "transfo.pilot",
+   "zh": "选择一种单据或一个业务环节，记录现有耗时后验证自动化方案。",
+   "en": "Pick one document type or one process step, record the time it takes today, then test the automation against it.",
+   "fr": "Choisir un type de document ou une étape du processus, mesurer le temps passé aujourd’hui, puis tester l’automatisation."
+  },
+  {
+   "at": "transfo.checked",
+   "zh": "11 月 15 日首轮资料；本期保留，未对全部字段重新核验。",
+   "en": "From the first survey of 15 November; kept in this issue without rechecking every field.",
+   "fr": "Données du premier relevé du 15 novembre, reprises dans ce numéro sans nouvelle vérification de tous les champs."
+  },
+  {
+   "at": "transfo.sources.0",
+   "zh": "主办方与议程",
+   "en": "Organiser and programme",
+   "fr": "Organisateur et programme"
+  },
+  {
+   "at": "transfo.sources.1",
+   "zh": "Digital 113 参会入口",
+   "en": "Digital 113 registration",
+   "fr": "Inscription Digital 113"
+  },
+  {
+   "at": "salon-entreprise.value",
+   "zh": "接触创业者、中小企业经营者、商会和融资支持机构，适合网站与业务软件服务。",
+   "en": "A place to meet founders, SME owners, chambers of commerce and funding support bodies; suits our website and business software services.",
+   "fr": "On y rencontre des créateurs d’entreprise, des dirigeants de PME, les chambres consulaires et les organismes d’aide au financement ; adapté à nos offres de sites web et de logiciels métier."
+  },
+  {
+   "at": "salon-entreprise.who",
+   "zh": "合伙人以企业代表参加；两人分工时，本人可去 Transfo Digitale Day。",
+   "en": "My partner attends as company representative; if we split up, I can go to Transfo Digitale Day.",
+   "fr": "Mon associé y va comme représentant de l’entreprise ; si nous nous répartissons, je peux aller au Transfo Digitale Day."
+  },
+  {
+   "at": "salon-entreprise.fee",
+   "zh": "免费入场；展位费用另询。",
+   "en": "Free entry; stand prices on request.",
+   "fr": "Entrée gratuite ; tarif des stands sur demande."
+  },
+  {
+   "at": "salon-entreprise.sources.0",
+   "zh": "报名表",
+   "en": "Registration form",
+   "fr": "Formulaire d’inscription"
+  },
+  {
+   "at": "salon-entreprise.sources.1",
+   "zh": "参会信息",
+   "en": "Visitor information",
+   "fr": "Informations visiteurs"
+  },
+  {
+   "at": "matinale-ia.value",
+   "zh": "本地中小企业使用 AI 创建小应用与交流实践。",
+   "en": "Local SMEs building small applications with AI and comparing practice.",
+   "fr": "Des PME locales créent de petites applications avec l’IA et partagent leurs pratiques."
+  },
+  {
+   "at": "matinale-ia.who",
+   "zh": "本人以软件与 AI 供应商身份参加。",
+   "en": "I attend as a software and AI supplier.",
+   "fr": "J’y vais comme fournisseur de logiciels et d’IA."
+  },
+  {
+   "at": "matinale-ia.entry",
+   "zh": "本场活动日期为 11 月 19 日。",
+   "en": "The event was held on 19 November.",
+   "fr": "L’événement a eu lieu le 19 novembre."
+  },
+  {
+   "at": "matinale-ia.fee",
+   "zh": "费用与会员限制尚未核实。",
+   "en": "Cost and any members-only restriction not yet checked.",
+   "fr": "Tarif et éventuelle réserve aux adhérents non vérifiés."
+  },
+  {
+   "at": "matinale-ia.eligibility",
+   "zh": "按实际企业身份确认参与条件。",
+   "en": "Check the conditions of attendance against our actual company status.",
+   "fr": "Vérifier les conditions de participation selon le statut réel de l’entreprise."
+  },
+  {
+   "at": "matinale-ia.checked",
+   "zh": "11 月 16 日打开主办方活动页，复核时间、地点及报名入口。",
+   "en": "Organiser’s event page opened on 16 November; time, place and registration link rechecked.",
+   "fr": "Page de l’organisateur consultée le 16 novembre ; horaire, lieu et lien d’inscription revérifiés."
+  },
+  {
+   "at": "matinale-ia.sources.0",
+   "zh": "活动与报名",
+   "en": "Event and registration",
+   "fr": "Événement et inscription"
+  },
+  {
+   "at": "eic-info.name",
+   "zh": "EIC 2027 融资机会线上说明会",
+   "en": "EIC online information day: 2027 funding opportunities",
+   "fr": "Journée d’information en ligne de l’EIC : financements 2027"
+  },
+  {
+   "at": "eic-info.value",
+   "zh": "了解欧洲创新委员会 2027 资助要求，无需远行。",
+   "en": "A way to learn the European Innovation Council’s 2027 funding requirements without travelling.",
+   "fr": "Pour connaître les exigences de financement 2027 du Conseil européen de l’innovation sans se déplacer."
+  },
+  {
+   "at": "eic-info.who",
+   "zh": "本人先了解可融资产品与资格边界。",
+   "en": "I attend first, to understand which products can be funded and where eligibility stops.",
+   "fr": "J’y assiste d’abord pour comprendre quels produits sont finançables et où s’arrête l’éligibilité."
+  },
+  {
+   "at": "eic-info.entry",
+   "zh": "本场活动日期为 11 月 19 日。报名于 11 月 18 日 09:30 CET 截止。",
+   "en": "The event was held on 19 November. Registration closed on 18 November at 09:30 CET.",
+   "fr": "L’événement a eu lieu le 19 novembre. Les inscriptions ont été closes le 18 novembre à 09:30 CET."
+  },
+  {
+   "at": "eic-info.fee",
+   "zh": "本期资料未单列费用。",
+   "en": "No fee is listed in this issue’s data.",
+   "fr": "Aucun tarif relevé dans ce numéro."
+  },
+  {
+   "at": "eic-info.eligibility",
+   "zh": "常规定制开发业务不自动符合 EIC 资助条件。",
+   "en": "Ordinary custom development work does not automatically meet EIC funding criteria.",
+   "fr": "Une activité classique de développement sur mesure ne remplit pas d’office les critères de financement de l’EIC."
+  },
+  {
+   "at": "eic-info.checked",
+   "zh": "来自用户提供的 11 月 16 日周报；状态与价格为该期资料快照。",
+   "en": "From the 16 November weekly report supplied by the user; status and prices are a snapshot from that issue.",
+   "fr": "Repris du rapport hebdomadaire du 16 novembre fourni par l’utilisateur ; statut et tarifs sont ceux relevés à cette date."
+  },
+  {
+   "at": "eic-info.sources.0",
+   "zh": "欧盟官方活动",
+   "en": "Official EU event page",
+   "fr": "Page officielle de l’UE"
+  },
+  {
+   "at": "convergences.status",
+   "zh": "已开放",
+   "en": "Open",
+   "fr": "Ouvert"
+  },
+  {
+   "at": "convergences.value",
+   "zh": "旅游目的地、旅行服务的预订、营销数据与业务自动化。",
+   "en": "Bookings, marketing data and process automation for tourist destinations and travel services.",
+   "fr": "Réservation, données marketing et automatisation des processus pour les destinations et les services de voyage."
+  },
+  {
+   "at": "convergences.who",
+   "zh": "本人接触目的地管理者及旅游企业。",
+   "en": "I go to meet destination managers and tourism businesses.",
+   "fr": "J’y vais pour rencontrer les gestionnaires de destination et les entreprises du tourisme."
+  },
+  {
+   "at": "convergences.entry",
+   "zh": "优先面向全行业的 11/24；11/23 有 OGD 专门安排。",
+   "en": "Prefer 24 November, which is open to the whole sector; 23 November has a programme reserved for destination management organisations (OGD).",
+   "fr": "Privilégier le 24 novembre, ouvert à toute la filière ; le 23 novembre comporte un programme réservé aux OGD."
+  },
+  {
+   "at": "convergences.fee",
+   "zh": "11/24 公开票价 50€，税别尚未核实。",
+   "en": "Public ticket price for 24 November: €50; whether that includes VAT is not yet checked.",
+   "fr": "Tarif public du 24 novembre : 50 € ; HT ou TTC non vérifié."
+  },
+  {
+   "at": "convergences.eligibility",
+   "zh": "不同日期与套餐的适用人群分别核对。",
+   "en": "Check separately who each date and package is meant for.",
+   "fr": "Vérifier séparément le public visé par chaque date et chaque formule."
+  },
+  {
+   "at": "convergences.action",
+   "zh": "选择 11/24，筛选预订、客户数据和营销流程相关对象。",
+   "en": "Choose 24 November and shortlist contacts involved in bookings, customer data and marketing processes.",
+   "fr": "Retenir le 24 novembre et cibler les interlocuteurs concernés par la réservation, les données clients et les processus marketing."
+  },
+  {
+   "at": "convergences.sources.0",
+   "zh": "官方票务与日程",
+   "en": "Official ticketing and programme",
+   "fr": "Billetterie et programme officiels"
+  },
+  {
+   "at": "cbc.name",
+   "zh": "CBC 网络安全展",
+   "en": "CBC cybersecurity trade show",
+   "fr": "Salon CBC de la sécurité numérique"
+  },
+  {
+   "at": "cbc.status",
+   "zh": "免费预约",
+   "en": "Free booking",
+   "fr": "Réservation gratuite"
+  },
+  {
+   "at": "cbc.value",
+   "zh": "接触 IT 服务商、集成商与企业伙伴。",
+   "en": "A place to meet IT service providers, integrators and corporate partners.",
+   "fr": "On y rencontre des prestataires informatiques, des intégrateurs et des entreprises partenaires."
+  },
+  {
+   "at": "cbc.who",
+   "zh": "本人以开发与系统集成经验交流。",
+   "en": "I go, drawing on my development and systems integration experience.",
+   "fr": "J’y vais en m’appuyant sur mon expérience du développement et de l’intégration de systèmes."
+  },
+  {
+   "at": "cbc.entry",
+   "zh": "专业观众和学生采用不同报名渠道。",
+   "en": "Trade visitors and students register through different channels.",
+   "fr": "Visiteurs professionnels et étudiants s’inscrivent par des voies distinctes."
+  },
+  {
+   "at": "cbc.fee",
+   "zh": "免费观众预约。",
+   "en": "Free visitor booking.",
+   "fr": "Réservation visiteur gratuite."
+  },
+  {
+   "at": "cbc.eligibility",
+   "zh": "不将自己表述为具备未取得的安全认证或专业资质。",
+   "en": "Do not present ourselves as holding security certifications or professional qualifications we do not have.",
+   "fr": "Ne pas se présenter comme titulaire de certifications de sécurité ou de qualifications professionnelles que nous n’avons pas."
+  },
+  {
+   "at": "cbc.action",
+   "zh": "先筛选能共同交付的软件与 IT 合作方。",
+   "en": "First shortlist software and IT partners we could deliver projects with.",
+   "fr": "Repérer d’abord les partenaires logiciels et informatiques avec qui livrer des projets en commun."
+  },
+  {
+   "at": "cbc.checked",
+   "zh": "11 月 16 日复核官方合作页的日期、地点与免费访客入口。",
+   "en": "Date, venue and free visitor registration rechecked on the official partner page on 16 November.",
+   "fr": "Date, lieu et inscription visiteur gratuite revérifiés le 16 novembre sur la page du partenaire officiel."
+  },
+  {
+   "at": "cbc.sources.0",
+   "zh": "官网与预约",
+   "en": "Website and booking",
+   "fr": "Site officiel et réservation"
+  },
+  {
+   "at": "cbc.sources.1",
+   "zh": "官方合作活动页",
+   "en": "Official partner’s event page",
+   "fr": "Page du partenaire officiel"
+  },
+  {
+   "at": "proteinees.value",
+   "zh": "本地企业负责人交流，14:30 安排 Speed Business；适合需求访谈与转介绍。",
+   "en": "Local business owners networking, with a Speed Business session at 14:30; good for needs interviews and referrals.",
+   "fr": "Rencontres entre dirigeants locaux, avec un Speed Business à 14:30 ; adapté aux entretiens de besoin et aux recommandations."
+  },
+  {
+   "at": "proteinees.who",
+   "zh": "两人均适合；分别介绍软件能力与业务场景。",
+   "en": "Suits both of us: one presents the software, the other the business use cases.",
+   "fr": "Convient à nous deux : l’un présente le logiciel, l’autre les cas d’usage métier."
+  },
+  {
+   "at": "proteinees.entry",
+   "zh": "已有票务入口，活动交流不代表企业已有采购预算。",
+   "en": "Ticketing is open. Meeting companies there does not mean they have a purchasing budget.",
+   "fr": "La billetterie est ouverte. Rencontrer des entreprises sur place ne signifie pas qu’elles disposent d’un budget d’achat."
+  },
+  {
+   "at": "proteinees.fee",
+   "zh": "普通票资料为 55€ HT；合作方会员价 60€ TTC，按真实身份与结算页核对。",
+   "en": "Standard ticket listed at €55 excl. VAT; partner-member price €60 incl. VAT. Check against our actual status and the checkout page.",
+   "fr": "Billet standard relevé à 55 € HT ; tarif adhérent partenaire à 60 € TTC, à vérifier selon notre statut réel et la page de paiement."
+  },
+  {
+   "at": "proteinees.eligibility",
+   "zh": "会员优惠需核实；不默认 REX 已有会员资格。",
+   "en": "The member discount needs checking; do not assume REX is a member.",
+   "fr": "La remise adhérent reste à vérifier ; ne pas supposer que REX est adhérent."
+  },
+  {
+   "at": "proteinees.action",
+   "zh": "准备三分钟法语介绍和一个实际系统，目标是预约后续需求访谈。",
+   "en": "Prepare a three-minute pitch in French and one working system; the aim is to book follow-up needs interviews.",
+   "fr": "Préparer une présentation de trois minutes en français et un système en fonctionnement ; l’objectif est de décrocher des entretiens de besoin."
+  },
+  {
+   "at": "proteinees.checked",
+   "zh": "11 月 16 日打开合作方页面确认 11/26、Hôtel Palladia；票价保留周报中的差异。",
+   "en": "Partner page opened on 16 November, confirming 26 November at Hôtel Palladia; the price discrepancy noted in the weekly report is kept as is.",
+   "fr": "Page du partenaire consultée le 16 novembre : 26 novembre et Hôtel Palladia confirmés ; l’écart de tarif signalé dans le rapport hebdomadaire est conservé."
+  },
+  {
+   "at": "proteinees.sources.0",
+   "zh": "合作活动页与票务",
+   "en": "Partner event page and ticketing",
+   "fr": "Page partenaire et billetterie"
+  },
+  {
+   "at": "tech-retail.value",
+   "zh": "零售、电商、客户管理、库存和 AI 应用。",
+   "en": "Retail, e-commerce, customer management, stock and applied AI.",
+   "fr": "Commerce de détail, e-commerce, gestion client, stocks et usages de l’IA."
+  },
+  {
+   "at": "tech-retail.who",
+   "zh": "本人主导，按软件供应商身份参加。",
+   "en": "I lead, attending as a software supplier.",
+   "fr": "Je pilote et j’y vais comme fournisseur de logiciels."
+  },
+  {
+   "at": "tech-retail.entry",
+   "zh": "零售企业可申请免费证。面向零售业的软件和服务供应商凭付费证入场。",
+   "en": "Retailers can apply for a free badge. Software and service suppliers to the retail trade enter with a paid badge.",
+   "fr": "Les enseignes peuvent demander un badge gratuit. Les fournisseurs de logiciels et de services pour le commerce entrent avec un badge payant."
+  },
+  {
+   "at": "tech-retail.fee",
+   "zh": "11 月 24 日的供应商预登记价为 330 € TTC，票务页标示原价 440 € TTC。",
+   "en": "On 24 November the supplier pre-registration price was €330 incl. VAT; the ticketing page shows a full price of €440 incl. VAT.",
+   "fr": "Au 24 novembre, le tarif fournisseur en préinscription est de 330 € TTC ; la billetterie affiche un plein tarif de 440 € TTC."
+  },
+  {
+   "at": "tech-retail.eligibility",
+   "zh": "票务页注明不接待以学生身份参观者。REX 以软件供应商身份购票。",
+   "en": "The ticketing page states that visitors attending as students are not admitted. REX buys its ticket as a software supplier.",
+   "fr": "La billetterie précise que les visiteurs venant en tant qu’étudiants ne sont pas admis. REX achète son billet comme fournisseur de logiciels."
+  },
+  {
+   "at": "tech-retail.action",
+   "zh": "先约零售企业，再决定是否按供应商价购票。若同去 Supply Chain Event，两场分别取证。",
+   "en": "Book meetings with retailers first, then decide whether to buy at the supplier price. If we also go to Supply Chain Event, each show needs its own badge.",
+   "fr": "Prendre d’abord rendez-vous avec des enseignes, puis décider d’acheter ou non au tarif fournisseur. Si nous allons aussi au Supply Chain Event, chaque salon demande son propre badge."
+  },
+  {
+   "at": "tech-retail.checked",
+   "zh": "11 月 24 日核对票务页的供应商票价、学生限制及参观条款第 3 条。",
+   "en": "Supplier price, student restriction and article 3 of the visitor terms checked on the ticketing page on 24 November.",
+   "fr": "Tarif fournisseur, restriction étudiants et article 3 des conditions de visite vérifiés sur la billetterie le 24 novembre."
+  },
+  {
+   "at": "tech-retail.sources.0",
+   "zh": "购票入口",
+   "en": "Ticket purchase",
+   "fr": "Achat des billets"
+  },
+  {
+   "at": "tech-retail.sources.1",
+   "zh": "本届票务条款",
+   "en": "This edition’s ticketing terms",
+   "fr": "Conditions de billetterie de l’édition"
+  },
+  {
+   "at": "vinitech.value",
+   "zh": "农业获客重点。葡萄酒、果树、蔬菜产业覆盖生产、设备、包装和销售，适合两人结合农业经验与软件案例交流。",
+   "en": "Our main event for winning agricultural clients. The wine, fruit and vegetable sectors are covered from production through equipment and packaging to sales, so the two of us can combine farming experience with software case studies.",
+   "fr": "Notre principal rendez-vous pour la prospection agricole. Les filières vin, fruits et légumes y sont représentées de la production à la vente, en passant par les équipements et l’emballage ; à deux, nous pouvons associer expérience agricole et cas logiciels."
+  },
+  {
+   "at": "vinitech.who",
+   "zh": "建议两人一起；合伙人交流经营问题，本人演示库存、订单、批次追踪和单据流程。",
+   "en": "Best attended together: my partner discusses operational problems, I demo stock, orders, batch tracking and document flows.",
+   "fr": "À faire à deux de préférence : mon associé échange sur les problèmes d’exploitation, je présente les stocks, les commandes, le suivi des lots et les flux de documents."
+  },
+  {
+   "at": "vinitech.entry",
+   "zh": "专业观众可在线取票。12 月 1 至 3 日每日 08:30 至 18:00 开放，从波尔多展览中心 B 门或 K 门入场。",
+   "en": "Trade visitors can get tickets online. Open 08:30 to 18:00 daily from 1 to 3 December; entry through gate B or gate K of the Bordeaux exhibition centre.",
+   "fr": "Les visiteurs professionnels obtiennent leur billet en ligne. Ouvert de 08:30 à 18:00 du 1er au 3 décembre ; entrée par la porte B ou la porte K du Parc des Expositions de Bordeaux."
+  },
+  {
+   "at": "vinitech.fee",
+   "zh": "25€ TTC，覆盖三天；个人学生没有单独优惠。",
+   "en": "€25 incl. VAT for all three days; no separate discount for individual students.",
+   "fr": "25 € TTC pour les trois jours ; pas de tarif réduit pour un étudiant venant seul."
+  },
+  {
+   "at": "vinitech.action",
+   "zh": "两人共同演示批次、库存、加工与发货。12 月初与巴黎零售／供应链展、图卢兹 FRAMES、马赛 SOFT 等撞期，按已确认会谈取舍。",
+   "en": "Demo batches, stock, processing and dispatch together. Early December clashes with the Paris retail and supply chain shows, FRAMES in Toulouse and SOFT in Marseille; choose according to the meetings already confirmed.",
+   "fr": "Présenter à deux les lots, les stocks, la transformation et l’expédition. Début décembre, le salon se chevauche avec les salons parisiens du commerce et de la supply chain, FRAMES à Toulouse et SOFT à Marseille ; arbitrer selon les rendez-vous déjà confirmés."
+  },
+  {
+   "at": "vinitech.contacts",
+   "zh": "农业经营者、合作社运营负责人、仓储负责人、农业设备与软件服务商。",
+   "en": "Farm operators, cooperative operations managers, warehouse managers, farm equipment and software suppliers.",
+   "fr": "Exploitants agricoles, responsables d’exploitation de coopératives, responsables d’entrepôt, fournisseurs d’équipements et de logiciels agricoles."
+  },
+  {
+   "at": "vinitech.demo",
+   "zh": "订单进入、库存变化、出库、单据生成及批次查询。",
+   "en": "Order entry, stock movements, goods out, document generation and batch look-up.",
+   "fr": "Saisie d’une commande, mouvements de stock, sortie, édition des documents et recherche d’un lot."
+  },
+  {
+   "at": "vinitech.question",
+   "zh": "从客户订单到出库单，现在需要在哪几处重复录入？",
+   "en": "Between the customer order and the delivery note, in how many places do you re-enter the same data today?",
+   "fr": "Entre la commande client et le bon de sortie, à combien d’endroits ressaisissez-vous les mêmes données aujourd’hui ?"
+  },
+  {
+   "at": "vinitech.pilot",
+   "zh": "先覆盖一个产品批次或一条订单流程，不同时改造全部系统。",
+   "en": "Start with one product batch or one order flow, without reworking every system at once.",
+   "fr": "Commencer par un lot de produits ou un flux de commande, sans refondre tous les systèmes à la fois."
+  },
+  {
+   "at": "vinitech.checked",
+   "zh": "11 月 24 日核对主办方 FAQ 的开放时间、入口和票价。",
+   "en": "Opening hours, entrances and ticket price checked in the organiser’s FAQ on 24 November.",
+   "fr": "Horaires, entrées et tarif vérifiés dans la FAQ de l’organisateur le 24 novembre."
+  },
+  {
+   "at": "vinitech.sources.0",
+   "zh": "活动官网",
+   "en": "Event website",
+   "fr": "Site de l’événement"
+  },
+  {
+   "at": "vinitech.sources.1",
+   "zh": "购买观众票",
+   "en": "Buy visitor tickets",
+   "fr": "Billets visiteurs"
+  },
+  {
+   "at": "vinitech.sources.2",
+   "zh": "观众常见问题",
+   "en": "Visitor FAQ",
+   "fr": "FAQ visiteurs"
+  },
+  {
+   "at": "nuit-reseaux.status",
+   "zh": "待确认",
+   "en": "To be confirmed",
+   "fr": "À confirmer"
+  },
+  {
+   "at": "nuit-reseaux.value",
+   "zh": "本地企业网络和商务快速交流，适合建立合作、转介绍关系。",
+   "en": "Local business networks and speed networking; good for building partnerships and referral contacts.",
+   "fr": "Réseaux d’entreprises locaux et rencontres d’affaires express ; adapté pour nouer des partenariats et obtenir des recommandations."
+  },
+  {
+   "at": "nuit-reseaux.who",
+   "zh": "本人或合伙人以企业代表参加。",
+   "en": "Either of us attends as company representative.",
+   "fr": "L’un de nous deux y va comme représentant de l’entreprise."
+  },
+  {
+   "at": "nuit-reseaux.entry",
+   "zh": "有预报名入口；页面偏向俱乐部、集体和会员参与，个人路线需先确认。",
+   "en": "Pre-registration exists, but the page is aimed at clubs, groups and members; confirm first how an individual can attend.",
+   "fr": "Une préinscription existe, mais la page s’adresse surtout aux clubs, aux collectifs et aux adhérents ; confirmer d’abord les modalités pour une personne seule."
+  },
+  {
+   "at": "nuit-reseaux.fee",
+   "zh": "90€ HT／人（首轮资料）。",
+   "en": "€90 excl. VAT per person (first-survey data).",
+   "fr": "90 € HT par personne (premier relevé)."
+  },
+  {
+   "at": "nuit-reseaux.action",
+   "zh": "确认个人参加方式和可接触的企业类型，再与 Vinitech 行程比较。",
+   "en": "Confirm how an individual can attend and what kinds of companies will be there, then weigh it against the Vinitech trip.",
+   "fr": "Confirmer les modalités de participation individuelle et le type d’entreprises présentes, puis comparer avec le déplacement à Vinitech."
+  },
+  {
+   "at": "nuit-reseaux.checked",
+   "zh": "来自 11 月 15 日首轮资料。",
+   "en": "From the first survey of 15 November.",
+   "fr": "Données du premier relevé du 15 novembre."
+  },
+  {
+   "at": "nuit-reseaux.sources.0",
+   "zh": "图卢兹活动页",
+   "en": "Toulouse event page",
+   "fr": "Page de l’événement à Toulouse"
+  },
+  {
+   "at": "soft.value",
+   "zh": "企业发展、融资和合作交流，可提前申请商务会谈；有约见对象才值得专程前往。",
+   "en": "Business growth, funding and partnerships, with business meetings bookable in advance; only worth the trip once meetings are arranged.",
+   "fr": "Développement d’entreprise, financement et partenariats, avec des rendez-vous d’affaires à demander à l’avance ; le déplacement ne vaut que si des rendez-vous sont pris."
+  },
+  {
+   "at": "soft.who",
+   "zh": "有明确合作或融资目标的一名企业代表。",
+   "en": "One company representative with a clear partnership or funding goal.",
+   "fr": "Un représentant de l’entreprise ayant un objectif précis de partenariat ou de financement."
+  },
+  {
+   "at": "soft.entry",
+   "zh": "B2B 配对报名开放，截止 2026/11/30。",
+   "en": "B2B matchmaking registration is open until 30 November 2026.",
+   "fr": "Inscriptions aux rendez-vous B2B ouvertes jusqu’au 30 novembre 2026."
+  },
+  {
+   "at": "soft.fee",
+   "zh": "活动免费；差旅自理。",
+   "en": "The event is free; travel at our own expense.",
+   "fr": "Événement gratuit ; déplacement à notre charge."
+  },
+  {
+   "at": "soft.action",
+   "zh": "先在配对平台确认相关对象和会面，再决定出行。",
+   "en": "Confirm relevant contacts and meetings on the matchmaking platform before deciding to travel.",
+   "fr": "Confirmer d’abord sur la plateforme les interlocuteurs utiles et les rendez-vous, puis décider du déplacement."
+  },
+  {
+   "at": "soft.sources.0",
+   "zh": "商务配对入口",
+   "en": "Matchmaking platform",
+   "fr": "Plateforme de rendez-vous d’affaires"
+  },
+  {
+   "at": "soft.sources.1",
+   "zh": "主办活动页",
+   "en": "Organiser’s event page",
+   "fr": "Page de l’organisateur"
+  },
+  {
+   "at": "frames.name",
+   "zh": "FRAMES 法西企业 B2B",
+   "en": "FRAMES France–Spain B2B meetings",
+   "fr": "FRAMES : rendez-vous B2B France-Espagne"
+  },
+  {
+   "at": "frames.status",
+   "zh": "报名已截止",
+   "en": "Registration closed",
+   "fr": "Inscriptions closes"
+  },
+  {
+   "at": "frames.value",
+   "zh": "航空、航天和国防产业跨境合作，寻找法国与西班牙工业软件伙伴。",
+   "en": "Cross-border cooperation in aeronautics, space and defence; a place to find French and Spanish industrial software partners.",
+   "fr": "Coopération transfrontalière dans l’aéronautique, le spatial et la défense ; on y cherche des partenaires français et espagnols du logiciel industriel."
+  },
+  {
+   "at": "frames.who",
+   "zh": "本人代表 REX，以软件与自动化方案供应商身份申请。",
+   "en": "I apply on behalf of REX as a supplier of software and automation.",
+   "fr": "Je candidate au nom de REX comme fournisseur de logiciels et d’automatisation."
+  },
+  {
+   "at": "frames.entry",
+   "zh": "CCI 公布的报名截止日为 11 月 17 日。已报名的团队按邀请确认 12 月 1 日下午场次。",
+   "en": "The registration deadline announced by the CCI was 17 November. Registered teams confirm their slot on the afternoon of 1 December according to their invitation.",
+   "fr": "La date limite d’inscription annoncée par la CCI était le 17 novembre. Les équipes inscrites confirment leur créneau de l’après-midi du 1er décembre d’après leur invitation."
+  },
+  {
+   "at": "frames.fee",
+   "zh": "费用及 Aeromart 现场通行权益待确认。",
+   "en": "Cost and on-site access rights to Aeromart to be confirmed.",
+   "fr": "Tarif et droits d’accès à Aeromart sur place à confirmer."
+  },
+  {
+   "at": "frames.eligibility",
+   "zh": "表单涵盖电子、航电与软件、自动化、工业 4.0。如实说明已有检测、库存经验，不声称航空业绩。",
+   "en": "The form covers electronics, avionics and software, automation and Industry 4.0. State our inspection and stock experience as it is, and claim no aerospace track record.",
+   "fr": "Le formulaire couvre l’électronique, l’avionique et le logiciel, l’automatisation et l’industrie 4.0. Décrire notre expérience du contrôle et des stocks telle qu’elle est, sans revendiquer de références aéronautiques."
+  },
+  {
+   "at": "frames.action",
+   "zh": "已获确认的团队再核对入场证。尚未报名的团队可评估同期波尔多或巴黎的行业展。",
+   "en": "Teams with a confirmed slot should then check their entry badge. Teams that did not register can look at the trade shows in Bordeaux or Paris on the same dates.",
+   "fr": "Les équipes confirmées vérifient ensuite leur badge d’entrée. Celles qui ne se sont pas inscrites peuvent étudier les salons de Bordeaux ou de Paris aux mêmes dates."
+  },
+  {
+   "at": "frames.demo",
+   "zh": "电子产品检测记录与库存、出入库连接的实际系统。",
+   "en": "A working system that links inspection records for electronic products to stock and to goods in and out.",
+   "fr": "Un système en service qui relie les contrôles de produits électroniques aux stocks et aux entrées-sorties."
+  },
+  {
+   "at": "frames.checked",
+   "zh": "11 月 24 日核对 CCI Occitanie 公告的截止日与会谈时间。",
+   "en": "Deadline and meeting times checked against the CCI Occitanie announcement on 24 November.",
+   "fr": "Date limite et horaires des rendez-vous vérifiés le 24 novembre dans l’annonce de la CCI Occitanie."
+  },
+  {
+   "at": "frames.sources.0",
+   "zh": "官方申请表",
+   "en": "Official application form",
+   "fr": "Formulaire de candidature officiel"
+  },
+  {
+   "at": "frames.sources.1",
+   "zh": "CCI 公告",
+   "en": "CCI announcement",
+   "fr": "Annonce de la CCI"
+  },
+  {
+   "at": "btobuild.status",
+   "zh": "配对开放",
+   "en": "Matchmaking open",
+   "fr": "Rendez-vous B2B ouverts"
+  },
+  {
+   "at": "btobuild.value",
+   "zh": "可持续建筑合作，本届聚焦洪水与黏土胀缩风险。",
+   "en": "Partnerships in sustainable building; this edition focuses on flood risk and clay shrink-swell.",
+   "fr": "Partenariats dans le bâtiment durable ; cette édition porte sur le risque d’inondation et le retrait-gonflement des argiles."
+  },
+  {
+   "at": "btobuild.who",
+   "zh": "有建筑巡检、现场数据、设施管理方案时，由本人寻找合作。",
+   "en": "If we have something to offer on building inspections, site data or facilities management, I go to look for partners.",
+   "fr": "Si nous avons une offre en inspection de bâtiments, données de chantier ou gestion d’équipements, j’y vais pour chercher des partenaires."
+  },
+  {
+   "at": "btobuild.entry",
+   "zh": "预安排 B2B 平台开放；周报所列登记截止 12/1 17:00，行动前确认。",
+   "en": "The platform for pre-arranged B2B meetings is open; the weekly report lists registration as closing on 1 December at 17:00. Confirm before acting.",
+   "fr": "La plateforme de rendez-vous B2B préprogrammés est ouverte ; le rapport hebdomadaire indique une clôture des inscriptions le 1er décembre à 17:00, à confirmer avant d’agir."
+  },
+  {
+   "at": "btobuild.fee",
+   "zh": "费用未明确。",
+   "en": "Cost not stated.",
+   "fr": "Tarif non précisé."
+  },
+  {
+   "at": "btobuild.eligibility",
+   "zh": "具体方案须回应本届建筑主题，普通开发介绍不足以判断匹配。",
+   "en": "A concrete proposal has to address this edition’s building themes; a general presentation of development services is not enough to judge the fit.",
+   "fr": "Une offre concrète doit répondre aux thèmes de cette édition ; une présentation générale de nos services de développement ne suffit pas pour juger de l’adéquation."
+  },
+  {
+   "at": "btobuild.action",
+   "zh": "先看议程与技术需求，再决定是否值得安排会谈。",
+   "en": "Read the programme and the technical needs first, then decide whether meetings are worth arranging.",
+   "fr": "Lire d’abord le programme et les besoins techniques, puis décider si des rendez-vous valent la peine."
+  },
+  {
+   "at": "btobuild.checked",
+   "zh": "11 月 16 日复核主办方主题与议程；报名平台未完整展开。",
+   "en": "Organiser’s themes and programme rechecked on 16 November; the registration platform was not opened in full.",
+   "fr": "Thèmes et programme de l’organisateur revérifiés le 16 novembre ; la plateforme d’inscription n’a pas été parcourue en entier."
+  },
+  {
+   "at": "btobuild.sources.0",
+   "zh": "主办方与报名",
+   "en": "Organiser and registration",
+   "fr": "Organisateur et inscription"
+  },
+  {
+   "at": "supply-chain.status",
+   "zh": "资格待确认",
+   "en": "Eligibility to confirm",
+   "fr": "Éligibilité à confirmer"
+  },
+  {
+   "at": "supply-chain.value",
+   "zh": "供应链项目、软件集成商与业务合作。",
+   "en": "Supply chain projects, software integrators and business partnerships.",
+   "fr": "Projets supply chain, intégrateurs de logiciels et partenariats commerciaux."
+  },
+  {
+   "at": "supply-chain.who",
+   "zh": "两人均适合，合伙人的仓储经验有用。",
+   "en": "Suits both of us; my partner’s warehousing experience is useful here.",
+   "fr": "Convient à nous deux ; l’expérience de mon associé dans l’entreposage y est utile."
+  },
+  {
+   "at": "supply-chain.entry",
+   "zh": "12 月 1 日 09:00 至 19:00、2 日 09:00 至 17:00 开放。MySCE 会谈另有准入条件。",
+   "en": "Open 1 December 09:00 to 19:00 and 2 December 09:00 to 17:00. MySCE meetings have their own admission conditions.",
+   "fr": "Ouvert le 1er décembre de 09:00 à 19:00 et le 2 décembre de 09:00 à 17:00. Les rendez-vous MySCE ont leurs propres conditions d’accès."
+  },
+  {
+   "at": "supply-chain.fee",
+   "zh": "普通访客 105€ HT；学生／教师 17€ HT，需审核。",
+   "en": "Standard visitor €105 excl. VAT; student or teacher €17 excl. VAT, subject to approval.",
+   "fr": "Visiteur standard : 105 € HT ; étudiant ou enseignant : 17 € HT, sur validation."
+  },
+  {
+   "at": "supply-chain.eligibility",
+   "zh": "普通票面向货主和项目方；软件服务商是否适用须先确认。",
+   "en": "The standard ticket is for shippers and project owners; confirm first whether a software provider qualifies.",
+   "fr": "Le billet standard s’adresse aux chargeurs et aux porteurs de projet ; confirmer d’abord qu’un prestataire logiciel y a droit."
+  },
+  {
+   "at": "supply-chain.action",
+   "zh": "先确认可用身份和商务对接权益，再安排巴黎行程。",
+   "en": "Confirm which visitor category we can use and what matchmaking rights come with it, then plan the Paris trip.",
+   "fr": "Confirmer la catégorie de visiteur possible et les droits aux rendez-vous d’affaires, puis organiser le déplacement à Paris."
+  },
+  {
+   "at": "supply-chain.checked",
+   "zh": "11 月 24 日核对主办方 FAQ 中的两类票价、审核要求和开放时间。REX 作为供应商的可用权益仍待确认。",
+   "en": "Both ticket prices, the approval requirement and opening hours checked in the organiser’s FAQ on 24 November. What REX is entitled to as a supplier remains to be confirmed.",
+   "fr": "Les deux tarifs, l’obligation de validation et les horaires ont été vérifiés dans la FAQ de l’organisateur le 24 novembre. Les droits de REX en tant que fournisseur restent à confirmer."
+  },
+  {
+   "at": "supply-chain.sources.0",
+   "zh": "官方参会与价格",
+   "en": "Official visitor information and prices",
+   "fr": "Informations visiteurs et tarifs officiels"
+  },
+  {
+   "at": "supply-chain.sources.1",
+   "zh": "票价与开放时间",
+   "en": "Prices and opening hours",
+   "fr": "Tarifs et horaires"
+  },
+  {
+   "at": "place-creative.venue",
+   "zh": "Parc des expositions，Hall B1",
+   "en": "Parc des expositions, Hall B1",
+   "fr": "Parc des expositions, Hall B1"
+  },
+  {
+   "at": "place-creative.status",
+   "zh": "需审核",
+   "en": "Subject to approval",
+   "fr": "Sur validation"
+  },
+  {
+   "at": "place-creative.value",
+   "zh": "创业网络、专家预约与三分钟 pitch；近期可准备的项目展示机会。",
+   "en": "Startup networking, bookable expert sessions and a three-minute pitch; a chance to present a project that we can prepare for soon.",
+   "fr": "Réseau de créateurs, rendez-vous d’experts et pitch de trois minutes ; une occasion proche de présenter un projet."
+  },
+  {
+   "at": "place-creative.who",
+   "zh": "本人带一个具体产品申请；既有 SAS 下的新产品是否适用需确认。",
+   "en": "I apply with one specific product; confirm whether a new product from an existing SAS qualifies.",
+   "fr": "Je candidate avec un produit précis ; confirmer qu’un nouveau produit porté par une SAS existante est admis."
+  },
+  {
+   "at": "place-creative.entry",
+   "zh": "主展报名开放。Pitch 申请要求 12 月 1 日前提交，建议 11 月 30 日前完成；12 月 2 日 14:00–16:00 初选，前五名进入决赛。",
+   "en": "Registration for the main show is open. Pitch applications must be submitted before 1 December, and are best completed by 30 November; first round on 2 December, 14:00–16:00, with the top five going through to the final.",
+   "fr": "Les inscriptions au salon sont ouvertes. Les candidatures au pitch doivent être déposées avant le 1er décembre, de préférence au plus tard le 30 novembre ; présélection le 2 décembre de 14:00 à 16:00, les cinq premiers vont en finale."
+  },
+  {
+   "at": "place-creative.fee",
+   "zh": "主展免费；pitch 费用原资料未单独确认。",
+   "en": "The main show is free; the source data does not separately confirm any pitch fee.",
+   "fr": "Salon gratuit ; les données d’origine ne confirment pas séparément d’éventuels frais de pitch."
+  },
+  {
+   "at": "place-creative.eligibility",
+   "zh": "申请表阶段覆盖创意、市场调研、法律形式、商业计划、融资和注册，没有既有运营企业的独立选项；不能据此直接认定符合或被排除。",
+   "en": "The stages offered on the application form run from idea, market research, legal form, business plan and funding to registration, with no separate option for a company already trading; that alone does not settle whether we qualify or are excluded.",
+   "fr": "Les stades proposés dans le formulaire vont de l’idée à l’immatriculation, en passant par l’étude de marché, la forme juridique, le business plan et le financement, sans option propre aux entreprises déjà en activité ; cela ne permet de conclure ni à l’admission ni à l’exclusion."
+  },
+  {
+   "at": "place-creative.action",
+   "zh": "核对既有企业参赛资格，准备三分钟产品介绍，并留出 12 月 2 日下午。",
+   "en": "Check whether an existing company may enter, prepare a three-minute product presentation and keep the afternoon of 2 December free.",
+   "fr": "Vérifier qu’une entreprise existante peut concourir, préparer une présentation produit de trois minutes et réserver l’après-midi du 2 décembre."
+  },
+  {
+   "at": "place-creative.sources.0",
+   "zh": "比赛说明",
+   "en": "Competition details",
+   "fr": "Présentation du concours"
+  },
+  {
+   "at": "place-creative.sources.1",
+   "zh": "正式申请表",
+   "en": "Official application form",
+   "fr": "Formulaire de candidature officiel"
+  },
+  {
+   "at": "place-creative.sources.2",
+   "zh": "展会官网",
+   "en": "Show website",
+   "fr": "Site du salon"
+  },
+  {
+   "at": "tech-spirit.value",
+   "zh": "AI、创业、硬件和投资交流；有产品化与国际合作目标时值得出行。",
+   "en": "AI, startups, hardware and investor networking; worth the trip if we have a product to launch and international partnerships in view.",
+   "fr": "IA, startups, matériel et échanges avec des investisseurs ; le déplacement se justifie si nous visons un produit et des partenariats internationaux."
+  },
+  {
+   "at": "tech-spirit.who",
+   "zh": "本人以产品团队或企业代表参加。",
+   "en": "I attend as product team member or company representative.",
+   "fr": "J’y vais au titre de l’équipe produit ou comme représentant de l’entreprise."
+  },
+  {
+   "at": "tech-spirit.entry",
+   "zh": "免费参会登记开放；首轮资料记录投资人十分钟会谈于 11 月 18 日开放预约，需对方接受，法国企业条件待核对。",
+   "en": "Free registration is open. The first survey records that ten-minute investor meetings opened for booking on 18 November; the investor has to accept, and the conditions for French companies are still to be checked.",
+   "fr": "L’inscription gratuite est ouverte. Le premier relevé indique que les entretiens de dix minutes avec des investisseurs se réservent depuis le 18 novembre ; l’investisseur doit accepter et les conditions pour les entreprises françaises restent à vérifier."
+  },
+  {
+   "at": "tech-spirit.fee",
+   "zh": "免费入场，须注册；差旅另计。",
+   "en": "Free entry with registration; travel extra.",
+   "fr": "Entrée gratuite sur inscription ; déplacement en sus."
+  },
+  {
+   "at": "tech-spirit.action",
+   "zh": "查看投资人会谈的预约状态和资格。收到对方确认后再安排差旅。",
+   "en": "Check booking status and eligibility for the investor meetings. Arrange travel only once a meeting is confirmed.",
+   "fr": "Vérifier l’état des réservations et les conditions des entretiens avec les investisseurs. N’organiser le déplacement qu’une fois un entretien confirmé."
+  },
+  {
+   "at": "tech-spirit.sources.0",
+   "zh": "正式参会登记",
+   "en": "Official registration",
+   "fr": "Inscription officielle"
+  },
+  {
+   "at": "tech-spirit.sources.1",
+   "zh": "ACCIÓ 投资交流",
+   "en": "ACCIÓ investor meetings",
+   "fr": "Rencontres investisseurs ACCIÓ"
+  },
+  {
+   "at": "aeromart.value",
+   "zh": "用学生入口了解航空产业、参加企业交流和展会参观，本地投入低。",
+   "en": "The student route into the aerospace industry: company meetings and a visit to the show, locally and at little cost.",
+   "fr": "L’accès étudiant pour approcher la filière aéronautique : échanges avec des entreprises et visite du salon, sur place et à peu de frais."
+  },
+  {
+   "at": "aeromart.who",
+   "zh": "本人以 UT Capitole MIAGE M1 学生身份申请；合伙人不能套用学生资格。",
+   "en": "I apply as a first-year MIAGE master’s student at UT Capitole; my partner cannot use student status.",
+   "fr": "Je candidate comme étudiant en M1 MIAGE à l’UT Capitole ; mon associé ne peut pas se prévaloir du statut étudiant."
+  },
+  {
+   "at": "aeromart.entry",
+   "zh": "学生须提前联系 psouques@advbe.com 报名；不接受现场报名。",
+   "en": "Students must register in advance by writing to psouques@advbe.com; no registration on site.",
+   "fr": "Les étudiants s’inscrivent à l’avance en écrivant à psouques@advbe.com ; pas d’inscription sur place."
+  },
+  {
+   "at": "aeromart.fee",
+   "zh": "学生日免费。普通商务观众单日票为 750€ HT，且不含预安排 B2B 会谈（首轮资料）。",
+   "en": "Student Day is free. A one-day ticket for an ordinary business visitor costs €750 excl. VAT and does not include pre-arranged B2B meetings (first-survey data).",
+   "fr": "Le Student Day est gratuit. Le billet d’une journée pour un visiteur professionnel coûte 750 € HT et ne comprend pas les rendez-vous B2B préprogrammés (premier relevé)."
+  },
+  {
+   "at": "aeromart.action",
+   "zh": "按官方学生日流程申请，确认学生证明与参观安排；不将学生票当成完整商务配对票。",
+   "en": "Apply through the official Student Day procedure and confirm the proof of enrolment required and the visit arrangements; a student pass is not a full business matchmaking ticket.",
+   "fr": "Candidater selon la procédure officielle du Student Day, confirmer le justificatif étudiant demandé et l’organisation de la visite ; le pass étudiant ne vaut pas billet complet avec rendez-vous d’affaires."
+  },
+  {
+   "at": "aeromart.sources.0",
+   "zh": "学生日说明",
+   "en": "Student Day details",
+   "fr": "Présentation du Student Day"
+  },
+  {
+   "at": "aeromart.sources.1",
+   "zh": "商务观众权益",
+   "en": "Business visitor entitlements",
+   "fr": "Prestations visiteurs professionnels"
+  },
+  {
+   "at": "energaia.value",
+   "zh": "可再生能源、工业、建筑与农业能源场景，适合工单、运维和设备数据看板。",
+   "en": "Renewable energy in industry, buildings and farming; suits work orders, operations and maintenance, and equipment data dashboards.",
+   "fr": "Énergies renouvelables dans l’industrie, le bâtiment et l’agriculture ; adapté aux bons d’intervention, à l’exploitation-maintenance et aux tableaux de bord de données d’équipements."
+  },
+  {
+   "at": "energaia.who",
+   "zh": "本人以软件服务商或学生入口参加，合伙人可按农业业务身份核对。",
+   "en": "I attend as a software provider or through the student route; my partner can check eligibility on the strength of the farming business.",
+   "fr": "J’y vais comme prestataire logiciel ou par l’accès étudiant ; mon associé peut vérifier son accès au titre de l’activité agricole."
+  },
+  {
+   "at": "energaia.entry",
+   "zh": "免费观众报名开放，有专业人士和学生入口；晚间 networking 另行订票。",
+   "en": "Free visitor registration is open, with separate routes for professionals and students; the evening networking event is ticketed separately.",
+   "fr": "L’inscription visiteur gratuite est ouverte, avec des accès distincts pour les professionnels et les étudiants ; la soirée networking fait l’objet d’un billet à part."
+  },
+  {
+   "at": "energaia.fee",
+   "zh": "观众免费；晚会费用尚未核实。",
+   "en": "Free for visitors; cost of the evening event not yet checked.",
+   "fr": "Gratuit pour les visiteurs ; tarif de la soirée non vérifié."
+  },
+  {
+   "at": "energaia.action",
+   "zh": "优先接触有运维流程、设备台账和工单管理需求的企业。",
+   "en": "Approach first the companies that need maintenance processes, equipment registers and work-order management.",
+   "fr": "Aborder en priorité les entreprises qui ont besoin de processus de maintenance, de registres d’équipements et de gestion des bons d’intervention."
+  },
+  {
+   "at": "energaia.contacts",
+   "zh": "能源设备运营、维护负责人及农业能源项目经营者。",
+   "en": "Operators and maintenance managers of energy equipment, and operators of farm energy projects.",
+   "fr": "Exploitants et responsables de maintenance d’équipements énergétiques, porteurs de projets d’énergie agricole."
+  },
+  {
+   "at": "energaia.demo",
+   "zh": "设备台账、巡检、维修工单和处理记录。",
+   "en": "Equipment register, inspection rounds, repair work orders and the record of what was done.",
+   "fr": "Registre des équipements, rondes d’inspection, bons de réparation et historique des interventions."
+  },
+  {
+   "at": "energaia.question",
+   "zh": "一次故障的报修、派工和验收记录现在存在哪里？",
+   "en": "When something breaks down, where are the fault report, the job assignment and the sign-off recorded today?",
+   "fr": "Lors d’une panne, où sont consignés aujourd’hui le signalement, l’affectation de l’intervention et la réception des travaux ?"
+  },
+  {
+   "at": "energaia.pilot",
+   "zh": "以一类设备的工单为范围，硬件采集和现场部署另行评估。",
+   "en": "Limit the scope to work orders for one class of equipment; assess hardware data capture and on-site deployment separately.",
+   "fr": "Limiter le périmètre aux bons d’intervention d’une catégorie d’équipements ; évaluer à part la collecte matérielle des données et le déploiement sur site."
+  },
+  {
+   "at": "energaia.sources.0",
+   "zh": "观众入口",
+   "en": "Visitor registration",
+   "fr": "Inscription visiteurs"
+  },
+  {
+   "at": "energaia.sources.1",
+   "zh": "论坛介绍",
+   "en": "About the forum",
+   "fr": "Présentation du forum"
+  },
+  {
+   "at": "sival.status",
+   "zh": "免费报名",
+   "en": "Free registration",
+   "fr": "Inscription gratuite"
+  },
+  {
+   "at": "sival.value",
+   "zh": "种植企业、合作社、生产者组织与农业供应商，验证管理软件需求。",
+   "en": "Growers, cooperatives, producer organisations and agricultural suppliers: the place to test demand for management software.",
+   "fr": "Producteurs, coopératives, organisations de producteurs et fournisseurs agricoles : l’endroit pour vérifier la demande en logiciels de gestion."
+  },
+  {
+   "at": "sival.who",
+   "zh": "两人共同参加，以农业经营与软件供应商真实角色介绍。",
+   "en": "We both attend and introduce ourselves in our actual roles: farm operator and software supplier.",
+   "fr": "Nous y allons à deux et nous nous présentons dans nos rôles réels : exploitant agricole et fournisseur de logiciels."
+  },
+  {
+   "at": "sival.entry",
+   "zh": "2027 专业观众注册已开放；表单区分生产者、供应商、合作社和学生，并提供参观与展商预约平台。",
+   "en": "Trade visitor registration for 2027 is open. The form distinguishes producers, suppliers, cooperatives and students, and there is a platform for booking visits and meetings with exhibitors.",
+   "fr": "L’inscription des visiteurs professionnels pour 2027 est ouverte. Le formulaire distingue producteurs, fournisseurs, coopératives et étudiants, et une plateforme permet de réserver visites et rendez-vous avec les exposants."
+  },
+  {
+   "at": "sival.fee",
+   "zh": "专业观众免费。",
+   "en": "Free for trade visitors.",
+   "fr": "Gratuit pour les visiteurs professionnels."
+  },
+  {
+   "at": "sival.eligibility",
+   "zh": "免费专业参观不等于免费展位。",
+   "en": "Free trade entry does not mean a free stand.",
+   "fr": "L’entrée professionnelle gratuite ne donne pas droit à un stand gratuit."
+  },
+  {
+   "at": "sival.action",
+   "zh": "完成适用身份注册，筛选目标企业并准备批次到发货演示。",
+   "en": "Register under the category that applies to us, shortlist target companies and prepare a batch-to-dispatch demo.",
+   "fr": "S’inscrire dans la catégorie qui nous correspond, sélectionner les entreprises cibles et préparer une démonstration du lot à l’expédition."
+  },
+  {
+   "at": "sival.checked",
+   "zh": "11 月 24 日核对 SIVAL 的免费专业观众证和 1 月 12 至 14 日展期。身份选项沿用 11 月 16 日表单记录。",
+   "en": "SIVAL’s free trade visitor badge and the 12–14 January dates checked on 24 November. The visitor categories are as recorded from the form on 16 November.",
+   "fr": "Badge visiteur professionnel gratuit et dates du 12 au 14 janvier vérifiés le 24 novembre. Les catégories de visiteurs sont celles relevées dans le formulaire le 16 novembre."
+  },
+  {
+   "at": "sival.sources.0",
+   "zh": "2027 正式报名",
+   "en": "Official 2027 registration",
+   "fr": "Inscription officielle 2027"
+  },
+  {
+   "at": "sival.sources.1",
+   "zh": "主办方说明",
+   "en": "Organiser’s information",
+   "fr": "Informations de l’organisateur"
+  },
+  {
+   "at": "club-lr.value",
+   "zh": "每人约一分钟介绍业务，适合练习 REX 介绍、建立中小企业联系。",
+   "en": "Each participant gets about one minute to present their business; good practice for the REX pitch and for meeting SMEs.",
+   "fr": "Chaque participant présente son activité en une minute environ ; utile pour roder la présentation de REX et rencontrer des PME."
+  },
+  {
+   "at": "club-lr.who",
+   "zh": "本人或合伙人，以会员或会员邀请的企业代表身份参加。",
+   "en": "Either of us, as a member or as a company representative invited by a member.",
+   "fr": "L’un de nous deux, comme adhérent ou comme représentant d’entreprise invité par un adhérent."
+  },
+  {
+   "at": "club-lr.entry",
+   "zh": "活动页提供报名，要求会员身份或会员邀请；普通访问不等于有报名资格。",
+   "en": "Registration is on the event page and requires membership or a member’s invitation; being able to open the page does not mean we may register.",
+   "fr": "L’inscription se fait sur la page de l’événement et exige d’être adhérent ou invité par un adhérent ; pouvoir consulter la page ne donne pas le droit de s’inscrire."
+  },
+  {
+   "at": "club-lr.fee",
+   "zh": "活动免费；会员相关费用尚未核实。",
+   "en": "The event is free; membership costs not yet checked.",
+   "fr": "Événement gratuit ; coût de l’adhésion non vérifié."
+  },
+  {
+   "at": "club-lr.action",
+   "zh": "先确认会员或邀请渠道。这是商业交流，不视为正式投资人路演。",
+   "en": "First confirm the membership or invitation route. This is business networking and should not be treated as a formal investor pitch.",
+   "fr": "Confirmer d’abord la voie de l’adhésion ou de l’invitation. Il s’agit d’un échange d’affaires, à ne pas considérer comme un pitch officiel devant des investisseurs."
+  },
+  {
+   "at": "club-lr.sources.0",
+   "zh": "活动与报名条件",
+   "en": "Event and registration conditions",
+   "fr": "Événement et conditions d’inscription"
+  },
+  {
+   "at": "agriflanders.status",
+   "zh": "展商申请",
+   "en": "Exhibitor applications",
+   "fr": "Candidatures exposants"
+  },
+  {
+   "at": "agriflanders.value",
+   "zh": "畜牧、家禽、养殖与设备方向。",
+   "en": "Livestock, poultry, animal farming and equipment.",
+   "fr": "Élevage, aviculture, production animale et équipements."
+  },
+  {
+   "at": "agriflanders.who",
+   "zh": "合伙人主导，本人负责数字化方案。",
+   "en": "My partner leads; I handle the digital side.",
+   "fr": "Mon associé pilote ; je m’occupe du volet numérique."
+  },
+  {
+   "at": "agriflanders.entry",
+   "zh": "2027 展商申请表存在；普通观众开票与票价尚未核实。",
+   "en": "An exhibitor application form for 2027 exists; ticket sales and prices for ordinary visitors not yet checked.",
+   "fr": "Un formulaire de candidature exposant existe pour 2027 ; ouverture de la billetterie et tarifs visiteurs non vérifiés."
+  },
+  {
+   "at": "agriflanders.fee",
+   "zh": "观众票价与展商报价待确认。",
+   "en": "Visitor ticket prices and exhibitor rates to be confirmed.",
+   "fr": "Tarifs visiteurs et tarifs exposants à confirmer."
+  },
+  {
+   "at": "agriflanders.eligibility",
+   "zh": "适合养殖软件成为明确业务线后参加。",
+   "en": "Worth attending once livestock software is an established line of business.",
+   "fr": "À envisager une fois que le logiciel d’élevage sera devenu une activité à part entière."
+  },
+  {
+   "at": "agriflanders.action",
+   "zh": "以种植和流通为主时优先 SIVAL，不为覆盖国家重复出行。",
+   "en": "While our focus is crop production and distribution, SIVAL comes first; no second trip just to cover another country.",
+   "fr": "Tant que la priorité reste la production végétale et la distribution, privilégier SIVAL ; pas de second déplacement dans le seul but de couvrir un pays de plus."
+  },
+  {
+   "at": "agriflanders.sources.0",
+   "zh": "官网",
+   "en": "Website",
+   "fr": "Site officiel"
+  },
+  {
+   "at": "sirha.value",
+   "zh": "酒店、餐饮、食品供应链，适合订货、库存、客户管理系统；需明确目标企业才值得远途参加。",
+   "en": "Hotels, catering and the food supply chain; suits ordering, stock and customer management systems. Only worth the long trip with named target companies.",
+   "fr": "Hôtellerie, restauration et chaîne d’approvisionnement alimentaire ; adapté aux systèmes de commande, de stock et de gestion client. Le long déplacement ne se justifie qu’avec des entreprises cibles identifiées."
+  },
+  {
+   "at": "sirha.who",
+   "zh": "本人或合伙人以相关行业服务商身份核对资格。",
+   "en": "Either of us checks eligibility as a service provider to the trade.",
+   "fr": "L’un de nous deux vérifie l’admission en tant que prestataire de la filière."
+  },
+  {
+   "at": "sirha.entry",
+   "zh": "票务已开放，仅限相关行业专业人士；REX 服务商身份是否符合尚待确认。",
+   "en": "Ticketing is open, for trade professionals only; whether REX qualifies as a service provider is still to be confirmed.",
+   "fr": "La billetterie est ouverte, réservée aux professionnels de la filière ; l’admission de REX comme prestataire reste à confirmer."
+  },
+  {
+   "at": "sirha.fee",
+   "zh": "本次未可靠核实单人票价。",
+   "en": "The single-ticket price could not be reliably checked this time.",
+   "fr": "Le prix du billet individuel n’a pas pu être vérifié de façon fiable cette fois."
+  },
+  {
+   "at": "sirha.action",
+   "zh": "先核对资格、票价和目标企业名单，再安排里昂行程。",
+   "en": "Check eligibility, ticket price and the list of target companies before planning the Lyon trip.",
+   "fr": "Vérifier l’admission, le tarif et la liste des entreprises cibles avant d’organiser le déplacement à Lyon."
+  },
+  {
+   "at": "sirha.sources.1",
+   "zh": "正式票务",
+   "en": "Official ticketing",
+   "fr": "Billetterie officielle"
+  },
+  {
+   "at": "fosdem.status",
+   "zh": "主会场投稿已截止",
+   "en": "Main-track call closed",
+   "fr": "Appel principal clos"
+  },
+  {
+   "at": "fosdem.value",
+   "zh": "开源、系统实现与工程分享，寻找技术伙伴。",
+   "en": "Open source, systems implementation and engineering talks; a place to find technical partners.",
+   "fr": "Open source, réalisation de systèmes et retours d’expérience d’ingénierie ; on y trouve des partenaires techniques."
+  },
+  {
+   "at": "fosdem.who",
+   "zh": "本人以可公开的开源工程内容申请。",
+   "en": "I submit engineering work that can be published as open source.",
+   "fr": "Je propose un sujet d’ingénierie open source publiable."
+  },
+  {
+   "at": "fosdem.entry",
+   "zh": "主会场征集 2026/11/16 截止；各 devroom 独立期限，以投稿系统为准。",
+   "en": "The main-track call closed on 16 November 2026; each devroom has its own deadline, as shown in the submission system.",
+   "fr": "L’appel pour les conférences principales s’est clos le 16 novembre 2026 ; chaque devroom a sa propre échéance, celle du système de soumission faisant foi."
+  },
+  {
+   "at": "fosdem.fee",
+   "zh": "普通参会免费，无需报名。",
+   "en": "Free to attend, no registration needed.",
+   "fr": "Participation gratuite, sans inscription."
+  },
+  {
+   "at": "fosdem.eligibility",
+   "zh": "技术分享，不适合 REX 公司销售路演。",
+   "en": "Technical talks only; not the place for a REX sales pitch.",
+   "fr": "Interventions techniques uniquement ; pas le lieu pour un pitch commercial de REX."
+  },
+  {
+   "at": "fosdem.action",
+   "zh": "主会场 11 月 16 日截稿。准备公开技术分享的团队可查看各开发者分会场各自的征集期限。",
+   "en": "Main-track submissions closed on 16 November. A team preparing a public technical talk can check the separate deadline of each developer room.",
+   "fr": "Les soumissions pour les conférences principales se sont closes le 16 novembre. Une équipe qui prépare une intervention technique publique peut consulter l’échéance propre à chaque devroom."
+  },
+  {
+   "at": "fosdem.checked",
+   "zh": "11 月 24 日核对 FOSDEM 日历和投稿系统。",
+   "en": "FOSDEM calendar and submission system checked on 24 November.",
+   "fr": "Calendrier et système de soumission de FOSDEM vérifiés le 24 novembre."
+  },
+  {
+   "at": "fosdem.sources.0",
+   "zh": "官方日历",
+   "en": "Official calendar",
+   "fr": "Calendrier officiel"
+  },
+  {
+   "at": "fosdem.sources.1",
+   "zh": "主会场投稿",
+   "en": "Main-track submissions",
+   "fr": "Soumissions, conférences principales"
+  },
+  {
+   "at": "ise.when",
+   "zh": "2027/02/02–04 线下；02/09–11 线上",
+   "en": "2–4 Feb 2027 in person; 9–11 Feb online",
+   "fr": "2–4 févr. 2027 sur place ; 9–11 févr. en ligne"
+  },
+  {
+   "at": "ise.status",
+   "zh": "供应商报名开放",
+   "en": "Supplier registration open",
+   "fr": "Inscription fournisseurs ouverte"
+  },
+  {
+   "at": "ise.value",
+   "zh": "ACCIÓ 与 EEN 组织的企业技术挑战和三十分钟会谈，可从明确问题判断试点机会。",
+   "en": "Technology challenges set by companies and thirty-minute meetings, organised by ACCIÓ and the EEN; each challenge states a specific problem, which makes it possible to judge the chances of a pilot.",
+   "fr": "Défis technologiques posés par des entreprises et rendez-vous de trente minutes, organisés par ACCIÓ et le réseau EEN ; chaque défi expose un problème précis, ce qui permet d’évaluer les chances d’un pilote."
+  },
+  {
+   "at": "ise.who",
+   "zh": "本人以技术供应商身份筛选并提交解决方案。",
+   "en": "I select a challenge and submit a proposal as technology supplier.",
+   "fr": "Je sélectionne un défi et dépose une proposition comme fournisseur de technologie."
+  },
+  {
+   "at": "ise.entry",
+   "zh": "技术供应商报名已开放，截止 2027 年 2 月 2 日。线下会谈为 2 月 2 至 4 日，线上为 2 月 9 至 11 日。",
+   "en": "Registration for technology suppliers is open until 2 February 2027. In-person meetings run from 2 to 4 February, online meetings from 9 to 11 February.",
+   "fr": "L’inscription des fournisseurs de technologie est ouverte jusqu’au 2 février 2027. Les rendez-vous sur place ont lieu du 2 au 4 février, ceux en ligne du 9 au 11 février."
+  },
+  {
+   "at": "ise.fee",
+   "zh": "B2B 对接免费，可全程线上参加。安排到至少一次线下面谈的企业可获得 ISE 通行证。",
+   "en": "B2B matchmaking is free and can be done entirely online. A company with at least one in-person meeting scheduled receives an ISE pass.",
+   "fr": "Les rendez-vous B2B sont gratuits et peuvent se tenir entièrement en ligne. Une entreprise ayant au moins un rendez-vous sur place reçoit un pass ISE."
+  },
+  {
+   "at": "ise.eligibility",
+   "zh": "企业须有 VAT 税号，具备回应挑战的具体技术方案、产品或研发成果；仅提供咨询或一般受托软件开发不适用。每组织一次注册，会谈最多两人。",
+   "en": "The company must have a VAT number and a specific technical proposal, product or R&D result that answers a challenge; consultancy alone or general contract software development does not qualify. One registration per organisation, two people at most per meeting.",
+   "fr": "L’entreprise doit avoir un numéro de TVA et une réponse technique précise au défi : offre, produit ou résultat de R&D. Le conseil seul ou le développement logiciel à façon ne sont pas admis. Une inscription par organisation, deux personnes au plus par rendez-vous."
+  },
+  {
+   "at": "ise.action",
+   "zh": "查看已发布的 19 项挑战，选能用现有产品回应的一项。企业资料获审后可请求会谈，由需求方决定是否接受。",
+   "en": "Read the 19 published challenges and choose one that an existing product can answer. Once the company profile is approved we can request meetings; the challenge owner decides whether to accept.",
+   "fr": "Lire les 19 défis publiés et en choisir un auquel un produit existant répond. Une fois le profil de l’entreprise validé, nous pouvons demander des rendez-vous ; le porteur du défi décide de les accepter ou non."
+  },
+  {
+   "at": "ise.contacts",
+   "zh": "公开挑战的业务负责人和技术负责人；以实际发布的需求为准。",
+   "en": "Business and technical leads of the published challenges, according to the needs actually posted.",
+   "fr": "Responsables métier et responsables techniques des défis publiés, d’après les besoins réellement mis en ligne."
+  },
+  {
+   "at": "ise.question",
+   "zh": "这是采购试点、联合研发还是探索交流？由谁验收结果？",
+   "en": "Is this a paid pilot, joint R&D or an exploratory conversation? Who signs off the result?",
+   "fr": "S’agit-il d’un pilote avec achat, d’une R&D conjointe ou d’un échange exploratoire ? Qui valide le résultat ?"
+  },
+  {
+   "at": "ise.pilot",
+   "zh": "选一项可用现有技术实现的问题，约定数据、交付物与验收范围；硬件、现场安装和设备集成单独核算。",
+   "en": "Choose a problem that existing technology can solve and agree the data, deliverables and acceptance scope; cost hardware, on-site installation and equipment integration separately.",
+   "fr": "Choisir un problème que la technologie existante permet de résoudre et convenir des données, des livrables et du périmètre de recette ; chiffrer à part le matériel, l’installation sur site et l’intégration aux équipements."
+  },
+  {
+   "at": "ise.checked",
+   "zh": "11 月 24 日核对主办方的挑战目录、技术供应商截止日及对接规则。",
+   "en": "Challenge catalogue, technology-supplier deadline and matchmaking rules checked with the organiser on 24 November.",
+   "fr": "Catalogue des défis, date limite des fournisseurs de technologie et règles de mise en relation vérifiés auprès de l’organisateur le 24 novembre."
+  },
+  {
+   "at": "ise.sources.0",
+   "zh": "报名与参与规则",
+   "en": "Registration and participation rules",
+   "fr": "Inscription et règles de participation"
+  },
+  {
+   "at": "ise.sources.1",
+   "zh": "技术供应商规则",
+   "en": "Rules for technology suppliers",
+   "fr": "Règles pour les fournisseurs de technologie"
+  },
+  {
+   "at": "ise.sources.2",
+   "zh": "已发布的技术挑战",
+   "en": "Published technology challenges",
+   "fr": "Défis technologiques publiés"
+  },
+  {
+   "at": "fruit-logistica.status",
+   "zh": "已开票",
+   "en": "Tickets on sale",
+   "fr": "Billetterie ouverte"
+  },
+  {
+   "at": "fruit-logistica.value",
+   "zh": "果蔬、农业技术与物流同场，适合验证农业、海外仓储和软件的组合。",
+   "en": "Fresh produce, agricultural technology and logistics under one roof; a good place to test our combination of farming, overseas warehousing and software.",
+   "fr": "Fruits et légumes, technologies agricoles et logistique réunis sur un même salon ; l’occasion de vérifier l’intérêt de notre association agriculture, entreposage à l’étranger et logiciel."
+  },
+  {
+   "at": "fruit-logistica.who",
+   "zh": "建议两人共同参加，先选定农业流通或仓储流程方向。",
+   "en": "Best attended together, after deciding whether to focus on agricultural distribution or on warehouse processes.",
+   "fr": "À faire à deux de préférence, après avoir choisi entre la distribution agricole et les processus d’entrepôt."
+  },
+  {
+   "at": "fruit-logistica.entry",
+   "zh": "专业展会，仅在线售票。",
+   "en": "Trade-only show; tickets sold online only.",
+   "fr": "Salon réservé aux professionnels ; billets vendus uniquement en ligne."
+  },
+  {
+   "at": "fruit-logistica.fee",
+   "zh": "常规票价含 19% VAT。单日 49 €，全展期 89 €，学生全展期 19 €。11 月 23 至 29 日，专业观众可从官网优惠入口输入 FRESHWEEK 享八折。学生票是否适用以结算页为准。",
+   "en": "Standard prices include 19% VAT. Day ticket €49, full-show ticket €89, student full-show ticket €19. From 23 to 29 November, trade visitors get 20% off by entering FRESHWEEK through the offer link on the official site. Whether the student ticket applies to us is settled by the checkout page.",
+   "fr": "Les tarifs standard incluent 19 % de TVA. Billet d’un jour : 49 € ; toute la durée du salon : 89 € ; étudiant, toute la durée : 19 €. Du 23 au 29 novembre, les visiteurs professionnels obtiennent 20 % de réduction en saisissant FRESHWEEK depuis le lien promotionnel du site officiel. L’accès au tarif étudiant se vérifie sur la page de paiement."
+  },
+  {
+   "at": "fruit-logistica.eligibility",
+   "zh": "学生与专业身份按本人实际情况；没有完成的农业模块注明原型。",
+   "en": "Student or trade status according to each person’s actual situation; any farming module that is not finished is labelled as a prototype.",
+   "fr": "Statut étudiant ou professionnel selon la situation réelle de chacun ; tout module agricole inachevé est présenté comme un prototype."
+  },
+  {
+   "at": "fruit-logistica.action",
+   "zh": "先列目标企业与会谈，展示可追溯的收货、加工、库存和发货流程。",
+   "en": "List target companies and meetings first; demo a traceable flow from goods in through processing and stock to dispatch.",
+   "fr": "Lister d’abord les entreprises cibles et les rendez-vous ; présenter un flux traçable de la réception à l’expédition, en passant par la transformation et le stock."
+  },
+  {
+   "at": "fruit-logistica.question",
+   "zh": "农产品从供应商到仓储、加工及发货，哪些批次和数量信息还要重复录入？",
+   "en": "From supplier to warehouse, processing and dispatch, which batch and quantity data still has to be entered more than once?",
+   "fr": "Du fournisseur à l’entrepôt, puis à la transformation et à l’expédition, quelles données de lot et de quantité faut-il encore saisir plusieurs fois ?"
+  },
+  {
+   "at": "fruit-logistica.pilot",
+   "zh": "限定一个品类、一个仓点、一条流程，记录数量与质量争议的处理方式。",
+   "en": "Limit it to one product category, one warehouse and one process, and record how quantity and quality disputes are handled.",
+   "fr": "Se limiter à une catégorie de produits, un entrepôt et un processus, et consigner la façon dont sont traités les litiges de quantité et de qualité."
+  },
+  {
+   "at": "fruit-logistica.checked",
+   "zh": "11 月 24 日核对官网专业观众票价、优惠码及有效期。",
+   "en": "Trade visitor prices, discount code and its validity checked on the official site on 24 November.",
+   "fr": "Tarifs visiteurs professionnels, code de réduction et période de validité vérifiés sur le site officiel le 24 novembre."
+  },
+  {
+   "at": "fruit-logistica.sources.0",
+   "zh": "官方门票",
+   "en": "Official tickets",
+   "fr": "Billets officiels"
+  },
+  {
+   "at": "startup-world.status",
+   "zh": "名额待确认",
+   "en": "Places to be confirmed",
+   "fr": "Places à confirmer"
+  },
+  {
+   "at": "startup-world.value",
+   "zh": "农业科技、采后技术、物流与供应链产品的付费展示。",
+   "en": "A paid exhibition area for agritech, post-harvest technology, logistics and supply chain products.",
+   "fr": "Espace d’exposition payant pour les produits d’agritech, de post-récolte, de logistique et de supply chain."
+  },
+  {
+   "at": "startup-world.who",
+   "zh": "有清晰农业／仓储产品与演示后，由两人评估。",
+   "en": "For the two of us to assess once we have a clearly defined farming or warehousing product and a demo.",
+   "fr": "À évaluer à deux une fois que nous aurons un produit agricole ou d’entreposage bien défini et une démonstration."
+  },
+  {
+   "at": "startup-world.entry",
+   "zh": "方案含约 3㎡展示区、两张展商证、十张客户邀请票、约五分钟演讲。普通展位已候补，Startup World 2027 余位须单独确认。",
+   "en": "The package includes a display area of about 3 m², two exhibitor passes, ten customer invitations and a talk of about five minutes. Ordinary stands are on a waiting list; remaining places in Startup World 2027 must be confirmed separately.",
+   "fr": "La formule comprend un espace d’environ 3 m², deux badges exposant, dix invitations clients et une intervention d’environ cinq minutes. Les stands classiques sont sur liste d’attente ; les places restantes de Startup World 2027 sont à confirmer séparément."
+  },
+  {
+   "at": "startup-world.fee",
+   "zh": "995€ + 1.80€ AUMA 费用；页面税别不明确。",
+   "en": "€995 plus a €1.80 AUMA fee; the page does not say whether VAT is included.",
+   "fr": "995 € + 1,80 € de contribution AUMA ; la page ne précise pas si les prix sont HT ou TTC."
+  },
+  {
+   "at": "startup-world.eligibility",
+   "zh": "企业成立不超过八年，有产品或原型；不是免费的公开演讲征集。",
+   "en": "The company must be no more than eight years old and have a product or prototype; this is not a free open call for speakers.",
+   "fr": "L’entreprise doit avoir huit ans au plus et disposer d’un produit ou d’un prototype ; il ne s’agit pas d’un appel à intervenants gratuit et ouvert."
+  },
+  {
+   "at": "startup-world.action",
+   "zh": "先询问具体产品是否适用、名额和报价；仅提供通用外包服务时先做观众。",
+   "en": "Ask first whether our specific product qualifies, and about places and price; while we only offer general outsourcing, go as visitors first.",
+   "fr": "Demander d’abord si notre produit est admis, puis les places disponibles et le tarif ; tant que nous ne proposons que de la sous-traitance généraliste, y aller d’abord en visiteurs."
+  },
+  {
+   "at": "startup-world.sources.0",
+   "zh": "Startup World 方案",
+   "en": "Startup World package",
+   "fr": "Formule Startup World"
+  },
+  {
+   "at": "startup-world.sources.1",
+   "zh": "展位注册状态",
+   "en": "Stand registration status",
+   "fr": "État des inscriptions de stands"
+  },
+  {
+   "at": "siprho.status",
+   "zh": "身份待确认",
+   "en": "Visitor category to confirm",
+   "fr": "Catégorie à confirmer"
+  },
+  {
+   "at": "siprho.value",
+   "zh": "酒店、餐厅、酒吧和露营地经营者集中；展出范围包括业务软件、应用和追溯工具。",
+   "en": "Brings together hotel, restaurant, bar and campsite operators; exhibits include business software, apps and traceability tools.",
+   "fr": "Réunit des exploitants d’hôtels, de restaurants, de bars et de campings ; l’offre exposée comprend logiciels métier, applications et outils de traçabilité."
+  },
+  {
+   "at": "siprho.who",
+   "zh": "本人或合伙人以软件供应商身份核对观众或展商路线。",
+   "en": "Either of us checks, as a software supplier, whether to come as visitor or exhibitor.",
+   "fr": "L’un de nous deux vérifie, en tant que fournisseur de logiciels, s’il faut venir en visiteur ou en exposant."
+  },
+  {
+   "at": "siprho.entry",
+   "zh": "2027 免费专业观众表单开放；供应商适用身份需确认，学生身份不自动包含推广权限。",
+   "en": "The free trade visitor form for 2027 is open; confirm which category applies to suppliers. Student status does not in itself give the right to canvass.",
+   "fr": "Le formulaire visiteur professionnel gratuit pour 2027 est ouvert ; la catégorie applicable aux fournisseurs reste à confirmer. Le statut étudiant ne donne pas en soi le droit de démarcher."
+  },
+  {
+   "at": "siprho.fee",
+   "zh": "专业观众免费；参展另询。",
+   "en": "Free for trade visitors; exhibiting on request.",
+   "fr": "Gratuit pour les visiteurs professionnels ; tarif exposant sur demande."
+  },
+  {
+   "at": "siprho.eligibility",
+   "zh": "免费观众 badge 主要面向酒店餐饮行业从业者与项目经营者；软件供应商须核验服务商或展商渠道，学生身份不自动满足资格。",
+   "en": "The free visitor badge is mainly for people working in hotels and catering and for project owners in the trade; a software supplier must check the service-provider or exhibitor route, and student status does not automatically qualify.",
+   "fr": "Le badge visiteur gratuit s’adresse surtout aux professionnels de l’hôtellerie-restauration et aux porteurs de projet du secteur ; un fournisseur de logiciels doit vérifier la voie prestataire ou exposant, et le statut étudiant ne suffit pas d’office."
+  },
+  {
+   "at": "siprho.action",
+   "zh": "明确观众资格与推广规则，准备库存或订货案例。",
+   "en": "Establish visitor eligibility and the rules on canvassing, and prepare a stock or ordering case study.",
+   "fr": "Clarifier l’admission comme visiteur et les règles de démarchage, puis préparer un cas concret de stock ou de commande."
+  },
+  {
+   "at": "siprho.checked",
+   "zh": "按 11 月 16 日周报补充资格信息；其余字段保留首轮资料，未逐项重新核验。",
+   "en": "Eligibility details added from the 16 November weekly report; other fields come from the first survey and were not rechecked one by one.",
+   "fr": "Conditions d’accès complétées d’après le rapport du 16 novembre ; les autres champs viennent du premier relevé et n’ont pas été revérifiés un à un."
+  },
+  {
+   "at": "siprho.sources.0",
+   "zh": "专业观众入口",
+   "en": "Trade visitor registration",
+   "fr": "Inscription visiteurs professionnels"
+  },
+  {
+   "at": "waicf.status",
+   "zh": "演讲征集中",
+   "en": "Call for speakers open",
+   "fr": "Appel à intervenants ouvert"
+  },
+  {
+   "at": "waicf.value",
+   "zh": "有可衡量结果的 AI 实际案例分享。",
+   "en": "Talks on real AI use cases with measurable results.",
+   "fr": "Présentations de cas réels d’IA aux résultats mesurables."
+  },
+  {
+   "at": "waicf.who",
+   "zh": "本人以文档提取、工单分类、查询或辅助录入的实际案例申请。",
+   "en": "I apply with a real case: document extraction, work-order classification, search or assisted data entry.",
+   "fr": "Je candidate avec un cas réel : extraction de documents, classement de tickets, recherche ou aide à la saisie."
+  },
+  {
+   "at": "waicf.entry",
+   "zh": "演讲滚动审核，无统一最后截止日；普通参会主要为 2027 意向登记。",
+   "en": "Speaker applications are reviewed on a rolling basis with no single final deadline; for ordinary attendance there is mainly an expression-of-interest form for 2027.",
+   "fr": "Les candidatures d’intervenants sont examinées au fil de l’eau, sans date limite unique ; pour une simple participation, il existe surtout un formulaire de manifestation d’intérêt pour 2027."
+  },
+  {
+   "at": "waicf.fee",
+   "zh": "入选提供会议通行证；差旅住宿自理，无演讲报酬。",
+   "en": "Selected speakers receive a conference pass; travel and accommodation at their own expense, no speaker fee.",
+   "fr": "Les intervenants retenus reçoivent un pass pour la conférence ; déplacement et hébergement à leur charge, intervention non rémunérée."
+  },
+  {
+   "at": "waicf.eligibility",
+   "zh": "非商业推销，需解释错误、人工复核和实际效果。",
+   "en": "No sales pitches; the talk must explain errors, human review and actual results.",
+   "fr": "Pas de discours commercial ; l’intervention doit expliquer les erreurs, la vérification humaine et les résultats réels."
+  },
+  {
+   "at": "waicf.action",
+   "zh": "先准备一个具体业务案例；演讲获选或约到明确企业后再考虑远行。",
+   "en": "Prepare one specific business case first; consider the trip only once a talk is accepted or meetings with named companies are booked.",
+   "fr": "Préparer d’abord un cas métier précis ; n’envisager le déplacement qu’une fois l’intervention retenue ou des rendez-vous pris avec des entreprises identifiées."
+  },
+  {
+   "at": "waicf.checked",
+   "zh": "11 月 24 日核对官方演讲申请页的滚动审核、差旅和报酬条款。",
+   "en": "Rolling review, travel and fee terms checked on the official speaker application page on 24 November.",
+   "fr": "Examen au fil de l’eau, déplacement et rémunération vérifiés le 24 novembre sur la page officielle de candidature des intervenants."
+  },
+  {
+   "at": "waicf.sources.0",
+   "zh": "官方演讲申请",
+   "en": "Official speaker application",
+   "fr": "Candidature officielle des intervenants"
+  },
+  {
+   "at": "engage.value",
+   "zh": "大学创业资源、国际合作与路演，当前首先要确认校内孵化资格。",
+   "en": "University startup resources, international partnerships and pitching; the first thing to confirm now is whether we meet the university incubation requirement.",
+   "fr": "Ressources universitaires pour l’entrepreneuriat, partenariats internationaux et pitchs ; il faut d’abord confirmer que nous remplissons la condition d’incubation universitaire."
+  },
+  {
+   "at": "engage.who",
+   "zh": "本人以 UT Capitole MIAGE M1 学生和 REX 开发参与者的实际身份咨询资格；是否满足活跃共同创始人定义由学校／主办方确认。",
+   "en": "I ask about eligibility in my actual capacity: first-year MIAGE master’s student at UT Capitole and developer on REX. Whether that meets the definition of an active co-founder is for the university or the organiser to confirm.",
+   "fr": "Je me renseigne sur l’éligibilité à mon titre réel : étudiant en M1 MIAGE à l’UT Capitole et développeur chez REX. C’est à l’université ou à l’organisateur de dire si cela correspond à la définition de cofondateur actif."
+  },
+  {
+   "at": "engage.entry",
+   "zh": "ENGAGE 申请截止 2026/12/03 23:59 CET。入选项目一名创业者代表；pitch 可能再次筛选，展位另选一家。",
+   "en": "ENGAGE applications close on 3 December 2026 at 23:59 CET. Each selected project sends one founder; there may be a further selection for the pitch, and one project is chosen separately for the stand.",
+   "fr": "Les candidatures ENGAGE se closent le 3 décembre 2026 à 23:59 CET. Chaque projet retenu est représenté par un entrepreneur ; une nouvelle sélection est possible pour le pitch, et un projet est choisi à part pour le stand."
+  },
+  {
+   "at": "engage.fee",
+   "zh": "入选项目获四日票，差旅支持仅为可能。原报告记录普通自费票 399€ 含税，购买前需复核现价。",
+   "en": "Selected projects receive a four-day ticket; travel support is only a possibility. The original report recorded an ordinary self-funded ticket at €399 incl. VAT; recheck the current price before buying.",
+   "fr": "Les projets retenus reçoivent un billet de quatre jours ; une aide au déplacement n’est qu’une possibilité. Le rapport d’origine relevait un billet ordinaire à ses frais à 399 € TTC ; revérifier le prix avant tout achat."
+  },
+  {
+   "at": "engage.eligibility",
+   "zh": "活跃共同创始人须具有大学关联，团队须有相应校内孵化／加速经历、可用 MVP、实际验证和流利英语。本人目前不是 REX 股东，参与开发及 UT Capitole 学籍不自动满足 active co-founder；请 Léa／学校确认申报团队与角色。",
+   "en": "The active co-founder must be affiliated with the university, and the team needs a matching university incubation or acceleration record, a working MVP, real-world validation and fluent English. I am not currently a REX shareholder; working on the development and being enrolled at UT Capitole do not automatically make me an active co-founder. Ask Léa or the university to confirm the applying team and roles.",
+   "fr": "Le cofondateur actif doit être rattaché à l’université ; l’équipe doit justifier d’un passage par l’incubation ou l’accélération de l’établissement, d’un MVP utilisable, d’une validation réelle et d’un anglais courant. Je ne suis pas actionnaire de REX à ce jour ; participer au développement et être inscrit à l’UT Capitole ne font pas d’office de moi un « active co-founder ». Demander à Léa ou à l’université de confirmer l’équipe candidate et les rôles."
+  },
+  {
+   "at": "engage.action",
+   "zh": "先向学校确认申报角色和孵化经历。用英文准备产品网站、试点或用户证据、动机信及 4YFN 参会目标，12 月 3 日 23:59 CET 前提交。",
+   "en": "First confirm with the university the role we apply under and the incubation record. Prepare in English the product website, pilot or user evidence, a motivation letter and our goals for 4YFN, and submit before 3 December, 23:59 CET.",
+   "fr": "Confirmer d’abord avec l’université le rôle déclaré et le parcours d’incubation. Préparer en anglais le site du produit, des preuves de pilote ou d’usage, une lettre de motivation et les objectifs pour 4YFN, puis déposer le dossier avant le 3 décembre à 23:59 CET."
+  },
+  {
+   "at": "engage.checked",
+   "zh": "11 月 24 日核对 ENGAGE.EU 的申请要求、材料清单和截止时间。",
+   "en": "ENGAGE.EU application requirements, list of documents and deadline checked on 24 November.",
+   "fr": "Conditions de candidature, liste des pièces et date limite d’ENGAGE.EU vérifiées le 24 novembre."
+  },
+  {
+   "at": "engage.sources.0",
+   "zh": "ENGAGE 规则与申请入口",
+   "en": "ENGAGE rules and application",
+   "fr": "Règlement et candidature ENGAGE"
+  },
+  {
+   "at": "engage.sources.1",
+   "zh": "4YFN 官网",
+   "en": "4YFN website",
+   "fr": "Site de 4YFN"
+  },
+  {
+   "at": "talent-arena.value",
+   "zh": "技术交流、企业接触、比赛和开发伙伴，可与 4YFN 同程安排。",
+   "en": "Tech talks, company contacts, competitions and development partners; can share a trip with 4YFN.",
+   "fr": "Échanges techniques, contacts avec des entreprises, concours et partenaires de développement ; peut se combiner avec le déplacement à 4YFN."
+  },
+  {
+   "at": "talent-arena.who",
+   "zh": "本人以技术参与者身份参加。",
+   "en": "I attend as a technical participant.",
+   "fr": "J’y vais comme participant technique."
+  },
+  {
+   "at": "talent-arena.entry",
+   "zh": "2027 General Pass 报名开放；表单中的比赛兴趣登记不等于获得参赛资格。",
+   "en": "Registration for the 2027 General Pass is open; ticking an interest in the competitions on the form does not secure a place in them.",
+   "fr": "L’inscription au General Pass 2027 est ouverte ; signaler dans le formulaire son intérêt pour les concours ne vaut pas admission."
+  },
+  {
+   "at": "talent-arena.fee",
+   "zh": "General Pass 免费；差旅另计。",
+   "en": "The General Pass is free; travel extra.",
+   "fr": "General Pass gratuit ; déplacement en sus."
+  },
+  {
+   "at": "talent-arena.action",
+   "zh": "与 4YFN 行程合并评估，核对感兴趣的比赛规则。",
+   "en": "Assess together with the 4YFN trip and check the rules of the competitions that interest us.",
+   "fr": "Évaluer en même temps que le déplacement à 4YFN et vérifier le règlement des concours qui nous intéressent."
+  },
+  {
+   "at": "talent-arena.sources.0",
+   "zh": "2027 报名表",
+   "en": "2027 registration form",
+   "fr": "Formulaire d’inscription 2027"
+  },
+  {
+   "at": "talent-arena.sources.1",
+   "zh": "票种说明",
+   "en": "Ticket types",
+   "fr": "Types de billets"
+  },
+  {
+   "at": "cfia.status",
+   "zh": "免费 badge",
+   "en": "Free badge",
+   "fr": "Badge gratuit"
+  },
+  {
+   "at": "cfia.value",
+   "zh": "食品加工与工业生产，批次追踪、质检、生产记录、包装、库存和维护。",
+   "en": "Food processing and industrial production: batch tracking, quality control, production records, packaging, stock and maintenance.",
+   "fr": "Transformation alimentaire et production industrielle : suivi des lots, contrôle qualité, enregistrements de production, emballage, stocks et maintenance."
+  },
+  {
+   "at": "cfia.who",
+   "zh": "两人共同接触食品企业和设备集成伙伴。",
+   "en": "We both go, to meet food companies and equipment integration partners.",
+   "fr": "Nous y allons à deux pour rencontrer des entreprises agroalimentaires et des intégrateurs d’équipements."
+  },
+  {
+   "at": "cfia.entry",
+   "zh": "主办方已宣布免费 badge，正式取票入口已发布；身份选项尚未逐项核对。",
+   "en": "The organiser has announced free badges and the official badge request page is live; the visitor categories have not yet been checked one by one.",
+   "fr": "L’organisateur a annoncé des badges gratuits et la page officielle de demande de badge est en ligne ; les catégories de visiteurs n’ont pas encore été vérifiées une à une."
+  },
+  {
+   "at": "cfia.fee",
+   "zh": "免费专业观众；参展另议。",
+   "en": "Free for trade visitors; exhibiting by separate arrangement.",
+   "fr": "Gratuit pour les visiteurs professionnels ; exposition sur devis."
+  },
+  {
+   "at": "cfia.eligibility",
+   "zh": "先核对表单的供应商身份，不把免费参观当作免费参展。",
+   "en": "Check the supplier category on the form first; a free visit is not free exhibiting.",
+   "fr": "Vérifier d’abord la catégorie fournisseur du formulaire ; la visite gratuite ne vaut pas exposition gratuite."
+  },
+  {
+   "at": "cfia.action",
+   "zh": "筛选食品加工和包装企业，准备批次与生产记录案例。",
+   "en": "Shortlist food processing and packaging companies and prepare a case study on batches and production records.",
+   "fr": "Sélectionner des entreprises de transformation alimentaire et d’emballage, et préparer un cas sur les lots et les enregistrements de production."
+  },
+  {
+   "at": "cfia.checked",
+   "zh": "11 月 24 日在 CFIA 官网确认免费观众证入口。报名表中的身份选项仍待核对。",
+   "en": "Free visitor badge page confirmed on the CFIA website on 24 November. The visitor categories on the registration form are still to be checked.",
+   "fr": "Page du badge visiteur gratuit confirmée sur le site du CFIA le 24 novembre. Les catégories du formulaire d’inscription restent à vérifier."
+  },
+  {
+   "at": "cfia.sources.0",
+   "zh": "正式取票入口",
+   "en": "Official badge request",
+   "fr": "Demande de badge officielle"
+  },
+  {
+   "at": "tarbes-agriculture.status",
+   "zh": "票价已公布",
+   "en": "Prices published",
+   "fr": "Tarifs publiés"
+  },
+  {
+   "at": "tarbes-agriculture.value",
+   "zh": "农业经营交流，兼有面向公众的活动。",
+   "en": "Farm business networking, alongside events for the general public.",
+   "fr": "Échanges entre exploitants agricoles, avec en parallèle des animations grand public."
+  },
+  {
+   "at": "tarbes-agriculture.who",
+   "zh": "合伙人主导；本人展示批次、库存、订单或养殖记录。",
+   "en": "My partner leads; I demo batches, stock, orders or livestock records.",
+   "fr": "Mon associé pilote ; je présente les lots, les stocks, les commandes ou les registres d’élevage."
+  },
+  {
+   "at": "tarbes-agriculture.entry",
+   "zh": "展商申请需审核；普通观众购票方式以本届官网为准。",
+   "en": "Exhibitor applications are subject to approval; for ordinary visitors, ticketing is as stated on this edition’s website.",
+   "fr": "Les candidatures exposants sont soumises à validation ; pour les visiteurs, les modalités d’achat sont celles du site de l’édition en cours."
+  },
+  {
+   "at": "tarbes-agriculture.fee",
+   "zh": "普通票 7€，学生现场优惠票 4€；展商报价未知。",
+   "en": "Standard ticket €7, reduced student ticket on the door €4; exhibitor rates unknown.",
+   "fr": "Billet standard : 7 € ; tarif réduit étudiant sur place : 4 € ; tarif exposant inconnu."
+  },
+  {
+   "at": "tarbes-agriculture.eligibility",
+   "zh": "学生票按实际学籍；参展资格另行审核。",
+   "en": "Student ticket on proof of actual enrolment; exhibitor eligibility is assessed separately.",
+   "fr": "Billet étudiant sur justificatif d’inscription réelle ; l’admission comme exposant est examinée à part."
+  },
+  {
+   "at": "tarbes-agriculture.action",
+   "zh": "先判断目标专业企业与交流安排，避免把公众参观等同商务配对。",
+   "en": "First work out which trade companies to target and what meetings are possible; a public visit is not business matchmaking.",
+   "fr": "Déterminer d’abord les entreprises professionnelles visées et les échanges possibles ; une visite grand public ne vaut pas des rendez-vous d’affaires."
+  },
+  {
+   "at": "tarbes-agriculture.checked",
+   "zh": "来自 11 月 16 日周报；本次官网读取失败，票价与入口未另行复核。",
+   "en": "From the 16 November weekly report; the official site could not be read this time, so prices and registration were not rechecked.",
+   "fr": "Repris du rapport hebdomadaire du 16 novembre ; le site officiel n’a pas pu être lu cette fois, tarifs et inscription n’ont donc pas été revérifiés."
+  },
+  {
+   "at": "tarbes-agriculture.sources.0",
+   "zh": "官网与展商申请",
+   "en": "Website and exhibitor application",
+   "fr": "Site officiel et candidature exposant"
+  },
+  {
+   "at": "global-industrie.status",
+   "zh": "观众待开放",
+   "en": "Visitor tickets not yet open",
+   "fr": "Billetterie visiteurs pas encore ouverte"
+  },
+  {
+   "at": "global-industrie.value",
+   "zh": "制造业获客重点，覆盖工业软件、AI、生产维护、物流和设备集成；提前约到目标企业再决定远途投入。",
+   "en": "Our main event for winning manufacturing clients: industrial software, AI, production maintenance, logistics and equipment integration. Commit to the trip only once meetings with target companies are booked.",
+   "fr": "Notre principal rendez-vous pour la prospection dans l’industrie : logiciel industriel, IA, maintenance de production, logistique et intégration d’équipements. N’engager le déplacement qu’après avoir obtenu des rendez-vous avec des entreprises cibles."
+  },
+  {
+   "at": "global-industrie.who",
+   "zh": "两人以软件供应商与仓储业务参与者身份参观或评估联合展示。",
+   "en": "We both visit, as software supplier and warehousing operator, or assess a joint exhibit.",
+   "fr": "Nous visitons à deux, comme fournisseur de logiciels et comme exploitant d’entrepôt, ou nous étudions une présence commune."
+  },
+  {
+   "at": "global-industrie.entry",
+   "zh": "展商申请开放；普通观众开票未核实，Pré-inscription 实际为订阅通知。创业比赛已于 2026/11/10 截止。",
+   "en": "Exhibitor applications are open; ticket sales for ordinary visitors not checked, and the “Pré-inscription” is in fact a notification sign-up. The startup competition closed on 10 November 2026.",
+   "fr": "Les candidatures exposants sont ouvertes ; l’ouverture de la billetterie visiteurs n’a pas été vérifiée et la « Pré-inscription » n’est en réalité qu’un abonnement aux notifications. Le concours de startups s’est clos le 10 novembre 2026."
+  },
+  {
+   "at": "global-industrie.fee",
+   "zh": "观众票价尚未核实；展位询价。",
+   "en": "Visitor prices not yet checked; stand prices on request.",
+   "fr": "Tarifs visiteurs non vérifiés ; stands sur devis."
+  },
+  {
+   "at": "global-industrie.action",
+   "zh": "优先拓展法国制造业客户；观众正式票务待确认，创业比赛已于 11/10 截止。与 3/16–18 LogiMAT 按制造业或仓储目标取舍。",
+   "en": "Priority: French manufacturing clients. Official visitor ticketing is still to be confirmed and the startup competition closed on 10 November. Choose between this and LogiMAT (16–18 March) according to whether the target is manufacturing or warehousing.",
+   "fr": "Priorité aux clients industriels français. La billetterie visiteurs officielle reste à confirmer et le concours de startups s’est clos le 10 novembre. Arbitrer avec LogiMAT (16–18 mars) selon que la cible est l’industrie ou l’entreposage."
+  },
+  {
+   "at": "global-industrie.contacts",
+   "zh": "工厂生产、质量、维护、物流和 IT 负责人，以及设备商、系统集成商。",
+   "en": "Plant managers for production, quality, maintenance, logistics and IT, plus equipment makers and systems integrators.",
+   "fr": "Responsables de production, de qualité, de maintenance, de logistique et d’informatique en usine, ainsi que fabricants d’équipements et intégrateurs de systèmes."
+  },
+  {
+   "at": "global-industrie.demo",
+   "zh": "检测记录、库存状态与维修工单相互追踪。",
+   "en": "Inspection records, stock status and repair work orders traced from one to the other.",
+   "fr": "Relevés de contrôle, état des stocks et bons de réparation reliés entre eux."
+  },
+  {
+   "at": "global-industrie.question",
+   "zh": "质量异常发生后，能否从批次直接找到检测、库存和处理记录？",
+   "en": "After a quality incident, can you go straight from the batch to its inspection, stock and corrective-action records?",
+   "fr": "Après un incident qualité, pouvez-vous retrouver directement, à partir du lot, les contrôles, les stocks et les actions menées ?"
+  },
+  {
+   "at": "global-industrie.pilot",
+   "zh": "以一类设备或一条产线的记录为试点，明确设备接口与现场交付责任。",
+   "en": "Pilot on the records of one class of equipment or one production line, and set out who is responsible for machine interfaces and on-site delivery.",
+   "fr": "Piloter sur les enregistrements d’une catégorie d’équipements ou d’une ligne de production, en précisant les responsabilités sur les interfaces machines et la livraison sur site."
+  },
+  {
+   "at": "global-industrie.sources.0",
+   "zh": "官网与展商入口",
+   "en": "Website and exhibitor registration",
+   "fr": "Site officiel et inscription exposants"
+  },
+  {
+   "at": "global-industrie.sources.1",
+   "zh": "已截止创业比赛",
+   "en": "Startup competition (closed)",
+   "fr": "Concours de startups (clos)"
+  },
+  {
+   "at": "logimat.status",
+   "zh": "观众待核实",
+   "en": "Visitor terms unverified",
+   "fr": "Conditions visiteurs à vérifier"
+  },
+  {
+   "at": "logimat.value",
+   "zh": "仓储内部物流、库存、流程管理与自动化，寻找设备商和软件集成伙伴。",
+   "en": "Intralogistics, stock, process management and automation; a place to find equipment makers and software integration partners.",
+   "fr": "Intralogistique, stocks, gestion des processus et automatisation ; on y cherche des fabricants d’équipements et des partenaires d’intégration logicielle."
+  },
+  {
+   "at": "logimat.who",
+   "zh": "两人共同参加，合伙人讲运营，本人讲系统与接口。",
+   "en": "We both attend: my partner talks operations, I talk systems and interfaces.",
+   "fr": "Nous y allons à deux : mon associé parle exploitation, je parle systèmes et interfaces."
+  },
+  {
+   "at": "logimat.entry",
+   "zh": "3 月 18 日可从斯图加特展览中心 ICS 入口参加 CareerDay，在场内换票后可参观当天的 LogiMAT。CareerDay 将于 2027 年 2 月开放注册。",
+   "en": "On 18 March, CareerDay is reached through the ICS entrance of Messe Stuttgart; after exchanging the ticket inside, we can visit LogiMAT that day. CareerDay registration opens in February 2027.",
+   "fr": "Le 18 mars, on accède au CareerDay par l’entrée ICS du parc des expositions de Stuttgart ; après échange du billet sur place, on peut visiter LogiMAT ce jour-là. Les inscriptions au CareerDay ouvrent en février 2027."
+  },
+  {
+   "at": "logimat.fee",
+   "zh": "普通票价尚未核实。",
+   "en": "Standard ticket price not yet checked.",
+   "fr": "Tarif standard non vérifié."
+  },
+  {
+   "at": "logimat.eligibility",
+   "zh": "CareerDay 接受学生与求职者，免费入场需提前注册，通行权益限 3 月 18 日。",
+   "en": "CareerDay admits students and job seekers; free entry requires advance registration and is valid on 18 March only.",
+   "fr": "Le CareerDay admet étudiants et demandeurs d’emploi ; l’entrée gratuite suppose une inscription préalable et ne vaut que pour le 18 mars."
+  },
+  {
+   "at": "logimat.action",
+   "zh": "有仓储系统与设备集成目标时优先；与里昂 Global Industrie 按业务方向取舍。",
+   "en": "Takes priority if the target is warehouse systems and equipment integration; choose between this and Global Industrie in Lyon according to business focus.",
+   "fr": "Prioritaire si la cible est le système d’entrepôt et l’intégration d’équipements ; arbitrer avec Global Industrie à Lyon selon l’orientation retenue."
+  },
+  {
+   "at": "logimat.checked",
+   "zh": "11 月 24 日核对 CareerDay 注册月份和换票规则。普通专业观众票价待确认。",
+   "en": "CareerDay registration month and ticket-exchange rule checked on 24 November. Standard trade visitor price to be confirmed.",
+   "fr": "Mois d’ouverture des inscriptions au CareerDay et règle d’échange du billet vérifiés le 24 novembre. Tarif visiteur professionnel standard à confirmer."
+  },
+  {
+   "at": "logimat.sources.1",
+   "zh": "CareerDay 注册规则",
+   "en": "CareerDay registration rules",
+   "fr": "Règles d’inscription au CareerDay"
+  },
+  {
+   "at": "occitanie-invest.value",
+   "zh": "本地融资准备、pitch 和投资人会谈；仅在有明确融资产品和用途时推进。",
+   "en": "Local fundraising preparation, pitch and investor meetings; pursue only with a clearly defined product to fund and use of funds.",
+   "fr": "Préparation à la levée de fonds, pitch et entretiens avec des investisseurs en région ; à n’engager qu’avec un produit à financer et un emploi des fonds bien définis."
+  },
+  {
+   "at": "occitanie-invest.who",
+   "zh": "REX 的有权企业代表，基于 REX 自身营收和财务资料申请。",
+   "en": "An authorised representative of REX, applying on the basis of REX’s own revenue and financial records.",
+   "fr": "Un représentant habilité de REX, qui candidate sur la base du chiffre d’affaires et des comptes propres de REX."
+  },
+  {
+   "at": "occitanie-invest.entry",
+   "zh": "申请截止 2026/12/10；需要差异化产品或服务、营收、健康财务和明确融资计划。",
+   "en": "Applications close on 10 December 2026; they require a differentiated product or service, revenue, sound finances and a clear funding plan.",
+   "fr": "Les candidatures se closent le 10 décembre 2026 ; il faut un produit ou service différencié, du chiffre d’affaires, des finances saines et un plan de financement précis."
+  },
+  {
+   "at": "occitanie-invest.fee",
+   "zh": "费用尚未核实。",
+   "en": "Cost not yet checked.",
+   "fr": "Tarif non vérifié."
+  },
+  {
+   "at": "occitanie-invest.eligibility",
+   "zh": "须有差异化产品或服务、营收、健康财务与明确融资计划；startup 现金覆盖至少六个月。官方本期关注融资 50 万至 1,500 万欧元，不能以其他实体收入替代 REX 证明。",
+   "en": "Requires a differentiated product or service, revenue, sound finances and a clear funding plan; a startup needs at least six months of cash. This edition officially targets rounds of €500,000 to €15 million. Another entity’s income cannot stand in for REX’s own evidence.",
+   "fr": "Il faut un produit ou service différencié, du chiffre d’affaires, des finances saines et un plan de financement précis ; une startup doit disposer d’au moins six mois de trésorerie. L’édition vise officiellement des levées de 500 000 € à 15 millions d’euros. Les revenus d’une autre entité ne peuvent pas tenir lieu de justificatifs pour REX."
+  },
+  {
+   "at": "occitanie-invest.action",
+   "zh": "12/10 前判断产品、收入和融资用途；若主要目标是定制开发订单，先参加行业获客活动。",
+   "en": "Before 10 December, settle the product, the revenue and the use of funds; if the main aim is custom development orders, go to the trade events for winning clients first.",
+   "fr": "Avant le 10 décembre, arrêter le produit, le chiffre d’affaires et l’emploi des fonds ; si l’objectif principal est de décrocher des commandes de développement sur mesure, aller d’abord sur les salons de prospection."
+  },
+  {
+   "at": "occitanie-invest.sources.0",
+   "zh": "企业申请说明",
+   "en": "Application guidance for companies",
+   "fr": "Modalités de candidature des entreprises"
+  },
+  {
+   "at": "occitanie-invest.sources.1",
+   "zh": "AD’OCC 征集公告",
+   "en": "AD’OCC call for applications",
+   "fr": "Appel à candidatures AD’OCC"
+  },
+  {
+   "at": "sitl.value",
+   "zh": "法国仓储与物流获客，库存、订单、接口和单据自动化。",
+   "en": "Winning warehousing and logistics clients in France: stock, orders, interfaces and document automation.",
+   "fr": "Prospection dans l’entreposage et la logistique en France : stocks, commandes, interfaces et automatisation des documents."
+  },
+  {
+   "at": "sitl.who",
+   "zh": "两人共同参加，展示实际运营与软件流程。",
+   "en": "We both attend and present real operations alongside the software flows.",
+   "fr": "Nous y allons à deux et présentons l’exploitation réelle avec les flux logiciels."
+  },
+  {
+   "at": "sitl.entry",
+   "zh": "观众票务未开放，有通知订阅；展商咨询可进行。",
+   "en": "Visitor ticketing is not open yet, though there is a notification sign-up; exhibitor enquiries are possible.",
+   "fr": "La billetterie visiteurs n’est pas ouverte, mais on peut s’abonner aux notifications ; les demandes exposants sont possibles."
+  },
+  {
+   "at": "sitl.fee",
+   "zh": "本届票价与商务预约规则未公布。",
+   "en": "Ticket prices and business meeting rules for this edition have not been published.",
+   "fr": "Tarifs et règles des rendez-vous d’affaires de cette édition non publiés."
+  },
+  {
+   "at": "sitl.eligibility",
+   "zh": "订阅通知不等于取得 badge。",
+   "en": "Signing up for notifications is not the same as getting a badge.",
+   "fr": "S’abonner aux notifications ne vaut pas obtention d’un badge."
+  },
+  {
+   "at": "sitl.action",
+   "zh": "先整理目标企业，规则公布后再选观众或展示方式。",
+   "en": "Draw up the target company list first; once the rules are published, choose between visiting and exhibiting.",
+   "fr": "Dresser d’abord la liste des entreprises cibles ; une fois les règles publiées, choisir entre visite et exposition."
+  },
+  {
+   "at": "sitl.checked",
+   "zh": "11 月 24 日核对官方 FAQ。普通观众可订阅开票通知，票价待公布。",
+   "en": "Official FAQ checked on 24 November. Ordinary visitors can sign up to be told when tickets go on sale; prices to be announced.",
+   "fr": "FAQ officielle vérifiée le 24 novembre. Les visiteurs peuvent s’abonner à l’alerte d’ouverture de la billetterie ; tarifs non encore annoncés."
+  },
+  {
+   "at": "sitl.sources.0",
+   "zh": "官方 FAQ",
+   "en": "Official FAQ",
+   "fr": "FAQ officielle"
+  },
+  {
+   "at": "advanced-factories.value",
+   "zh": "优先准备的正式案例演讲渠道，面向工业 AI、自动化、机器视觉、物流和工业数字化。",
+   "en": "The speaking slot to prepare for first: formal case-study talks on industrial AI, automation, machine vision, logistics and industrial digitalisation.",
+   "fr": "L’appel à intervenants à préparer en premier : présentations de cas sur l’IA industrielle, l’automatisation, la vision par ordinateur, la logistique et la numérisation de l’industrie."
+  },
+  {
+   "at": "advanced-factories.who",
+   "zh": "本人以实际项目开发者、技术专业人士或创业者身份投稿。",
+   "en": "I submit as the developer of a real project, as a technical professional or as a founder.",
+   "fr": "Je propose une intervention comme développeur d’un projet réel, professionnel technique ou entrepreneur."
+  },
+  {
+   "at": "advanced-factories.entry",
+   "zh": "演讲征集开放，2027/02/07 23:59:59 CET 截止；观众票开售情况尚未确认。",
+   "en": "The call for speakers is open until 7 February 2027, 23:59:59 CET; whether visitor tickets are on sale is not yet confirmed.",
+   "fr": "L’appel à intervenants est ouvert jusqu’au 7 février 2027 à 23:59:59 CET ; l’ouverture de la billetterie visiteurs n’est pas confirmée."
+  },
+  {
+   "at": "advanced-factories.fee",
+   "zh": "演讲申请免费（首轮资料）；观众票和差旅另计。",
+   "en": "Applying to speak is free (first-survey data); visitor tickets and travel extra.",
+   "fr": "Candidature d’intervenant gratuite (premier relevé) ; billets visiteurs et déplacement en sus."
+  },
+  {
+   "at": "advanced-factories.eligibility",
+   "zh": "首轮资料记录使用英语或西班牙语，附件最多 8 页／16 MB；强调实际案例，避免产品推销。规则 PDF 本次抓取未成功，提交前复核附件限制。",
+   "en": "The first survey records English or Spanish as the working languages and attachments of at most 8 pages or 16 MB; real cases are wanted, product pitches are not. The rules PDF could not be retrieved this time, so recheck the attachment limits before submitting.",
+   "fr": "Le premier relevé indique l’anglais ou l’espagnol comme langues et des pièces jointes de 8 pages ou 16 Mo au plus ; des cas réels sont attendus, pas de promotion de produit. Le PDF du règlement n’a pas pu être récupéré cette fois ; revérifier les limites des pièces jointes avant de déposer."
+  },
+  {
+   "at": "advanced-factories.action",
+   "zh": "可用电子产品检测案例投稿，交代检测结果怎样连到库存和出入库记录，并附实际使用范围、测量结果及限制。",
+   "en": "The electronics inspection case can be submitted: explain how inspection results link to stock and to goods-in and goods-out records, and state the actual scope of use, measured results and limits.",
+   "fr": "Le cas du contrôle de produits électroniques peut être proposé : expliquer comment les résultats de contrôle sont reliés aux stocks et aux entrées-sorties, et indiquer le périmètre d’usage réel, les résultats mesurés et les limites."
+  },
+  {
+   "at": "advanced-factories.demo",
+   "zh": "候选主题：电子产品仓储中，如何把检测、库存与出入库记录连接成可追踪流程。",
+   "en": "Proposed topic: in an electronics warehouse, how to join inspection, stock and goods-in and goods-out records into one traceable flow.",
+   "fr": "Sujet envisagé : dans un entrepôt de produits électroniques, comment relier contrôle, stocks et entrées-sorties en un flux traçable."
+  },
+  {
+   "at": "advanced-factories.pilot",
+   "zh": "只陈述有证据的功能与效果；区分普通业务逻辑、自动化和确实使用 AI 的部分。",
+   "en": "State only the functions and results we can evidence; distinguish ordinary business logic, automation and the parts that really use AI.",
+   "fr": "N’exposer que les fonctions et les résultats étayés par des preuves ; distinguer la logique métier classique, l’automatisation et ce qui relève réellement de l’IA."
+  },
+  {
+   "at": "advanced-factories.checked",
+   "zh": "11 月 24 日核对主办方的征集入口与 2 月 7 日 23:59:59 CET 截止时间。附件限制沿用首轮资料，提交前请查当届规则。",
+   "en": "Organiser’s call page and the 7 February, 23:59:59 CET deadline checked on 24 November. The attachment limits come from the first survey; check this edition’s rules before submitting.",
+   "fr": "Page de l’appel et date limite du 7 février à 23:59:59 CET vérifiées auprès de l’organisateur le 24 novembre. Les limites des pièces jointes viennent du premier relevé ; consulter le règlement de l’édition avant de déposer."
+  },
+  {
+   "at": "advanced-factories.sources.0",
+   "zh": "演讲征集",
+   "en": "Call for speakers",
+   "fr": "Appel à intervenants"
+  },
+  {
+   "at": "advanced-factories.sources.1",
+   "zh": "投稿入口",
+   "en": "Submission page",
+   "fr": "Dépôt des propositions"
+  },
+  {
+   "at": "advanced-factories.sources.2",
+   "zh": "本届规则 PDF",
+   "en": "This edition’s rules (PDF)",
+   "fr": "Règlement de l’édition (PDF)"
+  },
+  {
+   "at": "midi-mat.venue",
+   "zh": "图卢兹近郊",
+   "en": "near Toulouse",
+   "fr": "près de Toulouse"
+  },
+  {
+   "at": "midi-mat.value",
+   "zh": "施工设备、运输、租赁、工匠企业的维护、工单和库存需求访谈。",
+   "en": "Needs interviews on maintenance, work orders and stock with construction equipment, transport, hire and trade businesses.",
+   "fr": "Entretiens de besoin sur la maintenance, les bons d’intervention et les stocks auprès d’entreprises de matériel de chantier, de transport, de location et d’artisans."
+  },
+  {
+   "at": "midi-mat.who",
+   "zh": "两人可从设备使用与软件记录两侧交流。",
+   "en": "The two of us can cover both sides: using the equipment and recording it in software.",
+   "fr": "À deux, nous couvrons les deux versants : l’usage du matériel et son suivi logiciel."
+  },
+  {
+   "at": "midi-mat.entry",
+   "zh": "免费观众 badge 开放；12/15 前申请展位可享 10% 提前优惠。",
+   "en": "Free visitor badges are available; stands booked before 15 December get a 10% early-booking discount.",
+   "fr": "Les badges visiteurs gratuits sont disponibles ; un stand réservé avant le 15 décembre bénéficie de 10 % de remise anticipée."
+  },
+  {
+   "at": "midi-mat.fee",
+   "zh": "9㎡裸展位 500€ HT；家具、电力另算。",
+   "en": "9 m² bare stand €500 excl. VAT; furniture and electricity extra.",
+   "fr": "Stand nu de 9 m² : 500 € HT ; mobilier et électricité en sus."
+  },
+  {
+   "at": "midi-mat.eligibility",
+   "zh": "免费参观与付费参展分开；展商含软件和服务供应商。",
+   "en": "Free visiting and paid exhibiting are separate; exhibitors include software and service suppliers.",
+   "fr": "Visite gratuite et exposition payante sont distinctes ; les exposants comprennent des fournisseurs de logiciels et de services."
+  },
+  {
+   "at": "midi-mat.action",
+   "zh": "优先免费参观，验证设备维护、租赁交接与工具管理需求，再评估展位。",
+   "en": "Visit for free first to test demand for equipment maintenance, hire handovers and tool management, then assess a stand.",
+   "fr": "Visiter d’abord gratuitement pour vérifier les besoins en maintenance du matériel, en états des lieux de location et en gestion d’outillage, puis étudier un stand."
+  },
+  {
+   "at": "midi-mat.checked",
+   "zh": "11 月 16 日打开官网、观众页和展商方案；费用细项行动前以结算为准。",
+   "en": "Website, visitor page and exhibitor package opened on 16 November; itemised costs are those shown at checkout when we act.",
+   "fr": "Site officiel, page visiteurs et formule exposant consultés le 16 novembre ; le détail des frais est celui affiché au moment du paiement."
+  },
+  {
+   "at": "midi-mat.sources.0",
+   "zh": "免费参观",
+   "en": "Free visit",
+   "fr": "Visite gratuite"
+  },
+  {
+   "at": "midi-mat.sources.1",
+   "zh": "展商方案",
+   "en": "Exhibitor package",
+   "fr": "Formule exposant"
+  },
+  {
+   "at": "hannover.status",
+   "zh": "票务待确认",
+   "en": "Ticketing to be confirmed",
+   "fr": "Billetterie à confirmer"
+  },
+  {
+   "at": "hannover.value",
+   "zh": "工业 AI、自动化与数字化合作。",
+   "en": "Industrial AI, automation and digital partnerships.",
+   "fr": "IA industrielle, automatisation et partenariats numériques."
+  },
+  {
+   "at": "hannover.who",
+   "zh": "本人准备工业案例，两人按会谈名单决定出席。",
+   "en": "I prepare the industrial case studies; we decide who attends from the list of meetings.",
+   "fr": "Je prépare les cas industriels ; nous décidons à deux de la présence d’après la liste des rendez-vous."
+  },
+  {
+   "at": "hannover.entry",
+   "zh": "官方英德页面开票时间表述不一致，暂不视作已确认开售。",
+   "en": "The official English and German pages disagree on when ticket sales open, so sales are not treated as confirmed for now.",
+   "fr": "Les pages officielles en anglais et en allemand divergent sur l’ouverture de la billetterie ; la vente n’est pas considérée comme confirmée pour l’instant."
+  },
+  {
+   "at": "hannover.fee",
+   "zh": "2027 票价与展示报价待核对。",
+   "en": "2027 ticket prices and exhibiting rates to be checked.",
+   "fr": "Tarifs des billets 2027 et tarifs d’exposition à vérifier."
+  },
+  {
+   "at": "hannover.eligibility",
+   "zh": "需要工业案例和明确会谈，不按展会名气安排远行。",
+   "en": "Needs industrial case studies and firm meetings; the show’s reputation is not a reason to make the trip.",
+   "fr": "Suppose des cas industriels et des rendez-vous fermes ; la notoriété du salon ne suffit pas à justifier le déplacement."
+  },
+  {
+   "at": "hannover.action",
+   "zh": "现阶段法国客户开发先考虑里昂 Global Industrie。",
+   "en": "For winning French clients at this stage, consider Global Industrie in Lyon first.",
+   "fr": "À ce stade, pour la prospection en France, envisager d’abord Global Industrie à Lyon."
+  },
+  {
+   "at": "hannover.sources.0",
+   "zh": "官方票务",
+   "en": "Official ticketing",
+   "fr": "Billetterie officielle"
+  },
+  {
+   "at": "webwinkel.value",
+   "zh": "电商、履约、跨境仓储与数字商务合作。",
+   "en": "E-commerce, fulfilment, cross-border warehousing and digital commerce partnerships.",
+   "fr": "E-commerce, préparation et expédition des commandes, entreposage transfrontalier et partenariats de commerce numérique."
+  },
+  {
+   "at": "webwinkel.who",
+   "zh": "以真实企业身份寻找仓储客户与软件渠道。",
+   "en": "Under our actual company identity, look for warehousing clients and software resale channels.",
+   "fr": "Sous notre identité d’entreprise réelle, chercher des clients pour l’entreposage et des canaux de distribution pour le logiciel."
+  },
+  {
+   "at": "webwinkel.entry",
+   "zh": "2027 观众票尚未开放，现有表单为通知订阅。",
+   "en": "Visitor tickets for 2027 are not open yet; the current form is a notification sign-up.",
+   "fr": "Les billets visiteurs 2027 ne sont pas encore ouverts ; le formulaire actuel est un abonnement aux notifications."
+  },
+  {
+   "at": "webwinkel.fee",
+   "zh": "本届入场规则与票务待开放后核对。",
+   "en": "Admission rules and ticketing for this edition to be checked once they open.",
+   "fr": "Règles d’entrée et billetterie de cette édition à vérifier à leur ouverture."
+  },
+  {
+   "at": "webwinkel.eligibility",
+   "zh": "学生不能自行按普通学生访客方式参观，另有组织安排。",
+   "en": "Students cannot simply visit on their own as student visitors; a separate organised arrangement applies.",
+   "fr": "Les étudiants ne peuvent pas venir seuls en simples visiteurs étudiants ; un dispositif encadré est prévu à part."
+  },
+  {
+   "at": "webwinkel.action",
+   "zh": "有目标客户名单后再规划远行。",
+   "en": "Plan the trip only once there is a list of target clients.",
+   "fr": "N’organiser le déplacement qu’avec une liste de clients cibles."
+  },
+  {
+   "at": "webwinkel.sources.0",
+   "zh": "官方观众入口",
+   "en": "Official visitor registration",
+   "fr": "Inscription visiteurs officielle"
+  },
+  {
+   "at": "mixit.status",
+   "zh": "仅日期确定",
+   "en": "Dates only",
+   "fr": "Dates seules connues"
+  },
+  {
+   "at": "mixit.value",
+   "zh": "技术社区与经验分享；取得本届演讲机会后再评估远途参加。",
+   "en": "A tech community sharing experience; assess the long trip only after securing a talk at this edition.",
+   "fr": "Communauté technique et partage d’expérience ; n’étudier le déplacement qu’après avoir obtenu une intervention pour cette édition."
+  },
+  {
+   "at": "mixit.who",
+   "zh": "本人以技术分享者身份关注。",
+   "en": "I follow it as a potential technical speaker.",
+   "fr": "Je le suis comme intervenant technique potentiel."
+  },
+  {
+   "at": "mixit.entry",
+   "zh": "日期已公布，本轮未核实 2027 演讲征集开放；不沿用旧 FAQ 的投稿日期。",
+   "en": "Dates are published; this round did not verify that the 2027 call for speakers is open, and the submission dates in the old FAQ are not reused.",
+   "fr": "Les dates sont publiées ; ce relevé n’a pas vérifié l’ouverture de l’appel à intervenants 2027 et ne reprend pas les dates de soumission de l’ancienne FAQ."
+  },
+  {
+   "at": "mixit.fee",
+   "zh": "本届费用尚未核实。",
+   "en": "Costs for this edition not yet checked.",
+   "fr": "Tarifs de cette édition non vérifiés."
+  },
+  {
+   "at": "mixit.action",
+   "zh": "监测本届 CFP 和票务。",
+   "en": "Watch for this edition’s CFP and ticketing.",
+   "fr": "Surveiller le CFP et la billetterie de cette édition."
+  },
+  {
+   "at": "transport-logistic.status",
+   "zh": "2027/1 开票",
+   "en": "Tickets from Jan 2027",
+   "fr": "Billetterie en janv. 2027"
+  },
+  {
+   "at": "transport-logistic.value",
+   "zh": "海外仓、运输、货代与国际物流合作。",
+   "en": "Overseas warehouses, transport, freight forwarding and international logistics partnerships.",
+   "fr": "Entrepôts à l’étranger, transport, transit et partenariats de logistique internationale."
+  },
+  {
+   "at": "transport-logistic.who",
+   "zh": "合伙人主导，本人寻找系统集成需求。",
+   "en": "My partner leads; I look for systems integration needs.",
+   "fr": "Mon associé pilote ; je cherche les besoins d’intégration de systèmes."
+  },
+  {
+   "at": "transport-logistic.entry",
+   "zh": "官方说明票务 2027 年 1 月开放。",
+   "en": "The organiser states that ticketing opens in January 2027.",
+   "fr": "L’organisateur annonce l’ouverture de la billetterie en janvier 2027."
+  },
+  {
+   "at": "transport-logistic.fee",
+   "zh": "价格未公布。",
+   "en": "Prices not published.",
+   "fr": "Tarifs non publiés."
+  },
+  {
+   "at": "transport-logistic.eligibility",
+   "zh": "若主要销售小型定制软件，优先级低于 SITL 与 LogiMAT。",
+   "en": "If we are mainly selling small custom software, this ranks below SITL and LogiMAT.",
+   "fr": "Si nous vendons surtout de petits logiciels sur mesure, ce salon passe après SITL et LogiMAT."
+  },
+  {
+   "at": "transport-logistic.action",
+   "zh": "扩大国际仓储合作时值得远行；与 medFEL 按物流或农业目标取舍。",
+   "en": "Worth the trip when expanding international warehousing partnerships; choose between this and medFEL according to whether the aim is logistics or agriculture.",
+   "fr": "Le déplacement se justifie pour développer des partenariats d’entreposage à l’international ; arbitrer avec medFEL selon que l’objectif est la logistique ou l’agriculture."
+  },
+  {
+   "at": "medfel.value",
+   "zh": "农业、物流与软件的交叉机会，覆盖果蔬生产、批发、运输、包装和技术工程。",
+   "en": "Where agriculture, logistics and software overlap: fruit and vegetable production, wholesale, transport, packaging and engineering.",
+   "fr": "À la croisée de l’agriculture, de la logistique et du logiciel : production de fruits et légumes, négoce de gros, transport, emballage et ingénierie."
+  },
+  {
+   "at": "medfel.who",
+   "zh": "建议两人一起，以农业业务与软件供应商身份核对参与方式。",
+   "en": "Best attended together; check how to take part as a farming business and as a software supplier.",
+   "fr": "À faire à deux de préférence ; vérifier les modalités de participation au titre de l’activité agricole et comme fournisseur de logiciels."
+  },
+  {
+   "at": "medfel.entry",
+   "zh": "免费观众 badge 尚未开放，官网预计年底开放；AD’OCC 区域展团申请截止 2027/01/31。",
+   "en": "The free visitor badge is not available yet; the website expects it by the end of the year. Applications for the AD’OCC regional pavilion close on 31 January 2027.",
+   "fr": "Le badge visiteur gratuit n’est pas encore disponible ; le site l’annonce pour la fin de l’année. Les candidatures au pavillon régional AD’OCC se closent le 31 janvier 2027."
+  },
+  {
+   "at": "medfel.fee",
+   "zh": "普通观众免费。原资料记录展团 9㎡ 为 3,591€ HT，加每展商必付 380€ HT；共享展位另询。",
+   "en": "Free for ordinary visitors. The source data records 9 m² in the pavilion at €3,591 excl. VAT, plus a compulsory €380 excl. VAT per exhibitor; shared stands on request.",
+   "fr": "Gratuit pour les visiteurs. Les données d’origine relèvent 9 m² sur le pavillon à 3 591 € HT, plus 380 € HT obligatoires par exposant ; stand partagé sur demande."
+  },
+  {
+   "at": "medfel.action",
+   "zh": "农业软件和果蔬流通是本期业务重点时列 A，两人可共同参观。若同期主攻国际运输，则列 B，优先评估慕尼黑已约到的会谈。",
+   "en": "Rated A if farming software and fresh-produce distribution are the business focus for the period, in which case we can visit together. Rated B if the focus at that time is international transport; then assess first the meetings already booked in Munich.",
+   "fr": "Classé A si le logiciel agricole et la distribution de fruits et légumes sont la priorité de la période : nous pouvons alors visiter à deux. Classé B si la priorité est alors le transport international ; examiner d’abord les rendez-vous déjà pris à Munich."
+  },
+  {
+   "at": "medfel.contacts",
+   "zh": "果蔬生产和批发经营者、运输与仓储负责人、包装设备及技术服务商。",
+   "en": "Fruit and vegetable growers and wholesalers, transport and warehouse managers, packaging equipment makers and technical service providers.",
+   "fr": "Producteurs et grossistes de fruits et légumes, responsables de transport et d’entrepôt, fabricants de matériel d’emballage et prestataires techniques."
+  },
+  {
+   "at": "medfel.demo",
+   "zh": "批次、订单、出入库与交付记录关联查询。",
+   "en": "A linked look-up across batches, orders, goods in and out, and delivery records.",
+   "fr": "Recherche croisée entre lots, commandes, entrées-sorties et preuves de livraison."
+  },
+  {
+   "at": "medfel.question",
+   "zh": "跨仓库或运输交接时，哪部分批次信息最容易断开？",
+   "en": "At a handover between warehouses or to a carrier, which part of the batch information gets lost most easily?",
+   "fr": "Lors d’un transfert entre entrepôts ou d’une remise au transporteur, quelle partie des informations de lot se perd le plus facilement ?"
+  },
+  {
+   "at": "medfel.pilot",
+   "zh": "在一个仓库与一类果蔬业务验证追踪流程，冷链硬件和接口另行评估。",
+   "en": "Test the tracking flow in one warehouse on one type of fresh produce; assess cold-chain hardware and interfaces separately.",
+   "fr": "Tester le suivi dans un entrepôt, sur un type de fruits ou de légumes ; évaluer à part le matériel de chaîne du froid et les interfaces."
+  },
+  {
+   "at": "medfel.checked",
+   "zh": "11 月 16 日周报按业务方向评为 A/B。11 月 24 日核对 medFEL 官网，观众证预计年底开放。展团报价沿用首轮资料。",
+   "en": "The 16 November weekly report rated it A/B depending on business focus. medFEL website checked on 24 November: visitor badges are expected by the end of the year. Pavilion prices come from the first survey.",
+   "fr": "Le rapport du 16 novembre l’a classé A/B selon l’orientation retenue. Site de medFEL vérifié le 24 novembre : les badges visiteurs sont attendus pour la fin de l’année. Les tarifs du pavillon viennent du premier relevé."
+  },
+  {
+   "at": "medfel.sources.0",
+   "zh": "观众 badge",
+   "en": "Visitor badge",
+   "fr": "Badge visiteur"
+  },
+  {
+   "at": "medfel.sources.1",
+   "zh": "AD’OCC 展团",
+   "en": "AD’OCC pavilion",
+   "fr": "Pavillon AD’OCC"
+  },
+  {
+   "at": "hispack.value",
+   "zh": "仓储与物流获客重点，包装、标签、物流、自动化和机器人，可寻找设备商及集成伙伴。",
+   "en": "A main event for winning warehousing and logistics clients: packaging, labelling, logistics, automation and robotics, with equipment makers and integration partners to be found.",
+   "fr": "Rendez-vous important pour la prospection dans l’entreposage et la logistique : emballage, étiquetage, logistique, automatisation et robotique ; on y trouve des fabricants d’équipements et des intégrateurs."
+  },
+  {
+   "at": "hispack.who",
+   "zh": "两人以仓储业务参与者和软件供应商身份参观或评估联合展示。",
+   "en": "We both visit, as warehousing operator and software supplier, or assess a joint exhibit.",
+   "fr": "Nous visitons à deux, comme exploitant d’entrepôt et comme fournisseur de logiciels, ou nous étudions une présence commune."
+  },
+  {
+   "at": "hispack.entry",
+   "zh": "展商联系／申请入口开放；普通观众报名与票价尚未核实。",
+   "en": "The exhibitor contact and application page is open; registration and prices for ordinary visitors not yet checked.",
+   "fr": "La page de contact et de candidature exposants est ouverte ; inscription et tarifs visiteurs non vérifiés."
+  },
+  {
+   "at": "hispack.fee",
+   "zh": "观众价格未核实；展位询价。",
+   "en": "Visitor prices not checked; stand prices on request.",
+   "fr": "Tarifs visiteurs non vérifiés ; stands sur devis."
+  },
+  {
+   "at": "hispack.action",
+   "zh": "规划仓储案例和目标伙伴，等待观众或商务配对入口；暂不直接购买展位。",
+   "en": "Plan the warehousing case study and the target partners, and wait for visitor or matchmaking registration to open; do not buy a stand outright for now.",
+   "fr": "Préparer le cas d’entreposage et la liste des partenaires visés, puis attendre l’ouverture des inscriptions visiteurs ou des rendez-vous d’affaires ; ne pas acheter de stand pour l’instant."
+  },
+  {
+   "at": "hispack.contacts",
+   "zh": "包装设备商、仓储自动化集成商、物流运营及 IT 负责人。",
+   "en": "Packaging equipment makers, warehouse automation integrators, logistics operations and IT managers.",
+   "fr": "Fabricants de matériel d’emballage, intégrateurs d’automatisation d’entrepôt, responsables d’exploitation logistique et d’informatique."
+  },
+  {
+   "at": "hispack.demo",
+   "zh": "标签、检测、入库、拣货与出库记录衔接。",
+   "en": "Labelling, inspection, goods-in, picking and goods-out records joined end to end.",
+   "fr": "Étiquetage, contrôle, entrée en stock, préparation de commandes et sortie, enchaînés dans un même suivi."
+  },
+  {
+   "at": "hispack.question",
+   "zh": "设备产出的数据现在怎样进入库存和订单系统？",
+   "en": "How does the data produced by your equipment get into the stock and order systems today?",
+   "fr": "Comment les données produites par vos équipements arrivent-elles aujourd’hui dans les systèmes de stock et de commande ?"
+  },
+  {
+   "at": "hispack.pilot",
+   "zh": "先对接一种标签或一台设备的数据；评估接口文档、现场调试和维护边界。",
+   "en": "Start by connecting the data from one label type or one machine; assess the interface documentation, on-site commissioning and the limits of maintenance.",
+   "fr": "Commencer par raccorder les données d’un type d’étiquette ou d’une machine ; évaluer la documentation d’interface, la mise au point sur site et les limites de la maintenance."
+  },
+  {
+   "at": "hispack.sources.1",
+   "zh": "展商联系入口",
+   "en": "Exhibitor contact page",
+   "fr": "Contact exposants"
+  },
+  {
+   "at": "eu-startups.status",
+   "zh": "12 月启动申请",
+   "en": "Applications open in December",
+   "fr": "Candidatures en décembre"
+  },
+  {
+   "at": "eu-startups.value",
+   "zh": "创业路演、投资交流；作为更远的融资观察机会。",
+   "en": "Startup pitches and investor networking; a longer-range funding opportunity to keep under watch.",
+   "fr": "Pitchs de startups et échanges avec des investisseurs ; une piste de financement plus lointaine, à garder en veille."
+  },
+  {
+   "at": "eu-startups.who",
+   "zh": "有可独立融资产品后，本人按团队角色申请。",
+   "en": "Once there is a product that can raise funds in its own right, I apply in my team role.",
+   "fr": "Lorsqu’un produit pourra être financé pour lui-même, je candidaterai selon mon rôle dans l’équipe."
+  },
+  {
+   "at": "eu-startups.entry",
+   "zh": "创业路演比赛申请阶段将于 2026 年 12 月启动；上一届嘉宾不当作本届名单。",
+   "en": "Applications for the pitch competition open in December 2026; last edition’s guests are not taken as this edition’s line-up.",
+   "fr": "Les candidatures au concours de pitch ouvrent en décembre 2026 ; les invités de l’édition précédente ne sont pas tenus pour ceux de cette édition."
+  },
+  {
+   "at": "eu-startups.fee",
+   "zh": "本轮未核实门票与差旅费用。",
+   "en": "Ticket and travel costs not checked in this round.",
+   "fr": "Prix des billets et frais de déplacement non vérifiés dans ce relevé."
+  },
+  {
+   "at": "eu-startups.eligibility",
+   "zh": "先有产品、入围或匹配会谈，再评估出行。",
+   "en": "Assess the trip only with a product and either a shortlisting or matched meetings.",
+   "fr": "N’étudier le déplacement qu’avec un produit et, soit une présélection, soit des rendez-vous obtenus."
+  },
+  {
+   "at": "eu-startups.action",
+   "zh": "监测申请开放；当前不建议仅为偶遇投资人买票。",
+   "en": "Watch for applications to open; buying a ticket just on the chance of running into investors is not advised at present.",
+   "fr": "Surveiller l’ouverture des candidatures ; acheter un billet dans le seul espoir de croiser des investisseurs n’est pas conseillé pour l’instant."
+  },
+  {
+   "at": "eu-startups.sources.0",
+   "zh": "官方 Summit",
+   "en": "Official Summit site",
+   "fr": "Site officiel du Summit"
+  },
+  {
+   "at": "world-fira.when",
+   "zh": "2027 · 日期待公布",
+   "en": "2027 · dates to be announced",
+   "fr": "2027 · dates à annoncer"
+  },
+  {
+   "at": "world-fira.value",
+   "zh": "农业机器人、农业数字化与 AI，行业匹配高。",
+   "en": "Agricultural robotics, digital farming and AI; a close match with our sector.",
+   "fr": "Robotique agricole, numérique agricole et IA ; forte adéquation avec notre secteur."
+  },
+  {
+   "at": "world-fira.who",
+   "zh": "合伙人主导农业交流，本人评估软件合作。",
+   "en": "My partner leads the farming discussions; I assess software partnerships.",
+   "fr": "Mon associé mène les échanges agricoles ; j’évalue les partenariats logiciels."
+  },
+  {
+   "at": "world-fira.entry",
+   "zh": "官网表示 2027 年回归，但尚无明确日期，不能认定在本次六个月范围内。",
+   "en": "The website says the event returns in 2027 but gives no date, so it cannot be counted as falling within this six-month window.",
+   "fr": "Le site annonce un retour en 2027, sans date précise ; on ne peut donc pas le compter dans la période de six mois couverte ici."
+  },
+  {
+   "at": "world-fira.fee",
+   "zh": "尚未公布。",
+   "en": "Not yet published.",
+   "fr": "Non publié."
+  },
+  {
+   "at": "world-fira.action",
+   "zh": "等待日期、报名与展示规则。",
+   "en": "Wait for dates, registration and exhibiting rules.",
+   "fr": "Attendre les dates et les règles d’inscription et d’exposition."
+  },
+  {
+   "at": "world-fira.sources.0",
+   "zh": "官方公告",
+   "en": "Official announcement",
+   "fr": "Annonce officielle"
+  },
+  {
+   "at": "notices.0.label",
+   "zh": "柏林果蔬展专业观众票",
+   "en": "FRUIT LOGISTICA trade visitor tickets (Berlin)",
+   "fr": "Billets visiteurs professionnels, FRUIT LOGISTICA (Berlin)"
+  },
+  {
+   "at": "notices.0.note",
+   "zh": "官方专业观众票八折至 11 月 29 日，使用 FRESHWEEK。",
+   "en": "Official trade visitor tickets are 20% off until 29 November with the code FRESHWEEK.",
+   "fr": "Billets visiteurs professionnels officiels à 20 % de réduction jusqu’au 29 novembre avec le code FRESHWEEK."
+  },
+  {
+   "at": "notices.1.label",
+   "zh": "SOFT 商务配对",
+   "en": "SOFT business matchmaking",
+   "fr": "Rendez-vous d’affaires SOFT"
+  },
+  {
+   "at": "notices.1.note",
+   "zh": "约到相关对象再安排马赛行程。",
+   "en": "Plan the Marseille trip only once relevant meetings are booked.",
+   "fr": "N’organiser le déplacement à Marseille qu’une fois des rendez-vous utiles obtenus."
+  },
+  {
+   "at": "notices.2.note",
+   "zh": "规则为 12/1 前提交，建议最迟 11/30；既有 SAS 产品资格待确认。",
+   "en": "The rules require submission before 1 December; 30 November at the latest is advised. Eligibility of a product from an existing SAS to be confirmed.",
+   "fr": "Le règlement demande un dépôt avant le 1er décembre ; viser le 30 novembre au plus tard. Admission d’un produit porté par une SAS existante à confirmer."
+  },
+  {
+   "at": "notices.3.label",
+   "zh": "BtoBuild 登记",
+   "en": "BtoBuild registration",
+   "fr": "Inscription BtoBuild"
+  },
+  {
+   "at": "notices.3.note",
+   "zh": "登记页时间不保证临时仍能约到会谈。",
+   "en": "The closing time on the registration page does not guarantee that meetings can still be booked at the last minute.",
+   "fr": "L’heure de clôture affichée sur la page d’inscription ne garantit pas de pouvoir encore obtenir des rendez-vous au dernier moment."
+  },
+  {
+   "at": "notices.4.note",
+   "zh": "确认共同创始人、孵化与 MVP 验证条件。",
+   "en": "Confirm the co-founder, incubation and MVP validation requirements.",
+   "fr": "Confirmer les conditions de cofondateur, d’incubation et de validation du MVP."
+  },
+  {
+   "at": "notices.5.note",
+   "zh": "有明确产品、收入与融资计划后推进。",
+   "en": "Go ahead only with a clear product, revenue and funding plan.",
+   "fr": "À engager seulement avec un produit, un chiffre d’affaires et un plan de financement précis."
+  },
+  {
+   "at": "notices.6.label",
+   "zh": "MIDI MAT 参展优惠",
+   "en": "MIDI MAT exhibitor discount",
+   "fr": "Remise exposant MIDI MAT"
+  },
+  {
+   "at": "notices.6.note",
+   "zh": "先验证行业方向，不必急于付费。",
+   "en": "Test the sector first; there is no need to rush into paying.",
+   "fr": "Vérifier d’abord l’intérêt du secteur ; rien ne presse pour payer."
+  },
+  {
+   "at": "notices.7.label",
+   "zh": "medFEL 区域展团",
+   "en": "medFEL regional pavilion",
+   "fr": "Pavillon régional medFEL"
+  },
+  {
+   "at": "notices.7.note",
+   "zh": "与免费专业观众报名分开。",
+   "en": "Separate from free trade visitor registration.",
+   "fr": "Distinct de l’inscription gratuite des visiteurs professionnels."
+  },
+  {
+   "at": "notices.8.label",
+   "zh": "ISE 技术供应商",
+   "en": "ISE technology suppliers",
+   "fr": "Fournisseurs de technologie ISE"
+  },
+  {
+   "at": "notices.8.note",
+   "zh": "采用供应商专门截止，非通用页头日期。",
+   "en": "Uses the deadline specific to suppliers; the page header shows a different, general date.",
+   "fr": "Date limite propre aux fournisseurs ; l’en-tête de la page affiche une autre date, générale."
+  },
+  {
+   "at": "notices.9.label",
+   "zh": "Advanced Factories 演讲",
+   "en": "Advanced Factories call for speakers",
+   "fr": "Appel à intervenants Advanced Factories"
+  },
+  {
+   "at": "notices.9.note",
+   "zh": "准备实际流程、使用结果和限制。",
+   "en": "Prepare the real process, results in use and limits.",
+   "fr": "Préparer le processus réel, les résultats d’usage et les limites."
+  },
+  {
+   "at": "scope",
+   "zh": "法国全境、西班牙、德国、比利时；按价值加入荷兰等欧洲目的地，不设图卢兹距离限制。",
+   "en": "All of France, Spain, Germany and Belgium; other European destinations such as the Netherlands are added where the value justifies it, with no distance limit from Toulouse.",
+   "fr": "Toute la France, l’Espagne, l’Allemagne et la Belgique ; d’autres destinations européennes, comme les Pays-Bas, s’ajoutent selon leur intérêt, sans limite de distance depuis Toulouse."
+  }
+ ]
+}

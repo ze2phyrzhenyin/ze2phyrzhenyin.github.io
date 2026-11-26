@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-locale="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tool comparison | Making 3D video with Claude</title>
+<meta name="description" content="Tool comparison. Learn how a 3D shot is built from a Blender camera file, and look up tools, examples and render estimates."><link rel="canonical" href="https://zhaoyang.fr/guides/claude-3d/en/tools/">
+<link rel="alternate" hreflang="zh-Hans" href="https://zhaoyang.fr/guides/claude-3d/zh/tools/"><link rel="alternate" hreflang="en" href="https://zhaoyang.fr/guides/claude-3d/en/tools/"><link rel="alternate" hreflang="fr" href="https://zhaoyang.fr/guides/claude-3d/fr/tools/"><link rel="alternate" hreflang="x-default" href="https://zhaoyang.fr/guides/claude-3d/en/tools/">
+<link rel="icon" href="/guides/claude-3d/media/studio.webp" type="image/webp"><meta property="og:title" content="Tool comparison | Making 3D video with Claude"><meta property="og:image" content="https://zhaoyang.fr/guides/claude-3d/media/studio.webp">
+<script src="/guides/theme.js?v=20260924c"></script><link rel="stylesheet" href="/guides/claude-3d/guide.css?v=2"><script defer src="/guides/claude-3d/guide.js?v=2"></script></head>
+<body><a class="skip" href="#main">Skip to content</a><header class="mast"><div class="mast-inner"><div class="identity"><a id="all-guides" href="/guides/en/"><span class="hub-arrow" aria-hidden="true">←</span><span class="hub-label">All guides</span></a><span aria-hidden="true">/</span><a class="brand" href="/guides/claude-3d/en/">Video handbook</a></div><nav class="main-nav" aria-label="Guide sections"><a href="/guides/claude-3d/en/" >Routes</a><a href="/guides/claude-3d/en/tools/" aria-current="page">Tools</a><a href="/guides/claude-3d/en/cases/" >Examples</a><a href="/guides/claude-3d/en/estimate/" >Estimates</a><a href="/guides/claude-3d/en/handbook/" >Handbook</a></nav>
+<div class="mast-tools"><div class="languages" aria-label="Language"><a href="/guides/claude-3d/zh/tools/" lang="zh" hreflang="zh-Hans" data-language="zh" >中文</a><a href="/guides/claude-3d/en/tools/" lang="en" hreflang="en" data-language="en" aria-current="page">EN</a><a href="/guides/claude-3d/fr/tools/" lang="fr" hreflang="fr" data-language="fr" >FR</a></div><button id="theme" class="only-js" type="button" aria-label="Switch colour theme"><span aria-hidden="true" class="theme-symbol"></span><span id="theme-label">Theme</span></button></div></div></header>
+<main id="main" class="shell"><header class="page-title"><h1>Tool comparison</h1></header>
+  <div class="toolbar only-js"><label>Search tools<input type="search" id="search" placeholder="Name, use or setup"></label>
+  <label>Category<select id="category"><option value="all">All categories</option><option value="native">3D software and connectors</option><option value="code">Animation in code</option><option value="skill">Production Skills</option><option value="asset">Assets and output</option><option value="video">Generated video</option></select></label><a class="button" href="#comparison">View comparison<span id="picked"></span></a></div>
+  <p id="found" class="status only-js" role="status"></p>
+  <div id="tools-list" class="catalog">
+    <article data-category="native" data-tool="blender">
+      <div class="tool-description"><h2><a href="https://docs.blender.org/manual/en/latest/">Blender</a></h2><p>Modelling, lighting and rendering, delivered as a .blend file that can still be edited.</p></div><span class="type">3D software and connectors</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender" aria-label="Compare Blender">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Render time per frame depends on the scene, the sampling and the hardware.</dd><dt>Setup</dt><dd data-setup>Set up cameras and keyframes in Python and output an image sequence.</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="blender-mcp">
+      <div class="tool-description"><h2><a href="https://www.blender.org/lab/mcp-server/">Blender MCP</a></h2><p>Inspect or change the open Blender scene from Claude.</p></div><span class="type">3D software and connectors</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-mcp" aria-label="Compare Blender MCP">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Shot design and render settings still have to be written into the file.</dd><dt>Setup</dt><dd data-setup>Enable the matching extension in Blender, then connect an MCP client.</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="mcp-for-blender">
+      <div class="tool-description"><h2><a href="https://github.com/ahujasid/mcp-for-blender">mcp-for-blender</a></h2><p>Community-maintained Blender connector, with examples of bringing in models and environment assets.</p></div><span class="type">3D software and connectors</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="mcp-for-blender" aria-label="Compare mcp-for-blender">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>The connector can execute code. Check the tool permissions before using it.</dd><dt>Setup</dt><dd data-setup>Pair the community add-on with its matching server.</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="cinema-4d-mcp">
+      <div class="tool-description"><h2><a href="https://www.maxon.net/en/cinema-4d/features/mcp-server">Cinema 4D MCP</a></h2><p>Adjust objects and motion graphics in an existing Cinema 4D project.</p></div><span class="type">3D software and connectors</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cinema-4d-mcp" aria-label="Compare Cinema 4D MCP">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>The production machine needs a working Cinema 4D installation.</dd><dt>Setup</dt><dd data-setup>Carry on with the project’s existing MoGraph and render settings.</dd></dl></details>
+    </article>
+    <article data-category="native" data-tool="unreal-engine-mcp">
+      <div class="tool-description"><h2><a href="https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-mcp-in-unreal-editor">Unreal Engine MCP</a></h2><p>Call editor tools and inspect the scene in Unreal Editor.</p></div><span class="type">3D software and connectors</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="unreal-engine-mcp" aria-label="Compare Unreal Engine MCP">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>What the plugin can do depends on the engine version the project uses.</dd><dt>Setup</dt><dd data-setup>Manage shots in Sequencer and output with Movie Render Queue.</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="remotion">
+      <div class="tool-description"><h2><a href="https://www.remotion.dev/docs/ai/claude-code-plugin">Remotion</a></h2><p>Arrange shots, subtitles and audio tracks in React.</p></div><span class="type">Animation in code</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="remotion" aria-label="Compare Remotion">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Complex 3D scenes need extra rendering components.</dd><dt>Setup</dt><dd data-setup>Use parameters to swap the product name, language or aspect ratio.</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="react-three-fiber">
+      <div class="tool-description"><h2><a href="https://www.remotion.dev/templates/three">React Three Fiber</a></h2><p>Write Three.js scenes as React components.</p></div><span class="type">Animation in code</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="react-three-fiber" aria-label="Compare React Three Fiber">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>For video export, the animation has to give the same result each time a given frame is computed.</dd><dt>Setup</dt><dd data-setup>Render inside Remotion’s ThreeCanvas.</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="three-js">
+      <div class="tool-description"><h2><a href="https://threejs.org/">Three.js</a></h2><p>Control models, materials, cameras and lighting in the browser.</p></div><span class="type">Animation in code</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="three-js" aria-label="Compare Three.js">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Audio recording, the timeline and video encoding have to be arranged separately.</dd><dt>Setup</dt><dd data-setup>Pair it with Remotion or a frame-by-frame export tool.</dd></dl></details>
+    </article>
+    <article data-category="code" data-tool="hyperframes">
+      <div class="tool-description"><h2><a href="https://github.com/heygen-com/hyperframes">HyperFrames</a></h2><p>Stage interface demos, text and media with web elements.</p></div><span class="type">Animation in code</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="hyperframes" aria-label="Compare HyperFrames">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Shots that need models and lights require a separate 3D scene.</dd><dt>Setup</dt><dd data-setup>Put existing web animations and screen recordings on one timeline.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-film">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-film</a></h2><p>A fly-through of a city at night, with scripts for the flight path, lighting and sound.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-film" aria-label="Compare blender-film">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Flight speed and camera positions need adjusting to the scale of the scene.</dd><dt>Setup</dt><dd data-setup>Use with Blender, and see the author’s finished city night flight.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-forest">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-forest</a></h2><p>Breaks down a forest set, vegetation scattering and the motion of a car.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-forest" aria-label="Compare blender-forest">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Tree density and materials affect VRAM use.</dd><dt>Setup</dt><dd data-setup>Check vegetation, bodywork reflections and cast shadows on representative frames.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="blender-car-film">
+      <div class="tool-description"><h2><a href="https://github.com/mromidev/claude-blender-skills">blender-car-film</a></h2><p>Storyboard, snowfall and multi-camera scripts for a short film of a car on a snowy night.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="blender-car-film" aria-label="Compare blender-car-film">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>The vehicle model and external assets have to be replaced for each project.</dd><dt>Setup</dt><dd data-setup>The shots share one set of assets. Output each separately, then edit.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="el4cteo-blender-skills">
+      <div class="tool-description"><h2><a href="https://github.com/EL4CTEO/blender-skills">EL4CTEO / blender-skills</a></h2><p>Look up instructions by task: modelling, UV, materials, rigging and baking.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="el4cteo-blender-skills" aria-label="Compare EL4CTEO / blender-skills">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Each skill may require a different Blender version.</dd><dt>Setup</dt><dd data-setup>Pick the skill the current shot needs.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="claude-3d-harness">
+      <div class="tool-description"><h2><a href="https://github.com/MAX-786/claude-3d-harness">claude-3d-harness</a></h2><p>Manages production stages, skill versions and intermediate outputs.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="claude-3d-harness" aria-label="Compare claude-3d-harness">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Check its folder conventions before it takes over an existing project.</dd><dt>Setup</dt><dd data-setup>Follow the scene stages and checkpoints in the repository.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="cloudai-x-threejs-skills">
+      <div class="tool-description"><h2><a href="https://github.com/CloudAI-X/threejs-skills">CloudAI-X / threejs-skills</a></h2><p>Three.js examples of animation, shaders and performance.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cloudai-x-threejs-skills" aria-label="Compare CloudAI-X / threejs-skills">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>The video timeline and the export have to be built separately.</dd><dt>Setup</dt><dd data-setup>Use with Three.js scenes or R3F components.</dd></dl></details>
+    </article>
+    <article data-category="skill" data-tool="cinematic-3d-video">
+      <div class="tool-description"><h2><a href="https://github.com/cumalibilgic/cinematic-3d-video">cinematic-3d-video</a></h2><p>Makes short films from a Three.js scene, browser screenshots and FFmpeg.</p></div><span class="type">Production Skills</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="cinematic-3d-video" aria-label="Compare cinematic-3d-video">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>First check the template’s frame-by-frame output in the target browser.</dd><dt>Setup</dt><dd data-setup>Suits intros and logo animations that can be described with geometric primitives.</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="meshy-3d-agent">
+      <div class="tool-description"><h2><a href="https://github.com/meshy-dev/meshy-3d-agent">Meshy 3D Agent</a></h2><p>Generate a model from text or a reference image, then import it into the scene.</p></div><span class="type">Assets and output</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="meshy-3d-agent" aria-label="Compare Meshy 3D Agent">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>The model’s dimensions, topology and outline need checking by hand.</dd><dt>Setup</dt><dd data-setup>After importing into Blender, check it against the product reference images.</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="poly-haven">
+      <div class="tool-description"><h2><a href="https://polyhaven.com/license">Poly Haven</a></h2><p>Search CC0 HDRIs, textures and models.</p></div><span class="type">Assets and output</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="poly-haven" aria-label="Compare Poly Haven">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Download resolution affects project size and render memory.</dd><dt>Setup</dt><dd data-setup>Light with an HDRI and choose textures for the actual frame size.</dd></dl></details>
+    </article>
+    <article data-category="asset" data-tool="ffmpeg">
+      <div class="tool-description"><h2><a href="https://ffmpeg.org/ffmpeg-formats.html#image2">FFmpeg</a></h2><p>Assemble consecutive frames into a video, encode it and mux the audio track.</p></div><span class="type">Assets and output</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="ffmpeg" aria-label="Compare FFmpeg">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Sequence numbering and the input frame rate must match the render settings.</dd><dt>Setup</dt><dd data-setup>Reads frame sequences exported from Blender or from a browser.</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="runway-mcp">
+      <div class="tool-description"><h2><a href="https://runway.com/mcp/claude">Runway MCP</a></h2><p>Call Runway’s image and video tools from Claude.</p></div><span class="type">Generated video</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="runway-mcp" aria-label="Compare Runway MCP">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Requires a Runway account. Generation usage is accounted for separately.</dd><dt>Setup</dt><dd data-setup>Generate candidate clips from the storyboard and subject images, then edit.</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="google-flow">
+      <div class="tool-description"><h2><a href="https://labs.google/fx/tools/flow">Google Flow</a></h2><p>Generate and arrange video shots from reference material.</p></div><span class="type">Generated video</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="google-flow" aria-label="Compare Google Flow">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Available models and input types depend on the product’s current settings.</dd><dt>Setup</dt><dd data-setup>First compare how the same subject looks in adjacent shots.</dd></dl></details>
+    </article>
+    <article data-category="video" data-tool="kling-ai">
+      <div class="tool-description"><h2><a href="https://kling.ai/quickstart/kling-4-model-user-guide">Kling AI</a></h2><p>Generate shots with Kling’s reference images, prompts and keyframe controls.</p></div><span class="type">Generated video</span>
+      <label class="compare-choice only-js"><input type="checkbox" value="kling-ai" aria-label="Compare Kling AI">Compare</label>
+      <details><summary>Limits and setup</summary><dl><dt>Limits</dt><dd data-limit>Local geometric dimensions are hard to specify one by one.</dd><dt>Setup</dt><dd data-setup>Keep the reference images and generation settings, and check continuity when editing.</dd></dl></details>
+    </article></div><div id="no-tools" hidden><p>No tools match these filters.</p><button id="reset-filter" type="button">Clear filters</button></div>
+  <section class="section only-js" id="comparison" tabindex="-1"><div class="section-head"><h2>Selected tools</h2><button type="button" class="quiet" id="clear" hidden>Clear comparison</button></div><p class="status" id="compare-hint">Tick tools in the list to compare up to three.</p><div id="compare-table"></div></section><a href="#comparison" id="compare-shortcut" class="button primary" hidden>View comparison</a></main><footer class="shell foot"><a href="/guides/claude-3d/en/">Making 3D video with Claude</a><a href="/guides/claude-3d/en/handbook/#sources">References</a></footer>
+<script type="application/json" id="guide-copy">{"theme":{"light":"Light","dark":"Dark","toLight":"Switch to light mode","toDark":"Switch to dark mode"},"found":{"one":"{n} tool shown","other":"{n} tools shown"},"picked":" ({n})","chosen":{"other":"{n} of three selected."},"shortcut":"Compare selected tools ({n})","tableLabel":"Use, limits and setup of the selected tools","tool":"Tool","remove":"Remove","removeAria":"Remove {name}","rows":["Use","Limits","Setup"]}</script></body></html>

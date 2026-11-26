@@ -42,3 +42,19 @@ including all section tabs and both theme overrides. All 39 public content pages
 and five shared navigation/theme assets match the validated local files byte for
 byte. Desktop sports tabs and the light-mode control received an additional live
 click check.
+
+## 2026-11-26: three more trilingual guides
+
+- `/guides/rex-opportunities/{zh,en,fr}/`: generator `resources/rex-opportunities/build.mjs`,
+  tests `node scripts/tests/rex-opportunities.mjs` and
+  `GUIDE_URL=… GUIDE_PLAYWRIGHT_MODULE=… node resources/rex-opportunities/browser-check.mjs`.
+- `/guides/claude-3d/{zh,en,fr}/` (five pages each, former addresses redirect through
+  `claude-3d/entry.js`): generator `resources/claude-3d/build.mjs` (part of `npm run build`),
+  tests `node scripts/tests/claude-3d.mjs` and `scripts/tests/claude-3d-browser.mjs`.
+- `/guides/deck-methods/{zh,en,fr}/`, new: generator `resources/deck-methods/build.mjs`
+  (part of `npm run build`), tests `node scripts/tests/deck-methods.mjs` and
+  `resources/deck-methods/browser-check.mjs`. The reel under `demo/` and the files under
+  `files/` come from the ppt-studio project on rex-cli (`scripts/export_web.py`); the
+  generator marks the player pages `noindex` so the sitemap skips them.
+
+The guide index cards link each guide in the reader's language.

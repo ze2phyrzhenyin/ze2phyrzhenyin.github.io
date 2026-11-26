@@ -134,9 +134,17 @@ try {
       const links=await page.locator('a.card').evaluateAll(as=>as.map(a=>a.getAttribute('href')));
       assert.equal(links.length,Number(await page.locator('.stat strong').first().textContent()));
       assert.equal(new Set(links).size,links.length);
-      assert(links.includes(`/guides/claude-3d/?from=${lang}`));
+      assert(links.includes(`/guides/claude-3d/${lang}/`));
+      assert(links.includes(`/guides/deck-methods/${lang}/`));
       assert(links.includes(`/guides/material-inspiration/?from=${lang}`));
       for(const href of links){
+        if(href.startsWith('/guides/deck-methods/')){
+          assert(href.endsWith(`/${lang}/`));
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('.topbar [data-guide-home]').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
+          continue;
+        }
         if(href.startsWith('/guides/claude-3d/') || href.startsWith('/guides/material-inspiration/')){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('#all-guides').click();
@@ -149,7 +157,14 @@ try {
           await page.goBack({waitUntil:'domcontentloaded'});
           continue;
         }
-        if(href==='/construction-hotel-sql/'||href==='/guides/rex-opportunities/'){
+        if(href.startsWith('/guides/rex-opportunities/')){
+          assert(href.endsWith(`/${lang}/`));
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('.back-link').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
+          continue;
+        }
+        if(href==='/construction-hotel-sql/'){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('a[href="/guides/zh/"]').first().click();
           await page.waitForURL(origin+'/guides/zh/');
