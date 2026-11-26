@@ -1,51 +1,39 @@
 ---
-title: "Calendrier"
-description: "A calendar, notes, tasks and anniversaries app for everyday planning, with offline records, account sync and two-way Google Calendar sync. Available for Windows, Android and Linux."
+title: "Calendrier (demo)"
+description: "Events, notes, tasks and important dates, with lunar dates and Chinese and French holidays; fictional data, kept in your browser, resettable"
 date: 2026-09-27
 status: active
-demo: "https://calendrier.rex31.com/"
-download: "https://calendrier.rex31.com/download/"
-cover: "/images/projects/calendrier.png"
+tags: ["React", "TypeScript", "Vite", "Tauri"]
+demo: "https://demos.rex31.com/calendrier/"
+cover: "/images/projects/calendrier-demo.jpg"
 i18n:
   en:
-    title: "Calendrier"
-    description: "A calendar, notes, tasks and anniversaries app for everyday planning, with offline records, account sync and two-way Google Calendar sync. Available for Windows, Android and Linux."
+    title: "Calendrier (demo)"
+    description: "Events, notes, tasks and important dates, with lunar dates and Chinese and French holidays; fictional data, kept in your browser, resettable"
     sections:
-      - heading: "Everyday plans and notes in one place"
-        paragraphs:
-          - "Calendrier brings scheduled events, tasks, anniversaries and free-form notes into one workspace. Month, week and agenda views help organise dated records, while notes without a date remain independent of the calendar."
-      - heading: "Offline first, synced across devices"
-        paragraphs:
-          - "Records are saved on the device, so writing and organising continue offline. With an account, they sync between devices. Google Calendar sync works both ways: events can be created and edited in the app or in Google, and when both sides differ, the Google version is kept."
-      - heading: "Download"
-        paragraphs:
-          - "Installers are available for Windows, Android and Linux, and the app can also be used in the browser. Installed Windows and Android versions update themselves. The interface is in Simplified Chinese."
+      - paragraphs:
+          - "Calendrier keeps events, tasks, important dates and notes in one workspace. Month, week and agenda views show what has a date; notes without a date stay out of the calendar. The month view can show lunar dates, Chinese and French public holidays and French school holidays by zone. The interface is in Simplified Chinese."
+          - "The demo runs at demos.rex31.com/calendrier/. It opens on a month in the life of a fictional household: weekly classes and meetings, appointments, a business trip, the rent reminder, notes and a few important dates, all placed around today. Every record can be edited. Changes are saved in your browser only and nothing is sent to a server. The 重置演示 (reset) button brings the sample back."
+          - "The full app also has accounts, sync between devices and two-way Google Calendar sync, with Windows, Android and Linux versions. The demo leaves these out."
+          - "Written in TypeScript with React 19 and Vite. Records are kept in IndexedDB in the browser and in SQLite in the native apps (Tauri)."
   zh:
-    title: "Calendrier 日历应用"
-    description: "将日程、备忘录、待办与纪念日集中管理，支持离线记录、账号同步和 Google 日历双向同步。提供 Windows、Android 与 Linux 版本。"
+    title: "Calendrier 日历（演示版）"
+    description: "日程、备忘录、待办和重要日期，显示农历和中法节假日；数据虚构，修改只保存在本浏览器，可重置"
     sections:
-      - heading: "日常安排与随手记录放在一起"
-        paragraphs:
-          - "Calendrier 将日程、待办、纪念日与自由笔记放入同一个工作区。月视图、周视图和日程列表用于查看有日期的安排；没有日期的笔记独立保存，不会被强行放进日历。"
-      - heading: "离线可用，多设备同步"
-        paragraphs:
-          - "记录先保存在本机，离线时仍可继续书写和整理；登录账号后在设备之间同步。Google 日历双向同步：日程可以在应用里新建和修改，也可以在 Google 日历里改，两边不一致时以 Google 为准。"
-      - heading: "下载"
-        paragraphs:
-          - "提供 Windows、Android 与 Linux 安装包，也可以直接在浏览器中使用网页版。已安装的 Windows 和 Android 版会自动更新。应用界面为简体中文。"
+      - paragraphs:
+          - "Calendrier 把日程、待办、重要日期和笔记放在同一个工作区。月视图、周视图和日程列表显示有日期的记录；没有日期的笔记单独保存，不放进日历。月视图可以叠加农历、中法两国的法定节假日和按学区的法国学校假期。界面是简体中文。"
+          - "演示版在 demos.rex31.com/calendrier/。打开是一户虚构人家的一个月：每周的课和例会、预约、出差、交房租的提醒、笔记和几个重要日期，都排在今天前后。所有记录都可以修改，修改只保存在你的浏览器里，不会发到服务器。点「重置演示」恢复示例数据。"
+          - "正式版还有账号、多设备同步和 Google 日历双向同步，提供 Windows、Android 和 Linux 版本；演示版不含这些功能。"
+          - "用 TypeScript、React 19 和 Vite 编写。浏览器里的记录存在 IndexedDB，原生版（Tauri）用 SQLite。"
   fr:
-    title: "Calendrier"
-    description: "Une application de calendrier, notes, tâches et anniversaires pour organiser le quotidien, avec enregistrement hors ligne, synchronisation de compte et synchronisation bidirectionnelle avec Google Agenda. Disponible pour Windows, Android et Linux."
+    title: "Calendrier (démo)"
+    description: "Événements, notes, tâches et dates importantes, avec dates lunaires et jours fériés chinois et français ; données fictives, gardées dans le navigateur"
     sections:
-      - heading: "Les rendez-vous et les notes au même endroit"
-        paragraphs:
-          - "Calendrier réunit événements, tâches, anniversaires et notes libres dans un même espace. Les vues mensuelle, hebdomadaire et agenda présentent les éléments datés ; les notes sans date restent indépendantes du calendrier."
-      - heading: "Hors ligne d’abord, synchronisé entre appareils"
-        paragraphs:
-          - "Les données sont enregistrées sur l’appareil, ce qui permet de continuer à écrire hors connexion ; avec un compte, elles se synchronisent entre appareils. La synchronisation avec Google Agenda fonctionne dans les deux sens : les événements se créent et se modifient dans l’application ou dans Google, et en cas de différence, la version Google est conservée."
-      - heading: "Téléchargement"
-        paragraphs:
-          - "Des programmes d’installation sont proposés pour Windows, Android et Linux, et l’application s’utilise aussi dans le navigateur. Les versions Windows et Android installées se mettent à jour automatiquement. L’interface est en chinois simplifié."
+      - paragraphs:
+          - "Calendrier réunit événements, tâches, dates importantes et notes dans un même espace. Les vues mois, semaine et agenda présentent ce qui est daté ; les notes sans date restent hors du calendrier. La vue mensuelle peut afficher les dates lunaires, les jours fériés chinois et français et les vacances scolaires françaises par zone. L’interface est en chinois simplifié."
+          - "La démo se trouve sur demos.rex31.com/calendrier/. Elle s’ouvre sur un mois d’un foyer fictif : cours et réunions de la semaine, rendez-vous, un déplacement, le rappel du loyer, des notes et quelques dates importantes, placés autour d’aujourd’hui. Tout se modifie. Les changements restent dans votre navigateur et rien n’est envoyé à un serveur. Le bouton « 重置演示 » (réinitialiser) remet l’exemple."
+          - "L’application complète a aussi des comptes, la synchronisation entre appareils et avec Google Agenda dans les deux sens, en versions Windows, Android et Linux. La démo ne les inclut pas."
+          - "Écrite en TypeScript avec React 19 et Vite. Les données sont gardées dans IndexedDB dans le navigateur et dans SQLite dans les applications natives (Tauri)."
 ---
 
 <!-- -->
