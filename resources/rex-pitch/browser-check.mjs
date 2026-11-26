@@ -57,7 +57,7 @@ try {
     };
     const overflow = () => page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     const clock = () => page.evaluate(() => document.getElementById('player').contentDocument.getElementById('clock').textContent);
-    // The player in click mode plays to its next stop and waits there: wait until its clock (whole seconds) holds for 1.5 s.
+    // The player loads paused (autoplay=0) and later plays straight through: wait until its clock (whole seconds) holds for 1.5 s.
     const settled = async () => {
       let last = await clock(), since = Date.now();
       for (let tries = 0; tries < 80; tries++) {
