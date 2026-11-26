@@ -56,5 +56,10 @@ click check.
   `resources/deck-methods/browser-check.mjs`. The reel under `demo/` and the files under
   `files/` come from the ppt-studio project on rex-cli (`scripts/export_web.py`); the
   generator marks the player pages `noindex` so the sitemap skips them.
+- `/guides/rex-pitch/{zh,en,fr}/`, new 2026-11-26: the owner's pitch backup kit (script, static
+  slides, animated deck). Generator `resources/rex-pitch/build.mjs --strict` (part of `npm run build`),
+  check `GUIDE_PLAYWRIGHT_MODULE=… node resources/rex-pitch/browser-check.mjs`. Everything under
+  `files/`, `slides/` and `demo/` comes from ppt-studio on rex-cli (`decks/rex-pitch/export.py`); drop
+  new `slides/slide-NN.png` files in and the generator turns them into WebP.
 
 The guide index cards link each guide in the reader's language.
