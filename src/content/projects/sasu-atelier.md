@@ -16,7 +16,7 @@ i18n:
           - "Enter company details, shareholders, capital, management, registered office and supporting documents, then review the file. The interface is available in Chinese, English and French; documents are in French. The dossier stays in the current browser. A selected identity document is sent to Azure only when the optional recognition feature is used with consent."
   zh:
     demo: "https://zhaoyang.fr/sasu-atelier/test/?lang=zh-CN"
-    title: "Atelier Statuts（展示版）"
+    title: "Atelier Statuts（演示版）"
     description: "法国公司设立资料工作台，支持 SASU、SAS、SARL、SCI 和 EURL。资料保存在浏览器，可选证件识别需单独授权。"
     sections:
       - paragraphs:

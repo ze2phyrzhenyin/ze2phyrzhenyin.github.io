@@ -15,7 +15,7 @@ i18n:
           - "The invoice form is in French and covers seller, buyer, dates, units, quantities and discounts. HT, TVA and TTC are computed with decimal arithmetic and checked again on the server. Drafts stay editable; confirming an invoice assigns its number in the same database transaction that stores an immutable snapshot and its PDF."
           - "The preview shows the actual A4 PDF, and stored PDFs can be downloaded again from the history. The same invoice can be sent as Factur-X to the SUPER PDP sandbox, with validation, status and download of the original. Built with Next.js and Node’s built-in SQLite. Test companies are fictitious and every document is marked DEMO. The app requires a REX account."
   zh:
-    title: "France Invoice Lab · 电子发票（展示版）"
+    title: "France Invoice Lab · 电子发票（演示版）"
     description: "法国 B2B 发票工作台：填写资料，生成 PDF，并发送到 SUPER PDP 测试环境。"
     sections:
       - paragraphs:
