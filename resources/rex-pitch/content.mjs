@@ -20,7 +20,7 @@ export const fontFile = 'fonts/archivo-latin-wdth.woff2';
 // Version of the kit. Owner 2026-11-26: the page shows which upload it is. Raise `n` with every upload,
 // add a line to `history`, rename the [[f:rex-pitch-v<n>...]] links in the copy (the build fails on a stale one),
 // and set VERSION in ppt-studio decks/rex-pitch/deck.py: the cover slide carries the same number.
-export const version = {n: 3, uploaded: '2026-11-26 08:40'};
+export const version = {n: 3, uploaded: '2026-11-26 07:55'};
 // Length of files/rex-pitch-v<n>.mp4 in seconds (the build checks it against the file when ffprobe is available).
 export const mp4Seconds = 155.5;
 export const history = [
@@ -29,7 +29,7 @@ export const history = [
     zh: '新开场白；「off-the-shelf」；加载条更慢，停在 16%；新增可删的第 9 页（INSEE 数据）。',
     en: 'New opening; "off-the-shelf"; slower loading bar that stops at 16%; optional slide 9 with Insee data.',
     fr: 'Nouvelle ouverture ; « off-the-shelf » ; barre de chargement plus lente qui s’arrête à 16 % ; diapositive 9 facultative avec les chiffres de l’Insee.'},
-  {n: 3, uploaded: '2026-11-26 08:40',
+  {n: 3, uploaded: '2026-11-26 07:55',
     zh: '每一页里的动画自己播完，不用点，翻页仍然点一下（图片版 PPTX 也一样）；去掉第 9 页 INSEE 数据；第 2 页改为「traditional businesses」；封面加 rex31.com；网页加英文讲稿全文。',
     en: 'Animations inside each slide play by themselves, one click per slide (also in the picture-only .pptx); Insee slide removed; slide 2 now says "traditional businesses"; rex31.com on the cover; full English script on this page.',
     fr: 'Les animations de chaque diapositive se jouent seules, un clic par diapositive (aussi dans le .pptx en images) ; diapositive Insee retirée ; la diapositive 2 dit « traditional businesses » ; rex31.com sur la couverture ; texte anglais complet sur cette page.'}
