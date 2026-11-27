@@ -113,8 +113,8 @@ ul, ol { padding: 0; }
 /* ---------- 页头 ---------- */
 .masthead {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "back title saved" "nav nav nav";
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-areas: "back title langs saved" "nav nav nav nav";
   align-items: center;
   column-gap: 14px;
   padding: 10px var(--pad-x) 0;
@@ -139,6 +139,24 @@ ul, ol { padding: 0; }
   white-space: nowrap;
 }
 .masthead-title:hover { color: var(--ink); text-decoration: none; }
+.masthead-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+:root:not(:lang(zh)) .masthead-title { letter-spacing: 0.01em; }
+/* 语言切换：三种语言同一页 */
+.languages { grid-area: langs; display: flex; justify-self: end; white-space: nowrap; }
+.languages a {
+  display: block;
+  padding: 8px 6px 6px;
+  font-size: 13.5px; color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.languages a:hover { color: var(--ink); border-bottom-color: var(--grout); }
+.languages a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--celadon); }
+/* 窄屏：页头标题让位给语言切换，下方的 h1 就是标题 */
+@media (max-width: 599px) {
+  .masthead { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "back langs saved" "nav nav nav"; }
+  .masthead-title { display: none; }
+}
 .saved-jump {
   grid-area: saved;
   min-height: 38px; padding: 0 12px;
@@ -177,8 +195,8 @@ ul, ol { padding: 0; }
 @media (min-width: 900px) {
   .masthead {
     position: sticky; top: 0; z-index: 30;
-    grid-template-columns: auto auto 1fr auto;
-    grid-template-areas: "back title nav saved";
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto;
+    grid-template-areas: "back title nav langs saved";
     column-gap: 18px;
     padding-top: 0;
     background: rgba(236, 237, 233, 0.96);
@@ -186,6 +204,11 @@ ul, ol { padding: 0; }
   .section-nav ul { justify-content: flex-end; margin: 0; padding: 0 8px 0 0; }
   .section-nav a { padding: 18px 0 16px; }
   section[id] { scroll-margin-top: 72px; }
+}
+/* 英文、法文的导航更长：中等宽度下页头标题让位，首屏 h1 就在下方 */
+@media (min-width: 900px) and (max-width: 1199px) {
+  :root:not(:lang(zh)) .masthead-title { display: none; }
+  :root:not(:lang(zh)) .section-nav ul { gap: 16px; }
 }
 
 /* ---------- 首屏 ---------- */
@@ -203,6 +226,9 @@ ul, ol { padding: 0; }
   line-height: 1.05;
   letter-spacing: 0.12em;
 }
+/* 英文、法文：拉丁字母不需要中文标题的字距，换用拉丁字体优先的无衬线字体 */
+:root:not(:lang(zh)) { --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+:root:not(:lang(zh)) .hero-title { letter-spacing: 0.01em; line-height: 1.08; }
 .hero-text { grid-area: text; }
 .hero-intro {
   font-family: var(--serif);
@@ -269,6 +295,7 @@ ul, ol { padding: 0; }
     border-right: 1px solid var(--grout);
     align-self: start;
   }
+  :root:not(:lang(zh)) .hero-title { font-size: clamp(48px, 4.6vw, 66px); letter-spacing: 0.01em; line-height: 1.1; }
   .hero-figure { align-self: start; }
   .hero-figure img { max-height: min(64vh, 620px); }
   .visual-index { align-self: end; }

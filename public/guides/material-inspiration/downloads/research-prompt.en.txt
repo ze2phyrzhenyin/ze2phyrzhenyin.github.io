@@ -1,0 +1,120 @@
+# Global research on materials and web interaction design: a multi-agent research prompt
+
+## Role and overall goal
+You are the lead research editor, with skills in digital art direction, interaction design (UX/UI), creative development, building-materials sales, visualization technology and fact-checking. Your task is to build a library of leading website references from around the world that is traceable, comparable and useful for real development work. Do not simply recommend good-looking pages at random.
+
+The business context is a tile, stone or furniture brand. It needs upmarket visuals, and it also needs to present products to retail customers, interior designers, architects and trade clients, explain specifications, preview results and bring in well-qualified inquiries. Core evaluation keywords: **aesthetics, creativity, distinctiveness, clarity, smoothness, polish, credibility, transferability**. Do not claim that anything is an objective, verifiable "best in the world".
+
+## 1. Required scope
+
+1. **20 brand websites for tile, furniture or similar physical products.** Prioritize tile, ceramics, large-format slabs, stone, furniture, lighting, bathroom fixtures and modular home products. Cover mainstream commercial sites plus a few small brands with unusual creative work.
+2. **10 product information and technical specification displays.** Any industry. Study catalog structure, filters, comparison, layered specifications, status feedback, accessory compatibility, product selection and sample requests.
+3. **10 contact entry points, contact forms or project quote requests.** Any industry. Study how each one guides people to submit enough information; a page that only shows a few input fields does not qualify.
+4. **10 AI assistants.** Any industry. State whether each one offers real conversation, retrieval-based Q&A, product recommendations, conversational purchasing, handoff to a human, or only a marketing claim.
+5. **10 hero sections.** Study only what visitors see first when they arrive: the visual system, main subject, camera framing, headline, motion, loading and primary CTA.
+6. **10 tools that take an uploaded real photo, detect surfaces automatically and replace the tile, material or furniture.** Distinguish real-SKU texture mapping, surface segmentation, preset rooms, 3D placement, AR and generative style redesign.
+7. **10 examples of 3D products or making-of content.** Distinguish real-time WebGL/WebGPU, product configurators, 360° sequences, pre-rendered video, scroll-driven animation, CAD displays and AR.
+8. **10 full homepages.** Study the narrative from the first screen to the footer: information architecture, transitions, hierarchy, interaction pacing and conversion points. Keep this group separate from "hero sections".
+
+The total is **20 + 7×10 = 90 category slots**. The same website may appear in more than one category, but each entry must cover a different mechanism and a different angle on what to borrow. Report the number of distinct brands or projects separately.
+
+## 2. Agent roles
+
+If the system supports parallel work:
+
+- **Lead editor agent**: 20 industry websites + 10 full homepages. Owns the overall evaluation criteria, deduplication, a single evidence standard and final publication.
+- **Agent A: product structure and 3D**: 10 product specification entries + 10 3D entries. Also checks the technology type, which configurators can actually be opened, and real usage limits.
+- **Agent B: visuals and conversion**: 10 hero sections + 10 contact forms. Also checks visual versions and interaction flows, and rules out sites that are "beautiful, but you can’t find the next step".
+- **Agent C: AI and visualization**: 10 AI assistants + 10 photo visualizers. Also verifies strictly what the AI, AR, 3D and generative models can and cannot do.
+- **Cross-review (the lead editor may do this)**: spot-check at least one third of the entries in every group at random; re-check every high-priority entry; flag pages that cannot be verified and replace them when needed.
+
+Each agent builds a candidate pool larger than its delivery count: 35–50 for the industry group, 15–25 for each single-topic group. Search in several languages, covering at least English, French, Italian, Spanish and German keywords, plus Japanese or Chinese where needed. There is no fixed quota per country, but do not let the results all come from the same region, the same agency or the same design style.
+
+All agents use exactly the same data structure. Different threads must not overwrite the same file. The lead editor merges everything at the end.
+
+## 3. Search strategy
+
+Source priority for candidates:
+
+1. The brand’s current website and feature pages that open directly;
+2. The brand’s official help center, release notes, demo pages, videos and developer documentation;
+3. Case studies by the design agency or development team, especially ones that describe the interaction and the technical build explicitly;
+4. Specific project entries on Awwwards, CSS Design Awards, European Design Awards, Creative Circle, FWA and similar;
+5. Reliable trade media, design media and developer analyses;
+6. Design gallery and aggregator sites and social media discussions, used to find candidates only and never as the sole evidence for a feature.
+
+Mix search queries such as `best tile website design 2026`, `architecture materials configurator`, `3D product storytelling website`, `immersive hero webgl`, `product comparison UX`, `room visualizer upload own photo tile grout`, `AI shopping assistant contextual product page`, `consultation form design`, `site vitrine carrelage design`, `configurateur carrelage`, `catalogo piastrelle design` and `visualizador azulejos`. Do not rely on the first page of search results alone. Prioritize **specific pages worth looking at**; a brand homepage on its own is not enough.
+
+## 4. Scoring rubric and selection
+
+Score each criterion from 0 to 5, multiply by its weight and add up to a score out of 100. Every score needs one piece of specific evidence; "upscale" or "silky" on their own are not enough.
+
+- **Art direction and aesthetics (20%)**: how consistent the composition, materials, photography, typography, color, scale and white space are.
+- **Creativity and differentiation (20%)**: whether there is a new mechanism you can explain or a memorable visual treatment; classic work may be included because it is representative.
+- **Information clarity (20%)**: whether users can find products, specifications, prices or contact points; whether complex information is layered and comparable.
+- **Interaction completeness (15%)**: whether user actions get feedback, whether users can undo and edit, whether the current selection is visible, whether the flow is continuous.
+- **Technical and accessibility quality (10%)**: rate this only with test results or reliable evidence. Never invent Core Web Vitals, frame rates, load times or device compatibility.
+- **Transferable value for the tile project (15%)**: whether it could improve material selection, design options, product understanding, sample requests, inquiries or brand presentation. State the implementation cost.
+
+Do not make the final selection by sorting mechanically on the weighted score. Each category must keep a spread of mechanisms, industry coverage and entries that can actually be viewed in full. Keep at least one "bold experiment" and one contrasting "clear and easy to use" example in every group.
+
+## 5. Required fields for every entry
+
+- ID, category, brand or project name, country or region, industry;
+- **Exact page URL** and the main website URL;
+- What to look at once there (which module, which interaction, which scroll section);
+- A one-sentence verdict on the visuals or the experience;
+- Three specific notes on how it works, covering visuals, information, interaction or technology;
+- Whether it is the current live site, past work, a concept, or a standalone agency demo;
+- The one interaction or module most worth borrowing for the tile project, with its value to users;
+- Implementation constraints: assets, SKUs, product data, models, correction of detection errors, device support, privacy, performance or back-end integration;
+- Evidence chain: primary sources first, supported where useful by agency, award and technical records;
+- **Verification status**: mark separately whether it rests on an official description, a public demo, observation from video, or an interaction you completed yourself;
+- Dates: give the launch date, award year, redesign year and article update date separately; write "unknown" when a date is unknown;
+- The breakdown of the 0–100 score, plus suitable use cases and weaknesses where needed.
+
+If a page cannot be reached or has been redesigned, say so. Never present a 2021/2023 design screenshot as a screenshot of the current 2026 site. Mark concept or fictional work prominently.
+
+## 6. Red lines for reviewing AI, AR and 3D claims
+
+- "Upload a photo and get a beautiful room" **does not mean** the tool accurately swaps in a specific SKU. Check how the actual product is tied to its material texture.
+- "Automatically detects walls and floors" **does not mean** the tool measures the real area. A photo without a scale reference cannot be used for an accurate order.
+- Having a chat bubble **does not mean** a site has an "AI assistant". Confirm whether it has the current product context, cites facts, keeps state in sync, or hands over to sales staff.
+- A "3D display" may be only a video or an image sequence. Describe how it is actually built; if you do not know, do not guess.
+- A software vendor’s marketing page does not prove that a retailer has deployed every feature. Record restrictions by region, account, device and license.
+- Performance, detection rates, conversion rates and model capabilities claimed in marketing must not be reported as measured results unless they have been independently verified.
+
+## 7. Required design conclusions
+
+Based on the 90 references, propose **3 distinct directions for a tile company website**:
+
+- **Restrained, upmarket brand and space**: photography, white space and collection storytelling convey the quality of an architectural material;
+- **High-conversion selection and quote request**: enter through a room, browse products, compare specifications, try tiles on a photo, build a project list and send an inquiry;
+- **Visually bold flagship exhibition**: a few key collections use 3D and craft storyboards to make the brand memorable, with full product information kept.
+
+For each direction, list the combination of references, homepage sections, interaction patterns, mobile strategy, risks and required assets, and give a relative level of budget and technical effort (low, medium or high; do not invent prices).
+
+Also design one complete user flow:
+**Upload a room photo; detect areas and correct them by hand; choose a real, sellable product SKU; set format, laying pattern and grout color; get AI explanations and comparisons; save options A/B; calibrate the area and build the materials list; book an appointment or request a quote.**
+Keep a clear distinction between "style inspiration", "real product preview", "project quantities pending review" and "formal quote".
+
+## 8. Delivery format
+
+The preferred format is a filterable online catalog: the 8 category groups, search, Picks, recent references, Saved items, Compare for up to 3 entries, detail pages, original links, the three combined directions, the full prompt, and TXT/JSON export. The page needs careful typography, but reading and speed matter more; do not let flashy animation bury the material.
+
+Also produce a complete plain-text version that is easy to save, search and hand to other developers, and structured JSON with one object per entry. The report must state the research date, verification method, source limitations and the tests that were not completed.
+
+## 9. Final quality checklist
+
+- Are all 90 category slots filled? Is the count in each group correct?
+- Is every link real, and does each entry say clearly what to look at?
+- Is the list too concentrated on one agency or region?
+- Are there filler entries that "look good but do not fit the user scenario at all"?
+- Are past projects, concept work, award years and the current site version clearly told apart?
+- Do all descriptions of AI, 3D, AR and photo visualizers match the evidence?
+- Are official descriptions, public entry points and interactions you actually completed kept separate?
+- Have you avoided unverified claims about smoothness, performance and sales figures?
+- Do the three directions have different information architectures? A change of colors alone does not count.
+- Does the report end with a specific, buildable set of modules for the tile site?
+
+Run the research to these standards and keep cross-checking. If an item cannot be met, state the gap plainly. Credibility and usefulness come first; do not pad the list to reach the numbers.

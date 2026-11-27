@@ -1,97 +1,28 @@
-/* 材料与界面：参考库交互。无依赖、无网络请求。 */
+/* 材料与界面：参考库交互。无依赖、无网络请求。界面文字、分组说明和补充来源来自 data/locale.<lang>.js（window.ATLAS_LOCALE）。 */
 (() => {
   'use strict';
 
   const items = Array.isArray(window.ATLAS_CASES) ? window.ATLAS_CASES : [];
   const prompt = typeof window.ATLAS_PROMPT === 'string' ? window.ATLAS_PROMPT : '';
+  const L = window.ATLAS_LOCALE;
+  const T = L.ui;
+  const { groups, groupDescriptions, categoryCaveats, exactLooks, additionalSources } = L;
   const $ = (id) => document.getElementById(id);
 
   const STORE_SAVED = 'atlas:saved';
   const PAGE_SIZE = 24;
   const COMPARE_MAX = 3;
 
-  /* ---------- 原研究的分组、说明与补充来源（保持原文） ---------- */
-  const groups = [
-    ['industry', '瓷砖 / 家具'], ['product', '产品信息'], ['contact', '联系 / 表单'],
-    ['assistant', 'AI 助手'], ['hero', '首屏体验'], ['visualizer', '照片换材质'],
-    ['3d', '3D / 制作过程'], ['homepage', '整个首页']
-  ];
-  const groupDescriptions = {
-    industry: '品牌设计、空间案例、系列与材料目录',
-    product: '筛选、规格、组件、对比与项目清单',
-    contact: '预约、预算、附件、项目咨询与转化',
-    assistant: '对话、商品解释、偏好识别与任务型导购',
-    hero: '首屏视觉语言、镜头与首次交互',
-    visualizer: '真实空间照片、表面识别与商品预览',
-    '3d': '产品配置、实时模型、AR 与制作序列',
-    homepage: '整页的视觉节奏、内容层级与转化路径'
-  };
-  const categoryCaveats = {
-    industry: '这些案例用于研究品牌设计与实体商品的表达。官方首页可能已经改版，系列信息、商品数量与视觉效果请以实时官网为准。',
-    product: '参数页表现与真实业务规则必须分开。瓷砖规格、适用位置、检测等级与配件兼容需要商家可验证的 SKU 数据。',
-    contact: '本资料研究了公开表单的结构和视觉方法，未实际向企业提交表单；任何隐私、反垃圾、文件上传和通知能力需独立开发。',
-    assistant: '官方发布或公开入口不等于当前地区已开放，也不证明回答准确。上线时应使用可信商品数据、必要的引用与人工接管机制。',
-    hero: '首屏视觉容易受屏幕、网络和硬件影响；历史版本和获奖年份不是现站性能证据。动效需要低性能与减少动效模式。',
-    visualizer: 'AI 风格图、照片表面分割、精确 SKU 贴图、AR 和 3D 是不同能力。单张照片缺少尺度时不能准确测量面积或自动产生正式报价。',
-    '3d': '不同案例可能使用实时 3D、图片序列、预渲染视频或 AR；没有制作方或代码证据时不推断底层技术。',
-    homepage: '本组研究从首屏到页尾的信息推进，不能仅凭首页截图断定转化率、速度或所有设备的交互质量。'
-  };
-  const exactLooks = {
-    I01: '优先进入 Interiors；观察完整空间、材料近景、系列、设计师和相关产品之间的跳转。',
-    I02: '从一个完整房间出发，查看材料、台面、家具与配件怎样形成成套选择。',
-    I07: '进入 Gallery 和 Samples 路径，研究实景照片如何与可售色系、样品和咨询连接。',
-    I11: '研究产品专题的场景、动效与一般商品目录如何分工。Paper Play 是历史专题。',
-    I13: '进入定制家具流程，观察调整尺寸和模块后的可视化反馈。',
-    I15: '打开 Case Studies，关注空间项目与具体家具系列的交叉索引。',
-    I16: '查看 Studio 与产品搭配，观察颜色、摄影与家居场景的整体系统。',
-    I17: '进入 Products 与不同场景类别，研究品牌主线和专业目录如何保持一致。',
-    P01: '进入 Colors，使用材质纹理、色系、表面与技术规格的筛选组合。',
-    P02: '打开照明产品分类，比较产品卡中的关键参数、项目清单和选型动作。',
-    P03: '在同一页面选择不同机型，以相同字段向下逐项比较。',
-    P06: '进入 Components，研究模块编号、图片与系统关系的层次。',
-    C01: '沿空间规划／咨询路径查看问题顺序，以及用户为什么愿意提供资料。',
-    C04: '查看项目描述、预算范围、时间、文件附件与联系方式的字段组织。',
-    A02: '重点阅读 Magic Apron 官方说明，研究 AI 如何以当前商品为问题背景；并非声称本次完整测通对话。',
-    A03: '研究 2026 年更新的 Alexa for Shopping 功能和购物对比入口，避免继续把原 Rufus 页面误作当前版本。',
-    A04: '查看 Assistant 官方介绍中的图片输入、负面偏好和对话内商品对比。',
-    H04: '查看 Watches & Wonders 2026 的首屏与主题世界，重点看镜头、产品焦点和分区转场。',
-    H05: '查看农产品主画面、字体和色彩，研究普通实体商品如何成为鲜明的艺术指导。',
-    H09: '看微距、揭示与概念化产品发布；作品为讽刺性概念，不把名称中的 AI 当作真实功能。',
-    V01: '打开 Roomvo 提供的公开实例，关注房间照片上传、选真实商品与预览的连续步骤。',
-    V02: '打开 Tilesview 的房间选择与材质配置入口，观察墙地、规格、铺贴方式及缝色。',
-    V05: '在 Best Tile 实例中研究地面、墙面、淋浴壁龛等多个施工区域如何分开修改。',
-    V10: '观察生成式装修的风格变化；它与准确应用商家指定纹理和尺寸是不同的任务。',
-    D01: '优先研究 Muuble 空间旋转、家具摆放、墙地设置、测距及 2D/3D 状态共享。',
-    D07: '观察 3D 空间和主题切换如何服务于珠宝展览，而非只停留在技术效果。',
-    D08: '按时间顺序阅读工艺或产品揭示；这是设计机构历史案例，非客户现站的保证。',
-    D09: '观察工业设备与原料、工艺过程之间的 3D 分镜，区分视频与实时交互。',
-    W01: '沿首页滚动观察品牌故事、产品场景、制造和目录入口怎样形成完整路径。',
-    W05: '观察每个章节如何解释下一步工作任务，以及复杂概念如何逐屏展开。',
-    W06: '研究功能、客户类型、实例与行动入口的多层组织。'
-  };
-  const additionalSources = {
-    I17: [['European Design Awards · Floema 作品说明', 'https://awards.europeandesign.org/winner/263020']],
-    W01: [['European Design Awards · Floema 作品说明', 'https://awards.europeandesign.org/winner/263020']],
-    I16: [['Creative Circle · Pedestal 2026', 'https://creativecircle.dk/arbejder/pedestal/']],
-    A02: [['The Home Depot · Magic Apron 官方说明', 'https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet']],
-    A03: [['Amazon · Alexa for Shopping 2026', 'https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant']],
-    A04: [['Zalando · 2026 功能说明', 'https://blog.zalando.com/en/technology/conversational-tool-lifestyle-agent-how-zalando-assistant-has-grown']],
-    H04: [['CSS Design Awards · Cartier 2026', 'https://www.cssdesignawards.com/wotm/cartier-watches-and-wonders-2026/49382/']],
-    D07: [['CSS Design Awards · Cartier 2026', 'https://www.cssdesignawards.com/wotm/cartier-watches-and-wonders-2026/49382/']],
-    H09: [['Lusion · Oryzo AI 概念说明', 'https://lusion.co/projects/oryzo_ai/']],
-    D01: [['Muuble · 创作者的技术说明', 'https://thomasgertenbach.com/work/muuble']],
-    D09: [['IST · 制作机构案例', 'https://chipsa.design/works/ist']]
-  };
-
   /* ---------- 工具 ---------- */
   const byId = new Map(items.map((x) => [x.id, x]));
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
   const clean = (s) => String(s ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLocaleLowerCase().trim();
   const safeUrl = (url) => { try { const u = new URL(url); return (u.protocol === 'https:' || u.protocol === 'http:') ? u.href : '#'; } catch { return '#'; } };
-  const lookFor = (c) => exactLooks[c.id] || `打开所列功能入口，重点观察：${groupDescriptions[c.category] || ''}。不要只看一张静态截图，留意信息层级、可操作状态和最终行动入口。`;
+  const lookFor = (c) => exactLooks[c.id] || T.lookForFallback(groupDescriptions[c.category] || '');
   const groupName = (key) => (groups.find((g) => g[0] === key) || [key, key])[1];
   const splitMarket = (m) => String(m || '').split(/\s*·\s*/);
-  const newWin = '<span class="vh">（新窗口打开）</span>';
+  const tagText = (c) => (c.tags || []).join(T.tagSeparator);
+  const newWin = `<span class="vh">${esc(T.newWindow)}</span>`;
   const ext = (href, label, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${esc(safeUrl(href))}" target="_blank" rel="noopener noreferrer">${label}${newWin}</a>`;
   const searchText = new Map(items.map((c) => [c.id, clean([c.id, c.title, c.market, c.categoryLabel, c.insight, c.application, ...(c.tags || []), c.dating, exactLooks[c.id] || ''].join(' '))]));
 
@@ -125,19 +56,6 @@
   };
   let filtered = [];
 
-  /* ---------- 返回指南首页 ---------- */
-  function setupBackLink() {
-    const link = $('all-guides');
-    if (!link) return;
-    let from = null;
-    try { from = new URLSearchParams(window.location.search).get('from'); } catch { from = null; }
-    const labels = { zh: ['攻略总览', 'zh-CN'], en: ['All guides', 'en'], fr: ['Tous les guides', 'fr'] };
-    if (from && Object.prototype.hasOwnProperty.call(labels, from)) {
-      link.href = `/guides/${from}/`;
-      if (from !== 'zh') { link.textContent = labels[from][0]; link.lang = labels[from][1]; }
-    }
-  }
-
   /* ---------- 过滤与排序 ---------- */
   function matchesFacet(c) {
     switch (state.facet) {
@@ -154,7 +72,7 @@
       (state.category === 'all' || c.category === state.category) &&
       matchesFacet(c) &&
       terms.every((t) => searchText.get(c.id).includes(t)));
-    if (state.sort === 'name') list.sort((a, b) => a.title.localeCompare(b.title, 'zh-Hans'));
+    if (state.sort === 'name') list.sort((a, b) => a.title.localeCompare(b.title, L.collation));
     else if (state.sort === 'category') list.sort((a, b) => items.indexOf(a) - items.indexOf(b));
     else list.sort((a, b) => Number(b.featured) - Number(a.featured) || items.indexOf(a) - items.indexOf(b));
     return list;
@@ -164,7 +82,7 @@
   function drawCategories() {
     const counts = {};
     items.forEach((c) => { counts[c.category] = (counts[c.category] || 0) + 1; });
-    const all = [['all', '全部主题', items.length], ...groups.map(([k, n]) => [k, n, counts[k] || 0])];
+    const all = [['all', T.allTopics, items.length], ...groups.map(([k, n]) => [k, n, counts[k] || 0])];
     $('catList').innerHTML = all.map(([key, name, n]) =>
       `<li><button type="button" class="cat" data-cat="${esc(key)}" aria-pressed="${key === state.category}"><span class="cat-name">${esc(name)}</span><span class="cat-n">${n}</span></button></li>`).join('');
   }
@@ -183,7 +101,7 @@
     return 'date';
   }
   function marks(c) {
-    return `${c.featured ? '<span class="pick">精选</span>' : ''}<span class="${dateClass(c)}">${esc(c.dating)}</span>`;
+    return `${c.featured ? `<span class="pick">${esc(T.pick)}</span>` : ''}<span class="${dateClass(c)}">${esc(c.dating)}</span>`;
   }
   function entry(c) {
     const [place, trade] = splitMarket(c.market);
@@ -194,35 +112,33 @@
   <h3 class="entry-title"><a href="#case-${esc(c.id)}" data-detail="${esc(c.id)}">${esc(c.title)}</a></h3>
   <p class="entry-market"><span>${esc(place)}</span>${trade ? `<span>${esc(trade)}</span>` : ''}</p>
   <p class="entry-insight">${esc(c.insight)}</p>
-  <p class="entry-use"><span class="entry-use-label">借鉴</span>${esc(c.application)}</p>
-  <p class="entry-tags">${esc((c.tags || []).join('、'))}</p>
+  <p class="entry-use"><span class="entry-use-label">${esc(T.borrow)}</span>${esc(c.application)}</p>
+  <p class="entry-tags">${esc(tagText(c))}</p>
   <div class="entry-actions">
-    ${ext(c.url, '访问网站', 'act act-link')}
-    <button type="button" class="act act-toggle" data-save="${esc(c.id)}" aria-pressed="${saved}">收藏<span class="vh"> ${esc(c.title)}</span></button>
-    <button type="button" class="act act-toggle" data-compare="${esc(c.id)}" aria-pressed="${compared}">对比<span class="vh"> ${esc(c.title)}</span></button>
+    ${ext(c.url, esc(T.visit), 'act act-link')}
+    <button type="button" class="act act-toggle" data-save="${esc(c.id)}" aria-pressed="${saved}">${esc(T.save)}<span class="vh"> ${esc(c.title)}</span></button>
+    <button type="button" class="act act-toggle" data-compare="${esc(c.id)}" aria-pressed="${compared}">${esc(T.compare)}<span class="vh"> ${esc(c.title)}</span></button>
   </div>
 </li>`;
   }
   function statusText() {
     const total = filtered.length;
     const shown = Math.min(state.visible, total);
-    if (!total) return '没有符合条件的参考';
-    return shown < total ? `显示 ${shown} 条，共 ${total} 条` : `共 ${total} 条`;
+    if (!total) return T.noMatchStatus;
+    return shown < total ? T.showing(shown, total) : T.total(total);
   }
   function drawGroupNote() {
     const note = $('groupNote');
     if (state.category === 'all') { note.hidden = true; note.innerHTML = ''; return; }
-    note.innerHTML = `<p class="group-desc">${esc(groupName(state.category))}：${esc(groupDescriptions[state.category] || '')}</p><p class="group-caveat"><span>限制</span>${esc(categoryCaveats[state.category] || '')}</p>`;
+    note.innerHTML = `<p class="group-desc">${esc(T.groupNote(groupName(state.category), groupDescriptions[state.category] || ''))}</p><p class="group-caveat"><span>${esc(T.limits)}</span>${esc(categoryCaveats[state.category] || '')}</p>`;
     note.hidden = false;
   }
   function drawEmpty() {
     const empty = $('emptyState');
     if (filtered.length) { empty.hidden = true; return; }
     const savedOnly = state.facet === 'saved' && state.saves.size === 0;
-    $('emptyText').textContent = savedOnly
-      ? '还没有收藏。在条目上按“收藏”，它会出现在这里。'
-      : '没有符合条件的参考。换个关键词，或清除筛选。';
-    $('resetFilters').textContent = savedOnly ? '查看全部参考' : '清除筛选';
+    $('emptyText').textContent = savedOnly ? T.emptySaved : T.emptyFiltered;
+    $('resetFilters').textContent = savedOnly ? T.showAll : T.clearFilters;
     empty.hidden = false;
   }
   function render() {
@@ -234,7 +150,7 @@
     const remaining = filtered.length - Math.min(state.visible, filtered.length);
     const more = $('loadMore');
     more.hidden = remaining <= 0;
-    more.textContent = `显示更多（还有 ${remaining} 条）`;
+    more.textContent = T.loadMore(remaining);
     drawEmpty();
   }
   function resetAndRender() { state.visible = PAGE_SIZE; render(); }
@@ -246,7 +162,7 @@
     $('resultStatus').textContent = statusText();
     const remaining = filtered.length - Math.min(state.visible, filtered.length);
     $('loadMore').hidden = remaining <= 0;
-    $('loadMore').textContent = `显示更多（还有 ${remaining} 条）`;
+    $('loadMore').textContent = T.loadMore(remaining);
     const first = next[0] && document.querySelector(`#caseList [data-detail="${CSS.escape(next[0].id)}"]`);
     if (first) first.focus();
   }
@@ -264,7 +180,7 @@
     if (state.saves.has(id)) state.saves.delete(id); else state.saves.add(id);
     writeStored(STORE_SAVED, items.filter((x) => state.saves.has(x.id)).map((x) => x.id));
     const saved = state.saves.has(id);
-    toast(saved ? `已收藏 ${c.title}` : `已取消收藏 ${c.title}`);
+    toast(saved ? T.saved(c.title) : T.unsaved(c.title));
     if (state.facet === 'saved' && !saved) {
       const inList = document.activeElement && document.activeElement.closest && document.activeElement.closest('#caseList');
       render();
@@ -282,14 +198,14 @@
     const n = state.compare.length;
     dock.hidden = n === 0;
     document.body.classList.toggle('has-dock', n > 0);
-    $('compareCount').textContent = `对比 ${n} / ${COMPARE_MAX}`;
+    $('compareCount').textContent = T.compareCount(n, COMPARE_MAX);
     $('compareItems').innerHTML = state.compare.map((id) => {
       const c = byId.get(id);
-      return `<li><span class="dock-name">${esc(c.title)}</span><button type="button" class="dock-remove" data-uncompare="${esc(id)}" aria-label="从对比中移除 ${esc(c.title)}">移除</button></li>`;
+      return `<li><span class="dock-name">${esc(c.title)}</span><button type="button" class="dock-remove" data-uncompare="${esc(id)}" aria-label="${esc(T.removeFromCompare(c.title))}">${esc(T.remove)}</button></li>`;
     }).join('');
     const open = $('openCompare');
     open.disabled = n < 2;
-    open.textContent = n < 2 ? '再选 1 个可对比' : '开始对比';
+    open.textContent = n < 2 ? T.pickOneMore : T.startCompare;
   }
   function toggleCompare(id) {
     const c = byId.get(id);
@@ -297,13 +213,13 @@
     const i = state.compare.indexOf(id);
     if (i >= 0) {
       state.compare.splice(i, 1);
-      toast(`已移出对比：${c.title}`);
+      toast(T.removedFromCompare(c.title));
     } else if (state.compare.length >= COMPARE_MAX) {
-      toast(`最多对比 ${COMPARE_MAX} 个。先在底部对比栏移除一个，再加入 ${c.title}。`);
+      toast(T.compareFull(COMPARE_MAX, c.title));
       return;
     } else {
       state.compare.push(id);
-      toast(`已加入对比：${c.title}（${state.compare.length} / ${COMPARE_MAX}）`);
+      toast(T.addedToCompare(c.title, state.compare.length, COMPARE_MAX));
     }
     syncToggles(id);
     drawDock();
@@ -319,13 +235,13 @@
     if ($('compareDialog').open) {
       if (state.compare.length < 2) {
         $('compareDialog').close();
-        toast(`已移出对比：${c.title}。至少选 2 个才能对比。`);
+        toast(T.removedNeedTwo(c.title));
       } else {
         drawCompare();
-        toast(`已移出对比：${c.title}`);
+        toast(T.removedFromCompare(c.title));
       }
     } else {
-      toast(`已移出对比：${c.title}`);
+      toast(T.removedFromCompare(c.title));
       const next = document.querySelector('#compareItems .dock-remove') || $('openCompare');
       if (!$('compareDock').hidden && next) next.focus();
       else $('resultStatus').focus({ preventScroll: true });
@@ -333,26 +249,27 @@
   }
   function drawCompare() {
     const selected = state.compare.map((id) => byId.get(id)).filter(Boolean);
-    const row = (label, fn) => `<tr><th scope="row">${label}</th>${selected.map((c) => `<td data-case="${esc(c.title)}">${fn(c)}</td>`).join('')}</tr>`;
-    $('compareBody').innerHTML = `<h2 id="compareTitle" class="sheet-title">并排对比</h2>
+    const R = T.compareRows;
+    const row = (label, fn) => `<tr><th scope="row">${esc(label)}</th>${selected.map((c) => `<td data-case="${esc(c.title)}">${fn(c)}</td>`).join('')}</tr>`;
+    $('compareBody').innerHTML = `<h2 id="compareTitle" class="sheet-title">${esc(T.compareTitle)}</h2>
 <div class="compare-wrap">
 <table class="compare-table" data-n="${selected.length}">
-  <thead><tr><td></td>${selected.map((c) => `<th scope="col"><span class="cmp-id">${esc(c.id)}　${esc(c.categoryLabel)}</span><span class="cmp-name">${esc(c.title)}</span><button type="button" class="btn btn-quiet cmp-remove" data-uncompare="${esc(c.id)}">移除<span class="vh"> ${esc(c.title)}</span></button></th>`).join('')}</tr></thead>
+  <thead><tr><td></td>${selected.map((c) => `<th scope="col"><span class="cmp-id">${esc(c.id)}${esc(T.idSeparator)}${esc(c.categoryLabel)}</span><span class="cmp-name">${esc(c.title)}</span><button type="button" class="btn btn-quiet cmp-remove" data-uncompare="${esc(c.id)}">${esc(T.remove)}<span class="vh"> ${esc(c.title)}</span></button></th>`).join('')}</tr></thead>
   <tbody>
-    ${row('地区／行业', (c) => esc(c.market))}
-    ${row('核心机制', (c) => esc(c.insight))}
-    ${row('具体看哪里', (c) => esc(exactLooks[c.id] || groupDescriptions[c.category]))}
-    ${row('瓷砖项目借鉴', (c) => esc(c.application))}
-    ${row('标签', (c) => esc((c.tags || []).join('、')))}
-    ${row('性质／时间', (c) => esc(c.dating) + (c.featured ? '，精选' : ''))}
-    ${row('风险与限制', (c) => esc(categoryCaveats[c.category]))}
-    ${row('原始链接', (c) => ext(c.url, '访问网站'))}
+    ${row(R.market, (c) => esc(c.market))}
+    ${row(R.insight, (c) => esc(c.insight))}
+    ${row(R.look, (c) => esc(exactLooks[c.id] || groupDescriptions[c.category]))}
+    ${row(R.application, (c) => esc(c.application))}
+    ${row(R.tags, (c) => esc(tagText(c)))}
+    ${row(R.dating, (c) => esc(c.dating) + (c.featured ? esc(T.pickSuffix) : ''))}
+    ${row(R.caveat, (c) => esc(categoryCaveats[c.category]))}
+    ${row(R.link, (c) => ext(c.url, esc(T.visit)))}
   </tbody>
 </table>
 </div>`;
   }
   function openCompare() {
-    if (state.compare.length < 2) { toast('至少选 2 个才能对比。'); return; }
+    if (state.compare.length < 2) { toast(T.needTwo); return; }
     drawCompare();
     $('compareDialog').showModal();
   }
@@ -362,29 +279,30 @@
   function detailActions(c) {
     const saved = state.saves.has(c.id);
     const compared = state.compare.includes(c.id);
-    return `${ext(c.url, '访问网站', 'btn btn-solid')}
-<button type="button" class="btn btn-line act-toggle" data-save="${esc(c.id)}" aria-pressed="${saved}">收藏</button>
-<button type="button" class="btn btn-line act-toggle" data-compare="${esc(c.id)}" aria-pressed="${compared}">对比</button>`;
+    return `${ext(c.url, esc(T.visit), 'btn btn-solid')}
+<button type="button" class="btn btn-line act-toggle" data-save="${esc(c.id)}" aria-pressed="${saved}">${esc(T.save)}</button>
+<button type="button" class="btn btn-line act-toggle" data-compare="${esc(c.id)}" aria-pressed="${compared}">${esc(T.compare)}</button>`;
   }
   function showDetail(id) {
     const c = byId.get(id);
     if (!c) return false;
     const refs = additionalSources[c.id] || [];
     const [place, trade] = splitMarket(c.market);
+    const D = T.detailRows;
     $('detailBody').innerHTML = `<p class="entry-meta"><span class="entry-id">${esc(c.id)}</span><span class="entry-cat">${esc(c.categoryLabel)}</span><span class="entry-marks">${marks(c)}</span></p>
 <h2 id="detailTitle" class="sheet-title">${esc(c.title)}</h2>
 <p class="entry-market"><span>${esc(place)}</span>${trade ? `<span>${esc(trade)}</span>` : ''}</p>
 <p class="detail-lead">${esc(c.insight)}</p>
 <div class="detail-actions">${detailActions(c)}</div>
 <dl class="detail-list">
-  <div><dt>重点看哪里</dt><dd>${esc(lookFor(c))}</dd></div>
-  <div><dt>瓷砖项目借鉴</dt><dd>${esc(c.application)}</dd></div>
-  <div><dt>标签</dt><dd>${esc((c.tags || []).join('、'))}</dd></div>
-  <div><dt>版本与性质</dt><dd>${esc(c.dating)}${c.isConcept ? '。此条为概念作品，不应作为真实在售产品或技术能力的证明。' : ''}</dd></div>
-  <div><dt>适用限制</dt><dd>${esc(categoryCaveats[c.category])}</dd></div>
-  <div><dt>研究来源</dt><dd><ul class="detail-sources"><li>${ext(c.url, esc(c.url), 'url')}</li>${refs.map(([label, url]) => `<li>${ext(url, esc(label))}</li>`).join('')}</ul></dd></div>
+  <div><dt>${esc(D.look)}</dt><dd>${esc(lookFor(c))}</dd></div>
+  <div><dt>${esc(D.application)}</dt><dd>${esc(c.application)}</dd></div>
+  <div><dt>${esc(D.tags)}</dt><dd>${esc(tagText(c))}</dd></div>
+  <div><dt>${esc(D.dating)}</dt><dd>${esc(c.dating)}${c.isConcept ? esc(T.conceptNote) : ''}</dd></div>
+  <div><dt>${esc(D.caveat)}</dt><dd>${esc(categoryCaveats[c.category])}</dd></div>
+  <div><dt>${esc(D.sources)}</dt><dd><ul class="detail-sources"><li>${ext(c.url, esc(c.url), 'url')}</li>${refs.map(([label, url]) => `<li>${ext(url, esc(label))}</li>`).join('')}</ul></dd></div>
 </dl>
-<p class="detail-note">原研究日期：2026 年 11 月 21 日。</p>`;
+<p class="detail-note">${esc(T.researchDate)}</p>`;
     openDetailId = id;
     const d = $('detailDialog');
     if (!d.open) d.showModal();
@@ -403,13 +321,14 @@
   }
 
   /* ---------- 导出收藏（原格式） ---------- */
-  const txtCase = (c) => `${c.id} | ${c.title}\n类别：${c.categoryLabel}\n地区 / 行业：${c.market}\n链接：${c.url}\n推荐看：${exactLooks[c.id] || groupDescriptions[c.category]}\n核心机制：${c.insight}\n瓷砖项目可借鉴：${c.application}\n标签：${c.tags.join('、')}\n版本 / 类型：${c.dating}\n核验限制：${categoryCaveats[c.category]}\n${(additionalSources[c.id] || []).map(([label, url]) => `补充来源：${label} — ${url}`).join('\n')}`;
+  const X = T.txtLabels;
+  const txtCase = (c) => `${c.id} | ${c.title}\n${X.category}${c.categoryLabel}\n${X.market}${c.market}\n${X.link}${c.url}\n${X.look}${exactLooks[c.id] || groupDescriptions[c.category]}\n${X.insight}${c.insight}\n${X.application}${c.application}\n${X.tags}${tagText(c)}\n${X.dating}${c.dating}\n${X.caveat}${categoryCaveats[c.category]}\n${(additionalSources[c.id] || []).map(([label, url]) => `${X.source}${label} — ${url}`).join('\n')}`;
   function makeReport(cases) {
     const byGroup = groups.map(([key, name]) => {
       const inGroup = cases.filter((c) => c.category === key);
       return inGroup.length ? `\n==================== ${name} ====================\n\n${inGroup.map(txtCase).join('\n\n---\n\n')}` : '';
     }).join('\n');
-    return `材料与界面 — 我的收藏\n${cases.length} 条 · 研究日期 2026-11-21 · 导出于 ${new Date().toLocaleDateString('zh-CN')}\n以下每条均含研究入口、核心机制、瓷砖项目借鉴、分类标签和验证限制。\n${byGroup}\n`;
+    return `${T.reportHead(cases.length, new Date().toLocaleDateString(L.lang))}${byGroup}\n`;
   }
   function download(text, filename) {
     const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
@@ -425,7 +344,7 @@
     try {
       if (!navigator.clipboard || !window.isSecureContext) throw new Error('no clipboard');
       await navigator.clipboard.writeText(prompt);
-      toast('已复制完整提示词');
+      toast(T.copied);
     } catch {
       const pre = $('promptText');
       $('promptDetails').open = true;
@@ -435,7 +354,7 @@
       sel.removeAllRanges(); sel.addRange(range);
       pre.focus({ preventScroll: true });
       pre.scrollIntoView({ block: 'nearest' });
-      toast('无法直接写入剪贴板。提示词已选中，按 Ctrl+C 或 ⌘C 复制。');
+      toast(T.copyFallback);
     }
   }
 
@@ -466,6 +385,15 @@
     map.forEach((_, id) => { const s = $(id); if (s) io.observe(s); });
   }
 
+  /* ---------- 切换语言时带上当前打开的条目 ---------- */
+  function syncLanguageLinks() {
+    const hash = window.location.hash;
+    document.querySelectorAll('[data-language]').forEach((a) => {
+      const base = a.getAttribute('href').split('#')[0];
+      a.setAttribute('href', /^#case-[A-Za-z0-9]+$/.test(hash) ? base + hash : base);
+    });
+  }
+
   /* ---------- 事件 ---------- */
   function bind() {
     document.addEventListener('click', (e) => {
@@ -478,6 +406,7 @@
           e.preventDefault();
           showDetail(id);
           try { history.replaceState(null, '', `#case-${id}`); } catch { /* ignore */ }
+          syncLanguageLinks();
         }
         return;
       }
@@ -519,15 +448,15 @@
       state.compare = [];
       ids.forEach(syncToggles);
       drawDock();
-      toast('已清空对比');
+      toast(T.compareCleared);
       $('resultStatus').focus({ preventScroll: true });
     });
     $('openCompare').addEventListener('click', openCompare);
     $('exportSaved').addEventListener('click', () => {
       const cases = items.filter((x) => state.saves.has(x.id));
-      if (!cases.length) { toast('还没有收藏。先在参考库里收藏条目，再导出。'); return; }
-      download(makeReport(cases), 'material-inspiration-favorites.txt');
-      toast(`已导出 ${cases.length} 条收藏`);
+      if (!cases.length) { toast(T.nothingToExport); return; }
+      download(makeReport(cases), T.exportFile);
+      toast(T.exported(cases.length));
     });
     $('copyPrompt').addEventListener('click', copyPrompt);
 
@@ -539,6 +468,7 @@
       const id = openDetailId;
       openDetailId = null;
       clearCaseHash();
+      syncLanguageLinks();
       const back = id && document.querySelector(`#caseList [data-detail="${CSS.escape(id)}"], .visual-index [data-detail="${CSS.escape(id)}"]`);
       if (back) back.focus({ preventScroll: true });
     });
@@ -551,6 +481,7 @@
       const id = caseFromHash();
       if (id) showDetail(id);
       else if ($('detailDialog').open) $('detailDialog').close();
+      syncLanguageLinks();
     });
 
     // 外部存储变化（另一个标签页）
@@ -563,9 +494,8 @@
 
   /* ---------- 启动 ---------- */
   function init() {
-    setupBackLink();
     if (!items.length) {
-      $('resultStatus').textContent = '案例数据没有载入。可以下载完整研究文本或案例 CSV 查看全部 90 条。';
+      $('resultStatus').textContent = T.dataMissing;
       return;
     }
     document.querySelectorAll('[data-count="featured"]').forEach((el) => { el.textContent = items.filter((c) => c.featured).length; });
@@ -576,14 +506,15 @@
     drawDock();
     if (prompt) {
       $('promptText').textContent = prompt;
-      $('promptLength').textContent = `全文 ${prompt.length.toLocaleString('zh-CN')} 字符，Markdown 格式`;
+      $('promptLength').textContent = T.promptLength(prompt.length.toLocaleString(L.lang));
     } else {
       $('copyPrompt').disabled = true;
-      $('promptLength').textContent = '提示词没有载入，可以直接下载 TXT。';
+      $('promptLength').textContent = T.promptMissing;
     }
     setupNavHighlight();
     const id = caseFromHash();
     if (id) showDetail(id);
+    syncLanguageLinks();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

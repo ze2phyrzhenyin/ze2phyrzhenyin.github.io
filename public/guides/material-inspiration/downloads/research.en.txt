@@ -1,0 +1,1164 @@
+# Materials and interfaces: a global website design reference
+
+Research date: 2026-11-21. 20 websites for physical products and materials; 7 interaction topics with 10 entries each; 90 category entries in total.
+About 80 distinct brands and projects; a few appear in more than one topic, each time for a different mechanism.
+
+
+## Homepage, selection notes and visual index
+
+GLOBAL DESIGN REFERENCE
+2026.11
+Digital experience research · Materials and furniture
+From material to interface,
+ideas for the next step.
+A global design study for tile and home furnishing projects. Every entry says where to look, what works and how to borrow it.
+Browse 90 references
+See the 12 Picks first
+20
+Material and furniture websites
+7 × 10
+Interaction topic references
+01
+Full research prompt
+FORM
+MATERIAL
+INTERACTION
+A MATERIAL STORY, MADE INTERACTIVE.
+Selection notes
+Visual impact, clear information and commercial use are judged together. Recent work sits next to established classics; concept work, earlier versions, AI capabilities and the scope of verification are noted entry by entry.
+Research criteria
+
+
+## Three design directions
+
+02 / MAKE IT YOURS
+Combine references into one direction.
+Three different site directions: brand and space, product selection and quote request, flagship exhibition. Choose one direction, then borrow one or two highlights.
+DIRECTION 01
+Restrained / material
+Restrained and upmarket: material and space come first
+For designers and specifiers, upmarket homes and brands that put the quality of the material first
+The first impression comes from material presentation in the manner of Mutina, Karimoku Case and Henge. Cosentino’s catalog structure and Vitsœ’s component explanations answer professional needs, and inquiries lead to a Reform-style appointment booking. The upmarket feel comes from consistent photography, proportions and typography, while the ways into the information stay clear.
+A hero room image with a clear point of view:
+Show how the tiles are actually laid, the light and the material; add one brand statement and two clear links, "View collections" and "Book a sample appointment".
+A few clearly defined collection entry points:
+Group collections such as warm stone, mineral rock and handmade glaze by their material language; show the differences first, then lead into the products.
+A visual material catalog:
+Large texture swatches with a few key filters (color family, finish, size, where it can be used); the active filters stay visible.
+Rooms and details in pairs:
+Each collection has a full room view, a close-up of the surface and an edge detail, so the mood and the real material information confirm each other.
+Specifications and matching pieces:
+The main tile, decor tiles, baseboards and trims are explained within the same collection, with links to specifications, care and samples.
+Low-effort booking:
+An online consultation or a showroom visit to see samples, with the browsed collections already filled in; area and timing are asked for only when needed.
+Mutina
+Karimoku Case
+Henge
+Cosentino
+Vitsœ
+Reform
+Build effort: low to medium
+The work is in art direction, room photography, material scanning, catalog content and consistent typography. Start with images, short videos and light interaction; a template cannot make up for weak assets.
+DIRECTION 02
+Recommended first
+Selection to sale: from liking a tile to requesting a quote
+Recommended as the main tile site; works for homeowners and trade clients
+Cosentino’s filters, Halcyon’s project list and the photo previews of Roomvo and Tilesview are joined into one continuous task. The AI draws on Mylow’s project intake questions, Magic Apron’s awareness of the current product and Zalando’s image-based preferences; selections carry through into the design options and the quote request.
+Start by project:
+Bathroom, kitchen, living room or outdoor, or search for a tile model directly; each choice opens the catalog that applies.
+Clear product cards and comparison:
+Show size, finish and the necessary performance data; compare 2–3 tiles with the same fields aligned; units and standards can be traced.
+Upload a photo to see real products:
+Detect walls and floors and allow corrections, switch between real SKUs, keep the before/after comparison, the laying pattern and the grout color.
+An AI shopping assistant with context:
+It knows the current room, the shortlisted products and the confirmed requirements; recommendations become editable filters, and each reason points to official documentation.
+Saved project options:
+Photos, SKUs, laying pattern, open questions and options A/B share one project record.
+Quantities that can be checked, and the quote request:
+Confirmed area, coverage per box, waste allowance assumptions and accessories are calculated separately; at submission the customer adds only contact and delivery details.
+Cosentino
+Halcyon
+Roomvo
+Tilesview
+Vitsœ
+Build effort: medium to high
+Build structured SKUs, filters, comparison and the project list first, then connect a tested photo preview and AI search. The work is in assets, usage rules, stock and pricing, and the manual correction path.
+DIRECTION 03
+Flagship / narrative
+Flagship exhibition: one collection staged as an experience
+For product launches, design weeks and flagship collections with a strong story
+Borrow Moooi’s complete world, Igloo’s spatial transitions, Cartier’s collection showrooms and IST’s making-of sequences to pace the browsing around the material story. From Oryzo, borrow only the macro shots, camera work and product reveal, since it is a concept project. Deeper pages still link to the real catalog, specifications and booking.
+A memorable opening:
+One central visual move with material grain, glaze reflections or an architectural space; visitors recognize the brand and the product as soon as they arrive.
+A material story in three parts:
+Raw material, craft, then the tile in a room; show the real process and say whether each part is video, an image sequence or real-time 3D.
+Consistent switching between collections:
+Each collection has its own scene, but product information and action buttons stay in predictable places.
+Key details you can interact with:
+Where it helps understanding, offer rotation, lighting and exploded layers so people can see thickness, edges and surface.
+Real catalog and selection:
+Exhibited products link directly to the matching SKU, sizes, accessories, samples and room preview.
+Direct inquiries and a light mode:
+Keep the booking link, and offer an image and short-video version for low-powered devices and for users who prefer reduced motion.
+Moooi
+Igloo
+Oryzo
+Cartier
+IST
+Build effort: high
+Needs art direction, model and material assets, storyboards, motion design and device adaptation. Build one collection completely as a pilot, and decide on expansion from real loading and interaction tests.
+If starting now
+Build the selection and quote request direction first.
+Establish quality through good photography, room references and the catalog, then connect photo try-on to real SKUs, the materials list and inquiries. The homepage’s visual impact has to lead customers to their next step.
+
+
+## Photo try-on in seven steps
+
+03 / FROM PHOTO TO PROJECT
+How photo try-on becomes a complete experience.
+From "it looks good" to "I know what to choose". This is a suggested development flow; no reference product is claimed to have all of these capabilities.
+Every step records useful information.
+Style inspiration, then real product preview, then a quote pending review
+The key distinction
+Generated images are for finding a direction. Choosing real materials needs product assets and exact specifications; a single photo cannot be assumed to give an accurate area.
+01
+Upload a photo and select the area to change
+Upload a room photo; detect surfaces such as walls and floors and show their outlines; allow clicking, adding to the selection and erasing. Offer sample rooms, and explain how photos are stored, used and deleted.
+02
+Choose a real, sellable SKU
+Filter by color family, texture, finish, size, budget and where it can be used. Each preview is tied to a product and a valid combination of specifications; out-of-stock and unsuitable options are clearly flagged.
+03
+Let the AI explain and narrow the choice
+The AI reads the current room, the shortlisted products and the confirmed requirements. A short Q&A turns into editable filters, and each recommendation reason links to official documentation; missing performance data and uncertain sizes are visibly left blank.
+04
+Adjust laying pattern, grout color and scale
+Adjust direction, grout color and joint width according to the SKU’s size and permitted rules; walls and floors are set separately. Set the scale from a reference dimension or calibration data, keep occlusion intact, and allow manual correction.
+05
+Compare options on the same photo
+Save two or three options and compare them from the same viewpoint, with a before/after slider. Each option holds the SKU, size, laying pattern and open questions; AI-generated inspiration must be clearly labeled.
+06
+Produce a materials list that can be checked
+Calculate the number of boxes from the confirmed area, coverage per box and a stated waste allowance, and show the basis of the calculation; trims and baseboards are calculated separately. A rendered preview cannot be used as an accurate quantity takeoff.
+07
+Request a quote with the full option attached
+Photos, SKUs, selections and the materials list are carried into the quote request automatically; the customer adds location, timing and contact details. Stock, shipping, installation and taxes are checked against live rules or by a person.
+
+
+## Method, limits and sources
+
+05 / EDITORIAL NOTES
+Judgments with sources.
+Research date:
+November 21, 2026
+. Official websites first, cross-checked against several sources; a design or an official statement does not mean that every interaction was fully tested by hand.
+01
+Visual distinctiveness
+Whether composition, typography, color, photography and material form one consistent language; whether you can say specifically why it looks good, without falling back on a vague "upscale".
+02
+Creativity and real differences
+Whether it offers a meaningful new form of expression or interaction; distinguish original mechanisms, established industry patterns, purely visual concepts and marketing claims.
+03
+Information clarity
+Whether people can find products, specifications, limits and the next step; whether complex information is organized in layers that help explain the differences between purchase options.
+04
+Interaction quality and usability
+Whether there is feedback, a state that can be corrected and a readable mobile version; no specific frame rates, load times or conversion rates are claimed without testing.
+05
+Transferable value for the tile project
+Whether it could improve material selection, comparison, picturing the room, organizing the project, quote requests and brand communication, and what assets, data and development effort it needs.
+How to read and verify
+A selection based on judgment, with no claim to an objective global ranking.
+This is a shortlist for a tile project. Taste and commercial fit depend on the brand, the customers and the market.
+90 category slots; merged by brand or project, about 80 distinct subjects.
+When a site is reused across categories, each entry looks at a different mechanism; hero sections and full homepages are studied separately.
+Public information is kept apart from hands-on interaction tests.
+Sources include brand websites, feature pages, official descriptions, the studios that built the sites, and award records. Finding the entry point, watching a recording and completing the full interaction yourself are different levels. This round did not run complete performance and interaction tests on every site.
+New examples sit next to established ones.
+Site version, project launch year, article update year and award year are never mixed; "Classic", "Earlier version" and "Concept" are required labels.
+Limits of the technical descriptions
+A chat window is not proof of AI.
+Check whether it understands the current SKU, cites reliable specifications, remembers choices and hands over to a person when needed.
+Photo detection is not precise measurement.
+AI segmentation, real material texture mapping, AR, 3D and generative redesign are different mechanisms; only real SKUs can go forward into a quote request.
+3D is not always real-time rendering.
+Video, image sequences, WebGL/WebGPU, model viewers and AR must be described as separate things.
+Performance, privacy and accessibility need real testing.
+This material is a study of design references only; it makes no guarantee about any platform, device, region or current service.
+Source links and supporting records
+Each reference’s "Open website" link keeps the exact page that was researched. Some key mechanisms also come with a write-up from the studio or the brand, to help separate renderings, product capabilities and tests.
+Floema · European Design Awards / project write-up
+Pedestal · Creative Circle 2026
+The Home Depot · Magic Apron official overview
+Amazon · Alexa for Shopping 2026
+Zalando · Assistant update notes
+Cartier · CSS Design Awards entry
+Oryzo · studio’s concept write-up
+Muuble · studio’s interaction write-up
+IST · craft visuals production case study
+Vitsœ · space planning form
+
+
+## All 90 cases
+
+Each entry has its link, how it works, what a tile site can borrow, tags, version and the kind of public evidence.
+
+### Tile and furniture websites (20)
+
+#### I01 · Mutina
+Place / trade: Italy · Design tiles
+Exact link: https://www.mutina.it/en/interiors
+How it works: Interiors presents the tiles through photos of real buildings, and each project also shows material close-ups, the collection and the designer.
+For a tile site: Next to a finished kitchen or bathroom photo, name the tile model and add a close-up of its surface and alternative products in the same color.
+Tags: spatial storytelling / material texture / restraint
+Version / type: Classic
+Section: Tile / furniture
+
+#### I02 · Salvatori
+Place / trade: Italy · Natural stone and home furnishings
+Exact link: https://bathroom.salvatoriofficial.com/en/
+How it works: You enter through a room photo and can go on to the stone, furniture and accessories in that same room.
+For a tile site: Let customers save wall tiles, floor tiles, countertop and accessories together as one set.
+Tags: coordinated sets / browse by project
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I03 · Living Ceramics
+Place / trade: Spain · Architectural ceramics
+Exact link: https://livingceramics.com/en/
+How it works: Architecture projects and custom products are browsed separately, and the finished spaces show how the material is used.
+For a tile site: Give large-format slabs, countertops and bathroom fixtures their own custom-order entry points, each with matching finished projects.
+Tags: architectural photos / custom work
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I04 · WOW Design
+Place / trade: Spain · Design tiles
+Exact link: https://www.wowdesigneu.com/
+How it works: Geometric shapes, surfaces and the rhythm of the layout are the main visual subject.
+For a tile site: For shaped and relief tiles, show close-ups of light, shadow and arrangement first, then the specs.
+Tags: shaped tiles / texture / tile layout
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I05 · Florim
+Place / trade: Italy · Upmarket architectural ceramics
+Exact link: https://www.florim.com/en
+How it works: The brand photography is strong, and the large materials catalog stays easy to search.
+For a tile site: Advanced search opens in layers: by use, then color, then specs.
+Tags: filters / brand photography
+Version / type: Classic
+Section: Tile / furniture
+
+#### I06 · Atlas Concorde
+Place / trade: Italy · Ceramics and large-format slabs
+Exact link: https://www.atlasconcorde.com/en
+How it works: Navigation by collection, look, color, size and setting is clearly organized.
+For a tile site: Link SKUs to each other by collection and by the rooms they suit, in addition to the plain product grid.
+Tags: large catalog / navigation
+Version / type: Classic
+Section: Tile / furniture
+
+#### I07 · Fireclay Tile
+Place / trade: US · Handmade tiles
+Exact link: https://www.fireclaytile.com/pages/gallery
+How it works: Room photos, samples, color options and consultation form one continuous path for choosing tiles.
+For a tile site: Tag the products for sale in every room photo, with links to samples and to contact.
+Tags: colored tiles / samples / conversion
+Version / type: Classic
+Section: Tile / furniture
+
+#### I08 · Artedomus
+Place / trade: Australia · Stone and tiles
+Exact link: https://www.artedomus.com/tiles
+How it works: Interior photos come with material details, so you can find products by following architecture projects.
+For a tile site: Under each photo, give the material model and say whether it is on the wall, the floor or the countertop.
+Tags: architecture-magazine style / captions
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I09 · New Terracotta
+Place / trade: Portugal · Handmade ceramics
+Exact link: https://newterracotta.com/
+How it works: The brand is recognizable through its colors, glazes and subtle variations.
+For a tile site: Make glaze swatches that can be compared side by side, with close-ups and where each one can be used.
+Tags: color swatches / handmade / craft
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I10 · INAX
+Place / trade: Japan · Tiles and bathroom fixtures
+Exact link: https://www.inax.com/
+How it works: It explains the value of its materials through craft and regional culture.
+For a tile site: Alongside the product catalog, add craft features built on facts.
+Tags: craft / cultural storytelling
+Version / type: Classic
+Section: Tile / furniture
+
+#### I11 · Moooi
+Place / trade: Netherlands · Furniture and lighting
+Exact link: https://www.moooi.com/en
+How it works: Collection launches are presented as stage sets.
+For a tile site: Make a short full-screen feature for the flagship tile collection, and keep clear links to the products.
+Tags: staging / story / motion
+Version / type: Classic
+Section: Tile / furniture
+
+#### I12 · GUBI
+Place / trade: Denmark · Furniture and lighting
+Exact link: https://gubi.com/en/pl
+How it works: Collection write-ups put the designer, the materials and the finished product in one article.
+For a tile site: Keep a short designer interview on the collection page, with pictures of the surface details it mentions.
+Tags: editorial design / designers
+Version / type: Classic
+Section: Tile / furniture
+
+#### I13 · Tylko
+Place / trade: Poland · Custom furniture
+Exact link: https://tylko.com/en-ot
+How it works: Size, modules and the product’s shape update together in the configurator.
+For a tile site: Turn tile size, laying pattern, grout color and area into a plan the customer can edit.
+Tags: configurator / parametric
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I14 · USM
+Place / trade: Switzerland · Modular furniture
+Exact link: https://us.usm.com/
+How it works: The modules follow one consistent system, accessories have defined relationships to them, and there is a set path through configuration.
+For a tile site: Build one component system for the main tile, matching decor tiles and trims.
+Tags: modularity / accessories
+Version / type: Classic
+Section: Tile / furniture
+
+#### I15 · Karimoku Case
+Place / trade: Japan · Architecture and furniture
+Exact link: https://www.karimoku-case.com/case_studies/
+How it works: Case Studies shows the furniture by whole building or interior project, then links to the related collections.
+For a tile site: Link finished kitchen or bathroom projects to the tile models actually used in them.
+Tags: architecture case studies / minimalism
+Version / type: Classic
+Section: Tile / furniture
+
+#### I16 · Pedestal
+Place / trade: Denmark · Homeware
+Exact link: https://www.pedestal.com/pages/studio
+How it works: Products in different colorways come back again and again in the same set, so colors and outlines are easy to compare.
+For a tile site: Shoot several tile colors on the same wall from the same camera position, with the same tiled area each time.
+Tags: colorways / product personality
+Version / type: 2026 award
+Section: Tile / furniture
+
+#### I17 · Floema
+Place / trade: Portugal · Outdoor furniture
+Exact link: https://floema.com/en/products?collection=Urban
+How it works: You can enter through indoor or outdoor settings and keep filtering in the product catalog.
+For a tile site: One tile model can appear under both the bathroom and the commercial-space entries, with its size and stock still taken from a single product record.
+Tags: brand / catalog / scenes
+Version / type: 2026 project
+Section: Tile / furniture
+
+#### I18 · Oakâme
+Place / trade: France · Furniture and interiors
+Exact link: https://www.oakame.com/en/
+How it works: Furniture and interiors content can be paged through like a lookbook.
+For a tile site: Offer material projects in two reading modes: a list and a swipeable view.
+Tags: lookbook / reading modes
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I19 · Stellar Works
+Place / trade: China / International · Furniture
+Exact link: https://www.stellarworks.com/
+How it works: Collections, designers, materials and real projects are presented in one consistent way.
+For a tile site: A brand with several collections keeps one visual language and one navigation structure.
+Tags: multiple collections / brand system
+Version / type: Updated regularly
+Section: Tile / furniture
+
+#### I20 · Muuto
+Place / trade: Denmark · Furniture and lighting
+Exact link: https://www.muuto.com/
+How it works: Lifestyle content runs alongside an orderly product system.
+For a tile site: Use lifestyle scenes to present color and module combinations, and keep the product information easy to find.
+Tags: lifestyle / catalog
+Version / type: Classic
+Section: Tile / furniture
+
+
+### Product information (10)
+
+#### P01 · Cosentino · Colors
+Place / trade: Spain · Architectural surfaces
+Exact link: https://www.cosentino.com/colors/
+How it works: Colors puts large texture swatches next to the filters, so you can narrow the range while looking at the patterns.
+For a tile site: Put color family, finish, size and use next to the swatches, and keep the selected filters when an option changes.
+Tags: texture / filters / materials
+Version / type: Updated regularly
+Section: Product information
+
+#### P02 · Halcyon · Product Catalogue
+Place / trade: New Zealand · Architectural lighting
+Exact link: https://www.halcyon.co.nz/collections/downlights
+How it works: The light fittings list shows the specs needed to choose a fitting, and there is a project list.
+For a tile site: Show tile size, thickness and finish in the list, and let customers pick the models they want to compare.
+Tags: spec cards / project list / comparison
+Version / type: Updated regularly
+Section: Product information
+
+#### P03 · Apple · iPhone Compare
+Place / trade: US · Consumer electronics
+Exact link: https://www.apple.com/iphone/compare/
+How it works: Matching specs are lined up row by row on one page, so you do not have to switch between pages.
+For a tile site: Compare up to three SKUs on the same fields and highlight the differences.
+Tags: spec comparison / clarity
+Version / type: Updated regularly
+Section: Product information
+
+#### P04 · Teenage Engineering · OP–XY
+Place / trade: Sweden · Music hardware
+Exact link: https://teenage.engineering/products/op-xy
+How it works: Complex technology is explained inside a layout with a strong brand identity.
+For a tile site: Show measured material specs with structural details and explanatory diagrams, and keep tables to a minimum.
+Tags: technical explanation / typography
+Version / type: Updated regularly
+Section: Product information
+
+#### P05 · Tylko · Custom Furniture
+Place / trade: Poland · Custom furniture
+Exact link: https://tylko.com/en-ot/furniture-c
+How it works: Every change to a parameter shows up straight away in how the product looks.
+For a tile site: When the tile size or layout changes, the image and the material quantities update together.
+Tags: configurator / live feedback
+Version / type: Updated regularly
+Section: Product information
+
+#### P06 · Vitsœ · Components
+Place / trade: UK · System furniture
+Exact link: https://www.vitsoe.com/606/components
+How it works: A complex product system is broken down into clear components that link to each other.
+For a tile site: Define how the main tile, decor tiles, baseboards and trims relate as components.
+Tags: system components / structure
+Version / type: Classic
+Section: Product information
+
+#### P07 · Framework · Laptop 13
+Place / trade: US · Modular laptops
+Exact link: https://frame.work/laptop13/?tab=specs
+How it works: Specs, compatibility and modules are explained in layers.
+For a tile site: Show the common tile specs first, and let the detailed technical data open on demand.
+Tags: modules / compatibility / specs
+Version / type: Updated regularly
+Section: Product information
+
+#### P08 · DJI · Mavic 4 Pro Specs
+Place / trade: China · Consumer electronics
+Exact link: https://www.dji.com/mavic-4-pro/specs
+How it works: A long list of specs is shown in groups, so technical users can check them easily.
+For a tile site: Group tile test results by use, and give the test standard and unit for each one.
+Tags: spec tables / grouping
+Version / type: Updated regularly
+Section: Product information
+
+#### P09 · Bang & Olufsen · Beolab 90
+Place / trade: Denmark · Audio
+Exact link: https://www.bang-olufsen.com/en/int/speakers/beolab-90
+How it works: Materials, precision craftsmanship and technical explanation are presented together.
+For a tile site: Explain performance figures in relation to the specific surface and structure.
+Tags: engineered look / craft
+Version / type: Classic
+Section: Product information
+
+#### P10 · Bellroy · Slim Your Wallet
+Place / trade: Australia · Accessories
+Exact link: https://bellroy.com/collection/slim-your-wallet
+How it works: Visual changes help users understand abstract differences.
+For a tile site: Use side-by-side photos of real rooms to explain thickness, size and the installed result.
+Tags: visible differences / education
+Version / type: Classic
+Section: Product information
+
+
+### Contact and forms (10)
+
+#### C01 · Vitsœ · Space Planning Inquiry
+Place / trade: UK · Furniture design
+Exact link: https://www.vitsoe.com/us/606/inquiry
+How it works: Vitsœ uses free space planning as its way in to contact, so people filling in the form know what service they will get once they send it.
+For a tile site: First list the tile models the customer has already chosen, then ask about the room, the problem they want solved and their contact details.
+Tags: space planning / booking / uploads
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C02 · Reform · Book a Meeting
+Place / trade: Denmark · Kitchens
+Exact link: https://www.reformcph.com/en/book-a-meeting
+How it works: Remote consultations and showroom bookings each have a clear path.
+For a tile site: A tile site can let customers book a sample appointment or an online design consultation directly.
+Tags: booking / remote / showroom
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C03 · KOBU · Contact
+Place / trade: Portugal · Digital agency
+Exact link: https://kobu.agency/contact/
+How it works: Branching questions replace a form that shows every field at once.
+For a tile site: Show different questions for retail customers, architects and trade projects.
+Tags: branching form / UX
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C04 · EPIC Agency · New Project
+Place / trade: Belgium · Digital agency
+Exact link: https://www.epic.net/en/contact/new-project/
+How it works: Budget, timing, requirements and attachments make up a structured project brief.
+For a tile site: Use an optional budget field and photo attachments to get better tile quote requests.
+Tags: project brief / attachments
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C05 · Obys · Contacts
+Place / trade: Europe · Design studio
+Exact link: https://obys.agency/about
+How it works: The old contact page asked its questions in natural language. The current site gives a contact email in the footer.
+For a tile site: In the quote request, ask questions in the words customers use, and keep clear field names and error messages.
+Tags: natural language / brand
+Version / type: Former form, now email
+Section: Contact / forms
+
+#### C06 · Locomotive · Lisa
+Place / trade: Canada · Digital agency
+Exact link: https://locomotive.ca/en/contact
+How it works: According to public material, an AI chat helps work out what the client needs.
+For a tile site: Before the formal quote request, confirm the room, budget and products in a conversation.
+Tags: AI consultation / conversation
+Version / type: Feature write-up
+Section: Contact / forms
+
+#### C07 · Dennis Snellenberg · Contact
+Place / trade: Netherlands · Designer
+Exact link: https://www.dennissnellenberg.com/contact
+How it works: Short, numbered questions give the form a rhythm.
+For a tile site: Show one key field per screen, so customers do not face many required fields at once.
+Tags: numbered form / pacing
+Version / type: Earlier version
+Section: Contact / forms
+
+#### C08 · Pentagram · Contact
+Place / trade: International · Design firm
+Exact link: https://www.pentagram.com/contact
+How it works: The contact page lists the offices by city, so visitors can go straight to the local team.
+For a tile site: List the address and contact person for each showroom, so customers can pick the one closest to their site.
+Tags: multiple locations / trust
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C09 · OFF+BRAND. · Contact
+Place / trade: UK · Creative agency
+Exact link: https://www.itsoffbrand.com/contact
+How it works: The service and project type you choose set the questions that follow.
+For a tile site: Give each line of business its own branch for collecting information.
+Tags: request routing / forms
+Version / type: Updated regularly
+Section: Contact / forms
+
+#### C10 · 2Frames Animation
+Place / trade: International · Animation
+Exact link: https://www.2framesanimation.com/
+How it works: When you reach the end of a case study, you can contact the studio right there.
+For a tile site: Put an inquiry link after the finished-room photos, and carry the name of the project just viewed into the form.
+Tags: narrative flow / contact
+Version / type: Updated regularly
+Section: Contact / forms
+
+
+### AI assistants (10)
+
+#### A01 · Lowe’s · Mylow
+Place / trade: US · Home improvement retail
+Exact link: https://www.lowes.com/Mylow
+How it works: It first works out the project goal, then explains the steps and suggests products.
+For a tile site: Start from a task such as a bathroom remodel and guide the customer to the materials they need.
+Tags: project assistant / home improvement
+Version / type: Updated regularly
+Section: AI assistants
+
+#### A02 · The Home Depot · Magic Apron
+Place / trade: US · Building materials retail
+Exact link: https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet
+How it works: The official Magic Apron overview shows Q&A on the product page, where each question already has the current product as context.
+For a tile site: Let customers ask “Does it work in a bathroom?” on a tile model’s page, and have the answer list where the model can be used and where its specs come from.
+Tags: product context / spec Q&A
+Version / type: Official overview
+Section: AI assistants
+
+#### A03 · Amazon · Alexa for Shopping
+Place / trade: US · E-commerce
+Exact link: https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant
+How it works: Shopping questions, comparisons and recommendations are combined.
+For a tile site: Help narrow the shortlist based on the tiles already chosen and the budget.
+Tags: shopping assistant / comparison
+Version / type: 2026 update
+Section: AI assistants
+
+#### A04 · Zalando Assistant
+Place / trade: Germany · Fashion e-commerce
+Exact link: https://en.zalando.de/campaigns/zfa/
+How it works: Shoppers can describe what they like with photos and chat, and rule out options they dislike.
+For a tile site: The customer uploads bathroom pictures they like, and the assistant turns the style preferences into filters.
+Tags: multimodal / preferences
+Version / type: 2026 update
+Section: AI assistants
+
+#### A05 · Carrefour · Hopla
+Place / trade: France · Retail
+Exact link: https://www.carrefour.fr/services/hopla
+How it works: Shoppers reach products from everyday situations and tasks.
+For a tile site: The customer gives the assistant the renovation budget and the room, and gets a direction for what to buy.
+Tags: task-based / guided shopping
+Version / type: Updated regularly
+Section: AI assistants
+
+#### A06 · Accio / Accio Work
+Place / trade: International · B2B sourcing
+Exact link: https://static.accio.com/accio-user-guide.html
+How it works: It turns a need into sourcing tasks that can be carried out.
+For a tile site: Commercial project clients can submit their project constraints and get a materials list that still needs checking.
+Tags: B2B / sourcing
+Version / type: Updated regularly
+Section: AI assistants
+
+#### A07 · Sherwin-Williams · Color Tools
+Place / trade: US · Paint
+Exact link: https://www.sherwin-williams.com/en-us/color/color-tools
+How it works: Color choice is linked to where the paint will be used and to a question-and-answer knowledge base.
+For a tile site: Suggest similar color families from the photo’s tones, the light and the intended use.
+Tags: color / paint
+Version / type: Feature page
+Section: AI assistants
+
+#### A08 · Stripe Docs · Inline AI
+Place / trade: US · Developer tools
+Exact link: https://docs.stripe.com/
+How it works: It explains content right next to the part of the documentation you are reading.
+For a tile site: Next to the technical specs, offer quick Q&A about the current entry.
+Tags: context / documentation
+Version / type: Updated regularly
+Section: AI assistants
+
+#### A09 · Livinit · Livi
+Place / trade: International · Interior design
+Exact link: https://web.livinit.ai/
+How it works: It gives room and product suggestions in a home-furnishing context.
+For a tile site: Let users switch between images, requirements and products without losing their place.
+Tags: interior design assistant / spaces
+Version / type: Feature page
+Section: AI assistants
+
+#### A10 · Locomotive · Lisa
+Place / trade: Canada · Digital agency
+Exact link: https://locomotive.ca/en/contact
+How it works: It collects the background of the client’s project through a conversation.
+For a tile site: Once the needs are confirmed, the assistant hands the information over to a human salesperson.
+Tags: AI consultation / leads
+Version / type: Feature write-up
+Section: AI assistants
+
+
+### Hero sections (10)
+
+#### H01 · Lusion
+Place / trade: UK · Creative technology
+Exact link: https://lusion.co/
+How it works: The hero opens with an interactive digital piece, and visitors first see how it responds to what they do.
+For a tile site: Pick one motion that brings out the surface, such as light sweeping across a glaze.
+Tags: 3D / art / movement
+Version / type: Earlier version, check the live site
+Section: Hero sections
+
+#### H02 · Igloo Inc.
+Place / trade: International · Digital studio
+Exact link: https://www.igloo.inc/
+How it works: Visitors move through a digital space and browse the content in different scenes.
+For a tile site: Introduce the lead collections along a short path through a space, with links to each collection on the way.
+Tags: virtual world / scenes
+Version / type: Updated regularly
+Section: Hero sections
+
+#### H03 · Lando Norris
+Place / trade: UK · Athlete brand
+Exact link: https://landonorris.com/
+How it works: The driver’s hero is built from the person, the movement of the track and the rhythm of the cuts.
+For a tile site: Compare how long each frame stays on screen, and leave the tile texture on screen long enough to see the detail.
+Tags: sense of speed / composition
+Version / type: Updated regularly
+Section: Hero sections
+
+#### H04 · Cartier · Watches & Wonders 2026
+Place / trade: France · Luxury
+Exact link: https://www.cartier.com/en-fr/watchesandwonders
+How it works: Watches & Wonders 2026 uses WebGL to move between exhibition rooms, with the camera traveling from a themed scene to the watch.
+For a tile site: Build an exhibition room around one flagship collection, and give each close-up a link to the matching tile model and its specs.
+Tags: luxury / exhibition / WebGL
+Version / type: 2026 project
+Section: Hero sections
+
+#### H05 · Agrumea Farm
+Place / trade: Italy · Food
+Exact link: https://www.agrumeafarm.it/
+How it works: The Agrumea Farm hero builds its composition from the shapes and colors of the crops.
+For a tile site: Take the main color from the clay, stone powder or glaze, and use it in that collection’s images and navigation.
+Tags: art direction / color palette
+Version / type: 2026 project
+Section: Hero sections
+
+#### H06 · Santioni · The Notturno Experience
+Place / trade: International · Drinks
+Exact link: https://santionispirits.com/
+How it works: Typography, dark tones and camera storytelling set the mood.
+For a tile site: A few key tile models can open with a short cinematic sequence.
+Tags: cinematic / typography
+Version / type: Updated regularly
+Section: Hero sections
+
+#### H07 · Gentle Monster × Maison Margiela 2026
+Place / trade: South Korea / France · Fashion
+Exact link: https://www.gentlemonster.com/int/en/stories/maison-margiela-2026
+How it works: Styling, photography and motion form one visual language for the brand’s campaign page.
+For a tile site: Launch upmarket collections on campaign pages kept separate from the regular catalog.
+Tags: fashion / campaign pages
+Version / type: 2026 project
+Section: Hero sections
+
+#### H08 · Henge · Milan Design Week 2026
+Place / trade: Italy · Upmarket furniture
+Exact link: https://mdw.henge07.com/
+How it works: The furniture appears in architectural spaces, so each photo shows both scale and material.
+For a tile site: Take one room shot that shows where the tiles are laid and the joints between them, then add a close-up of the tile surface.
+Tags: materiality / photography
+Version / type: 2026 project
+Section: Hero sections
+
+#### H09 · Oryzo AI
+Place / trade: International · Digital studio concept
+Exact link: https://oryzo.ai/
+How it works: Macro shots, slow reveals and careful camera work bring the product forward.
+For a tile site: Borrow only the visual techniques. This is a concept piece and does not show a real AI feature.
+Tags: macro / concept / narrative
+Version / type: 2026 concept
+Section: Hero sections
+
+#### H10 · Lightship
+Place / trade: US · Electric RVs
+Exact link: https://lightshiprv.com/
+How it works: Product scale and real settings make the hero easy to read at a glance.
+For a tile site: Introduce the product with one believable photo of a real space where it is used.
+Tags: product photography / scale
+Version / type: Updated regularly
+Section: Hero sections
+
+
+### Photo visualizers (10)
+
+#### V01 · Roomvo · Home Depot Demo
+Place / trade: North America · Flooring and tiles
+Exact link: https://hello.roomvo.com/hd
+How it works: The Roomvo demo for Home Depot places flooring from the catalog into a photo of a room.
+For a tile site: Keep the customer’s chosen model and original photo, and once they have compared two laying patterns, carry them straight into the quote request.
+Tags: real SKUs / material swap / rooms
+Version / type: Public demo
+Section: Photo visualizers
+
+#### V02 · Tilesview · Tile Visualizer
+Place / trade: India · Tile visualization
+Exact link: https://tilesview.ai/app/oBOx1jfSUAB6SU_-Vyr_xA/room-select
+How it works: In the room preview you can pick the walls and the floor separately and adjust size, laying pattern and joints.
+For a tile site: Keep the existing floor when the wall tile changes, and let grout color and laying direction be changed on their own.
+Tags: walls and floors / grout color / laying pattern
+Version / type: Public demo
+Section: Photo visualizers
+
+#### V03 · Wizart Visualizer
+Place / trade: Europe / International · Interior materials
+Exact link: https://wizart.ai/visualizer
+How it works: The material preview on photos is connected to the product catalog.
+For a tile site: Tie every visualization to a real product on sale with clear specs.
+Tags: visualizer / product catalog
+Version / type: Official product
+Section: Photo visualizers
+
+#### V04 · Floori · Barlinek Demo
+Place / trade: Europe · Flooring
+Exact link: https://www.barlinek.co.uk/visualizer/
+How it works: It previews flooring materials in real rooms.
+For a tile site: Borrow how it lays out the photo step, the material swap and the buy links.
+Tags: flooring / photos
+Version / type: Public demo
+Section: Photo visualizers
+
+#### V05 · Chameleon Power · Best Tile
+Place / trade: US · Building materials
+Exact link: https://besttile.chameleonpower.com/
+How it works: Editing follows real installation zones such as walls, floors and the shower niche.
+For a tile site: In a complex bathroom, let each surface be chosen on its own.
+Tags: zone editing / bathroom
+Version / type: Public demo
+Section: Photo visualizers
+
+#### V06 · Renoworks AI
+Place / trade: Canada · Building materials
+Exact link: https://www.renoworks.com/ai/
+How it works: Visualization and AI product features make up one platform for design proposals.
+For a tile site: Sort out the versions and modules first, then study the visualizer and lead conversion.
+Tags: building materials / AI
+Version / type: Official overview
+Section: Photo visualizers
+
+#### V07 · Hover · Instant Design
+Place / trade: US · Construction tech
+Exact link: https://hover.to/design/instant-design-2d
+How it works: It keeps style ideation separate from editing with materials you can buy.
+For a tile site: Do not treat a generated inspiration image as an exact render of a specific SKU.
+Tags: ideation / editing
+Version / type: Official overview
+Section: Photo visualizers
+
+#### V08 · IKEA Kreativ
+Place / trade: Sweden · Home furnishings retail
+Exact link: https://www.ikea.com/gb/en/home-design/
+How it works: It scans the room, removes existing items and places digital furniture.
+For a tile site: A tile photo try-on can keep occlusion, perspective and the room context.
+Tags: room scanning / AR / furniture
+Version / type: Region-locked
+Section: Photo visualizers
+
+#### V09 · Zolak · Room Furniture Planner
+Place / trade: International · Furniture tech
+Exact link: https://zolak.tech/room-furniture-planner
+How it works: Users try specific furniture products in their own room.
+For a tile site: Let users compare different combinations of real products by eye.
+Tags: furniture / spaces / shoppable products
+Version / type: Official overview
+Section: Photo visualizers
+
+#### V10 · REimagineHome
+Place / trade: International · Generative interior redesign
+Exact link: https://app.reimaginehome.ai/
+How it works: Generated renderings are used to find a style direction.
+For a tile site: Label clearly that a creative concept is not a render of a real SKU and does not give quantities.
+Tags: generative / style ideas
+Version / type: Generative
+Section: Photo visualizers
+
+
+### 3D and making-of (10)
+
+#### D01 · Muuble · Store Configurator
+Place / trade: Netherlands · Furniture retail
+Exact link: https://getmuuble.com/
+How it works: In a Muuble room you can rotate the view, place furniture, change wall and floor materials and measure distances.
+For a tile site: The 3D view and the top-down plan share one configuration, so materials and positions stay the same when you switch views.
+Tags: 3D room / 2D / configuration
+Version / type: Case write-up
+Section: 3D / making-of
+
+#### D02 · Ton · AR Furniture
+Place / trade: Czech Republic · Furniture
+Exact link: https://www.ton.eu/en/try-out-our-furniture-at-home-with-augmented-reality
+How it works: You configure a product and preview it in your real room.
+For a tile site: Open AR from the product page, and state clearly that it is not AI recognition.
+Tags: AR / product state
+Version / type: Official overview
+Section: 3D / making-of
+
+#### D03 · Sklum · Product Experience
+Place / trade: Spain · Furniture retail
+Exact link: https://www.sklum.com/fr/acheter-canape-3-places/149837-canape-3-places-en-lin-et-coton-grace.html
+How it works: The product visualization is built straight into the purchase page.
+For a tile site: Keep the model, color, price and the add-to-list button on the same page.
+Tags: product viewer / e-commerce
+Version / type: Product page
+Section: 3D / making-of
+
+#### D04 · Porsche · Cayenne Configurator
+Place / trade: Germany · Cars
+Exact link: https://configurator.porsche.com/de-CH/mode/model/X1AAA1
+How it works: Configuration, camera angle and detail views give consistent feedback.
+For a tile site: Offer different views of each tile model by lighting, finish, orientation and size.
+Tags: configurator / camera work
+Version / type: Regional site
+Section: 3D / making-of
+
+#### D05 · OFFFICE
+Place / trade: International · Digital design
+Exact link: https://offficestud.io/
+How it works: Browsing furniture becomes a walk through a digital space.
+For a tile site: A flagship collection can have a showroom to explore, while the regular catalog stays in place.
+Tags: walk-through / digital scenes
+Version / type: Past project
+Section: 3D / making-of
+
+#### D06 · Abacus Tables · Builder
+Place / trade: UK · Furniture
+Exact link: https://abacustables.co.uk/builder/
+How it works: Material, structure and appearance change with the configuration.
+For a tile site: Keep a record of how the customer decided, through configuration history and comparison.
+Tags: material options / saved state
+Version / type: Configurator
+Section: 3D / making-of
+
+#### D07 · Cartier · Watches & Wonders 2026
+Place / trade: France · Luxury
+Exact link: https://www.cartier.com/watchesandwonders
+How it works: Finely built 3D spaces and theme changes organize the product exhibition.
+For a tile site: Turn each texture family into an accessible material showroom.
+Tags: 3D display / themes
+Version / type: 2026 project
+Section: 3D / making-of
+
+#### D08 · Pillar of Siberia · Case
+Place / trade: International · Design firm
+Exact link: https://chipsa.design/works/pillar
+How it works: The craft and the product reveal are told as a linear story.
+For a tile site: Make a fact-based visual sequence of the tile-making stages.
+Tags: making-of / past project
+Version / type: Past project
+Section: 3D / making-of
+
+#### D09 · IST
+Place / trade: International · Manufacturing
+Exact link: https://24ist.ru/
+How it works: 3D sequences explain the production stages and the machinery.
+For a tile site: Show raw materials, forming, glazing and firing as a storyboard in logical order.
+Tags: industrial / craft / 3D
+Version / type: Case write-up
+Section: 3D / making-of
+
+#### D10 · The Watch · FS 60P
+Place / trade: International · Digital concept
+Exact link: https://thewatch.60fps.fr/
+How it works: A fictional watch is presented as a digital product, with the focus on camera detail.
+For a tile site: Learn from the surface macro shots, rotation and material reveals. Do not treat it as a real product.
+Tags: concept / detail / camera work
+Version / type: Concept
+Section: 3D / making-of
+
+
+### Full homepages (10)
+
+#### W01 · Floema · Home
+Place / trade: Portugal · Outdoor furniture
+Exact link: https://floema.com/en
+How it works: Brand values, the choice of settings, the catalog and the making process connect naturally.
+For a tile site: The homepage splits entry by setting, while products still lead back to one catalog.
+Tags: full page / scenes / catalog
+Version / type: 2026 project
+Section: Full homepages
+
+#### W02 · Moooi · Home
+Place / trade: Netherlands · Home furnishings
+Exact link: https://www.moooi.com/en
+How it works: Product collections and art features are woven together throughout.
+For a tile site: The homepage can carry one flagship story, as long as every product link stays clear.
+Tags: narrative / editorial / product
+Version / type: Classic
+Section: Full homepages
+
+#### W03 · Aesop · Home
+Place / trade: Australia · Skincare retail
+Exact link: https://www.aesop.com/
+How it works: Aesop’s product, store and service sections share a similar layout and tone of voice.
+For a tile site: Use the same section names and layout for the catalog, store addresses and sample appointments.
+Tags: editorial / consistency / stores
+Version / type: Classic
+Section: Full homepages
+
+#### W04 · Nothing · Home
+Place / trade: UK · Consumer electronics
+Exact link: https://nothing.tech/
+How it works: Nothing introduces new products with bold product photos, and the page links straight to each product line.
+For a tile site: Collection pages carry over the hero’s product names, colors and photo cropping.
+Tags: brand personality / collections
+Version / type: Updated regularly
+Section: Full homepages
+
+#### W05 · Linear · Home
+Place / trade: US · Software
+Exact link: https://linear.app/
+How it works: Each section explains the next step in the workflow.
+For a tile site: A tile homepage runs in order from room settings to filters, samples, preview and consultation.
+Tags: story structure / clarity
+Version / type: Updated regularly
+Section: Full homepages
+
+#### W06 · Stripe · Home
+Place / trade: US · Payments technology
+Exact link: https://stripe.com/
+How it works: Complex features, customer proof and calls to action are organized in layers.
+For a tile site: On the homepage, separate the needs of retail customers, designers and trade projects.
+Tags: features / customer proof / layered structure
+Version / type: Updated regularly
+Section: Full homepages
+
+#### W07 · Teenage Engineering · Home
+Place / trade: Sweden · Consumer hardware
+Exact link: https://teenage.engineering/
+How it works: New-product pages and technical specs use the same product typefaces, images and layout.
+For a tile site: Reuse the material names and detail images from the collection page on the spec page, so people can check one against the other.
+Tags: industrial / editorial / brand
+Version / type: Classic
+Section: Full homepages
+
+#### W08 · Polestar · Home
+Place / trade: Sweden · Cars
+Exact link: https://www.polestar.com/uk/
+How it works: Browsing the product leads naturally into configuration, booking and brand content.
+For a tile site: After a collection, take people straight to samples or a showroom visit.
+Tags: path to booking / product
+Version / type: Updated regularly
+Section: Full homepages
+
+#### W09 · Gentle Monster · Home
+Place / trade: South Korea · Fashion
+Exact link: https://www.gentlemonster.com/us/en
+How it works: The product catalog and art features sit side by side.
+For a tile site: Bold visuals can live on campaign pages while the main site stays quick to shop.
+Tags: art / commerce
+Version / type: Updated regularly
+Section: Full homepages
+
+#### W10 · Lusion · Home
+Place / trade: UK · Digital creative
+Exact link: https://lusion.co/
+How it works: Lusion uses finished projects to show what the studio can design.
+For a tile site: Use finished projects to show which techniques you can deliver, with room photos, details and the materials used.
+Tags: projects / demos
+Version / type: Earlier version, check the live site
+Section: Full homepages
+
+
+## The full multi-agent research prompt
+
+Below is the complete text of docs/research-prompt.md, unabridged.
+
+---
+
+# Global research on materials and web interaction design: a multi-agent research prompt
+
+## Role and overall goal
+You are the lead research editor, with skills in digital art direction, interaction design (UX/UI), creative development, building-materials sales, visualization technology and fact-checking. Your task is to build a library of leading website references from around the world that is traceable, comparable and useful for real development work. Do not simply recommend good-looking pages at random.
+
+The business context is a tile, stone or furniture brand. It needs upmarket visuals, and it also needs to present products to retail customers, interior designers, architects and trade clients, explain specifications, preview results and bring in well-qualified inquiries. Core evaluation keywords: **aesthetics, creativity, distinctiveness, clarity, smoothness, polish, credibility, transferability**. Do not claim that anything is an objective, verifiable "best in the world".
+
+## 1. Required scope
+
+1. **20 brand websites for tile, furniture or similar physical products.** Prioritize tile, ceramics, large-format slabs, stone, furniture, lighting, bathroom fixtures and modular home products. Cover mainstream commercial sites plus a few small brands with unusual creative work.
+2. **10 product information and technical specification displays.** Any industry. Study catalog structure, filters, comparison, layered specifications, status feedback, accessory compatibility, product selection and sample requests.
+3. **10 contact entry points, contact forms or project quote requests.** Any industry. Study how each one guides people to submit enough information; a page that only shows a few input fields does not qualify.
+4. **10 AI assistants.** Any industry. State whether each one offers real conversation, retrieval-based Q&A, product recommendations, conversational purchasing, handoff to a human, or only a marketing claim.
+5. **10 hero sections.** Study only what visitors see first when they arrive: the visual system, main subject, camera framing, headline, motion, loading and primary CTA.
+6. **10 tools that take an uploaded real photo, detect surfaces automatically and replace the tile, material or furniture.** Distinguish real-SKU texture mapping, surface segmentation, preset rooms, 3D placement, AR and generative style redesign.
+7. **10 examples of 3D products or making-of content.** Distinguish real-time WebGL/WebGPU, product configurators, 360° sequences, pre-rendered video, scroll-driven animation, CAD displays and AR.
+8. **10 full homepages.** Study the narrative from the first screen to the footer: information architecture, transitions, hierarchy, interaction pacing and conversion points. Keep this group separate from "hero sections".
+
+The total is **20 + 7×10 = 90 category slots**. The same website may appear in more than one category, but each entry must cover a different mechanism and a different angle on what to borrow. Report the number of distinct brands or projects separately.
+
+## 2. Agent roles
+
+If the system supports parallel work:
+
+- **Lead editor agent**: 20 industry websites + 10 full homepages. Owns the overall evaluation criteria, deduplication, a single evidence standard and final publication.
+- **Agent A: product structure and 3D**: 10 product specification entries + 10 3D entries. Also checks the technology type, which configurators can actually be opened, and real usage limits.
+- **Agent B: visuals and conversion**: 10 hero sections + 10 contact forms. Also checks visual versions and interaction flows, and rules out sites that are "beautiful, but you can’t find the next step".
+- **Agent C: AI and visualization**: 10 AI assistants + 10 photo visualizers. Also verifies strictly what the AI, AR, 3D and generative models can and cannot do.
+- **Cross-review (the lead editor may do this)**: spot-check at least one third of the entries in every group at random; re-check every high-priority entry; flag pages that cannot be verified and replace them when needed.
+
+Each agent builds a candidate pool larger than its delivery count: 35–50 for the industry group, 15–25 for each single-topic group. Search in several languages, covering at least English, French, Italian, Spanish and German keywords, plus Japanese or Chinese where needed. There is no fixed quota per country, but do not let the results all come from the same region, the same agency or the same design style.
+
+All agents use exactly the same data structure. Different threads must not overwrite the same file. The lead editor merges everything at the end.
+
+## 3. Search strategy
+
+Source priority for candidates:
+
+1. The brand’s current website and feature pages that open directly;
+2. The brand’s official help center, release notes, demo pages, videos and developer documentation;
+3. Case studies by the design agency or development team, especially ones that describe the interaction and the technical build explicitly;
+4. Specific project entries on Awwwards, CSS Design Awards, European Design Awards, Creative Circle, FWA and similar;
+5. Reliable trade media, design media and developer analyses;
+6. Design gallery and aggregator sites and social media discussions, used to find candidates only and never as the sole evidence for a feature.
+
+Mix search queries such as `best tile website design 2026`, `architecture materials configurator`, `3D product storytelling website`, `immersive hero webgl`, `product comparison UX`, `room visualizer upload own photo tile grout`, `AI shopping assistant contextual product page`, `consultation form design`, `site vitrine carrelage design`, `configurateur carrelage`, `catalogo piastrelle design` and `visualizador azulejos`. Do not rely on the first page of search results alone. Prioritize **specific pages worth looking at**; a brand homepage on its own is not enough.
+
+## 4. Scoring rubric and selection
+
+Score each criterion from 0 to 5, multiply by its weight and add up to a score out of 100. Every score needs one piece of specific evidence; "upscale" or "silky" on their own are not enough.
+
+- **Art direction and aesthetics (20%)**: how consistent the composition, materials, photography, typography, color, scale and white space are.
+- **Creativity and differentiation (20%)**: whether there is a new mechanism you can explain or a memorable visual treatment; classic work may be included because it is representative.
+- **Information clarity (20%)**: whether users can find products, specifications, prices or contact points; whether complex information is layered and comparable.
+- **Interaction completeness (15%)**: whether user actions get feedback, whether users can undo and edit, whether the current selection is visible, whether the flow is continuous.
+- **Technical and accessibility quality (10%)**: rate this only with test results or reliable evidence. Never invent Core Web Vitals, frame rates, load times or device compatibility.
+- **Transferable value for the tile project (15%)**: whether it could improve material selection, design options, product understanding, sample requests, inquiries or brand presentation. State the implementation cost.
+
+Do not make the final selection by sorting mechanically on the weighted score. Each category must keep a spread of mechanisms, industry coverage and entries that can actually be viewed in full. Keep at least one "bold experiment" and one contrasting "clear and easy to use" example in every group.
+
+## 5. Required fields for every entry
+
+- ID, category, brand or project name, country or region, industry;
+- **Exact page URL** and the main website URL;
+- What to look at once there (which module, which interaction, which scroll section);
+- A one-sentence verdict on the visuals or the experience;
+- Three specific notes on how it works, covering visuals, information, interaction or technology;
+- Whether it is the current live site, past work, a concept, or a standalone agency demo;
+- The one interaction or module most worth borrowing for the tile project, with its value to users;
+- Implementation constraints: assets, SKUs, product data, models, correction of detection errors, device support, privacy, performance or back-end integration;
+- Evidence chain: primary sources first, supported where useful by agency, award and technical records;
+- **Verification status**: mark separately whether it rests on an official description, a public demo, observation from video, or an interaction you completed yourself;
+- Dates: give the launch date, award year, redesign year and article update date separately; write "unknown" when a date is unknown;
+- The breakdown of the 0–100 score, plus suitable use cases and weaknesses where needed.
+
+If a page cannot be reached or has been redesigned, say so. Never present a 2021/2023 design screenshot as a screenshot of the current 2026 site. Mark concept or fictional work prominently.
+
+## 6. Red lines for reviewing AI, AR and 3D claims
+
+- "Upload a photo and get a beautiful room" **does not mean** the tool accurately swaps in a specific SKU. Check how the actual product is tied to its material texture.
+- "Automatically detects walls and floors" **does not mean** the tool measures the real area. A photo without a scale reference cannot be used for an accurate order.
+- Having a chat bubble **does not mean** a site has an "AI assistant". Confirm whether it has the current product context, cites facts, keeps state in sync, or hands over to sales staff.
+- A "3D display" may be only a video or an image sequence. Describe how it is actually built; if you do not know, do not guess.
+- A software vendor’s marketing page does not prove that a retailer has deployed every feature. Record restrictions by region, account, device and license.
+- Performance, detection rates, conversion rates and model capabilities claimed in marketing must not be reported as measured results unless they have been independently verified.
+
+## 7. Required design conclusions
+
+Based on the 90 references, propose **3 distinct directions for a tile company website**:
+
+- **Restrained, upmarket brand and space**: photography, white space and collection storytelling convey the quality of an architectural material;
+- **High-conversion selection and quote request**: enter through a room, browse products, compare specifications, try tiles on a photo, build a project list and send an inquiry;
+- **Visually bold flagship exhibition**: a few key collections use 3D and craft storyboards to make the brand memorable, with full product information kept.
+
+For each direction, list the combination of references, homepage sections, interaction patterns, mobile strategy, risks and required assets, and give a relative level of budget and technical effort (low, medium or high; do not invent prices).
+
+Also design one complete user flow:
+**Upload a room photo; detect areas and correct them by hand; choose a real, sellable product SKU; set format, laying pattern and grout color; get AI explanations and comparisons; save options A/B; calibrate the area and build the materials list; book an appointment or request a quote.**
+Keep a clear distinction between "style inspiration", "real product preview", "project quantities pending review" and "formal quote".
+
+## 8. Delivery format
+
+The preferred format is a filterable online catalog: the 8 category groups, search, Picks, recent references, Saved items, Compare for up to 3 entries, detail pages, original links, the three combined directions, the full prompt, and TXT/JSON export. The page needs careful typography, but reading and speed matter more; do not let flashy animation bury the material.
+
+Also produce a complete plain-text version that is easy to save, search and hand to other developers, and structured JSON with one object per entry. The report must state the research date, verification method, source limitations and the tests that were not completed.
+
+## 9. Final quality checklist
+
+- Are all 90 category slots filled? Is the count in each group correct?
+- Is every link real, and does each entry say clearly what to look at?
+- Is the list too concentrated on one agency or region?
+- Are there filler entries that "look good but do not fit the user scenario at all"?
+- Are past projects, concept work, award years and the current site version clearly told apart?
+- Do all descriptions of AI, 3D, AR and photo visualizers match the evidence?
+- Are official descriptions, public entry points and interactions you actually completed kept separate?
+- Have you avoided unverified claims about smoothness, performance and sales figures?
+- Do the three directions have different information architectures? A change of colors alone does not count.
+- Does the report end with a specific, buildable set of modules for the tile site?
+
+Run the research to these standards and keep cross-checking. If an item cannot be met, state the gap plainly. Credibility and usefulness come first; do not pad the list to reach the numbers.

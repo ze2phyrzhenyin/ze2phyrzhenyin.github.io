@@ -1,0 +1,1164 @@
+# Matériaux et interfaces : références de sites web dans le monde
+
+Date de l’étude : 21 novembre 2026. Sites de 20 marques de produits physiques ou de matériaux ; 7 thèmes d’interaction de 10 références chacun ; 90 entrées au total.
+Environ 80 marques et projets distincts ; quelques-uns apparaissent dans plusieurs thèmes, chaque fois pour un mécanisme différent.
+
+
+## Accueil, note de sélection et index visuel
+
+RÉFÉRENCES DE DESIGN
+Novembre 2026
+Étude d’expériences numériques · Matériaux et mobilier
+De la matière à l’interface,
+des pistes pour l’étape suivante.
+Une étude de design internationale pour des projets de carrelage et d’ameublement. Pour chaque référence : ce qu’il faut regarder, ce qui fonctionne, ce qu’on peut reprendre.
+Voir les 90 références
+Voir d’abord les 12 références sélectionnées
+20
+Sites de matériaux / mobilier
+7 × 10
+Références par thème d’interaction
+01
+Prompt de recherche complet
+FORME
+MATIÈRE
+INTERACTION
+UN RÉCIT DE MATIÈRE, RENDU INTERACTIF.
+Note de sélection
+La sélection juge ensemble l’impact visuel, la clarté de l’information et l’usage commercial. Des réalisations récentes côtoient des classiques éprouvés ; chaque entrée précise s’il s’agit d’un concept ou d’une version antérieure, ce que fait réellement l’IA et jusqu’où la vérification est allée.
+Méthode de l’étude
+
+
+## Trois orientations de design
+
+02 / À VOUS DE COMPOSER
+Combiner des références pour fixer une orientation.
+Trois axes de site distincts : marque et espace, choix des matériaux et devis, exposition phare. Choisissez un axe, puis reprenez un ou deux points forts.
+ORIENTATION 01
+Sobriété / matière
+Sobre et exigeant : la matière et l’espace en premier
+Pour les prescripteurs (architectes, décorateurs), les logements de standing et les marques qui misent sur la matière
+La première impression repose sur le traitement de la matière chez Mutina, Karimoku Case et Henge. L’organisation du catalogue de Cosentino et l’explication des composants de Vitsœ répondent aux besoins des professionnels, puis la demande de contact mène à une prise de rendez-vous à la manière de Reform. Le standing tient à une photographie, des proportions et une mise en page constantes ; les accès à l’information restent clairs.
+Une photo d’espace assumée en premier écran :
+Elle montre la pose réelle, la lumière et la matière ; une phrase de positionnement de la marque, et deux accès clairs : « Voir les collections » et « Prendre rendez-vous pour voir les échantillons ».
+Peu d’entrées de collection, bien distinctes :
+Les collections sont classées par type de matière (pierres chaudes, roches minérales, émaux artisanaux…) ; on voit d’abord ce qui les distingue, puis les produits.
+Catalogue visuel des matériaux :
+De grands échantillons de texture et quelques filtres clés (teinte, surface, format, usage) ; les filtres actifs restent visibles.
+Espaces et détails, présentés par paires :
+Chaque collection montre une pièce entière, la surface de près et le détail des bords ; l’ambiance et les informations réelles sur le matériau se confirment l’une l’autre.
+Caractéristiques et éléments assortis :
+Carreau principal, carreaux décor, plinthes et profilés de finition sont présentés dans la même collection, avec caractéristiques, entretien et accès aux échantillons.
+Prise de rendez-vous légère :
+Conseil en ligne ou visite au showroom pour voir les échantillons ; les collections consultées sont déjà reprises dans la demande, la surface et la date ne sont demandées qu’en cas de besoin.
+Mutina
+Karimoku Case
+Henge
+Cosentino
+Vitsœ
+Reform
+Effort de réalisation : faible à moyen
+L’essentiel porte sur la direction artistique, la photographie d’espaces, la numérisation des matières, le contenu du catalogue et une mise en page cohérente. Première version en images, vidéos courtes et interactions légères ; un modèle de site ne remplace pas la qualité des visuels.
+ORIENTATION 02
+Recommandée en priorité
+Choix et conversion : du coup de cœur à la demande de devis
+Recommandée comme site principal de carrelage ; elle sert à la fois les particuliers et les clients professionnels
+Les filtres de Cosentino, la liste de projet de Halcyon et l’aperçu sur photo de Roomvo et Tilesview forment un seul parcours continu. Pour l’IA, on reprend les questions sur le projet de Mylow, le contexte produit de Magic Apron et les préférences par l’image de Zalando ; les choix de matériaux suivent l’utilisateur jusque dans le projet et la demande de devis.
+Entrée par projet :
+Salle de bains, cuisine, séjour, extérieur, ou recherche directe par référence ; chaque entrée ouvre le catalogue adapté.
+Fiches produit claires et comparaison :
+Format, surface et performances utiles affichés ; comparaison de 2–3 modèles champ par champ ; unités et normes traçables.
+Essai sur photo avec des produits réels :
+Détection des murs et du sol, corrigeable à la main ; changement de référence réelle (SKU) ; comparaison avant/après, calepinage et couleur de joint conservés.
+Assistant d’achat IA qui connaît le contexte :
+Il connaît la pièce en cours, les produits envisagés et les conditions confirmées ; ses recommandations deviennent des filtres modifiables et chaque justification renvoie à la documentation officielle.
+Enregistrement du projet :
+Photo, SKU, calepinage, questions en attente et variantes A/B partagent une même fiche projet.
+Quantités vérifiables et demande de devis :
+Surface confirmée, surface par carton, hypothèse de taux de chute et accessoires sont calculés séparément ; à l’envoi, il ne reste que les coordonnées et les besoins de livraison à compléter.
+Cosentino
+Halcyon
+Roomvo
+Tilesview
+Vitsœ
+Effort de réalisation : moyen à élevé
+D’abord des SKU structurés, les filtres, la comparaison et la liste de projet ; ensuite l’aperçu sur photo et la recherche par IA, une fois validés. L’essentiel porte sur les visuels, les règles d’usage, les stocks et les prix, et le circuit de correction manuelle.
+ORIENTATION 03
+Phare / récit
+Exposition phare : une collection mise en scène de bout en bout
+Pour les lancements, les semaines du design et les collections phares qui ont une histoire forte à raconter
+L’univers complet de Moooi, les transitions spatiales d’Igloo, les salles de collection de Cartier et la séquence de fabrication d’IST donnent le rythme de la navigation autour de l’histoire du matériau. D’Oryzo, on ne reprend que les plans macro, les mouvements de caméra et la révélation du produit, car c’est un concept. Les pages de détail restent reliées au vrai catalogue, aux caractéristiques et à la prise de rendez-vous.
+Une ouverture dont on se souvient :
+Un seul mouvement visuel central (le grain du matériau, un reflet sur l’émail ou un espace architectural) ; dès l’arrivée, on reconnaît la marque et le produit.
+Le matériau raconté en trois temps :
+Matière première, fabrication, mise en place dans l’espace ; le processus montré est réel, et l’on distingue vidéo, séquence d’images et 3D temps réel.
+Passage cohérent d’une collection à l’autre :
+Chaque collection a sa propre scène, mais les informations produit et les boutons d’action restent à des emplacements prévisibles.
+Détails clés manipulables :
+Rotation, éclairage et vue éclatée là où cela aide à comprendre : épaisseur, bords et surface deviennent lisibles.
+Vrai catalogue et choix des matériaux :
+Chaque produit exposé renvoie directement à son SKU, ses formats, ses accessoires, ses échantillons et à un aperçu en situation.
+Contact direct et version allégée :
+Le bouton de rendez-vous reste accessible ; une version en images et vidéos courtes sert les appareils peu puissants et les utilisateurs qui préfèrent les animations réduites.
+Moooi
+Igloo
+Oryzo
+Cartier
+IST
+Effort de réalisation : élevé
+Demande une direction artistique, des modèles 3D et des matières numérisées, un storyboard, des animations et une adaptation aux appareils. Réaliser d’abord un prototype complet sur une seule collection, puis décider de l’extension d’après des tests réels de chargement et d’interaction.
+Si l’on commençait aujourd’hui
+Commencer par l’axe choix des matériaux et devis.
+Une bonne photographie, des réalisations en situation et le catalogue installent la qualité ; l’essai sur photo est ensuite relié aux SKU réels, à la liste des matériaux et à la prise de contact. Ce que la page d’accueil a de spectaculaire doit servir l’étape suivante du client.
+
+
+## Essai sur photo en sept étapes
+
+03 / DE LA PHOTO AU PROJET
+Comment l’essai sur photo devient un parcours complet.
+Passer de « le rendu est joli » à « je sais quoi choisir ». Voici le déroulé de développement proposé ; il ne signifie pas qu’une des références citées dispose déjà de toutes ces fonctions.
+Chaque étape enregistre une information utile.
+Inspiration de style, aperçu de produits réels, devis à revérifier
+Distinction essentielle
+Les images générées servent à trouver une direction. Un vrai choix de matériau demande des visuels produit et des caractéristiques précises ; une seule photo ne donne pas d’office une surface exacte.
+01
+Envoyer une photo, sélectionner la zone à modifier
+L’utilisateur envoie une photo de la pièce ; le système détecte les surfaces (murs, sol…) et affiche leurs contours. On peut cliquer, ajouter à la sélection et gommer. Des pièces d’exemple sont proposées, et la page explique comment les photos sont conservées, utilisées et supprimées.
+02
+Choisir une référence réellement en vente (SKU)
+Filtres par teinte, motif, surface, format, budget et usage. Chaque aperçu est lié à un produit et à une combinaison de caractéristiques valide ; les ruptures de stock et les options inadaptées sont clairement signalées.
+03
+L’IA explique et resserre le choix
+Elle lit la pièce en cours, les produits envisagés et les conditions déjà confirmées. Quelques questions courtes deviennent des filtres modifiables ; chaque recommandation renvoie à la documentation officielle. Une performance manquante ou une dimension incertaine reste visiblement vide.
+04
+Régler le calepinage, la couleur de joint et l’échelle
+Sens de pose, couleur et largeur de joint se règlent selon le format du SKU et les règles autorisées ; murs et sol se paramètrent séparément. L’échelle vient d’une dimension de référence ou d’un étalonnage ; les objets qui masquent la surface restent au premier plan, et une correction manuelle est possible.
+05
+Comparer les variantes sur la même photo
+Enregistrer deux ou trois variantes, les comparer sous le même angle, avec un curseur avant/après. Chaque variante contient SKU, format, calepinage et points à confirmer ; les images d’inspiration générées sont clairement signalées.
+06
+Établir une liste des matériaux vérifiable
+Le nombre de cartons se calcule à partir de la surface confirmée, de la surface par carton et d’un taux de chute explicite ; le détail du calcul est affiché. Profilés de finition et plinthes sont comptés à part. Un rendu ne remplace pas un métré exact.
+07
+Demander un devis avec le projet complet
+Photo, SKU, choix effectués et liste des matériaux sont repris automatiquement dans la demande de devis ; le client ajoute le lieu, la date et ses coordonnées. Stock, transport, pose et taxes sont vérifiés par des règles à jour ou par une personne.
+
+
+## Méthode, limites et sources
+
+05 / NOTES DE LA RÉDACTION
+Chaque avis s’appuie sur une source.
+Date de l’étude :
+21 novembre 2026
+. Sites officiels d’abord, recoupés avec d’autres sources ; un design ou une déclaration officielle ne veut pas dire que chaque interaction a été testée en entier par nous.
+01
+Identité visuelle
+Composition, typographie, couleurs, photographie et matières forment-elles un langage cohérent ? Peut-on dire précisément pourquoi c’est beau, sans se contenter de « chic » ?
+02
+Créativité et différence réelle
+Le site apporte-t-il une expression ou une interaction nouvelle qui a un sens ? Distinguer mécanisme original, modèle établi du secteur, concept purement visuel et argument marketing.
+03
+Clarté de l’information
+Trouve-t-on les produits, les caractéristiques, les limites et l’étape suivante ? Les informations complexes sont-elles hiérarchisées pour aider à comprendre ce qui distingue un achat d’un autre ?
+04
+Qualité des interactions et utilisabilité
+Retour aux actions, états modifiables, version mobile lisible ? Sans test, aucune fréquence d’images, durée de chargement ni taux de conversion n’est annoncé.
+05
+Valeur pour un projet de carrelage
+L’idée améliore-t-elle le choix des matériaux, la comparaison, la projection dans l’espace, l’organisation du projet, la demande de devis et la communication de la marque ? Avec quels visuels, quelles données et quel effort de développement ?
+Lecture et vérification
+Une sélection argumentée, sans prétention à un classement mondial objectif.
+C’est une liste courte établie pour un projet de carrelage. Le jugement esthétique et l’intérêt commercial dépendent de la marque, des clients et du marché.
+90 emplacements, soit environ 80 marques ou projets distincts une fois regroupés.
+Une marque présente dans plusieurs catégories y est analysée pour des mécanismes différents ; premier écran et page d’accueil complète sont étudiés séparément.
+Sources publiques et tests d’interaction sont séparés.
+Les sources comprennent les sites des marques, les pages de fonctions, la documentation officielle, les fiches des studios de réalisation et les palmarès. Avoir trouvé la page, avoir vu une vidéo et avoir tout testé soi-même sont trois niveaux différents. Cette étude n’a pas fait de test complet de performance et d’interaction site par site.
+Exemples récents et références éprouvées côte à côte.
+Version du site, année de lancement du projet, année de mise à jour de l’article et année de la récompense ne se confondent pas ; « Classique », « Version antérieure » et « Concept » sont des mentions obligatoires.
+Limites des descriptions techniques
+L’IA ne se résume pas à une fenêtre de chat.
+Vérifier qu’elle comprend le SKU affiché, cite des caractéristiques fiables, garde en mémoire les choix et passe la main à une personne si besoin.
+Détecter sur une photo ne veut pas dire mesurer avec précision.
+Segmentation par IA, application de textures réelles, AR, 3D et rénovation générée par IA sont des mécanismes différents ; seul un SKU réel peut servir à une demande de devis.
+La 3D n’est pas toujours calculée en temps réel.
+Vidéo, séquence d’images, WebGL/WebGPU, visionneuse de modèles et AR se décrivent séparément.
+Performances, confidentialité et accessibilité demandent des tests réels.
+Ce document est une étude de cas de design ; il ne garantit rien sur l’ensemble des plateformes, appareils, pays et services actuels.
+Sources et documents complémentaires
+Pour chaque référence, le lien « Ouvrir le site » mène à la page exacte étudiée. Certains mécanismes importants ont en plus une note du studio ou de la marque, pour distinguer rendu, fonction réelle du produit et test.
+Floema · European Design Awards / présentation du projet
+Pedestal · Creative Circle 2026
+The Home Depot · Magic Apron, présentation officielle
+Amazon · Alexa for Shopping 2026
+Zalando · Assistant, note de mise à jour
+Cartier · CSS Design Awards, étude de cas
+Oryzo · note du studio sur le concept
+Muuble · note du studio sur les interactions
+IST · étude de cas sur la mise en images de la fabrication
+Vitsœ · formulaire de planification de l’espace
+
+
+## Les 90 références
+
+Chaque entrée donne son lien, son principe, ce qu’un site de carrelage peut reprendre, ses mots-clés, sa version et la nature des sources publiques.
+
+### Sites de carrelage et de mobilier (20)
+
+#### I01 · Mutina
+Pays / secteur : Italie · Carrelage design
+Lien exact : https://www.mutina.it/en/interiors
+Principe : Interiors présente le carrelage par des réalisations d’architecture ; pour chaque projet, on peut aussi voir des gros plans du matériau, la collection et le designer.
+Pour un site de carrelage : À côté de la photo d’une cuisine ou d’une salle de bains terminée, indiquer le modèle posé, avec un gros plan de sa surface et les produits de même couleur qui peuvent le remplacer.
+Mots-clés : récit par l’espace / rendu des matériaux / sobriété
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I02 · Salvatori
+Pays / secteur : Italie · Pierre naturelle et ameublement
+Lien exact : https://bathroom.salvatoriofficial.com/en/
+Principe : On entre par une photo de pièce, puis on peut voir la pierre, les meubles et les accessoires de ce même espace.
+Pour un site de carrelage : Permettre au client d’enregistrer en un seul ensemble le carrelage mural, le carrelage de sol, le plan de travail et les accessoires.
+Mots-clés : ensembles assortis / parcours par projet
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I03 · Living Ceramics
+Pays / secteur : Espagne · Céramique architecturale
+Lien exact : https://livingceramics.com/en/
+Principe : Les projets d’architecture et les produits sur mesure se consultent séparément ; les espaces terminés montrent comment le matériau est utilisé.
+Pour un site de carrelage : Prévoir une entrée sur mesure distincte pour les grands formats, les plans de travail et la salle de bains, chacune avec ses réalisations.
+Mots-clés : réalisations d’architecture / sur mesure
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I04 · WOW Design
+Pays / secteur : Espagne · Carrelage design
+Lien exact : https://www.wowdesigneu.com/
+Principe : Les formes géométriques, la surface et le rythme de pose sont le sujet principal de l’image.
+Pour un site de carrelage : Pour les carreaux de forme et les carreaux en relief, montrer d’abord la lumière sur un détail et l’agencement, puis les caractéristiques.
+Mots-clés : carreaux de forme / texture / pose
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I05 · Florim
+Pays / secteur : Italie · Céramique architecturale, haut de marché
+Lien exact : https://www.florim.com/en
+Principe : La photographie de marque est forte, et la recherche fonctionne toujours dans un grand catalogue de matériaux.
+Pour un site de carrelage : La recherche avancée se déplie par niveaux : usage, couleur, format.
+Mots-clés : filtres / photographie de marque
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I06 · Atlas Concorde
+Pays / secteur : Italie · Céramique et grands formats
+Lien exact : https://www.atlasconcorde.com/en
+Principe : La navigation par collection, aspect, couleur, format et ambiance est bien organisée.
+Pour un site de carrelage : En plus de la grille de produits, relier les références entre elles par collection et par pièce d’usage.
+Mots-clés : grand catalogue / navigation
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I07 · Fireclay Tile
+Pays / secteur : États-Unis · Carrelage fait main
+Lien exact : https://www.fireclaytile.com/pages/gallery
+Principe : Photos de réalisations, échantillons, coloris et conseil s’enchaînent en un seul parcours de choix.
+Pour un site de carrelage : Sur chaque photo de réalisation, signaler les produits en vente et proposer un accès aux échantillons et au contact.
+Mots-clés : carreaux de couleur / échantillons / conversion
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I08 · Artedomus
+Pays / secteur : Australie · Pierre et carrelage
+Lien exact : https://www.artedomus.com/tiles
+Principe : Les photos d’espaces donnent les informations sur les matériaux, et l’on retrouve les produits en partant des projets d’architecture.
+Pour un site de carrelage : Sous chaque image, indiquer le matériau, sa référence et s’il est posé au mur, au sol ou en plan de travail.
+Mots-clés : revue d’architecture / légendes
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I09 · New Terracotta
+Pays / secteur : Portugal · Céramique faite main
+Lien exact : https://newterracotta.com/
+Principe : La marque se reconnaît à ses couleurs, à ses émaux et à leurs légères variations.
+Pour un site de carrelage : Faire des nuanciers d’émaux, des gros plans et des indications d’usage que l’on peut comparer côte à côte.
+Mots-clés : nuanciers / fait main / fabrication
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I10 · INAX
+Pays / secteur : Japon · Carrelage et sanitaires
+Lien exact : https://www.inax.com/
+Principe : La valeur du matériau est expliquée par la fabrication et la culture locale.
+Pour un site de carrelage : Ajouter, à côté du catalogue, des pages sur la fabrication appuyées sur des faits.
+Mots-clés : fabrication / récit culturel
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I11 · Moooi
+Pays / secteur : Pays-Bas · Mobilier et luminaires
+Lien exact : https://www.moooi.com/en
+Principe : Les lancements de collection sont présentés comme une mise en scène.
+Pour un site de carrelage : Pour la collection phare, faire une courte page spéciale plein écran, en gardant un accès clair aux produits.
+Mots-clés : mise en scène / histoires / animations
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I12 · GUBI
+Pays / secteur : Danemark · Mobilier et éclairage
+Lien exact : https://gubi.com/en/pl
+Principe : La présentation d’une collection réunit le designer, les matériaux et les pièces finies dans un même article.
+Pour un site de carrelage : Garder sur la page collection un extrait d’entretien avec le designer, illustré par les détails de surface dont il parle.
+Mots-clés : mise en page éditoriale / designers
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I13 · Tylko
+Pays / secteur : Pologne · Mobilier sur mesure
+Lien exact : https://tylko.com/en-ot
+Principe : Pendant la configuration, les dimensions, les modules et la forme du produit changent ensemble.
+Pour un site de carrelage : Faire du format, du calepinage, de la couleur de joint et de la surface un projet modifiable.
+Mots-clés : configurateur / paramétrage
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I14 · USM
+Pays / secteur : Suisse · Mobilier modulaire
+Lien exact : https://us.usm.com/
+Principe : Le système de modules est cohérent, avec des liens clairs entre éléments et accessoires et un parcours de configuration.
+Pour un site de carrelage : Organiser en un seul système de composants le carreau principal, les carreaux décor assortis et les profilés de finition.
+Mots-clés : modularité / accessoires
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I15 · Karimoku Case
+Pays / secteur : Japon · Architecture et mobilier
+Lien exact : https://www.karimoku-case.com/case_studies/
+Principe : Case Studies montre le mobilier par bâtiment entier ou par projet d’intérieur, avec des liens vers les collections concernées.
+Pour un site de carrelage : Depuis une réalisation de cuisine ou de salle de bains, renvoyer aux modèles réellement posés.
+Mots-clés : projets d’architecture / minimalisme
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+#### I16 · Pedestal
+Pays / secteur : Danemark · Objets pour la maison
+Lien exact : https://www.pedestal.com/pages/studio
+Principe : Les produits reviennent en plusieurs coloris dans un même décor, ce qui permet de comparer facilement couleurs et silhouettes.
+Pour un site de carrelage : Photographier plusieurs teintes de carrelage sur le même mur, avec le même cadrage et la même surface posée.
+Mots-clés : coloris / caractère du produit
+Version / nature : Récompense 2026
+Rubrique : Carrelage / mobilier
+
+#### I17 · Floema
+Pays / secteur : Portugal · Mobilier d’extérieur
+Lien exact : https://floema.com/en/products?collection=Urban
+Principe : On peut entrer par une ambiance intérieure ou extérieure, puis continuer à filtrer dans le catalogue.
+Pour un site de carrelage : Un même carreau peut figurer dans deux entrées, salle de bains et espaces commerciaux, avec des formats et un stock tirés de la même fiche produit.
+Mots-clés : marque / catalogue / ambiances
+Version / nature : Projet 2026
+Rubrique : Carrelage / mobilier
+
+#### I18 · Oakâme
+Pays / secteur : France · Mobilier et aménagement
+Lien exact : https://www.oakame.com/en/
+Principe : Le mobilier et les espaces se feuillettent comme un album.
+Pour un site de carrelage : Proposer deux façons de parcourir les réalisations par matériau : en liste ou en diaporama.
+Mots-clés : album / modes de lecture
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I19 · Stellar Works
+Pays / secteur : Chine / International · Mobilier
+Lien exact : https://www.stellarworks.com/
+Principe : Collections, designers, matériaux et projets réalisés sont présentés de la même façon.
+Pour un site de carrelage : Une marque à plusieurs collections garde un langage visuel et une structure de navigation communs.
+Mots-clés : plusieurs collections / identité de marque
+Version / nature : Mis à jour régulièrement
+Rubrique : Carrelage / mobilier
+
+#### I20 · Muuto
+Pays / secteur : Danemark · Mobilier et luminaires
+Lien exact : https://www.muuto.com/
+Principe : Des contenus sur le mode de vie côtoient une gamme organisée de façon rationnelle.
+Pour un site de carrelage : Montrer les couleurs et les combinaisons de modules dans des scènes de vie, en gardant la documentation facile à trouver.
+Mots-clés : mode de vie / catalogue
+Version / nature : Classique
+Rubrique : Carrelage / mobilier
+
+
+### Informations produit (10)
+
+#### P01 · Cosentino · Colors
+Pays / secteur : Espagne · Surfaces pour l’architecture
+Lien exact : https://www.cosentino.com/colors/
+Principe : Colors place les grands échantillons de texture à côté des filtres : on réduit le choix tout en regardant les motifs.
+Pour un site de carrelage : Placer famille de couleurs, finition, format et usage à côté de l’échantillon, et garder les critères déjà choisis quand on change une option.
+Mots-clés : texture / filtres / matériaux
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P02 · Halcyon · Product Catalogue
+Pays / secteur : Nouvelle-Zélande · Éclairage architectural
+Lien exact : https://www.halcyon.co.nz/collections/downlights
+Principe : La liste des luminaires affiche directement les caractéristiques utiles au choix et propose une liste de projet.
+Pour un site de carrelage : Afficher dans la liste le format, l’épaisseur et la finition de chaque carreau, et laisser le client choisir les modèles à comparer.
+Mots-clés : cartes techniques / liste de projet / comparaison
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P03 · Apple · iPhone Compare
+Pays / secteur : États-Unis · Électronique grand public
+Lien exact : https://www.apple.com/iphone/compare/
+Principe : Les caractéristiques de même nature sont alignées ligne par ligne, sans aller-retour entre plusieurs pages.
+Pour un site de carrelage : Comparer jusqu’à trois références sur les mêmes champs et mettre les différences en évidence.
+Mots-clés : comparatif technique / lisibilité
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P04 · Teenage Engineering · OP–XY
+Pays / secteur : Suède · Matériel musical
+Lien exact : https://teenage.engineering/products/op-xy
+Principe : Le site explique une technique complexe dans une mise en page à forte identité de marque.
+Pour un site de carrelage : Présenter les valeurs mesurées du matériau avec des détails de structure et des schémas explicatifs, sans empiler les tableaux.
+Mots-clés : récit technique / typographie
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P05 · Tylko · Custom Furniture
+Pays / secteur : Pologne · Mobilier sur mesure
+Lien exact : https://tylko.com/en-ot/furniture-c
+Principe : Chaque changement de paramètre se voit tout de suite sur l’aspect du produit.
+Pour un site de carrelage : Quand le format ou le calepinage change, l’image et les quantités de matériau se mettent à jour en même temps.
+Mots-clés : configurateur / retour en direct
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P06 · Vitsœ · Components
+Pays / secteur : Royaume-Uni · Systèmes de mobilier
+Lien exact : https://www.vitsoe.com/606/components
+Principe : Un système de produits complexe est découpé en composants clairs et liés entre eux.
+Pour un site de carrelage : Relier comme des composants le carreau principal, les carreaux décor, les plinthes et les profilés de finition.
+Mots-clés : composants du système / structure
+Version / nature : Classique
+Rubrique : Informations produit
+
+#### P07 · Framework · Laptop 13
+Pays / secteur : États-Unis · Ordinateurs portables modulaires
+Lien exact : https://frame.work/laptop13/?tab=specs
+Principe : Caractéristiques, compatibilité et modules sont expliqués par niveaux.
+Pour un site de carrelage : Montrer d’abord les caractéristiques courantes du carrelage, et déplier la documentation technique détaillée à la demande.
+Mots-clés : modules / compatibilité / caractéristiques
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P08 · DJI · Mavic 4 Pro Specs
+Pays / secteur : Chine · Électronique grand public
+Lien exact : https://www.dji.com/mavic-4-pro/specs
+Principe : Les nombreuses caractéristiques sont présentées par groupes, ce qui facilite la vérification pour un public technique.
+Pour un site de carrelage : Classer les résultats d’essais du carrelage par usage, avec la norme d’essai et l’unité.
+Mots-clés : tableau technique / regroupement
+Version / nature : Mis à jour régulièrement
+Rubrique : Informations produit
+
+#### P09 · Bang & Olufsen · Beolab 90
+Pays / secteur : Danemark · Audio
+Lien exact : https://www.bang-olufsen.com/en/int/speakers/beolab-90
+Principe : Matériaux, fabrication de précision et explications techniques sont présentés ensemble.
+Pour un site de carrelage : Expliquer les valeurs de performance en les reliant à une surface et à une structure précises.
+Mots-clés : esthétique technique / fabrication
+Version / nature : Classique
+Rubrique : Informations produit
+
+#### P10 · Bellroy · Slim Your Wallet
+Pays / secteur : Australie · Accessoires
+Lien exact : https://bellroy.com/collection/slim-your-wallet
+Principe : Des changements visuels aident à comprendre des différences abstraites.
+Pour un site de carrelage : Expliquer l’épaisseur, le format et le rendu une fois posé par des comparaisons en situation réelle.
+Mots-clés : différences en image / pédagogie
+Version / nature : Classique
+Rubrique : Informations produit
+
+
+### Contact et formulaires (10)
+
+#### C01 · Vitsœ · Space Planning Inquiry
+Pays / secteur : Royaume-Uni · Design de mobilier
+Lien exact : https://www.vitsoe.com/us/606/inquiry
+Principe : Vitsœ propose un plan d’aménagement gratuit comme point de contact : la personne qui remplit le formulaire sait quel service elle recevra après l’envoi.
+Pour un site de carrelage : Lister d’abord les modèles déjà choisis par le client, puis demander la description de la pièce, le problème à régler et les coordonnées.
+Mots-clés : aménagement de l’espace / prise de rendez-vous / envoi de fichiers
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C02 · Reform · Book a Meeting
+Pays / secteur : Danemark · Cuisines
+Lien exact : https://www.reformcph.com/en/book-a-meeting
+Principe : Le site propose clairement deux parcours : conseil à distance ou rendez-vous en salle d’exposition.
+Pour un site de carrelage : Pour un projet de carrelage, permettre de prendre rendez-vous directement pour voir les échantillons ou pour un conseil de conception en ligne.
+Mots-clés : prise de rendez-vous / conseil à distance / salle d’exposition
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C03 · KOBU · Contact
+Pays / secteur : Portugal · Agence numérique
+Lien exact : https://kobu.agency/contact/
+Principe : Les questions arrivent par embranchements au lieu de montrer tous les champs d’un coup.
+Pour un site de carrelage : Poser des questions différentes selon qu’il s’agit d’un particulier, d’un architecte ou d’un projet professionnel.
+Mots-clés : formulaire conditionnel / ergonomie
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C04 · EPIC Agency · New Project
+Pays / secteur : Belgique · Agence numérique
+Lien exact : https://www.epic.net/en/contact/new-project/
+Principe : Budget, délai, besoins et pièces jointes forment un brief de projet structuré.
+Pour un site de carrelage : Améliorer les demandes de devis de carrelage avec un budget facultatif et des photos jointes.
+Mots-clés : brief de projet / pièces jointes
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C05 · Obys · Contacts
+Pays / secteur : Europe · Studio de design
+Lien exact : https://obys.agency/about
+Principe : L’ancienne page contact posait ses questions en langage courant. Le site actuel donne une adresse e-mail de contact en bas de page.
+Pour un site de carrelage : Dans la demande de devis, poser les questions avec les mots du client, tout en gardant des noms de champs et des messages d’erreur clairs.
+Mots-clés : langage courant / marque
+Version / nature : Ancien formulaire, contact par e-mail
+Rubrique : Contact / formulaires
+
+#### C06 · Locomotive · Lisa
+Pays / secteur : Canada · Agence numérique
+Lien exact : https://locomotive.ca/en/contact
+Principe : D’après les informations publiques, un agent conversationnel aide à préciser les besoins.
+Pour un site de carrelage : Avant la demande de devis, confirmer par une conversation la pièce, le budget et les produits.
+Mots-clés : conseil par IA / conversation
+Version / nature : Présentation de la fonction
+Rubrique : Contact / formulaires
+
+#### C07 · Dennis Snellenberg · Contact
+Pays / secteur : Pays-Bas · Designer
+Lien exact : https://www.dennissnellenberg.com/contact
+Principe : De courtes questions numérotées donnent un rythme.
+Pour un site de carrelage : Afficher un champ clé par écran, pour éviter de montrer trop de champs obligatoires à la fois.
+Mots-clés : formulaire numéroté / rythme
+Version / nature : Version antérieure
+Rubrique : Contact / formulaires
+
+#### C08 · Pentagram · Contact
+Pays / secteur : International · Agence de design
+Lien exact : https://www.pentagram.com/contact
+Principe : La page contact liste les studios par ville ; le visiteur trouve directement l’équipe locale.
+Pour un site de carrelage : Donner pour chaque salle d’exposition son adresse et son interlocuteur, pour que le client choisisse la plus proche de son chantier.
+Mots-clés : plusieurs adresses / confiance
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C09 · OFF+BRAND. · Contact
+Pays / secteur : Royaume-Uni · Agence de création
+Lien exact : https://www.itsoffbrand.com/contact
+Principe : Le type de service et de projet détermine la suite des questions.
+Pour un site de carrelage : Donner à chaque activité sa propre branche de questions pour recueillir les informations.
+Mots-clés : orientation des demandes / formulaire
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+#### C10 · 2Frames Animation
+Pays / secteur : International · Production d’animation
+Lien exact : https://www.2framesanimation.com/
+Principe : Arrivé au bout d’un projet, le visiteur peut contacter le studio.
+Pour un site de carrelage : Placer un accès au conseil après les photos de réalisation et reprendre dans le formulaire le nom du projet qui vient d’être vu.
+Mots-clés : continuité du récit / contact
+Version / nature : Mis à jour régulièrement
+Rubrique : Contact / formulaires
+
+
+### Assistants IA (10)
+
+#### A01 · Lowe’s · Mylow
+Pays / secteur : États-Unis · Distribution de bricolage
+Lien exact : https://www.lowes.com/Mylow
+Principe : L’assistant comprend d’abord l’objectif du projet, puis explique les étapes et recommande des produits.
+Pour un site de carrelage : Partir d’un chantier, par exemple la rénovation d’une salle de bains, pour aider à définir les matériaux nécessaires.
+Mots-clés : assistant de projet / rénovation
+Version / nature : Mis à jour régulièrement
+Rubrique : Assistants IA
+
+#### A02 · The Home Depot · Magic Apron
+Pays / secteur : États-Unis · Distribution de matériaux de construction
+Lien exact : https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet
+Principe : La présentation officielle de Magic Apron montre les questions-réponses sur la page produit : quand on pose une question, l’assistant connaît déjà le produit affiché.
+Pour un site de carrelage : Laisser le client demander sur la fiche d’un modèle « Est-ce qu’il convient à une salle de bains ? », et répondre en citant les emplois possibles de ce modèle et la source des caractéristiques.
+Mots-clés : contexte produit / questions techniques
+Version / nature : Présentation officielle
+Rubrique : Assistants IA
+
+#### A03 · Amazon · Alexa for Shopping
+Pays / secteur : États-Unis · Commerce en ligne
+Lien exact : https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant
+Principe : Questions d’achat, comparaisons et recommandations sont réunies dans un même outil.
+Pour un site de carrelage : Aider à réduire la liste des carreaux possibles à partir de ceux déjà choisis et du budget.
+Mots-clés : assistant d’achat / comparaison
+Version / nature : Mise à jour 2026
+Rubrique : Assistants IA
+
+#### A04 · Zalando Assistant
+Pays / secteur : Allemagne · Mode en ligne
+Lien exact : https://en.zalando.de/campaigns/zfa/
+Principe : On peut décrire ses goûts par photo et par conversation, et écarter ce qu’on n’aime pas.
+Pour un site de carrelage : L’utilisateur envoie une photo de salle de bains qui lui plaît, et l’assistant traduit ce style en filtres.
+Mots-clés : entrée multimodale / préférences
+Version / nature : Mise à jour 2026
+Rubrique : Assistants IA
+
+#### A05 · Carrefour · Hopla
+Pays / secteur : France · Commerce de détail
+Lien exact : https://www.carrefour.fr/services/hopla
+Principe : On arrive aux produits à partir d’une situation du quotidien ou d’une tâche à accomplir.
+Pour un site de carrelage : L’utilisateur donne à l’assistant son budget de travaux et la pièce concernée, et obtient des pistes d’achat.
+Mots-clés : assistant par tâche / conseil d’achat
+Version / nature : Mis à jour régulièrement
+Rubrique : Assistants IA
+
+#### A06 · Accio / Accio Work
+Pays / secteur : International · Achats B2B
+Lien exact : https://static.accio.com/accio-user-guide.html
+Principe : Le besoin est transformé en tâches d’achat prêtes à lancer.
+Pour un site de carrelage : Un client professionnel peut saisir les contraintes de son chantier et obtenir une liste des matériaux à vérifier.
+Mots-clés : B2B / achats
+Version / nature : Mis à jour régulièrement
+Rubrique : Assistants IA
+
+#### A07 · Sherwin-Williams · Color Tools
+Pays / secteur : États-Unis · Peinture
+Lien exact : https://www.sherwin-williams.com/en-us/color/color-tools
+Principe : Le choix des couleurs est relié aux usages et à des questions-réponses.
+Pour un site de carrelage : Proposer des teintes proches selon les tons de la photo, la lumière et l’usage.
+Mots-clés : teintes / peinture
+Version / nature : Page de la fonction
+Rubrique : Assistants IA
+
+#### A08 · Stripe Docs · Inline AI
+Pays / secteur : États-Unis · Outils pour développeurs
+Lien exact : https://docs.stripe.com/
+Principe : Les explications apparaissent à côté de la documentation que l’on est en train de lire.
+Pour un site de carrelage : À côté des caractéristiques techniques, proposer des questions rapides sur la ligne affichée.
+Mots-clés : contexte / documentation
+Version / nature : Mis à jour régulièrement
+Rubrique : Assistants IA
+
+#### A09 · Livinit · Livi
+Pays / secteur : International · Architecture d’intérieur
+Lien exact : https://web.livinit.ai/
+Principe : L’assistant donne des conseils sur l’espace et les produits, dans le cadre de la maison.
+Pour un site de carrelage : Permettre de passer des images aux besoins et aux produits sans perdre ce qui a déjà été saisi.
+Mots-clés : assistant d’aménagement / espace
+Version / nature : Page de la fonction
+Rubrique : Assistants IA
+
+#### A10 · Locomotive · Lisa
+Pays / secteur : Canada · Agence numérique
+Lien exact : https://locomotive.ca/en/contact
+Principe : Une conversation recueille le contexte du projet du client.
+Pour un site de carrelage : Une fois le besoin confirmé, l’assistant transmet les informations à un commercial.
+Mots-clés : conseil par IA / prospects
+Version / nature : Présentation de la fonction
+Rubrique : Assistants IA
+
+
+### Premier écran (10)
+
+#### H01 · Lusion
+Pays / secteur : Royaume-Uni · Technologies créatives
+Lien exact : https://lusion.co/
+Principe : Le premier écran s’ouvre sur une œuvre numérique interactive : le visiteur voit d’abord comment elle réagit à ses gestes.
+Pour un site de carrelage : Choisir un mouvement qui montre bien la surface, par exemple une lumière rasante sur l’émail.
+Mots-clés : 3D / art / mouvement
+Version / nature : Version antérieure, vérifier le site actuel
+Rubrique : Premier écran
+
+#### H02 · Igloo Inc.
+Pays / secteur : International · Studio numérique
+Lien exact : https://www.igloo.inc/
+Principe : Le visiteur se déplace dans un espace numérique et parcourt le contenu d’une scène à l’autre.
+Pour un site de carrelage : Présenter la collection phare par un court parcours dans l’espace, avec des accès aux collections en chemin.
+Mots-clés : immersion / ambiances
+Version / nature : Mis à jour régulièrement
+Rubrique : Premier écran
+
+#### H03 · Lando Norris
+Pays / secteur : Royaume-Uni · Marque de sportif
+Lien exact : https://landonorris.com/
+Principe : Le pilote, l’élan de la piste et le rythme des changements d’image composent ensemble le premier écran.
+Pour un site de carrelage : Comparer la durée d’affichage des images et laisser le temps de voir le détail de la texture du carreau.
+Mots-clés : vitesse / composition
+Version / nature : Mis à jour régulièrement
+Rubrique : Premier écran
+
+#### H04 · Cartier · Watches & Wonders 2026
+Pays / secteur : France · Luxe
+Lien exact : https://www.cartier.com/en-fr/watchesandwonders
+Principe : Watches & Wonders 2026 passe d’une salle à l’autre en WebGL ; la caméra va de la scène thématique à la montre.
+Pour un site de carrelage : Construire une salle autour d’une collection phare et associer à chaque gros plan le modèle correspondant et l’accès à ses caractéristiques.
+Mots-clés : luxe / exposition / WebGL
+Version / nature : Projet 2026
+Rubrique : Premier écran
+
+#### H05 · Agrumea Farm
+Pays / secteur : Italie · Alimentation
+Lien exact : https://www.agrumeafarm.it/
+Principe : Le premier écran d’Agrumea Farm compose l’image avec la silhouette et la couleur des récoltes.
+Pour un site de carrelage : Tirer une couleur principale de l’argile, de la poudre de pierre ou de l’émail, et l’utiliser dans les images et la navigation de la collection correspondante.
+Mots-clés : direction artistique / couleur
+Version / nature : Projet 2026
+Rubrique : Premier écran
+
+#### H06 · Santioni · The Notturno Experience
+Pays / secteur : International · Boissons alcoolisées
+Lien exact : https://santionispirits.com/
+Principe : La typographie, les tons sombres et la narration par plans créent l’atmosphère.
+Pour un site de carrelage : Quelques modèles phares peuvent s’ouvrir sur une courte séquence de type film.
+Mots-clés : cinéma / typographie
+Version / nature : Mis à jour régulièrement
+Rubrique : Premier écran
+
+#### H07 · Gentle Monster × Maison Margiela 2026
+Pays / secteur : Corée du Sud / France · Mode
+Lien exact : https://www.gentlemonster.com/int/en/stories/maison-margiela-2026
+Principe : Stylisme, photographie et animation forment le langage commun de cette page spéciale de marque.
+Pour un site de carrelage : Pour le lancement d’une collection haut de marché, utiliser une page spéciale séparée du catalogue courant.
+Mots-clés : mode / page spéciale
+Version / nature : Projet 2026
+Rubrique : Premier écran
+
+#### H08 · Henge · Milan Design Week 2026
+Pays / secteur : Italie · Mobilier haut de marché
+Lien exact : https://mdw.henge07.com/
+Principe : Les meubles sont photographiés dans des espaces d’architecture ; chaque photo montre à la fois l’échelle et la matière.
+Pour un site de carrelage : Prendre une photo de réalisation où l’on voit l’emplacement de la pose et les joints, puis y ajouter un détail de la surface.
+Mots-clés : matière / photographie
+Version / nature : Projet 2026
+Rubrique : Premier écran
+
+#### H09 · Oryzo AI
+Pays / secteur : International · Concept de studio numérique
+Lien exact : https://oryzo.ai/
+Principe : Macro, dévoilement lent et plans soignés mettent le produit au premier plan.
+Pour un site de carrelage : Ne reprendre que les procédés visuels : c’est une œuvre conceptuelle, qui ne montre pas une vraie fonction d’IA.
+Mots-clés : macro / concept / narration
+Version / nature : Concept 2026
+Rubrique : Premier écran
+
+#### H10 · Lightship
+Pays / secteur : États-Unis · Caravanes électriques
+Lien exact : https://lightshiprv.com/
+Principe : Le produit, montré à l’échelle dans un cadre réel, donne un premier écran qui se comprend tout de suite.
+Pour un site de carrelage : Faire la première présentation avec une seule photo crédible d’un espace réel où le produit est utilisé.
+Mots-clés : photo produit / échelle
+Version / nature : Mis à jour régulièrement
+Rubrique : Premier écran
+
+
+### Simulation sur photo (10)
+
+#### V01 · Roomvo · Home Depot Demo
+Pays / secteur : Amérique du Nord · Revêtements de sol et carrelage
+Lien exact : https://hello.roomvo.com/hd
+Principe : La démo Roomvo de Home Depot place un revêtement de sol du catalogue dans une photo de pièce.
+Pour un site de carrelage : Garder le modèle choisi par le client et sa photo d’origine ; après la comparaison de deux calepinages, les reprendre directement dans la demande de devis.
+Mots-clés : références réelles / changement de matière / pièce
+Version / nature : Démo publique
+Rubrique : Simulation sur photo
+
+#### V02 · Tilesview · Tile Visualizer
+Pays / secteur : Inde · Simulation de carrelage
+Lien exact : https://tilesview.ai/app/oBOx1jfSUAB6SU_-Vyr_xA/room-select
+Principe : Dans l’aperçu de la pièce, on choisit séparément les murs et le sol, et on règle le format, le calepinage et les joints.
+Pour un site de carrelage : Quand on change le carrelage mural, garder le sol d’origine et permettre de modifier à part la couleur de joint et le sens de pose.
+Mots-clés : murs et sols / couleur de joint / calepinage
+Version / nature : Démo publique
+Rubrique : Simulation sur photo
+
+#### V03 · Wizart Visualizer
+Pays / secteur : Europe / International · Matériaux d’aménagement
+Lien exact : https://wizart.ai/visualizer
+Principe : L’aperçu des matériaux sur photo est relié au catalogue produits.
+Pour un site de carrelage : Rattacher chaque simulation à un produit réellement en vente et à des caractéristiques précises.
+Mots-clés : simulation / catalogue produits
+Version / nature : Produit officiel
+Rubrique : Simulation sur photo
+
+#### V04 · Floori · Barlinek Demo
+Pays / secteur : Europe · Revêtements de sol
+Lien exact : https://www.barlinek.co.uk/visualizer/
+Principe : Le revêtement de sol s’affiche en aperçu dans une vraie pièce.
+Pour un site de carrelage : S’inspirer de son enchaînement : prise de photo, changement de matériau, accès à l’achat.
+Mots-clés : revêtements de sol / photo
+Version / nature : Démo publique
+Rubrique : Simulation sur photo
+
+#### V05 · Chameleon Power · Best Tile
+Pays / secteur : États-Unis · Matériaux de construction
+Lien exact : https://besttile.chameleonpower.com/
+Principe : On modifie l’image zone par zone, selon les vraies zones de pose : mur, sol, niche de douche, etc.
+Pour un site de carrelage : Dans une salle de bains complexe, permettre de choisir séparément chacune des surfaces.
+Mots-clés : modification par zone / salle de bains
+Version / nature : Démo publique
+Rubrique : Simulation sur photo
+
+#### V06 · Renoworks AI
+Pays / secteur : Canada · Matériaux de construction
+Lien exact : https://www.renoworks.com/ai/
+Principe : La simulation et les fonctions d’IA forment une plateforme de projet.
+Pour un site de carrelage : Distinguer d’abord les versions et les modules, puis étudier la simulation et la conversion des prospects.
+Mots-clés : matériaux de construction / IA
+Version / nature : Présentation officielle
+Rubrique : Simulation sur photo
+
+#### V07 · Hover · Instant Design
+Pays / secteur : États-Unis · Technologie du bâtiment
+Lien exact : https://hover.to/design/instant-design-2d
+Principe : La recherche de style est séparée de l’édition des matériaux que l’on peut acheter.
+Pour un site de carrelage : Ne pas présenter une image d’inspiration générée comme le rendu exact d’une référence (SKU) précise.
+Mots-clés : recherche d’idées / édition
+Version / nature : Présentation officielle
+Rubrique : Simulation sur photo
+
+#### V08 · IKEA Kreativ
+Pays / secteur : Suède · Distribution d’ameublement
+Lien exact : https://www.ikea.com/gb/en/home-design/
+Principe : L’outil scanne la pièce, efface les meubles existants et place des meubles numériques.
+Pour un site de carrelage : Un essai sur photo du carrelage peut garder les objets qui masquent la surface, la perspective et le contexte de la pièce.
+Mots-clés : scan de la pièce / AR / mobilier
+Version / nature : Accès limité selon le pays
+Rubrique : Simulation sur photo
+
+#### V09 · Zolak · Room Furniture Planner
+Pays / secteur : International · Technologie pour le mobilier
+Lien exact : https://zolak.tech/room-furniture-planner
+Principe : L’utilisateur essaie des meubles précis dans sa propre pièce.
+Pour un site de carrelage : Permettre de comparer à l’image plusieurs combinaisons de produits réellement en vente.
+Mots-clés : mobilier / espace / produits en vente
+Version / nature : Présentation officielle
+Rubrique : Simulation sur photo
+
+#### V10 · REimagineHome
+Pays / secteur : International · Rénovation intérieure générée par IA
+Lien exact : https://app.reimaginehome.ai/
+Principe : On cherche une direction de style à l’aide d’images générées.
+Pour un site de carrelage : Indiquer clairement qu’une idée générée n’est ni le rendu d’une référence réelle (SKU) ni un métré.
+Mots-clés : IA générative / idées de style
+Version / nature : Génératif
+Rubrique : Simulation sur photo
+
+
+### 3D et fabrication (10)
+
+#### D01 · Muuble · Store Configurator
+Pays / secteur : Pays-Bas · Vente de mobilier
+Lien exact : https://getmuuble.com/
+Principe : Dans la pièce de Muuble, on peut tourner la vue, placer des meubles, changer les matériaux des murs et du sol, et mesurer des distances.
+Pour un site de carrelage : La vue 3D et la vue de dessus partagent la même configuration : quand on change de vue, matériaux et positions restent en place.
+Mots-clés : espace 3D / 2D / configuration
+Version / nature : Étude de cas
+Rubrique : 3D / fabrication
+
+#### D02 · Ton · AR Furniture
+Pays / secteur : République tchèque · Mobilier
+Lien exact : https://www.ton.eu/en/try-out-our-furniture-at-home-with-augmented-reality
+Principe : On configure le produit, puis on le voit en aperçu dans un espace réel.
+Pour un site de carrelage : Lancer l’AR depuis la fiche produit, en précisant qu’il ne s’agit pas d’une reconnaissance par IA.
+Mots-clés : AR / état du produit
+Version / nature : Présentation officielle
+Rubrique : 3D / fabrication
+
+#### D03 · Sklum · Product Experience
+Pays / secteur : Espagne · Vente de mobilier
+Lien exact : https://www.sklum.com/fr/acheter-canape-3-places/149837-canape-3-places-en-lin-et-coton-grace.html
+Principe : La visualisation du produit est intégrée directement à la page d’achat.
+Pour un site de carrelage : Garder sur la même page le modèle 3D, la couleur, le prix et l’ajout à la liste.
+Mots-clés : vues produit / vente en ligne
+Version / nature : Page produit
+Rubrique : 3D / fabrication
+
+#### D04 · Porsche · Cayenne Configurator
+Pays / secteur : Allemagne · Automobile
+Lien exact : https://configurator.porsche.com/de-CH/mode/model/X1AAA1
+Principe : La configuration, l’angle de vue et l’état des détails se mettent à jour ensemble.
+Pour un site de carrelage : Proposer pour chaque modèle des vues selon la lumière, la finition, l’orientation et le format.
+Mots-clés : configurateur / caméra
+Version / nature : Site régional
+Rubrique : 3D / fabrication
+
+#### D05 · OFFFICE
+Pays / secteur : International · Design numérique
+Lien exact : https://offficestud.io/
+Principe : Parcourir le mobilier devient une visite dans un espace numérique.
+Pour un site de carrelage : La collection phare peut avoir une salle à explorer librement, à côté du catalogue courant qui reste en place.
+Mots-clés : visite virtuelle / décor numérique
+Version / nature : Projet ancien
+Rubrique : 3D / fabrication
+
+#### D06 · Abacus Tables · Builder
+Pays / secteur : Royaume-Uni · Mobilier
+Lien exact : https://abacustables.co.uk/builder/
+Principe : La matière, la structure et l’aspect changent avec la configuration.
+Pour un site de carrelage : Garder la trace des choix du client avec un historique des configurations et une comparaison.
+Mots-clés : choix des matières / état
+Version / nature : Configurateur
+Rubrique : 3D / fabrication
+
+#### D07 · Cartier · Watches & Wonders 2026
+Pays / secteur : France · Luxe
+Lien exact : https://www.cartier.com/watchesandwonders
+Principe : Un espace 3D soigné et des changements de thème organisent l’exposition des produits.
+Pour un site de carrelage : Faire de chaque famille de textures une salle de matériaux que l’on peut visiter.
+Mots-clés : présentation 3D / thèmes
+Version / nature : Projet 2026
+Rubrique : 3D / fabrication
+
+#### D08 · Pillar of Siberia · Case
+Pays / secteur : International · Agence de design
+Lien exact : https://chipsa.design/works/pillar
+Principe : La fabrication et le dévoilement du produit suivent un récit linéaire.
+Pour un site de carrelage : Pour la fabrication du carrelage, créer une suite d’images étape par étape, appuyée sur des faits.
+Mots-clés : étapes de fabrication / projet ancien
+Version / nature : Projet ancien
+Rubrique : 3D / fabrication
+
+#### D09 · IST
+Pays / secteur : International · Industrie
+Lien exact : https://24ist.ru/
+Principe : Des séquences 3D expliquent les étapes de production et les machines.
+Pour un site de carrelage : Montrer matières premières, façonnage, émaillage et cuisson dans un storyboard qui suit l’ordre logique.
+Mots-clés : industrie / fabrication / 3D
+Version / nature : Étude de cas
+Rubrique : 3D / fabrication
+
+#### D10 · The Watch · FS 60P
+Pays / secteur : International · Concept numérique
+Lien exact : https://thewatch.60fps.fr/
+Principe : Une montre fictive est présentée comme un produit numérique ; l’accent est mis sur le détail des plans.
+Pour un site de carrelage : Reprendre la macro sur la surface, la rotation et le dévoilement du matériau, sans traiter l’objet comme un produit réel.
+Mots-clés : concept / détails / caméra
+Version / nature : Concept
+Rubrique : 3D / fabrication
+
+
+### Pages d’accueil (10)
+
+#### W01 · Floema · Home
+Pays / secteur : Portugal · Mobilier d’extérieur
+Lien exact : https://floema.com/en
+Principe : Les valeurs de la marque, le choix d’ambiance, le catalogue et la fabrication s’enchaînent naturellement.
+Pour un site de carrelage : La page d’accueil propose des entrées par ambiance, mais les produits renvoient toujours au même catalogue.
+Mots-clés : page entière / ambiances / catalogue
+Version / nature : Projet 2026
+Rubrique : Pages d’accueil
+
+#### W02 · Moooi · Home
+Pays / secteur : Pays-Bas · Ameublement
+Lien exact : https://www.moooi.com/en
+Principe : Les collections et les pages spéciales artistiques s’entremêlent tout au long du site.
+Pour un site de carrelage : La page d’accueil peut porter une histoire phare, mais tous les accès aux produits doivent rester clairs.
+Mots-clés : narration / éditorial / produit
+Version / nature : Classique
+Rubrique : Pages d’accueil
+
+#### W03 · Aesop · Home
+Pays / secteur : Australie · Soins de la peau
+Lien exact : https://www.aesop.com/
+Principe : Chez Aesop, les rubriques produits, boutiques et services gardent une mise en page et un ton proches.
+Pour un site de carrelage : Donner au catalogue, aux adresses des magasins et au rendez-vous pour voir les échantillons les mêmes noms de rubrique et la même mise en page.
+Mots-clés : éditorial / cohérence / magasins
+Version / nature : Classique
+Rubrique : Pages d’accueil
+
+#### W04 · Nothing · Home
+Pays / secteur : Royaume-Uni · Électronique grand public
+Lien exact : https://nothing.tech/
+Principe : Nothing présente ses nouveautés avec des photos produit très visibles, et la page donne un accès direct aux gammes.
+Pour un site de carrelage : La page collection reprend les noms de produits, les couleurs et le cadrage photo du premier écran.
+Mots-clés : personnalité de marque / collections
+Version / nature : Mis à jour régulièrement
+Rubrique : Pages d’accueil
+
+#### W05 · Linear · Home
+Pays / secteur : États-Unis · Logiciel
+Lien exact : https://linear.app/
+Principe : Chaque bloc explique l’étape suivante du travail.
+Pour un site de carrelage : La page d’accueil d’un site de carrelage déroule dans l’ordre les ambiances, les filtres, les échantillons, l’aperçu et le conseil.
+Mots-clés : structure narrative / clarté
+Version / nature : Mis à jour régulièrement
+Rubrique : Pages d’accueil
+
+#### W06 · Stripe · Home
+Pays / secteur : États-Unis · Technologie de paiement
+Lien exact : https://stripe.com/
+Principe : Fonctions complexes, preuves clients et appels à l’action sont organisés par niveaux.
+Pour un site de carrelage : Sur la page d’accueil, séparer les besoins des particuliers, des prescripteurs et des projets professionnels.
+Mots-clés : fonctions / preuves / hiérarchie
+Version / nature : Mis à jour régulièrement
+Rubrique : Pages d’accueil
+
+#### W07 · Teenage Engineering · Home
+Pays / secteur : Suède · Matériel grand public
+Lien exact : https://teenage.engineering/
+Principe : La présentation des nouveautés et les fiches techniques utilisent la même typographie, les mêmes images et la même mise en page.
+Pour un site de carrelage : Reprendre sur la fiche technique les noms de matériaux et les images de détail de la page collection, pour pouvoir vérifier d’une page à l’autre.
+Mots-clés : industrie / éditorial / marque
+Version / nature : Classique
+Rubrique : Pages d’accueil
+
+#### W08 · Polestar · Home
+Pays / secteur : Suède · Automobile
+Lien exact : https://www.polestar.com/uk/
+Principe : On passe naturellement de la présentation des produits à la configuration, à la prise de rendez-vous et aux contenus de marque.
+Pour un site de carrelage : Après une collection, proposer directement une demande d’échantillons ou un rendez-vous en salle d’exposition.
+Mots-clés : enchaînement des étapes / produit
+Version / nature : Mis à jour régulièrement
+Rubrique : Pages d’accueil
+
+#### W09 · Gentle Monster · Home
+Pays / secteur : Corée du Sud · Mode
+Lien exact : https://www.gentlemonster.com/us/en
+Principe : Le catalogue et les pages spéciales artistiques coexistent.
+Pour un site de carrelage : Les visuels forts peuvent rester dans les pages spéciales, et le site principal permet toujours de choisir vite.
+Mots-clés : art / commerce
+Version / nature : Mis à jour régulièrement
+Rubrique : Pages d’accueil
+
+#### W10 · Lusion · Home
+Pays / secteur : Royaume-Uni · Création numérique
+Lien exact : https://lusion.co/
+Principe : Lusion montre ce que le studio sait concevoir à travers des projets déjà réalisés.
+Pour un site de carrelage : Montrer par des réalisations les techniques que l’entreprise maîtrise, avec les photos sur place, les détails et les matériaux utilisés.
+Mots-clés : projets / démonstration
+Version / nature : Version antérieure, vérifier le site actuel
+Rubrique : Pages d’accueil
+
+
+## Le prompt complet de recherche multi-agents
+
+Voici le texte intégral de docs/research-prompt.md, sans coupe.
+
+---
+
+# Prompt de recherche multi-agents : matériaux et design d’interaction web dans le monde
+
+## Rôle et objectif général
+Vous êtes le rédacteur en chef de cette recherche. Vous réunissez des compétences en direction artistique numérique (art direction), en design d’interaction (UX/UI), en développement créatif (creative development), en vente de matériaux de construction, en technologies de visualisation et en vérification des sources. Votre tâche est de constituer une bibliothèque de références de sites web parmi les meilleurs au monde, traçable, comparable et capable d’orienter un développement réel. Ne recommandez pas de pages au hasard parce qu’elles sont belles.
+
+Le cas d’usage est une marque de carrelage, de pierre ou de mobilier. Elle a besoin d’une expression visuelle exigeante et doit aussi présenter ses produits, expliquer leurs caractéristiques, montrer un aperçu du rendu et recevoir des demandes bien renseignées de la part de particuliers, d’architectes d’intérieur, d’architectes et de clients professionnels. Mots-clés d’évaluation : **esthétique, créativité, identité reconnaissable, clarté, fluidité, degré d’aboutissement, crédibilité, transposabilité**. Ne prétendez à aucun « premier mondial » objectif et vérifiable.
+
+## I. Périmètre à livrer
+
+1. **20 sites de marques de carrelage, de mobilier ou de produits physiques proches.** En priorité : carrelage, céramique, grands formats, pierre, mobilier, luminaires, sanitaires, produits d’ameublement modulaires. Couvrez les grands sites commerciaux et quelques petites marques à la démarche créative originale.
+2. **10 présentations d’informations produit et de caractéristiques techniques.** Tous secteurs ; étudiez la structure du catalogue, les filtres, la comparaison, la hiérarchie des caractéristiques, le retour d’état, la compatibilité des accessoires, l’aide au choix et la demande d’échantillons.
+3. **10 points de contact, formulaires de contact ou demandes de devis de projet.** Tous secteurs ; étudiez comment le site amène l’utilisateur à transmettre assez d’informations. Une page qui affiche seulement quelques champs de saisie ne répond pas à la question.
+4. **10 assistants IA.** Tous secteurs ; précisez obligatoirement s’il s’agit d’une vraie conversation, de questions-réponses sur une base documentaire, de recommandations de produits, d’achat conversationnel, d’un relais vers un humain ou d’une simple promesse marketing.
+5. **10 premiers écrans.** Étudiez uniquement ce que l’on voit en arrivant sur le site : système visuel, sujet de l’image, cadrage, titre, mouvement, chargement et CTA principal.
+6. **10 outils d’essai sur photo : l’utilisateur envoie une vraie photo, le système détecte automatiquement puis remplace le carrelage, le matériau ou le mobilier.** Distinguez : texture d’une référence réelle (SKU), segmentation des surfaces, pièces prédéfinies, placement en 3D, AR, transformation de style générée par IA.
+7. **10 produits en 3D ou présentations de la fabrication.** Distinguez : WebGL/WebGPU en temps réel, configurateur de produit, séquence à 360°, vidéo précalculée, animation pilotée par le défilement, présentation CAO et AR.
+8. **10 pages d’accueil complètes.** Étudiez, du premier écran au pied de page, le récit, l’architecture de l’information, les transitions, la hiérarchie, le rythme des interactions et les points de conversion. Ne confondez pas cette catégorie avec « premier écran ».
+
+Total : **20 + 7×10 = 90 emplacements**. Un même site peut apparaître dans plusieurs catégories, à condition d’y être étudié pour un mécanisme différent et un autre élément à reprendre. Indiquez à part le nombre de marques ou de projets distincts.
+
+## II. Répartition entre agents
+
+Si le système permet le travail en parallèle :
+
+- **Agent rédacteur en chef** : 20 sites du secteur + 10 pages d’accueil complètes ; responsable des critères d’évaluation communs, du dédoublonnage, de règles de preuve identiques pour tous et de la publication finale.
+- **Agent A (architecture produit et 3D)** : 10 présentations d’informations techniques + 10 références 3D ; vérifie aussi le type de technologie, l’accessibilité des configurateurs et leurs limites d’utilisation concrètes.
+- **Agent B (visuel et conversion)** : 10 premiers écrans + 10 formulaires de contact ; vérifie aussi la version visuelle et le déroulé des interactions, pour écarter les pages « belles, mais où l’on ne trouve pas l’étape suivante ».
+- **Agent C (IA et visualisation)** : 10 assistants IA + 10 simulations sur photo ; vérifie aussi, de façon stricte, les limites fonctionnelles de l’IA, de l’AR, de la 3D et des modèles génératifs.
+- **Relecture croisée (peut être faite par le rédacteur en chef)** : contrôler au hasard au moins un tiers des entrées de chaque groupe ; revérifier toutes les entrées prioritaires ; signaler les pages invérifiables et les remplacer si nécessaire.
+
+Chaque agent constitue un vivier de candidats plus large que le nombre à livrer : 35–50 pour les sites du secteur, 15–25 pour chaque thème. Les recherches multilingues couvrent au minimum des mots-clés en anglais, français, italien, espagnol et allemand, et en japonais ou en chinois si nécessaire. Aucun quota par pays n’est imposé, mais la sélection ne doit pas venir entièrement d’une même région, d’une même agence ou d’un même style graphique.
+
+Tous les agents utilisent exactement la même structure de données. N’écrasez jamais le même fichier depuis deux fils de travail différents. Le rédacteur en chef fusionne le tout à la fin.
+
+## III. Stratégie de recherche
+
+Ordre de priorité des sources :
+
+1. le site actuel de la marque et les pages de fonctions accessibles directement ;
+2. le centre d’aide officiel de la marque, les annonces de mises à jour, les pages de démo, les vidéos et la documentation pour développeurs ;
+3. les études de cas des agences de design ou des équipes de développement, surtout celles qui décrivent précisément les interactions et leur réalisation technique ;
+4. les fiches de projets précises sur Awwwards, CSS Design Awards, European Design Awards, Creative Circle, FWA, etc. ;
+5. les médias professionnels et médias de design fiables, et les analyses de développeurs ;
+6. les sites agrégateurs et les discussions sur les réseaux sociaux servent à repérer des candidats ; ils ne suffisent jamais seuls à établir qu’une fonction existe.
+
+Combinez par exemple : `best tile website design 2026`, `architecture materials configurator`, `3D product storytelling website`, `immersive hero webgl`, `product comparison UX`, `room visualizer upload own photo tile grout`, `AI shopping assistant contextual product page`, `consultation form design`, `site vitrine carrelage design`, `configurateur carrelage`, `catalogo piastrelle design`, `visualizador azulejos`. Ne vous arrêtez pas à la première page de résultats. Cherchez en priorité **les pages précises qui méritent d’être vues** ; la seule page d’accueil de la marque ne suffit pas.
+
+## IV. Grille d’évaluation et arbitrages
+
+Chaque critère est noté de 0 à 5 puis pondéré, pour un total sur 100. Chaque note s’appuie sur une preuve précise ; « chic » ou « fluide » ne suffisent pas.
+
+- **Direction artistique et esthétique (20 %)** : cohérence de la composition, des matières, de la photographie, de la typographie, des couleurs, de l’échelle et des blancs.
+- **Créativité et différenciation (20 %)** : le site propose-t-il un mécanisme nouveau que l’on peut décrire, ou une expression visuelle marquante ? Une référence classique peut être retenue parce qu’elle est représentative.
+- **Clarté de l’information (20 %)** : l’utilisateur trouve-t-il les produits, les caractéristiques, les prix ou le contact ? Les informations complexes sont-elles hiérarchisées et comparables ?
+- **Complétude des interactions (15 %)** : chaque action reçoit-elle un retour, peut-on annuler et modifier, la sélection en cours reste-t-elle visible, le parcours est-il continu ?
+- **Qualité technique et accessibilité (10 %)** : à évaluer seulement avec un test ou une preuve fiable ; n’inventez jamais de Core Web Vitals, de fréquence d’images, de temps de chargement ni de compatibilité avec les appareils.
+- **Valeur transposable à un projet de carrelage (15 %)** : l’idée peut-elle améliorer le choix des matériaux, la composition des projets, la compréhension des produits, la demande d’échantillons, la prise de contact ou l’image de la marque ? Indiquez le coût de mise en œuvre.
+
+La sélection finale ne se réduit pas à un classement mécanique par score pondéré. Chaque catégorie garde des mécanismes variés, une couverture de plusieurs secteurs et des entrées réellement consultables en entier. Chaque groupe contient au moins une paire contrastée : une « expérimentation audacieuse » et un exemple « clair et facile à utiliser ».
+
+## V. Champs obligatoires pour chaque entrée
+
+- ID, catégorie, nom de la marque ou du projet, pays ou région, secteur ;
+- **lien exact vers la page** et adresse principale du site ;
+- ce qu’il faut regarder une fois sur la page (quel module, quelle interaction, quel passage du défilement) ;
+- un avis en une phrase sur le visuel ou l’expérience ;
+- trois analyses de mécanismes précis : visuel, information, interaction ou technique ;
+- statut : site actuel, réalisation passée, concept ou démo autonome d’une agence de design ;
+- l’action ou le module le plus utile à reprendre pour un projet de carrelage, avec ce qu’il apporte à l’utilisateur ;
+- contraintes de mise en œuvre : contenus visuels, SKU, données produit, modèles, correction de la détection, appareils pris en charge, confidentialité, performances ou intégration back-end ;
+- chaîne de preuves : sources primaires d’abord, complétées si besoin par les pages de l’agence de design, les palmarès et la documentation technique ;
+- **statut de vérification** : marquer séparément présentation officielle, démo publique, observation sur vidéo, interaction réellement effectuée par vous ;
+- dates : date de mise en ligne, année de la récompense, année de la refonte et date de mise à jour de l’article, chacune dans son propre champ ; si une date est inconnue, écrire « inconnue » ;
+- détail de la note sur 100, avec si besoin les cas d’usage adaptés et les points faibles.
+
+Si une page est inaccessible ou a été refaite, signalez-le. Ne présentez jamais une capture d’écran de 2021/2023 comme celle du site actuel en 2026. Les concepts et projets fictifs doivent être signalés de façon visible.
+
+## VI. Lignes rouges pour l’examen technique de l’IA, de l’AR et de la 3D
+
+- « Envoyer une photo et obtenir une belle pièce » **n’équivaut pas** à remplacer précisément une référence donnée (SKU) ; vérifiez comment le produit précis est lié à la texture du matériau.
+- « Détection automatique des murs et du sol » **n’équivaut pas** à une mesure de la surface réelle ; sans échelle sur la photo, le résultat ne permet pas de commander une quantité exacte.
+- « Assistant IA » **n’équivaut pas** à une bulle de discussion ; vérifiez s’il connaît le produit affiché, cite des faits, synchronise l’état de la sélection ou passe la main à un vendeur.
+- Une « présentation 3D » peut n’être qu’une vidéo ou une séquence d’images ; décrivez la réalisation réelle, et ne devinez pas quand vous ne savez pas.
+- La page commerciale d’un éditeur de logiciel ne prouve pas que chaque fonction est déployée chez le marchand. Notez les restrictions liées au pays, au compte, à l’appareil et aux licences.
+- Les performances, taux de détection, taux de conversion et capacités des modèles annoncés dans la communication ne peuvent pas servir de résultats de test sans vérification indépendante.
+
+## VII. Conclusions de design à tirer de l’ensemble
+
+À partir des 90 références, proposez **3 orientations distinctes pour un site de carrelage** :
+
+- **Marque et espace, sobre et exigeante** : la photographie, les blancs et le récit des collections font sentir la matière et sa place dans l’architecture ;
+- **Choix des matériaux et devis, axée sur la conversion** : entrée par pièce, catalogue, comparaison des caractéristiques, essai sur photo, liste du projet, puis prise de contact ;
+- **Exposition phare, visuellement audacieuse** : quelques collections clés, mises en scène avec de la 3D et un storyboard de fabrication, font retenir la marque ; l’information produit reste complète.
+
+Pour chaque orientation, indiquez la combinaison de références, les sections de la page d’accueil, les types d’interaction, la stratégie mobile, les risques et les contenus nécessaires, ainsi qu’un niveau relatif de budget et d’effort technique (faible, moyen ou élevé ; n’inventez pas de chiffrage).
+
+Concevez en plus un parcours utilisateur complet :
+**Envoi d’une photo de la pièce ; détection des zones et correction manuelle ; choix d’un produit réellement en vente (SKU) ; réglage du format, du calepinage et de la couleur de joint ; explication et comparaison par l’IA ; enregistrement des variantes A/B ; calibrage des surfaces et liste des matériaux ; rendez-vous ou devis.**
+Distinguez clairement « inspiration de style », « aperçu d’un produit réel », « quantités de chantier à revérifier » et « devis définitif ».
+
+## VIII. Format de livraison
+
+Format privilégié : un catalogue en ligne filtrable, avec les 8 catégories, une recherche, une sélection, les références récentes, des favoris, la comparaison de 3 entrées au maximum, une page de détail par entrée, les liens d’origine, les trois orientations, le prompt complet et un export TXT/JSON. La mise en page doit être soignée, mais la lecture et la vitesse passent avant ; aucune animation spectaculaire ne doit masquer les données.
+
+Fournissez aussi une version complète en texte brut, facile à archiver, à consulter par mot-clé et à transmettre à d’autres développeurs ; un JSON structuré avec un objet par entrée ; un rapport qui indique obligatoirement la date de l’étude, la méthode de vérification, les limites des sources et les tests non réalisés.
+
+## IX. Liste de contrôle avant de terminer
+
+- Les 90 emplacements sont-ils tous remplis ? Le nombre est-il exact dans chaque groupe ?
+- Chaque lien est-il réel, avec une indication claire de « ce qu’il faut regarder » ?
+- La sélection est-elle trop concentrée sur une agence ou une région ?
+- Reste-t-il des entrées de remplissage, « belles mais sans rapport avec la situation de l’utilisateur » ?
+- Les projets anciens, les concepts, les années de récompense et la version actuelle du site sont-ils clairement distingués ?
+- Toutes les descriptions d’IA, de 3D, d’AR et de simulation sur photo correspondent-elles aux preuves ?
+- La présentation officielle, l’accès public et les actions réellement effectuées par vous sont-ils séparés ?
+- Avez-vous évité toute donnée non vérifiée sur la fluidité, les performances et les ventes ?
+- Les trois orientations ont-elles des architectures de l’information distinctes, au-delà des couleurs ?
+- Le rapport se termine-t-il par une combinaison concrète et réalisable de modules pour le site de carrelage ?
+
+Menez la recherche selon ces critères et recoupez les sources tout au long du travail. Si une exigence ne peut pas être remplie, indiquez franchement le manque. Ne comblez pas les vides avec des entrées faibles pour atteindre le chiffre : la fiabilité et l’utilité passent d’abord.

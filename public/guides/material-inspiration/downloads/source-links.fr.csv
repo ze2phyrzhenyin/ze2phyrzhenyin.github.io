@@ -1,0 +1,102 @@
+﻿case_id,case_name,source_type,source_label,source_url
+I01,Mutina,primary,Site public / page de la fonction,https://www.mutina.it/en/interiors
+I02,Salvatori,primary,Site public / page de la fonction,https://bathroom.salvatoriofficial.com/en/
+I03,Living Ceramics,primary,Site public / page de la fonction,https://livingceramics.com/en/
+I04,WOW Design,primary,Site public / page de la fonction,https://www.wowdesigneu.com/
+I05,Florim,primary,Site public / page de la fonction,https://www.florim.com/en
+I06,Atlas Concorde,primary,Site public / page de la fonction,https://www.atlasconcorde.com/en
+I07,Fireclay Tile,primary,Site public / page de la fonction,https://www.fireclaytile.com/pages/gallery
+I08,Artedomus,primary,Site public / page de la fonction,https://www.artedomus.com/tiles
+I09,New Terracotta,primary,Site public / page de la fonction,https://newterracotta.com/
+I10,INAX,primary,Site public / page de la fonction,https://www.inax.com/
+I11,Moooi,primary,Site public / page de la fonction,https://www.moooi.com/en
+I12,GUBI,primary,Site public / page de la fonction,https://gubi.com/en/pl
+I13,Tylko,primary,Site public / page de la fonction,https://tylko.com/en-ot
+I14,USM,primary,Site public / page de la fonction,https://us.usm.com/
+I15,Karimoku Case,primary,Site public / page de la fonction,https://www.karimoku-case.com/case_studies/
+I16,Pedestal,primary,Site public / page de la fonction,https://www.pedestal.com/pages/studio
+I16,Pedestal,supplemental,Creative Circle · Pedestal 2026,https://creativecircle.dk/arbejder/pedestal/
+I17,Floema,primary,Site public / page de la fonction,https://floema.com/en/products?collection=Urban
+I17,Floema,supplemental,European Design Awards · Floema,https://awards.europeandesign.org/winner/263020
+I18,Oakâme,primary,Site public / page de la fonction,https://www.oakame.com/en/
+I19,Stellar Works,primary,Site public / page de la fonction,https://www.stellarworks.com/
+I20,Muuto,primary,Site public / page de la fonction,https://www.muuto.com/
+P01,Cosentino · Colors,primary,Site public / page de la fonction,https://www.cosentino.com/colors/
+P02,Halcyon · Product Catalogue,primary,Site public / page de la fonction,https://www.halcyon.co.nz/collections/downlights
+P03,Apple · iPhone Compare,primary,Site public / page de la fonction,https://www.apple.com/iphone/compare/
+P04,Teenage Engineering · OP–XY,primary,Site public / page de la fonction,https://teenage.engineering/products/op-xy
+P05,Tylko · Custom Furniture,primary,Site public / page de la fonction,https://tylko.com/en-ot/furniture-c
+P06,Vitsœ · Components,primary,Site public / page de la fonction,https://www.vitsoe.com/606/components
+P07,Framework · Laptop 13,primary,Site public / page de la fonction,https://frame.work/laptop13/?tab=specs
+P08,DJI · Mavic 4 Pro Specs,primary,Site public / page de la fonction,https://www.dji.com/mavic-4-pro/specs
+P09,Bang & Olufsen · Beolab 90,primary,Site public / page de la fonction,https://www.bang-olufsen.com/en/int/speakers/beolab-90
+P10,Bellroy · Slim Your Wallet,primary,Site public / page de la fonction,https://bellroy.com/collection/slim-your-wallet
+C01,Vitsœ · Space Planning Inquiry,primary,Site public / page de la fonction,https://www.vitsoe.com/us/606/inquiry
+C02,Reform · Book a Meeting,primary,Site public / page de la fonction,https://www.reformcph.com/en/book-a-meeting
+C03,KOBU · Contact,primary,Site public / page de la fonction,https://kobu.agency/contact/
+C04,EPIC Agency · New Project,primary,Site public / page de la fonction,https://www.epic.net/en/contact/new-project/
+C05,Obys · Contacts,primary,Coordonnées en pied de page du site du studio,https://obys.agency/about
+C06,Locomotive · Lisa,primary,Site public / page de la fonction,https://locomotive.ca/en/contact
+C07,Dennis Snellenberg · Contact,primary,Site public / page de la fonction,https://www.dennissnellenberg.com/contact
+C08,Pentagram · Contact,primary,Site public / page de la fonction,https://www.pentagram.com/contact
+C09,OFF+BRAND. · Contact,primary,Site public / page de la fonction,https://www.itsoffbrand.com/contact
+C10,2Frames Animation,primary,Site public / page de la fonction,https://www.2framesanimation.com/
+A01,Lowe’s · Mylow,primary,Site public / page de la fonction,https://www.lowes.com/Mylow
+A02,The Home Depot · Magic Apron,primary,Site public / page de la fonction,https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet
+A02,The Home Depot · Magic Apron,supplemental,Home Depot · Magic Apron,https://corporate.homedepot.com/news/company/unveiling-magic-apron-home-depots-smartest-tool-yet
+A03,Amazon · Alexa for Shopping,primary,Site public / page de la fonction,https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant
+A03,Amazon · Alexa for Shopping,supplemental,Amazon · Shopping assistant,https://www.aboutamazon.com/news/retail/alexa-for-shopping-ai-assistant
+A04,Zalando Assistant,primary,Site public / page de la fonction,https://en.zalando.de/campaigns/zfa/
+A04,Zalando Assistant,supplemental,Zalando · Assistant 2026,https://blog.zalando.com/en/technology/conversational-tool-lifestyle-agent-how-zalando-assistant-has-grown
+A05,Carrefour · Hopla,primary,Site public / page de la fonction,https://www.carrefour.fr/services/hopla
+A06,Accio / Accio Work,primary,Site public / page de la fonction,https://static.accio.com/accio-user-guide.html
+A07,Sherwin-Williams · Color Tools,primary,Site public / page de la fonction,https://www.sherwin-williams.com/en-us/color/color-tools
+A08,Stripe Docs · Inline AI,primary,Site public / page de la fonction,https://docs.stripe.com/
+A09,Livinit · Livi,primary,Site public / page de la fonction,https://web.livinit.ai/
+A10,Locomotive · Lisa,primary,Site public / page de la fonction,https://locomotive.ca/en/contact
+H01,Lusion,primary,Site public / page de la fonction,https://lusion.co/
+H02,Igloo Inc.,primary,Site public / page de la fonction,https://www.igloo.inc/
+H03,Lando Norris,primary,Site public / page de la fonction,https://landonorris.com/
+H04,Cartier · Watches & Wonders 2026,primary,Site public / page de la fonction,https://www.cartier.com/en-fr/watchesandwonders
+H04,Cartier · Watches & Wonders 2026,supplemental,CSS Design Awards · Cartier,https://www.cssdesignawards.com/wotm/cartier-watches-and-wonders-2026/49382/
+H05,Agrumea Farm,primary,Site public / page de la fonction,https://www.agrumeafarm.it/
+H06,Santioni · The Notturno Experience,primary,Site public / page de la fonction,https://santionispirits.com/
+H07,Gentle Monster × Maison Margiela 2026,primary,Site public / page de la fonction,https://www.gentlemonster.com/int/en/stories/maison-margiela-2026
+H08,Henge · Milan Design Week 2026,primary,Site public / page de la fonction,https://mdw.henge07.com/
+H09,Oryzo AI,primary,Site public / page de la fonction,https://oryzo.ai/
+H09,Oryzo AI,supplemental,Lusion · Oryzo concept,https://lusion.co/projects/oryzo_ai/
+H10,Lightship,primary,Site public / page de la fonction,https://lightshiprv.com/
+V01,Roomvo · Home Depot Demo,primary,Site public / page de la fonction,https://hello.roomvo.com/hd
+V02,Tilesview · Tile Visualizer,primary,Site public / page de la fonction,https://tilesview.ai/app/oBOx1jfSUAB6SU_-Vyr_xA/room-select
+V03,Wizart Visualizer,primary,Site public / page de la fonction,https://wizart.ai/visualizer
+V04,Floori · Barlinek Demo,primary,Site public / page de la fonction,https://www.barlinek.co.uk/visualizer/
+V05,Chameleon Power · Best Tile,primary,Site public / page de la fonction,https://besttile.chameleonpower.com/
+V06,Renoworks AI,primary,Site public / page de la fonction,https://www.renoworks.com/ai/
+V07,Hover · Instant Design,primary,Site public / page de la fonction,https://hover.to/design/instant-design-2d
+V08,IKEA Kreativ,primary,Site public / page de la fonction,https://www.ikea.com/gb/en/home-design/
+V09,Zolak · Room Furniture Planner,primary,Site public / page de la fonction,https://zolak.tech/room-furniture-planner
+V10,REimagineHome,primary,Site public / page de la fonction,https://app.reimaginehome.ai/
+D01,Muuble · Store Configurator,primary,Site public / page de la fonction,https://getmuuble.com/
+D01,Muuble · Store Configurator,supplemental,Muuble · creator case,https://thomasgertenbach.com/work/muuble
+D02,Ton · AR Furniture,primary,Site public / page de la fonction,https://www.ton.eu/en/try-out-our-furniture-at-home-with-augmented-reality
+D03,Sklum · Product Experience,primary,Site public / page de la fonction,https://www.sklum.com/fr/acheter-canape-3-places/149837-canape-3-places-en-lin-et-coton-grace.html
+D04,Porsche · Cayenne Configurator,primary,Site public / page de la fonction,https://configurator.porsche.com/de-CH/mode/model/X1AAA1
+D05,OFFFICE,primary,Site public / page de la fonction,https://offficestud.io/
+D06,Abacus Tables · Builder,primary,Site public / page de la fonction,https://abacustables.co.uk/builder/
+D07,Cartier · Watches & Wonders 2026,primary,Site public / page de la fonction,https://www.cartier.com/watchesandwonders
+D07,Cartier · Watches & Wonders 2026,supplemental,CSS Design Awards · Cartier,https://www.cssdesignawards.com/wotm/cartier-watches-and-wonders-2026/49382/
+D08,Pillar of Siberia · Case,primary,Site public / page de la fonction,https://chipsa.design/works/pillar
+D09,IST,primary,Site public / page de la fonction,https://24ist.ru/
+D09,IST,supplemental,IST · creator case,https://chipsa.design/works/ist
+D10,The Watch · FS 60P,primary,Site public / page de la fonction,https://thewatch.60fps.fr/
+W01,Floema · Home,primary,Site public / page de la fonction,https://floema.com/en
+W01,Floema · Home,supplemental,European Design Awards · Floema,https://awards.europeandesign.org/winner/263020
+W02,Moooi · Home,primary,Site public / page de la fonction,https://www.moooi.com/en
+W03,Aesop · Home,primary,Site public / page de la fonction,https://www.aesop.com/
+W04,Nothing · Home,primary,Site public / page de la fonction,https://nothing.tech/
+W05,Linear · Home,primary,Site public / page de la fonction,https://linear.app/
+W06,Stripe · Home,primary,Site public / page de la fonction,https://stripe.com/
+W07,Teenage Engineering · Home,primary,Site public / page de la fonction,https://teenage.engineering/
+W08,Polestar · Home,primary,Site public / page de la fonction,https://www.polestar.com/uk/
+W09,Gentle Monster · Home,primary,Site public / page de la fonction,https://www.gentlemonster.com/us/en
+W10,Lusion · Home,primary,Site public / page de la fonction,https://lusion.co/

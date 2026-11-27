@@ -136,7 +136,7 @@ try {
       assert.equal(new Set(links).size,links.length);
       assert(links.includes(`/guides/claude-3d/${lang}/`));
       assert(links.includes(`/guides/deck-methods/${lang}/`));
-      assert(links.includes(`/guides/material-inspiration/?from=${lang}`));
+      assert(links.includes(`/guides/material-inspiration/${lang}/`));
       for(const href of links){
         if(href.startsWith('/guides/deck-methods/')){
           assert(href.endsWith(`/${lang}/`));
