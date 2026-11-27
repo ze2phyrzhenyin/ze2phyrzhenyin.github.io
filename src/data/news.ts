@@ -29,14 +29,14 @@ export const newsItems: NewsItem[] = [
     startDate: '2026-12-02',
     endDate: '2026-12-02',
     venue: {
-      zh: 'Parc des Expositions de Montpellier，B1 展馆南入口，Route de la Foire, 34470 Pérols',
-      en: 'Parc des Expositions de Montpellier, Hall B1, south entrance, Route de la Foire, 34470 Pérols',
-      fr: 'Parc des Expositions de Montpellier, Hall B1 · Entrée Sud, Route de la Foire, 34470 Pérols',
+      zh: '法国 · 蒙彼利埃 · 蒙彼利埃展览中心（B1 展馆南入口）',
+      en: 'France · Montpellier · Parc des Expositions de Montpellier (Hall B1, south entrance)',
+      fr: 'France · Montpellier · Parc des Expositions de Montpellier (hall B1, entrée sud)',
     },
     summary: {
-      zh: '项目路演人 · La Place aux pitchs',
-      en: 'Pitch presenter at La Place aux pitchs',
-      fr: 'Présentation de mon projet à La Place aux pitchs',
+      zh: '项目路演人',
+      en: 'Pitch presenter',
+      fr: 'Intervenant (pitch)',
     },
   },
   {
