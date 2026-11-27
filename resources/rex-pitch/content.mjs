@@ -12,7 +12,7 @@ export const languageNames = {zh: '中文', en: 'EN', fr: 'FR'};
 
 // The deck is English only: every page shows the same player and the same files.
 export const demo = 'demo/en/index.html';
-export const demoQuery = '?mode=click&autoplay=0&loop=0';
+export const demoQuery = '?autoplay=0&loop=0';
 export const slideCount = 10;
 export const slideName = n => `slide-${String(n).padStart(2, '0')}`;
 export const fontFile = 'fonts/archivo-latin-wdth.woff2';
@@ -68,7 +68,7 @@ export const copy = {
     stage: {
       heading: '现场放映',
       ways: [
-        '在这一页的浏览器里放动画版：点「全屏」，按 {{空格}} 开始。每一页里的动画自己播完，不用点；讲完一页，用 {{空格}}、{{→}} 或翻页笔翻到下一页，{{←}} 回到上一页。',
+        '在这一页的浏览器里放动画版：点「全屏」，按 {{空格}} 开始，整段连续播放，页与页之间不停；再按 {{空格}} 暂停，{{→}} 跳到下一页，{{←}} 回到上一页。播放条右边的「1×」可以切换倍速（0.75× 到 2×）。',
         '有 PowerPoint：[[f:rex-pitch-v3.pptx]]，每一页里的动画自己播完，翻页时点一下。Keynote 或旧版 PowerPoint：[[f:rex-pitch-v3-compat.pptx]]。',
         '其他电脑：[[f:rex-pitch-v3-static.pdf]] 或 [[f:rex-pitch-v3-static.pptx]]。只有图片，没有动画，哪里都能打开。PPTX 里同一页的几张图按讲稿节奏自己切换，翻到下一页要点一下；PDF 全部手动翻。'
       ],
@@ -126,7 +126,7 @@ export const copy = {
     stage: {
       heading: 'On stage',
       ways: [
-        'Animated deck in this browser, below: press Full screen, then {{Space}} to start. Each slide plays its animation by itself; when you are done with a slide, {{Space}}, {{→}} or the clicker moves to the next one, {{←}} goes back one.',
+        'Animated deck in this browser, below: press Full screen, then {{Space}} to start. It plays straight through without stopping between slides; {{Space}} again pauses, {{→}} jumps to the next slide, {{←}} goes back one. The “1×” button on the right of the bar changes the speed (0.75× to 2×).',
         'With PowerPoint: [[f:rex-pitch-v3.pptx]]. Each slide plays its animation by itself; one click moves to the next slide. With Keynote or an older PowerPoint: [[f:rex-pitch-v3-compat.pptx]].',
         'Any other computer: [[f:rex-pitch-v3-static.pdf]] or [[f:rex-pitch-v3-static.pptx]]. Pictures only, no animation; they open anywhere. In the .pptx the pictures of one slide follow each other on the speech timing and one click moves to the next slide; the PDF is turned by hand.'
       ],
@@ -181,7 +181,7 @@ export const copy = {
     stage: {
       heading: 'Sur scène',
       ways: [
-        'Version animée dans ce navigateur, ci-dessous : bouton Plein écran, puis {{Espace}} pour lancer. Chaque diapositive joue son animation toute seule ; pour passer à la suivante, {{Espace}}, {{→}} ou la télécommande, {{←}} revient à la précédente.',
+        'Version animée dans ce navigateur, ci-dessous : bouton Plein écran, puis {{Espace}} pour lancer. Elle se déroule d’un bout à l’autre sans pause entre les diapositives ; {{Espace}} met en pause, {{→}} passe à la suivante, {{←}} revient à la précédente. Le bouton « 1× » à droite de la barre change la vitesse (de 0,75× à 2×).',
         'Avec PowerPoint : [[f:rex-pitch-v3.pptx]]. Chaque diapositive joue son animation toute seule ; un clic passe à la suivante. Avec Keynote ou un ancien PowerPoint : [[f:rex-pitch-v3-compat.pptx]].',
         "Sur tout autre ordinateur : [[f:rex-pitch-v3-static.pdf]] ou [[f:rex-pitch-v3-static.pptx]]. Images seules, sans animation ; ils s'ouvrent partout. Dans le .pptx, les images d’une même diapositive s’enchaînent seules au rythme du texte et un clic passe à la diapositive suivante ; le PDF se tourne à la main."
       ],

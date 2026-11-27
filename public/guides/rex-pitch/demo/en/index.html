@@ -174,7 +174,7 @@ body.embed { background: transparent; }
     ui();
   }
 
-  var playing = false, waiting = false, last = 0, rate = 1;
+  var playing = false, waiting = false, last = 0, rate = parseFloat(q.get('rate') || '1') || 1;
   var mode = q.get('mode') === 'click' ? 'click' : 'auto', loop = q.get('loop') !== '0';
   function nextStop(t) { for (var i = 0; i < stops.length; i++) if (stops[i] > t + 1e-6) return stops[i]; return null; }
   function tick(ts) {
@@ -211,6 +211,21 @@ body.embed { background: transparent; }
     pp.dataset.s = playing ? 'on' : 'off';
     if (document.activeElement !== scrub) scrub.value = String(Math.round(T / total * 1000));
     clock.textContent = (cur + 1) + ' / ' + S.length + ' · ' + fmt(T) + ' / ' + fmt(total);
+  }
+  var rates = [0.75, 1, 1.25, 1.5, 2];
+  if (pp && clock && clock.parentNode) {
+    var rb = document.createElement('button');
+    rb.type = 'button'; rb.id = 'rate'; rb.title = 'Speed';
+    rb.style.cssText = 'font:inherit;font-size:13px;color:inherit;background:none;border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:2px 8px;margin-left:12px;cursor:pointer;flex:none';
+    rb.textContent = rate + '\u00d7';
+    clock.parentNode.insertBefore(rb, clock.nextSibling);
+    rb.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var k = rates.indexOf(rate);
+      rate = rates[(k + 1) % rates.length];
+      rb.textContent = rate + '\u00d7';
+      rb.blur();
+    });
   }
   pp.addEventListener('click', step);
   scrub.addEventListener('input', function () { playing = false; waiting = false; seek(scrub.value / 1000 * total); });
