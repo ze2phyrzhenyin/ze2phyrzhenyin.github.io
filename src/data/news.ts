@@ -19,6 +19,27 @@ export type NewsItem = {
 // Newest first. Dates and links refer to the events' official pages.
 export const newsItems: NewsItem[] = [
   {
+    id: 'la-place-creative-2026',
+    title: {
+      zh: 'La Place Créative｜蒙彼利埃创业展会及路演',
+      en: 'La Place Créative entrepreneurship fair and pitch competition in Montpellier',
+      fr: 'La Place Créative, salon de l’entrepreneuriat et concours de pitch à Montpellier',
+    },
+    url: 'https://www.laplacecreative.com/visiter/la-place-aux-pitchs',
+    startDate: '2026-12-02',
+    endDate: '2026-12-02',
+    venue: {
+      zh: 'Parc des Expositions de Montpellier，B1 展馆南入口，Route de la Foire, 34470 Pérols',
+      en: 'Parc des Expositions de Montpellier, Hall B1, south entrance, Route de la Foire, 34470 Pérols',
+      fr: 'Parc des Expositions de Montpellier, Hall B1 · Entrée Sud, Route de la Foire, 34470 Pérols',
+    },
+    summary: {
+      zh: '项目路演人 · La Place aux pitchs',
+      en: 'Pitch presenter at La Place aux pitchs',
+      fr: 'Présentation de mon projet à La Place aux pitchs',
+    },
+  },
+  {
     id: 'entrepreneurial-pathway-toulouse-2026',
     title: 'Entrepreneurial Pathway @ Toulouse Capitole 2026',
     titleLang: 'en',
