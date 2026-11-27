@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import News from '@/components/News.astro';
 import { SITE } from '@/lib/config';
-import { useTranslations, defaultLang, withBase } from '@/i18n/utils';
+import { useTranslations, defaultLang, localizePath, withBase } from '@/i18n/utils';
 import type { Lang } from '@/i18n/ui';
 
 const lang = (Astro.currentLocale ?? defaultLang) as Lang;
@@ -38,19 +38,24 @@ const companySiteLinks: Record<Lang, string> = {
 const homeIntro: Record<Lang, LinkedText[][]> = {
   en: [
     [
-      { text: "I am a first-year master's student in Business Informatics (" },
+      { text: 'I’m a first-year master’s student in Business Informatics (' },
       { text: 'MIAGE', href: homeLinks.miage },
       { text: ') at ' },
       { text: 'Toulouse Capitole University', href: homeLinks.toulouse },
-      { text: '. Over the past year, I have explored several areas of theoretical computer science on my own, including game theory, learning theory, logic, and formal verification.' },
+      { text: ' and an entrepreneur.' },
     ],
     [
-      { text: 'But a lot happened this summer, and I am now an entrepreneur. I mainly ' },
-      { text: 'build digital and AI solutions for companies', href: companySiteLinks.en },
-      { text: '. Alongside this work, I am also exploring agent framework development and human-computer interaction, which I see as promising directions for future products.' },
+      { text: 'We mainly help businesses ' },
+      { text: 'improve their operations and marketing with digital tools and AI', href: companySiteLinks.en },
+      { text: '. We also pursue academic and commercial partnerships with universities and associations.' },
     ],
     [
-      { text: 'I am always eager to discuss anything related to computer science with others in the field.' },
+      { text: 'I’m exploring how to build frameworks for AI agents and how people interact with computers. I think these fields will shape how we build and use software.' },
+    ],
+    [
+      { text: 'I’d love to ' },
+      { text: 'hear from others in the field', href: localizePath('/contact', lang) },
+      { text: ' about anything related to computer science.' },
     ],
   ],
   zh: [
@@ -59,32 +64,42 @@ const homeIntro: Record<Lang, LinkedText[][]> = {
       { text: '图卢兹第一大学', href: homeLinks.toulouse },
       { text: '企业管理信息应用（' },
       { text: 'MIAGE', href: homeLinks.miage },
-      { text: '）硕士一年级学生。我在最近一年自学并接触了博弈论、学习理论、逻辑、形式化验证等理论计算机相关的领域。' },
+      { text: '）硕士一年级学生，同时也是一个创业者。' },
     ],
     [
-      { text: '但这个夏天发生了很多，现在我是一个创业者，目前主要面向企业提供' },
-      { text: '数智化解决方案', href: companySiteLinks.zh },
-      { text: '。除此之外我也在努力探索agent框架开发与人机交互等领域，这是我认为未来的市场产品的方向。' },
+      { text: '目前我们主要面向企业提供' },
+      { text: '数智化业务提升与营销解决方案', href: companySiteLinks.zh },
+      { text: '，同时也会与高校、协会等建立学术或商业合作。' },
     ],
     [
-      { text: '渴望与同行交流所有与计算机科学相关的话题！' },
+      { text: '除此之外我也在努力探索agent框架开发与人机交互等领域，这是我认为未来软件新范式的方向。' },
+    ],
+    [
+      { text: '渴望' },
+      { text: '与同行交流', href: localizePath('/contact', lang) },
+      { text: '所有与计算机科学相关的话题！' },
     ],
   ],
   fr: [
     [
-      { text: 'Je suis étudiant en Master 1 Méthodes informatiques appliquées à la gestion des entreprises (' },
+      { text: 'Je suis entrepreneur et étudiant en première année de master Méthodes informatiques appliquées à la gestion des entreprises (' },
       { text: 'MIAGE', href: homeLinks.miage },
-      { text: ") à l'" },
+      { text: ') à l’' },
       { text: 'Université Toulouse Capitole', href: homeLinks.toulouse },
-      { text: ". Depuis un an, j'explore en autodidacte plusieurs domaines de l'informatique théorique, notamment la théorie des jeux, la théorie de l'apprentissage, la logique et la vérification formelle." },
+      { text: '.' },
     ],
     [
-      { text: 'Mais beaucoup de choses se sont passées cet été, et je suis désormais entrepreneur. Je conçois principalement des ' },
-      { text: "solutions numériques intégrant l'IA pour les entreprises", href: companySiteLinks.fr },
-      { text: ". En parallèle, j'explore aussi le développement de frameworks d'agents et l'interaction humain-machine, deux pistes qui me paraissent prometteuses pour de futurs produits." },
+      { text: 'Nous aidons principalement les entreprises à ' },
+      { text: 'améliorer leurs opérations et leur marketing grâce au numérique et à l’IA', href: companySiteLinks.fr },
+      { text: '. Nous cherchons aussi à nouer des partenariats académiques ou commerciaux avec des universités et des associations.' },
     ],
     [
-      { text: "J'ai toujours envie d'échanger avec d'autres personnes du domaine sur tout ce qui touche à l'informatique !" },
+      { text: 'Je m’intéresse au développement de frameworks pour les agents d’IA et aux interactions humain-machine. Je pense que ces deux domaines vont changer notre façon de concevoir et d’utiliser les logiciels.' },
+    ],
+    [
+      { text: 'J’aimerais ' },
+      { text: 'échanger avec d’autres informaticiens et informaticiennes', href: localizePath('/contact', lang) },
+      { text: ' sur tout ce qui touche à l’informatique.' },
     ],
   ],
 };
@@ -205,7 +220,7 @@ const audiences = (audienceContent[lang] ?? audienceContent.en).map((item, index
         {intro.map((paragraph) => (
           <p>
             {paragraph.map((part) => part.href ? (
-              <a href={part.href} target="_blank" rel="noopener" class="home-inline-link">{part.text}</a>
+              <a href={part.href} target={part.href.startsWith('/') ? undefined : '_blank'} rel="noopener" class="home-inline-link">{part.text}</a>
             ) : part.text)}
           </p>
         ))}
