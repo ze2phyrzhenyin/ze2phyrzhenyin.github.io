@@ -25,6 +25,15 @@
   const currentView = $('.views a[aria-current="page"]');
   if (currentView && currentView.parentElement.scrollWidth > currentView.parentElement.clientWidth) currentView.parentElement.scrollLeft = currentView.offsetLeft - 8;
 
+  // ---------- language menu on phones: the current language opens the other two ----------
+  const langBtn = $('[data-lang-toggle]'), langNav = $('#langs');
+  if (langBtn && langNav) {
+    const setLangs = open => { langNav.classList.toggle('open', open); langBtn.setAttribute('aria-expanded', String(open)); };
+    langBtn.addEventListener('click', e => { e.stopPropagation(); setLangs(!langNav.classList.contains('open')); });
+    document.addEventListener('click', e => { if (!e.target.closest('#langs')) setLangs(false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && langNav.classList.contains('open')) { setLangs(false); langBtn.focus(); } });
+  }
+
   // ---------- theme ----------
   const themeBtn = $('[data-theme-toggle]');
   function paintTheme() {
@@ -251,7 +260,9 @@
       locator.hidden = k < 2.2;
       if (!locator.hidden) { locRect.setAttribute('x', cx - w / 2); locRect.setAttribute('y', cy - h / 2); locRect.setAttribute('width', w); locRect.setAttribute('height', h); }
       allBtn.hidden = !place && k < 1.25;
-      svg.style.touchAction = k < 1.25 ? 'pan-y' : 'none';
+      // One finger moving up or down always scrolls the page; sideways drags and two fingers move the map.
+      svg.style.touchAction = 'pan-y';
+      wrap.dataset.zoomed = k >= 1.25 ? '1' : '';
       if (k > 2.6 && !detailLoaded) loadDetail();
       clearTimeout(settleTimer); settleTimer = setTimeout(declutter, 140);
     }
@@ -389,6 +400,8 @@
       }
       const dx = e.clientX - last[0], dy = e.clientY - last[1];
       if (!dragged && Math.hypot(e.clientX - last[0], e.clientY - last[1]) < 4) return;
+      // A finger moving mostly up or down belongs to the page scroll (touch-action: pan-y), not to the map.
+      if (!dragged && e.pointerType === 'touch' && Math.abs(e.clientY - last[1]) > Math.abs(e.clientX - last[0])) return;
       if (!dragged) { dragged = true; wrap.classList.add('dragging'); svg.setPointerCapture(e.pointerId); }
       last = [e.clientX, e.clientY];
       const u = w / ew;
@@ -396,9 +409,19 @@
       samples.push([performance.now(), dx * u, dy * u]); if (samples.length > 6) samples.shift();
       apply();
     });
+    let touchHintTimer;
     const end = e => {
       if (!pointers.has(e.pointerId)) return;
       pointers.delete(e.pointerId);
+      if (e.type === 'pointercancel' && !pointers.size) {
+        // The browser took the gesture to scroll the page: no selection; on a zoomed map say how to move it.
+        wrap.classList.remove('dragging'); pinch = null;
+        if (e.pointerType === 'touch' && !dragged && wrap.dataset.zoomed && wrap.dataset.hintTouch) {
+          hint.textContent = wrap.dataset.hintTouch; hint.hidden = false;
+          clearTimeout(touchHintTimer); touchHintTimer = setTimeout(() => { hint.hidden = true; }, 1600);
+        }
+        return;
+      }
       if (pointers.size === 1) { last = [...pointers.values()][0]; pinch = null; return; }
       if (pointers.size) return;
       wrap.classList.remove('dragging');

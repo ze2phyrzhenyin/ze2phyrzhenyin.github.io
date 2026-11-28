@@ -290,6 +290,77 @@ await check('dark mode follows the saved guides preference', async () => {
   await page.click('[data-theme-toggle]');
   await page.close();
 });
+// ---------- phones (touch, mobile viewport) ----------
+async function openPhone(width, path, height = 760) {
+  const ctx = await browser.newContext({ viewport: { width, height }, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto(base + path, { waitUntil: 'networkidle' });
+  return { page, ctx, errors };
+}
+await check('on phones 320, 360 and 430 px wide the top bar fits on all nine pages, nothing clipped or scrolled sideways', async () => {
+  for (const w of [320, 360, 430]) for (const p of pages) {
+    const { page, ctx, errors } = await openPhone(w, p);
+    const o = await page.evaluate(() => {
+      const row = document.querySelector('.topbar-row').getBoundingClientRect(), views = document.querySelector('.views');
+      const visible = [...document.querySelectorAll('.topbar-row > *, .tools > *')].filter(e => getComputedStyle(e).display !== 'none');
+      return { sw: document.documentElement.scrollWidth, iw: innerWidth, clipped: [...views.querySelectorAll('a')].filter(a => a.scrollWidth > a.clientWidth + 1).map(a => a.textContent), viewsScroll: views.scrollWidth - views.clientWidth, outside: visible.filter(e => e.getBoundingClientRect().right > row.right + 1).map(e => e.className) };
+    });
+    assert.deepEqual(errors, [], `${p} at ${w}`);
+    assert(o.sw <= o.iw + 1, `${p} at ${w}: scrollWidth ${o.sw}`);
+    assert.deepEqual(o.clipped, [], `${p} at ${w}: clipped tabs`);
+    assert(o.viewsScroll <= 1, `${p} at ${w}: tabs scroll by ${o.viewsScroll}`);
+    assert.deepEqual(o.outside, [], `${p} at ${w}: outside the bar`);
+    await ctx.close();
+  }
+});
+await check('on a phone the language button opens the other languages and keeps the page', async () => {
+  const { page, ctx } = await openPhone(360, '/en/sources/');
+  assert(!(await page.locator('#langs').isVisible()), 'language list closed at first');
+  await page.tap('[data-lang-toggle]');
+  assert(await page.locator('#langs a[hreflang="es"]').isVisible(), 'Spanish link visible');
+  await page.tap('#langs a[hreflang="es"]');
+  await page.waitForURL(/\/es\/sources\//);
+  assert.equal(await page.locator('[data-lang-toggle]').textContent(), 'ES');
+  await ctx.close();
+});
+await check('on a phone a vertical swipe over the zoomed map scrolls the page, a sideways swipe moves the map', async () => {
+  const { page, ctx } = await openPhone(390, '/en/', 844);
+  await page.tap('[data-go="accra"]');
+  await page.waitForFunction(() => document.querySelector('.map-wrap').dataset.zoomed === '1');
+  await page.waitForTimeout(2200);
+  const cdp = await ctx.newCDPSession(page);
+  const st = () => page.evaluate(() => ({ y: scrollY, vb: document.querySelector('svg.africa-map').getAttribute('viewBox') }));
+  const box = await page.locator('svg.africa-map').boundingBox();
+  const a = await st();
+  await cdp.send('Input.synthesizeScrollGesture', { x: Math.round(box.x + box.width / 2), y: Math.round(box.y + box.height * 0.6), xDistance: 0, yDistance: -260, gestureSourceType: 'touch', speed: 800 });
+  await page.waitForTimeout(600);
+  const b = await st();
+  assert(b.y - a.y > 150, `page scrolled by ${b.y - a.y}`);
+  assert.equal(b.vb, a.vb, 'map stayed still');
+  await page.evaluate(() => scrollTo(0, 0));
+  await page.tap('[data-go="accra"]');
+  await page.waitForTimeout(1800);
+  const box2 = await page.locator('svg.africa-map').boundingBox();
+  const c = await st();
+  await cdp.send('Input.synthesizeScrollGesture', { x: Math.round(box2.x + box2.width / 2), y: Math.round(box2.y + box2.height / 2), xDistance: -180, yDistance: 0, gestureSourceType: 'touch', speed: 800 });
+  await page.waitForTimeout(600);
+  const d = await st();
+  assert.notEqual(d.vb, c.vb, 'map moved');
+  assert(Math.abs(d.y - c.y) < 4, `page stayed, moved ${d.y - c.y}`);
+  await ctx.close();
+});
+await check('on a phone the place panel heading shows under the map after choosing a place', async () => {
+  for (const [w, h] of [[390, 664], [360, 640]]) {
+    const { page, ctx } = await openPhone(w, '/en/', h);
+    await page.tap('[data-go="kumasi"]');
+    await page.waitForTimeout(1500);
+    const title = await page.locator('.place-panel .pl-head h2').boundingBox();
+    assert(title && title.y + title.height <= h, `${w}×${h}: panel title at ${title && Math.round(title.y)}`);
+    await ctx.close();
+  }
+});
 await browser.close();
 console.log(`${passes.length} passed, ${failures.length} failed`);
 process.exit(failures.length ? 1 : 0);

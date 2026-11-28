@@ -66,9 +66,9 @@ export const GHANA_REGIONS = {
 };
 export const COUNTRY_NAME_FIX = { CD: { en: 'DR Congo', es: 'R. D. del Congo', zh: '刚果（金）' }, CG: { en: 'Congo', es: 'Congo', zh: '刚果（布）' }, CI: { en: 'Côte d’Ivoire', es: 'Costa de Marfil', zh: '科特迪瓦' } };
 export const MAP_UI = {
-  en: { zoomIn: 'Zoom in', zoomOut: 'Zoom out', hint: 'Ctrl + scroll to zoom the map', hintMac: '⌘ + scroll to zoom the map', credit: 'Map data: Natural Earth, © OpenStreetMap contributors, geoBoundaries. Routes: OSRM.', route: km => `${km} km by road` },
-  es: { zoomIn: 'Acercar', zoomOut: 'Alejar', hint: 'Ctrl + rueda para ampliar el mapa', hintMac: '⌘ + rueda para ampliar el mapa', credit: 'Datos del mapa: Natural Earth, © colaboradores de OpenStreetMap, geoBoundaries. Rutas: OSRM.', route: km => `${km} km por carretera` },
-  zh: { zoomIn: '放大', zoomOut: '缩小', hint: '按住 Ctrl 滚动可缩放地图', hintMac: '按住 ⌘ 滚动可缩放地图', credit: '地图数据：Natural Earth、© OpenStreetMap 贡献者、geoBoundaries。路线：OSRM。', route: km => `公路 ${km} 公里` },
+  en: { zoomIn: 'Zoom in', zoomOut: 'Zoom out', hint: 'Ctrl + scroll to zoom the map', hintMac: '⌘ + scroll to zoom the map', hintTouch: 'Use two fingers to move the map', credit: 'Map data: Natural Earth, © OpenStreetMap contributors, geoBoundaries. Routes: OSRM.', route: km => `${km} km by road` },
+  es: { zoomIn: 'Acercar', zoomOut: 'Alejar', hint: 'Ctrl + rueda para ampliar el mapa', hintMac: '⌘ + rueda para ampliar el mapa', hintTouch: 'Usa dos dedos para mover el mapa', credit: 'Datos del mapa: Natural Earth, © colaboradores de OpenStreetMap, geoBoundaries. Rutas: OSRM.', route: km => `${km} km por carretera` },
+  zh: { zoomIn: '放大', zoomOut: '缩小', hint: '按住 Ctrl 滚动可缩放地图', hintMac: '按住 ⌘ 滚动可缩放地图', hintTouch: '用两根手指移动地图', credit: '地图数据：Natural Earth、© OpenStreetMap 贡献者、geoBoundaries。路线：OSRM。', route: km => `公路 ${km} 公里` },
 };
 
 // Report and directory text per place. Kinds: p (paragraph by English prefix), cells (table, row, columns),

@@ -173,7 +173,7 @@ function explorerMap(lang) {
   const regionNames = Object.fromEntries(Object.entries(GHANA_REGIONS).map(([k, v]) => [k, lang === 'en' ? k : v[lang]]));
   const focus = Object.fromEntries(Object.entries(FOCUS).map(([k, f]) => [k, f.box ? map.boxes[f.box] : (() => { const [cx, cy] = P[f.pt]; const w = f.w, h = w * map.viewBox[3] / map.viewBox[2]; return [cx - w / 2 + (f.dx || 0), cy - h / 2, w, h].map(v => +v.toFixed(4)); })()]));
   const routeTips = { parcel: `${NAMES.parcel[lang]} · ${mu.route(map.routeKm?.parcel ?? 248)}`, enchi: `${NAMES.enchi[lang]} · ${mu.route(map.routeKm?.enchi ?? 265)}` };
-  return `<div class="map-wrap" data-map data-focus="${attr(JSON.stringify(focus))}" data-km="${map.kmPerUnit}" data-detail="${ROUTE}/assets/map-detail.json?${ASSET_V}" data-regions="${attr(JSON.stringify(regionNames))}" data-route-tips="${attr(JSON.stringify(routeTips))}" data-hint="${attr(mu.hint)}" data-hint-mac="${attr(mu.hintMac)}" tabindex="0" aria-label="${attr(x.mapLabel)}">
+  return `<div class="map-wrap" data-map data-focus="${attr(JSON.stringify(focus))}" data-km="${map.kmPerUnit}" data-detail="${ROUTE}/assets/map-detail.json?${ASSET_V}" data-regions="${attr(JSON.stringify(regionNames))}" data-route-tips="${attr(JSON.stringify(routeTips))}" data-hint="${attr(mu.hint)}" data-hint-mac="${attr(mu.hintMac)}" data-hint-touch="${attr(mu.hintTouch)}" tabindex="0" aria-label="${attr(x.mapLabel)}">
   <svg class="africa-map" viewBox="${map.viewBox.join(' ')}" role="group" aria-label="${attr(x.mapLabel)}">
   <path class="m-equator" d="${map.equator}"/><g class="m-countries">${countries}</g><path class="m-lakes" d="${map.lakes}"/><path class="m-rivers" d="${map.rivers}"/>
   <g class="m-detail"></g><g class="m-labels">${olabels}${clabels}</g><g class="m-marks">${marks}</g></svg>
@@ -406,7 +406,7 @@ ${alternates(view)}
     <a class="back-link" id="all-guides" data-guide-home href="/guides/${lang}/">${esc(u.allGuides)}</a>
     <a class="brand" href="${up}"><span class="brand-mark" aria-hidden="true"></span><span>${esc(u.title)}</span></a>
     <nav class="views" aria-label="${attr(u.title)}">${navItem('report', u.nav.report)}${navItem('sources', u.nav.sources)}${navItem('prompt', u.nav.prompt)}</nav>
-    <div class="tools"><button type="button" class="search-open" data-search-open aria-label="${attr(EXTRA_UI[lang].searchLabel)}" title="${attr(EXTRA_UI[lang].searchLabel)}"><span>${esc(EXTRA_UI[lang].search)}</span><kbd>/</kbd></button><nav class="langs" aria-label="${attr(u.language)}">${langLinks}</nav><button type="button" class="theme-toggle" data-theme-toggle data-label-dark="${attr(u.theme.toDark)}" data-label-light="${attr(u.theme.toLight)}" data-text-dark="${attr(u.theme.dark)}" data-text-light="${attr(u.theme.light)}"></button></div>
+    <div class="tools"><button type="button" class="search-open" data-search-open aria-label="${attr(EXTRA_UI[lang].searchLabel)}" title="${attr(EXTRA_UI[lang].searchLabel)}"><span>${esc(EXTRA_UI[lang].search)}</span><kbd>/</kbd></button><button type="button" class="lang-toggle" data-lang-toggle aria-expanded="false" aria-controls="langs" aria-label="${attr(u.language)}">${esc(ui[lang].short)}</button><nav class="langs" id="langs" aria-label="${attr(u.language)}">${langLinks}</nav><button type="button" class="theme-toggle" data-theme-toggle data-label-dark="${attr(u.theme.toDark)}" data-label-light="${attr(u.theme.toLight)}" data-text-dark="${attr(u.theme.dark)}" data-text-light="${attr(u.theme.light)}"></button></div>
   </div>
   ${tocHtml ? `<div class="mobile-bar"><button type="button" class="toc-open" aria-controls="toc" aria-expanded="false"><span class="toc-open-label">${esc(u.contents)}</span><span class="toc-current" data-toc-current></span></button></div>` : ''}
 </header>
@@ -414,7 +414,7 @@ ${body}
 <footer class="site-footer"><div class="foot-inner">
   <p class="foot-method">${esc(u.footer.method)}</p>
   <p class="foot-version">${esc(versionLine)}</p>
-  <details class="foot-history"><summary>${esc(u.history)}</summary><ul>${u.historyItems.map(h => `<li><b>v${h.n}</b> ${esc(formatDate(h.n === version.n ? version.iso : { 1: '2026-11-28T01:12:00Z', 2: '2026-11-28T01:38:00Z', 3: '2026-11-28T02:05:00Z' }[h.n], lang, true))} · ${esc(h.text)}</li>`).join('')}</ul></details>
+  <details class="foot-history"><summary>${esc(u.history)}</summary><ul>${u.historyItems.map(h => `<li><b>v${h.n}</b> ${esc(formatDate(h.n === version.n ? version.iso : { 1: '2026-11-28T01:12:00Z', 2: '2026-11-28T01:38:00Z', 3: '2026-11-28T02:05:00Z', 4: '2026-11-28T02:33:00Z' }[h.n], lang, true))} · ${esc(h.text)}</li>`).join('')}</ul></details>
   ${u.translated ? `<p class="foot-translated">${esc(u.translated)} <a href="${ROUTE}/en/${path}" hreflang="en" lang="en">English</a></p>` : ''}
   <p><a href="#top">${esc(u.footer.top)}</a></p>
 </div></footer>

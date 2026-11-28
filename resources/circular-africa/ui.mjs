@@ -2,7 +2,7 @@
 // come from content/strings.<locale>.json; everything here is the site's own wording.
 export const LOCALES = ['en', 'es', 'zh'];
 
-export const version = { n: 4, iso: '2026-11-28T02:33:00Z' };
+export const version = { n: 5, iso: '2026-11-28T03:04:00Z' };
 
 const months = {
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -43,7 +43,7 @@ export const ui = {
     theme: { dark: 'Dark', light: 'Light', toDark: 'Switch to dark mode', toLight: 'Switch to light mode' },
     versionLine: (n, date) => `Version ${n} · uploaded ${date}`,
     history: 'Versions',
-    historyItems: [{ n: 4, text: 'Map: drag, pinch and zoom freely; Ghana’s 16 regions, main roads and Lake Volta; Accra and Kumasi streets and markets from OpenStreetMap; driving routes. Field kit and subtitle lines removed.' }, { n: 3, text: 'Field kit: 30-day plan with dates, interview cards, case log, day-30 thresholds, offline use. Search across the site, My list in the directory, English original next to the translation.' }, { n: 2, text: 'Map: select a country, city or market to see its figures, report text and dated events. Bale sorting, events axis and directory charts.' }, { n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
+    historyItems: [{ n: 5, text: 'Phones: the top bar fits small screens, with a language menu; one finger scrolls the page past the map, a sideways drag or two fingers move it; the place panel shows under the map; directory chart labels in full.' }, { n: 4, text: 'Map: drag, pinch and zoom freely; Ghana’s 16 regions, main roads and Lake Volta; Accra and Kumasi streets and markets from OpenStreetMap; driving routes. Field kit and subtitle lines removed.' }, { n: 3, text: 'Field kit: 30-day plan with dates, interview cards, case log, day-30 thresholds, offline use. Search across the site, My list in the directory, English original next to the translation.' }, { n: 2, text: 'Map: select a country, city or market to see its figures, report text and dated events. Bale sorting, events axis and directory charts.' }, { n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
     meta: {
       report: 'Where to start a circular-consumption business in Ghana: used phones at Circle, clothing bales at Kantamanto, water refills in Accra, market sizing, comparisons with Nairobi, Abidjan and South Africa, and a 30-day field plan.',
       sources: '135 verified source organisations and 178 entries for following circular consumption in Africa, with companies, dated events, research records and open opportunities.',
@@ -159,7 +159,7 @@ export const ui = {
     theme: { dark: 'Oscuro', light: 'Claro', toDark: 'Cambiar a modo oscuro', toLight: 'Cambiar a modo claro' },
     versionLine: (n, date) => `Versión ${n} · publicada el ${date}`,
     history: 'Versiones',
-    historyItems: [{ n: 4, text: 'Mapa: arrastrar, pellizcar y ampliar libremente; las 16 regiones de Ghana, carreteras principales y el lago Volta; calles y mercados de Acra y Kumasi de OpenStreetMap; rutas por carretera. Se quitaron el kit de campo y los subtítulos.' }, { n: 3, text: 'Kit de campo: plan de 30 días con fechas, tarjetas de entrevista, registro de casos, umbrales del día 30, uso sin conexión. Búsqueda en todo el sitio, Mi lista en el directorio, original en inglés junto a la traducción.' }, { n: 2, text: 'Mapa: al seleccionar un país, una ciudad o un mercado se ven sus cifras, el texto del informe y los hechos fechados. Fardo ordenable, eje de hechos y gráficos del directorio.' }, { n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
+    historyItems: [{ n: 5, text: 'Móviles: la barra superior cabe en pantallas pequeñas, con un menú de idioma; un dedo desplaza la página sobre el mapa, un arrastre lateral o dos dedos lo mueven; la ficha del lugar aparece bajo el mapa; etiquetas completas en los gráficos del directorio.' }, { n: 4, text: 'Mapa: arrastrar, pellizcar y ampliar libremente; las 16 regiones de Ghana, carreteras principales y el lago Volta; calles y mercados de Acra y Kumasi de OpenStreetMap; rutas por carretera. Se quitaron el kit de campo y los subtítulos.' }, { n: 3, text: 'Kit de campo: plan de 30 días con fechas, tarjetas de entrevista, registro de casos, umbrales del día 30, uso sin conexión. Búsqueda en todo el sitio, Mi lista en el directorio, original en inglés junto a la traducción.' }, { n: 2, text: 'Mapa: al seleccionar un país, una ciudad o un mercado se ven sus cifras, el texto del informe y los hechos fechados. Fardo ordenable, eje de hechos y gráficos del directorio.' }, { n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
     meta: {
       report: 'Dónde empezar un negocio de consumo circular en Ghana: teléfonos usados en Circle, fardos de ropa en Kantamanto, recargas de agua en Acra, tamaño del mercado, comparación con Nairobi, Abiyán y Sudáfrica, y un plan de campo de 30 días.',
       sources: '135 organizaciones fuente verificadas y 178 entradas para seguir el consumo circular en África, con empresas, hechos fechados, registros de investigación y convocatorias abiertas.',
@@ -275,7 +275,7 @@ export const ui = {
     theme: { dark: '深色', light: '亮色', toDark: '切换到深色模式', toLight: '切换到亮色模式' },
     versionLine: (n, date) => `第 ${n} 版 · 上传于 ${date}`,
     history: '版本',
-    historyItems: [{ n: 4, text: '地图：可自由拖动、双指和滚轮缩放；加纳 16 个大区、主干公路和沃尔特湖；来自 OpenStreetMap 的阿克拉、库马西街道和市场；公路行车路线。删除实地工具和副标题。' }, { n: 3, text: '实地工具：带日期的 30 天计划、访谈卡片、案例记录、第 30 天门槛、离线使用。全站搜索，来源目录里的我的清单，译文旁可显示英文原文。' }, { n: 2, text: '地图：选择国家、城市或市场，查看对应数字、报告原文和带日期的事件。原包可按价格分拣，新增事件时间轴和来源目录图表。' }, { n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
+    historyItems: [{ n: 5, text: '手机：小屏幕上顶栏放得下，语言改为下拉菜单；单指上下滑过地图时滚动页面，横向拖动或双指移动地图；选中地点后地图下方能看到地点信息；来源目录图表标签完整显示。' }, { n: 4, text: '地图：可自由拖动、双指和滚轮缩放；加纳 16 个大区、主干公路和沃尔特湖；来自 OpenStreetMap 的阿克拉、库马西街道和市场；公路行车路线。删除实地工具和副标题。' }, { n: 3, text: '实地工具：带日期的 30 天计划、访谈卡片、案例记录、第 30 天门槛、离线使用。全站搜索，来源目录里的我的清单，译文旁可显示英文原文。' }, { n: 2, text: '地图：选择国家、城市或市场，查看对应数字、报告原文和带日期的事件。原包可按价格分拣，新增事件时间轴和来源目录图表。' }, { n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
     meta: {
       report: '在加纳从哪里开始做循环消费：Circle 的二手手机、Kantamanto 的二手衣物原包、阿克拉的桶装水续装、市场规模、与内罗毕、阿比让和南非的比较，以及 30 天实地调研计划。',
       sources: '135 家经核实的来源机构、178 个条目，用于持续跟踪非洲循环消费，另有公司案例、带日期的事件、研究记录和开放机会。',
