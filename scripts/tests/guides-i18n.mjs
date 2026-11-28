@@ -145,6 +145,14 @@ try {
           await page.waitForURL(origin+`/guides/${lang}/`);
           continue;
         }
+        if(href.startsWith('/guides/circular-africa/')){
+          // English, Spanish and Chinese only: the French index opens the English page with ?from=fr.
+          assert(href===`/guides/circular-africa/${lang==='fr'?'en/?from=fr':lang+'/'}`,href);
+          await page.goto(origin+href,{waitUntil:'domcontentloaded'});
+          await page.locator('#all-guides').click();
+          await page.waitForURL(origin+`/guides/${lang}/`);
+          continue;
+        }
         if(href.startsWith('/guides/claude-3d/') || href.startsWith('/guides/material-inspiration/')){
           await page.goto(origin+href,{waitUntil:'domcontentloaded'});
           await page.locator('#all-guides').click();

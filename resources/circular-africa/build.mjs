@@ -1,0 +1,485 @@
+// Builds /guides/circular-africa/ (report, source directory, prompt) in English, Spanish and Chinese.
+//   node resources/circular-africa/build.mjs            build into public/guides/circular-africa/
+//   node resources/circular-africa/build.mjs --merge    first merge translate/<lang>/*.json into content/strings.<lang>.json
+// Inputs: content/structure.json + content/strings.<lang>.json (parse.mjs), ui.mjs, assets/.
+import { readFile, writeFile, mkdir, copyFile, readdir, rm } from 'node:fs/promises';
+import { LOCALES, ui, parts, version, formatDate } from './ui.mjs';
+
+const here = new URL('./', import.meta.url);
+const outRoot = new URL('../../public/guides/circular-africa/', here);
+const ROUTE = '/guides/circular-africa';
+const ORIGIN = 'https://zhaoyang.fr';
+const ASSET_V = `v${version.n}-${version.iso.replace(/\D/g, '').slice(0, 12)}`;
+const json = async path => JSON.parse(await readFile(new URL(path, here), 'utf8'));
+
+// ---------- strings ----------
+if (process.argv.includes('--merge')) {
+  const st = await json('content/structure.json'), sourceEn = await json('content/strings.en.json');
+  const overrides = await json('translate/overrides.json').catch(() => ({}));
+  const keepEnglish = new Set(st.report.chapters.find(c => c.id === 'search').blocks.filter(b => b.t === 'table').flatMap(b => b.rows.map(r => r[0])));
+  const pb = st.prompt.blocks;
+  for (let i = 0; i < pb.length - 1; i++) {
+    const t = pb[i].t === 'p' ? sourceEn[pb[i].s] : '';
+    if (/^(Examples include:|Actively search for counterexamples)/.test(t) && pb[i + 1].t === 'ul') pb[i + 1].items.forEach(id => keepEnglish.add(id));
+  }
+  for (const lang of ['zh', 'es']) {
+    const dir = new URL(`translate/${lang}/`, here);
+    const merged = {};
+    for (const f of (await readdir(dir)).filter(f => f.endsWith('.json')).sort()) Object.assign(merged, JSON.parse(await readFile(new URL(f, dir), 'utf8')));
+    // Search queries are typed into a search engine: they stay exactly as in the English source.
+    for (const id of keepEnglish) merged[id] = sourceEn[id];
+    // One spelling across the chunks translated separately.
+    const normalise = { es: [[/\bcostes\b/g, 'costos'], [/\bCostes\b/g, 'Costos'], [/\bcoste\b/g, 'costo'], [/\bCoste\b/g, 'Costo'], [/^Observado:/, 'Observada:']], zh: [] }[lang];
+    for (const id of Object.keys(merged)) for (const [re, to] of normalise) merged[id] = merged[id].replace(re, to);
+    for (const [id, text] of Object.entries(overrides[lang] || {})) merged[id] = text;
+    await writeFile(new URL(`content/strings.${lang}.json`, here), JSON.stringify(merged, null, 1));
+    console.log(`merged ${lang}: ${Object.keys(merged).length} strings`);
+  }
+}
+const structure = await json('content/structure.json');
+const strings = {};
+for (const lang of LOCALES) strings[lang] = await json(`content/strings.${lang}.json`).catch(() => ({}));
+const en = strings.en;
+const draft = process.argv.includes('--draft');
+for (const lang of LOCALES) {
+  const missing = Object.keys(en).filter(id => !strings[lang][id]);
+  if (missing.length && draft) { console.warn(`${lang}: ${missing.length} strings missing, English used (draft build)`); for (const id of missing) strings[lang][id] = en[id]; continue; }
+  if (missing.length) throw new Error(`${lang}: ${missing.length} strings missing, e.g. ${missing.slice(0, 3).join(', ')}`);
+}
+const map = await json('assets/map.json');
+
+// ---------- helpers ----------
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const attr = esc;
+function inline(text, ctx = {}) {
+  if (text == null) return '';
+  const links = [];
+  let t = String(text).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => { links.push([label, url]); return `\u0000${links.length - 1}\u0000`; });
+  t = esc(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  if (ctx.sid) t = t.replace(/\b(S\d{3})(?:-\d{2})?\b/g, m => `<a class="sid" href="${ctx.sid}#${m.slice(0, 4)}">${m}</a>`);
+  return t.replace(/\u0000(\d+)\u0000/g, (_, i) => {
+    const [label, url] = links[i];
+    const inner = esc(label).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    if (url.startsWith('#')) return `<a href="${attr((ctx.anchorBase ?? '') + url.replace(/_\d+$/, ''))}">${inner}</a>`;
+    return `<a href="${attr(url)}" target="_blank" rel="noopener">${inner}</a>`;
+  });
+}
+const T = (lang, id) => (id ? strings[lang][id] : '');
+const I = (lang, id, ctx) => inline(T(lang, id), ctx);
+const plainText = s => String(s ?? '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/\*\*/g, '');
+function runIn(lang, id, ctx) {
+  // A paragraph that opens with a bold phrase becomes a small heading plus text.
+  const text = T(lang, id);
+  const m = text.match(/^\*\*([^*]{1,140}?)\*\*\s*([\s\S]*)$/);
+  if (!m || !m[2]) return `<p>${inline(text, ctx)}</p>`;
+  const head = m[1].replace(/[.。:：]\s*$/, '');
+  return `<h3 class="runin">${inline(head, ctx)}</h3><p>${inline(m[2], ctx)}</p>`;
+}
+const fmt = (n, d = 0) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+
+function table(lang, block, ctx, cls = '') {
+  const head = block.head.map(id => plainText(T(lang, id)));
+  return `<div class="table-wrap"><table class="${cls}"><thead><tr>${block.head.map(id => `<th scope="col">${I(lang, id, ctx)}</th>`).join('')}</tr></thead><tbody>${block.rows.map(r => `<tr>${r.map((id, i) => `<td data-label="${attr(head[i])}">${I(lang, id, ctx)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+}
+
+// ---------- map ----------
+function mapSvg(lang, mode) {
+  const u = ui[lang].map;
+  const c = map.cities;
+  const comp = ['CIV', 'NGA', 'KEN', 'ZAF', 'MAR', 'CMR'];
+  const countries = Object.entries(map.countries).filter(([k]) => k !== 'GHA').map(([k, d]) => `<path class="m-comp" d="${d}"${mode === 'regions' ? ` data-code="${k}"` : ''}/>`).join('');
+  const city = (key, label, tip, dx, dy, anchor = 'start', primary = false) => {
+    const [x, y] = c[key];
+    return `<g class="m-city${primary ? ' primary' : ''}" tabindex="0" data-tip="${attr(tip)}"><circle cx="${x}" cy="${y}" r="${primary ? 4.5 : 3.5}"/><circle class="hit" cx="${x}" cy="${y}" r="12"/><text x="${x + dx}" y="${y + dy}" text-anchor="${anchor}">${esc(label)}</text></g>`;
+  };
+  let marks = '';
+  if (mode === 'hero') {
+    marks += city('lagos', u.lagos, u.tips.lagos, 6, -8);
+    marks += city('abidjan', u.abidjan, u.tips.abidjan, -8, 16, 'end');
+    marks += city('douala', u.douala, u.tips.douala, 8, 14);
+    marks += city('nairobi', u.nairobi, u.tips.nairobi, 9, 4);
+    marks += city('casablanca', u.casablanca, u.tips.casablanca, 9, 4);
+    const [jx, jy] = c.johannesburg;
+    marks += `<g class="m-city" tabindex="0" data-tip="${attr(u.tips.southAfrica)}"><circle class="hit" cx="${jx - 40}" cy="${jy + 20}" r="26"/><text x="${jx - 42}" y="${jy + 28}" text-anchor="middle">${esc(u.southAfrica)}</text></g>`;
+    marks += city('accra', u.accra.split(' · ')[0], u.tips.accra, 6, 20, 'start', true);
+    marks += city('kumasi', u.kumasi.split(' · ')[0], u.tips.kumasi, -9, -7, 'end', true);
+  } else {
+    const r = u.regions;
+    const label = (x, y, t, codes) => `<g class="m-region"><text x="${x}" y="${y}" text-anchor="middle">${esc(t)}</text></g>`;
+    marks += label(c.abidjan[0] - 30, c.abidjan[1] + 34, r.west);
+    marks += label(c.nairobi[0] + 26, c.nairobi[1] + 34, r.east);
+    marks += label(c.johannesburg[0] - 30, c.johannesburg[1] + 52, r.southern);
+    marks += label(c.casablanca[0] + 6, c.casablanca[1] + 36, r.north);
+    marks += label(c.douala[0] + 22, c.douala[1] + 40, r.central);
+  }
+  return `<svg class="africa-map" viewBox="${map.viewBox}" role="img" aria-label="${attr(u.label)}"><path class="m-land" d="${map.base}"/>${countries}<path class="m-ghana" d="${map.countries.GHA}"/>${marks}</svg>`;
+}
+function insetSvg(lang) {
+  const u = ui[lang].map;
+  const [ax, ay] = map.inset.accra, [kx, ky] = map.inset.kumasi;
+  return `<svg class="ghana-inset" viewBox="${map.inset.viewBox}" role="img" aria-label="${attr(u.ghana)}"><path class="m-ghana" d="${map.inset.ghana}"/><line class="m-link" x1="${kx}" y1="${ky}" x2="${ax}" y2="${ay}"/><g class="m-city primary" tabindex="0" data-tip="${attr(u.tips.kumasi)}"><circle cx="${kx}" cy="${ky}" r="5"/><circle class="hit" cx="${kx}" cy="${ky}" r="14"/><text x="${kx - 9}" y="${ky - 9}" text-anchor="end">${esc(u.kumasi.split(' · ')[0])}</text><text class="sub" x="${kx - 9}" y="${ky + 6}" text-anchor="end">Adum</text></g><g class="m-city primary" tabindex="0" data-tip="${attr(u.tips.accra)}"><circle cx="${ax}" cy="${ay}" r="5"/><circle class="hit" cx="${ax}" cy="${ay}" r="14"/><text x="${ax + 2}" y="${ay + 22}" text-anchor="middle">${esc(u.accra.split(' · ')[0])}</text><text class="sub" x="${ax + 2}" y="${ay + 37}" text-anchor="middle">Circle · Kantamanto</text></g><text class="m-name" x="130" y="40" text-anchor="middle">${esc(u.ghana)}</text></svg>`;
+}
+
+// ---------- components ----------
+function slider(id, label, unit, min, max, step, value) {
+  return `<div class="ctl"><label for="${id}">${esc(label)}</label><div class="ctl-row"><input type="range" id="${id}" min="${min}" max="${max}" step="${step}" value="${value}" data-default="${value}"><output for="${id}" data-unit="${attr(unit)}"></output></div></div>`;
+}
+function checkCalc(lang) {
+  const u = ui[lang].check;
+  return `<figure class="tool" data-tool="check" aria-labelledby="check-title"><figcaption id="check-title">${esc(u.title)}</figcaption>
+  <div class="tool-grid"><div class="tool-controls">${slider('c-fee', u.fee, 'GHS', 5, 60, 1, 25)}${slider('c-tech', u.tech, 'GHS', 0, 40, 1, 12)}${slider('c-cons', u.consumables, 'GHS', 0, 10, 0.5, 2)}${slider('c-gate', u.gateway, '%', 0, 5, 0.05, 1.95)}${slider('c-disp', u.dispute, 'GHS', 10, 200, 5, 70)}<button type="button" class="btn-text" data-reset>${esc(u.reset)}</button></div>
+  <div class="tool-out"><div class="segbar" data-segbar role="img" aria-label="${attr(u.fee)}"><span class="seg s1" data-part="tech"></span><span class="seg s2" data-part="cons"></span><span class="seg s3" data-part="pay"></span><span class="seg s4" data-part="left"></span></div>
+  <ul class="seg-legend"><li><i class="k s1"></i>${esc(u.tech)} <b data-v="tech"></b></li><li><i class="k s2"></i>${esc(u.consumables)} <b data-v="cons"></b></li><li><i class="k s3"></i>${esc(u.paymentCost)} <b data-v="pay"></b></li><li><i class="k s4"></i>${esc(u.left)} <b data-v="left"></b></li></ul>
+  <div class="figures"><div class="figure"><span class="f-label">${esc(u.left)}</span><span class="f-value" data-v="left-big"></span></div><div class="figure"><span class="f-label">${esc(u.breakEven)}</span><span class="f-value" data-v="be"></span></div></div>
+  <p class="tool-warn" data-warn hidden>${esc(u.negative)}</p></div></div>
+  <p class="tool-note">${esc(u.note)}</p></figure>`;
+}
+function routeCalc(lang) {
+  const u = ui[lang].route;
+  return `<figure class="tool" data-tool="route" aria-labelledby="route-title"><figcaption id="route-title">${esc(u.title)}</figcaption>
+  <div class="tool-grid"><div class="tool-controls">${slider('r-m', u.margin, 'GHS', 0.5, 8, 0.5, 3)}${slider('r-cost', u.cost, 'GHS', 20, 150, 5, 60)}<button type="button" class="btn-text" data-reset>${esc(u.reset)}</button></div>
+  <div class="tool-out"><div class="figure"><span class="f-label">${esc(u.needed)}</span><span class="f-value" data-v="fills"></span></div><div class="bottles" data-bottles aria-hidden="true"></div></div></div>
+  <p class="tool-note">${esc(u.note)}</p></figure>`;
+}
+function estimator(lang) {
+  const u = ui[lang].estimate;
+  return `<figure class="tool" data-tool="estimate" aria-labelledby="est-title"><figcaption id="est-title">${esc(u.title)}</figcaption>
+  <div class="tool-grid"><div class="tool-controls">${slider('e-shops', u.shops, '', 10, 25, 1, 15)}${slider('e-hand', u.handovers, '', 8, 20, 1, 12)}${slider('e-take', u.takeup, '%', 20, 40, 1, 30)}${slider('e-fee', u.fee, 'GHS', 15, 30, 1, 25)}<button type="button" class="btn-text" data-reset>${esc(u.reset)}</button></div>
+  <div class="tool-out funnel"><div class="figure"><span class="f-label">${esc(u.eligible)}</span><span class="f-value" data-v="eligible"></span></div><div class="figure"><span class="f-label">${esc(u.checks)}</span><span class="f-value" data-v="checks"></span></div><div class="figure accent"><span class="f-label">${esc(u.revenue)}</span><span class="f-value" data-v="revenue"></span></div></div></div>
+  <p class="tool-note">${esc(u.note)}</p></figure>`;
+}
+function flowFigure(lang) {
+  const u = ui[lang].flow;
+  return `<figure class="flow" aria-label="${attr(u.title)}"><figcaption>${esc(u.title)}</figcaption><ol>${u.steps.map(([a, b], i) => `<li class="${i === u.steps.length - 1 ? 'return' : ''}"><span class="n">${i + 1}</span><strong>${esc(a)}</strong><span>${esc(b)}</span></li>`).join('')}</ol></figure>`;
+}
+function baleFigure(lang) {
+  const u = ui[lang].bale;
+  let cells = '', i = 0;
+  u.legend.forEach(([label, n], k) => { for (let j = 0; j < n; j++, i++) cells += `<i class="b${k}" data-tip="${attr(`${label}: ${n}`)}"></i>`; });
+  return `<figure class="bale"><figcaption>${esc(u.title)}<span>${esc(u.units)}</span></figcaption><div class="bale-grid" role="img" aria-label="${attr(u.legend.map(([l, n]) => `${l}: ${n}`).join(', '))}">${cells}</div>
+  <ul class="legend">${u.legend.map(([l, n], k) => `<li><i class="k b${k}"></i>${esc(l)} <b>${n}</b></li>`).join('')}</ul>
+  <dl class="bale-sums"><div><dt>${esc(u.paid)}</dt><dd>GHS 2,200</dd></div><div><dt>${esc(u.best)}</dt><dd>GHS 1,522–1,609</dd></div><div class="neg"><dt>${esc(u.gap)}</dt><dd>GHS 591–678</dd></div></dl>
+  <p class="fig-source">${esc(u.source)}</p></figure>`;
+}
+function columnChart({ title, unit, source, values, labels, gapAfter = null, gapLabel = '', decimals = 0, id }) {
+  const W = 520, H = 260, pad = { l: 8, r: 8, t: 34, b: 42 };
+  const max = Math.max(...values) * 1.12;
+  const n = values.length, slot = (W - pad.l - pad.r) / (n + (gapAfter != null ? 0.6 : 0));
+  const bw = Math.min(64, slot * 0.5);
+  let x = pad.l, bars = '';
+  values.forEach((v, i) => {
+    const h = (v / max) * (H - pad.t - pad.b), cx = x + slot / 2, y = H - pad.b - h;
+    bars += `<g class="col" tabindex="0" data-tip="${attr(`${labels[i]}: ${fmt(v, decimals)} ${unit}`)}"><rect class="hit" x="${cx - slot / 2}" y="${pad.t - 10}" width="${slot}" height="${H - pad.t - pad.b + 10}"/><path d="M${cx - bw / 2},${H - pad.b} V${y + 4} q0,-4 4,-4 H${cx + bw / 2 - 4} q4,0 4,4 V${H - pad.b} Z"/><text class="val" x="${cx}" y="${y - 8}" text-anchor="middle">${fmt(v, decimals)}</text><text class="lab" x="${cx}" y="${H - pad.b + 22}" text-anchor="middle">${esc(labels[i])}</text></g>`;
+    x += slot;
+    if (gapAfter === i) { bars += `<text class="gap" x="${x + slot * 0.3}" y="${H - pad.b + 22}" text-anchor="middle">⋯</text>`; x += slot * 0.6; }
+  });
+  return `<figure class="chart" id="${id}"><figcaption>${esc(title)}<span>${esc(unit)}${gapLabel ? ` · ${esc(gapLabel)}` : ''}</span></figcaption><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${attr(`${title}: ${values.map((v, i) => `${labels[i]} ${fmt(v, decimals)}`).join(', ')}`)}"><line class="base" x1="0" x2="${W}" y1="${H - pad.b}" y2="${H - pad.b}"/>${bars}</svg><p class="fig-source">${esc(source)}</p></figure>`;
+}
+function badiliFigure(lang) {
+  const u = ui[lang].badili;
+  // Widths by time: 7 days of a 365-day year, then months 1–6 (minus the first week), months 7–12.
+  const days = [7, 182 - 7, 183];
+  return `<figure class="badili"><figcaption>${esc(u.title)}</figcaption><div class="segbar tall">${u.segments.map(([a, b], i) => `<span class="seg w${i}" style="flex:${days[i]}" tabindex="0" data-tip="${attr(`${a}: ${b}`)}"></span>`).join('')}</div><div class="axis">${u.axis.map(t => `<span>${esc(t)}</span>`).join('')}</div><ul class="legend vertical">${u.segments.map(([a, b], i) => `<li><i class="k w${i}"></i><b>${esc(a)}</b> ${esc(b)}</li>`).join('')}</ul></figure>`;
+}
+function planFigure(lang) {
+  const u = ui[lang].planBar;
+  const days = [5, 7, 10, 8];
+  return `<figure class="planbar"><figcaption>${esc(u.title)}</figcaption><ol>${u.phases.map(([a, b], i) => `<li style="flex:${days[i]}"><span class="bar p${i}"></span><b>${esc(a)}</b><span>${esc(b)}</span></li>`).join('')}</ol></figure>`;
+}
+function deadlines(lang) {
+  const u = ui[lang].deadlines;
+  return `<figure class="deadlines"><figcaption>${esc(u.title)}</figcaption><ul>${u.items.map(([iso, text, conflict]) => `<li><time datetime="${iso}">${esc(formatDate(iso + 'T12:00:00Z', lang))}</time><span class="d-text">${esc(text)}</span><span class="d-left" data-days="${iso}"${conflict ? ` data-conflict="${attr(u.conflict)}"` : ''}></span></li>`).join('')}</ul></figure>`;
+}
+
+// ---------- report ----------
+function renderChapter(lang, ch, index) {
+  const sid = 'sources/';
+  const ctx = { sid: ch.id.startsWith('sources-') ? sid : null, anchorBase: sid };
+  const blocks = ch.blocks;
+  let body = '';
+  const P = b => runIn(lang, b.s, ctx);
+  if (ch.id === 'summary') {
+    const [lead, h2, ...rest] = blocks;
+    const findings = rest.slice(0, 5), tail = rest.slice(5);
+    body += `<p class="lead">${I(lang, lead.s, ctx)}</p>`;
+    body += `<h3 class="sub">${I(lang, h2.s)}</h3><ol class="findings">${findings.map(b => {
+      const m = T(lang, b.s).match(/^\*\*\s*(\d)\s*[·.、]\s*([^*]+?)\*\*\s*([\s\S]*)$/);
+      if (!m) return `<li>${I(lang, b.s, ctx)}</li>`;
+      return `<li><span class="fn">${m[1]}</span><h4>${inline(m[2].replace(/[.。]\s*$/, ''))}</h4><p>${inline(m[3], ctx)}</p></li>`;
+    }).join('')}</ol>`;
+    body += tail.map(b => `<p class="callout">${I(lang, b.s, ctx)}</p>`).join('');
+  } else if (ch.id.startsWith('sources-')) {
+    let cards = '', other = '';
+    for (let i = 0; i < blocks.length; i++) {
+      const b = blocks[i];
+      if (b.t === 'h2' && blocks[i + 1]?.t === 'p') {
+        const head = T(lang, b.s), m = head.match(/^(\d{2})\s+(.+)$/);
+        const text = T(lang, blocks[i + 1].s);
+        const sidm = text.match(/\b(S\d{3})\b/);
+        const link = text.match(/\[([^\]]+)\]\(([^)]+)\)\s*$/);
+        cards += `<li class="src-card"><span class="src-n">${m ? m[1] : ''}</span><h3>${esc(m ? m[2] : head)}</h3><p>${inline(link ? text.slice(0, link.index).trim() : text, { sid })}</p><div class="src-links">${link ? `<a class="btn-link" href="${attr(link[2])}" target="_blank" rel="noopener">${esc(link[1])}</a>` : ''}${sidm ? `<a class="btn-quiet" href="${sid}#${sidm[1]}">${esc(ui[lang].sourcesCard.inDirectory)} · ${sidm[1]}</a>` : ''}</div></li>`;
+        i++;
+      } else if (b.t === 'p' && i === 0 && ch.id === 'sources-1') other += `<p class="callout">${I(lang, b.s, { sid })}</p>`;
+      else if (b.t === 'p') other += `<p>${I(lang, b.s, { sid })}</p>`;
+    }
+    body += (ch.id === 'sources-1' ? other : '') + `<ol class="src-cards">${cards}</ol>` + (ch.id !== 'sources-1' ? other : '');
+  } else if (ch.id === 'events-2024' || ch.id === 'events-2026') {
+    const t = blocks.find(b => b.t === 'table');
+    const heads = t.head.map(id => plainText(T(lang, id)));
+    body += `<div class="tl-head"><span>${esc(heads[0])}<em>${esc(heads[1])}</em></span><span>${esc(heads[2])}</span></div><ol class="timeline">${t.rows.map(r => `<li><div class="tl-when"><span class="tl-date">${I(lang, r[0], ctx)}</span><span class="tl-pub">${I(lang, r[1], ctx)}</span></div><div class="tl-what">${I(lang, r[2], ctx)}</div></li>`).join('')}</ol>`;
+  } else {
+    let tableCount = 0;
+    for (const [i, b] of blocks.entries()) {
+      if (b.t === 'h2') { body += `<h3 class="sub">${I(lang, b.s, ctx)}</h3>`; }
+      else if (b.t === 'table') {
+        tableCount++;
+        if (ch.id === 'plan') {
+          body += `<div class="decisions">${b.rows.map(r => `<article class="decision"><h4>${I(lang, r[0], ctx)}</h4><div class="go"><h5>${esc(ui[lang].decision.cont)}</h5><p>${I(lang, r[1], ctx)}</p></div><div class="stop"><h5>${esc(ui[lang].decision.stop)}</h5><p>${I(lang, r[2], ctx)}</p></div></article>`).join('')}</div>`;
+        } else if (ch.id === 'search') {
+          body += `<div class="queries">${b.rows.map(r => `<div class="query"><div class="q-text"><code>${esc(plainText(T(lang, r[0])))}</code><button type="button" class="copy" data-copy-text="${attr(plainText(T(lang, r[0])))}">${esc(ui[lang].copy.query)}</button></div><p>${I(lang, r[1], ctx)}</p></div>`).join('')}</div>`;
+        } else body += table(lang, b, ctx, `t-${ch.id}`);
+      } else if (ch.id === 'questions' && /^\*\*\d\.\*\*/.test(T('en', b.s))) {
+        const prev = blocks[i - 1];
+        if (!prev || !/^\*\*\d\.\*\*/.test(T('en', prev.s))) body += `<ol class="questions" data-copy-list>`;
+        body += `<li>${inline(T(lang, b.s).replace(/^\*\*\d\.\*\*\s*/, ''))}</li>`;
+        const next = blocks[i + 1];
+        if (!next || !/^\*\*\d\.\*\*/.test(T('en', next.s))) body += `</ol><button type="button" class="copy wide" data-copy-list-btn>${esc(ui[lang].copy.questions)}</button>`;
+      } else body += P(b);
+      // Inserted figures, anchored to the English text so all languages get them in the same place.
+      const e = b.t === 'p' ? T('en', b.s) : '';
+      if (ch.id === 'handset' && e.startsWith('**Follow the handset.**')) body += flowFigure(lang);
+      if (ch.id === 'handset' && e.startsWith('Service sensitivity')) body += checkCalc(lang);
+      if (ch.id === 'bale' && e.startsWith('**An observed loss.**')) body += baleFigure(lang);
+      if (ch.id === 'refill' && e.startsWith('**A route threshold')) body += routeCalc(lang);
+      if (ch.id === 'denominators' && b.t === 'table') body += columnChart({ id: 'chart-imports', title: ui[lang].imports.title, unit: ui[lang].imports.unit, source: ui[lang].imports.source, values: [92.88, 98.35, 115.28], labels: ['2023', '2024', '2025'], decimals: 2 });
+      if (ch.id === 'denominators' && e.startsWith('For a **pilot catchment**')) body += estimator(lang);
+      if (ch.id === 'comparison' && e.startsWith('**Kenya · Nairobi.**')) body += `<div class="fig-pair">${badiliFigure(lang)}${columnChart({ id: 'chart-kenya', title: ui[lang].kenya.title, unit: ui[lang].kenya.unit, gapLabel: ui[lang].kenya.gap, source: ui[lang].kenya.source, values: [183830, 230535, 250527], labels: ['2021', '2024', '2025'], gapAfter: 0 })}</div>`;
+      if (ch.id === 'plan' && i === 0) body += planFigure(lang);
+    }
+    if (ch.id === 'continental') body = `<figure class="regions-map">${mapSvg(lang, 'regions')}</figure>` + body;
+    if (ch.id === 'partners') body = deadlines(lang) + body;
+  }
+  const num = String(index + 1).padStart(2, '0');
+  return `<section class="chapter" id="${ch.id}" aria-labelledby="h-${ch.id}"><header class="ch-head"><span class="ch-num" aria-hidden="true">${num}</span><h2 id="h-${ch.id}">${I(lang, ch.title)}</h2>${ch.deck ? `<p class="deck">${I(lang, ch.deck)}</p>` : ''}</header>${body}</section>`;
+}
+
+function toc(lang, chapters) {
+  const u = ui[lang];
+  const idx = Object.fromEntries(chapters.map((c, i) => [c.id, i]));
+  return `<nav class="toc" id="toc" aria-label="${attr(u.contents)}"><div class="toc-scroll">${parts.map(p => `<div class="toc-part"><p class="toc-label">${esc(u.parts[p.key])}</p><ol>${p.chapters.map(id => `<li><a href="#${id}" data-toc="${id}"><span class="toc-n">${String(idx[id] + 1).padStart(2, '0')}</span><span>${esc(u.chapters[id])}</span></a></li>`).join('')}</ol></div>`).join('')}</div></nav>`;
+}
+
+// ---------- page frame ----------
+function alternates(view) {
+  const path = view === 'report' ? '' : `${view}/`;
+  return LOCALES.map(l => `<link rel="alternate" hreflang="${ui[l].hreflang}" href="${ORIGIN}${ROUTE}/${l}/${path}">`).join('') + `<link rel="alternate" hreflang="x-default" href="${ORIGIN}${ROUTE}/en/${path}">`;
+}
+function frame(lang, view, { title, description, body, toc: tocHtml = '' }) {
+  const u = ui[lang];
+  const path = view === 'report' ? '' : `${view}/`;
+  const up = view === 'report' ? '' : '../';
+  const navItem = (v, label) => `<a href="${up}${v === 'report' ? '' : v + '/'}"${v === view ? ' aria-current="page"' : ''}>${esc(label)}</a>`;
+  const langLinks = LOCALES.map(l => `<a href="${ROUTE}/${l}/${path}" hreflang="${ui[l].hreflang}" lang="${ui[l].htmlLang}"${l === lang ? ' aria-current="true"' : ''}>${esc(ui[l].short)}</a>`).join('');
+  const versionLine = u.versionLine(version.n, formatDate(version.iso, lang, true));
+  return `<!doctype html>
+<html lang="${u.htmlLang}" data-locale="${lang}" data-view="${view}" data-guide="circular-africa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/guides/theme.js?v=20260924c"></script>
+<title>${esc(title)}</title>
+<meta name="description" content="${attr(description)}">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#14110f">
+<link rel="canonical" href="${ORIGIN}${ROUTE}/${lang}/${path}">
+${alternates(view)}
+<meta property="og:title" content="${attr(title)}">
+<meta property="og:description" content="${attr(description)}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="${ORIGIN}${ROUTE}/${lang}/${path}">
+<link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="icon" href="/guides/favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="/guides/apple-touch-icon.png">
+<link rel="preload" href="${ROUTE}/assets/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="${ROUTE}/assets/styles.css?${ASSET_V}">
+<script defer src="${ROUTE}/assets/app.js?${ASSET_V}"></script>
+</head>
+<body>
+<a class="skip" href="#main">${esc(u.skip)}</a>
+<header class="topbar">
+  <div class="topbar-row">
+    <a class="back-link" id="all-guides" data-guide-home href="/guides/${lang}/">${esc(u.allGuides)}</a>
+    <a class="brand" href="${up}"><span class="brand-mark" aria-hidden="true"></span><span>${esc(u.title)}</span></a>
+    <nav class="views" aria-label="${attr(u.title)}">${navItem('report', u.nav.report)}${navItem('sources', u.nav.sources)}${navItem('prompt', u.nav.prompt)}</nav>
+    <div class="tools"><nav class="langs" aria-label="${attr(u.language)}">${langLinks}</nav><button type="button" class="theme-toggle" data-theme-toggle data-label-dark="${attr(u.theme.toDark)}" data-label-light="${attr(u.theme.toLight)}" data-text-dark="${attr(u.theme.dark)}" data-text-light="${attr(u.theme.light)}"></button></div>
+  </div>
+  ${tocHtml ? `<div class="mobile-bar"><button type="button" class="toc-open" aria-controls="toc" aria-expanded="false"><span class="toc-open-label">${esc(u.contents)}</span><span class="toc-current" data-toc-current></span></button></div>` : ''}
+</header>
+${body}
+<footer class="site-footer"><div class="foot-inner">
+  <p class="foot-method">${esc(u.footer.method)}</p>
+  <p class="foot-version">${esc(versionLine)}</p>
+  <details class="foot-history"><summary>${esc(u.history)}</summary><ul>${u.historyItems.map(h => `<li><b>v${h.n}</b> ${esc(formatDate(version.iso, lang, true))} · ${esc(h.text)}</li>`).join('')}</ul></details>
+  ${u.translated ? `<p class="foot-translated">${esc(u.translated)} <a href="${ROUTE}/en/${path}" hreflang="en" lang="en">English</a></p>` : ''}
+  <p><a href="#top">${esc(u.footer.top)}</a></p>
+</div></footer>
+<div class="tooltip" role="tooltip" hidden></div>
+</body>
+</html>
+`;
+}
+
+function downloads(lang) {
+  const u = ui[lang].downloads;
+  const loc = lang;
+  const items = [
+    [`${ROUTE}/files/Manna_Circular_Consumption_Africa_EN-v${version.n}.docx`, u.report],
+    [`${ROUTE}/files/Manna_Source_Directory_EN-v${version.n}.docx`, u.directory],
+    [`${ROUTE}/files/circular-africa-sources-${loc}-v${version.n}.csv`, u.csv],
+    [`${ROUTE}/files/circular-africa-sources-${loc}-v${version.n}.json`, u.json],
+    [`${ROUTE}/files/research-prompt-${loc}-v${version.n}.md`, u.prompt],
+  ];
+  return `<section class="downloads" id="downloads" aria-labelledby="dl-title"><h2 id="dl-title">${esc(u.title)}</h2><ul>${items.map(([href, label]) => `<li><a href="${href}" download>${esc(label)}<span>${esc(href.split('/').pop())}</span></a></li>`).join('')}</ul></section>`;
+}
+
+function reportPage(lang) {
+  const u = ui[lang];
+  const r = structure.report;
+  const chapters = r.chapters;
+  const hero = `<section class="hero" id="top"><div class="hero-inner">
+  <div class="hero-text"><p class="hero-for">${esc(u.preparedFor)}</p><h1>${esc(u.title)}</h1><p class="hero-sub">${esc(u.subtitle)}</p>
+  <p class="hero-meta">${esc(u.cutoff)} · ${esc(u.versionLine(version.n, formatDate(version.iso, lang)))}</p>
+  <div class="hero-actions"><a class="btn solid" href="#summary">${esc(u.heroActions.report)}</a><a class="btn line" href="sources/">${esc(u.heroActions.sources)}</a><a class="btn line" href="#plan">${esc(u.heroActions.plan)}</a></div></div>
+  <div class="hero-map">${mapSvg(lang, 'hero')}<div class="inset">${insetSvg(lang)}</div></div>
+  </div><dl class="stats">${u.stats.map(([n, l]) => `<div><dt>${esc(l)}</dt><dd>${n}</dd></div>`).join('')}</dl></section>`;
+  const body = `${hero}<div class="layout">${toc(lang, chapters)}<main id="main" class="doc">${chapters.map((c, i) => renderChapter(lang, c, i)).join('')}${downloads(lang)}</main></div>`;
+  return frame(lang, 'report', { title: `${u.title} · Manna AI`, description: u.meta.report, body, toc: true });
+}
+
+// ---------- directory ----------
+function entryCard(lang, e) {
+  const d = ui[lang].dir;
+  const f = (k, id) => id && T(lang, id) ? `<div><dt>${esc(d.fields[k])}</dt><dd>${I(lang, id)}</dd></div>` : '';
+  return `<article class="entry" id="${e.id}" data-mode="${e.mode}" data-priority="${e.priority}" data-regions="${e.regions.join(' ')}" data-category="${e.category}">
+  <div class="entry-top"><span class="pill mode-${e.mode}">${esc(d.modes[e.mode])}</span><span class="pill pri-${e.priority}">${esc(d.priorities[e.priority])}</span><span class="eid">${e.id}</span><span class="elang">${esc(e.lang)}</span></div>
+  <h4><a href="${attr(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a></h4>
+  <p class="question">${I(lang, e.question)}</p>
+  <p class="meta">${[e.geo, e.type, e.topics].map(id => `<span>${I(lang, id)}</span>`).join('')}</p>
+  <dl class="fields">${f('access', e.access)}${f('last', e.last)}${f('frequency', e.frequency)}${f('limit', e.limit)}</dl>
+  </article>`;
+}
+function orgGroups(lang, entries) {
+  const groups = [];
+  for (const e of entries) { const g = groups.at(-1); if (g && g.org === e.org) g.items.push(e); else groups.push({ org: e.org, name: e.name, items: [e] }); }
+  return groups.map(g => `<section class="org" id="${g.org}" data-org="${g.org}"><header class="org-head"><h3>${esc(g.name)}</h3><span class="oid">${g.org}</span></header><div class="org-entries">${g.items.map(e => entryCard(lang, e)).join('')}</div></section>`).join('');
+}
+function select(id, label, options, all) {
+  return `<div class="ctl"><label for="${id}">${esc(label)}</label><select id="${id}" data-filter="${id.replace('f-', '')}"><option value="">${esc(all)}</option>${options.map(([v, l]) => `<option value="${v}">${esc(l)}</option>`).join('')}</select></div>`;
+}
+function directoryPage(lang) {
+  const u = ui[lang], d = u.dir, dir = structure.directory;
+  const tabs = [['sources', d.tabs.sources, 178], ['top', d.tabs.top, 15], ['companies', d.tabs.companies, 25], ['news', d.tabs.news, 32], ['opportunities', d.tabs.opportunities, 12], ['pending', d.tabs.pending, 5]];
+  const regionOrder = ['ghana', 'pan-africa', 'kenya', 'cote-divoire', 'south-africa', 'nigeria', 'morocco', 'cameroon', 'global'];
+  const catOrder = ['government', 'media', 'research', 'company', 'network', 'capital'];
+  const filters = `<div class="filters" role="search"><div class="ctl search"><label for="f-q">${esc(d.search)}</label><input type="search" id="f-q" data-filter="q" placeholder="${attr(d.searchPlaceholder)}" autocomplete="off"></div>
+  ${select('f-mode', d.filters.mode, ['subscribe', 'follow', 'query'].map(m => [m, d.modes[m]]), d.filters.all)}
+  ${select('f-priority', d.filters.priority, ['high', 'medium'].map(m => [m, d.priorities[m]]), d.filters.all)}
+  ${select('f-region', d.filters.region, regionOrder.map(m => [m, d.regions[m]]), d.filters.all)}
+  ${select('f-category', d.filters.category, catOrder.map(m => [m, d.categories[m]]), d.filters.all)}
+  <button type="button" class="btn-text" data-clear>${esc(d.filters.clear)}</button></div>
+  <p class="result-count" aria-live="polite" data-count data-template-n="${attr(d.showing('{n}', '{m}'))}"></p><p class="no-results" data-none hidden>${esc(d.none)}</p>`;
+  const modeKey = `<ul class="mode-key">${['subscribe', 'follow', 'query'].map(m => `<li><span class="pill mode-${m}">${esc(d.modes[m])}</span> ${esc(d.modeHelp[m])}</li>`).join('')}</ul>`;
+  const sources = `<section class="panel" id="panel-sources" data-panel="sources" role="tabpanel" aria-labelledby="tab-sources"><p class="panel-intro">${I(lang, dir.verifiedIntro, { anchorBase: '' })}</p>${modeKey}${filters}<div class="orgs">${orgGroups(lang, dir.entries)}</div></section>`;
+  const top = `<section class="panel" id="panel-top" data-panel="top" role="tabpanel" aria-labelledby="tab-top" hidden><ol class="top-list">${dir.top.map(t => `<li class="top-item"><span class="top-n">${t.n}</span><div><div class="entry-top"><span class="pill mode-${t.mode}">${esc(d.modes[t.mode])}</span><a class="eid" href="#${t.anchor.replace(/_\d+$/, '')}" data-goto-source>${t.id}</a></div><h3>${esc(t.name)}</h3><h4><a href="${attr(t.url)}" target="_blank" rel="noopener">${esc(t.title)}</a></h4><p>${I(lang, t.text)}</p></div></li>`).join('')}</ol></section>`;
+  const fld = (k, id) => id ? `<div><dt>${esc(d.fields[k])}</dt><dd>${I(lang, id)}</dd></div>` : '';
+  const companies = `<section class="panel" id="panel-companies" data-panel="companies" role="tabpanel" aria-labelledby="tab-companies" hidden><p class="panel-intro">${I(lang, dir.companiesIntro)}</p><div class="cards">${dir.companies.map(c => `<article class="card" id="${c.id}"><div class="entry-top"><span class="eid">${c.id}</span><a class="eid" href="#${c.org}" data-goto-source>${esc(d.related)} ${c.org}</a></div><h3>${esc(c.name)}</h3><p class="place">${I(lang, c.place)}</p><dl class="fields">${fld('customers', c.customers)}${fld('charges', c.charges)}${fld('evidence', c.evidence)}${fld('latest', c.latest)}${fld('lesson', c.lesson)}${fld('limit', c.limit)}</dl><a class="btn-link" href="${attr(c.url)}" target="_blank" rel="noopener">${esc(d.links.caseSource)}</a></article>`).join('')}</div></section>`;
+  const ev = list => `<ol class="timeline records">${list.map(e => `<li id="${e.id}"><div class="tl-when"><span class="eid">${e.id}</span><span class="tl-date">${I(lang, e.period)}</span><span class="tl-pub"><em>${esc(d.fields.publication)}</em> ${I(lang, e.publication)}</span></div><div class="tl-what"><h4>${I(lang, e.topic)}</h4><p>${I(lang, e.text)}</p><p class="proof"><em>${esc(d.fields.proof)}</em> ${I(lang, e.evidence)}</p><p class="rec-links"><a class="btn-link" href="${attr(e.url)}" target="_blank" rel="noopener">${esc(d.links.openSource)}</a><a class="eid" href="#${e.org}" data-goto-source>${esc(d.related)} ${e.org}</a></p></div></li>`).join('')}</ol>`;
+  const news = `<section class="panel" id="panel-news" data-panel="news" role="tabpanel" aria-labelledby="tab-news" hidden><p class="panel-intro">${I(lang, dir.newsIntro)}</p><h3 class="sub">${esc(d.events)}</h3>${ev(dir.events)}<h3 class="sub">${esc(d.research)}</h3>${ev(dir.research)}</section>`;
+  const opportunities = `<section class="panel" id="panel-opportunities" data-panel="opportunities" role="tabpanel" aria-labelledby="tab-opportunities" hidden><p class="panel-intro">${I(lang, dir.opportunitiesIntro)}</p><div class="cards">${dir.opportunities.map(o => `<article class="card opp" id="${o.id}"><div class="entry-top"><span class="eid">${o.id}</span><a class="eid" href="#${o.org}" data-goto-source>${esc(d.related)} ${o.org}</a></div><h3>${esc(o.title)}</h3><p class="status">${I(lang, o.status)}</p><dl class="fields">${fld('eligibility', o.eligibility)}${fld('fee', o.fee)}${fld('date', o.date)}${fld('next', o.next)}</dl><a class="btn-link" href="${attr(o.url)}" target="_blank" rel="noopener">${esc(d.links.official)}</a></article>`).join('')}</div></section>`;
+  const pending = `<section class="panel" id="panel-pending" data-panel="pending" role="tabpanel" aria-labelledby="tab-pending" hidden><p class="panel-intro">${I(lang, dir.pendingIntro)}</p><div class="orgs">${orgGroups(lang, dir.pending)}</div></section>`;
+  const head = `<section class="dir-head" id="top"><div class="dir-head-inner"><h1>${esc(d.title)}</h1><p class="hero-sub">${I(lang, dir.intro, { anchorBase: '' }).replace(/<a href="#[^"]*">[^<]*<\/a>( · )?/g, '')}</p><dl class="stats compact">${d.counts.map(([n, l]) => `<div><dt>${esc(l)}</dt><dd>${n}</dd></div>`).join('')}</dl></div></section>`;
+  const tabBar = `<div class="tabs" role="tablist" aria-label="${attr(d.title)}">${tabs.map(([k, l, n], i) => `<button type="button" role="tab" id="tab-${k}" aria-controls="panel-${k}" aria-selected="${i === 0}" data-tab="${k}">${esc(l)}<span>${n}</span></button>`).join('')}</div>`;
+  const body = `${head}<main id="main" class="dir">${tabBar}${sources}${top}${companies}${news}${opportunities}${pending}${downloads(lang)}</main>`;
+  return frame(lang, 'sources', { title: `${d.title} · ${u.title}`, description: u.meta.sources, body });
+}
+
+// ---------- prompt ----------
+function promptMarkdown(lang) {
+  const out = [];
+  for (const b of structure.prompt.blocks) {
+    if (b.t === 'hr') out.push('---');
+    else if (/^h\d$/.test(b.t)) out.push('#'.repeat(Number(b.t[1])) + ' ' + T(lang, b.s));
+    else if (b.t === 'p') out.push(T(lang, b.s));
+    else if (b.t === 'ul') out.push(b.items.map(id => '- ' + T(lang, id)).join('\n'));
+    else if (b.t === 'ol') out.push(b.items.map((id, i) => `${i + 1}. ` + T(lang, id)).join('\n'));
+    else if (b.t === 'table') out.push(['| ' + b.head.map(id => T(lang, id)).join(' | ') + ' |', '|' + b.head.map(() => '---').join('|') + '|', ...b.rows.map(r => '| ' + r.map(id => T(lang, id)).join(' | ') + ' |')].join('\n'));
+  }
+  return out.join('\n\n') + '\n';
+}
+function promptPage(lang) {
+  const u = ui[lang];
+  let html = '', tocItems = [], n = 0;
+  structure.prompt.blocks.forEach((b, k) => {
+    if (b.t === 'hr') { html += '<hr>'; return; }
+    if (k === 0 && b.t === 'h1') { html += `<h2 class="prompt-title">${I(lang, b.s)}</h2>`; return; }
+    // The source mixes levels: "# 2. …" but "## 1. Research Mission". Numbered top-level sections all go to the contents.
+    if (b.t === 'h1' || (b.t === 'h2' && /^\d+\. /.test(T('en', b.s)))) { n++; const id = `p-${n}`; tocItems.push([id, plainText(T(lang, b.s))]); html += `<h2 id="${id}">${I(lang, b.s)}</h2>`; return; }
+    if (b.t === 'h2') { html += `<h3>${I(lang, b.s)}</h3>`; return; }
+    if (b.t === 'h3') { html += `<h4>${I(lang, b.s)}</h4>`; return; }
+    if (b.t === 'p') { html += `<p>${I(lang, b.s)}</p>`; return; }
+    if (b.t === 'ul' || b.t === 'ol') { html += `<${b.t}>${b.items.map(id => `<li>${I(lang, id)}</li>`).join('')}</${b.t}>`; return; }
+    if (b.t === 'table') html += table(lang, b, {});
+  });
+  const md = promptMarkdown(lang);
+  const tocHtml = `<nav class="toc" id="toc" aria-label="${attr(u.contents)}"><div class="toc-scroll"><ol class="toc-plain">${tocItems.map(([id, t]) => `<li><a href="#${id}" data-toc="${id}"><span>${esc(t)}</span></a></li>`).join('')}</ol></div></nav>`;
+  const head = `<section class="dir-head" id="top"><div class="dir-head-inner"><h1>${esc(u.prompt.title)}</h1><p class="hero-sub">${esc(u.prompt.lead)}</p><div class="hero-actions"><button type="button" class="btn solid" data-copy-prompt>${esc(u.prompt.copy)}</button><a class="btn line" href="${ROUTE}/files/research-prompt-${lang}-v${version.n}.md" download>${esc(u.prompt.download)}</a>${lang !== 'en' ? `<a class="btn line" href="${ROUTE}/en/prompt/" hreflang="en" lang="en">${esc(u.prompt.original)}</a>` : ''}</div></div></section>`;
+  const body = `${head}<div class="layout">${tocHtml}<main id="main" class="doc prompt-doc">${html}<textarea class="visually-hidden" id="prompt-md" aria-hidden="true" tabindex="-1" readonly>${esc(md)}</textarea></main></div>`;
+  return { html: frame(lang, 'prompt', { title: `${u.prompt.title} · ${u.title}`, description: u.meta.prompt, body, toc: true }), md };
+}
+
+// ---------- exports ----------
+function csvCell(v) { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }
+function directoryExport(lang) {
+  const dir = structure.directory, d = ui[lang].dir;
+  const rows = [...dir.entries, ...dir.pending].map(e => ({
+    id: e.id, organisation_id: e.org, organisation: e.name, channel: e.title, url: e.url,
+    access_method: d.modes[e.mode], priority: d.priorities[e.priority], verified: e.pending ? 'no' : 'yes',
+    question: plainText(T(lang, e.question)), geography: plainText(T(lang, e.geo)), type: plainText(T(lang, e.type)), topics: plainText(T(lang, e.topics)), language: e.lang,
+    access: plainText(T(lang, e.access)), last_signal: plainText(T(lang, e.last)), frequency: plainText(T(lang, e.frequency)), limit: plainText(T(lang, e.limit)),
+    regions: e.regions.map(r => d.regions[r] || r).join('; '), category: d.categories[e.category] || e.category, checked: '2026-11-28',
+  }));
+  const cols = Object.keys(rows[0]);
+  const csv = '﻿' + [cols.join(','), ...rows.map(r => cols.map(c => csvCell(r[c])).join(','))].join('\r\n') + '\r\n';
+  const full = {
+    title: ui[lang].dir.title, version: version.n, checked: '2026-11-28', sources: rows,
+    companies: dir.companies.map(c => ({ id: c.id, name: c.name, organisation_id: c.org, place: plainText(T(lang, c.place)), customers: plainText(T(lang, c.customers)), charges: plainText(T(lang, c.charges)), evidence_of_use: plainText(T(lang, c.evidence)), latest_signal: plainText(T(lang, c.latest)), field_lesson: plainText(T(lang, c.lesson)), limit: plainText(T(lang, c.limit)), url: c.url })),
+    events: [...dir.events, ...dir.research].map(e => ({ id: e.id, topic: plainText(T(lang, e.topic)), organisation_id: e.org, period: plainText(T(lang, e.period)), publication: plainText(T(lang, e.publication)), text: plainText(T(lang, e.text)), evidence: plainText(T(lang, e.evidence)), url: e.url })),
+    opportunities: dir.opportunities.map(o => ({ id: o.id, title: o.title, organisation_id: o.org, status: plainText(T(lang, o.status)), eligibility: plainText(T(lang, o.eligibility)), fee_or_funding: plainText(T(lang, o.fee)), date: plainText(T(lang, o.date)), next_use: plainText(T(lang, o.next)), url: o.url })),
+    top15: dir.top.map(t => ({ rank: t.n, id: t.id, organisation: t.name, access_method: d.modes[t.mode], channel: t.title, url: t.url, why: plainText(T(lang, t.text)) })),
+  };
+  return { csv, json: JSON.stringify(full, null, 1) };
+}
+
+// ---------- write ----------
+async function put(rel, content) { const url = new URL(rel, outRoot); await mkdir(new URL('./', url), { recursive: true }); await writeFile(url, content); }
+await rm(outRoot, { recursive: true, force: true });
+for (const lang of LOCALES) {
+  await put(`${lang}/index.html`, reportPage(lang));
+  await put(`${lang}/sources/index.html`, directoryPage(lang));
+  const p = promptPage(lang);
+  await put(`${lang}/prompt/index.html`, p.html);
+  await put(`files/research-prompt-${lang}-v${version.n}.md`, p.md);
+  const x = directoryExport(lang);
+  await put(`files/circular-africa-sources-${lang}-v${version.n}.csv`, x.csv);
+  await put(`files/circular-africa-sources-${lang}-v${version.n}.json`, x.json);
+}
+const entry = (sub, title) => `<!doctype html><html lang="en" data-guide-entry="${sub}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow"><title>${title}</title><link rel="icon" href="/guides/favicon.svg" type="image/svg+xml"><link rel="canonical" href="${ORIGIN}${ROUTE}/en/${sub}"><script src="${ROUTE}/entry.js?${ASSET_V}"></script><noscript><meta http-equiv="refresh" content="0;url=${ROUTE}/en/${sub}"></noscript></head><body><p><a href="${ROUTE}/en/${sub}" hreflang="en">English</a> · <a href="${ROUTE}/es/${sub}" hreflang="es">Español</a> · <a href="${ROUTE}/zh/${sub}" hreflang="zh-Hans">中文</a></p></body></html>\n`;
+await put('index.html', entry('', 'Circular consumption in Africa'));
+await put('sources/index.html', entry('sources/', 'Source directory'));
+await put('prompt/index.html', entry('prompt/', 'Research prompt'));
+await put('entry.js', `// /guides/circular-africa/ without a language: ?lang= first, then ?from= (the guides index the reader came from, if that language exists), then the browser language, then English.\n(() => {\n  const url = new URL(location.href);\n  const locales = ['en', 'es', 'zh'];\n  const nav = (navigator.languages || [navigator.language || '']).map(l => l.slice(0, 2).toLowerCase());\n  const locale = [url.searchParams.get('lang'), url.searchParams.get('from'), ...nav].find(v => locales.includes(v)) || 'en';\n  const target = new URL(\`${ROUTE}/\${locale}/\${document.documentElement.dataset.guideEntry || ''}\`, url);\n  target.search = url.search;\n  target.searchParams.delete('lang');\n  if (locales.includes(url.searchParams.get('from'))) target.searchParams.delete('from');\n  target.hash = url.hash;\n  location.replace(target.href);\n})();\n`);
+for (const f of ['styles.css', 'app.js']) await copyFile(new URL(`assets/${f}`, here), new URL(`assets/${f}`, outRoot)).catch(async e => { await mkdir(new URL('assets/', outRoot), { recursive: true }); await copyFile(new URL(`assets/${f}`, here), new URL(`assets/${f}`, outRoot)); });
+await copyFile(new URL('../../public/guides/rex-pitch/fonts/archivo-latin-wdth.woff2', here), new URL('assets/archivo-latin-wdth.woff2', outRoot));
+await copyFile(new URL('../../public/guides/rex-pitch/fonts/OFL.txt', here), new URL('assets/OFL-Archivo.txt', outRoot));
+await mkdir(new URL('files/', outRoot), { recursive: true });
+await copyFile(new URL('source/Manna_Circular_Consumption_Africa_EN.docx', here), new URL(`files/Manna_Circular_Consumption_Africa_EN-v${version.n}.docx`, outRoot));
+await copyFile(new URL('source/Manna_Source_Directory_EN.docx', here), new URL(`files/Manna_Source_Directory_EN-v${version.n}.docx`, outRoot));
+console.log(`built ${LOCALES.length} × 3 pages into public${ROUTE}/ (${ASSET_V})`);
