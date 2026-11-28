@@ -4,6 +4,7 @@
 // Inputs: content/structure.json + content/strings.<lang>.json (parse.mjs), ui.mjs, assets/.
 import { readFile, writeFile, mkdir, copyFile, readdir, rm } from 'node:fs/promises';
 import { LOCALES, ui, parts, version, formatDate } from './ui.mjs';
+import { VIEW_OF, PARENT, CHILDREN, CHIPS, MARKERS, BLOCKS, EVENTS, REGION, SEARCH, NAMES, ROLES, FIGURES, EXPLORE_UI } from './places.mjs';
 
 const here = new URL('./', import.meta.url);
 const outRoot = new URL('../../public/guides/circular-africa/', here);
@@ -82,42 +83,97 @@ function table(lang, block, ctx, cls = '') {
   return `<div class="table-wrap"><table class="${cls}"><thead><tr>${block.head.map(id => `<th scope="col">${I(lang, id, ctx)}</th>`).join('')}</tr></thead><tbody>${block.rows.map(r => `<tr>${r.map((id, i) => `<td data-label="${attr(head[i])}">${I(lang, id, ctx)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 
-// ---------- map ----------
-function mapSvg(lang, mode) {
-  const u = ui[lang].map;
-  const c = map.cities;
-  const comp = ['CIV', 'NGA', 'KEN', 'ZAF', 'MAR', 'CMR'];
-  const countries = Object.entries(map.countries).filter(([k]) => k !== 'GHA').map(([k, d]) => `<path class="m-comp" d="${d}"${mode === 'regions' ? ` data-code="${k}"` : ''}/>`).join('');
-  const city = (key, label, tip, dx, dy, anchor = 'start', primary = false) => {
-    const [x, y] = c[key];
-    return `<g class="m-city${primary ? ' primary' : ''}" tabindex="0" data-tip="${attr(tip)}"><circle cx="${x}" cy="${y}" r="${primary ? 4.5 : 3.5}"/><circle class="hit" cx="${x}" cy="${y}" r="12"/><text x="${x + dx}" y="${y + dy}" text-anchor="${anchor}">${esc(label)}</text></g>`;
-  };
-  let marks = '';
-  if (mode === 'hero') {
-    marks += city('lagos', u.lagos, u.tips.lagos, 6, -8);
-    marks += city('abidjan', u.abidjan, u.tips.abidjan, -8, 16, 'end');
-    marks += city('douala', u.douala, u.tips.douala, 8, 14);
-    marks += city('nairobi', u.nairobi, u.tips.nairobi, 9, 4);
-    marks += city('casablanca', u.casablanca, u.tips.casablanca, 9, 4);
-    const [jx, jy] = c.johannesburg;
-    marks += `<g class="m-city" tabindex="0" data-tip="${attr(u.tips.southAfrica)}"><circle class="hit" cx="${jx - 40}" cy="${jy + 20}" r="26"/><text x="${jx - 42}" y="${jy + 28}" text-anchor="middle">${esc(u.southAfrica)}</text></g>`;
-    marks += city('accra', u.accra.split(' · ')[0], u.tips.accra, 6, 20, 'start', true);
-    marks += city('kumasi', u.kumasi.split(' · ')[0], u.tips.kumasi, -9, -7, 'end', true);
-  } else {
-    const r = u.regions;
-    const label = (x, y, t, codes) => `<g class="m-region"><text x="${x}" y="${y}" text-anchor="middle">${esc(t)}</text></g>`;
-    marks += label(c.abidjan[0] - 30, c.abidjan[1] + 34, r.west);
-    marks += label(c.nairobi[0] + 26, c.nairobi[1] + 34, r.east);
-    marks += label(c.johannesburg[0] - 30, c.johannesburg[1] + 52, r.southern);
-    marks += label(c.casablanca[0] + 6, c.casablanca[1] + 36, r.north);
-    marks += label(c.douala[0] + 22, c.douala[1] + 40, r.central);
-  }
-  return `<svg class="africa-map" viewBox="${map.viewBox}" role="img" aria-label="${attr(u.label)}"><path class="m-land" d="${map.base}"/>${countries}<path class="m-ghana" d="${map.countries.GHA}"/>${marks}</svg>`;
+// ---------- map explorer ----------
+const enIds = Object.keys(en);
+function byPrefix(prefix) {
+  const ids = enIds.filter(id => en[id].startsWith(prefix));
+  if (ids.length < 1) throw new Error(`no English string starts with «${prefix}»`);
+  return ids[0];
 }
-function insetSvg(lang) {
-  const u = ui[lang].map;
-  const [ax, ay] = map.inset.accra, [kx, ky] = map.inset.kumasi;
-  return `<svg class="ghana-inset" viewBox="${map.inset.viewBox}" role="img" aria-label="${attr(u.ghana)}"><path class="m-ghana" d="${map.inset.ghana}"/><line class="m-link" x1="${kx}" y1="${ky}" x2="${ax}" y2="${ay}"/><g class="m-city primary" tabindex="0" data-tip="${attr(u.tips.kumasi)}"><circle cx="${kx}" cy="${ky}" r="5"/><circle class="hit" cx="${kx}" cy="${ky}" r="14"/><text x="${kx - 9}" y="${ky - 9}" text-anchor="end">${esc(u.kumasi.split(' · ')[0])}</text><text class="sub" x="${kx - 9}" y="${ky + 6}" text-anchor="end">Adum</text></g><g class="m-city primary" tabindex="0" data-tip="${attr(u.tips.accra)}"><circle cx="${ax}" cy="${ay}" r="5"/><circle class="hit" cx="${ax}" cy="${ay}" r="14"/><text x="${ax + 2}" y="${ay + 22}" text-anchor="middle">${esc(u.accra.split(' · ')[0])}</text><text class="sub" x="${ax + 2}" y="${ay + 37}" text-anchor="middle">Circle · Kantamanto</text></g><text class="m-name" x="130" y="40" text-anchor="middle">${esc(u.ghana)}</text></svg>`;
+const chap = id => structure.report.chapters.find(c => c.id === id);
+const tableOf = id => chap(id).blocks.find(b => b.t === 'table');
+const dirById = new Map([...structure.directory.events, ...structure.directory.research].map(e => [e.id, e]));
+const oppById = new Map(structure.directory.opportunities.map(o => [o.id, o]));
+const compById = new Map(structure.directory.companies.map(c => [c.id, c]));
+const entryById = new Map(structure.directory.entries.map(e => [e.id, e]));
+const regionCount = r => structure.directory.entries.filter(e => e.regions.includes(r)).length;
+const searchCount = q => structure.directory.entries.filter(e => [e.name, e.title, en[e.question], en[e.geo], en[e.topics]].join(' ').includes(q)).length;
+
+function placePanel(lang, id) {
+  const x = EXPLORE_UI[lang], d = ui[lang].dir;
+  const name = NAMES[id][lang];
+  const crumbs = [];
+  for (let p = PARENT[id]; p; p = PARENT[p]) crumbs.unshift(p);
+  const crumbHtml = `<nav class="pl-crumbs" aria-label="${attr(x.onMap)}"><button type="button" data-go="">${esc(lang === 'zh' ? '非洲' : lang === 'es' ? 'África' : 'Africa')}</button>${crumbs.map(p => `<span aria-hidden="true">/</span><button type="button" data-go="${p}">${esc(NAMES[p][lang])}</button>`).join('')}</nav>`;
+  const figs = FIGURES[id]?.[lang] || [];
+  const figHtml = figs.length ? `<dl class="pl-figs">${figs.map(([v, l]) => `<div><dd>${esc(v)}</dd><dt>${esc(l)}</dt></div>`).join('')}</dl>` : '';
+  const chapters = new Set();
+  const blocks = (BLOCKS[id] || []).map(b => {
+    if (b.chapter) chapters.add(b.chapter);
+    if (b.p) {
+      const sid = byPrefix(b.p);
+      const text = T(lang, sid);
+      const m = text.match(/^\*\*([^*]{1,140}?)\*\*\s*([\s\S]*)$/);
+      const head = m ? m[1].replace(/[.。:：]\s*$/, '') : plainText(T(lang, chap(b.chapter).title));
+      return `<section class="pl-block"><h3>${inline(head)}</h3><p>${inline(m ? m[2] : text)}</p></section>`;
+    }
+    if (b.cells) {
+      const [cid, row, cols] = b.cells, t = tableOf(cid);
+      return cols.map(c => `<section class="pl-block"><h3>${I(lang, t.head[c])}</h3><p>${I(lang, t.rows[row][c])}</p></section>`).join('');
+    }
+    if (b.row) {
+      const [cid, row] = b.row, t = tableOf(cid), r = t.rows[row];
+      return `<section class="pl-block"><h3>${I(lang, r[0])}</h3><p>${I(lang, r[2])}</p><p class="pl-small"><em>${I(lang, t.head[1])}</em> ${I(lang, r[1])}</p></section>`;
+    }
+    if (b.opp) {
+      const o = oppById.get(b.opp);
+      return `<section class="pl-block"><h3>${esc(o.title)}</h3><p class="pl-status">${I(lang, o.status)}</p><dl class="fields">${[['eligibility', o.eligibility], ['fee', o.fee], ['date', o.date], ['next', o.next]].map(([k, v]) => `<div><dt>${esc(d.fields[k])}</dt><dd>${I(lang, v)}</dd></div>`).join('')}</dl><p><a href="${attr(o.url)}" target="_blank" rel="noopener">${esc(d.links.official)}</a></p></section>`;
+    }
+    if (b.company) {
+      const c = compById.get(b.company);
+      return `<section class="pl-block"><h3>${esc(c.name)}</h3><dl class="fields">${[['customers', c.customers], ['charges', c.charges], ['evidence', c.evidence], ['lesson', c.lesson], ['limit', c.limit]].map(([k, v]) => `<div><dt>${esc(d.fields[k])}</dt><dd>${I(lang, v)}</dd></div>`).join('')}</dl><p><a href="${attr(c.url)}" target="_blank" rel="noopener">${esc(d.links.caseSource)}</a></p></section>`;
+    }
+    if (b.entry) {
+      const e = entryById.get(b.entry);
+      return `<section class="pl-block"><h3>${esc(e.name)}</h3><p>${I(lang, e.question)}</p><p class="pl-small"><em>${esc(d.fields.limit)}</em> ${I(lang, e.limit)}</p><p><a href="${attr(e.url)}" target="_blank" rel="noopener">${esc(e.title)}</a></p></section>`;
+    }
+    return '';
+  }).join('');
+  const kids = CHILDREN[id] ? `<section class="pl-block"><h3>${esc(x.inside)}</h3><ul class="pl-kids">${CHILDREN[id].map(k => `<li><button type="button" data-go="${k}"><span>${esc(NAMES[k][lang])}</span><small>${esc(ROLES[k][lang])}</small></button></li>`).join('')}</ul></section>` : '';
+  const evs = (EVENTS[id] || []).map(e => dirById.get(e));
+  const evHtml = evs.length ? `<section class="pl-block"><h3>${esc(x.events)}</h3><ol class="pl-events">${evs.map(e => `<li><a href="sources/?view=news#${e.id}"><span class="pl-when">${esc(plainText(T(lang, e.period)).replace(/\.$/, ''))}</span><span>${esc(plainText(T(lang, e.topic)))}</span></a></li>`).join('')}</ol></section>` : '';
+  const links = [];
+  if (REGION[id]) links.push(`<a href="sources/?region=${REGION[id]}">${esc(x.inDirectory(regionCount(REGION[id])))}</a>`);
+  if (SEARCH[id] && searchCount(SEARCH[id])) links.push(`<a href="sources/?q=${encodeURIComponent(SEARCH[id])}">${esc(x.search(SEARCH[id]))}</a>`);
+  const chapterLinks = [...chapters].map(c => `<a href="#${c}" data-close-panel>${esc(ui[lang].chapters[c])}</a>`);
+  const linkHtml = links.length || chapterLinks.length ? `<div class="pl-links">${links.length ? `<p>${links.join('')}</p>` : ''}${chapterLinks.length ? `<p><span>${esc(x.report)}</span>${chapterLinks.join('')}</p>` : ''}</div>` : '';
+  return `<template data-place="${id}" data-view="${VIEW_OF[id]}">${crumbHtml}<header class="pl-head"><h2>${esc(name)}</h2><p class="pl-role">${esc(ROLES[id][lang])}</p></header>${figHtml}${kids}${blocks}${evHtml}${linkHtml}</template>`;
+}
+
+function explorerMap(lang) {
+  const x = EXPLORE_UI[lang];
+  const P = map.points;
+  const countries = Object.entries(map.countries).map(([id, dd]) => `<path class="m-c${id === 'ghana' ? ' m-gh' : ''}" d="${dd}" data-go="${id}" data-tip="${attr(`${NAMES[id][lang]} · ${ROLES[id][lang]}`)}"/>`).join('');
+  const [ex, ey] = P.enchi, [kx, ky] = P.kumasi, [ax, ay] = P.accra;
+  const route = (id, dd, cls) => `<g class="m-route ${cls}" data-go="${id}" data-tip="${attr(`${NAMES[id][lang]} · ${ROLES[id][lang]}`)}"><path class="hit" d="${dd}"/><path class="line" d="${dd}"/></g>`;
+  const routes = `<g class="m-routes" data-views="ghana">${route('parcel', `M${ax} ${ay} L${kx} ${ky}`, 'parcel')}${route('enchi', `M${ex} ${ey} Q${(ex + kx) / 2 - 2} ${(ey + ky) / 2 - 6} ${kx} ${ky}`, 'trip')}</g>`;
+  const marks = MARKERS.map(m => {
+    const [mx, my] = P[m.pt];
+    const label = NAMES[m.pt]?.[lang] || NAMES[m.go][lang];
+    const text = m.pt === 'enchi' ? 'Enchi' : label;
+    return `<g class="mk${m.primary ? ' primary' : ''}" data-go="${m.go}" data-views="${m.views.join(' ')}" data-x="${mx}" data-y="${my}" transform="translate(${mx} ${my})" tabindex="0" role="button" aria-label="${attr(`${label} · ${ROLES[m.go][lang]}`)}" data-tip="${attr(`${label} · ${ROLES[m.go][lang]}`)}"><circle class="hit" r="13"/><circle class="dot" r="${m.primary ? 4.6 : 3.6}"/><text x="${m.dx}" y="${m.dy}" text-anchor="${m.anchor || 'start'}">${esc(text)}</text></g>`;
+  }).join('');
+  const boxes = Object.fromEntries(Object.entries(map.boxes).map(([k, v]) => [k, v]));
+  return `<div class="map-wrap" data-map data-boxes="${attr(JSON.stringify(boxes))}" data-km="${map.kmPerUnit}">
+  <svg class="africa-map" viewBox="${map.viewBox.join(' ')}" role="group" aria-label="${attr(x.mapLabel)}">
+  <path class="m-land" d="${map.base}"/><g class="m-countries">${countries}</g><path class="m-lakes" d="${map.lakes}"/><path class="m-rivers" d="${map.rivers}"/>${routes}<g class="m-marks">${marks}</g></svg>
+  <button type="button" class="map-all" data-go="" hidden>${esc(x.all)}</button>
+  <div class="map-scale" aria-hidden="true"><i></i><span></span></div>
+  </div>`;
+}
+function placeChips(lang) {
+  const x = EXPLORE_UI[lang];
+  return `<div class="chips"><p>${esc(x.onMap)}</p><ul>${CHIPS.map(id => `<li><button type="button" data-go="${id}">${esc(NAMES[id][lang])}</button></li>`).join('')}</ul></div>`;
 }
 
 // ---------- components ----------
@@ -154,12 +210,35 @@ function flowFigure(lang) {
 }
 function baleFigure(lang) {
   const u = ui[lang].bale;
-  let cells = '', i = 0;
-  u.legend.forEach(([label, n], k) => { for (let j = 0; j < n; j++, i++) cells += `<i class="b${k}" data-tip="${attr(`${label}: ${n}`)}"></i>`; });
-  return `<figure class="bale"><figcaption>${esc(u.title)}<span>${esc(u.units)}</span></figcaption><div class="bale-grid" role="img" aria-label="${attr(u.legend.map(([l, n]) => `${l}: ${n}`).join(', '))}">${cells}</div>
+  const pieces = [];
+  u.legend.forEach(([label, n], k) => { for (let j = 0; j < n; j++) pieces.push([k, label, n]); });
+  // The bale as opened: the 193 counted pieces in a fixed shuffled order (the counts are the report's; the order is not data).
+  let seed = 193;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = pieces.length - 1; i > 0; i--) { const j = Math.floor(rand() * (i + 1)); [pieces[i], pieces[j]] = [pieces[j], pieces[i]]; }
+  const cells = pieces.map(([k, label, n], i) => `<i class="b${k}" data-i="${i}" data-tip="${attr(`${label}: ${n}`)}"></i>`).join('');
+  return `<figure class="bale" data-bale><figcaption>${esc(u.title)}<span>${esc(u.units)}</span></figcaption>
+  <button type="button" class="btn-small" data-bale-sort aria-pressed="false" data-sort="${attr(u.sort)}" data-unsort="${attr(u.unsort)}">${esc(u.sort)}</button>
+  <div class="bale-grid" role="img" aria-label="${attr(u.legend.map(([l, n]) => `${l}: ${n}`).join(', '))}">${cells}</div>
   <ul class="legend">${u.legend.map(([l, n], k) => `<li><i class="k b${k}"></i>${esc(l)} <b>${n}</b></li>`).join('')}</ul>
   <dl class="bale-sums"><div><dt>${esc(u.paid)}</dt><dd>GHS 2,200</dd></div><div><dt>${esc(u.best)}</dt><dd>GHS 1,522–1,609</dd></div><div class="neg"><dt>${esc(u.gap)}</dt><dd>GHS 591–678</dd></div></dl>
   <p class="fig-source">${esc(u.source)}</p></figure>`;
+}
+const EVENT_DATES = { E02: '2024-05-20', E04: '2025-01-01', E05: '2025-01-02', E06: '2025-01-06', E07: '2025-03-12', E09: '2025-04-02', E10: '2025-07-15', E11: '2025-11-20', E12: '2026-01-07', E13: '2026-01-31', E14: '2026-03-30', E16: '2026-05-11', E18: '2026-06-15', E20: '2026-09-29', E21: '2026-10-07', E17: '2026-10-15', E22: '2026-11-16' };
+const eventCode = cellId => (en[cellId].match(/\[(E\d{2})\]/) || [])[1];
+function eventsAxis(lang) {
+  const u = ui[lang].axis;
+  const rows = ['events-2024', 'events-2026'].flatMap(c => tableOf(c).rows);
+  const W = 760, H = 132, x0 = 24, x1 = W - 24, base = 92;
+  const t0 = Date.parse('2024-04-01'), t1 = Date.parse('2026-12-31');
+  const X = iso => x0 + (Date.parse(iso) - t0) / (t1 - t0) * (x1 - x0);
+  const items = rows.map(r => { const code = eventCode(r[2]); return { code, x: X(EVENT_DATES[code]), ghana: /^Ghana/.test(en[dirById.get(code).topic]), tip: `${plainText(T(lang, r[0]))} · ${plainText(T(lang, dirById.get(code).topic))}` }; }).sort((a, b) => a.x - b.x);
+  let lastX = -99, level = 0;
+  for (const it of items) { level = it.x - lastX < 15 ? level + 1 : 0; it.y = base - 14 - level * 17; lastX = it.x; }
+  const years = ['2025', '2026'].map(y => `<line class="ax-tick" x1="${X(y + '-01-01')}" x2="${X(y + '-01-01')}" y1="${base - 70}" y2="${base + 6}"/><text class="ax-year" x="${X(y + '-01-01') + 4}" y="${base + 22}">${y}</text>`).join('') + `<text class="ax-year" x="${x0}" y="${base + 22}">2024</text>`;
+  const cut = X('2026-11-28');
+  const dots = items.map(it => `<g class="ax-dot${it.ghana ? ' gh' : ''}" data-event="${it.code}" tabindex="0" role="button" aria-label="${attr(it.tip)}" data-tip="${attr(it.tip)}"><line x1="${it.x}" x2="${it.x}" y1="${it.y + 6}" y2="${base}"/><circle class="hit" cx="${it.x}" cy="${it.y}" r="10"/><circle cx="${it.x}" cy="${it.y}" r="6"/></g>`).join('');
+  return `<figure class="axis" data-axis><figcaption>${esc(u.title)}</figcaption><svg viewBox="0 0 ${W} ${H}" role="group" aria-label="${attr(u.title)}"><line class="ax-base" x1="${x0}" x2="${x1}" y1="${base}" y2="${base}"/>${years}<line class="ax-cut" x1="${cut}" x2="${cut}" y1="${base - 70}" y2="${base + 6}"/><text class="ax-cut-l" x="${cut - 4}" y="${base - 74}" text-anchor="end">${esc(u.cutoff)}</text>${dots}</svg><ul class="legend"><li><i class="k ax-gh"></i>${esc(u.ghana)}</li><li><i class="k ax-other"></i>${esc(u.other)}</li></ul></figure>`;
 }
 function columnChart({ title, unit, source, values, labels, gapAfter = null, gapLabel = '', decimals = 0, id }) {
   const W = 520, H = 260, pad = { l: 8, r: 8, t: 34, b: 42 };
@@ -226,7 +305,8 @@ function renderChapter(lang, ch, index) {
   } else if (ch.id === 'events-2024' || ch.id === 'events-2026') {
     const t = blocks.find(b => b.t === 'table');
     const heads = t.head.map(id => plainText(T(lang, id)));
-    body += `<div class="tl-head"><span>${esc(heads[0])}<em>${esc(heads[1])}</em></span><span>${esc(heads[2])}</span></div><ol class="timeline">${t.rows.map(r => `<li><div class="tl-when"><span class="tl-date">${I(lang, r[0], ctx)}</span><span class="tl-pub">${I(lang, r[1], ctx)}</span></div><div class="tl-what">${I(lang, r[2], ctx)}</div></li>`).join('')}</ol>`;
+    if (ch.id === 'events-2024') body += eventsAxis(lang);
+    body += `<div class="tl-head"><span>${esc(heads[0])}<em>${esc(heads[1])}</em></span><span>${esc(heads[2])}</span></div><ol class="timeline">${t.rows.map(r => `<li id="ev-${eventCode(r[2])}"><div class="tl-when"><span class="tl-date">${I(lang, r[0], ctx)}</span><span class="tl-pub">${I(lang, r[1], ctx)}</span></div><div class="tl-what">${I(lang, r[2], ctx)}</div></li>`).join('')}</ol>`;
   } else {
     let tableCount = 0;
     for (const [i, b] of blocks.entries()) {
@@ -256,7 +336,7 @@ function renderChapter(lang, ch, index) {
       if (ch.id === 'comparison' && e.startsWith('**Kenya · Nairobi.**')) body += `<div class="fig-pair">${badiliFigure(lang)}${columnChart({ id: 'chart-kenya', title: ui[lang].kenya.title, unit: ui[lang].kenya.unit, gapLabel: ui[lang].kenya.gap, source: ui[lang].kenya.source, values: [183830, 230535, 250527], labels: ['2021', '2024', '2025'], gapAfter: 0 })}</div>`;
       if (ch.id === 'plan' && i === 0) body += planFigure(lang);
     }
-    if (ch.id === 'continental') body = `<figure class="regions-map">${mapSvg(lang, 'regions')}</figure>` + body;
+    if (ch.id === 'continental') body = `<div class="chips inline"><p>${esc(EXPLORE_UI[lang].onMap)}</p><ul>${['cote-divoire', 'nigeria', 'kenya', 'south-africa', 'morocco', 'cameroon'].map(id => `<li><button type="button" data-go="${id}" data-to-map>${esc(NAMES[id][lang])}</button></li>`).join('')}</ul></div>` + body;
     if (ch.id === 'partners') body = deadlines(lang) + body;
   }
   const num = String(index + 1).padStart(2, '0');
@@ -317,7 +397,7 @@ ${body}
 <footer class="site-footer"><div class="foot-inner">
   <p class="foot-method">${esc(u.footer.method)}</p>
   <p class="foot-version">${esc(versionLine)}</p>
-  <details class="foot-history"><summary>${esc(u.history)}</summary><ul>${u.historyItems.map(h => `<li><b>v${h.n}</b> ${esc(formatDate(version.iso, lang, true))} · ${esc(h.text)}</li>`).join('')}</ul></details>
+  <details class="foot-history"><summary>${esc(u.history)}</summary><ul>${u.historyItems.map(h => `<li><b>v${h.n}</b> ${esc(formatDate(h.n === version.n ? version.iso : '2026-11-28T01:12:00Z', lang, true))} · ${esc(h.text)}</li>`).join('')}</ul></details>
   ${u.translated ? `<p class="foot-translated">${esc(u.translated)} <a href="${ROUTE}/en/${path}" hreflang="en" lang="en">English</a></p>` : ''}
   <p><a href="#top">${esc(u.footer.top)}</a></p>
 </div></footer>
@@ -344,12 +424,17 @@ function reportPage(lang) {
   const u = ui[lang];
   const r = structure.report;
   const chapters = r.chapters;
-  const hero = `<section class="hero" id="top"><div class="hero-inner">
-  <div class="hero-text"><p class="hero-for">${esc(u.preparedFor)}</p><h1>${esc(u.title)}</h1><p class="hero-sub">${esc(u.subtitle)}</p>
-  <p class="hero-meta">${esc(u.cutoff)} · ${esc(u.versionLine(version.n, formatDate(version.iso, lang)))}</p>
-  <div class="hero-actions"><a class="btn solid" href="#summary">${esc(u.heroActions.report)}</a><a class="btn line" href="sources/">${esc(u.heroActions.sources)}</a><a class="btn line" href="#plan">${esc(u.heroActions.plan)}</a></div></div>
-  <div class="hero-map">${mapSvg(lang, 'hero')}<div class="inset">${insetSvg(lang)}</div></div>
-  </div><dl class="stats">${u.stats.map(([n, l]) => `<div><dt>${esc(l)}</dt><dd>${n}</dd></div>`).join('')}</dl></section>`;
+  const x = EXPLORE_UI[lang];
+  const statHref = ['sources/', 'sources/', 'sources/?view=companies', 'sources/?view=news', 'sources/?view=opportunities'];
+  const hero = `<section class="hero" id="top" data-explorer><div class="hero-inner">
+    <div class="hero-text" data-intro><h1>${esc(u.title)}</h1><p class="hero-lead">${esc(u.lead)}</p>
+    <p class="hero-meta">${esc(u.versionLine(version.n, formatDate(version.iso, lang)))}</p>
+    <div class="hero-actions"><a class="btn solid" href="#summary">${esc(u.heroActions.report)}</a><a class="btn line" href="sources/">${esc(u.heroActions.sources)}</a><a class="btn line" href="#plan">${esc(u.heroActions.plan)}</a></div>
+    ${placeChips(lang)}</div>
+  <aside class="place-panel" data-panel hidden tabindex="-1" aria-live="polite"><button type="button" class="pl-close" data-go="" aria-label="${attr(x.close)}" title="${attr(x.close)}">×</button><div data-panel-body></div></aside>
+  <div class="hero-map">${explorerMap(lang)}</div>
+  </div><nav class="stats" aria-label="${attr(ui[lang].dir.title)}">${u.stats.map(([n, l], i) => `<a href="${statHref[i]}"><strong>${n}</strong><span>${esc(l)}</span></a>`).join('')}</nav></section>
+  <div class="place-templates" hidden>${Object.keys(VIEW_OF).map(id => placePanel(lang, id)).join('')}</div>`;
   const body = `${hero}<div class="layout">${toc(lang, chapters)}<main id="main" class="doc">${chapters.map((c, i) => renderChapter(lang, c, i)).join('')}${downloads(lang)}</main></div>`;
   return frame(lang, 'report', { title: `${u.title} · Manna AI`, description: u.meta.report, body, toc: true });
 }
@@ -386,7 +471,12 @@ function directoryPage(lang) {
   ${select('f-category', d.filters.category, catOrder.map(m => [m, d.categories[m]]), d.filters.all)}
   <button type="button" class="btn-text" data-clear>${esc(d.filters.clear)}</button></div>
   <p class="result-count" aria-live="polite" data-count data-template-n="${attr(d.showing('{n}', '{m}'))}"></p><p class="no-results" data-none hidden>${esc(d.none)}</p>`;
-  const modeKey = `<ul class="mode-key">${['subscribe', 'follow', 'query'].map(m => `<li><span class="pill mode-${m}">${esc(d.modes[m])}</span> ${esc(d.modeHelp[m])}</li>`).join('')}</ul>`;
+  const all = dir.entries;
+  const cnt = (k, v) => all.filter(e => (k === 'region' ? e.regions.includes(v) : e[k] === v)).length;
+  const bars = (key, values, label) => { const max = Math.max(...values.map(v => cnt(key, v))); return `<div class="dc"><p class="dc-title">${esc(d.filters[key])}</p><ul class="dc-bars">${values.map(v => `<li><button type="button" data-set="${key}" data-value="${v}" aria-pressed="false"><span class="dc-l">${esc(label(v))}</span><span class="dc-b"><i style="width:${(cnt(key, v) / max * 100).toFixed(1)}%"></i></span><b>${cnt(key, v)}</b></button></li>`).join('')}</ul></div>`; };
+  const modeKey = `<div class="dir-charts"><div class="dc"><p class="dc-title">${esc(d.filters.mode)}</p><div class="dc-seg">${['subscribe', 'follow', 'query'].map(m => `<button type="button" class="seg-${m}" data-set="mode" data-value="${m}" aria-pressed="false" style="flex:${cnt('mode', m)}" data-tip="${attr(`${d.modes[m]}: ${d.modeHelp[m]}`)}"><span>${esc(d.modes[m])}</span><b>${cnt('mode', m)}</b></button>`).join('')}</div>
+  <p class="dc-title second">${esc(d.filters.priority)}</p><div class="dc-seg">${['high', 'medium'].map(m => `<button type="button" class="seg-${m}" data-set="priority" data-value="${m}" aria-pressed="false" style="flex:${cnt('priority', m)}"><span>${esc(d.priorities[m])}</span><b>${cnt('priority', m)}</b></button>`).join('')}</div></div>
+  ${bars('region', regionOrder, v => d.regions[v])}${bars('category', catOrder, v => d.categories[v])}</div>`;
   const sources = `<section class="panel" id="panel-sources" data-panel="sources" role="tabpanel" aria-labelledby="tab-sources"><p class="panel-intro">${I(lang, dir.verifiedIntro, { anchorBase: '' })}</p>${modeKey}${filters}<div class="orgs">${orgGroups(lang, dir.entries)}</div></section>`;
   const top = `<section class="panel" id="panel-top" data-panel="top" role="tabpanel" aria-labelledby="tab-top" hidden><ol class="top-list">${dir.top.map(t => `<li class="top-item"><span class="top-n">${t.n}</span><div><div class="entry-top"><span class="pill mode-${t.mode}">${esc(d.modes[t.mode])}</span><a class="eid" href="#${t.anchor.replace(/_\d+$/, '')}" data-goto-source>${t.id}</a></div><h3>${esc(t.name)}</h3><h4><a href="${attr(t.url)}" target="_blank" rel="noopener">${esc(t.title)}</a></h4><p>${I(lang, t.text)}</p></div></li>`).join('')}</ol></section>`;
   const fld = (k, id) => id ? `<div><dt>${esc(d.fields[k])}</dt><dd>${I(lang, id)}</dd></div>` : '';
@@ -430,7 +520,7 @@ function promptPage(lang) {
   });
   const md = promptMarkdown(lang);
   const tocHtml = `<nav class="toc" id="toc" aria-label="${attr(u.contents)}"><div class="toc-scroll"><ol class="toc-plain">${tocItems.map(([id, t]) => `<li><a href="#${id}" data-toc="${id}"><span>${esc(t)}</span></a></li>`).join('')}</ol></div></nav>`;
-  const head = `<section class="dir-head" id="top"><div class="dir-head-inner"><h1>${esc(u.prompt.title)}</h1><p class="hero-sub">${esc(u.prompt.lead)}</p><div class="hero-actions"><button type="button" class="btn solid" data-copy-prompt>${esc(u.prompt.copy)}</button><a class="btn line" href="${ROUTE}/files/research-prompt-${lang}-v${version.n}.md" download>${esc(u.prompt.download)}</a>${lang !== 'en' ? `<a class="btn line" href="${ROUTE}/en/prompt/" hreflang="en" lang="en">${esc(u.prompt.original)}</a>` : ''}</div></div></section>`;
+  const head = `<section class="dir-head" id="top"><div class="dir-head-inner"><h1>${esc(u.prompt.title)}</h1><div class="hero-actions"><button type="button" class="btn solid" data-copy-prompt>${esc(u.prompt.copy)}</button><a class="btn line" href="${ROUTE}/files/research-prompt-${lang}-v${version.n}.md" download>${esc(u.prompt.download)}</a>${lang !== 'en' ? `<a class="btn line" href="${ROUTE}/en/prompt/" hreflang="en" lang="en">${esc(u.prompt.original)}</a>` : ''}</div></div></section>`;
   const body = `${head}<div class="layout">${tocHtml}<main id="main" class="doc prompt-doc">${html}<textarea class="visually-hidden" id="prompt-md" aria-hidden="true" tabindex="-1" readonly>${esc(md)}</textarea></main></div>`;
   return { html: frame(lang, 'prompt', { title: `${u.prompt.title} · ${u.title}`, description: u.meta.prompt, body, toc: true }), md };
 }

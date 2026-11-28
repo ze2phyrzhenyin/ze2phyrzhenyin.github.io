@@ -3,6 +3,7 @@
 // Serve public/ first (python3 -m http.server 4391 --directory public). Uses the installed Chrome.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { version } from './ui.mjs';
 const { chromium } = await import(process.env.GUIDE_PLAYWRIGHT_MODULE || 'playwright');
 const origin = process.env.GUIDE_URL || 'http://127.0.0.1:4391';
 const base = `${origin}/guides/circular-africa`;
@@ -105,6 +106,70 @@ await check('directory filters and tabs live in the address and survive a reload
   assert(await page.locator('#panel-companies').isVisible());
   await page.close();
 });
+await check('a filtered directory hides organisations without matching entries', async () => {
+  const { page } = await open(1440, '/en/sources/?region=kenya');
+  const visibleOrgs = await page.locator('#panel-sources .org:visible').count();
+  const n = await page.locator('#panel-sources .entry:visible').count();
+  assert(n > 0 && visibleOrgs > 0 && visibleOrgs <= n, `orgs ${visibleOrgs}, entries ${n}`);
+  assert.equal(await page.locator('#S132').isVisible(), false, 'Accra Brewery is not a Kenyan source');
+  await page.click('[data-set="region"][data-value="ghana"]');
+  assert.equal(new URL(page.url()).searchParams.get('region'), 'ghana');
+  assert.equal(await page.inputValue('#f-region'), 'ghana');
+  assert.equal(await page.getAttribute('[data-set="region"][data-value="ghana"]', 'aria-pressed'), 'true');
+  await page.close();
+});
+await check('the map opens a place, zooms, keeps it in the address and goes back', async () => {
+  const { page, errors } = await open(1440, '/en/');
+  await page.click('.chips [data-go="ghana"]');
+  await page.waitForTimeout(1600);
+  assert(await page.locator('[data-panel]').isVisible(), 'panel visible');
+  assert.equal(await page.textContent('.pl-head h2'), 'Ghana');
+  assert.equal(new URL(page.url()).searchParams.get('place'), 'ghana');
+  const vb = (await page.getAttribute('.hero .africa-map', 'viewBox')).split(' ').map(Number);
+  assert(vb[2] < 100, `zoomed viewBox width ${vb[2]}`);
+  await page.click('.mk[data-go="accra"]');
+  await page.waitForTimeout(1600);
+  await page.click('.mk[data-go="kantamanto"]');
+  await page.waitForTimeout(600);
+  assert.equal(await page.textContent('.pl-head h2'), 'Kantamanto');
+  assert.match(await page.textContent('.place-panel'), /GHS 2,200/);
+  await page.goBack(); await page.waitForTimeout(1400);
+  assert.equal(await page.textContent('.pl-head h2'), 'Accra');
+  await page.keyboard.press('Escape'); await page.waitForTimeout(1400);
+  assert.equal(await page.locator('[data-panel]').isVisible(), false);
+  assert(await page.locator('[data-intro]').isVisible());
+  assert.deepEqual(errors, []);
+  await page.close();
+});
+await check('a shared map link opens the same place in every language', async () => {
+  for (const [l, name] of [['en', 'Kenya'], ['es', 'Kenia'], ['zh', '肯尼亚']]) {
+    const { page } = await open(390, `/${l}/?place=kenya`);
+    assert.equal(await page.textContent('.pl-head h2'), name);
+    assert(await page.locator('.mk[data-go="kenya"]').isVisible());
+    const o = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
+    assert(o <= 1, `overflow ${o}`);
+    await page.close();
+  }
+});
+await check('the bale sorts by price and back', async () => {
+  const { page } = await open(1440, '/en/#bale');
+  const first = () => page.evaluate(() => [...document.querySelectorAll('.bale-grid i')].slice(0, 46).every(i => i.classList.contains('b0')));
+  assert.equal(await first(), false);
+  await page.click('[data-bale-sort]');
+  assert.equal(await first(), true);
+  await page.click('[data-bale-sort]');
+  assert.equal(await first(), false);
+  await page.close();
+});
+await check('a dot on the events axis brings its row into view', async () => {
+  const { page } = await open(1440, '/en/#events-2024');
+  await page.waitForTimeout(400);
+  await page.click('[data-event="E16"] .hit');
+  await page.waitForTimeout(1200);
+  const top = await page.evaluate(() => document.getElementById('ev-E16').getBoundingClientRect().top);
+  assert(top > 100 && top < 800, `row top ${top}`);
+  await page.close();
+});
 await check('a source ID from the report opens that organisation in the directory', async () => {
   const { page } = await open(1440, '/en/#sources-1');
   await page.locator('#sources-1 a.btn-quiet').first().click();
@@ -140,7 +205,7 @@ await check('the prompt copy text equals the downloadable Markdown', async () =>
   for (const l of ['en', 'es', 'zh']) {
     const { page } = await open(1440, `/${l}/prompt/`);
     const md = await page.inputValue('#prompt-md');
-    const file = await readFile(new URL(`../../public/guides/circular-africa/files/research-prompt-${l}-v1.md`, import.meta.url), 'utf8');
+    const file = await readFile(new URL(`../../public/guides/circular-africa/files/research-prompt-${l}-v${version.n}.md`, import.meta.url), 'utf8');
     assert.equal(md, file);
     assert(md.length > (l === 'zh' ? 9000 : 20000), `${l} prompt length ${md.length}`);
     await page.close();

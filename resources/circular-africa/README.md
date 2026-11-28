@@ -9,8 +9,9 @@ Manna AI study "Circular consumption in Africa" as a website: report, source dir
 - `translate/` — `glossary.md`, `split.mjs` (cuts the string table into `chunks/`), `check.mjs` (checks a translated chunk: ids, URLs, figures, bold markers, left-over English), the translations `zh/*.json` and `es/*.json`, and `overrides.json` for hand fixes.
 - `ui.mjs` — the site's own wording in three languages, chapter grouping, version number and upload time.
 - `build.mjs` — writes `public/guides/circular-africa/` (9 pages, entry redirects, downloads in `files/`, assets).
-- `assets/` — `styles.css`, `app.js`, `map.json` (Natural Earth outlines via world-atlas 2.0.2, projected once).
-- `browser-check.mjs` — 13 browser checks (load, overflow, language leaks, sidebar state, URL filters, calculators, deep links, theme).
+- `places.mjs` — the places on the map: names, roles and figures in three languages, which report or directory text each place panel shows, markers and zoom views.
+- `assets/` — `styles.css`, `app.js`, `map.json`. `map/gen.mjs` writes `map.json`: Natural Earth outlines via world-atlas 2.0.2 (Ghana 1:10m, neighbours 1:50m, rest 1:110m), lakes and rivers from Natural Earth 5.1.2 GeoJSON, one azimuthal equal-area projection, zoom boxes and km per unit. Run it in a scratch folder with `world-atlas@2.0.2 topojson-client@3.1.0 d3-geo@3.1.1` installed and `ne/ne_50m_lakes.geojson`, `ne/ne_50m_rivers_lake_centerlines.geojson` downloaded.
+- `browser-check.mjs` — 18 browser checks (map explorer, bale sorting, events axis, directory charts and load, overflow, language leaks, sidebar state, URL filters, calculators, deep links, theme).
 
 ## Change something
 

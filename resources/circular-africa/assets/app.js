@@ -6,6 +6,7 @@
   const view = doc.dataset.view;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
   const nf = (n, d = 0) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 
   // ---------- back link: a reader sent here from the French guides index keeps ?from=fr ----------
@@ -63,6 +64,7 @@
     tip.style.left = Math.max(8, left) + 'px'; tip.style.top = Math.max(8, top) + 'px';
   }
   document.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
     const el = e.target.closest?.('[data-tip]');
     if (el) showTip(el, e.clientX, e.clientY); else if (tip) tip.hidden = true;
   });
@@ -71,6 +73,7 @@
     if (el) { const r = el.getBoundingClientRect(); showTip(el, r.left + r.width / 2, r.bottom); }
   });
   document.addEventListener('focusout', () => { if (tip) tip.hidden = true; });
+  document.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse' && tip) tip.hidden = true; });
   addEventListener('scroll', () => { if (tip) tip.hidden = true; }, { passive: true });
 
   // ---------- table of contents: active chapter, frozen scroll, mobile sheet ----------
@@ -196,6 +199,149 @@
   });
   for (const b of $$('[data-copy-prompt]')) b.addEventListener('click', () => copy($('#prompt-md').value, b));
 
+  // ---------- map explorer ----------
+  const explorer = $('[data-explorer]');
+  if (explorer) {
+    const wrap = $('[data-map]', explorer), svg = $('svg', wrap);
+    const boxes = JSON.parse(wrap.dataset.boxes), full = boxes.africa, kmPerUnit = Number(wrap.dataset.km);
+    const panel = $('[data-panel]', explorer), panelBody = $('[data-panel-body]', panel), intro = $('[data-intro]', explorer);
+    const allBtn = $('.map-all', wrap), scale = $('.map-scale', wrap);
+    const marks = $$('.mk', svg), shapes = $$('.m-c', svg), routes = $('.m-routes', svg);
+    const templates = new Map($$('.place-templates template').map(t => [t.dataset.place, t]));
+    const narrow = matchMedia('(max-width: 960px)');
+    let vb = full.slice(), frame = null, place = null, view = 'africa';
+
+    // Smooth zoom path between two views (van Wijk and Nuij, as in d3.interpolateZoom).
+    function zoomPath(p0, p1) {
+      const rho = Math.SQRT2, [ux0, uy0, w0] = p0, [ux1, uy1, w1] = p1, dx = ux1 - ux0, dy = uy1 - uy0, d2 = dx * dx + dy * dy;
+      let f, S;
+      if (d2 < 1e-12) { S = Math.log(w1 / w0) / rho; f = t => [ux0 + t * dx, uy0 + t * dy, w0 * Math.exp(rho * t * S)]; }
+      else {
+        const d1 = Math.sqrt(d2), b0 = (w1 * w1 - w0 * w0 + 4 * d2) / (2 * w0 * 2 * d1), b1 = (w1 * w1 - w0 * w0 - 4 * d2) / (2 * w1 * 2 * d1);
+        const r0 = Math.log(Math.sqrt(b0 * b0 + 1) - b0), r1 = Math.log(Math.sqrt(b1 * b1 + 1) - b1);
+        S = (r1 - r0) / rho;
+        f = t => { const s = t * S, c0 = Math.cosh(r0), u = w0 / (2 * d1) * (c0 * Math.tanh(rho * s + r0) - Math.sinh(r0)); return [ux0 + u * dx, uy0 + u * dy, w0 * c0 / Math.cosh(rho * s + r0)]; };
+      }
+      f.duration = Math.min(1300, Math.max(450, Math.abs(S) * 1000));
+      return f;
+    }
+    const toCenter = b => [b[0] + b[2] / 2, b[1] + b[3] / 2, b[2]];
+    const fromCenter = ([cx, cy, w]) => { const h = w * full[3] / full[2]; return [cx - w / 2, cy - h / 2, w, h]; };
+    function paintScale() {
+      const pxPerUnit = svg.getBoundingClientRect().width / vb[2];
+      if (!pxPerUnit || !kmPerUnit) return;
+      const kmPerPx = kmPerUnit / pxPerUnit, target = 90 * kmPerPx;
+      const pow = 10 ** Math.floor(Math.log10(target)), nice = [5, 2, 1].map(m => m * pow).find(v => v <= target) || pow;
+      scale.querySelector('i').style.width = (nice / kmPerPx) + 'px';
+      scale.querySelector('span').textContent = `${nf(nice)} km`;
+    }
+    function apply(b) {
+      vb = b;
+      svg.setAttribute('viewBox', b.map(v => v.toFixed(4)).join(' '));
+      // Markers keep the same size on screen at every zoom.
+      const px = svg.getBoundingClientRect().width;
+      const s = px ? b[2] / px : b[2] / full[2];
+      for (const m of marks) m.setAttribute('transform', `translate(${m.dataset.x} ${m.dataset.y}) scale(${s.toFixed(5)})`);
+      paintScale();
+    }
+    function showLayers(v) {
+      for (const m of marks) { const on = m.dataset.views.split(' ').includes(v); m.classList.toggle('off', !on); m.setAttribute('tabindex', on ? '0' : '-1'); m.setAttribute('aria-hidden', String(!on)); }
+      routes.classList.toggle('off', v !== 'ghana');
+      allBtn.hidden = v === 'africa';
+      wrap.dataset.view = v;
+    }
+    function zoom(v, animate = true) {
+      const target = boxes[v] || full;
+      if (frame) cancelAnimationFrame(frame);
+      showLayers(v);
+      if (!animate || reduce.matches) { apply(target.slice()); return; }
+      const path = zoomPath(toCenter(vb), toCenter(target)), t0 = performance.now();
+      const ease = t => (t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+      const step = now => {
+        const k = Math.min(1, (now - t0) / path.duration);
+        apply(k < 1 ? fromCenter(path(ease(k))) : target.slice());
+        frame = k < 1 ? requestAnimationFrame(step) : null;
+      };
+      frame = requestAnimationFrame(step);
+    }
+    function select(id, { push = true, animate = true } = {}) {
+      if (id && !templates.has(id)) id = null;
+      place = id;
+      const tpl = id && templates.get(id);
+      view = tpl ? tpl.dataset.view : 'africa';
+      for (const sh of shapes) sh.classList.toggle('on', sh.dataset.go === id || (tpl && sh.dataset.go === tpl.dataset.view));
+      for (const m of marks) m.classList.toggle('on', m.dataset.go === id);
+      for (const r of $$('[data-go]', routes)) r.classList.toggle('on', r.dataset.go === id);
+      for (const c of $$('.chips [data-go]')) c.setAttribute('aria-pressed', String(c.dataset.go === id));
+      if (tpl) {
+        panelBody.replaceChildren(tpl.content.cloneNode(true));
+        panel.hidden = false; intro.classList.add('behind'); explorer.classList.add('has-place');
+        panel.scrollTop = 0;
+        if (!narrow.matches && push) panel.focus({ preventScroll: true });
+        // On a phone the panel sits under the map: keep the map in view while choosing places.
+        if (narrow.matches && push) { const r = wrap.getBoundingClientRect(), top = $('.topbar').getBoundingClientRect().height; if (r.top < top || r.bottom > innerHeight) scrollTo({ top: scrollY + r.top - top - 8, behavior: reduce.matches ? 'instant' : 'smooth' }); }
+      } else {
+        panel.hidden = true; intro.classList.remove('behind'); explorer.classList.remove('has-place');
+      }
+      zoom(view, animate);
+      if (push) {
+        const u = new URL(location.href);
+        if (id) u.searchParams.set('place', id); else u.searchParams.delete('place');
+        u.hash = '';
+        history.pushState({ place: id }, '', u.pathname + u.search);
+      }
+    }
+    explorer.addEventListener('click', e => {
+      const t = e.target.closest('[data-go]');
+      if (t) { e.preventDefault(); select(t.dataset.go || null); return; }
+      if (e.target.closest('[data-close-panel]') && narrow.matches) select(null, { push: false, animate: false });
+    });
+    explorer.addEventListener('keydown', e => {
+      const t = e.target.closest('.mk');
+      if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(t.dataset.go); }
+      if (e.key === 'Escape' && place) select(null);
+    });
+    for (const b of $$('[data-to-map]')) b.addEventListener('click', () => { select(b.dataset.go); scrollTo({ top: 0, behavior: reduce.matches ? 'instant' : 'smooth' }); });
+    addEventListener('popstate', () => select(new URLSearchParams(location.search).get('place'), { push: false }));
+    addEventListener('resize', () => apply(vb));
+    const initial = new URLSearchParams(location.search).get('place');
+    if (initial) select(initial, { push: false, animate: false }); else { showLayers('africa'); apply(full.slice()); }
+  }
+
+  // ---------- bale: sort the opened bale by price ----------
+  for (const fig of $$('[data-bale]')) {
+    const grid = $('.bale-grid', fig), btn = $('[data-bale-sort]', fig);
+    const pieces = $$('i', grid);
+    const opened = pieces.slice();
+    const sorted = pieces.slice().sort((a, b) => a.className.localeCompare(b.className));
+    btn.addEventListener('click', () => {
+      const toSorted = btn.getAttribute('aria-pressed') !== 'true';
+      const before = new Map(pieces.map(p => [p, p.getBoundingClientRect()]));
+      grid.append(...(toSorted ? sorted : opened));
+      btn.setAttribute('aria-pressed', String(toSorted));
+      btn.textContent = toSorted ? btn.dataset.unsort : btn.dataset.sort;
+      if (reduce.matches) return;
+      for (const p of pieces) {
+        const a = before.get(p), b = p.getBoundingClientRect();
+        const dx = a.left - b.left, dy = a.top - b.top;
+        if (!dx && !dy) continue;
+        p.animate([{ transform: `translate(${dx}px, ${dy}px)` }, { transform: 'none' }], { duration: 650, easing: 'cubic-bezier(.65,0,.35,1)', delay: (p.dataset.i % 40) * 6 });
+      }
+    });
+  }
+
+  // ---------- events axis ----------
+  for (const axis of $$('[data-axis]')) {
+    axis.addEventListener('click', e => {
+      const dot = e.target.closest('[data-event]');
+      if (!dot) return;
+      const row = document.getElementById(`ev-${dot.dataset.event}`);
+      if (!row) return;
+      row.scrollIntoView({ behavior: reduce.matches ? 'instant' : 'smooth', block: 'center' });
+      row.classList.remove('flash'); void row.offsetWidth; row.classList.add('flash');
+    });
+  }
+
   // ---------- directory ----------
   if (view === 'sources') {
     const tabs = $$('[data-tab]'), panels = $$('[data-panel]');
@@ -232,6 +378,7 @@
       for (const o of orgs) { const vis = $$('.entry', o).some(e => !e.hidden); o.hidden = !vis; if (vis) m++; }
       count.textContent = count.dataset.templateN.replace('{n}', n).replace('{m}', m);
       none.hidden = n > 0;
+      for (const b of $$('[data-set]')) b.setAttribute('aria-pressed', String(p.get(b.dataset.set) === b.dataset.value));
     }
     function readControls() {
       const p = state();
@@ -250,6 +397,11 @@
     for (const f of fields) f.addEventListener(f.tagName === 'INPUT' ? 'input' : 'change', () => {
       clearTimeout(typing);
       typing = setTimeout(() => { write(p => p.set(f.dataset.filter, f.value)); applyFilters(); }, f.tagName === 'INPUT' ? 140 : 0);
+    });
+    for (const b of $$('[data-set]')) b.addEventListener('click', () => {
+      const key = b.dataset.set, on = state().get(key) === b.dataset.value;
+      write(p => p.set(key, on ? '' : b.dataset.value));
+      readControls();
     });
     $('[data-clear]')?.addEventListener('click', () => { write(p => { for (const f of fields) p.delete(f.dataset.filter); }); readControls(); });
     function goToAnchor(hash, smooth) {

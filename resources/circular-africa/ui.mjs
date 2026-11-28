@@ -2,7 +2,7 @@
 // come from content/strings.<locale>.json; everything here is the site's own wording.
 export const LOCALES = ['en', 'es', 'zh'];
 
-export const version = { n: 1, iso: '2026-11-28T01:12:00Z' };
+export const version = { n: 2, iso: '2026-11-28T01:38:00Z' };
 
 const months = {
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -34,6 +34,7 @@ export const ui = {
     subtitle: 'Ghana market research and field investigation plan',
     preparedFor: 'Prepared for Hannah and the Manna AI founding team',
     cutoff: 'Desk research to 28 Nov 2026',
+    lead: 'Ghana market research and field investigation plan, prepared for Hannah and the Manna AI founding team. Desk research to 28 November 2026.',
     translated: null,
     nav: { report: 'Report', sources: 'Sources', prompt: 'Prompt' },
     allGuides: 'All guides',
@@ -42,7 +43,7 @@ export const ui = {
     theme: { dark: 'Dark', light: 'Light', toDark: 'Switch to dark mode', toLight: 'Switch to light mode' },
     versionLine: (n, date) => `Version ${n} · uploaded ${date}`,
     history: 'Versions',
-    historyItems: [{ n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
+    historyItems: [{ n: 2, text: 'Map: select a country, city or market to see its figures, report text and dated events. Bale sorting, events axis and directory charts.' }, { n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
     meta: {
       report: 'Where to start a circular-consumption business in Ghana: used phones at Circle, clothing bales at Kantamanto, water refills in Accra, market sizing, comparisons with Nairobi, Abidjan and South Africa, and a 30-day field plan.',
       sources: '135 verified source organisations and 178 entries for following circular consumption in Africa, with companies, dated events, research records and open opportunities.',
@@ -83,7 +84,9 @@ export const ui = {
       legend: [['GHS 25 potential', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['Rejected', 99]],
       paid: 'Paid for the bale', best: 'If every priced piece sells', gap: 'Shortfall before other costs',
       source: 'Field tally, stallholder 7, Greenpeace Africa annex 2024',
+      sort: 'Sort by price', unsort: 'Show as opened',
     },
+    axis: { title: 'Events in the two chronologies', ghana: 'Ghana', other: 'Other countries', cutoff: 'Research cutoff' },
     route: {
       title: 'Refill route threshold', margin: 'Margin per completed refill (m)', cost: 'Cost of one round', needed: 'Completed paid fills to cover the round',
       note: 'Report sensitivity values: m = GHS 3 or GHS 2, round cost GHS 60.', reset: 'Reset to report values',
@@ -147,6 +150,7 @@ export const ui = {
     subtitle: 'Estudio del mercado de Ghana y plan de trabajo de campo',
     preparedFor: 'Preparado para Hannah y el equipo fundador de Manna AI',
     cutoff: 'Investigación documental hasta el 28 nov 2026',
+    lead: 'Estudio del mercado de Ghana y plan de trabajo de campo, preparado para Hannah y el equipo fundador de Manna AI. Investigación documental hasta el 28 de noviembre de 2026.',
     translated: 'Traducción del original en inglés.',
     nav: { report: 'Informe', sources: 'Fuentes', prompt: 'Prompt' },
     allGuides: 'Todas las guías',
@@ -155,7 +159,7 @@ export const ui = {
     theme: { dark: 'Oscuro', light: 'Claro', toDark: 'Cambiar a modo oscuro', toLight: 'Cambiar a modo claro' },
     versionLine: (n, date) => `Versión ${n} · publicada el ${date}`,
     history: 'Versiones',
-    historyItems: [{ n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
+    historyItems: [{ n: 2, text: 'Mapa: al seleccionar un país, una ciudad o un mercado se ven sus cifras, el texto del informe y los hechos fechados. Fardo ordenable, eje de hechos y gráficos del directorio.' }, { n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
     meta: {
       report: 'Dónde empezar un negocio de consumo circular en Ghana: teléfonos usados en Circle, fardos de ropa en Kantamanto, recargas de agua en Acra, tamaño del mercado, comparación con Nairobi, Abiyán y Sudáfrica, y un plan de campo de 30 días.',
       sources: '135 organizaciones fuente verificadas y 178 entradas para seguir el consumo circular en África, con empresas, hechos fechados, registros de investigación y convocatorias abiertas.',
@@ -196,7 +200,9 @@ export const ui = {
       legend: [['GHS 25 potencial', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['Rechazados', 99]],
       paid: 'Pagado por el fardo', best: 'Si se vende cada pieza con precio', gap: 'Déficit antes de otros costos',
       source: 'Recuento de campo, puesto 7, anexo de Greenpeace África 2024',
+      sort: 'Ordenar por precio', unsort: 'Ver como se abrió',
     },
+    axis: { title: 'Hechos de las dos cronologías', ghana: 'Ghana', other: 'Otros países', cutoff: 'Cierre de la investigación' },
     route: {
       title: 'Umbral de una ruta de recarga', margin: 'Margen por recarga completada (m)', cost: 'Costo de una vuelta', needed: 'Recargas pagadas necesarias para cubrir la vuelta',
       note: 'Valores de sensibilidad del informe: m = GHS 3 o GHS 2, costo de la vuelta GHS 60.', reset: 'Volver a los valores del informe',
@@ -260,6 +266,7 @@ export const ui = {
     subtitle: '加纳市场研究与实地调研计划',
     preparedFor: '为 Hannah 和 Manna AI 创始团队准备',
     cutoff: '案头研究截至 2026 年 11 月 28 日',
+    lead: '加纳市场研究与实地调研计划，为 Hannah 和 Manna AI 创始团队准备。案头研究截至 2026 年 11 月 28 日。',
     translated: '译自英文原文。',
     nav: { report: '报告', sources: '来源', prompt: '提示词' },
     allGuides: '返回攻略总页',
@@ -268,7 +275,7 @@ export const ui = {
     theme: { dark: '深色', light: '亮色', toDark: '切换到深色模式', toLight: '切换到亮色模式' },
     versionLine: (n, date) => `第 ${n} 版 · 上传于 ${date}`,
     history: '版本',
-    historyItems: [{ n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
+    historyItems: [{ n: 2, text: '地图：选择国家、城市或市场，查看对应数字、报告原文和带日期的事件。原包可按价格分拣，新增事件时间轴和来源目录图表。' }, { n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
     meta: {
       report: '在加纳从哪里开始做循环消费：Circle 的二手手机、Kantamanto 的二手衣物原包、阿克拉的桶装水续装、市场规模、与内罗毕、阿比让和南非的比较，以及 30 天实地调研计划。',
       sources: '135 家经核实的来源机构、178 个条目，用于持续跟踪非洲循环消费，另有公司案例、带日期的事件、研究记录和开放机会。',
@@ -309,7 +316,9 @@ export const ui = {
       legend: [['可能卖 GHS 25', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['剔除', 99]],
       paid: '原包进价', best: '定价的每件都卖出', gap: '其他成本之前的缺口',
       source: '实地清点，7 号摊主，绿色和平非洲 2024 年附件',
+      sort: '按价格分拣', unsort: '恢复开包时的顺序',
     },
+    axis: { title: '两份时间线中的事件', ghana: '加纳', other: '其他国家', cutoff: '研究截止' },
     route: {
       title: '续装配送线路的门槛', margin: '每次完成续装的毛利（m）', cost: '跑一趟的成本', needed: '覆盖这一趟所需的付费续装次数',
       note: '报告中的敏感性数值：m = GHS 3 或 GHS 2，一趟成本 GHS 60。', reset: '恢复报告中的数值',
