@@ -384,7 +384,7 @@ ${alternates(view)}
 <link rel="preload" href="${ROUTE}/assets/archivo-latin-wdth.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${ROUTE}/assets/styles.css?${ASSET_V}">
 <script defer src="${ROUTE}/assets/app.js?${ASSET_V}"></script>${scripts}
-<link rel="manifest" href="${ROUTE}/manifest.${lang}.webmanifest">
+<link rel="manifest" href="${ROUTE}/manifest.${lang}.json">
 </head>
 <body data-asset-v="${ASSET_V}" data-route="${ROUTE}">
 <a class="skip" href="#main">${esc(u.skip)}</a>
@@ -621,7 +621,7 @@ for (const lang of LOCALES) {
   await put(`${lang}/prompt/index.html`, p.html);
   await put(`${lang}/field/index.html`, fieldPage(lang));
   await put(`assets/search.${lang}.json`, searchIndex(lang));
-  await put(`manifest.${lang}.webmanifest`, JSON.stringify({ name: `${FIELD[lang].title} · ${ui[lang].title}`, short_name: FIELD[lang].title, lang: ui[lang].htmlLang, start_url: `${ROUTE}/${lang}/field/`, scope: `${ROUTE}/`, display: 'standalone', background_color: '#14110f', theme_color: '#14110f', icons: [{ src: '/guides/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/guides/icon-512.png', sizes: '512x512', type: 'image/png' }] }, null, 1));
+  await put(`manifest.${lang}.json`, JSON.stringify({ name: `${FIELD[lang].title} · ${ui[lang].title}`, short_name: FIELD[lang].title, lang: ui[lang].htmlLang, start_url: `${ROUTE}/${lang}/field/`, scope: `${ROUTE}/`, display: 'standalone', background_color: '#14110f', theme_color: '#14110f', icons: [{ src: '/guides/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/guides/icon-512.png', sizes: '512x512', type: 'image/png' }] }, null, 1));
   await put(`files/research-prompt-${lang}-v${version.n}.md`, p.md);
   const x = directoryExport(lang);
   await put(`files/circular-africa-sources-${lang}-v${version.n}.csv`, x.csv);
