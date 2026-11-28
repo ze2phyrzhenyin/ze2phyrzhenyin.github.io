@@ -7,6 +7,7 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const escH = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   const nf = (n, d = 0) => Number(n).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
 
   // ---------- back link: a reader sent here from the French guides index keeps ?from=fr ----------
@@ -206,88 +207,157 @@
   // ---------- map explorer ----------
   const explorer = $('[data-explorer]');
   if (explorer) {
-    const wrap = $('[data-map]', explorer), svg = $('svg', wrap);
-    const boxes = JSON.parse(wrap.dataset.boxes), full = boxes.africa, kmPerUnit = Number(wrap.dataset.km);
+    const wrap = $('[data-map]', explorer), svg = $('svg.africa-map', wrap);
+    const FULL = [0, 0, 600, 640];
+    const focus = JSON.parse(wrap.dataset.focus), kmPerUnit = Number(wrap.dataset.km);
     const panel = $('[data-panel]', explorer), panelBody = $('[data-panel-body]', panel), intro = $('[data-intro]', explorer);
-    const allBtn = $('.map-all', wrap), scale = $('.map-scale', wrap);
-    const marks = $$('.mk', svg), shapes = $$('.m-c', svg), routes = $('.m-routes', svg);
+    const allBtn = $('.map-all', wrap), scaleBar = $('.map-scale', wrap), locator = $('.locator', wrap), locRect = $('.loc-view', wrap), hint = $('.map-hint', wrap);
+    const marks = $$('.mk', svg), shapes = $$('.m-c', svg);
+    let labels = $$('.lbl', svg), layers = [];
     const templates = new Map($$('.place-templates template').map(t => [t.dataset.place, t]));
     const narrow = matchMedia('(max-width: 960px)');
-    let vb = full.slice(), frame = null, place = null, view = 'africa';
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
+    let cx = 300, cy = 320, w = 600, place = null, frame = null, mode = null, active = false;
+    let target = null, path = null, t0 = 0, dur = 0, vel = [0, 0], detailLoaded = false, settleTimer = null;
 
-    // Smooth zoom path between two views (van Wijk and Nuij, as in d3.interpolateZoom).
+    const size = () => { const r = svg.getBoundingClientRect(); return [r.width || 600, r.height || 640]; };
+    // Zoom level relative to the whole continent in this frame: 1 at the start, about 10 for Ghana, over 100 for a city.
+    const kOf = ww => fit(FULL)[2] / ww;
+    function fit(b) { const [ew, eh] = size(); const pad = 1.04; return [b[0] + b[2] / 2, b[1] + b[3] / 2, Math.max(b[2], b[3] * ew / eh) * pad]; }
+    function clampState() {
+      w = Math.min(Math.max(w, 0.18), fit(FULL)[2] * 1.6);
+      cx = Math.min(Math.max(cx, -60), 660); cy = Math.min(Math.max(cy, -60), 700);
+    }
+    function apply() {
+      clampState();
+      const [ew, eh] = size(), h = w * eh / ew, k = kOf(w), s = w / ew;
+      svg.setAttribute('viewBox', `${(cx - w / 2).toFixed(4)} ${(cy - h / 2).toFixed(4)} ${w.toFixed(4)} ${h.toFixed(4)}`);
+      for (const m of marks) {
+        const on = k >= Number(m.dataset.kmin) && k < Number(m.dataset.kmax);
+        m.classList.toggle('off', !on); m.setAttribute('tabindex', on ? '0' : '-1');
+        if (on) m.setAttribute('transform', `translate(${m.dataset.x} ${m.dataset.y}) scale(${s.toFixed(5)})`);
+      }
+      for (const l of labels) {
+        const on = k >= Number(l.dataset.kmin || 0) && k < Number(l.dataset.kmax || 1e6);
+        l.classList.toggle('off', !on);
+        if (on) l.setAttribute('transform', `translate(${l.dataset.x} ${l.dataset.y}) scale(${s.toFixed(5)})`);
+      }
+      for (const g of layers) g.classList.toggle('off', !(k >= Number(g.dataset.kmin || 0) && k < Number(g.dataset.kmax || 1e6)));
+      wrap.dataset.level = k < 3 ? 'continent' : k < 14 ? 'country' : 'city';
+      // Scale bar: a round number of kilometres close to 90 px.
+      const kmPerPx = kmPerUnit * w / ew, want = 90 * kmPerPx, pow = 10 ** Math.floor(Math.log10(want)), nice = [5, 2, 1].map(m => m * pow).find(v => v <= want) || pow;
+      scaleBar.querySelector('i').style.width = `${(nice / kmPerPx).toFixed(1)}px`;
+      scaleBar.querySelector('span').textContent = `${nice >= 1 ? nf(nice) : nice} km`;
+      locator.hidden = k < 2.2;
+      if (!locator.hidden) { locRect.setAttribute('x', cx - w / 2); locRect.setAttribute('y', cy - h / 2); locRect.setAttribute('width', w); locRect.setAttribute('height', h); }
+      allBtn.hidden = !place && k < 1.25;
+      svg.style.touchAction = k < 1.25 ? 'pan-y' : 'none';
+      if (k > 2.6 && !detailLoaded) loadDetail();
+      clearTimeout(settleTimer); settleTimer = setTimeout(declutter, 140);
+    }
+    // Hide labels that collide with a higher-priority one (markers first, then the order in the DOM).
+    function declutter() {
+      const boxes = [];
+      const hit = r => boxes.some(b => r.left < b.right && r.right > b.left && r.top < b.bottom && r.bottom > b.top);
+      for (const m of marks) if (!m.classList.contains('off')) { const t = $('text', m); if (t) boxes.push(t.getBoundingClientRect()); }
+      const frameBox = svg.getBoundingClientRect();
+      for (const l of labels) {
+        l.classList.remove('clash');
+        if (l.classList.contains('off')) continue;
+        const r = l.getBoundingClientRect();
+        const outside = r.left < frameBox.left + 4 || r.right > frameBox.right - 4 || r.top < frameBox.top + 4 || r.bottom > frameBox.bottom - 4;
+        if (outside || hit(r)) l.classList.add('clash'); else boxes.push(r);
+      }
+    }
+    // ---- motion: fly (smooth zoom path), ease (wheel and buttons), glide (inertia) ----
     function zoomPath(p0, p1) {
       const rho = Math.SQRT2, [ux0, uy0, w0] = p0, [ux1, uy1, w1] = p1, dx = ux1 - ux0, dy = uy1 - uy0, d2 = dx * dx + dy * dy;
       let f, S;
       if (d2 < 1e-12) { S = Math.log(w1 / w0) / rho; f = t => [ux0 + t * dx, uy0 + t * dy, w0 * Math.exp(rho * t * S)]; }
       else {
-        const d1 = Math.sqrt(d2), b0 = (w1 * w1 - w0 * w0 + 4 * d2) / (2 * w0 * 2 * d1), b1 = (w1 * w1 - w0 * w0 - 4 * d2) / (2 * w1 * 2 * d1);
+        const d1 = Math.sqrt(d2), b0 = (w1 * w1 - w0 * w0 + 4 * d2) / (4 * w0 * d1), b1 = (w1 * w1 - w0 * w0 - 4 * d2) / (4 * w1 * d1);
         const r0 = Math.log(Math.sqrt(b0 * b0 + 1) - b0), r1 = Math.log(Math.sqrt(b1 * b1 + 1) - b1);
         S = (r1 - r0) / rho;
         f = t => { const s = t * S, c0 = Math.cosh(r0), u = w0 / (2 * d1) * (c0 * Math.tanh(rho * s + r0) - Math.sinh(r0)); return [ux0 + u * dx, uy0 + u * dy, w0 * c0 / Math.cosh(rho * s + r0)]; };
       }
-      f.duration = Math.min(1300, Math.max(450, Math.abs(S) * 1000));
+      f.duration = Math.min(1600, Math.max(500, Math.abs(S) * 900));
       return f;
     }
-    const toCenter = b => [b[0] + b[2] / 2, b[1] + b[3] / 2, b[2]];
-    const fromCenter = ([cx, cy, w]) => { const h = w * full[3] / full[2]; return [cx - w / 2, cy - h / 2, w, h]; };
-    function paintScale() {
-      const pxPerUnit = svg.getBoundingClientRect().width / vb[2];
-      if (!pxPerUnit || !kmPerUnit) return;
-      const kmPerPx = kmPerUnit / pxPerUnit, target = 90 * kmPerPx;
-      const pow = 10 ** Math.floor(Math.log10(target)), nice = [5, 2, 1].map(m => m * pow).find(v => v <= target) || pow;
-      scale.querySelector('i').style.width = (nice / kmPerPx) + 'px';
-      scale.querySelector('span').textContent = `${nf(nice)} km`;
+    const easeInOut = t => (t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+    function loop(now) {
+      if (mode === 'fly') {
+        const k = Math.min(1, (now - t0) / dur);
+        [cx, cy, w] = path(easeInOut(k));
+        if (k >= 1) mode = null;
+      } else if (mode === 'ease') {
+        cx += (target[0] - cx) * 0.2; cy += (target[1] - cy) * 0.2;
+        w = Math.exp(Math.log(w) + (Math.log(target[2]) - Math.log(w)) * 0.2);
+        if (Math.abs(Math.log(w / target[2])) < 0.002 && Math.hypot(target[0] - cx, target[1] - cy) < w * 0.0005) { [cx, cy, w] = target; mode = null; }
+      } else if (mode === 'glide') {
+        cx -= vel[0]; cy -= vel[1]; vel = [vel[0] * 0.9, vel[1] * 0.9];
+        if (Math.hypot(vel[0], vel[1]) < w * 0.0003) mode = null;
+      }
+      apply();
+      frame = mode ? requestAnimationFrame(loop) : null;
     }
-    function apply(b) {
-      vb = b;
-      svg.setAttribute('viewBox', b.map(v => v.toFixed(4)).join(' '));
-      // Markers keep the same size on screen at every zoom.
-      const px = svg.getBoundingClientRect().width;
-      const s = px ? b[2] / px : b[2] / full[2];
-      for (const m of marks) m.setAttribute('transform', `translate(${m.dataset.x} ${m.dataset.y}) scale(${s.toFixed(5)})`);
-      paintScale();
+    function run(m) { mode = m; if (!frame) frame = requestAnimationFrame(loop); }
+    function flyTo(state) {
+      if (reduce.matches) { [cx, cy, w] = state; mode = null; apply(); return; }
+      path = zoomPath([cx, cy, w], state); dur = path.duration; t0 = performance.now(); run('fly');
     }
-    function showLayers(v) {
-      for (const m of marks) { const on = m.dataset.views.split(' ').includes(v); m.classList.toggle('off', !on); m.setAttribute('tabindex', on ? '0' : '-1'); m.setAttribute('aria-hidden', String(!on)); }
-      routes.classList.toggle('off', v !== 'ghana');
-      allBtn.hidden = v === 'africa';
-      wrap.dataset.view = v;
+    function easeTo(state) { if (reduce.matches) { [cx, cy, w] = state; apply(); return; } target = state; run('ease'); }
+    function zoomAt(factor, px, py) {
+      // Keep the map point under (px, py) fixed while zooming.
+      const [ew, eh] = size(), base = mode === 'ease' && target ? target : [cx, cy, w];
+      const h = base[2] * eh / ew, mx = base[0] - base[2] / 2 + px / ew * base[2], my = base[1] - h / 2 + py / eh * h;
+      const nw = Math.min(Math.max(base[2] / factor, 0.18), fit(FULL)[2] * 1.6), nh = nw * eh / ew;
+      easeTo([mx - (px / ew - 0.5) * nw, my - (py / eh - 0.5) * nh, nw]);
     }
-    function zoom(v, animate = true) {
-      const target = boxes[v] || full;
-      if (frame) cancelAnimationFrame(frame);
-      showLayers(v);
-      if (!animate || reduce.matches) { apply(target.slice()); return; }
-      const path = zoomPath(toCenter(vb), toCenter(target)), t0 = performance.now();
-      const ease = t => (t < .5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
-      const step = now => {
-        const k = Math.min(1, (now - t0) / path.duration);
-        apply(k < 1 ? fromCenter(path(ease(k))) : target.slice());
-        frame = k < 1 ? requestAnimationFrame(step) : null;
-      };
-      frame = requestAnimationFrame(step);
+
+    // ---- detail layers (Ghana, Accra, Kumasi), loaded once on first zoom ----
+    async function loadDetail() {
+      detailLoaded = true;
+      let d;
+      try { d = await fetch(wrap.dataset.detail).then(r => r.json()); } catch { detailLoaded = false; return; }
+      const regionNames = JSON.parse(wrap.dataset.regions), routeTips = JSON.parse(wrap.dataset.routeTips);
+      const p = (cls, dd) => (dd ? `<path class="${cls}" d="${dd}"/>` : '');
+      const city = (id, c) => `<g class="d-city d-${id}" data-kmin="14">${p('c-land', c.coast?.land)}${p('c-sea', c.coast?.sea)}${p('c-water', c.water)}${p('c-waterway', c.waterways)}${p('c-campus', c.campus)}${p('c-airport', c.airport)}${p('c-landfill', c.landfill)}${p('c-road tertiary', c.roads.tertiary)}${p('c-road secondary', c.roads.secondary)}${p('c-road primary', c.roads.primary)}${p('c-road trunk', c.roads.trunk)}${p('c-road motorway', c.roads.motorway)}${p('c-rail', c.rail)}${p('c-market', c.markets)}${p('c-coast', c.coast?.line)}</g>`;
+      const route = (id, dd) => `<g class="m-route ${id}" data-go="${id}" data-tip="${escH(routeTips[id])}"><path class="hit" d="${dd}"/><path class="line" d="${dd}"/></g>`;
+      $('.m-detail', svg).innerHTML = `<g class="d-ghana" data-kmin="3">${p('d-neigh', d.ghana.neighbours)}${p('d-gh', d.ghana.outline)}${p('d-regions', d.ghana.regions)}${p('d-rivers', d.ghana.rivers)}${p('d-lakes', d.ghana.lakes)}${p('d-road primary', d.ghana.roads.primary)}${p('d-road trunk', d.ghana.roads.trunk)}${p('d-road motorway', d.ghana.roads.motorway)}</g>
+        ${city('accra', d.accra)}${city('kumasi', d.kumasi)}<g class="m-routes" data-kmin="3" data-kmax="40">${route('parcel', d.ghana.routes.parcel)}${route('enchi', d.ghana.routes.enchi)}</g>`;
+      const lbl = (cls, x, y, text, kmin, kmax, dot = false) => `<g class="lbl ${cls}" data-x="${x}" data-y="${y}" data-kmin="${kmin}" data-kmax="${kmax}" transform="translate(${x} ${y})">${dot ? '<circle r="2.5"/>' : ''}<text${dot ? ' x="5" y="4"' : ' text-anchor="middle"'}>${escH(text)}</text></g>`;
+      const towns = new Set(['Accra', 'Kumasi', 'Sunyani']);
+      const extra = d.ghana.regionLabels.map(r => lbl('region', r.x, r.y, regionNames[r.name] || r.name, 5, 22)).join('')
+        + d.ghana.towns.filter(t => !towns.has(t.name)).map(t => lbl('town', t.x, t.y, t.name, 4.5, 30, true)).join('')
+        + [...d.accra.labels, ...d.kumasi.labels].map(l => lbl('suburb', l.x, l.y, l.name, 30, 1e6)).join('');
+      $('.m-labels', svg).insertAdjacentHTML('afterbegin', extra);
+      labels = $$('.lbl', svg);
+      layers = $$('.m-detail [data-kmin]', svg);
+      for (const r of $$('.m-route', svg)) r.classList.toggle('on', r.dataset.go === place);
+      apply();
     }
+
+    // ---- places ----
     function select(id, { push = true, animate = true } = {}) {
       if (id && !templates.has(id)) id = null;
       place = id;
       const tpl = id && templates.get(id);
-      view = tpl ? tpl.dataset.view : 'africa';
-      for (const sh of shapes) sh.classList.toggle('on', sh.dataset.go === id || (tpl && sh.dataset.go === tpl.dataset.view));
+      const parentView = tpl ? tpl.dataset.view : null;
+      for (const sh of shapes) sh.classList.toggle('on', !!id && (sh.dataset.go === id || sh.dataset.go === parentView || (parentView && ['accra', 'kumasi', 'ghana'].includes(parentView) && sh.dataset.go === 'ghana')));
       for (const m of marks) m.classList.toggle('on', m.dataset.go === id);
-      for (const r of $$('[data-go]', routes)) r.classList.toggle('on', r.dataset.go === id);
+      for (const r of $$('.m-route', svg)) r.classList.toggle('on', r.dataset.go === id);
       for (const c of $$('.chips [data-go]')) c.setAttribute('aria-pressed', String(c.dataset.go === id));
       if (tpl) {
         panelBody.replaceChildren(tpl.content.cloneNode(true));
         panel.hidden = false; intro.classList.add('behind'); explorer.classList.add('has-place');
         panel.scrollTop = 0;
         if (!narrow.matches && push) panel.focus({ preventScroll: true });
-        // On a phone the panel sits under the map: keep the map in view while choosing places.
         if (narrow.matches && push) { const r = wrap.getBoundingClientRect(), top = $('.topbar').getBoundingClientRect().height; if (r.top < top || r.bottom > innerHeight) scrollTo({ top: scrollY + r.top - top - 8, behavior: reduce.matches ? 'instant' : 'smooth' }); }
       } else {
         panel.hidden = true; intro.classList.remove('behind'); explorer.classList.remove('has-place');
       }
-      zoom(view, animate);
+      const state = fit(id && focus[id] ? focus[id] : FULL);
+      if (animate) flyTo(state); else { [cx, cy, w] = state; apply(); }
       if (push) {
         const u = new URL(location.href);
         if (id) u.searchParams.set('place', id); else u.searchParams.delete('place');
@@ -295,21 +365,86 @@
         history.pushState({ place: id }, '', u.pathname + u.search);
       }
     }
+
+    // ---- pointer: drag to pan with inertia, pinch to zoom, click to select ----
+    const pointers = new Map();
+    let dragged = false, last = null, pinch = null, downTarget = null, samples = [];
+    svg.addEventListener('pointerdown', e => {
+      active = true;
+      pointers.set(e.pointerId, [e.clientX, e.clientY]);
+      if (pointers.size === 1) { dragged = false; last = [e.clientX, e.clientY]; downTarget = e.target.closest('[data-go]'); samples = []; if (mode === 'glide' || mode === 'ease') mode = null; }
+      if (pointers.size === 2) { const [a, b] = [...pointers.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), w }; dragged = true; }
+    });
+    svg.addEventListener('pointermove', e => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.set(e.pointerId, [e.clientX, e.clientY]);
+      const [ew, eh] = size(), rect = svg.getBoundingClientRect();
+      if (pointers.size === 2 && pinch) {
+        const [a, b] = [...pointers.values()], dnow = Math.hypot(a[0] - b[0], a[1] - b[1]);
+        const mx = (a[0] + b[0]) / 2 - rect.left, my = (a[1] + b[1]) / 2 - rect.top;
+        const h = w * eh / ew, px = cx - w / 2 + mx / ew * w, py = cy - h / 2 + my / eh * h;
+        w = Math.min(Math.max(pinch.w * pinch.d / dnow, 0.18), fit(FULL)[2] * 1.6);
+        cx = px - (mx / ew - 0.5) * w; cy = py - (my / eh - 0.5) * (w * eh / ew);
+        mode = null; apply(); return;
+      }
+      const dx = e.clientX - last[0], dy = e.clientY - last[1];
+      if (!dragged && Math.hypot(e.clientX - last[0], e.clientY - last[1]) < 4) return;
+      if (!dragged) { dragged = true; wrap.classList.add('dragging'); svg.setPointerCapture(e.pointerId); }
+      last = [e.clientX, e.clientY];
+      const u = w / ew;
+      cx -= dx * u; cy -= dy * u; mode = null;
+      samples.push([performance.now(), dx * u, dy * u]); if (samples.length > 6) samples.shift();
+      apply();
+    });
+    const end = e => {
+      if (!pointers.has(e.pointerId)) return;
+      pointers.delete(e.pointerId);
+      if (pointers.size === 1) { last = [...pointers.values()][0]; pinch = null; return; }
+      if (pointers.size) return;
+      wrap.classList.remove('dragging');
+      pinch = null;
+      if (!dragged) { if (downTarget) select(downTarget.dataset.go || null); return; }
+      const recent = samples.filter(s => performance.now() - s[0] < 80);
+      if (recent.length && !reduce.matches) { vel = [recent.reduce((a, s) => a + s[1], 0) / recent.length, recent.reduce((a, s) => a + s[2], 0) / recent.length]; run('glide'); }
+    };
+    svg.addEventListener('pointerup', end);
+    svg.addEventListener('pointercancel', end);
+    svg.addEventListener('dblclick', e => { const r = svg.getBoundingClientRect(); zoomAt(2.4, e.clientX - r.left, e.clientY - r.top); });
+    wrap.addEventListener('pointerleave', () => { active = false; });
+    let hintTimer;
+    svg.addEventListener('wheel', e => {
+      if (!(e.ctrlKey || e.metaKey || active)) {
+        hint.textContent = isMac ? wrap.dataset.hintMac : wrap.dataset.hint; hint.hidden = false;
+        clearTimeout(hintTimer); hintTimer = setTimeout(() => { hint.hidden = true; }, 1400);
+        return;
+      }
+      e.preventDefault();
+      const r = svg.getBoundingClientRect();
+      const delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      zoomAt(Math.exp(-delta * (e.ctrlKey ? 0.012 : 0.0025)), e.clientX - r.left, e.clientY - r.top);
+    }, { passive: false });
+    for (const b of $$('[data-zoom]', wrap)) b.addEventListener('click', () => { const [ew, eh] = size(); zoomAt(b.dataset.zoom === 'in' ? 2 : 0.5, ew / 2, eh / 2); active = true; });
+    wrap.addEventListener('keydown', e => {
+      const t = e.target.closest('.mk');
+      if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(t.dataset.go); return; }
+      if (e.target !== wrap) return;
+      const [ew, eh] = size(), step = w * 0.12;
+      const keys = { '+': () => zoomAt(1.6, ew / 2, eh / 2), '=': () => zoomAt(1.6, ew / 2, eh / 2), '-': () => zoomAt(1 / 1.6, ew / 2, eh / 2), ArrowLeft: () => easeTo([cx - step, cy, w]), ArrowRight: () => easeTo([cx + step, cy, w]), ArrowUp: () => easeTo([cx, cy - step, w]), ArrowDown: () => easeTo([cx, cy + step, w]), '0': () => select(null) };
+      if (keys[e.key]) { e.preventDefault(); keys[e.key](); }
+    });
+    locator.addEventListener('click', () => select(null));
     explorer.addEventListener('click', e => {
+      if (e.target.closest('svg.africa-map')) return; // handled by pointer events
       const t = e.target.closest('[data-go]');
       if (t) { e.preventDefault(); select(t.dataset.go || null); return; }
       if (e.target.closest('[data-close-panel]') && narrow.matches) select(null, { push: false, animate: false });
     });
-    explorer.addEventListener('keydown', e => {
-      const t = e.target.closest('.mk');
-      if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); select(t.dataset.go); }
-      if (e.key === 'Escape' && place) select(null);
-    });
+    explorer.addEventListener('keydown', e => { if (e.key === 'Escape' && place) select(null); });
     for (const b of $$('[data-to-map]')) b.addEventListener('click', () => { select(b.dataset.go); scrollTo({ top: 0, behavior: reduce.matches ? 'instant' : 'smooth' }); });
     addEventListener('popstate', () => select(new URLSearchParams(location.search).get('place'), { push: false }));
-    addEventListener('resize', () => apply(vb));
+    new ResizeObserver(() => apply()).observe(svg);
     const initial = new URLSearchParams(location.search).get('place');
-    if (initial) select(initial, { push: false, animate: false }); else { showLayers('africa'); apply(full.slice()); }
+    if (initial) select(initial, { push: false, animate: false }); else { [cx, cy, w] = fit(FULL); apply(); }
   }
 
   // ---------- bale: sort the opened bale by price ----------
@@ -347,7 +482,6 @@
   }
 
   // ---------- small markdown for English originals ----------
-  const escH = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const md = s => escH(s).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u.replace(/"/g, '&quot;')}" target="_blank" rel="noopener">${t}</a>`).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
   const base = document.body.dataset.route;
 
@@ -473,11 +607,9 @@
   });
   paintWatch();
 
-  // ---------- offline copy ----------
-  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === '127.0.0.1' || location.hostname === 'localhost')) {
-    navigator.serviceWorker.register(`${base}/sw.js?lang=${locale}`, { scope: `${base}/` }).catch(() => {});
-    navigator.serviceWorker.ready.then(() => $('[data-offline]')?.removeAttribute('hidden')).catch(() => {});
-  }
+  // ---------- earlier versions installed an offline worker: remove it ----------
+  if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => { if (r.scope.includes('/guides/circular-africa/')) r.unregister(); })).catch(() => {});
+
 
   // ---------- directory ----------
   if (view === 'sources') {

@@ -23,9 +23,9 @@ async function open(width, path, scheme = 'light') {
   await page.goto(base + path, { waitUntil: 'networkidle' });
   return { page, errors };
 }
-const pages = ['en', 'es', 'zh'].flatMap(l => [`/${l}/`, `/${l}/field/`, `/${l}/sources/`, `/${l}/prompt/`]);
+const pages = ['en', 'es', 'zh'].flatMap(l => [`/${l}/`, `/${l}/sources/`, `/${l}/prompt/`]);
 
-await check('all twelve pages load without errors or horizontal scroll at 390 and 1440 px', async () => {
+await check('all nine pages load without errors or horizontal scroll at 390 and 1440 px', async () => {
   for (const w of [390, 1440]) for (const p of pages) {
     const { page, errors } = await open(w, p);
     const o = await page.evaluate(() => ({ w: innerWidth, sw: document.documentElement.scrollWidth }));
@@ -118,34 +118,63 @@ await check('a filtered directory hides organisations without matching entries',
   assert.equal(await page.getAttribute('[data-set="region"][data-value="ghana"]', 'aria-pressed'), 'true');
   await page.close();
 });
-await check('the map opens a place, zooms, keeps it in the address and goes back', async () => {
+await check('the map opens a place, flies to it, loads street detail and goes back', async () => {
   const { page, errors } = await open(1440, '/en/');
+  const vbw = async () => Number((await page.getAttribute('.hero .africa-map', 'viewBox')).split(' ')[2]);
+  const start = await vbw();
   await page.click('.chips [data-go="ghana"]');
-  await page.waitForTimeout(1600);
+  await page.waitForTimeout(1900);
   assert(await page.locator('[data-panel]').isVisible(), 'panel visible');
   assert.equal(await page.textContent('.pl-head h2'), 'Ghana');
   assert.equal(new URL(page.url()).searchParams.get('place'), 'ghana');
-  const vb = (await page.getAttribute('.hero .africa-map', 'viewBox')).split(' ').map(Number);
-  assert(vb[2] < 100, `zoomed viewBox width ${vb[2]}`);
-  await page.click('.mk[data-go="accra"]');
-  await page.waitForTimeout(1600);
+  assert(await vbw() < start / 6, 'zoomed to Ghana');
+  await page.waitForSelector('.d-ghana .d-regions', { state: 'attached' });
+  assert.equal(await page.getAttribute('[data-map]', 'data-level'), 'country');
+  assert(await page.locator('.lbl.region:not(.off):not(.clash)').count() >= 8, 'region names shown');
+  await page.click('.pl-kids [data-go="accra"]');
+  await page.waitForTimeout(1900);
+  assert.equal(await page.getAttribute('[data-map]', 'data-level'), 'city');
+  assert(await page.locator('.d-accra .c-road.primary').isVisible(), 'Accra streets drawn');
   await page.click('.mk[data-go="kantamanto"]');
-  await page.waitForTimeout(600);
+  await page.waitForTimeout(1500);
   assert.equal(await page.textContent('.pl-head h2'), 'Kantamanto');
   assert.match(await page.textContent('.place-panel'), /GHS 2,200/);
-  await page.goBack(); await page.waitForTimeout(1400);
+  await page.goBack(); await page.waitForTimeout(1600);
   assert.equal(await page.textContent('.pl-head h2'), 'Accra');
-  await page.keyboard.press('Escape'); await page.waitForTimeout(1400);
+  await page.keyboard.press('Escape'); await page.waitForTimeout(1600);
   assert.equal(await page.locator('[data-panel]').isVisible(), false);
   assert(await page.locator('[data-intro]').isVisible());
   assert.deepEqual(errors, []);
+  await page.close();
+});
+await check('the map pans by dragging and zooms with Ctrl + wheel, the buttons and a double click', async () => {
+  const { page } = await open(1440, '/en/');
+  const vb = async () => (await page.getAttribute('.hero .africa-map', 'viewBox')).split(' ').map(Number);
+  const box = await page.locator('.hero .africa-map').boundingBox();
+  const a = await vb();
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down(); await page.mouse.move(box.x + box.width / 2 - 120, box.y + box.height / 2, { steps: 8 }); await page.mouse.up();
+  await page.waitForTimeout(900);
+  const b = await vb();
+  assert(b[0] > a[0] + 20, `panned ${a[0]} -> ${b[0]}`);
+  assert(!(await page.locator('[data-panel]').isVisible()), 'a drag does not select');
+  await page.keyboard.down('Control'); await page.mouse.wheel(0, -400); await page.keyboard.up('Control');
+  await page.waitForTimeout(900);
+  const c = await vb();
+  assert(c[2] < b[2] * 0.7, `wheel zoom ${b[2]} -> ${c[2]}`);
+  await page.click('[data-zoom="out"]'); await page.waitForTimeout(900);
+  assert((await vb())[2] > c[2] * 1.5, 'zoom-out button');
+  await page.mouse.dblclick(box.x + box.width * 0.4, box.y + box.height * 0.45); await page.waitForTimeout(900);
+  assert((await vb())[2] < c[2] * 1.5, 'double click zooms in');
+  await page.click('.map-all'); await page.waitForTimeout(1600);
+  assert(Math.abs((await vb())[2] - a[2]) < 1, 'back to Africa');
   await page.close();
 });
 await check('a shared map link opens the same place in every language', async () => {
   for (const [l, name] of [['en', 'Kenya'], ['es', 'Kenia'], ['zh', '肯尼亚']]) {
     const { page } = await open(390, `/${l}/?place=kenya`);
     assert.equal(await page.textContent('.pl-head h2'), name);
-    assert(await page.locator('.mk[data-go="kenya"]').isVisible());
+    assert(await page.locator('.mk[data-go="kenya"]:not(.off)').count() === 1);
     const o = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     assert(o <= 1, `overflow ${o}`);
     await page.close();
@@ -168,49 +197,6 @@ await check('a dot on the events axis brings its row into view', async () => {
   await page.waitForTimeout(1200);
   const top = await page.evaluate(() => document.getElementById('ev-E16').getBoundingClientRect().top);
   assert(top > 100 && top < 800, `row top ${top}`);
-  await page.close();
-});
-await check('the field kit keeps cases on the device and counts them against the day-30 thresholds', async () => {
-  const { page, errors } = await open(390, '/es/field/');
-  await page.evaluate(() => localStorage.removeItem('circular-africa-field-v1'));
-  await page.reload({ waitUntil: 'networkidle' });
-  await page.fill('#f-start', '2026-11-20'); await page.dispatchEvent('#f-start', 'change');
-  assert(await page.locator('[data-day]').isVisible());
-  await page.click('[data-ftab="cases"]');
-  for (const [paid, shop] of [['yes', 'S1'], ['yes', 'S2'], ['yes', 'S3'], ['no', 'S4']]) {
-    await page.click('[data-case-add]');
-    await page.click('label:has(input[name="offered"][value="yes"]) span');
-    await page.click(`label:has(input[name="paid"][value="${paid}"]) span`);
-    await page.fill('#cf-shop', shop); await page.fill('#cf-fee', '25'); await page.fill('#cf-tech', '12'); await page.fill('#cf-cons', '2');
-    await page.click('.case-form button[type=submit]');
-  }
-  assert.equal(await page.textContent('[data-case-count]'), '4');
-  await page.click('[data-ftab="board"]');
-  assert.equal(new URL(page.url()).searchParams.get('tab'), 'board');
-  const board = await page.textContent('[data-board]');
-  assert.match(board, /3 de 4 ofrecidas/);
-  assert.match(board, /GHS 10\.51/);
-  await page.reload({ waitUntil: 'networkidle' });
-  assert(await page.locator('#fpanel-board').isVisible(), 'tab survives reload');
-  assert.equal(await page.textContent('[data-case-count]'), '4');
-  await page.click('[data-ftab="plan"]');
-  assert.match(await page.textContent('[data-plan]'), /4\s*\/\s*20/);
-  const [download] = await Promise.all([page.waitForEvent('download'), (async () => { await page.click('[data-ftab="data"]'); await page.click('[data-export-csv]'); })()]);
-  assert.match(download.suggestedFilename(), /^circular-africa-field-\d{4}-\d{2}-\d{2}\.csv$/);
-  await page.evaluate(() => localStorage.removeItem('circular-africa-field-v1'));
-  assert.deepEqual(errors, []);
-  await page.close();
-});
-await check('the interview shows one question at a time with the English original', async () => {
-  const { page } = await open(390, '/zh/field/?tab=interview');
-  await page.click('[data-interview-start]');
-  assert.match(await page.textContent('[data-q-count]'), /第 1 题/);
-  assert.match(await page.textContent('[data-q-en]'), /Tell me about the last time/);
-  assert(await page.locator('[data-q-local]').isVisible());
-  await page.click('[data-q-next]');
-  assert.match(await page.textContent('[data-q-en]'), /Who would use the item/);
-  await page.keyboard.press('Escape');
-  assert.equal(await page.locator('[data-interview]').isVisible(), false);
   await page.close();
 });
 await check('search finds sources, places and chapters from any page', async () => {
@@ -250,12 +236,6 @@ await check('the Spanish and Chinese report can show the English original under 
   assert.match(await page.locator('#summary .orig').first().textContent(), /Start at Kwame Nkrumah Circle/);
   await page.click('[data-orig]');
   assert.equal(await page.locator('#summary .orig').first().isVisible(), false);
-  await page.close();
-});
-await check('the guide registers an offline copy', async () => {
-  const { page } = await open(1440, '/en/field/');
-  const scope = await page.evaluate(async () => (await navigator.serviceWorker.ready).scope);
-  assert.match(scope, /\/guides\/circular-africa\/$/);
   await page.close();
 });
 await check('a source ID from the report opens that organisation in the directory', async () => {

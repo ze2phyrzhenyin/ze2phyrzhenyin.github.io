@@ -2,7 +2,7 @@
 // come from content/strings.<locale>.json; everything here is the site's own wording.
 export const LOCALES = ['en', 'es', 'zh'];
 
-export const version = { n: 3, iso: '2026-11-28T02:05:00Z' };
+export const version = { n: 4, iso: '2026-11-28T02:33:00Z' };
 
 const months = {
   en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -43,7 +43,7 @@ export const ui = {
     theme: { dark: 'Dark', light: 'Light', toDark: 'Switch to dark mode', toLight: 'Switch to light mode' },
     versionLine: (n, date) => `Version ${n} · uploaded ${date}`,
     history: 'Versions',
-    historyItems: [{ n: 3, text: 'Field kit: 30-day plan with dates, interview cards, case log, day-30 thresholds, offline use. Search across the site, My list in the directory, English original next to the translation.' }, { n: 2, text: 'Map: select a country, city or market to see its figures, report text and dated events. Bale sorting, events axis and directory charts.' }, { n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
+    historyItems: [{ n: 4, text: 'Map: drag, pinch and zoom freely; Ghana’s 16 regions, main roads and Lake Volta; Accra and Kumasi streets and markets from OpenStreetMap; driving routes. Field kit and subtitle lines removed.' }, { n: 3, text: 'Field kit: 30-day plan with dates, interview cards, case log, day-30 thresholds, offline use. Search across the site, My list in the directory, English original next to the translation.' }, { n: 2, text: 'Map: select a country, city or market to see its figures, report text and dated events. Bale sorting, events axis and directory charts.' }, { n: 1, text: 'First publication: report, source directory and research prompt in English, Spanish and Chinese.' }],
     meta: {
       report: 'Where to start a circular-consumption business in Ghana: used phones at Circle, clothing bales at Kantamanto, water refills in Accra, market sizing, comparisons with Nairobi, Abidjan and South Africa, and a 30-day field plan.',
       sources: '135 verified source organisations and 178 entries for following circular consumption in Africa, with companies, dated events, research records and open opportunities.',
@@ -80,7 +80,7 @@ export const ui = {
       steps: [['Household or importer', 'supplies the dealer or swaps the old phone'], ['Shop', 'inspects, sets a purchase price, holds stock'], ['Technician', 'tests functions, discloses replaced parts'], ['Buyer', 'compares, negotiates, inspects at pickup, pays'], ['If it comes back', 'inspection, remedy, resale, parts or handover']],
     },
     bale: {
-      title: 'One bale opened in Kantamanto, October 2023', units: '193 pairs of women’s jeans and trousers',
+      title: 'Kantamanto, October 2023: one bale of 193 pairs of women’s jeans and trousers', units: '',
       legend: [['GHS 25 potential', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['Rejected', 99]],
       paid: 'Paid for the bale', best: 'If every priced piece sells', gap: 'Shortfall before other costs',
       source: 'Field tally, stallholder 7, Greenpeace Africa annex 2024',
@@ -159,7 +159,7 @@ export const ui = {
     theme: { dark: 'Oscuro', light: 'Claro', toDark: 'Cambiar a modo oscuro', toLight: 'Cambiar a modo claro' },
     versionLine: (n, date) => `Versión ${n} · publicada el ${date}`,
     history: 'Versiones',
-    historyItems: [{ n: 3, text: 'Kit de campo: plan de 30 días con fechas, tarjetas de entrevista, registro de casos, umbrales del día 30, uso sin conexión. Búsqueda en todo el sitio, Mi lista en el directorio, original en inglés junto a la traducción.' }, { n: 2, text: 'Mapa: al seleccionar un país, una ciudad o un mercado se ven sus cifras, el texto del informe y los hechos fechados. Fardo ordenable, eje de hechos y gráficos del directorio.' }, { n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
+    historyItems: [{ n: 4, text: 'Mapa: arrastrar, pellizcar y ampliar libremente; las 16 regiones de Ghana, carreteras principales y el lago Volta; calles y mercados de Acra y Kumasi de OpenStreetMap; rutas por carretera. Se quitaron el kit de campo y los subtítulos.' }, { n: 3, text: 'Kit de campo: plan de 30 días con fechas, tarjetas de entrevista, registro de casos, umbrales del día 30, uso sin conexión. Búsqueda en todo el sitio, Mi lista en el directorio, original en inglés junto a la traducción.' }, { n: 2, text: 'Mapa: al seleccionar un país, una ciudad o un mercado se ven sus cifras, el texto del informe y los hechos fechados. Fardo ordenable, eje de hechos y gráficos del directorio.' }, { n: 1, text: 'Primera publicación: informe, directorio de fuentes y prompt de investigación en inglés, español y chino.' }],
     meta: {
       report: 'Dónde empezar un negocio de consumo circular en Ghana: teléfonos usados en Circle, fardos de ropa en Kantamanto, recargas de agua en Acra, tamaño del mercado, comparación con Nairobi, Abiyán y Sudáfrica, y un plan de campo de 30 días.',
       sources: '135 organizaciones fuente verificadas y 178 entradas para seguir el consumo circular en África, con empresas, hechos fechados, registros de investigación y convocatorias abiertas.',
@@ -196,7 +196,7 @@ export const ui = {
       steps: [['Hogar o importador', 'abastece al comerciante o canjea el teléfono viejo'], ['Tienda', 'inspecciona, fija el precio de compra, guarda el inventario'], ['Técnico', 'prueba las funciones, declara los repuestos cambiados'], ['Comprador', 'compara, negocia, inspecciona al recoger, paga'], ['Si vuelve', 'inspección, solución, reventa, repuestos o entrega a otro']],
     },
     bale: {
-      title: 'Un fardo abierto en Kantamanto, octubre de 2023', units: '193 pares de vaqueros y pantalones de mujer',
+      title: 'Kantamanto, octubre de 2023: un fardo de 193 pares de vaqueros y pantalones de mujer', units: '',
       legend: [['GHS 25 potencial', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['Rechazados', 99]],
       paid: 'Pagado por el fardo', best: 'Si se vende cada pieza con precio', gap: 'Déficit antes de otros costos',
       source: 'Recuento de campo, puesto 7, anexo de Greenpeace África 2024',
@@ -275,7 +275,7 @@ export const ui = {
     theme: { dark: '深色', light: '亮色', toDark: '切换到深色模式', toLight: '切换到亮色模式' },
     versionLine: (n, date) => `第 ${n} 版 · 上传于 ${date}`,
     history: '版本',
-    historyItems: [{ n: 3, text: '实地工具：带日期的 30 天计划、访谈卡片、案例记录、第 30 天门槛、离线使用。全站搜索，来源目录里的我的清单，译文旁可显示英文原文。' }, { n: 2, text: '地图：选择国家、城市或市场，查看对应数字、报告原文和带日期的事件。原包可按价格分拣，新增事件时间轴和来源目录图表。' }, { n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
+    historyItems: [{ n: 4, text: '地图：可自由拖动、双指和滚轮缩放；加纳 16 个大区、主干公路和沃尔特湖；来自 OpenStreetMap 的阿克拉、库马西街道和市场；公路行车路线。删除实地工具和副标题。' }, { n: 3, text: '实地工具：带日期的 30 天计划、访谈卡片、案例记录、第 30 天门槛、离线使用。全站搜索，来源目录里的我的清单，译文旁可显示英文原文。' }, { n: 2, text: '地图：选择国家、城市或市场，查看对应数字、报告原文和带日期的事件。原包可按价格分拣，新增事件时间轴和来源目录图表。' }, { n: 1, text: '首次发布：报告、来源目录和研究提示词，英文、西班牙文、中文三个版本。' }],
     meta: {
       report: '在加纳从哪里开始做循环消费：Circle 的二手手机、Kantamanto 的二手衣物原包、阿克拉的桶装水续装、市场规模、与内罗毕、阿比让和南非的比较，以及 30 天实地调研计划。',
       sources: '135 家经核实的来源机构、178 个条目，用于持续跟踪非洲循环消费，另有公司案例、带日期的事件、研究记录和开放机会。',
@@ -312,7 +312,7 @@ export const ui = {
       steps: [['家庭或进口商', '供货给经销商，或以旧换新'], ['店铺', '检查、定收购价、持有库存'], ['技术员', '测试功能，说明换过的配件'], ['买家', '比价、议价、取货时检查、付款'], ['如果被退回', '检查、补救、转卖、拆配件或转交']],
     },
     bale: {
-      title: 'Kantamanto 开包实录，2023 年 10 月', units: '193 条女式牛仔裤和长裤',
+      title: 'Kantamanto，2023 年 10 月：一包 193 条女式牛仔裤和长裤', units: '',
       legend: [['可能卖 GHS 25', 46], ['GHS 15', 19], ['GHS 3–6', 29], ['剔除', 99]],
       paid: '原包进价', best: '定价的每件都卖出', gap: '其他成本之前的缺口',
       source: '实地清点，7 号摊主，绿色和平非洲 2024 年附件',

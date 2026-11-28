@@ -21,29 +21,55 @@ export const CHILDREN = {
 };
 export const CHIPS = ['ghana', 'accra', 'kumasi', 'cote-divoire', 'nigeria', 'kenya', 'south-africa', 'morocco', 'cameroon'];
 
-// Markers: map point, label, which views show it, and the place it opens.
+// Markers: map point, label offset (screen px), zoom range (k = 600 / visible width in map units) and the place it opens.
 export const MARKERS = [
-  { pt: 'accra', go: 'accra', views: ['africa', 'cote-divoire', 'nigeria', 'cameroon', 'ghana'], primary: true, dx: 7, dy: 15 },
-  { pt: 'kumasi', go: 'kumasi', views: ['africa', 'cote-divoire', 'nigeria', 'cameroon', 'ghana'], primary: true, dx: -7, dy: -7, anchor: 'end' },
-  { pt: 'abidjan', go: 'cote-divoire', views: ['africa', 'cote-divoire', 'nigeria', 'cameroon'], dx: -7, dy: 13, anchor: 'end' },
-  { pt: 'lagos', go: 'nigeria', views: ['africa', 'cote-divoire', 'nigeria', 'cameroon'], dx: 6, dy: -7 },
-  { pt: 'douala', go: 'cameroon', views: ['africa', 'nigeria', 'cameroon'], dx: 7, dy: 13 },
-  { pt: 'nairobi', go: 'kenya', views: ['africa', 'kenya'], dx: 8, dy: 4 },
-  { pt: 'casablanca', go: 'morocco', views: ['africa', 'morocco'], dx: 8, dy: 4 },
-  { pt: 'enchi', go: 'enchi', views: ['ghana'], dx: -7, dy: 4, anchor: 'end' },
-  { pt: 'sunyani', go: 'sunyani', views: ['ghana'], dx: 7, dy: 4 },
-  { pt: 'circle', go: 'circle', views: ['accra'], primary: true, dx: -9, dy: -6, anchor: 'end' },
-  { pt: 'kantamanto', go: 'kantamanto', views: ['accra'], primary: true, dx: 8, dy: 15 },
-  { pt: 'old-fadama', go: 'old-fadama', views: ['accra'], dx: -9, dy: 14, anchor: 'end' },
-  { pt: 'osu-nima-airport', go: 'osu-nima-airport', views: ['accra'], dx: 9, dy: 4 },
-  { pt: 'legon', go: 'legon', views: ['accra'], dx: 9, dy: 4 },
-  { pt: 'tema', go: 'tema', views: ['accra'], dx: -2, dy: 18, anchor: 'middle' },
-  { pt: 'kpone', go: 'kpone', views: ['accra'], dx: 2, dy: -10, anchor: 'middle' },
-  { pt: 'adum', go: 'adum', views: ['kumasi'], primary: true, dx: -9, dy: 14, anchor: 'end' },
-  { pt: 'kejetia', go: 'kejetia', views: ['kumasi'], dx: -9, dy: -6, anchor: 'end' },
-  { pt: 'aboabo', go: 'aboabo', views: ['kumasi'], dx: 9, dy: -6 },
-  { pt: 'ejisu', go: 'ejisu', views: ['kumasi'], dx: 0, dy: 18, anchor: 'middle' },
+  { pt: 'accra', go: 'accra', kmax: 26, primary: true, dx: 8, dy: 15 },
+  { pt: 'kumasi', go: 'kumasi', kmax: 26, primary: true, dx: -8, dy: -8, anchor: 'end' },
+  { pt: 'abidjan', go: 'cote-divoire', kmax: 5, dx: -7, dy: 13, anchor: 'end' },
+  { pt: 'lagos', go: 'nigeria', kmax: 5, dx: 6, dy: -7 },
+  { pt: 'douala', go: 'cameroon', kmax: 5, dx: 7, dy: 13 },
+  { pt: 'nairobi', go: 'kenya', kmax: 6, dx: 8, dy: 4 },
+  { pt: 'casablanca', go: 'morocco', kmax: 6, dx: 8, dy: 4 },
+  { pt: 'enchi', go: 'enchi', kmin: 4.5, kmax: 40, dx: -8, dy: 4, anchor: 'end' },
+  { pt: 'sunyani', go: 'sunyani', kmin: 4.5, kmax: 40, dx: 8, dy: 4 },
+  { pt: 'circle', go: 'circle', kmin: 24, primary: true, dx: -10, dy: -7, anchor: 'end' },
+  { pt: 'kantamanto', go: 'kantamanto', kmin: 24, primary: true, dx: 9, dy: 15 },
+  { pt: 'old-fadama', go: 'old-fadama', kmin: 24, dx: -10, dy: 14, anchor: 'end' },
+  { pt: 'osu-nima-airport', go: 'osu-nima-airport', kmin: 24, dx: 10, dy: 4 },
+  { pt: 'legon', go: 'legon', kmin: 24, dx: 10, dy: 4 },
+  { pt: 'tema', go: 'tema', kmin: 24, dx: 0, dy: 18, anchor: 'middle' },
+  { pt: 'kpone', go: 'kpone', kmin: 24, dx: 0, dy: -11, anchor: 'middle' },
+  { pt: 'adum', go: 'adum', kmin: 24, primary: true, dx: -10, dy: 15, anchor: 'end' },
+  { pt: 'kejetia', go: 'kejetia', kmin: 24, dx: -10, dy: -7, anchor: 'end' },
+  { pt: 'aboabo', go: 'aboabo', kmin: 24, dx: 10, dy: -6 },
+  { pt: 'ejisu', go: 'ejisu', kmin: 24, dx: 0, dy: 18, anchor: 'middle' },
 ];
+// Where the map goes for each place: a named box, or a point and a width in map units.
+export const FOCUS = {
+  ghana: { box: 'ghana' }, accra: { box: 'accra' }, kumasi: { box: 'kumasi' },
+  'cote-divoire': { box: 'cote-divoire' }, nigeria: { box: 'nigeria' }, kenya: { box: 'kenya' }, 'south-africa': { box: 'south-africa' }, morocco: { box: 'morocco' }, cameroon: { box: 'cameroon' },
+  parcel: { box: 'ghana' }, enchi: { pt: 'kumasi', w: 22, dx: -5 }, sunyani: { pt: 'sunyani', w: 26 },
+  circle: { pt: 'circle', w: 0.9 }, kantamanto: { pt: 'kantamanto', w: 0.9 }, 'old-fadama': { pt: 'old-fadama', w: 1.1 }, 'osu-nima-airport': { pt: 'osu-nima-airport', w: 1.4 },
+  legon: { pt: 'legon', w: 1.4 }, tema: { pt: 'tema', w: 1.6 }, kpone: { pt: 'kpone', w: 1.6 },
+  adum: { pt: 'adum', w: 0.7 }, kejetia: { pt: 'kejetia', w: 0.7 }, aboabo: { pt: 'aboabo', w: 0.8 }, ejisu: { pt: 'ejisu', w: 1.4 },
+};
+export const OCEANS = {
+  atlantic: { en: 'Atlantic Ocean', es: 'Océano Atlántico', zh: '大西洋' }, indian: { en: 'Indian Ocean', es: 'Océano Índico', zh: '印度洋' },
+  guinea: { en: 'Gulf of Guinea', es: 'Golfo de Guinea', zh: '几内亚湾' }, mediterranean: { en: 'Mediterranean Sea', es: 'Mar Mediterráneo', zh: '地中海' },
+  red: { en: 'Red Sea', es: 'Mar Rojo', zh: '红海' }, equator: { en: 'Equator', es: 'Ecuador', zh: '赤道' },
+};
+export const GHANA_REGIONS = {
+  'Greater Accra': { es: 'Gran Acra', zh: '大阿克拉区' }, Ashanti: { es: 'Ashanti', zh: '阿散蒂区' }, Western: { es: 'Occidental', zh: '西部区' }, 'Western North': { es: 'Occidental Norte', zh: '西北部区' },
+  Central: { es: 'Central', zh: '中部区' }, Eastern: { es: 'Oriental', zh: '东部区' }, Volta: { es: 'Volta', zh: '沃尔特区' }, Oti: { es: 'Oti', zh: '奥蒂区' },
+  Bono: { es: 'Bono', zh: '博诺区' }, 'Bono East': { es: 'Bono Oriental', zh: '东博诺区' }, Ahafo: { es: 'Ahafo', zh: '阿哈福区' }, Northern: { es: 'Norte', zh: '北部区' },
+  Savannah: { es: 'Savannah', zh: '萨瓦纳区' }, 'North East': { es: 'Noreste', zh: '东北区' }, 'Upper East': { es: 'Alto Oriental', zh: '上东部区' }, 'Upper West': { es: 'Alto Occidental', zh: '上西部区' },
+};
+export const COUNTRY_NAME_FIX = { CD: { en: 'DR Congo', es: 'R. D. del Congo', zh: '刚果（金）' }, CG: { en: 'Congo', es: 'Congo', zh: '刚果（布）' }, CI: { en: 'Côte d’Ivoire', es: 'Costa de Marfil', zh: '科特迪瓦' } };
+export const MAP_UI = {
+  en: { zoomIn: 'Zoom in', zoomOut: 'Zoom out', hint: 'Ctrl + scroll to zoom the map', hintMac: '⌘ + scroll to zoom the map', credit: 'Map data: Natural Earth, © OpenStreetMap contributors, geoBoundaries. Routes: OSRM.', route: km => `${km} km by road` },
+  es: { zoomIn: 'Acercar', zoomOut: 'Alejar', hint: 'Ctrl + rueda para ampliar el mapa', hintMac: '⌘ + rueda para ampliar el mapa', credit: 'Datos del mapa: Natural Earth, © colaboradores de OpenStreetMap, geoBoundaries. Rutas: OSRM.', route: km => `${km} km por carretera` },
+  zh: { zoomIn: '放大', zoomOut: '缩小', hint: '按住 Ctrl 滚动可缩放地图', hintMac: '按住 ⌘ 滚动可缩放地图', credit: '地图数据：Natural Earth、© OpenStreetMap 贡献者、geoBoundaries。路线：OSRM。', route: km => `公路 ${km} 公里` },
+};
 
 // Report and directory text per place. Kinds: p (paragraph by English prefix), cells (table, row, columns),
 // opp (opportunity id), company (company id), entry (directory entry id).

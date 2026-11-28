@@ -1,0 +1,7 @@
+// Search palette, My list and English-original wording in three languages.
+
+export const EXTRA_UI = {
+  en: { search: 'Search', searchLabel: 'Search the report, places and sources', searchEmpty: 'Nothing found.', kinds: { chapter: 'Chapter', place: 'Map', source: 'Source', company: 'Company', event: 'Event', opportunity: 'Opportunity', field: 'Field kit' }, watch: 'Add to my list', unwatch: 'Remove from my list', myList: 'My list', myListEmpty: 'Mark sources with the star to keep them here.', listExport: 'Download my list', original: 'Show the English original', originalOff: 'Hide the English original', onMap: 'On the map' },
+  es: { search: 'Buscar', searchLabel: 'Buscar en el informe, los lugares y las fuentes', searchEmpty: 'Sin resultados.', kinds: { chapter: 'Capítulo', place: 'Mapa', source: 'Fuente', company: 'Empresa', event: 'Hecho', opportunity: 'Oportunidad', field: 'Kit de campo' }, watch: 'Añadir a mi lista', unwatch: 'Quitar de mi lista', myList: 'Mi lista', myListEmpty: 'Marque fuentes con la estrella para guardarlas aquí.', listExport: 'Descargar mi lista', original: 'Mostrar el original en inglés', originalOff: 'Ocultar el original en inglés', onMap: 'En el mapa' },
+  zh: { search: '搜索', searchLabel: '搜索报告、地点和来源', searchEmpty: '没有找到。', kinds: { chapter: '章节', place: '地图', source: '来源', company: '公司', event: '事件', opportunity: '机会', field: '实地工具' }, watch: '加入我的清单', unwatch: '移出我的清单', myList: '我的清单', myListEmpty: '给来源点星标，它们会出现在这里。', listExport: '下载我的清单', original: '显示英文原文', originalOff: '隐藏英文原文', onMap: '在地图上看' },
+};

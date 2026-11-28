@@ -831,3 +831,105 @@ a.eid:hover { color: var(--ink); }
 }
 .ch-head .orig, .ch-head .ch-map { grid-column: 1 / -1; }
 .show-orig .ch-head .orig { margin: 10px 0 0; }
+
+/* ---------- v4 map ---------- */
+:root { --sea: #0d1518; --land-0: #26221f; --land-1: #3b2e26; --gh: #c65428; --water: #17323d; --water-line: #2c5868; }
+.hero { background: var(--sea); }
+.hero-inner { grid-template-columns: minmax(0, .74fr) minmax(0, 1.26fr); align-items: stretch; padding-top: 18px; padding-bottom: 18px; gap: clamp(20px, 3vw, 44px); }
+.hero-map { min-height: 0; height: clamp(560px, calc(100svh - var(--top) - 150px), 880px); }
+.map-wrap { position: relative; width: 100%; height: 100%; border-radius: 12px; overflow: hidden; background: var(--sea); outline: none; }
+.map-wrap:focus-visible { box-shadow: 0 0 0 2px var(--ghana); }
+.hero .africa-map { width: 100%; height: 100%; max-height: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+.map-wrap.dragging .africa-map { cursor: grabbing; }
+.map-wrap.dragging .africa-map * { pointer-events: none; }
+.m-equator { fill: none; stroke: #2a3a40; stroke-width: 1; stroke-dasharray: 4 5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.m-land { fill: var(--land-0); stroke: var(--sea); stroke-width: .8; vector-effect: non-scaling-stroke; transition: fill .2s; }
+.m-land:hover { fill: #302a26; }
+.m-c { fill: var(--land-1); stroke: var(--sea); stroke-width: .8; vector-effect: non-scaling-stroke; cursor: pointer; transition: fill .25s, opacity .25s; }
+.m-c:hover { fill: #574234; }
+.m-c.m-gh { fill: var(--gh); }
+.m-c.m-gh:hover { fill: #dc6533; }
+.m-c.on { fill: #e8622c; stroke: #f3ece2; stroke-width: 1.2; }
+.m-lakes { fill: var(--water); pointer-events: none; }
+.m-rivers { fill: none; stroke: var(--water-line); stroke-width: .9; vector-effect: non-scaling-stroke; pointer-events: none; }
+.map-wrap[data-level="country"] .m-rivers, .map-wrap[data-level="city"] .m-rivers, .map-wrap[data-level="country"] .m-lakes, .map-wrap[data-level="city"] .m-lakes { opacity: 0; }
+/* Ghana in detail: dark land, region lines, roads, water */
+.map-wrap[data-level="country"] .m-c.m-gh, .map-wrap[data-level="city"] .m-c.m-gh { fill: #2e2520; stroke: #e8622c; stroke-width: 1.6; }
+.map-wrap[data-level="country"] .m-c.m-gh.on, .map-wrap[data-level="city"] .m-c.m-gh.on { fill: #33281f; }
+.m-detail > g, .m-detail .m-routes { transition: opacity .35s; }
+.m-detail .off, .lbl.off, .mk.off { opacity: 0; pointer-events: none; }
+.m-detail .off { visibility: hidden; }
+.d-neigh { fill: var(--land-0); stroke: #403830; stroke-width: .8; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-gh { fill: #2e2520; stroke: #e8622c; stroke-width: 1.6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-regions { fill: none; stroke: #5c4a3e; stroke-width: .9; stroke-dasharray: 3 3; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-lakes, .c-water { fill: var(--water); stroke: var(--water-line); stroke-width: .6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-rivers, .c-waterway { fill: none; stroke: var(--water-line); stroke-width: 1; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-road, .c-road, .c-rail { fill: none; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; pointer-events: none; }
+.d-road.motorway, .d-road.trunk { stroke: #c7a58b; stroke-width: 1.4; opacity: .75; }
+.d-road.primary { stroke: #9c8270; stroke-width: .9; opacity: .6; }
+.c-road.motorway { stroke: #f0c9a8; stroke-width: 3; }
+.c-road.trunk { stroke: #dcb495; stroke-width: 2.4; }
+.c-road.primary { stroke: #b99880; stroke-width: 1.8; }
+.c-road.secondary { stroke: #8f7766; stroke-width: 1.3; }
+.c-road.tertiary { stroke: #6a5a4e; stroke-width: .9; }
+.c-rail { stroke: #9a8f86; stroke-width: 1.2; stroke-dasharray: 5 4; }
+.c-market { fill: rgb(232 98 44 / .55); stroke: #ff8a55; stroke-width: 1.2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.c-campus { fill: #2e3a30; stroke: #485a4a; stroke-width: .8; vector-effect: non-scaling-stroke; pointer-events: none; }
+.c-airport { fill: #34302d; stroke: #4a4440; stroke-width: .8; vector-effect: non-scaling-stroke; pointer-events: none; }
+.c-landfill { fill: #4a3b26; stroke: #6c5638; stroke-width: .8; vector-effect: non-scaling-stroke; pointer-events: none; }
+.m-route { cursor: pointer; }
+.m-route .hit { fill: none; stroke: transparent; stroke-width: 18; vector-effect: non-scaling-stroke; }
+.m-route .line { fill: none; stroke: #f6d5c2; stroke-width: 2.4; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .85; transition: stroke-width .2s, opacity .2s; }
+.m-route.enchi .line { stroke-dasharray: 6 5; }
+.m-route:hover .line, .m-route.on .line { opacity: 1; stroke: #fff; stroke-width: 3.6; }
+/* labels keep their size on screen; transform is set by the map */
+.lbl { pointer-events: none; transition: opacity .25s; }
+.lbl.clash { opacity: 0; }
+.lbl text { paint-order: stroke; stroke: var(--sea); stroke-width: 3px; stroke-linejoin: round; font-family: var(--sans); }
+.lbl.country text { fill: #8c8178; font-size: 11.5px; font-weight: 500; }
+.lbl.country.study text { fill: #d8cbbd; font-weight: 650; font-size: 12.5px; }
+.lbl.ocean text { fill: #4f6d78; font: italic 400 13px var(--serif); }
+.lbl.region text { fill: #9c8676; font-size: 12px; font-style: italic; stroke: #2e2520; }
+.lbl.town circle { fill: #c9bcae; stroke: #2e2520; stroke-width: 1.5; }
+.lbl.town text { fill: #d8cbbd; font-size: 12px; stroke: #2e2520; }
+.lbl.suburb text { fill: #a99a8c; font-size: 12px; stroke: #2e2520; stroke-width: 3.5px; }
+.mk text { stroke: var(--sea); }
+.map-wrap[data-level="country"] .mk text, .map-wrap[data-level="city"] .mk text { stroke: #2e2520; }
+.map-ui > * { position: absolute; }
+.map-zoom { right: 12px; top: 12px; display: flex; flex-direction: column; border: 1px solid #2b3a40; border-radius: 10px; overflow: hidden; background: rgb(13 21 24 / .9); }
+.map-zoom button { width: 40px; height: 40px; border: 0; background: transparent; color: var(--hero-ink); font-size: 20px; line-height: 1; cursor: pointer; }
+.map-zoom button + button { border-top: 1px solid #2b3a40; }
+.map-zoom button:hover { background: #18252b; }
+.map-all { position: absolute; top: 12px; left: 12px; background: rgb(13 21 24 / .9); border-color: #2b3a40; }
+.map-scale { right: 12px; bottom: 30px; }
+.locator { right: 64px; top: 12px; width: 92px; height: auto; padding: 4px; border: 1px solid #2b3a40; border-radius: 8px; background: rgb(13 21 24 / .9); cursor: pointer; }
+.locator use { fill: #3b322b; }
+.loc-view { fill: rgb(232 98 44 / .25); stroke: #e8622c; stroke-width: 6; vector-effect: non-scaling-stroke; }
+.map-hint { left: 50%; top: 50%; transform: translate(-50%, -50%); margin: 0; padding: 10px 16px; border-radius: 10px; background: rgb(13 21 24 / .92); color: var(--hero-ink); font-size: 14px; pointer-events: none; }
+.map-credit { left: 12px; bottom: 8px; margin: 0; max-width: calc(100% - 200px); font-size: 11.5px; color: #6b7f86; line-height: 1.3; }
+.hero-text { align-self: center; }
+.hero-meta { margin-top: 18px; font-size: 13.5px; line-height: 1.55; color: var(--hero-muted); max-width: 34rem; }
+.place-panel { max-height: clamp(560px, calc(100svh - var(--top) - 150px), 880px); background: #111b1f; border-color: #24333a; }
+.pl-close { background: #111b1f; border-color: #24333a; }
+.pl-figs div, .pl-kids button { border-color: #24333a; }
+.pl-events a, .pl-links { border-color: #24333a; }
+.chips button { border-color: #2b3a40; }
+.stats { border-top-color: #1f2c31; }
+@media (max-width: 960px) {
+  .hero-map { height: min(78svh, 640px); }
+  .map-credit { max-width: calc(100% - 24px); bottom: 6px; font-size: 11px; }
+  .map-scale { bottom: 40px; }
+  .locator { width: 72px; right: 60px; }
+  .place-panel { max-height: none; }
+}
+.c-land { fill: #2e2520; pointer-events: none; }
+.c-sea { fill: var(--sea); pointer-events: none; }
+.c-coast { fill: none; stroke: #4b6670; stroke-width: 1.2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.map-wrap[data-level="city"] .m-c.m-gh, .map-wrap[data-level="city"] .d-gh { stroke: none; }
+.map-wrap[data-level="city"] .d-regions { opacity: 0; }
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: minmax(0, 1fr); grid-template-areas: "side" "map" "panel"; padding-top: 22px; }
+  .hero-map { height: min(74svh, 620px); }
+  .map-wrap { border-radius: 10px; }
+  .map-zoom button { width: 44px; height: 44px; }
+}
