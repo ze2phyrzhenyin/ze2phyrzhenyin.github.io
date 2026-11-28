@@ -20,6 +20,10 @@
     }
   }
 
+  // Keep the current view visible in a scrolled top bar on phones.
+  const currentView = $('.views a[aria-current="page"]');
+  if (currentView && currentView.parentElement.scrollWidth > currentView.parentElement.clientWidth) currentView.parentElement.scrollLeft = currentView.offsetLeft - 8;
+
   // ---------- theme ----------
   const themeBtn = $('[data-theme-toggle]');
   function paintTheme() {
@@ -195,7 +199,7 @@
   for (const b of $$('[data-copy-text]')) b.addEventListener('click', () => copy(b.dataset.copyText, b));
   for (const b of $$('[data-copy-list-btn]')) b.addEventListener('click', () => {
     const list = b.previousElementSibling;
-    copy($$('li', list).map((li, i) => `${i + 1}. ${li.textContent.trim()}`).join('\n'), b);
+    copy($$('li', list).map((li, i) => `${i + 1}. ${($('[data-s]', li) || li).textContent.trim()}`).join('\n'), b);
   });
   for (const b of $$('[data-copy-prompt]')) b.addEventListener('click', () => copy($('#prompt-md').value, b));
 
@@ -340,6 +344,139 @@
       row.scrollIntoView({ behavior: reduce.matches ? 'instant' : 'smooth', block: 'center' });
       row.classList.remove('flash'); void row.offsetWidth; row.classList.add('flash');
     });
+  }
+
+  // ---------- small markdown for English originals ----------
+  const escH = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const md = s => escH(s).replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, t, u) => `<a href="${u.replace(/"/g, '&quot;')}" target="_blank" rel="noopener">${t}</a>`).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  const base = document.body.dataset.route;
+
+  // ---------- English original next to the translation ----------
+  const origBtn = $('[data-orig]');
+  if (origBtn) {
+    let originals = null;
+    origBtn.addEventListener('click', async () => {
+      const on = origBtn.getAttribute('aria-pressed') !== 'true';
+      if (on && !originals) {
+        try { originals = await fetch(`${base}/assets/strings.en.json?${document.body.dataset.assetV}`).then(r => r.json()); } catch { return; }
+        for (const el of $$('[data-s]')) {
+          const text = originals[el.dataset.s];
+          if (!text) continue;
+          const o = document.createElement(el.tagName === 'TD' ? 'span' : 'p');
+          o.className = 'orig'; o.lang = 'en'; o.innerHTML = md(text);
+          if (el.tagName === 'TD') el.append(o); else el.after(o);
+        }
+      }
+      document.body.classList.toggle('show-orig', on);
+      origBtn.setAttribute('aria-pressed', String(on));
+      origBtn.textContent = on ? origBtn.dataset.on : origBtn.dataset.off;
+    });
+  }
+
+  // ---------- search palette ----------
+  const pal = $('[data-palette]');
+  if (pal) {
+    const input = $('.pal-input', pal), list = $('.pal-results', pal), kinds = JSON.parse(pal.dataset.kinds);
+    let index = null, sel = 0, shown = [];
+    const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    function search(q) {
+      const words = norm(q).split(/\s+/).filter(Boolean);
+      if (!words.length) return index.filter(i => i.k === 'chapter' || i.k === 'field').slice(0, 30);
+      const scored = [];
+      for (const it of index) {
+        const t = norm(it.t), hay = `${t} ${norm(it.s || '')} ${norm(it.x || '')}`;
+        if (!words.every(w => hay.includes(w))) continue;
+        let score = words.reduce((a, w) => a + (t.startsWith(w) ? 6 : t.includes(w) ? 3 : 1), 0);
+        if (it.k === 'chapter' || it.k === 'place') score += 1;
+        scored.push([score, it]);
+      }
+      return scored.sort((a, b) => b[0] - a[0]).slice(0, 40).map(s => s[1]);
+    }
+    function draw() {
+      shown = search(input.value);
+      sel = 0;
+      list.innerHTML = shown.length ? shown.map((it, i) => `<li role="option" aria-selected="${i === 0}"><a href="${it.h}"><span class="pal-kind">${escH(kinds[it.k])}</span><span class="pal-t">${escH(it.t)}</span>${it.s ? `<span class="pal-s">${escH(it.s)}</span>` : ''}</a></li>`).join('') : `<li class="pal-none">${escH(pal.dataset.empty)}</li>`;
+    }
+    function move(d) {
+      const items = $$('li[role="option"]', list);
+      if (!items.length) return;
+      items[sel]?.setAttribute('aria-selected', 'false');
+      sel = (sel + d + items.length) % items.length;
+      items[sel].setAttribute('aria-selected', 'true');
+      items[sel].scrollIntoView({ block: 'nearest' });
+    }
+    async function openPal() {
+      if (!index) { try { index = await fetch(pal.dataset.index).then(r => r.json()); } catch { index = []; } }
+      if (!pal.open) pal.showModal();
+      input.value = ''; draw(); input.focus();
+    }
+    for (const b of $$('[data-search-open]')) b.addEventListener('click', openPal);
+    document.addEventListener('keydown', e => {
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
+      if ((e.key === 'k' && (e.metaKey || e.ctrlKey)) || (e.key === '/' && !typing && !pal.open)) { e.preventDefault(); openPal(); }
+    });
+    input.addEventListener('input', draw);
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+      if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+      if (e.key === 'Enter') { e.preventDefault(); const a = $$('li[role="option"] a', list)[sel]; if (a) { pal.close(); a.click(); } }
+    });
+    list.addEventListener('click', e => { if (e.target.closest('a')) pal.close(); });
+    pal.addEventListener('click', e => { if (e.target === pal) pal.close(); });
+  }
+
+  // ---------- my list (directory) ----------
+  const WKEY = 'circular-africa-watch-v1';
+  let watched = new Set();
+  try { watched = new Set(JSON.parse(localStorage.getItem(WKEY) || '[]')); } catch { /* fine */ }
+  const watchButtons = $$('[data-watch]');
+  function paintWatch() {
+    for (const b of watchButtons) {
+      const on = watched.has(b.dataset.watch);
+      b.setAttribute('aria-pressed', String(on)); b.textContent = on ? '★' : '☆';
+      b.setAttribute('aria-label', on ? b.dataset.on : b.dataset.off); b.title = b.getAttribute('aria-label');
+    }
+    const mineTab = $('[data-tab="mine"] span');
+    if (mineTab) mineTab.textContent = watched.size;
+    const box = $('[data-mine-list]');
+    if (!box) return;
+    $('[data-mine-empty]').hidden = watched.size > 0;
+    $('[data-mine-export]').hidden = watched.size === 0;
+    box.innerHTML = '';
+    for (const org of $$('#panel-sources .org')) {
+      const picked = $$('.entry', org).filter(e => watched.has(e.id));
+      if (!picked.length) continue;
+      const copy = org.cloneNode(false); copy.removeAttribute('id'); copy.hidden = false;
+      copy.append($('.org-head', org).cloneNode(true));
+      const wrapE = document.createElement('div'); wrapE.className = 'org-entries';
+      for (const e of picked) { const c = e.cloneNode(true); c.removeAttribute('id'); c.hidden = false; wrapE.append(c); }
+      copy.append(wrapE); box.append(copy);
+    }
+  }
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-watch]');
+    if (!b) return;
+    const id = b.dataset.watch;
+    if (watched.has(id)) watched.delete(id); else watched.add(id);
+    try { localStorage.setItem(WKEY, JSON.stringify([...watched])); } catch { /* fine */ }
+    paintWatch();
+  });
+  $('[data-mine-export]')?.addEventListener('click', () => {
+    const lines = [`# ${document.title}`, ''];
+    for (const org of $$('#panel-sources .org')) for (const e of $$('.entry', org).filter(x => watched.has(x.id))) {
+      const a = $('h4 a', e);
+      lines.push(`- ${$('.org-head h3', org).textContent} · [${a.textContent}](${a.href}) (${e.id})`, `  ${$('.question', e).textContent.trim()}`);
+    }
+    const blob = new Blob([lines.join('\n') + '\n'], { type: 'text/markdown' });
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = `circular-africa-my-list-${new Date().toISOString().slice(0, 10)}.md`;
+    document.body.append(link); link.click(); setTimeout(() => { URL.revokeObjectURL(link.href); link.remove(); }, 1000);
+  });
+  paintWatch();
+
+  // ---------- offline copy ----------
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === '127.0.0.1' || location.hostname === 'localhost')) {
+    navigator.serviceWorker.register(`${base}/sw.js?lang=${locale}`, { scope: `${base}/` }).catch(() => {});
+    navigator.serviceWorker.ready.then(() => $('[data-offline]')?.removeAttribute('hidden')).catch(() => {});
   }
 
   // ---------- directory ----------

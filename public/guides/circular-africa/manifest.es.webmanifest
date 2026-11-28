@@ -1,0 +1,22 @@
+{
+ "name": "Kit de campo · Consumo circular en África",
+ "short_name": "Kit de campo",
+ "lang": "es",
+ "start_url": "/guides/circular-africa/es/field/",
+ "scope": "/guides/circular-africa/",
+ "display": "standalone",
+ "background_color": "#14110f",
+ "theme_color": "#14110f",
+ "icons": [
+  {
+   "src": "/guides/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/guides/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

@@ -23,9 +23,9 @@ async function open(width, path, scheme = 'light') {
   await page.goto(base + path, { waitUntil: 'networkidle' });
   return { page, errors };
 }
-const pages = ['en', 'es', 'zh'].flatMap(l => [`/${l}/`, `/${l}/sources/`, `/${l}/prompt/`]);
+const pages = ['en', 'es', 'zh'].flatMap(l => [`/${l}/`, `/${l}/field/`, `/${l}/sources/`, `/${l}/prompt/`]);
 
-await check('all nine pages load without errors or horizontal scroll at 390 and 1440 px', async () => {
+await check('all twelve pages load without errors or horizontal scroll at 390 and 1440 px', async () => {
   for (const w of [390, 1440]) for (const p of pages) {
     const { page, errors } = await open(w, p);
     const o = await page.evaluate(() => ({ w: innerWidth, sw: document.documentElement.scrollWidth }));
@@ -168,6 +168,94 @@ await check('a dot on the events axis brings its row into view', async () => {
   await page.waitForTimeout(1200);
   const top = await page.evaluate(() => document.getElementById('ev-E16').getBoundingClientRect().top);
   assert(top > 100 && top < 800, `row top ${top}`);
+  await page.close();
+});
+await check('the field kit keeps cases on the device and counts them against the day-30 thresholds', async () => {
+  const { page, errors } = await open(390, '/es/field/');
+  await page.evaluate(() => localStorage.removeItem('circular-africa-field-v1'));
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.fill('#f-start', '2026-11-20'); await page.dispatchEvent('#f-start', 'change');
+  assert(await page.locator('[data-day]').isVisible());
+  await page.click('[data-ftab="cases"]');
+  for (const [paid, shop] of [['yes', 'S1'], ['yes', 'S2'], ['yes', 'S3'], ['no', 'S4']]) {
+    await page.click('[data-case-add]');
+    await page.click('label:has(input[name="offered"][value="yes"]) span');
+    await page.click(`label:has(input[name="paid"][value="${paid}"]) span`);
+    await page.fill('#cf-shop', shop); await page.fill('#cf-fee', '25'); await page.fill('#cf-tech', '12'); await page.fill('#cf-cons', '2');
+    await page.click('.case-form button[type=submit]');
+  }
+  assert.equal(await page.textContent('[data-case-count]'), '4');
+  await page.click('[data-ftab="board"]');
+  assert.equal(new URL(page.url()).searchParams.get('tab'), 'board');
+  const board = await page.textContent('[data-board]');
+  assert.match(board, /3 de 4 ofrecidas/);
+  assert.match(board, /GHS 10\.51/);
+  await page.reload({ waitUntil: 'networkidle' });
+  assert(await page.locator('#fpanel-board').isVisible(), 'tab survives reload');
+  assert.equal(await page.textContent('[data-case-count]'), '4');
+  await page.click('[data-ftab="plan"]');
+  assert.match(await page.textContent('[data-plan]'), /4\s*\/\s*20/);
+  const [download] = await Promise.all([page.waitForEvent('download'), (async () => { await page.click('[data-ftab="data"]'); await page.click('[data-export-csv]'); })()]);
+  assert.match(download.suggestedFilename(), /^circular-africa-field-\d{4}-\d{2}-\d{2}\.csv$/);
+  await page.evaluate(() => localStorage.removeItem('circular-africa-field-v1'));
+  assert.deepEqual(errors, []);
+  await page.close();
+});
+await check('the interview shows one question at a time with the English original', async () => {
+  const { page } = await open(390, '/zh/field/?tab=interview');
+  await page.click('[data-interview-start]');
+  assert.match(await page.textContent('[data-q-count]'), /第 1 题/);
+  assert.match(await page.textContent('[data-q-en]'), /Tell me about the last time/);
+  assert(await page.locator('[data-q-local]').isVisible());
+  await page.click('[data-q-next]');
+  assert.match(await page.textContent('[data-q-en]'), /Who would use the item/);
+  await page.keyboard.press('Escape');
+  assert.equal(await page.locator('[data-interview]').isVisible(), false);
+  await page.close();
+});
+await check('search finds sources, places and chapters from any page', async () => {
+  const { page } = await open(1440, '/en/prompt/');
+  await page.keyboard.press('/');
+  await page.waitForSelector('dialog[open] .pal-input');
+  await page.waitForTimeout(200);
+  await page.fill('.pal-input', 'jibu refill');
+  await page.waitForTimeout(100);
+  assert((await page.locator('.pal-results li[role="option"]').count()) > 0);
+  await page.fill('.pal-input', 'kantamanto');
+  const kinds = await page.locator('.pal-kind').allTextContents();
+  assert(kinds.includes('Map') && kinds.includes('Source'), kinds.join(','));
+  await page.keyboard.press('Enter');
+  await page.waitForLoadState('networkidle');
+  assert.match(page.url(), /\/en\//);
+  await page.close();
+});
+await check('starred sources gather in My list and survive a reload', async () => {
+  const { page } = await open(1440, '/en/sources/');
+  await page.evaluate(() => localStorage.removeItem('circular-africa-watch-v1'));
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.click('[data-watch="S016-01"]');
+  await page.click('[data-watch="S032-01"]');
+  assert.equal(await page.textContent('[data-tab="mine"] span'), '2');
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.click('[data-tab="mine"]');
+  assert.equal(await page.locator('[data-mine-list] .entry').count(), 2);
+  assert(await page.locator('[data-mine-export]').isVisible());
+  await page.evaluate(() => localStorage.removeItem('circular-africa-watch-v1'));
+  await page.close();
+});
+await check('the Spanish and Chinese report can show the English original under each paragraph', async () => {
+  const { page } = await open(1440, '/es/#summary');
+  await page.click('[data-orig]');
+  await page.waitForSelector('.show-orig .orig');
+  assert.match(await page.locator('#summary .orig').first().textContent(), /Start at Kwame Nkrumah Circle/);
+  await page.click('[data-orig]');
+  assert.equal(await page.locator('#summary .orig').first().isVisible(), false);
+  await page.close();
+});
+await check('the guide registers an offline copy', async () => {
+  const { page } = await open(1440, '/en/field/');
+  const scope = await page.evaluate(async () => (await navigator.serviceWorker.ready).scope);
+  assert.match(scope, /\/guides\/circular-africa\/$/);
   await page.close();
 });
 await check('a source ID from the report opens that organisation in the directory', async () => {
